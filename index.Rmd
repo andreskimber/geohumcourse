@@ -29,7 +29,7 @@ knitr::opts_chunk$set(message=FALSE,
 - Kontakt ja info: andres.kimber@ut.ee, maarja-liisa.pilvik@ut.ee  
 - Hindamine arvestuslik. Kursuse lõpuks peavad olema esitatud    
   + vabal valikul 2 kodutööd 5st,    
-  + lõpuprojekt.    
+  + lõpuprojekt. Esitlused 14. ja 17. detsembril.
 - Kohalkäimine ei ole kohustuslik, ent võimalusel tungivalt soovituslik. Mis tahes haigusnähtude ilmnemisel jää siiski koju ja osale praktikumis veebi teel. Kõik praktikumid kantakse üle BigBlueButtoni keskonnas.   
 - Materjale hoitakse ja täiendatakse **[Moodle](https://moodle.ut.ee/course/view.php?id=10284)'is**. Sealt leiad igal nädalal ka BBB lingid. 
 
@@ -52,7 +52,7 @@ Andmete
 
 Ehkki vahel käsitletakse geoinfosüsteeme kui mingit kindlat tarkvara (nt ArcView, MapInfo, ArcGIS), on GIS definitsioonilt pigem mingite funktsionaalsuste kogum. See tähendab ka seda, et erinevad tarkvarad või selle osad võivad spetsialiseeruda erinevatele funktsioonidele ning mingeid funktsioone (nt andmete kogumine) ei pea üldse tarkvara abil täitma.
 
-![](../imgs/intro_GISumbrella.PNG)
+![](./imgs/intro_GISumbrella.PNG)
 *(http://spatialquerylab.com/FOSS4GAcademy/Lectures/GST101/L1/1-What_are_Geographic_Information_Systems.pdf)*
 
 Kuigi GIS võib talletada ka mitteruumilist infot, moodustavad kõige olemuslikuma osa geoinfosüsteemidest siiski just ruumiandmed, kuna GIS tegeleb kõikide teiste andmetega selle alusel, kus need paiknevad mingis koordinaatsüsteemis. Kõige sagedamini kasutatakse GISi geograafiliste andmete töötlemiseks, ent neid saab põhimõtteliselt kasutada mis tahes andmete jaoks, millel on mingid dimensioonid (nt väljamõeldud kohad; inimkeha; planeetide pinnad; puuviljad jne). Geoinfosüsteemidest võib seega kõige lihtsamal moel mõelda kui koordinaatidega varustatud andmebaasidest ja nende sisu analüüsimiseks ja visualiseerimiseks mõeldud tööriistadest. 
@@ -92,6 +92,7 @@ Praeguseks kasutatakse geoinfosüsteeme näiteks
 - linnaplaneerimises,
 - logistikas, navigeerimises,
 - keskkonnamõjude hindamisel,
+- meteoroloogias,
 - katastroofide ohjamisel ja leevendamisel,
 - tervishoius,
 - kuritegevuse analüüsil,  
@@ -137,6 +138,10 @@ Siiski on vahest enamgi neid, kes ühel või teisel moel ruumiandmeid ja geoinfo
 
 Palun täida Moodle'is lühike küsimustik.
 
+<!-- Tutvumisring. Räägime ise paari sõnaga sellest, mida oleme teinud. Ja palume kõigil öelda, mis eriala ja kuidas tema erialal võiks GISi, ruumiandmeid või kaardistamist kasutada. Kattub veits küll küsimustiga, aga vast ok. -->
+
+<!-- Võiks anda mingi ülesande, et nt peaks joonistama kaardi kodukohast või -hoovist, tee kodust kooli või poodi, lemmikkohast (reaalses maailmas, kirjanduses, filmis). Selle põhjal arutada kaardi elementide üle. Millele pöörati tähelepanu, milliseid objekte kasutati (joon, punkt, ala), kas on mõõtkavas, kas põhjasuund olemas, kas need on tähtsad. Kas mõtlesid sellele, kes seda kasutada võiks? Milliseid andmeid oleks vaja selle koostamiseks arvutis? -->
+
 ## Järgmisel korral
 
 Seminar.
@@ -147,3 +152,9 @@ Lugemiseks:
 - Todd Presner & David Shepard (2016). *Mapping the Geospatial Turn*. Susan Schreibman, Ray Siemens & John Unsworth (toim.), A New Companion to Digital Humanities. Chichester, West Sussex : Wiley Blackwell, lk 201-212.
 
 Artiklite pdf-id leiad Moodle'ist.
+
+*Arutlemiseks* 
+
+<!-- Lisada teemad, mida järgmisel korral arutame -->
+- 
+
