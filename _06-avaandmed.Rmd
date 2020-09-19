@@ -1,0 +1,4 @@
+# Avaandmed ja repositooriumid {#avaandmed}
+
+Andmebaasidega tutvumine
+Ruumiandmete lisamine andmestikule, andmestike struktuur

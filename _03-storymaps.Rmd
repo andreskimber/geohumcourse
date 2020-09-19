@@ -1,0 +1,3 @@
+# Story Maps {#storymaps}
+
+Kontseptsioonist + praktiline osa vabavaraliste programmidega (ESRI?)

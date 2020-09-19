@@ -1,0 +1,5 @@
+book_filename: "HVHV_00_001_geoinfosysteemid"
+language:
+  ui:
+    chapter_name: "Praktikum "
+delete_merged_file: true

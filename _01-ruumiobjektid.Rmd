@@ -1,0 +1,7 @@
+# Ruumiobjektid ja ruumiandmed {#ruumiobjektid}
+
+Punktid, jooned, polügoonid.
+Pikslid (raster, vektor)
+Millisena saaksid kujutada enda andmeid?
+Koordinaatsüsteem, projektsioon
+Andmete struktureerimine 
