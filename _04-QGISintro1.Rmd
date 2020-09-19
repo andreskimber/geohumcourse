@@ -1,0 +1,4 @@
+# Sissejuhatus QGISi {#QGISintro1}
+
+Erinevaid tarkvarasid, QGISi eelised.
+Tehniline tutvustus: versioonid, projektid, kaustades liikumine jne
