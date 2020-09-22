@@ -11,12 +11,7 @@ documentclass: book
 description: ""
 link-citations: yes
 bibliography: kirjandus.bib
-csl: ./harvard-european-archaeology.csl # võib ka midagi muud kasutada. Ma lihtsalt seda varem kasutanud ja seal on mitme autori puhul "et. al" mitte nimede loetelu, mis sobib siin rohkem.
-# plots:
-#   caption:
-#     style: Image Caption
-#     pre: 'Joonis ' # lisasin selle, kuna muidu oli "Figure"
-#     sep: ': '
+csl: ./harvard-european-archaeology.csl 
 --- 
 
 ```{r global_options, include = FALSE}
@@ -45,98 +40,90 @@ knitr::opts_chunk$set(message=FALSE,
 - Kohalkäimine ei ole kohustuslik, ent võimalusel tungivalt soovituslik. Mis tahes haigusnähtude ilmnemisel jää siiski koju ja osale praktikumis veebi teel. Kõik praktikumid kantakse üle BigBlueButtoni keskonnas.   
 - Materjale hoitakse ja täiendatakse **[Moodle](https://moodle.ut.ee/course/view.php?id=10284)'is**. Sealt leiad igal nädalal ka BBB lingid. 
 
-<!-- Näita ka ajakava, foorumeid jm! -->
 
 
 ## Mis on geoinfosüsteemid?
 
 ```{r lotr-map, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap = "Eesti kujutatud Sõrmuste Isanda kaartide stiilis, [twitter.com/evelynuuemaa](https://twitter.com/evelynuuemaa/status/1291261715095662592?s=07&fbclid=IwAR1q6bpp4c7UNOTYph2YngZ7DrlBzrftR1gX2upWtoVNxLNzdFsgXZv_sVQ)"}
-knitr::include_graphics(here::here("../imgs", "example_lotr_uuenmaa_downsize.jpg"))
+knitr::include_graphics(here::here("imgs", "example_lotr_uuemaa.jpg"))
 ```
 
 
 Geoinfosüsteem on **arvutipõhine süsteem ruumiliste ja mitteruumiliste andmete kogumiseks, haldamiseks, analüüsiks, visualiseerimiseks ja jagamiseks**. Selle abil on võimalik ruumisuhete kaudu mõista oma andmeid paremini või teisest vaatepunktist ning sedakaudu teha kaalutletumaid otsuseid.
 
 ```{r gis-wordcloud, echo=F, fig.show='hold', fig.align='center', out.width= "80%", fig.cap= "Mida GISiga tehakse? [@Wallentin2015, jn 4]"}
-knitr::include_graphics(here::here("../imgs", "gis_wordcloud_wallentin2015.png"))
+knitr::include_graphics(here::here("imgs", "gis_wordcloud_wallentin2015.png"))
 ```
 
-```{r gis-wordcloud2, echo=F, fig.show='hold', fig.align='center', out.width= "80%", fig.cap= "Sõnapilv Wikipedia artiklist 'Geographical information system'"}
-knitr::include_graphics(here::here("../imgs", "GISwordcloud.png"))
+```{r gis-wordcloud2, echo=F, fig.show='hold', fig.align='center', out.width= "80%", fig.cap= "Sõnapilv Wikipedia artiklist '[Geographic information system](https://en.wikipedia.org/wiki/Geographic_information_system)'"}
+knitr::include_graphics(here::here("imgs", "GISwordcloud.png"))
 ```
 
 Andmete
 
-- kogumine (nt paberkaartide digiteerimine, päringud repositooriumidest, käsitsi sisestamine);<!--  sekundaarne andmete kogumine-->   
+- kogumine (nt paberkaartide digiteerimine, päringud repositooriumidest, käsitsi sisestamine);   
 - haldamine (nt andmebaaside struktureerimine, dokumenteerimine);  
-- analüüs (nt erinevate andmekihtide ühendamine, kattuvate alade arvutamine, puuduvate väärtuste arvutamine, puhveralade arvutamine); <!-- muudab andmed informatsiooniks --> 
+- analüüs (nt erinevate andmekihtide ühendamine, kattuvate alade arvutamine, puuduvate väärtuste arvutamine, puhveralade arvutamine); 
 - visualiseerimine (nt kaartide koostamine ja kujundamine);
 - jagamine (nt projektide majutamine veebis, andmete ja metaandmete publitseerimine).  
 
 ```{r gis-umbrella, echo = FALSE, fig.align='center', out.width= "75%", fig.cap="GIS kui vihmavari, [What are Geographic Information Systems](http://spatialquerylab.com/FOSS4GAcademy/Lectures/GST101/L1/1-What_are_Geographic_Information_Systems.pdf)"}
-knitr::include_graphics(here::here("../imgs", "intro_GISumbrella.PNG"))
+knitr::include_graphics(here::here("imgs", "intro_GISumbrella.PNG"))
 ```
 
 Ehkki vahel käsitletakse geoinfosüsteeme kui mingit kindlat tarkvara (nt ArcView, MapInfo, ArcGIS), on GIS definitsioonilt pigem mingite funktsionaalsuste kogum. See tähendab ka seda, et erinevad tarkvarad või selle osad võivad spetsialiseeruda erinevatele funktsioonidele ning mingeid funktsioone (nt andmete kogumine) ei pea üldse tarkvara abil täitma.
 
-```{r gis-tarkvarad, echo=F, fig.show='hold', fig.align='default', out.width= "25%",  out.height="50%", fig.cap= "Populaarsed GIS tarkvarad"}
-knitr::include_graphics(here::here("../imgs", c("arcgis_logo.jpg", "qgis_logo.png", "grassgis_logo.png", "Rlogo.png")))
+```{r gis-tarkvarad, echo=F, fig.show='hold', fig.align='center', out.width= "25%",  out.height="50%", fig.cap= "Populaarsed GIS tarkvarad"}
+knitr::include_graphics(here::here("imgs", c("arcgis_logo.jpg", "qgis_logo.png", "grassgis_logo.png", "Rlogo.png")))
 ```
 
 Kuigi GIS võib talletada ka mitteruumilist infot, moodustavad kõige olemuslikuma osa geoinfosüsteemidest siiski just ruumiandmed. Kõige sagedamini kasutatakse GISi geograafiliste andmete töötlemiseks, ent neid saab põhimõtteliselt kasutada mis tahes andmete jaoks, millel on mingid dimensioonid (nt väljamõeldud kohad; inimkeha; planeetide pinnad; puuviljad jne). Geoinfosüsteemidest võib seega kõige lihtsamal moel mõelda kui koordinaatidega varustatud andmebaasidest ja nende sisu analüüsimiseks ja visualiseerimiseks mõeldud tööriistadest. 
 
 
 ```{r kihid, echo=F, fig.show='hold', fig.align='center', out.width= "75%", fig.cap= "Andmete hoidmine GISis kihtidena, [GIS NatGeo](https://www.nationalgeographic.org/encyclopedia/geographic-information-system-gis/)"}
-knitr::include_graphics(here::here("../imgs", "gis_natgeo.jpg"))
+knitr::include_graphics(here::here("imgs", "gis_natgeo.jpg"))
 ```
 
 
 Nagu öeldud, võivad GIS-andmebaasid sisaldada nii ruumilist kui ka mitteruumilist infot. Ruumilist infot väljendatakse koordinaatidega (nt *x*, *y*, *z*, pikkus- ja laiuskraad, kõrgus merepinnast) ning need määravad iga objekti asukoha, kasutades kas punkti, joont, polügooni või pikslit. Mitteruumilist infot, mis  mingit kohaga seotud on, väljendavad **atribuudid**. Atribuudid on tüüpiliselt salvestatud tabelina, kus iga objekt on eraldi real ning iga atribuut eraldi tulbas, või mingis muus (nt hierarhilises) andmebaasistruktuuris.
 
 ```{r attribute-table, echo = FALSE, fig.align = 'center', out.width = "100%", fig.cap = "Näide QGISi atribuuttabelist"}
-knitr::include_graphics(here::here("../imgs", "qgis_attribute_table.PNG"))
+knitr::include_graphics(here::here("imgs", "qgis_attribute_table.PNG"))
 ```
 
-Infotehnoloogia arenguga on muutunud võimalikuks säilitada digitaalsel kujul atribuutidena peaaegu mis tahes tüüpi andmeid: nt struktureerimata tekste (raamatuid, veebilehti), pilte, videoid, helifaile. Kuna geoinfosüsteemid on arvutipõhised, nõuavad need siiski, et andmed oleksid mingil moel formaliseeritud. See tähendab ka vahel seda, et tuleb andmetele suruda peale jäigad kategooriad ka seal, kus kategooriatevahelised piirid on tegelikult sujuvad ning on palju üleminekualasid. <!-- näiteks võime kasutada kihelkonnapiire mingite keeleliste piirkondade eraldajatena -->
-
-<!-- Võib-olla ruumi- ja ajatäiteks võiks juba rääkida midagi ka ruumiandmete struktuurist v andmemudelitest (vektor, raster jt) ning omakorda punktidest, joontest, polügoonidest, pikslitest. -->
-
-<!-- Kui on üks ruumi- jm infoga andmestik, saab küsida nt kas selle haiguse esinemisjuhud klasterduvad üksteise lähedale?-->
-<!-- Kui on mitu andmestikku, saab küsida nt, kas selle haiguse esinemisjuhud klasterduvad joogivee allikate ümber? -->
+Infotehnoloogia arenguga on muutunud võimalikuks säilitada digitaalsel kujul atribuutidena peaaegu mis tahes tüüpi andmeid: nt struktureerimata tekste (raamatuid, veebilehti), pilte, videoid, helifaile. Kuna geoinfosüsteemid on arvutipõhised, nõuavad need siiski, et andmed oleksid mingil moel formaliseeritud. See tähendab ka vahel seda, et tuleb andmetele suruda peale jäigad kategooriad ka seal, kus kategooriatevahelised piirid on tegelikult sujuvad ning on palju üleminekualasid.  
 
 
 
 ## Geoinfosüsteemide ajaloost
 
-<!-- 19. sajandi keskel tehti esimene kaart, mis lisaks kujutamisele võimaldas ka analüüsi. John Snow, keda peetakse epidemioloogia isaks, kaardistas Londonis koolerapuhangu haigusjuhte, teid, valduste piire ja veeliine ning sai seeläbi teada, et haiguse allikaks oli nakatunud veepump Broad Streetil. -->
 
 ```{r ajajoon, echo = FALSE, fig.align = 'center', out.width = "100%", fig.cap = "[GISi ajajoon](https://www.researchgate.net/figure/Timeline-of-major-GIS-events_fig1_315640751)"}
-knitr::include_graphics(here::here("../imgs", "Timeline-of-major-GIS-events.png"))
+knitr::include_graphics(here::here("imgs", "Timeline-of-major-GIS-events.png"))
 ```
 
-- Geoinfosüsteeme hakati arendama ja kasutama 1960ndatel, kui akadeemilistes ringkondades hakati uurima kvantitatiivse ja arvutusliku geograafia võimalusi. <!-- nt kaartide printimist, andmete salvestamist, koordinaatide salvestamine sisendandmetena-->   
-- GISi "isaks" peetakse Roger Tomlinsoni (1933-2014), kes 60ndate alguses arendas Kanadas välja kõige **esimese geoinfosüsteemi maailmas** (*Canada Geographical Information System* CGIS). Süsteemi ülesandeks oli talletada, võrrelda ja analüüsida Kanada maakasutuse andmeid. <!-- kaardistas informatsiooni muldade, põllumajanduse, rekreatsiooni, looduse, vete, metsanduse ja maakasutuse kohta ning hindas selle põhjal Kanada maapiirkondade võimekust-->
-<!-- Tomlinsoni pilt -->
+- Geoinfosüsteeme hakati arendama ja kasutama 1960ndatel, kui akadeemilistes ringkondades hakati uurima kvantitatiivse ja arvutusliku geograafia võimalusi.    
+- GISi "isaks" peetakse Roger Tomlinsoni (1933-2014), kes 60ndate alguses arendas Kanadas välja kõige **esimese geoinfosüsteemi maailmas** (*Canada Geographical Information System* CGIS). Süsteemi ülesandeks oli talletada, võrrelda ja analüüsida Kanada maakasutuse andmeid. 
 
-![](https://www.youtube.com/watch?v=eAFG6aQTwPk)
-![](https://www.youtube.com/watch?v=3kFYsOHgDSo)
-![](https://www.youtube.com/watch?v=ryWcq7Dv4jE)
+```{r, echo = FALSE}
+library(vembedr)
+library(htmltools)
+embed_url("https://www.youtube.com/watch?v=eAFG6aQTwPk")
+embed_url("https://www.youtube.com/watch?v=3kFYsOHgDSo")
+embed_url("https://www.youtube.com/watch?v=ryWcq7Dv4jE")
+```
+
 
 
 - GISi ulatuslikum areng toimus 1970ndatel ning 1980ndate lõpuks oli fookus juba sellel, kuidas parandada GISi kasutuskogemust.  
 - Esimestel aastakümnetel oli GIS põhiliselt haldus- ja militaarkasutuses. 1981. aastal tõi Esri (Environmental Systems Research Institute, Inc.) välja **esimese kommertsliku GIS-toote**, ARC/INFO, mis põhines Harvard Laboratory Computer Graphicsi poolt arendatud esimesel vektoritega töötaval GISil. Esri roll GIS-tarkvara arendajana on sellest alates ainult kasvanud.  
-- 1990ndatest alates hakkas GISi **kasutajaskond kiiresti kasvama**. Seda soodustas järjest väiksemate, odavamate ja kiiremate arvutite tootmine, andmete ulatuslikum kättesaadavus ning uute satelliitide ja kaugseiretehnoloogia kasutuselevõtt. <!-- tänu GPSile läks täpsus lennujaamalt kuurile. -->
+- 1990ndatest alates hakkas GISi **kasutajaskond kiiresti kasvama**. Seda soodustas järjest väiksemate, odavamate ja kiiremate arvutite tootmine, andmete ulatuslikum kättesaadavus ning uute satelliitide ja kaugseiretehnoloogia kasutuselevõtt. 
 - Viimast kaht kümnendit on iseloomustanud lisaks tehnoloogia jätkuvale arengule ka **vabavaralise GIS-tarkvara teke**, mis on teinud ruumiandmete kasutamise ja analüüsi kättesaadavamaks nii tavakasutajale kui ka talle pakutavate toodete arendajatele. On toimunud nn **[georuumiline revolutsioon (*Geospatial Revolution*)](https://www.e-education.psu.edu/maps/l1_p2.html)**, mis on muutnud nii seda, kuidas me liigume, otsuseid teeme ja oma lugusid jagame. 
-<!-- varem oli oluline oma liikumisi ette planeerida. Kui sa läksid uude linna, pidid enne atlasest või kuskilt kaardi pealt vaatama, kus see tänav ja maja on, kuhu sa jõudma pead, kuidas see suhestub nt bussijaama jm transpordisõlmedega. Kuidas sealt saab mingisse teise kohta jne. Suurtel paberkaartidel puudusid tihti väiksemad teed, need ei näidanud mingit liiklusinfot jne--> 
-<!-- Kuidas teeme otsuseid. Planeerida ei ole vaja ka enam nii väga majapidamises. Saad koju toitu tellida või kiirelt järele vaadata, kus sinu lähedal asuvad restoranid, mis on lahti. See, et me ei pea enam eriti ette mõtlema, ei ole tingimata hea. Samas on ruumiinfo abil oluliselt lihtsam otsuseid teha ka ühiskondlikul tasandil, nt kuhu peaks tulema uus lasteaed, kool, vanadekodu, looduskaitseala, uus liiklussõlm jne -->
-<!-- Lugude jagamisel on võimalik igale poole lisada asukohainfo: geotagging (mingile andmepunktile kohainfo lisamine). Saad mõõta, kui palju sa oled jooksnud ja teistele näidata, et kus sa jooksid. -->
 
-<!-- Diskussioon: mis on georevolutsiooni varjuküljed? mis head küljed? -->
 
 Praeguseks kasutatakse geoinfosüsteeme näiteks
 
 - telekommunikatsioonis,
-- linnaplaneerimises,
 - linnaplaneerimises (näiteks [Tallinna Ligipääsetavuse infosüsteem](https://lips.tallinn.ee/est)),
 - logistikas, navigeerimises (näiteks [Veeteede Ameti Nutimer](https://gis.vta.ee/nutimeri/)),
 - meteoroloogias,
@@ -147,18 +134,10 @@ Praeguseks kasutatakse geoinfosüsteeme näiteks
 
 Vt veel rakendusvaldkondi nt [siit](https://grindgis.com/blog/gis-applications-uses).
 
-<!-- Milliseid rakendusi kasutad, mis tõenäoliselt kasutavad geoinfosüsteeme? (google maps, bolt, wolt, airbnb) -->
 
 
 ## Ruumiandmed ja GIS humanitaarteadustes  
 
-<!-- käsitlevad metafoore, maastikke keeles, grammatilisi ja leksikaalseid ruumisuhteid ja ruumidiskursusi eri kontekstis, ruumiga seotud sõnamoodustuslikke aspekte ja sõnade päritolu-->
-
-
-<!-- Arheoloogia 
-Keeleteadus:  dialektoloogia; ruumisuhete väljendamine keeles (nt kaassõnad *peal*, *ülal*, *kõrval*)  
-Kirjandusteadus: uuritud näiteks 19. sajandi reisikirjeldusi, mille abil iseloomustatakse mingeid kohti 
-Filosoofia ja semiootika: ?? *koha* ja *ruumi* mõisted-->
 
 Ehkki näiteks arheoloogias on ruum ja ruumiandmed olnud alati kesksel kohal, on teistes humanitaaria valdkondades (nt ajaloos, kirjandusteadustes) toimunud viimase paarikümne aasta jooksul nn  **ruumiline pööre** (*Spatial Turn*). Ruumiline pööre algas tegelikult geograafia valdkonna seest: pelga inimelu või -tegevuse mahuti või "lava" tõlgenduse asemel seati fookusesse ruum kui pidevalt muutuv ja kompleksne sotsiaalne moodustis. See võimaldas leida enam ühist keelt ka sotsiaal- ja humanitaarteadlastega. Humanitaarteadustes on küll *ruumi* ja *koha* mõistetel olnud alati üsna prominentne roll, ent ruumilise pöörde käigus seati fookus eksplitsiitselt sellele, kuidas sotsiaalsete muutuste ning laiemalt inimtegevuse seletamiseks tuleb võtta arvesse ka ruumilist komponenti. Sealjuures rõhutatakse, et ruum võib ajas muutuda ning et *ruumid* võivad olla nii füüsilis-geograafilised kui ka abstraktsed, metafoorsed või väljamõeldud (vt nt hiljutist Keele & Kirjanduse erinumbrit ["Keel ja ruum"](https://keeljakirjandus.ee/ee/issue/2020-8-9/)). Nõnda on näiteks keskaegses kirjanduses narratiivi loomise seisukohast võrdselt olulised nii London kui ka Camelot; erinevate keelte kaassõnu (nt *ees*, *kõrval*, *taga*) uurides saame teada, kuidas mingi keele kõneleja end mõtteliselt millegi suhtes positsioneerib (kas absoluutselt või relatiivselt), kuidas tajutakse aega ruumisuhete kaudu jne). 
 
@@ -169,40 +148,37 @@ Ehkki mingites humanitaaria valdkondades (nt arheoloogia) on ka geoinfosüsteemi
 
 
 ```{r murdekaart, echo = FALSE, fig.align = 'center', out.width = "100%", fig.cap = "Andrus Saareste käsikirjaline murdekaart sõna 'keegi' alaleütleva käände ('kellelegi', 'kellegile' jm) varieerumisest. Vt rohkem kaarte [siit](http://rurake.keeleressursid.ee/index.php/andrus-saarestes-unpublished-dialect-maps/](http://rurake.keeleressursid.ee/index.php/andrus-saarestes-unpublished-dialect-maps/)"}
-knitr::include_graphics(here::here("../imgs", "keegi_allatiiv.jpeg"))
+knitr::include_graphics(here::here("imgs", "keegi_allatiiv.jpeg"))
 ```
 
-<!-- Siia mingeid ruumihumanitaaria jooniseid -->
 
-Geo- ja ruumihumanitaaria fookus ei ole aga pelgalt tehniliste analüüsimeetodite ja tööriistade kasutamisel ja arendamisel, vaid ka (või isegi eelkõige) ruumide ja kohtade teoreetilistel konstruktsioonidel ning nende muutumisel ajas ning eri kultuurides: kuidas mingites *ruumides* elatakse, kuidas mingeid ruume sotsiaalselt konstrueeritakse ja kuidas need ruumid omakorda mõjutavad majandust, poliitikat, kultuuri jne. 
+Geo- ja ruumihumanitaaria fookus ei ole aga pelgalt tehniliste analüüsimeetodite ja tööriistade kasutamisel ja arendamisel, vaid ka (või isegi eelkõige) ruumide ja kohtade teoreetilistel konstruktsioonidel ning nende muutumisel ajas ning eri kultuurides: kuidas mingites ruumides elatakse, kuidas mingeid ruume sotsiaalselt konstrueeritakse ja kuidas need ruumid omakorda mõjutavad majandust, poliitikat, kultuuri jne. 
 
-Siiski on vahest enamgi neid, kes ühel või teisel moel ruumiandmeid ja geoinfosüsteeme oma töös ära kasutavad, ilma et ennast või oma uurimistööd spetsiifiliselt ruumi- või geohumanitaaria valdkonna kaudu defineeriksid. Sellise üldise ruumiandmete analüüsi tööriistakasti koostamisega tegeleme ka siin kursusel. <!-- Kursus ei ole ruumihumanitaaria kursus, vaid pigem praktilisema suunitlusega. Näita aine väljundeid ja ainekava! -->
+Siiski on vahest enamgi neid, kes ühel või teisel moel ruumiandmeid ja geoinfosüsteeme oma töös ära kasutavad, ilma et ennast või oma uurimistööd spetsiifiliselt ruumi- või geohumanitaaria valdkonna kaudu defineeriksid. Sellise üldise ruumiandmete analüüsi tööriistakasti koostamisega tegeleme ka siin kursusel. 
 
 ### Arheoloogia
 
-<!-- Lisan mingit juttu siia GISi ajaloost natuke arheoloogias. Kui jõuan, siis kirjutan. Kui ei, siis räägin niisama loengus -->
 
 ```{r arheo-example, echo = FALSE, fig.show='hold', fig.align = 'default', out.width = "100%", fig.cap = "Muististe jaotumise visualiseerimine  ja maastiku nähtavuse analüüsimine [paremal, @Kimber2016, jn 5]"}
-knitr::include_graphics(here::here("../imgs", c("arheo_example_teemakaart_kimber_downsize.jpeg", "arheo_example_kimber_lohukivid_totalviewshed_downsize.jpg")))
+knitr::include_graphics(here::here("imgs", c("arheo_example_teemakaart_kimber.jpeg", "arheo_example_kimber_lohukivid_totalviewshed.jpg")))
 ```
 
 ```{r arheo-example2, echo = FALSE, fig.show='hold', fig.align = 'default', out.width = "100%", fig.cap = "Muinasaegsete asulakohtade ennustav mudeldamine [@Haav2014, jn 11] ja kiviaegse maastiku rekonstruktsioonid (9700 - 5300 eKr) [@Rosentau2013, jn 7]"}
-knitr::include_graphics(here::here("../imgs", c("arheo_example_haav_asulate_mudel_downsize.png", "arheo_example_rosentau2013_downsize.png")))
+knitr::include_graphics(here::here("imgs", c("arheo_example_haav_asulate_mudel.png", "arheo_example_rosentau2013.png")))
 ```
 
-<!-- Võiksin siia lisada veel mõne näited kõrgusmudelitest -->
+
 
 ### Veel näiteid
 
-<!-- See ei ole kõige lahedam näide, aga ma ei leidnud nendest mitmest GISi ja humanitaaria raamatust midagi paremat -->
 ```{r more-examples1, echo = FALSE, fig.align = 'center', out.width = "75%", fig.cap = "Rongiliikluse areng Prantsusmaal [@Gregory2014, jn 1.3]"}
-knitr::include_graphics(here::here("../imgs", "example_france_trains_geddes2014.png"))
+knitr::include_graphics(here::here("imgs", "example_france_trains_geddes2014.png"))
 ```
  
 ```{r more-examples2, echo = FALSE, fig.align = 'center', out.width = "100%", fig.cap = "Pariisi tänavate nimetamine kirjanduses [@Moncla2019, jn 4]"}
-knitr::include_graphics(here::here("../imgs", "example_moncla_paris_street_mentions_downsize.png"))
+knitr::include_graphics(here::here("imgs", "example_moncla_paris_street_mentions.png"))
 ```
-<!-- Arheoloogia uurib selgelt mateeriat; küsitakse kes tegi mida ja millal, aga esimene küsimus on peaaegu alati "kus?". Näiteks uuritakse maastike muutumist, potitükikeste paiknemist kuskil väljakaevamisel, luude paiknemist hauas.  -->
+
 
 ## Rühmatöö
 
@@ -226,9 +202,6 @@ Aega 15 minutit.
 
 Palun täida Moodle'is lühike küsimustik.
 
-<!-- Tutvumisring. Räägime ise paari sõnaga sellest, mida oleme teinud. Ja palume kõigil öelda, mis eriala ja kuidas tema erialal võiks GISi, ruumiandmeid või kaardistamist kasutada. Kattub veits küll küsimustiga, aga vast ok. -->
-
-<!-- Teha pigem mõnel järgmisel korral: anda ülesande, et nt peaks joonistama kaardi kodukohast või -hoovist, tee kodust kooli või poodi, lemmikkohast (reaalses maailmas, kirjanduses, filmis). Selle põhjal arutada kaardi elementide üle. Millele pöörati tähelepanu, milliseid objekte kasutati (joon, punkt, ala), kas on mõõtkavas, kas põhjasuund olemas, kas need on tähtsad. Kas mõtlesid sellele, kes seda kasutada võiks? Milliseid andmeid oleks vaja selle koostamiseks arvutis? -->
 
 ## Järgmisel korral
 
@@ -237,7 +210,7 @@ Seminar.
 Lugemiseks:
 
 - Martyn Jessop [-@Jessop2008]. *The Inhibition of Geographical Information in Digital Humanities Scholarship*
-- Todd Presner & David Shepard [@Presner2015]. *Mapping the Geospatial Turn*
+- Todd Presner & David Shepard [@Presner2016]. *Mapping the Geospatial Turn*
 
 Artiklite pdf-id leiad Moodle'ist.
 
