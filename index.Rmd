@@ -180,24 +180,6 @@ knitr::include_graphics(here::here("imgs", "example_moncla_paris_street_mentions
 ```
 
 
-## Rühmatöö
-
-Võite osaleda üksi või rühmaga.
-
-Otsige üks enda erialaga (lähemalt või kaugelt) seotud projekt, mis kasutaks GISi või tegeleks ruumi- või geohumanitaariaga. Alustada võib näiteks [siit](https://anterotesis.com/wordpress/mapping-resources/dh-gis-projects/).  
-
-Lisage virtuaalsele tahvlile: 
-
-- projekti nimi, 
-- projekti link, 
-- valdkond,  
-- kirjeldus selle kohta, millega projektis tegeletakse,   
-- võimalusel visuaalset lisamaterjali (nt pilte rakendustest, kaartidest vm).
-
-
-Aega 15 minutit.  
-
-
 ## Küsitlus 
 
 Palun täida Moodle'is lühike küsimustik.
@@ -222,5 +204,4 @@ Artiklite pdf-id leiad Moodle'ist.
 - Milliseid murekohti näed arvutuslike meetodite ja arvutipõhiste tehnoloogiate laiema leviku juures humanitaarteadustes?  
 - Kas humanitaarteadused on omavahel ühildatavad? Aga teiste valdkondadega? Milline on interdistsiplinaarsete uurimuste/projektide olevik, milline tulevik?
 
-Kirjandus
-===
+## Kirjandus

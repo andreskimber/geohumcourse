@@ -1,0 +1,28 @@
+# Seminar {#seminar}
+
+## Rühmatöö 1: GISi ja ruumi-/geohumanitaaria projekte ja rakendusi
+
+Võite osaleda üksi või rühmaga (maksimaalselt 3 inimest).
+
+Otsige üks enda erialaga (lähemalt või kaugemalt) seotud projekt, mis kasutaks GISi või tegeleks ruumi- või geohumanitaariaga. Alustada võib näiteks [siit](https://anterotesis.com/wordpress/mapping-resources/dh-gis-projects/), aga kindlasti võiks lähemalt uurida ka artiklites olnud viiteid.  
+
+Lisage [virtuaalsele tahvlile](https://padlet.com/maarjaliisapilvik/14fuhzi8dpw9i2to): 
+
+- projekti nimi, 
+- projekti link, 
+- valdkond,  
+- kirjeldus selle kohta, millega projektis tegeletakse,   
+- võimalusel visuaalset lisamaterjali (nt pilte rakendustest, kaartidest vm).
+
+
+
+## Rühmatöö 2: humanitaaria vs. kvantitatiivsed meetodid
+
+Moodustage 3 inimesest koosnevad rühmad.  
+
+Pooled rühmad saavad **skeptikute/pessimistide** rolli:  teie arvates ei saa GISi ja laiemalt praeguste arvutuslike meetodite ja kvantitatiivse lähenemisega humanitaaria andmete ja küsimustega töötada (või siis mitte vähemalt väga hästi). Ka interdistsiplinaarsus on teie meelest praktikas väga raskesti saavutatav.  
+
+Teine pool rühmadest saab **optimistide** rolli: teie arvates on humanitaaria eri suunad ka metodoloogiliselt pidevas arengus ning analüüsimeetodite vahetamine, laenamine ja kohandamine eri distsipliinide vahel ja sees annab humanitaariale väga palju juurde.  
+
+
+Koondage [siia](https://padlet.com/maarjaliisapilvik/irf5y9aiahqkr9s1) võimalikult palju argumente ja lihtsalt arvamusi, näiteid jm, mis teie rühma esindatavat seisukohta toetaksid. Võite sealjuures loomulikult ära kasutada artikleid, guugeldada, aga ka rühma sees ise ideid genereerida.  
