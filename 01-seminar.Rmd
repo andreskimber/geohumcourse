@@ -1,5 +1,20 @@
 # Seminar {#seminar}
 
+
+## Mõisted
+
+Mõne artiklis kasutatud mõiste seletusi:
+
+- ***Cognitive maps*** - kujutluskaart. Inimese (või muu elusolendi) kogemuste põhjal ajju talletatud ettekujutus/mudel mingist reaalsest või irreaalsest ruumist; laiemas käsituses mis tahes protsessist või mõistest.  
+- ***Community mapping***, ***participatory mapping*** - kogukondlik ja/või osaluskaardistamine. Kaartide tegemine n-ö tavaliste inimeste poolt tavaliste inimeste jaoks, praktikas sageli mingil ühiskondlikul-kultuurilisel või poliitilisel eesmärgil (nt pärandi, keele kaitsmiseks, mingi kogukonna arengu planeerimiseks, mingi piirkonna ressursside õiglasemaks jaotamiseks). Nende mõistetega on lähedalt seotud ka mõiste ***counter-mapping***, mis veelgi selgemalt tegeleb alternatiivse kaardistamise abil traditsiooniliste võimusuhete lammutamise ja õõnestamisega. Nii osaluskaardistamine kui ka *vastukaardistamine* esindavad ***kriitilise kartograafia*** rakendusi. Kriitilise kartograafia põhitees on, et kaardid peegeldavad ja kinnistavad võimusuhteid ning seda enamasti ühiskonnas domineeriva klassi positsioonilt.    
+- ***Gazetteer*** - kohanimeloend. Koondab tavaliselt infot kohanimega seotud koordinaatide ja koha tüübi kohta (nt mägi, jõgi, linn, küla), aga võib lisaks sisaldada ka nt rööpnimekujusid, asustuse infot, seoseid teiste sõnastiku kirjetega jm infot.  
+- ***Geocoding***  - geokodeerimine ehk kohtade tekstiliste viidete (nt kohanimede, aadresside) muutmine geograafilisteks koordinaatideks. Tagurpidi  geokodeerimine muudab omakorda geograafilised koordinaadid kohanimedeks või aadressideks.  
+- ***Locative media*** - 1) digitaalne sisu (nt pildid, videod, helid) või selle loomiseks kasutatud vahendid, millele on lisatud asukohainfo; 2) vahendid, mis kasutavad digitaalse sisu edastamiseks asukohainfot. Digihumanitaaria kontekstis ka raamistik, mille kaudu uurida üksikisiku suhteid ja vastastikuseid mõjusid koha ja tehnoloogiaga.   
+- ***Psychogeography*** - kunsti- ja teadussuund, mille fookuses on see, kuidas kogetakse (eeskätt) linnakeskkondi ning kuidas keskkond mõjutab meie emotsioone ja käitumist. Sealjuures pööratakse tähelepanu viisidele, kuidas saada ümbritsevast uusi ja ootamatuid elamusi ning avastada "tavapärasest erinevat".    
+- ***Thick mapping*** - paljude erinevate geograafiliste või kohaspetsiifiliste andmete (pildid, narratiivid, kaardid, suulised ja kirjalikud mälestused jne) kogumine, koondamine/agregeerimine ja visualiseerimine selleks, et pakkuda kohtadele ja neis toimunud sündmustele erinevaid perspektiive (ka nt millegi alusel marginaliseeritud või vähem häälekate gruppide omi). Kasutatud on ka terminit *deep mapping*.   
+
+
+
 ## Rühmatöö 1: GISi ja ruumi-/geohumanitaaria projekte ja rakendusi
 
 Võite osaleda üksi või rühmaga (maksimaalselt 3 inimest).
