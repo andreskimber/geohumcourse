@@ -159,7 +159,7 @@ Siiski on vahest enamgi neid, kes ühel või teisel moel ruumiandmeid ja geoinfo
 ### Arheoloogia
 
 
-```{r arheo-example, echo = FALSE, fig.show='hold', fig.align = 'default', out.width = "100%", fig.cap = "Muististe jaotumise visualiseerimine  ja maastiku nähtavuse analüüsimine [paremal, @Kimber2016, jn 5]"}
+```{r arheo-example, echo = FALSE, fig.show='hold', fig.align = 'default', out.width = "100%", fig.cap = "Muististe jaotumise visualiseerimine  ja maastiku nähtavuse analüüsimine [@Kimber2016, jn 5]"}
 knitr::include_graphics(here::here("imgs", c("arheo_example_teemakaart_kimber.jpeg", "arheo_example_kimber_lohukivid_totalviewshed.jpg")))
 ```
 
@@ -210,7 +210,7 @@ Seminar.
 Lugemiseks:
 
 - Martyn Jessop [-@Jessop2008]. *The Inhibition of Geographical Information in Digital Humanities Scholarship*
-- Todd Presner & David Shepard [@Presner2016]. *Mapping the Geospatial Turn*
+- Todd Presner & David Shepard [-@Presner2015]. *Mapping the Geospatial Turn*
 
 Artiklite pdf-id leiad Moodle'ist.
 
@@ -220,8 +220,7 @@ Artiklite pdf-id leiad Moodle'ist.
 - Milliseid humanitaarteaduste ja GISi põrkumise probleemkohti artiklites kirjeldatakse?   
 - Kas need probleemkohad on maailma kontekstis endiselt aktuaalsed? Aga Eesti kontekstis?  
 - Milliseid murekohti näed arvutuslike meetodite ja arvutipõhiste tehnoloogiate laiema leviku juures humanitaarteadustes?  
-- Kas humanitaarteadused on omavahel ühildatavad? Aga teiste valdkondadega? Milline on interdistsiplinaarsete uurimuste/projektide olevik, milline tulevik?  
-
+- Kas humanitaarteadused on omavahel ühildatavad? Aga teiste valdkondadega? Milline on interdistsiplinaarsete uurimuste/projektide olevik, milline tulevik?
 
 Kirjandus
-===========
+===
