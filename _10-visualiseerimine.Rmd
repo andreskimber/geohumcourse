@@ -1,3 +1,4 @@
-# Ruumiandmete visualiseerimine {#visualiseerimine2}
+# Ruumiandmete visualiseerimine {#visualiseerimine}
 
-Keerukamad kaardid, legendid, andmete filtreerimine, päringute tegemine
+Ruumiandmete importimine ja eksportimine
+Lihtsamate kaartide tegemine (nt murdekaardid - levik + sagedus)

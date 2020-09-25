@@ -1,4 +1,3 @@
-# Ruumiandmete visualiseerimine {#visualiseerimine3}
+# Ruumiandmete visualiseerimine {#visualiseerimine2}
 
-Time series
-Animatsioonid, 3D?
+Keerukamad kaardid, legendid, andmete filtreerimine, päringute tegemine

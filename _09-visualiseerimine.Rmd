@@ -1,4 +1,0 @@
-# Ruumiandmete visualiseerimine {#visualiseerimine}
-
-Ruumiandmete importimine ja eksportimine
-Lihtsamate kaartide tegemine (nt murdekaardid - levik + sagedus)
