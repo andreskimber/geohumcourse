@@ -1,3 +1,0 @@
-# Geograafiline tekstianalüüs {#tekstianalyys}
-
-Geoparsing, nimede ekstraheerimine tekstist

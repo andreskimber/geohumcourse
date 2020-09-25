@@ -31,6 +31,10 @@ Lisage [virtuaalsele tahvlile](https://padlet.com/maarjaliisapilvik/14fuhzi8dpw9
 
 
 
+![Erinevaid projekte](./imgs/padlet_projektid.pdf){width=100% height=700}
+
+
+
 ## Rühmatöö 2: humanitaaria vs. kvantitatiivsed meetodid
 
 Moodustage 3 inimesest koosnevad rühmad.  
@@ -41,3 +45,6 @@ Teine pool rühmadest saab **optimistide** rolli: teie arvates on humanitaaria e
 
 
 Koondage [siia](https://padlet.com/maarjaliisapilvik/irf5y9aiahqkr9s1) võimalikult palju argumente ja lihtsalt arvamusi, näiteid jm, mis teie rühma esindatavat seisukohta toetaksid. Võite sealjuures loomulikult ära kasutada artikleid, guugeldada, aga ka rühma sees ise ideid genereerida.  
+
+
+![Debatt](./imgs/padlet-debatt.pdf){width=100% height=700}
