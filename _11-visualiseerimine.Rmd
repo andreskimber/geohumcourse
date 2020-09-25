@@ -1,3 +1,0 @@
-# Ruumiandmete visualiseerimine {#visualiseerimine2}
-
-Keerukamad kaardid, legendid, andmete filtreerimine, päringute tegemine

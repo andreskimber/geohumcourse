@@ -1,3 +1,0 @@
-# Ruumiandmete analüüs R-iga {#R2}
-
-sf, rqgis, shiny

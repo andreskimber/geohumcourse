@@ -1,4 +1,0 @@
-# Sissejuhatus QGISi {#QGISintro2}
-
-Ruumiandmete eri formaadid, shapefile'id jm.
-Kaardid, koordinaadid, kujutletavad ruumid, metainfo.  
