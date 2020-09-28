@@ -1,6 +1,8 @@
 --- 
 title: "HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes"
 author: "Andres Kimber, Maarja-Liisa Pilvik"
+header-includes: 
+  - \renewcommand\refname{Kirjandus}
 date: "sügis 2020"
 site: bookdown::bookdown_site
 output:
@@ -12,6 +14,7 @@ description: ""
 link-citations: yes
 bibliography: kirjandus.bib
 csl: ./harvard-european-archaeology.csl 
+
 --- 
 
 ```{r global_options, include = FALSE}

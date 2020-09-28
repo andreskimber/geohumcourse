@@ -1,0 +1,233 @@
+# Ruumiobjektid ja ruumiandmed {#ruumiobjektid}
+
+Meid ümbritsevas maailmas on palju erinevaid ruumiga seotud nähtusi, näiteks konkreetsed füüsilised objektid (nt teed, hooned), kokuleppelised või abstraktsed objektid (nt riigipiir), sündmused (nt katastroofid, meeleavaldused, spordiüritused) või ka mingid pidevad nähtused, nagu temperatuur, mis esinevad väljana terves ruumis ning mille konkreetset väärtust on mingites ruumi punktides võimalik määrata. 
+
+Humanitaarteaduste kontekstis võime mõelda ka sellistest ruumiga seotud nähtustest ja objektidest, nagu muistsed ohverdusrituaalid, kirjandusteoste sündmused, (tajutavad) murdepiirid, ajaloolised lahingud, sõjakäigud jne.  
+Nähtustel on omakorda mingid omadused, mille abil neid nähtusi või ruumi ennast kirjeldada. 
+
+<!-- Nähtused võivad seega olla looduslikud, tehislikud, mõttelised.-->
+
+(Geo)infosüsteemide abil saame reaalse maailma objekte ja nähtusi hallata, kujutada ja analüüsida aga ainult nende mingil moel abstraheeritud ja formaliseeritud kujul, **ruumiobjektina**. 
+
+[Ruumiandmete seaduse](https://www.riigiteataja.ee/akt/RAS) definitsioon (§ 3, lg 3):
+
+> Ruumiobjekt käesoleva seaduse tähenduses on konkreetse asukoha või geograafilise alaga seotud reaalmaailma nähtuse abstraktne kujutis.
+
+**Ruumiandmed** omakorda kirjeldavad 
+
+> ... ruumiobjektide asukohta, omadusi ja kuju geograafilises ruumis.
+
+(Ruumiandmete seaduse § 3, lg 1.)
+
+
+Objektidele ja nähtustele sobiva kujutamisviisi valimine sõltub eeskätt sellest, kas läheneme ruumile ja selles asuvatele objektidele ja nähtustele objektikeskselt või asukohakeskselt.  
+
+- **Objektikeskses** lähenemises seame fookusesse objektid. Need täidavad kindlates punktides mingit ruumi, neid saab loendada, need võivad külgneda ja kattuda, neil on mingid kindlad omadused, need on võib-olla seotud mingite teiste objektidega jne. Ruum ja selle omadused on ainult üks atribuut, mille kaudu objekte kirjeldada.  
+    + Sellises lähenemises on objektid **diskreetsed**: neil on kindel asukoht ja ruumikuju (nt hoone, mälestusmärk, riigipiir).  
+- **Asukohakeskses** lähenemises on fookus ruumil. Ruum on sama objektiga otsast otsani täidetud. Objektid ja nende omadused kirjeldavad ruumi, on ruumi atribuutideks.  
+    + Asukohakeskses lähenemises on objektid **pidevad**: objekt esineb terves ruumis, aga saab ruumi erinevates punktides erineva väärtuse (nt maapinna reljeef, temperatuur ja õhurõhk maapinnal, kultuurikihi intensiivsus).  
+
+Need kaks lähenemist on aluseks sellele, kuidas ruumiobjekte geoinfosüsteemis kujutada: kas vektorkujul või rasterkujul. Vastavaid kujutusviise nimetatakse ka **ruumiandmete mudeliteks**.
+
+<!-- Bolstad 2008-->
+
+```{r data-models, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Vektor- vs. rasterandmed [@Bolstad2016 : 41]"}
+knitr::include_graphics(here::here("imgs", "Bolstad2016.PNG"))
+```
+
+
+
+## Vektorandmed
+
+
+**Vektormudelis** kujutatakse andmeobjekte (st reaalse või miks mitte ka kognitiivse maailma objekte ja nähtusi) **geomeetriliste kujundite** abil. 
+Geomeetrilisi põhiobjekte ehk primitiive on 3:
+
+- **punkt** (nt torn, kivi)   
+- **joon** (nt tee, jõgi)  
+- **pind/areaal/polügoon/ala/kontuur** (nt põld, mets, linn)
+
+
+```{r ruumiobjektid, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Punktid, jooned, polügoonid [@Ballas2018 : 13]"}
+knitr::include_graphics(here::here("imgs", "points_lines_polygons.PNG"))
+```
+
+
+**Punkt** on eukleidilises mõttes nullmõõtmeline ning seda esitatakse koordinaatsüsteemis kujul *P*(x; y). <!-- ruumil on mõõde, punktil ei ole-->
+
+Mitmest punktist moodustub ühemõõtmeline **joon**, enamasti *murdjoon*, mille (käänu)punktid saab ühendada sirglõiguga. <!-- joonel saab mõõta pikkust-->
+
+Joon(t)est omakorda saab moodustada **polügooni**, mispuhul joone algus- ja lõpp-punkt kattuvad.  <!-- polügoonil saab määrata pindala ja ümbermõõdu-->
+
+```{r points-lines-polygons, echo=F, fig.show='hold', fig.align='center', out.width= "60%", fig.cap= "Geomeetrilised objektid [@Bolstad2016 : 43]"}
+knitr::include_graphics(here::here("imgs", "Bolstad2016_pointslinespolygons.PNG"))
+```
+
+Geomeetrilise objekti valik sõltub sealjuures sellest, kui täpselt mingit andmeobjekti soovitakse kujutada. Näiteks võib Eesti pühapaikade kaardistamisel kasutada punkti ruumikuju, pühapaiga lähemal vaatlusel aga kasutada hoopis polügooni ruumikuju, eristada selle sees omakorda teisi polügoone või punkte jne. <!-- pühapaikade näide -->
+
+
+
+```{r pringi1, echo=F, fig.show='hold', fig.align='center', out.width= "45%", fig.cap= "[Pringi Ohvrimägi punktina ja polügoonina](https://hiitemaja.maps.arcgis.com/apps/webappviewer/index.html?id=db7d4fe754d245b9ac53f6d9a76e229e)"}
+knitr::include_graphics(here::here("imgs", c("pringi1.PNG", "pringi2.PNG")))
+```
+
+
+```{r pringi3, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "[Pringi Ohvrimäe raietööd](http://hiis.ee/files/ryystatud_pyhapaigad_2018.pdf)"}
+knitr::include_graphics(here::here("imgs", "pringi3.PNG"))
+```
+
+
+Vaatame natuke [sellel lehel](http://orbis.stanford.edu/) ringi. Milliseid ruumiobjekte on kujutatud?
+
+
+Vektorandmete struktuur võib olla väga erinev. Kõige lihtsamas struktuuris on iga objekt (punkt, joon või polügoon) kirjeldatud *x*- ja *y*-koordinaatide jada kaudu. See tähendab ka näiteks, et teineteisega külgnevad polügoonid on kirjeldatud eraldi joonelõikude kaudu, olgugi et neil on osa lõike ühised. Sellises struktuuris ei ole objektidevahelised suhted kuidagi kirjeldatud ning külgnemissuhe on implitseeritud ainult samasuguste koordinaatide kaudu.    
+
+Teine levinud viis andmeid struktureerida on kasutada **topoloogilisi suhteid**, mis kirjeldaksid ruumiobjektide paiknemissuhteid nii, et need mingite teisenduste (nt pööramise, suumimise, nihutamise) käigus ei muutuks. Näiteks külgnevate polügoonide puhul teab polügoonide ühine joonelõik, et tema parem pool kuulub ühte polügooni ja vasak pool teise ning kaob ära vajadus samu koordinaate kaks korda määrata. 
+
+```{r spaghetti-topological, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Spagetistruktuur vs. topoloogiline struktuur [@Bolstad2016 : 48]"}
+knitr::include_graphics(here::here("imgs", "spaghetti_topological.PNG"))
+```
+
+Topoloogilised suhted on aluseks topoloogiareeglitele.
+
+![Topoloogiareeglid ArcGISis](http://resources.arcgis.com/en/help/main/10.2/01mm/pdf/topology_rules_poster.pdf){width=100% height=700}
+
+
+Topoloogilisi suhteid ja reegleid kasutatakse näiteks siis, kui tahetakse planeerida võimalikult kiiret teekonda ühest punktist teise või hoonestuse paiknemist, aga ka paljuks muuks. Pelgaks visualiseerimiseks pole aga topoloogilisi suhteid andmebaasis vaja defineerida.   
+
+
+Vektorandmeid hoitakse GISis enamasti kas SHP, GDB, TAB, DXF või VPF formaatides.  
+
+
+## Rasterandmed
+
+**Rastermudelit** kasutatakse eeskätt pidevate andmeobjektide (nn *väljade*) kujutamiseks. Rastermudelis jagatakse ruum ühesuguste (kindla kujuga) osadega korrapäraseks võrguks ehk *rastriks*, nii et igale rastri elemendile saab koordinaatide abil ühtmoodi viidata. 
+
+<!-- joonis, ka digiteeritud kaardist -->
+
+
+Rastermudel peaks olema tõenäoliselt juba tuttav, kui oled kokku puutunud näiteks digifotodega või muude digiteeritud piltidega. Formaadid, nagu JPEG, TIFF, GIF jm, põhinevad kõik rastermudelil. Samuti põhinevad rastertehnoloogial nt kõiksugu LCD-monitorid.
+
+```{r raster, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Rastermudeli struktuur [@Bolstad2016 : 54]"}
+knitr::include_graphics(here::here("imgs", "raster_model.PNG"))
+```
+
+Rastri üht elementi nimetatakse tavaliselt **piksliks** (*pixel* ehk *picture element*). Pikslid võivad olla igasuguse kujuga, ent enamasti on need siiski ruudukujulised. Olgugi, et piksel on olemuselt alati kahemõõtmeline, on piksli koordinaatideks selle keskpunkti koordinaadid. Ühel pikslil on terves oma ulatuses üks väärtus (vastaval alal kõige tüüpilisem või keskmine väärtus), mis täpsustab näiteks selle piksli värvi ja/või heleduse ning iseloomustab selle kaudu piksliga piiratud alas asuva ruumilise nähtuse mingit omadust. Selline omadus võib olla nii pidev (nt kõrgusinfo, mingi keelelise konstruktsiooni suhteline kasutussagedus) kui ka diskreetne (nt konstruktsiooni *A* vs. konstruktsiooni *B* kasutus).
+
+See, kui täpselt rastermudel mingile reaalse maailma andmeobjekti kujule vastab, sõltub sellest, kui suured on ühe rastri elemendi ehk piksli mõõtmed ehk sellest, kui suur on **eraldusvõime/lahutusvõime**. Mida kõrgem on eraldusvõime, seda täpsem rastermudel on, ent seda suurem on ka rasterandmete faili suurus; mida madalam on eraldusvõime, seda enam infot läheb kaotsi. Efektiivseks eraldusvõime määramiseks tuleks arvesse võtta nii kaardi mõõtkava kui ka muude kaardistatavate andmete väikseimat ühikut.
+
+```{r, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Rastri resolutsioon [@Bolstad2016 : 55]"}
+knitr::include_graphics(here::here("imgs", "Bolstad2016_rasters.PNG"))
+```
+
+
+GISi seisukohast on eraldi liik rasterandmeid **satelliitpildid, aerofotod ja ortofotod**, mis pakuvad GISile olulist kontekstilist infot. 
+Satelliitide põhjal on võimalik kuvada suurt hulka maapinna omadusi ja protsesse. Aktiivsed satelliidid kasutavad kaugsensoreid, mis mõõdavad aega, mis kulub selleks, et sensorist edastatud signaal mingilt objektilt tagasi jõuaks. Passiivsete satelliitide sensorid kasutavad objektide kauguste arvutamiseks looduslikest allikatest (nt päikeselt) peegeldunud või kiiratud elektromagnetkiirgust. Erinevad satelliidid annavad siinjuures erineva kvaliteediga pilte. 
+
+
+```{r satelliit, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Eesti satelliitpilt ([allikas](https://commons.wikimedia.org/wiki/File:Satellite_image_of_Estonia_in_April_2004.jpg))"}
+knitr::include_graphics(here::here("imgs", "satelliit.jpg"))
+```
+
+Vaata värskemaid NASA satelliitpilte [siit](https://wvs.earthdata.nasa.gov/?COORDINATES=55.0171,17.8288,61.4922,35.0957).
+
+Aerofotosid saab teha näiteks õhupallist, kopterist või lennukist ning lisaks nähtavale visuaalsele infole saab vastavate sensorite abil salvestada ka nt ultraviolett- või infrapunakiirgust. Aerofotod võivad oma läätse tõttu olla servadest moonutatud ning samuti võivad moonutatud olla maapinnast kõrgel olevad objektid (nt tornid, korstnad, tipud). Ortofotod on geomeetriliselt parandatud aerofotod.  
+
+```{r aero-orto, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Aerofotod vs. ortofotod ([allikas](https://opengeospatial.weebly.com/31-remote-sensing-platforms.html))"}
+knitr::include_graphics(here::here("imgs", "aerofoto_ortofoto.PNG"))
+```
+
+
+Rasterpildid sobivad hästi illustratsiooniks või kaardi aluskihiks, ent halvemini kartograafiliseks modelleerimiseks.
+
+Rastreid võib aga saada ka **vektorandmete teisendamisel või interpoleerimisel rasterkujule**. Sellisel juhul võib pidada üheks rastri elemendiks nn **rakslit** ning selle väärtus viitab enamasti mingi ruumiobjekti ID-le või mingi atribuudi väärtusele. 
+
+```{r german-dialects, echo=F, fig.show='hold', fig.align='center', out.width= "45%", fig.cap= "Vektorandmetest rasterandmeteni, vt lähemalt [siit](https://timogrossenbacher.ch/2018/03/categorical-spatial-interpolation-with-r/)"}
+knitr::include_graphics(here::here("imgs", c("chat1_points.png", "chat2_raster.png")))
+```
+
+Rasterandmete levinumad formaadid on näiteks JPEG, PNG, TIFF, BMP, GIF.
+
+
+## Vektor vs. raster
+
+
+<table>
+    <tr>
+        <th>Vektorandmed</th>
+        <th>Rasterandmed</th>
+    </tr>
+    <tr>
+        <td>andmestruktuur võib olla keerukas</td>
+        <td>andmestruktuur on lihtne</td>
+    </tr>
+    <tr>
+        <td>vähem mahukad</td>
+        <td>võivad olla väga mahukad</td>
+    </tr>
+    <tr>
+        <td>sobivad ruumiobjektide piiritlemiseks või nende asukoha keskpunktide määramiseks</td>
+        <td>sobivad paremini mingil alal esineva (pideva) nähtuse iseloomustamiseks</td>
+    </tr>
+    <tr>
+        <td>sobivad paremini inimtegevuse kujutamise jaoks</td>
+        <td>sobivad paremini keskkonna- või loodusnähtuste jaoks</td>
+    </tr>
+    <tr>
+        <td>sobivad paremini konkreetsetele nähtustele paljude atribuutidega</td>
+        <td>sobivad paremini komplekssetele nähtustele väheste atribuutidega</td>
+    </tr>
+    <tr>
+        <td>sobivad paremini täpsete, konkreetsete andmetega</td>
+        <td>sobivad paremini ebatäpsete/puudulike või üldistavate andmetega</td>
+    </tr>
+    <tr>
+        <td>võib arvestada ka topoloogilisi suhteid</td>
+        <td>enamasti objektidevahelisi suhteid ei arvesta</td>
+    </tr>
+    <tr>
+        <td>on vähem tundlikud projektsiooni muutmisele</td>
+        <td>võivad olla väga tundlikud projektsiooni muutmisele</td>
+    </tr>
+    <tr>
+        <td>kaardid on visuaalselt ilusamad</td>
+        <td>kaardid suhteliselt robustsed</td><!-- ja keeruline kombineerida erinevate resolutsioonidega andmekihte-->
+    </tr>
+</table>
+
+
+
+**Mõttepaus**: 
+
+- Kumba mudelit kasutaksid riigimaanteede kaardistamiseks? Miks?  
+- Kumba mudelit kasutaksid rahvastikutiheduse mudeldamiseks? Miks?  
+- Millisel kujul saaksid kujutada enda uurimisainest? 
+
+
+
+Paljud tänapäeva GIS-tehnoloogiad võimaldavad kasutada mõlemat mudelit paralleelselt. Näiteks digitaalsed maastikumudelid kuvavad sageli rasterandmete abil mingi piirkonna reljeefi või maakasutust, punktide abil huvipakkuvaid hooneid, joonte abil jõgesid ja teid ning polügoonide abil haldusjaotust. Sealjuures võib otsustada, kas kuvada näiteks kirikud, haiglad ja haridusasutused eraldi kihtidel või ühe kihina, milles sisaldub hoone funktsiooni määrav atribuut.  
+
+```{r arheo-ex, echo = FALSE, fig.show='hold', fig.align = 'default', out.width = "100%", fig.cap = "Maastiku nähtavuse analüüsimine [@Kimber2016, jn 5]"}
+knitr::include_graphics(here::here("imgs", "arheo_example_kimber_lohukivid_totalviewshed.jpg"))
+```
+
+Samuti võib üht ja sama nähtust kuvada erinevat moodi.
+
+```{r, echo = FALSE, fig.show='hold', fig.align = 'default', out.width = "100%", fig.cap = "Tänavaröövid Saitamas [@Okabe2006 : 8]"}
+knitr::include_graphics(here::here("imgs", "okabe_2006.PNG"))
+```
+
+
+Vaata natuke [siin](http://blog.ut.ee/30-maps-of-estonia-in-30-days/) ringi. Kas saad aru, millist tüüpi mudeleid on kasutatud?
+
+## Ülesanne
+
+Kujuta ette, et Google Mapsi ei ole veel leiutatud ja paberkaardid on väga kallid, aga sulle on Tartusse külla tulnud sõber / perekonnaliige / tuttav / välismaa sõber, kes ei ole siin kunagi varem käinud. Joonista tema jaoks paberile Tartu kesklinna kaart ning lisa kaardile juurde, kellele kaart on mõeldud. 
+
+
+## Järgmisel korral
+
+Neljapäeval räägime lähemalt kaartidest ja nende omadustest ning uurime vabavaraliste kaardirakenduste võimalusi ja piiranguid.  
+
+
+## Kirjandus
