@@ -1,0 +1,31 @@
+# Vabavaralised valmisrakendused {#valmisrakendused}
+
+Enne, kui hakkame rääkima sellest, kuidas juba olemasolevate vabaravaliste ressurssidega kaarte koostada, peame rääkima veidi sellest, **mis kaart on** ning millised on selle omadused.  
+
+
+## Kaart
+
+Kaart on geograafilise informatsiooni visuaalne esitusviis.
+
+Kaart on mingi ala ulatuses olevate nähtuste ruumiliste seoste graafiline esitus (GIS_loeng.pdf).
+
+Paberkaardid ja digitaalkaardid
+Kaardi mõõtkava
+Kaardi komponendid
+
+Kaartide liigid
+Erinevad kaardid kui "aknad geograafilisse andmebaasi", toetavad päringuid, analüüse ja geograafilise informatsiooni toimetamist. Kaarte saab kasutada modelleerimise kaudu ka uue informatsiooni tuletamiseks.
+
+Värvide kasutamine kartograafias
+Sümboloogia ja selle graafilised karakteristikud
+Kaardikirjad/legendid ja nende paigutamise põhimõtted
+
+Eesti põhikaart, Eesti baaskaart, kaitseväe kaart, aeronavigatsiooni kaart, merenavigatsiooni kaart
+
+### Koordinaatsüsteemid ja projektsioonid
+
+Referentspinnad, referentssüsteem
+Geograafiliste koordinaatide süsteem
+Tasapinnaliste ristkoordinaatide süsteem
+Kaardiprojektsioonid
+Eestis kasutatavad koordinaatsüsteemid
