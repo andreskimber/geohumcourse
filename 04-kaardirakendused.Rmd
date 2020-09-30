@@ -19,7 +19,6 @@ Kaarti tehes peame alati esmalt läbi mõtlema, mis on kaardi tegemise eesmärk 
 
 GISis võime infot esitada kaardikihtidena, kusjuures ühel kihil esitatakse nähtusi, mis omavad **ühesugust ruumiobjekti tüüpi**. See tähendab, et samal kihil ei tohiks esitada näiteks jõgesid (tüüpiliselt avatud jooned) ja ehitisi (tüüpiliselt suletud jooned ehk polügoonid). Küll aga võime soovi korral esitada samal kihil näiteks kive, restorane ja kogumispunkte, mis küll olemuslikult on erinevast klassist, aga geomeetriliselt esitavad sama tüüpi ruumiobjekti (punkti). Üldiselt on tavaks esitada ühel kaardikihil siiski ka temaatiliselt sarnaseid objekte.
 
-Paberkaardid ja digitaalkaardid
 Üha rohkem puutume tänapäeval paberkaartide asemel kokku digitaalkaartidega. Ehkki mõlemal juhul näeme kaardil seda infot, mida kaardi tegija soovib edastada, ning sellisel kujul, nagu tema vajalikuks peab, on paber- ja digitaalkaartidel olulisi erinevusi.
 
 ```{r paber-digi, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Digitaal- vs. paberkaart [@Suurna&Sisas2010 : 26]"}
@@ -43,55 +42,46 @@ Kaartidel antakse kirjeldavat informatsiooni edasi eristuvate ja loetavate leppe
 
 ### Koordinaatsüsteemid ja projektsioonid
 
-Maakera on kolmemõõtmeline ja füüsiliselt ebakorrapärane. <!-- Tegelikult annab kõige parema ettekujutuse maakera kujust geoid ehk maa gravitatsioonivälja pind. Kuna maakera mass ei ole kõigis punktides ühesugune ja gravitatsiooni suund muutub, on geoidi kuju korrapäratu. --> Kaardil on üldjuhul aga ainult kaks mõõdet. Kuidas siis kolmemõõtmelist ning ebakorrapärast kujundit kujutada kahemõõtmelise ja korrapärase meediumi kaudu ning kuidas paigutada reaalse maailma objekte ja alasid nii, et saaksime kaardi põhjal öelda, kus need maakeral asuvad? <!-- tuleb mingeid alasid venitada ja mingeid kokku suruda --> 
+Ruumiandmed on alati seotud mingi kohaga. Maakera on kolmemõõtmeline ja põhimõtteliselt võiksime üsna hästi kujutada kõiki objekte alati gloobusel, ent see ei ole sageli kuigi praktiline. Kaardil, mis on praktilisem visualiseerimise vahend, on üldjuhul aga ainult kaks mõõdet. Kuidas siis kolmemõõtmelist ning ebakorrapärast kujundit kujutada kahemõõtmelise ja korrapärase meediumi kaudu ning kuidas paigutada reaalse maailma objekte ja alasid nii, et saaksime kaardi põhjal öelda, kus need maakeral asuvad? <!-- tuleb mingeid alasid venitada ja mingeid kokku suruda --> 
 
 <!-- joonis maakera vs kaart -->
 
-Esmalt tuleb objektid ja nähtused siduda mingite koordinaatidega. **Koordinaadid** on arvud, mis määravad punkti asendi tasandil, pinnal <!-- mis vahe neil on? --> või ruumis** ning **koordinaatsüsteem** vastavalt teatud reeglitel põhinev raamistik, mida nende arvude määramiseks kahe- või kolmemõõtmelises ruumis kasutatakse. Ühtse koordinaatsüsteemi abil on võimalik siduda ja koos esitada erinevaid andmeid, ent kui tahame määrata koordinaate maapinnal, siis koordinaatsüsteemist üksi ei piisa. Vaja on siduda see ka Maa kui füüsilise keha ja selle kujuga.
+Esmalt tuleb objektid ja nähtused siduda mingite koordinaatidega. **Koordinaadid** on arvud, mis määravad punkti asendi tasandil<!-- mis vahe neil on? --> või ruumis** ning **koordinaatsüsteem** vastavalt teatud reeglitel põhinev raamistik, mida nende arvude määramiseks kahe- või kolmemõõtmelises ruumis kasutatakse. Ühtse koordinaatsüsteemi abil on võimalik siduda ja koos esitada erinevaid andmeid, ent kui tahame määrata koordinaate maapinnal, siis koordinaatsüsteemist üksi ei piisa. Vaja on siduda see ka Maa kui füüsilise keha ja selle kujuga.
 
-Maa üldist kuju kirjeldab geodeetiline referentssüsteem ehk **daatum**, mis esitab Maa lähtepinna matemaatilise mudeli üldiselt kui pöördellipsoidi. Erinevate ellipsoidide mõõtmed võivad pisut erineda (nt nende pooltelgede pikkused või ellipsoidi lapikus), sest Maa tegelik kuju (geoid) on ellipsoidist märksa keerulisem. Nõnda sobivad mõned **lokaalsed** daatumid väikese maa-alaga paremini, sest järgivad selles konkreetses kohas paremini Maa tegelikku kuju, ent ei ole kasutatavad teistes kohtades. Eestis kasutatakse tänapäeval **globaalset** geotsentrilist ellipsoidi GRS80, mis on praktiliselt identne palju laialdasemalt kasutusel oleva WGS84 ellipsoidiga. <!-- Ellipsoidi matemaatiline mudel sobib hästi  -->
+Maa üldist kuju kirjeldab geodeetiline referentssüsteem ehk **daatum**, mis esitab Maa matemaatilise mudeli nii, et see vastaks võimalikult hästi Maa tegelikule kujule, sageli kui pöördellipsoidi või sferoidi. Erinevate ellipsoidide mõõtmed võivad pisut erineda (nt nende pooltelgede pikkused või ellipsoidi lapikus), sest Maa tegelik füüsiline kuju (geoid) on ellipsoidist märksa keerulisem. Nõnda sobivad mõned **lokaalsed** daatumid, mis ei ole tingimata seotud Maa keskpunktiga, väikesele maa-alale paremini, sest järgivad selles konkreetses kohas paremini Maa tegelikku kuju, ent ei ole jällegi hästi kasutatavad teistes kohtades. 
+Eestis kasutatakse tänapäeval **globaalset** geotsentrilist ellipsoidi **GRS80**, mis on praktiliselt identne palju laialdasemalt kasutusel oleva globaalse **WGS84** ellipsoidiga. 
+<!-- geoid on Maa "gravitatsioonivälja pind", mis on umbes sama, mis keskmine meretase. vertikaalsete daatumite jaoks kasutatakse sama ellipsoidi või ka nt geoidi-->
+<!-- daatumiga määratakse meridiaanide ja paralleelide alguspunkti asukoht ja orientatsioon-->
 
-
-```{r, echo = F, fig.align="centre", fig.show="hold", fig.cap="Ellipsi lapikus"}
-library(ggplot2)
-library(ggforce)
-
-ggplot() +
-    geom_ellipse(aes(x0 = 0, y0 = 0, a = 4, b = 4, angle = 0), color = "tomato1") +
-    geom_ellipse(aes(x0 = 0, y0 = 0, a = 4, b = 3, angle = 0), color = "seagreen3") +
-    geom_ellipse(aes(x0 = 0, y0 = 0, a = 4, b = 2, angle = 0), color = "steelblue3") +
-    geom_ellipse(aes(x0 = 0, y0 = 0, a = 4, b = 1, angle = 0), color = "orange3") +
-    geom_segment(aes(x = -4, xend = 4, y = 0, yend = 0), linetype = "dashed", col = "grey50") +
-    geom_segment(aes(x = 0, xend = 0, y = -4, yend = 4), linetype = "dashed", col = "grey50") +
-    geom_segment(aes(x = 0, xend = 4, y = 0, yend = 0), linetype = "solid", col = "grey25") +
-    geom_segment(aes(x = 0, xend = 0, y = 0, yend = 1), linetype = "solid", col = "grey25") +
-    geom_text(aes(x = 0, y = 4, label = "0"), color = "tomato1", hjust = -0.1, vjust = -0.1) +
-    geom_text(aes(x = 0, y = 3, label = "0.25"), color = "seagreen3", hjust = -0.1, vjust = -0.1) +
-    geom_text(aes(x = 0, y = 2, label = "0.5"), color = "steelblue3", hjust = -0.1, vjust = -0.1) +
-    geom_text(aes(x = 0, y = 1, label = "0.75"), color = "orange3", hjust = -0.1, vjust = -0.1) +
-    geom_text(aes(x = 2, y = 0, label = "a"), color = "grey25", vjust = -0.2) +
-    geom_text(aes(x = 0, y = 0.5, label = "b"), color = "grey25", hjust = -0.2) +
-    coord_fixed() +
-    labs(x = "", y = "") +
-    theme_bw()
+```{r geoid-ellipsoid, echo = F, fig.align = "center", fig.show = "hold", fig.cap="Geoid, ellipsoid ja maapind (allikas: [Maa-amet](https://geoportaal.maaamet.ee/est/Ruumiandmed/Geodeetilised-andmed/Geodeetilised-vorgud/Geoid-p287.html))"}
+knitr::include_graphics(here::here("imgs", "geoid_ellipsoid_maapind.PNG"))
 ```
 
-
-Daatumist ja sobilikust koordinaatsüsteemist moodustub kokku **koordinaatide referentssüsteem** (*Coordinate Reference System* ehk CRS). Koordinaatide referentssüsteemi abil saame määrata objektide asukohti Maa pinnal.
-
-<!-- Koordinaatide referentssüsteem = koordinaatsüsteem + daatum -->
+<!-- pilt lokaalsetest ellipsoididest-->
 
 
-Selleks aga, et nüüd geograafilises ruumis paiknevaid objekte kujutada tasapinnalisel mudelil ehk kaardil, peame valima kaardi **projektsiooni**, mis määrab viisi, kuidas ruumilised koordinaadid konverteeritakse ümber **tasapinnalisteks koordinaatideks**. Sisuliselt määrab projektsioon ära selle, milliseid alasid maakeral me oleme nõus oma kaardil rohkem moonutama ja milliseid vähem ning mispidi me mingeid alasid kaardil venitame või kokku surume. 
+Daatumi ja sobiliku koordinaatsüsteemi abil saamegi määrata objektide asukohti Maa pinnal: teame, millise kujuga ja mõõtmetega kujutame Maad ette, ning teame ka, millistes ühikutes ja millisest nullpunktist lugedes me sellel kujul objektide asukohti määravaid koordinaate arvestame. **Geograafilised koordinaadid** on alati seotud mingi daatumiga ning aitavad meil määrata objekti asukoha, kasutades pikkus- ja laiuskraade. Pikkuskraade loetakse kahele poole Greenwichi observatooriumi meridiaani (idapikkus ja läänepikkus), laiuskraade kahele poole ekvaatorit (lõunalaius ja põhjalaius). Asukohta esitatakse kraadides (°), minutites (') ja sekundites (") või kraadides kümnendsüsteemis. <!-- radiaanid? -->
 
-Kaartidel kasutatakse enamasti **geograafilisi koordinaate**, mis aitavad meil määrata objekti asukoha, kasutades pikkus- ja laiuskraade. Pikkuskraade loetakse kahele poole Greenwichi observatooriumi meridiaani (idapikkus ja läänepikkus), laiuskraade kahele poole ekvaatorit (lõunalaius ja põhjalaius). Asukohta esitatakse kraadides (°), minutites (') ja sekundites (") või kraadides kümnendsüsteemis. <!-- radiaanid? -->
-
-<!-- erinevad viisid (nt GIS loeng) --> 
+<!-- kui võtame koordinaatsüsteemi aluseks ellipsoidi, siis mida lähemale liigume poolustele, seda  lühemaks jääb ühe laiuskraadi pikkus kilomeetrites-->
 
 **Mõtteharjutus**: 
 > Kui iga kraad on jagatud 60 minutiks ja iga minut 60 sekundiks, siis kuidas kujutada kümnendsüsteemis koordinaate 58°22'48"N, 26°43'20"E?
 
-Kasutusel on aga ka tasapinnalised **ristkoordinaadid**, mida väljendatakse X' ja Y' abil. Näiteks Eestis üldiselt kasutatavas [koordinaatide referentssüsteemis](http://epsg.io/3301) esitatakse koordinaate just ristkoordinaatide kaudu.
+<!-- joonis: erinevad daatumid, erinevad koordinaadid, võivad anda paarisajameetriseid erinevusi. Üldiselt humanitaarteadustes vähem oluline, kui kujutatakse niigi ebatäpseid andmeid. -->
+
+Kõige levinum rahvusvaheline geograafiliste koordinaatide süsteem on WGS84 (EPSG:4326), Eestis kasutatakse 1997. aasta Eesti [koordinaatsüsteemi](http://epsg.io/3301).
+
+Selleks aga, et nüüd geograafilises ruumis paiknevaid objekte kujutada tasapinnalisel mudelil ehk kaardil, peame valima kaardi **projektsiooni**, mis määrab viisi, kuidas sfääriline pink tasapinnal esitatakse ning kuidas ruumilised koordinaadid (GCS) konverteeritakse ümber **tasapinnalisteks koordinaatideks** (PCS ehk *projected coordinate system*). Sisuliselt määrab projektsioon ära ka selle, milliseid alasid maakeral me oleme nõus oma kaardil rohkem moonutama ja milliseid vähem ning mispidi me mingeid alasid kaardil venitame või kokku surume. Kui tahame kujutada ümmargust Maad kahemõõtmelisel tasapinnal, siis paratamatult peame mingit osa maakerast moonutama. Ühe või teise projektsiooni valimisel moonutame rohkem kas pindalasid, nurkasid, kujusid või joonpikkuseid.  
+
+Kaardil on koordinaatidena kasutusel tasapinnalised **ristkoordinaadid**, mida väljendatakse x-i ja y abil. Erinevalt geograafilistest koordinaatidest on x- ja y-telje ühikud tervel kaardil ühesugused. Seega aitab kaardiprojektsioon siduda tasapinnalised koordinaadid reaalsete geograafiliste koordinaatidega.
+
+<!-- joonis asimuut-, silinder-, koonusprojektsioonidest-->
+<!-- Robinsonil minimaalse veaga: üldiseks kartograafiaks -->
+<!-- equidistant cylindrical map projection, kasulik nt atlastesse, üldiseks kaardistamiseks-->
+<!-- Conformal projection Mercator väikese mõõtkavaga kaartide jaoks-->
+<!-- equal area map projections, kasulik kvantitatiivsetele teemakaartidele nt kloropleetkaartidele, kui mingit atribuuti normaliseeritakse piirkonna põhjal-->
+
+Erinevatest projektsioonidest räägime kursuse jooksul lähemalt veel.  
 
 Kaardi **mõõtkava** näitab, kui palju reaalset objekti on vähendatud. Tavaliselt väljendatakse mõõtkava murdosa või suhtena, mis seob kaardil esitatud mingi pikkusega joonlõigu sama joonlõiguga maapinnal. Näiteks mõõtkava 1:20000 või 1/20000 näitab, et 1 ühik kaardil vastab 20000 samale ühikule reaalses maailmas. Kui ühik on cm, siis esitab 1 cm kaardil 20000 cm ehk 200 m maapinnal. <!-- Kas see on suur või väike mõõtkava? -->Digitaalsetel kaartidel esitatakse mõõtkava sageli dünaamiliselt, mis tähendab, et mõõtkava saab sisse või välja suumides muuta. Samuti on tüüpiline mõõtkava esitamine mitte arvmõõtkavana, vaid visuaalselt: mingile ekraanil määratletud joonlõigule vastab tegelikkuses kindel vahemaa maapinnal, ent me ei pruugi täpselt näha, kui pika joonlõiguga on ekraanil tegemist.   
 
@@ -137,28 +127,11 @@ leaflet(options = leafletOptions(crs = epsg3006)) %>%
 
 
 
-
-Koordinaatsüsteemi osana tuleb täpsustada mõõtühikud, kaardiprojektsioon ning muud mõõtesüsteemi omadused (ellipsoid, referentssüsteem, projektsiooniparameetrid).
-
-
-
 ```{r mathigontweet, echo = FALSE, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Kaardi komponendid [twitter.com/MathigonOrg](https://twitter.com/MathigonOrg/status/1308407528057901065)"}
 knitr::include_graphics(here::here("imgs", "mathigontweet.PNG"))
 ```
 
 
-
-
-
-
-
-
-
-Referentspinnad, referentssüsteem
-Geograafiliste koordinaatide süsteem
-Tasapinnaliste ristkoordinaatide süsteem
-Kaardiprojektsioonid
-Eestis kasutatavad koordinaatsüsteemid
 
 
 ## Veebipõhised kaardirakendused
