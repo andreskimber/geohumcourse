@@ -6,7 +6,6 @@ Enne, kui hakkame rääkima sellest, kuidas juba olemasolevate veebirakendustega
 ## Kaart
 
 Kaart on kitsas tähenduses geograafilise informatsiooni visuaalne esitusviis. GISis on kaardid nii sisendiks kui ka väljundiks. Laiemas tähenduses võime kaardiks pidada mis tahes esitust maailmast. 
-<!-- esitame geograafilist informatsiooni mingite objektide asukoha ja objektidevaheliste suhete kohta -->
 
 
 ```{r map-types, echo = F, fig.align="center", out.width = "100%", out.height = "100%", fig.cap = "[Erinevaid kaarte](https://geology.com/maps/types-of-maps/)"}
@@ -146,6 +145,9 @@ Saame lisada ka erinevaid andmekihte, näiteks Maa-ameti Geoportaalist alla laet
 
 NB! Suuri faile ei saa lisada: 5Mb piir, mis sisuliselt jätab väga suure osa võimalikest ruumiandmetest välja.
 
+```{r mymaps, echo = FALSE, fig.show='hold', fig.align='center', out.width= "50%", out.height = "100%", fig.cap= "Kaardi tegemine Google My Mapsis"}
+knitr::include_graphics(c("imgs/okt01_gif/gmaps1.gif", "imgs/okt01_gif/gmaps2.gif", "imgs/okt01_gif/gmaps3.gif", "imgs/okt01_gif/gmaps4.gif"))
+```
 
 
 ### Ülesanne 
@@ -177,6 +179,6 @@ Kui sul õnnestub teha mingite andmetega ka kaart, mida eksportida või jagada, 
 
 ## Järgmisel korral
 
-Esmaspäeval mõtiskleme veidi laiemalt kaartide mõiste üle ning uurime, kuidas saab kaardi abil lugusid jutustada (Story Maps).
+Esmaspäeval mõtiskleme veidi laiemalt kaartide mõiste üle ning uurime, kuidas saab kaardi abil lugusid jutustada (*Story Maps*).
 
 
