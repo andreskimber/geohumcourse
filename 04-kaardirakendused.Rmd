@@ -1,20 +1,29 @@
 # Kaardirakendused {#kaardirakendused}
 
-Enne, kui hakkame rääkima sellest, kuidas juba olemasolevate vabaravaliste ressurssidega kaarte koostada, peame rääkima veidi sellest, **mis kaart on** ning millised on selle omadused.  
+Enne, kui hakkame rääkima sellest, kuidas juba olemasolevate veebirakendustega kaarte koostada, peame lühidalt ja sissejuhatavalt rääkima veidi sellest, **mis kaart on**.  
 
 
 ## Kaart
 
-Kaart on geograafilise informatsiooni visuaalne esitusviis.
-
-Kaart on mingi ala ulatuses olevate nähtuste ruumiliste seoste graafiline esitus (GIS_loeng.pdf).
-
+Kaart on kitsas tähenduses geograafilise informatsiooni visuaalne esitusviis. GISis on kaardid nii sisendiks kui ka väljundiks. Laiemas tähenduses võime kaardiks pidada mis tahes esitust maailmast. 
 <!-- esitame geograafilist informatsiooni mingite objektide asukoha ja objektidevaheliste suhete kohta -->
 
+
+```{r map-types, echo = F, fig.align="center", out.width = "100%", out.height = "100%", fig.cap = "[Erinevaid kaarte](https://geology.com/maps/types-of-maps/)"}
+knitr::include_graphics(here::here("imgs", "types-of-maps.jpg"))
+```
+
+```{r paris metro, echo = F, fig.align="center", out.width = "100%", out.height = "100%", fig.cap = "[Pariisi metrookaart](http://www.urbanrail.net/eu/fr/paris/paris.htm/)"}
+knitr::include_graphics(here::here("imgs", "paris-metro.png"))
+```
+
+```{r noored, echo = F, fig.align="center", out.width = "100%", out.height = "100%", fig.cap = "[Tartu kaart](https://tntk.tartu.ee/tartu-noorsootoo-keskus/reveal-youropean-cultural-heritage-enrich/tartu-kaart/)"}
+knitr::include_graphics(here::here("imgs", "tartu_kaart_noored.PNG"))
+```
+
+
 Kaarti tehes peame alati esmalt läbi mõtlema, mis on kaardi tegemise eesmärk ning kes on kaardi lõppkasutaja. Seejärel tuleb mõelda, mida ja mis kujul reaalsest maailmast esitame ning kui täpne peab esitus olema. Lõpuks tuleb mõelda ka tehnilistele aspektidele: mis formaadis andmed meil on kasutada, mis formaadis need andmed peavad olema kaardi tegemiseks ning mis formaadis tuleb kaart ise. 
-
 <!-- kasutusotstarbe alusel: teatmekaardid, õppekaardid, kontuurkaardid, välitöökaardid, planeerimiskaardid -->
-
 <!-- sisu alusel erinevaid kaarte: üldgeograafilised kaardid (füüsiline maailm, inimasustus; infrastruktuur, topograafilised kaardid, ortofotokaardid); temaatilised kaardid (näitavad vastava temaatikaga seotud ja selle kontekstis olulise sisuga nähtusi: rahvastikukaardid, statistilised kaardid, ajalooteemalised kaardid, erikaardid, turismikaardid)-->
 
 GISis võime infot esitada kaardikihtidena, kusjuures ühel kihil esitatakse nähtusi, mis omavad **ühesugust ruumiobjekti tüüpi**. See tähendab, et samal kihil ei tohiks esitada näiteks jõgesid (tüüpiliselt avatud jooned) ja ehitisi (tüüpiliselt suletud jooned ehk polügoonid). Küll aga võime soovi korral esitada samal kihil näiteks kive, restorane ja kogumispunkte, mis küll olemuslikult on erinevast klassist, aga geomeetriliselt esitavad sama tüüpi ruumiobjekti (punkti). Üldiselt on tavaks esitada ühel kaardikihil siiski ka temaatiliselt sarnaseid objekte.
@@ -25,6 +34,7 @@ GISis võime infot esitada kaardikihtidena, kusjuures ühel kihil esitatakse nä
 knitr::include_graphics(here::here("imgs", "digitaal_paberkaart.PNG"))
 ```
 
+Kaartidel antakse kirjeldavat informatsiooni edasi eristuvate ja loetavate leppemärkide, värvitoonide ja kaardikirjade abil. 
 
 
 ```{r kaardi-komponendid, echo = FALSE, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Kaardi komponendid [@Suurna&Sisas2010 : 33]"}
@@ -34,19 +44,13 @@ knitr::include_graphics(here::here("imgs", "kaardi_komponendid.PNG"))
 <!-- Kaartide kujunduslikke komponente vaatame lähemalt siis, kui neid ise QGISis tegema hakkame, aga üldiselt peaks leppemärkida valikul eelistama lihtsaid ja nähtusega kergesti seostatavaid sümboleid; värvivalikul kasutada harjumuspäraseid seoseid; tekstide paigutamisel arvestada, et need oleksid loetavad ja kujutavate nähtustega lihtsalt seostatavad; kaardilehe osad ei tohiks olla ülearu koormatud (ega teised osad samal ajal liiga tühjad); tuleb eristada olulist ebaolulisest. -->
 
 
-Erinevad kaardid kui "aknad geograafilisse andmebaasi", toetavad päringuid, analüüse ja geograafilise informatsiooni toimetamist. Kaarte saab kasutada modelleerimise kaudu ka uue informatsiooni tuletamiseks.
-
-Kaartidel antakse kirjeldavat informatsiooni edasi eristuvate ja loetavate leppemärkide, värvitoonide ja kaardikirjade abil. Nende abil võib väljendada nii mingit kokkuleppelist omadust kui ka mingit konkreetset andmete atribuuti (nt pindala, elanike arv, mingi nähtuste klass). <!-- kiirteed, põhimaanteed, katteta teed-->
-
 
 
 ### Koordinaatsüsteemid ja projektsioonid
 
 Ruumiandmed on alati seotud mingi kohaga. Maakera on kolmemõõtmeline ja põhimõtteliselt võiksime üsna hästi kujutada kõiki objekte alati gloobusel, ent see ei ole sageli kuigi praktiline. Kaardil, mis on praktilisem visualiseerimise vahend, on üldjuhul aga ainult kaks mõõdet. Kuidas siis kolmemõõtmelist ning ebakorrapärast kujundit kujutada kahemõõtmelise ja korrapärase meediumi kaudu ning kuidas paigutada reaalse maailma objekte ja alasid nii, et saaksime kaardi põhjal öelda, kus need maakeral asuvad? <!-- tuleb mingeid alasid venitada ja mingeid kokku suruda --> 
 
-<!-- joonis maakera vs kaart -->
-
-Esmalt tuleb objektid ja nähtused siduda mingite koordinaatidega. **Koordinaadid** on arvud, mis määravad punkti asendi tasandil<!-- mis vahe neil on? --> või ruumis** ning **koordinaatsüsteem** vastavalt teatud reeglitel põhinev raamistik, mida nende arvude määramiseks kahe- või kolmemõõtmelises ruumis kasutatakse. Ühtse koordinaatsüsteemi abil on võimalik siduda ja koos esitada erinevaid andmeid, ent kui tahame määrata koordinaate maapinnal, siis koordinaatsüsteemist üksi ei piisa. Vaja on siduda see ka Maa kui füüsilise keha ja selle kujuga.
+Esmalt tuleb objektid ja nähtused siduda mingite koordinaatidega. **Koordinaadid** on arvud, mis määravad punkti asendi tasandil või ruumis ning **koordinaatsüsteem** vastavalt teatud reeglitel põhinev raamistik, mida nende arvude määramiseks kahe- või kolmemõõtmelises ruumis kasutatakse. Ühtse koordinaatsüsteemi abil on võimalik siduda ja koos esitada erinevaid andmeid, ent kui tahame määrata koordinaate maapinnal, siis koordinaatsüsteemist üksi ei piisa. Vaja on siduda see ka Maa kui füüsilise keha ja selle kujuga.
 
 Maa üldist kuju kirjeldab geodeetiline referentssüsteem ehk **daatum**, mis esitab Maa matemaatilise mudeli nii, et see vastaks võimalikult hästi Maa tegelikule kujule, sageli kui pöördellipsoidi või sferoidi. Erinevate ellipsoidide mõõtmed võivad pisut erineda (nt nende pooltelgede pikkused või ellipsoidi lapikus), sest Maa tegelik füüsiline kuju (geoid) on ellipsoidist märksa keerulisem. Nõnda sobivad mõned **lokaalsed** daatumid, mis ei ole tingimata seotud Maa keskpunktiga, väikesele maa-alale paremini, sest järgivad selles konkreetses kohas paremini Maa tegelikku kuju, ent ei ole jällegi hästi kasutatavad teistes kohtades. 
 Eestis kasutatakse tänapäeval **globaalset** geotsentrilist ellipsoidi **GRS80**, mis on praktiliselt identne palju laialdasemalt kasutusel oleva globaalse **WGS84** ellipsoidiga. 
@@ -57,23 +61,32 @@ Eestis kasutatakse tänapäeval **globaalset** geotsentrilist ellipsoidi **GRS80
 knitr::include_graphics(here::here("imgs", "geoid_ellipsoid_maapind.PNG"))
 ```
 
-<!-- pilt lokaalsetest ellipsoididest-->
 
 
-Daatumi ja sobiliku koordinaatsüsteemi abil saamegi määrata objektide asukohti Maa pinnal: teame, millise kujuga ja mõõtmetega kujutame Maad ette, ning teame ka, millistes ühikutes ja millisest nullpunktist lugedes me sellel kujul objektide asukohti määravaid koordinaate arvestame. **Geograafilised koordinaadid** on alati seotud mingi daatumiga ning aitavad meil määrata objekti asukoha, kasutades pikkus- ja laiuskraade. Pikkuskraade loetakse kahele poole Greenwichi observatooriumi meridiaani (idapikkus ja läänepikkus), laiuskraade kahele poole ekvaatorit (lõunalaius ja põhjalaius). Asukohta esitatakse kraadides (°), minutites (') ja sekundites (") või kraadides kümnendsüsteemis. <!-- radiaanid? -->
+Daatumi ja sobiliku koordinaatsüsteemi abil saamegi määrata objektide asukohti Maa pinnal: teame, millise kujuga ja mõõtmetega kujutame Maad ette, ning teame ka, millistes ühikutes ja millisest nullpunktist lugedes me sellel kujul objektide asukohti määravaid koordinaate arvestame. **Geograafilised koordinaadid** on alati seotud mingi daatumiga ning aitavad meil määrata objekti asukoha, kasutades pikkus- ja laiuskraade. Pikkuskraade loetakse kahele poole Greenwichi observatooriumi meridiaani (idapikkus ja läänepikkus), laiuskraade kahele poole ekvaatorit (lõunalaius ja põhjalaius). Asukohta esitatakse kraadides (°), minutites (') ja sekundites (") või kraadides kümnendsüsteemis. 
 
 <!-- kui võtame koordinaatsüsteemi aluseks ellipsoidi, siis mida lähemale liigume poolustele, seda  lühemaks jääb ühe laiuskraadi pikkus kilomeetrites-->
 
-**Mõtteharjutus**: 
+**Mõtteharjutus**:   
+
 > Kui iga kraad on jagatud 60 minutiks ja iga minut 60 sekundiks, siis kuidas kujutada kümnendsüsteemis koordinaate 58°22'48"N, 26°43'20"E?
 
 <!-- joonis: erinevad daatumid, erinevad koordinaadid, võivad anda paarisajameetriseid erinevusi. Üldiselt humanitaarteadustes vähem oluline, kui kujutatakse niigi ebatäpseid andmeid. -->
 
-Kõige levinum rahvusvaheline geograafiliste koordinaatide süsteem on WGS84 (EPSG:4326), Eestis kasutatakse 1997. aasta Eesti [koordinaatsüsteemi](http://epsg.io/3301).
+Kõige levinum rahvusvaheline geograafiliste koordinaatide süsteem on WGS84.
 
 Selleks aga, et nüüd geograafilises ruumis paiknevaid objekte kujutada tasapinnalisel mudelil ehk kaardil, peame valima kaardi **projektsiooni**, mis määrab viisi, kuidas sfääriline pink tasapinnal esitatakse ning kuidas ruumilised koordinaadid (GCS) konverteeritakse ümber **tasapinnalisteks koordinaatideks** (PCS ehk *projected coordinate system*). Sisuliselt määrab projektsioon ära ka selle, milliseid alasid maakeral me oleme nõus oma kaardil rohkem moonutama ja milliseid vähem ning mispidi me mingeid alasid kaardil venitame või kokku surume. Kui tahame kujutada ümmargust Maad kahemõõtmelisel tasapinnal, siis paratamatult peame mingit osa maakerast moonutama. Ühe või teise projektsiooni valimisel moonutame rohkem kas pindalasid, nurkasid, kujusid või joonpikkuseid.  
 
-Kaardil on koordinaatidena kasutusel tasapinnalised **ristkoordinaadid**, mida väljendatakse x-i ja y abil. Erinevalt geograafilistest koordinaatidest on x- ja y-telje ühikud tervel kaardil ühesugused. Seega aitab kaardiprojektsioon siduda tasapinnalised koordinaadid reaalsete geograafiliste koordinaatidega.
+```{r projections, echo = FALSE, fig.show = "hold", fig.align = "center", out.width = "100%", fig.cap = "[Erinevad projektsioonid](https://i.redd.it/8ssm7hfbeko21.png)"}
+knitr::include_graphics(here::here("imgs", "projections.png"))
+```
+
+
+```{r mathigontweet, echo = FALSE, fig.show='hold', fig.align='center', out.width= "70%", out.height = "70%", fig.cap= "Projektsioonide vahetamine [twitter.com/MathigonOrg](https://twitter.com/MathigonOrg/status/1308407528057901065)"}
+knitr::include_graphics(here::here("imgs", "mathigontweet.PNG"))
+```
+
+Kaardil on koordinaatidena kasutusel tasapinnalised **ristkoordinaadid**, mida väljendatakse x-i ja y abil, mille projektsioon aitab siduda reaalsete geograafiliste koordinaatidega.
 
 <!-- joonis asimuut-, silinder-, koonusprojektsioonidest-->
 <!-- Robinsonil minimaalse veaga: üldiseks kartograafiaks -->
@@ -85,19 +98,13 @@ Erinevatest projektsioonidest räägime kursuse jooksul lähemalt veel.
 
 Kaardi **mõõtkava** näitab, kui palju reaalset objekti on vähendatud. Tavaliselt väljendatakse mõõtkava murdosa või suhtena, mis seob kaardil esitatud mingi pikkusega joonlõigu sama joonlõiguga maapinnal. Näiteks mõõtkava 1:20000 või 1/20000 näitab, et 1 ühik kaardil vastab 20000 samale ühikule reaalses maailmas. Kui ühik on cm, siis esitab 1 cm kaardil 20000 cm ehk 200 m maapinnal. <!-- Kas see on suur või väike mõõtkava? -->Digitaalsetel kaartidel esitatakse mõõtkava sageli dünaamiliselt, mis tähendab, et mõõtkava saab sisse või välja suumides muuta. Samuti on tüüpiline mõõtkava esitamine mitte arvmõõtkavana, vaid visuaalselt: mingile ekraanil määratletud joonlõigule vastab tegelikkuses kindel vahemaa maapinnal, ent me ei pruugi täpselt näha, kui pika joonlõiguga on ekraanil tegemist.   
 
-<!-- mingi kaart. Kui mitu korda on reaalset objekti vähendatud? -->
-<!-- mingi objekt. Millise mõõtkava peame valima, kui tahame vähendada objekti x korda? -->
-<!-- kas oskate pakkuda mingit mõõtkava eelmisel korral joonistatud kaardile? ette antud piirkonna tegelikud mõõtmed -->
-
 Kui liigume suurelt mõõtkavalt väiksemale, peame andmeid loetavuse huvides üldistama ning valima, mida ja mis detailsusastmega esitada. Üldistada võib lihtsustades, siludes, ühendades jne.
-
-<!-- erineva detailsusastmega kaardid -->
 
 ```{r leafletmap1, echo = FALSE, out.width="45%", out.height="45%"}
 library(leaflet)
 library(leafem)
 
-leaflet(options = leafletOptions(crs = leafletCRS(code = "ESRI:4326"))) %>% 
+leaflet() %>% 
     addTiles() %>% 
     addMarkers(lng=26.722234, lat=58.380094) %>% 
     addScaleBar(options = scaleBarOptions(maxWidth = 50, imperial = FALSE)) %>% 
@@ -108,85 +115,16 @@ leaflet(options = leafletOptions(crs = leafletCRS(code = "ESRI:4326"))) %>%
 
 
 
-```{r mathigontweet, echo = FALSE, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Kaardi komponendid [twitter.com/MathigonOrg](https://twitter.com/MathigonOrg/status/1308407528057901065)"}
-knitr::include_graphics(here::here("imgs", "mathigontweet.PNG"))
-```
-
-
-
-
 ## Veebipõhised kaardirakendused
 
-Veebis on palju rakendusi, mis võimaldavad ühel või teisel moel teha ruumiandmete päringuid ja lihtsamaid analüüse (nt leia lühim/kiireim teekond punktist A punkti B), ilma et peaksid ise kaartide koostamise ja kujundamisega liiga palju vaeva nägema.
+Alati ei pea kaardi tegemiseks õppima põhjalikult tundma geoinfosüsteemide hingeelu ning kasutama mingit GIS-tarkvara. Veebis on valmis kaardirakendusi, mis võimaldavad teha ruumiandmete päringuid ja lihtsamaid analüüse (nt leia lühim/kiireim teekond punktist A punkti B), ilma et peaksid ise kaartide koostamise ja kujundamisega liiga palju vaeva nägema. Lisaks pakuvad mõned platvormid lisaks platvormi kaudu leitava info kasutamisele võimalust integreerida nendega ka enda andmeid ning kas või luua uusi ruumiandmeid. Lisaks sellele, et on võimalik enda andmeid n-ö olemasolevas süsteemis kuvada, pakuvad mõned platvormid võimalust ka ise aluskaardi tegemisel kaasa lüüa. Sellised on näiteks OpenStreetMap, WikiMapia<!-- näita Piro Kunni videot--> ja Here WeGo, mis töötavad sarnaselt Vikipeediale: kasutajad saavad kaardi informatiivsust ja kvaliteeti ise parandada, lisades kaardile hooneid, teid jm objekte ning täiendades või parandades olemasolevate objektide infot. <!-- Ka Google pakkus sarnast võimalust oma Google Map Makeri platvormil, aga see teenus lõpetati 2017 ära-->
 
-Ilmselt kõige tuntum selline rakendus on Google Maps, ent rakendusi on tegelikult veel, nt Bing Maps, Here WeGo, Mapbox, MapQuest, Pinmaps, Scribble Maps, ZeeMaps, Harvard World Map, Apple Maps, TomTom, 
+Selles praktikumis vaatleme eelkõige veebirakendusi, mis võimaldavad teha lihtsamaid kaarte, mida võib siis esitada kas veebis või trükitult. Spetsiifiliselt veebilehtedel esitatavate kaartide tegemise võimalusi vaatame kursusel pisut hiljem.
 
-Lisaks pakuvad mõned platvormid lisaks platvormi kaudu leitava info kasutamisele võimalust integreerida nendega ka enda andmeid ning kas või luua uusi ruumiandmeid.
+Ilmselt kõige tuntum ja laialdasemalt kasutatav kaardirakendus on Google Maps, mille pakutavate teenuste hulka kuuluvad näiteks teekondade planeerimine (erinevate liiklusvahenditega), navigeerimissüsteem, liiklusinfo kuvamine, tänavate panoraamvaated, teatud kohtades ka veealused panoraamvaated ja siseruumide vaated, 45-kraadised aerofotod jm. Google Maps pakub ka võimalust võrdlemisi lihtsalt kuvada sobival aluskaardil enda andmeid. Seda võimalust vaatamegi esmalt lähemalt.
 
-Vaatame sel korral kaht sellist suuremat platvormi: Google Maps ja OpenStreetMap.
+Vaatame sel korral koos esmalt just **[Google Mapsi](https://www.google.com/mymaps/)** võimalusi ja seejärel võrdlete neid iseseisvalt teiste analoogsete rakendustega. Need on väga üldised kaardirakendused, mida kasutatakse kõiksugu erinevate teemakaartide loomiseks. Humanitaarteadlastele võiks eraldi aga pakkuda huvi ka pigem nende jaoks tehtud platvormid, nagu näiteks [Palladio](http://hdlab.stanford.edu/palladio/).
 
-Veebikaardid võivad olla staatilised või dünaamilised, interaktiivsed või ainult vaadatavad, GISi analüüsivõimalustega, reaalajas muutuvad, animeeritud jne. Siin vaatleme veebipõhiseid kaardirakendusi, mis võimaldavad teha dünaamilisi, ent mitte interaktiivseid veebikaarte veebis. See tähendab, et olemasolevale **aluskaardile** (*basemap*) saab veebikeskkonnas lisada ruumiobjekte (nt punktide, joonte või polügoonidena). Sellisel teel sündinud kaardid on enamasti **temaatilised kaardid**, mis esitavad ...
-Teisi võimalikke veebikaartide tegemise võimalusi vaatame kursusel pisut hiljem.
-
-Koostööveebikaardid
-
-Google Map Maker (-Eesti)
-OpenStreetMap - vabavaralised geograafilised andmestikud ja kasutajaliides
-WikiMapia
-
-Here WeGo -> Here Map Creator (mõttetu, ka pigem kaartide parandamiseks jne)
-peab registreerima
-https://help.mapillary.com/hc/en-us/articles/360008392640-HERE-Map-Creator
-image overlay <- mapillary
-
-Bing Maps (-Eesti?)
-Google Maps
-Google My Maps
-HERE (keeruline?)
-Mapbox
-MapQuest (USA)
-Pinmaps.net
-Scribble Maps
-ZeeMaps (keeruline?)
-Sightsmap
-Harvard World Map
-Apple Maps
-Leaflet
-TomTom
-Tencent Maps
-Yandex Maps
-
-Google Map Labs
-
-
-Waze, Google, Navteq pakuvad kommertskaarte
-
-Staatilised veebikaardid
-
-https://en.wikipedia.org/wiki/Comparison_of_web_map_services
-
-Alustuseks võrdlus lihtsa, vabalt kättesaadava tänapäevase andmestikuga. Mitte väga palju atribuute. Vähemalt kaks erinevat kihti.
-
-Kas kaardil saab kasutada lihtsalt kohanime? Mis saab, kui on mitu samasuguse nimega kohta? Kui keeruline kuvada ajaloolisi andmeid, mille kohanimed ei ühti tänapäevastega?
-
-Millise projektsiooniga on tegemist? 
-Kas õnnestub Google Mapsis teada saada?
-
-Web mapping
-google map maker discontinued, Google Local Guides
-Mida teeksid, kui elaksid Palestiinas/Iisraelis, Ukrainas/Venemaal? Venelastele näidatakse, et Krimmi poolsaar on nende oma, Ukrainlastele, et Krimmi poolsaar on autonoomne piirkond.
-
-
-
-
-Aluskaart on staatiline, meie lisatud infokiht võib aga olla dünaamiline.
-
-Millist veebibrauserit on vaja?
-
-Veebirakendustes aluskaardid tavaliselt rasterpildid. Ühes serveris hoitakse paljusid eri mõõtkavaga kaardiosasid suuremõõtkavalisest kaardist ja vastavalt suumimise astmele vahetatakse siis seda pilti, mida sulle näidatakse
-
-
-Lisa shapefile'ist maakonnapiirid?
 
 ### Google My Maps
 
@@ -195,55 +133,50 @@ Google My Maps on hea ja kiire variant vähenõudlikule kasutajale, kel on vaja 
 Kõige olulisemaks miinuseks on mõistagi see, et kasutajal on väga vähe kontrolli selle üle, missugune tema kaart välja näeb ja kuidas GM tema ruumiandmetega käitub. Samuti ei ole võimalik veebirakenduses oma ruumiandmeid analüüsida rohkem, kui arvutada võrdlemisi robustselt vahemaid ja teekondi.  
 
 Veebirakendus nõuab, et sul oleks Google'i konto.
-Create a New Map
-võimaldab lisada punkte ja jooni, joontest võib teha polügooni
-valida 9 aluskaardi vahel
 
-kohad, mida mainitud laulusõnades
+Vaatame näitena üht väikest osa 19. sajandi teise poole Lõuna-Eesti vallakohtuprotokollidest, mille 2000. aastatel sisestas digitaalsel kujul Tõnis Türna (Rahvusarhiiv).  2016. aastal taastati algselt *http://www.history.ee/vallakohus* lehel olnud protokollid veebiarhiivide põhjal ning katsetati nende peal eesti keele automaatset morfoloogilist analüsaatorit. Morfoloogilise analüsaatori ülesandeks on tunda ära sõnavorm ning pakkuda sellele sõnaraamatukuju, sõnaliigi, vormiinfot jm.
 
-Võimalik printida, jagada. Saab alla laadida KML- või KMZ-failina, mis on algselt Google Earthi failid.
+```{r protokoll, echo = F, fig.align = "center", fig.show='hold', out.width= "100%", fig.cap= "Vallakohtuprotokolli näide xml-kujul [@Pilvik2019]"}
+knitr::include_graphics(here::here("imgs", "vallakohtuprotokoll.PNG"))
+```
 
+Automaatses analüüsis tundmatuteks jäänud sõnavormide osakaal on umbkaudseks indikaatoriks sellele, kui eripärane oli vastava protokolli keel tänapäeva keelest.
 
-#### Näide 1
+Saame lisada ka erinevaid andmekihte, näiteks Maa-ameti Geoportaalist alla laetavad maakonnapiirid (shp-formaadi oleme eelnevalt konverteerinud kml-failiks).
 
-Võib laadida üles ka oma andmestiku. See peab olema CSV, XSLX, KML või GPX formaadis.
-
-Ikooni saab vahetada
-Style data by column
-Lisa protokollide arv ja murrete, lõuna-põhja eristus
-Kui palju jäi tundmatuks?
-
-Lõppkaardi salvestamine
-Ei saa kontrollida, kui suurelt sümbolid jäävad
-Kas salvestada raster- või vektorgraafikas?
-
-Vähe kontrolli
-
-Kui meil on lisainfot, nt ruumifaile, saame need KML-failideks konvertida ning kuvada koos olemasoleva kihiga.
-Seda, kust ruumiandmeid saab, sellest räägime ühes teises praktikumis.
-
-Salvestame maa-ameti geoportaalist saadud shp-formaadis faili ümber kml-failiks (muudame ka projektsiooni).
-
-Suuri faile ei saa lisada: 5Mb piir, mis sisuliselt jätab väga suure osa võimalikest ruumiandmetest välja.
-
-#### Näide 2
-
-Taivo Pungas on kv.ee portaalist automaatselt kokku korjanud kinnisvarakuulutuste info. Oleme võtnud sealt välja korterite, majade jm eluruumide müügikuulutused, millel on olemas ka kuulutuse sisestamiskuupäev.
-
-<!-- tabeli näide -->
-
-Selle tabeli aadressid oleme omakorda massgeokodeerinud Maa-ameti 
-
-Taivo Pungase kv.ee lehelt korjatud andmestik.
-Saame need massgeokodeerida lehel https://inaadress.maaamet.ee/geocoder/bulk;jsessionid=14434E2CE555EE27776BF5D7E9E33BA843AEC673464973B2
+NB! Suuri faile ei saa lisada: 5Mb piir, mis sisuliselt jätab väga suure osa võimalikest ruumiandmetest välja.
 
 
-### OpenStreetMap
 
-OpenStreetMap on nagu kaartide Vikipeedia. See on avatud lähtekoodiga, mis tähendab, et see põhineb täielikult vabalt kättesaadavatel andmetel ning toetub kogukondlikule täiendus- ja parandustööle. 
-Mis vahe Humanitarian mapil? (liikumisteed ei ole nii olulised)
+### Ülesanne 
+
+Võrdle Google Mapsi teiste sarnaste platvormidega, nagu HERE WeGo ([HERE Map Creator](https://mapcreator.here.com)), [PinMaps](https://www.pinmaps.net/mymaps/), [Scribble Maps](https://www.scribblemaps.com/) või [ZeeMaps](https://www.zeemaps.com/). Võid julgelt kasutada ka Google'i abi (Vikipeedias näiteks on enamasti rakenduste funktsioonide loetelu ja ajoon üsna täpselt kirjeldatud). Abiks võib olla ka [see tabel](https://en.wikipedia.org/wiki/Comparison_of_web_map_services).    
 
 
-OpenStreetMapil tuleb samuti sisse logida (kui soovid oma muudatused kaardil salvestada)
-Edit with id
-Photo overlays
+Lisa [Padletisse](https://padlet.com/maarjaliisapilvik/n1tpoyussyalbsc6) testitud rakenduse kohta järgmist infot:
+
+1. Ligipääsetavus  
+  + kas rakenduse kasutamiseks peab registreerima?
+  + kas mingite funktsioonide kasutamiseks peab maksma?  
+  + kas kasutamises on regionaalseid eripärasid? (mingid funktsioonid näiteks Eestis ei tööta või kaardi detailsusaste on väiksem)    
+2. Kasutatavus
+  + kui intuitiivne on kasutajaliides?
+  + milliseid funktsioone rakendus pakub?  
+3. Seosed teiste andmebaaside ja rakendustega
+  + milliseid teisi platvorme ja andmebaase on rakendusse integreeritud?  
+4. Muu
+  + kui paljusid aluskaardi kihte on võimalik kuvada?  
+  + kas on võimalik lisada objekte?
+  + kas on võimalik importida andmetabeleid?
+  + millised piirangud andmetele on (nt formaat, failide maht jms)?
+  + millised on ekspordivõimalused?
+  + ...
+  
+Kui sul õnnestub teha mingite andmetega ka kaart, mida eksportida või jagada, siis võiksid panna ka selle oma sissekande juurde.  
+
+
+## Järgmisel korral
+
+Esmaspäeval mõtiskleme veidi laiemalt kaartide mõiste üle ning uurime, kuidas saab kaardi abil lugusid jutustada (Story Maps).
+
+
