@@ -6,6 +6,7 @@ site: bookdown::bookdown_site
 output:
   bookdown::gitbook:
     self_contained: false
+    split_bib: no
     # fig_caption: yes
 documentclass: book
 description: ""
@@ -206,4 +207,3 @@ Artiklite pdf-id leiad Moodle'ist.
 - Milliseid murekohti näed arvutuslike meetodite ja arvutipõhiste tehnoloogiate laiema leviku juures humanitaarteadustes?  
 - Kas humanitaarteadused on omavahel ühildatavad? Aga teiste valdkondadega? Milline on interdistsiplinaarsete uurimuste/projektide olevik, milline tulevik?
 
-## Kirjandus

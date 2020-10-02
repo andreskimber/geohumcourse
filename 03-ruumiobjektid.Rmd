@@ -229,5 +229,3 @@ Kujuta ette, et Google Mapsi ei ole veel leiutatud ja paberkaardid on väga kall
 
 Neljapäeval räägime lähemalt kaartidest ja nende omadustest ning uurime vabavaraliste kaardirakenduste võimalusi ja piiranguid.  
 
-
-## Kirjandus

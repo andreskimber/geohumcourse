@@ -207,4 +207,3 @@ knitr::include_graphics(here::here("imgs", "rakendustevordlus.PNG"))
 
 Esmaspäeval mõtiskleme veidi laiemalt kaartide mõiste üle ning uurime, kuidas saab kaardi abil lugusid jutustada (*Story Maps*).
 
-
