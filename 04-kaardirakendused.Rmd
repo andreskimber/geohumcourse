@@ -5,7 +5,7 @@ Enne, kui hakkame rääkima sellest, kuidas juba olemasolevate veebirakendustega
 
 ## Kaart
 
-Kaart on kitsas tähenduses geograafilise informatsiooni visuaalne esitusviis. GISis on kaardid nii sisendiks kui ka väljundiks. Laiemas tähenduses võime kaardiks pidada mis tahes esitust maailmast. 
+Kaart on kitsamas tähenduses geograafilise informatsiooni visuaalne esitusviis. GISis on kaardid nii sisendiks kui ka väljundiks. Laiemas tähenduses võime kaardiks pidada mis tahes esitust maailmast. 
 
 
 ```{r map-types, echo = F, fig.align="center", out.width = "100%", out.height = "100%", fig.cap = "[Erinevaid kaarte](https://geology.com/maps/types-of-maps/)"}
@@ -22,10 +22,8 @@ knitr::include_graphics(here::here("imgs", "tartu_kaart_noored.PNG"))
 
 
 Kaarti tehes peame alati esmalt läbi mõtlema, mis on kaardi tegemise eesmärk ning kes on kaardi lõppkasutaja. Seejärel tuleb mõelda, mida ja mis kujul reaalsest maailmast esitame ning kui täpne peab esitus olema. Lõpuks tuleb mõelda ka tehnilistele aspektidele: mis formaadis andmed meil on kasutada, mis formaadis need andmed peavad olema kaardi tegemiseks ning mis formaadis tuleb kaart ise. 
-<!-- kasutusotstarbe alusel: teatmekaardid, õppekaardid, kontuurkaardid, välitöökaardid, planeerimiskaardid -->
-<!-- sisu alusel erinevaid kaarte: üldgeograafilised kaardid (füüsiline maailm, inimasustus; infrastruktuur, topograafilised kaardid, ortofotokaardid); temaatilised kaardid (näitavad vastava temaatikaga seotud ja selle kontekstis olulise sisuga nähtusi: rahvastikukaardid, statistilised kaardid, ajalooteemalised kaardid, erikaardid, turismikaardid)-->
 
-GISis võime infot esitada kaardikihtidena, kusjuures ühel kihil esitatakse nähtusi, mis omavad **ühesugust ruumiobjekti tüüpi**. See tähendab, et samal kihil ei tohiks esitada näiteks jõgesid (tüüpiliselt avatud jooned) ja ehitisi (tüüpiliselt suletud jooned ehk polügoonid). Küll aga võime soovi korral esitada samal kihil näiteks kive, restorane ja kogumispunkte, mis küll olemuslikult on erinevast klassist, aga geomeetriliselt esitavad sama tüüpi ruumiobjekti (punkti). Üldiselt on tavaks esitada ühel kaardikihil siiski ka temaatiliselt sarnaseid objekte.
+GISis võime infot esitada kaardikihtidena, kusjuures ühel kihil esitatakse nähtusi, mis omavad **ühesugust ruumiobjekti tüüpi**. See tähendab, et samal kihil ei tohiks esitada näiteks jõgesid (tüüpiliselt avatud jooned) ja ehitisi (tüüpiliselt suletud jooned ehk polügoonid). Küll aga võime soovi korral esitada samal kihil näiteks kive, restorane ja kogumispunkte, mis küll olemuslikult on erinevast klassist, aga geomeetriliselt esitatavad sama tüüpi ruumiobjekti (punkti) abil. Üldiselt on tavaks esitada ühel kaardikihil siiski ka temaatiliselt sarnaseid objekte.
 
 Üha rohkem puutume tänapäeval paberkaartide asemel kokku digitaalkaartidega. Ehkki mõlemal juhul näeme kaardil seda infot, mida kaardi tegija soovib edastada, ning sellisel kujul, nagu tema vajalikuks peab, on paber- ja digitaalkaartidel olulisi erinevusi.
 
@@ -33,51 +31,66 @@ GISis võime infot esitada kaardikihtidena, kusjuures ühel kihil esitatakse nä
 knitr::include_graphics(here::here("imgs", "digitaal_paberkaart.PNG"))
 ```
 
-Kaartidel antakse kirjeldavat informatsiooni edasi eristuvate ja loetavate leppemärkide, värvitoonide ja kaardikirjade abil. 
+Kaartidel edastatakse mingit objekti või nähtust kirjeldavat informatsiooni hästi eristuvate ja loetavate leppemärkide, värvitoonide ja kirjade abil. Kaardil on aga veel mitmeid komponente, näiteks mõõtkava, suunaviit jm. 
 
 
 ```{r kaardi-komponendid, echo = FALSE, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Kaardi komponendid [@Suurna&Sisas2010 : 33]"}
 knitr::include_graphics(here::here("imgs", "kaardi_komponendid.PNG"))
 ```
 
-<!-- Kaartide kujunduslikke komponente vaatame lähemalt siis, kui neid ise QGISis tegema hakkame, aga üldiselt peaks leppemärkida valikul eelistama lihtsaid ja nähtusega kergesti seostatavaid sümboleid; värvivalikul kasutada harjumuspäraseid seoseid; tekstide paigutamisel arvestada, et need oleksid loetavad ja kujutavate nähtustega lihtsalt seostatavad; kaardilehe osad ei tohiks olla ülearu koormatud (ega teised osad samal ajal liiga tühjad); tuleb eristada olulist ebaolulisest. -->
+Kaardi **mõõtkava** näitab, kui palju reaalset objekti on vähendatud. Tavaliselt väljendatakse mõõtkava murdosa või suhtena, mis seob kaardil esitatud mingi pikkusega joonlõigu sama joonlõiguga maapinnal. Näiteks mõõtkava 1:20000 või 1/20000 näitab, et 1 ühik kaardil vastab 20000 samale ühikule reaalses maailmas. Kui ühik on cm, siis esitab 1 cm kaardil 20000 cm ehk 200 m maapinnal. <!-- Kas see on suur või väike mõõtkava? -->Digitaalsetel kaartidel esitatakse mõõtkava sageli dünaamiliselt, mis tähendab, et mõõtkava saab sisse või välja suumides muuta. Samuti on tüüpiline mõõtkava esitamine mitte arvmõõtkavana, vaid visuaalselt: mingile ekraanil määratletud joonlõigule vastab tegelikkuses kindel vahemaa maapinnal, ent me ei pruugi täpselt näha, kui pika joonlõiguga on ekraanil tegemist.   
+
+Kui liigume suurelt mõõtkavalt väiksemale, peame andmeid loetavuse huvides üldistama ning valima, mida ja mis detailsusastmega esitada. Üldistada võib lihtsustades, siludes, ühendades jne.
+
+```{r leaflet, echo=F, message = F, fig.show="hold", fig.align="center"}
+library(leaflet)
+library(leafem)
+library(dplyr)
+
+leaflet() %>% addTiles() %>% addMarkers(lng = 26.722234, lat = 58.380094) %>% addScaleBar(options = scaleBarOptions(maxWidth = 50, imperial = F)) %>% addMeasure(primaryLengthUnit = "meters", primaryAreaUnit = "sqmeters") %>% addMouseCoordinates()
+```
 
 
+Kaartide kujunduslikest komponentidest räägime lähemalt siis, kui ise QGISis kaarte tegema hakkame, ent üldiselt tuleks kaartide kujunduses silmas pidada lihtsust ja arusaadavust. See tähendab, et kujundid, sümbolid, värvid jm peaksid olema kujutatava nähtusega kergesti seostatavad. Muidugi võib kaarti käsitleda ka kui omalaadi kunstiteost, mispuhul kokkuleppelised ja harjumuspärased kujutusviisid võivad jääda tagaplaanile.
 
 
 ### Koordinaatsüsteemid ja projektsioonid
 
-Ruumiandmed on alati seotud mingi kohaga. Maakera on kolmemõõtmeline ja põhimõtteliselt võiksime üsna hästi kujutada kõiki objekte alati gloobusel, ent see ei ole sageli kuigi praktiline. Kaardil, mis on praktilisem visualiseerimise vahend, on üldjuhul aga ainult kaks mõõdet. Kuidas siis kolmemõõtmelist ning ebakorrapärast kujundit kujutada kahemõõtmelise ja korrapärase meediumi kaudu ning kuidas paigutada reaalse maailma objekte ja alasid nii, et saaksime kaardi põhjal öelda, kus need maakeral asuvad? <!-- tuleb mingeid alasid venitada ja mingeid kokku suruda --> 
+Ruumiandmed on alati seotud mingi kohaga. Maakera on kolmemõõtmeline ja põhimõtteliselt võiksime üsna hästi kasutada objektide asukoha ja omaduste kujutamiseks gloobust. See aga ei ole sageli kuigi praktiline. Kaardil, mis on märksa praktilisem visualiseerimisvahend, on üldjuhul aga ainult kaks mõõdet. Kuidas siis kolmemõõtmelist ning ebakorrapärast kujundit kujutada kahemõõtmelise ja korrapärase meediumi kaudu ning kuidas paigutada reaalse maailma objekte ja alasid nii, et saaksime kaardi põhjal öelda, kus need maakeral asuvad?
 
 Esmalt tuleb objektid ja nähtused siduda mingite koordinaatidega. **Koordinaadid** on arvud, mis määravad punkti asendi tasandil või ruumis ning **koordinaatsüsteem** vastavalt teatud reeglitel põhinev raamistik, mida nende arvude määramiseks kahe- või kolmemõõtmelises ruumis kasutatakse. Ühtse koordinaatsüsteemi abil on võimalik siduda ja koos esitada erinevaid andmeid, ent kui tahame määrata koordinaate maapinnal, siis koordinaatsüsteemist üksi ei piisa. Vaja on siduda see ka Maa kui füüsilise keha ja selle kujuga.
 
 Maa üldist kuju kirjeldab geodeetiline referentssüsteem ehk **daatum**, mis esitab Maa matemaatilise mudeli nii, et see vastaks võimalikult hästi Maa tegelikule kujule, sageli kui pöördellipsoidi või sferoidi. Erinevate ellipsoidide mõõtmed võivad pisut erineda (nt nende pooltelgede pikkused või ellipsoidi lapikus), sest Maa tegelik füüsiline kuju (geoid) on ellipsoidist märksa keerulisem. Nõnda sobivad mõned **lokaalsed** daatumid, mis ei ole tingimata seotud Maa keskpunktiga, väikesele maa-alale paremini, sest järgivad selles konkreetses kohas paremini Maa tegelikku kuju, ent ei ole jällegi hästi kasutatavad teistes kohtades. 
 Eestis kasutatakse tänapäeval **globaalset** geotsentrilist ellipsoidi **GRS80**, mis on praktiliselt identne palju laialdasemalt kasutusel oleva globaalse **WGS84** ellipsoidiga. 
-<!-- geoid on Maa "gravitatsioonivälja pind", mis on umbes sama, mis keskmine meretase. vertikaalsete daatumite jaoks kasutatakse sama ellipsoidi või ka nt geoidi-->
-<!-- daatumiga määratakse meridiaanide ja paralleelide alguspunkti asukoht ja orientatsioon-->
 
 ```{r geoid-ellipsoid, echo = F, fig.align = "center", fig.show = "hold", fig.cap="Geoid, ellipsoid ja maapind (allikas: [Maa-amet](https://geoportaal.maaamet.ee/est/Ruumiandmed/Geodeetilised-andmed/Geodeetilised-vorgud/Geoid-p287.html))"}
 knitr::include_graphics(here::here("imgs", "geoid_ellipsoid_maapind.PNG"))
 ```
 
-
+```{r daatumid, echo = F, fig.align = "center", fig.show = "hold", fig.cap="Erinevad daatumid: globaalne, geotsentriline WGS84 ja lokaalne NAD27 ([allikas](https://slideplayer.com/slide/3432120/))"}
+knitr::include_graphics(here::here("imgs", "lokaalsed_globaalsed_daatumid.jpg"))
+```
 
 Daatumi ja sobiliku koordinaatsüsteemi abil saamegi määrata objektide asukohti Maa pinnal: teame, millise kujuga ja mõõtmetega kujutame Maad ette, ning teame ka, millistes ühikutes ja millisest nullpunktist lugedes me sellel kujul objektide asukohti määravaid koordinaate arvestame. **Geograafilised koordinaadid** on alati seotud mingi daatumiga ning aitavad meil määrata objekti asukoha, kasutades pikkus- ja laiuskraade. Pikkuskraade loetakse kahele poole Greenwichi observatooriumi meridiaani (idapikkus ja läänepikkus), laiuskraade kahele poole ekvaatorit (lõunalaius ja põhjalaius). Asukohta esitatakse kraadides (°), minutites (') ja sekundites (") või kraadides kümnendsüsteemis. 
 
-<!-- kui võtame koordinaatsüsteemi aluseks ellipsoidi, siis mida lähemale liigume poolustele, seda  lühemaks jääb ühe laiuskraadi pikkus kilomeetrites-->
 
 **Mõtteharjutus**:   
 
 > Kui iga kraad on jagatud 60 minutiks ja iga minut 60 sekundiks, siis kuidas kujutada kümnendsüsteemis koordinaate 58°22'48"N, 26°43'20"E?
 
-<!-- joonis: erinevad daatumid, erinevad koordinaadid, võivad anda paarisajameetriseid erinevusi. Üldiselt humanitaarteadustes vähem oluline, kui kujutatakse niigi ebatäpseid andmeid. -->
 
-Kõige levinum rahvusvaheline geograafiliste koordinaatide süsteem on WGS84.
-
-Selleks aga, et nüüd geograafilises ruumis paiknevaid objekte kujutada tasapinnalisel mudelil ehk kaardil, peame valima kaardi **projektsiooni**, mis määrab viisi, kuidas sfääriline pink tasapinnal esitatakse ning kuidas ruumilised koordinaadid (GCS) konverteeritakse ümber **tasapinnalisteks koordinaatideks** (PCS ehk *projected coordinate system*). Sisuliselt määrab projektsioon ära ka selle, milliseid alasid maakeral me oleme nõus oma kaardil rohkem moonutama ja milliseid vähem ning mispidi me mingeid alasid kaardil venitame või kokku surume. Kui tahame kujutada ümmargust Maad kahemõõtmelisel tasapinnal, siis paratamatult peame mingit osa maakerast moonutama. Ühe või teise projektsiooni valimisel moonutame rohkem kas pindalasid, nurkasid, kujusid või joonpikkuseid.  
+Selleks aga, et nüüd geograafilises ruumis paiknevaid objekte kujutada tasapinnalisel mudelil ehk kaardil, peame valima kaardi **projektsiooni**, mis määrab viisi, kuidas sfääriline pink tasapinnal esitatakse ning kuidas ruumilised koordinaadid (GCS) konverteeritakse ümber **tasapinnalisteks koordinaatideks** (PCS ehk *projected coordinate system*), mida väljendatakse *x*-i ja *y* abil. Sisuliselt määrab projektsioon ära ka selle, milliseid alasid maakeral me oleme nõus oma kaardil rohkem moonutama ja milliseid vähem ning mispidi me mingeid alasid kaardil venitame või kokku surume. Kui tahame kujutada ümmargust Maad kahemõõtmelisel tasapinnal, siis paratamatult peame mingit osa maakerast moonutama. Ühe või teise projektsiooni valimisel moonutame rohkem kas pindalasid, nurkasid, kujusid või joonpikkuseid.  
 
 ```{r projections, echo = FALSE, fig.show = "hold", fig.align = "center", out.width = "100%", fig.cap = "[Erinevad projektsioonid](https://i.redd.it/8ssm7hfbeko21.png)"}
 knitr::include_graphics(here::here("imgs", "projections.png"))
+```
+
+
+Projektsioonid jagunevad üldisteks tüüpideks selle järgi, kas ruumilist maakera üritatakse projitseerida silindrile, koonusele või tasandile. Need üldised tüübid jaotatakse omakorda selle järgi, kuidas vastav siirdepind on maaellipsoidi suhtes orienteeritud (normaal-, põik- või kaldaspekt). 
+
+```{r projektsioonipered, echo = FALSE, fig.show = "hold", fig.align = "center", out.width = "100%", out.height = "100%", fig.cap="Projektsioonitüübid [@Aunap2019 : 169]"}
+knitr::include_graphics(here::here("imgs", "projektsiooniklassid.png"))
+
 ```
 
 
@@ -85,38 +98,23 @@ knitr::include_graphics(here::here("imgs", "projections.png"))
 knitr::include_graphics(here::here("imgs", "mathigontweet.PNG"))
 ```
 
-Kaardil on koordinaatidena kasutusel tasapinnalised **ristkoordinaadid**, mida väljendatakse x-i ja y abil, mille projektsioon aitab siduda reaalsete geograafiliste koordinaatidega.
+Lisaks n-ö kolmele geomeetrilisele põhiklassile on projektsioonide hulgas lisaks ka pseudoklasse, mis säilitavad ainult põhiklassi mõne tunnuse.
 
-<!-- joonis asimuut-, silinder-, koonusprojektsioonidest-->
-<!-- Robinsonil minimaalse veaga: üldiseks kartograafiaks -->
-<!-- equidistant cylindrical map projection, kasulik nt atlastesse, üldiseks kaardistamiseks-->
-<!-- Conformal projection Mercator väikese mõõtkavaga kaartide jaoks-->
-<!-- equal area map projections, kasulik kvantitatiivsetele teemakaartidele nt kloropleetkaartidele, kui mingit atribuuti normaliseeritakse piirkonna põhjal-->
+```{r bonneprojection, echo = FALSE, fig.show = "hold", fig.align = "center", out.width = "70%", out.height = "70%", fig.cap = "Bonne'i pseudokooniline projektsioon, mille keskmesse on pandud Tartu [twitter.com/evelynuuemaa](https://twitter.com/evelynuuemaa/status/1196353283696316416)"}
+knitr::include_graphics(here::here("imgs", "uuemaabonne.PNG"))
+
+```
 
 Erinevatest projektsioonidest räägime kursuse jooksul lähemalt veel.  
 
-Kaardi **mõõtkava** näitab, kui palju reaalset objekti on vähendatud. Tavaliselt väljendatakse mõõtkava murdosa või suhtena, mis seob kaardil esitatud mingi pikkusega joonlõigu sama joonlõiguga maapinnal. Näiteks mõõtkava 1:20000 või 1/20000 näitab, et 1 ühik kaardil vastab 20000 samale ühikule reaalses maailmas. Kui ühik on cm, siis esitab 1 cm kaardil 20000 cm ehk 200 m maapinnal. <!-- Kas see on suur või väike mõõtkava? -->Digitaalsetel kaartidel esitatakse mõõtkava sageli dünaamiliselt, mis tähendab, et mõõtkava saab sisse või välja suumides muuta. Samuti on tüüpiline mõõtkava esitamine mitte arvmõõtkavana, vaid visuaalselt: mingile ekraanil määratletud joonlõigule vastab tegelikkuses kindel vahemaa maapinnal, ent me ei pruugi täpselt näha, kui pika joonlõiguga on ekraanil tegemist.   
+Lõpetuseks. GIS-tarkvarades kohtad mõistet **koordinaatide referentssüsteemi** (CRS - *Coordinate reference system*), mis koosneb daatumist ehk Maa matemaatilisest mudelist ja projektsioonist, mis konverteerib geograafilised koordinaadid tasapinnalisteks koordinaatideks. 
 
-Kui liigume suurelt mõõtkavalt väiksemale, peame andmeid loetavuse huvides üldistama ning valima, mida ja mis detailsusastmega esitada. Üldistada võib lihtsustades, siludes, ühendades jne.
-
-```{r leafletmap1, echo = FALSE, out.width="45%", out.height="45%"}
-library(leaflet)
-library(leafem)
-
-leaflet() %>% 
-    addTiles() %>% 
-    addMarkers(lng=26.722234, lat=58.380094) %>% 
-    addScaleBar(options = scaleBarOptions(maxWidth = 50, imperial = FALSE)) %>% 
-    addMeasure(primaryLengthUnit = "meters", primaryAreaUnit = "sqmeters") %>% 
-    addMouseCoordinates()
-
-```
 
 
 
 ## Veebipõhised kaardirakendused
 
-Alati ei pea kaardi tegemiseks õppima põhjalikult tundma geoinfosüsteemide hingeelu ning kasutama mingit GIS-tarkvara. Veebis on valmis kaardirakendusi, mis võimaldavad teha ruumiandmete päringuid ja lihtsamaid analüüse (nt leia lühim/kiireim teekond punktist A punkti B), ilma et peaksid ise kaartide koostamise ja kujundamisega liiga palju vaeva nägema. Lisaks pakuvad mõned platvormid lisaks platvormi kaudu leitava info kasutamisele võimalust integreerida nendega ka enda andmeid ning kas või luua uusi ruumiandmeid. Lisaks sellele, et on võimalik enda andmeid n-ö olemasolevas süsteemis kuvada, pakuvad mõned platvormid võimalust ka ise aluskaardi tegemisel kaasa lüüa. Sellised on näiteks OpenStreetMap, WikiMapia<!-- näita Piro Kunni videot--> ja Here WeGo, mis töötavad sarnaselt Vikipeediale: kasutajad saavad kaardi informatiivsust ja kvaliteeti ise parandada, lisades kaardile hooneid, teid jm objekte ning täiendades või parandades olemasolevate objektide infot. <!-- Ka Google pakkus sarnast võimalust oma Google Map Makeri platvormil, aga see teenus lõpetati 2017 ära-->
+Alati ei pea kaardi tegemiseks õppima põhjalikult tundma geoinfosüsteemide hingeelu ning kasutama mingit GIS-tarkvara. Veebis on valmis kaardirakendusi, mis võimaldavad teha ruumiandmete päringuid ja lihtsamaid analüüse (nt leia lühim/kiireim teekond punktist A punkti B), ilma et peaksid ise kaartide koostamise ja kujundamisega liiga palju vaeva nägema. Lisaks pakuvad mõned platvormid lisaks platvormi kaudu leitava info kasutamisele võimalust integreerida nendega ka enda andmeid ning kas või luua uusi ruumiandmeid. Lisaks sellele, et on võimalik enda andmeid n-ö olemasolevas süsteemis kuvada, pakuvad mõned platvormid võimalust ka ise aluskaardi tegemisel kaasa lüüa. Sellised on näiteks OpenStreetMap, WikiMapia ja Here WeGo, mis töötavad sarnaselt Vikipeediale: kasutajad saavad kaardi informatiivsust ja kvaliteeti ise parandada, lisades kaardile hooneid, teid jm objekte ning täiendades või parandades olemasolevate objektide infot. 
 
 Selles praktikumis vaatleme eelkõige veebirakendusi, mis võimaldavad teha lihtsamaid kaarte, mida võib siis esitada kas veebis või trükitult. Spetsiifiliselt veebilehtedel esitatavate kaartide tegemise võimalusi vaatame kursusel pisut hiljem.
 
@@ -145,10 +143,33 @@ Saame lisada ka erinevaid andmekihte, näiteks Maa-ameti Geoportaalist alla laet
 
 NB! Suuri faile ei saa lisada: 5Mb piir, mis sisuliselt jätab väga suure osa võimalikest ruumiandmetest välja.
 
-```{r mymaps, echo = FALSE, fig.show='hold', fig.align='center', out.width= "50%", out.height = "100%", fig.cap= "Kaardi tegemine Google My Mapsis"}
-knitr::include_graphics(c("imgs/okt01_gif/gmaps1.gif", "imgs/okt01_gif/gmaps2.gif", "imgs/okt01_gif/gmaps3.gif", "imgs/okt01_gif/gmaps4.gif"))
+```{r mymaps1, echo = FALSE, fig.show='hold', fig.align='center', out.width= "50%", out.height = "100%", fig.cap= "Kaardi tegemine Google My Mapsis (1)"}
+knitr::include_graphics(c("imgs/okt01_gif/gmaps1.gif", "imgs/okt01_gif/gmaps2.gif"))
 ```
 
+```{r mymaps2, echo = FALSE, fig.show='hold', fig.align='center', out.width= "50%", out.height = "100%", fig.cap= "Kaardi tegemine Google My Mapsis (2)"}
+knitr::include_graphics(c("imgs/okt01_gif/gmaps3.gif", "imgs/okt01_gif/gmaps4.gif"))
+```
+
+```{r mymaps3, echo = FALSE, fig.show='hold', fig.align='center', out.width= "50%", out.height = "100%", fig.cap= "Kaardi tegemine Google My Mapsis (3)"}
+knitr::include_graphics(c("imgs/okt01_gif/gmaps5.gif", "imgs/okt01_gif/gmaps6.gif"))
+```
+
+```{r mymaps4, echo = FALSE, fig.show='hold', fig.align='center', out.width= "50%", out.height = "100%", fig.cap= "Kaardi tegemine Google My Mapsis (4)"}
+knitr::include_graphics(c("imgs/okt01_gif/gmaps7.gif", "imgs/okt01_gif/gmaps8.gif"))
+```
+
+```{r mymaps5, echo = FALSE, fig.show='hold', fig.align='center', out.width= "50%", out.height = "100%", fig.cap= "Kaardi tegemine Google My Mapsis (5)"}
+knitr::include_graphics(c("imgs/okt01_gif/gmaps9.gif", "imgs/okt01_gif/gmaps10.gif"))
+```
+
+```{r mymaps6, echo = FALSE, fig.show='hold', fig.align='center', out.width= "50%", out.height = "100%", fig.cap= "Kaardi tegemine Google My Mapsis (6)"}
+knitr::include_graphics(c("imgs/okt01_gif/gmaps11.gif", "imgs/okt01_gif/gmaps12.gif"))
+```
+
+```{r mymaps7, echo = FALSE, fig.show='hold', fig.align='center', out.width= "50%", out.height = "100%", fig.cap= "Kaardi tegemine Google My Mapsis (7)"}
+knitr::include_graphics(c("imgs/okt01_gif/gmaps13.gif", "imgs/okt01_gif/gmaps14.gif"))
+```
 
 ### Ülesanne 
 
@@ -175,6 +196,11 @@ Lisa [Padletisse](https://padlet.com/maarjaliisapilvik/n1tpoyussyalbsc6) testitu
   + ...
   
 Kui sul õnnestub teha mingite andmetega ka kaart, mida eksportida või jagada, siis võiksid panna ka selle oma sissekande juurde.  
+
+
+```{r rakendused, echo = F, fig.show="hold", fig.align="center", out.width="100%", out.height="100%", fig.cap="Kaardirakenduste võrdlus"}
+knitr::include_graphics(here::here("imgs", "rakendustevordlus.PNG"))
+```
 
 
 ## Järgmisel korral

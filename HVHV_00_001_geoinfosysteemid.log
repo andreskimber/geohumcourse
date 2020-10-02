@@ -1,25 +1,25 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.4.16)  28 SEP 2020 15:07
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.9.28)  2 OCT 2020 12:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **HVHV_00_001_geoinfosysteemid.tex
 (./HVHV_00_001_geoinfosysteemid.tex
 LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-04-06> (c:/Users/a71386/AppData/Roaming/TinyTeX/texm
+L3 programming layer <2020-09-24> (c:/Users/a71386/AppData/Roaming/TinyTeX/texm
 f-dist/tex/latex/base/book.cls
 Document Class: book 2019/12/20 v1.4l Standard LaTeX document class
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/bk10.clo
 File: bk10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 )
-\c@part=\count163
-\c@chapter=\count164
-\c@section=\count165
-\c@subsection=\count166
-\c@subsubsection=\count167
-\c@paragraph=\count168
-\c@subparagraph=\count169
-\c@figure=\count170
-\c@table=\count171
+\c@part=\count164
+\c@chapter=\count165
+\c@section=\count166
+\c@subsection=\count167
+\c@subsubsection=\count168
+\c@paragraph=\count169
+\c@subparagraph=\count170
+\c@figure=\count171
+\c@table=\count172
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen134
@@ -97,13 +97,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 y
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count172
+\inf@bad=\count173
 LaTeX Info: Redefining \frac on input line 227.
-\uproot@=\count173
-\leftroot@=\count174
+\uproot@=\count174
+\leftroot@=\count175
 LaTeX Info: Redefining \overline on input line 389.
-\classnum@=\count175
-\DOTSCASE@=\count176
+\classnum@=\count176
+\DOTSCASE@=\count177
 LaTeX Info: Redefining \ldots on input line 486.
 LaTeX Info: Redefining \dots on input line 489.
 LaTeX Info: Redefining \cdots on input line 610.
@@ -112,15 +112,15 @@ LaTeX Info: Redefining \cdots on input line 610.
 \big@size=\dimen137
 LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
-\macc@depth=\count177
-\c@MaxMatrixCols=\count178
+\macc@depth=\count178
+\c@MaxMatrixCols=\count179
 \dotsspace@=\muskip16
-\c@parentequation=\count179
-\dspbrk@lvl=\count180
+\c@parentequation=\count180
+\dspbrk@lvl=\count181
 \tag@help=\toks17
-\row@=\count181
-\column@=\count182
-\maxfields@=\count183
+\row@=\count182
+\column@=\count183
+\maxfields@=\count184
 \andhelp@=\toks18
 \eqnshift@=\dimen138
 \alignsep@=\dimen139
@@ -150,15 +150,15 @@ Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 ode-math.sty
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.st
 y
-Package: expl3 2020-04-06 L3 programming layer (loader) 
+Package: expl3 2020-09-24 L3 programming layer (loader) 
 
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backe
-nd-xdvipdfmx.def
-File: l3backend-xdvipdfmx.def 2020-03-12 L3 backend support: xdvipdfmx
-\g__graphics_track_int=\count184
+nd-xetex.def
+File: l3backend-xetex.def 2020-09-24 L3 backend support: XeTeX
+\g__graphics_track_int=\count185
 \l__pdf_internal_box=\box47
-\g__pdf_backend_object_int=\count185
-\g__pdf_backend_annotation_int=\count186
+\g__pdf_backend_object_int=\count186
+\g__pdf_backend_annotation_int=\count187
 ))
 Package: unicode-math 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
 
@@ -169,15 +169,18 @@ TeX
 
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse
 /xparse.sty
-Package: xparse 2020-03-06 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count187
-\g__xparse_grabber_int=\count188
-\l__xparse_m_args_int=\count189
-\l__xparse_v_nesting_int=\count190
-)
+Package: xparse 2020-05-15 L3 Experimental document command parser
+
+(c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse
+/xparse-generic.tex
+\l__xparse_current_arg_int=\count188
+\g__xparse_grabber_int=\count189
+\l__xparse_m_args_int=\count190
+\l__xparse_v_nesting_int=\count191
+))
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/l3keys
 2e/l3keys2e.sty
-Package: l3keys2e 2020-03-06 LaTeX2e option processing using LaTeX3 keys
+Package: l3keys2e 2020-05-15 LaTeX2e option processing using LaTeX3 keys
 )
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec
 .sty
@@ -187,17 +190,17 @@ Package: fontspec 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
 -xetex.sty
 Package: fontspec-xetex 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTe
 X
-\l__fontspec_script_int=\count191
-\l__fontspec_language_int=\count192
-\l__fontspec_strnum_int=\count193
-\l__fontspec_tmp_int=\count194
-\l__fontspec_tmpa_int=\count195
-\l__fontspec_tmpb_int=\count196
-\l__fontspec_tmpc_int=\count197
-\l__fontspec_em_int=\count198
-\l__fontspec_emdef_int=\count199
-\l__fontspec_strong_int=\count266
-\l__fontspec_strongdef_int=\count267
+\l__fontspec_script_int=\count192
+\l__fontspec_language_int=\count193
+\l__fontspec_strnum_int=\count194
+\l__fontspec_tmp_int=\count195
+\l__fontspec_tmpa_int=\count196
+\l__fontspec_tmpb_int=\count197
+\l__fontspec_tmpc_int=\count198
+\l__fontspec_em_int=\count199
+\l__fontspec_emdef_int=\count266
+\l__fontspec_strong_int=\count267
+\l__fontspec_strongdef_int=\count268
 \l__fontspec_tmpa_dim=\dimen144
 \l__fontspec_tmpb_dim=\dimen145
 \l__fontspec_tmpc_dim=\dimen146
@@ -212,9 +215,9 @@ Package: fix-cm 2015/01/14 v1.1t fixes to LaTeX
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 ))
-\g__um_fam_int=\count268
-\g__um_fonts_used_int=\count269
-\l__um_primecount_int=\count270
+\g__um_fam_int=\count269
+\g__um_fonts_used_int=\count270
+\l__um_primecount_int=\count271
 \g__um_primekern_muskip=\muskip17
 
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unic
@@ -238,7 +241,7 @@ Package xcolor Info: Driver file: xetex.def on input line 225.
 
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/xete
 x.def
-File: xetex.def 2017/06/24 v5.0h Graphics/color driver for xetex
+File: xetex.def 2020/08/26 v5.0i Graphics/color driver for xetex
 )
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
 Package xcolor Info: Model `RGB' extended on input line 1364.
@@ -251,15 +254,15 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref
 .sty
-Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
+Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
 
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds
 .sty
-Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 )
-(c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdftexcmds/pdftex
-cmds.sty
-Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
+(c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdft
+excmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
 )
 
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/infwarerr/infwa
@@ -304,12 +307,12 @@ ns.sty
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
 \@linkdim=\dimen147
-\Hy@linkcounter=\count271
-\Hy@pagecounter=\count272
+\Hy@linkcounter=\count272
+\Hy@pagecounter=\count273
 
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.d
 ef
-File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
 )
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc
 .sty
@@ -319,26 +322,26 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count273
-Package hyperref Info: Option `unicode' set `true' on input line 4421.
+\Hy@SavedSpaceFactor=\count274
+Package hyperref Info: Option `unicode' set `true' on input line 4338.
 
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.de
 f
-File: puenc.def 2020/01/14 v7.00d Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2020-05-15 v7.00e Hyperref: PDF Unicode definition (HO)
 )
-Package hyperref Info: Hyper figures OFF on input line 4547.
-Package hyperref Info: Link nesting OFF on input line 4552.
-Package hyperref Info: Hyper index ON on input line 4555.
-Package hyperref Info: Plain pages OFF on input line 4562.
-Package hyperref Info: Backreferencing OFF on input line 4567.
+Package hyperref Info: Hyper figures OFF on input line 4464.
+Package hyperref Info: Link nesting OFF on input line 4469.
+Package hyperref Info: Hyper index ON on input line 4472.
+Package hyperref Info: Plain pages OFF on input line 4479.
+Package hyperref Info: Backreferencing OFF on input line 4484.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4800.
-\c@Hy@tempcnt=\count274
+Package hyperref Info: Bookmarks ON on input line 4717.
+\c@Hy@tempcnt=\count275
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5159.
+LaTeX Info: Redefining \url on input line 5076.
 \XeTeXLinkMargin=\dimen148
 
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.s
@@ -350,32 +353,32 @@ ntcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count275
+\Fld@menulength=\count276
 \Field@Width=\dimen149
 \Fld@charsize=\dimen150
-Package hyperref Info: Hyper figures OFF on input line 6430.
-Package hyperref Info: Link nesting OFF on input line 6435.
-Package hyperref Info: Hyper index ON on input line 6438.
-Package hyperref Info: backreferencing OFF on input line 6445.
-Package hyperref Info: Link coloring OFF on input line 6450.
-Package hyperref Info: Link coloring with OCG OFF on input line 6455.
-Package hyperref Info: PDF/A mode OFF on input line 6460.
-LaTeX Info: Redefining \ref on input line 6500.
-LaTeX Info: Redefining \pageref on input line 6504.
+Package hyperref Info: Hyper figures OFF on input line 6347.
+Package hyperref Info: Link nesting OFF on input line 6352.
+Package hyperref Info: Hyper index ON on input line 6355.
+Package hyperref Info: backreferencing OFF on input line 6362.
+Package hyperref Info: Link coloring OFF on input line 6367.
+Package hyperref Info: Link coloring with OCG OFF on input line 6372.
+Package hyperref Info: PDF/A mode OFF on input line 6377.
+LaTeX Info: Redefining \ref on input line 6417.
+LaTeX Info: Redefining \pageref on input line 6421.
 
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/atbegshi/atbegs
 hi.sty
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 )
-\Hy@abspage=\count276
-\c@Item=\count277
-\c@Hfootnote=\count278
+\Hy@abspage=\count277
+\c@Item=\count278
+\c@Hfootnote=\count279
 )
 Package hyperref Info: Driver (autodetected): hxetex.
 
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hxetex.d
 ef
-File: hxetex.def 2020/01/14 v7.00d Hyperref driver for XeTeX
+File: hxetex.def 2020-05-15 v7.00e Hyperref driver for XeTeX
 
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/stringenc/strin
 genc.sty
@@ -383,10 +386,10 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
 \pdfm@box=\box48
-\c@Hy@AnnotLevel=\count279
-\HyField@AnnotCount=\count280
-\Fld@listcount=\count281
-\c@bookmark@seq@number=\count282
+\c@Hy@AnnotLevel=\count280
+\HyField@AnnotCount=\count281
+\Fld@listcount=\count282
+\c@bookmark@seq@number=\count283
 
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/re
 runfilecheck.sty
@@ -413,16 +416,16 @@ Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \LTright=\skip54
 \LTpre=\skip55
 \LTpost=\skip56
-\LTchunksize=\count283
+\LTchunksize=\count284
 \LTcapwidth=\dimen151
 \LT@head=\box49
 \LT@firsthead=\box50
 \LT@foot=\box51
 \LT@lastfoot=\box52
-\LT@cols=\count284
-\LT@rows=\count285
-\c@LT@tables=\count286
-\c@LT@chunks=\count287
+\LT@cols=\count285
+\LT@rows=\count286
+\c@LT@tables=\count287
+\c@LT@chunks=\count288
 \LT@p@ftn=\toks22
 )
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs
@@ -438,18 +441,18 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen159
 \cmidrulekern=\dimen160
 \defaultaddspace=\dimen161
-\@cmidla=\count288
-\@cmidlb=\count289
+\@cmidla=\count289
+\@cmidlb=\count290
 \@aboverulesep=\dimen162
 \@belowrulesep=\dimen163
-\@thisruleclass=\count290
-\@lastruleclass=\count291
+\@thisruleclass=\count291
+\@lastruleclass=\count292
 \@thisrulewidth=\dimen164
 )
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox
 .sty
-Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count292
+Package: etoolbox 2020/08/24 v2.5j e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count293
 )
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote
 .sty
@@ -478,7 +481,7 @@ Package graphics Info: Driver file: xetex.def on input line 105.
 \Gin@req@width=\dimen167
 )
 (c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amscls/amsthm.sty
-Package: amsthm 2017/10/31 v2.20.4
+Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks23
 \thm@bodyfont=\toks24
 \thm@headfont=\toks25
@@ -489,22 +492,662 @@ Package: amsthm 2017/10/31 v2.20.4
 \thm@headsep=\skip59
 \dth@everypar=\toks28
 )
+(c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip60
+\bibsep=\skip61
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count294
+)
+No file HVHV_00_001_geoinfosysteemid.aux.
+\openout1 = `HVHV_00_001_geoinfosysteemid.aux'.
 
-! LaTeX Error: Command \refname undefined.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 85.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 85.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 85.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 85.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 85.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 85.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 85.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.78 \renewcommand\refname
-                          {Kirjandus} 
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(0)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Sm
+allCapsFont={},Script=Math,BoldFont={latinmodern-math.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:scri
+pt=math;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:scri
+pt=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 85.
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(1)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Sm
+allCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmode
+rn-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScri
+ptScript}},BoldFont={latinmodern-math.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:s
+cript=math;language=dflt;"<6-8.5>s*[0.9999964596882403]"[latinmodern-math.otf]/
+OT:script=math;language=dflt;+ssty=0;"<-6>s*[0.9999964596882403]"[latinmodern-m
+ath.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:scri
+pt=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 85.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 85.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input
+ line 85.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 85.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on inpu
+t line 85.
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(2)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Sm
+allCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmode
+rn-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScri
+ptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=1.0001,FontAdjustment={\f
+ontdimen
+(fontspec)             8\font =6.77pt\relax \fontdimen 9\font =3.94pt\relax
+(fontspec)             \fontdimen 10\font =4.44pt\relax \fontdimen 11\font
+(fontspec)             =6.86pt\relax \fontdimen 12\font =3.45pt\relax
+(fontspec)             \fontdimen 13\font =3.63pt\relax \fontdimen 14\font
+(fontspec)             =3.63pt\relax \fontdimen 15\font =2.89pt\relax
+(fontspec)             \fontdimen 16\font =2.47pt\relax \fontdimen 17\font
+(fontspec)             =2.47pt\relax \fontdimen 18\font =2.5pt\relax
+(fontspec)             \fontdimen 19\font =2.0pt\relax \fontdimen 22\font
+(fontspec)             =2.5pt\relax \fontdimen 20\font =0pt\relax \fontdimen
+(fontspec)             21\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->s*[1.000096459334209]"[latinmodern-math.otf]/OT:sc
+ript=math;language=dflt;"<6-8.5>s*[1.000096459334209]"[latinmodern-math.otf]/OT
+:script=math;language=dflt;+ssty=0;"<-6>s*[1.000096459334209]"[latinmodern-math
+.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =6.77pt\relax \fontdimen 9\font
+(fontspec)             =3.94pt\relax \fontdimen 10\font =4.44pt\relax
+(fontspec)             \fontdimen 11\font =6.86pt\relax \fontdimen 12\font
+(fontspec)             =3.45pt\relax \fontdimen 13\font =3.63pt\relax
+(fontspec)             \fontdimen 14\font =3.63pt\relax \fontdimen 15\font
+(fontspec)             =2.89pt\relax \fontdimen 16\font =2.47pt\relax
+(fontspec)             \fontdimen 17\font =2.47pt\relax \fontdimen 18\font
+(fontspec)             =2.5pt\relax \fontdimen 19\font =2.0pt\relax \fontdimen
+(fontspec)             22\font =2.5pt\relax \fontdimen 20\font =0pt\relax
+(fontspec)             \fontdimen 21\font =0pt\relax 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1.000096459334209]"[latinmodern-math.otf]/OT:scrip
+t=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =6.77pt\relax \fontdimen 9\font
+(fontspec)             =3.94pt\relax \fontdimen 10\font =4.44pt\relax
+(fontspec)             \fontdimen 11\font =6.86pt\relax \fontdimen 12\font
+(fontspec)             =3.45pt\relax \fontdimen 13\font =3.63pt\relax
+(fontspec)             \fontdimen 14\font =3.63pt\relax \fontdimen 15\font
+(fontspec)             =2.89pt\relax \fontdimen 16\font =2.47pt\relax
+(fontspec)             \fontdimen 17\font =2.47pt\relax \fontdimen 18\font
+(fontspec)             =2.5pt\relax \fontdimen 19\font =2.0pt\relax \fontdimen
+(fontspec)             22\font =2.5pt\relax \fontdimen 20\font =0pt\relax
+(fontspec)             \fontdimen 21\font =0pt\relax 
+
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 85.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on inpu
+t line 85.
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 85.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on inpu
+t line 85.
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(3)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},Sm
+allCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmode
+rn-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScri
+ptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=0.9999,FontAdjustment={\f
+ontdimen
+(fontspec)             8\font =0.4pt\relax \fontdimen 9\font =2.0pt\relax
+(fontspec)             \fontdimen 10\font =1.67pt\relax \fontdimen 11\font
+(fontspec)             =1.11pt\relax \fontdimen 12\font =6.0pt\relax
+(fontspec)             \fontdimen 13\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->s*[0.9998964600422715]"[latinmodern-math.otf]/OT:s
+cript=math;language=dflt;"<6-8.5>s*[0.9998964600422715]"[latinmodern-math.otf]/
+OT:script=math;language=dflt;+ssty=0;"<-6>s*[0.9998964600422715]"[latinmodern-m
+ath.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =0.4pt\relax \fontdimen 9\font
+(fontspec)             =2.0pt\relax \fontdimen 10\font =1.67pt\relax
+(fontspec)             \fontdimen 11\font =1.11pt\relax \fontdimen 12\font
+(fontspec)             =6.0pt\relax \fontdimen 13\font =0pt\relax 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9998964600422715]"[latinmodern-math.otf]/OT:scri
+pt=math;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 8\font =0.4pt\relax \fontdimen 9\font
+(fontspec)             =2.0pt\relax \fontdimen 10\font =1.67pt\relax
+(fontspec)             \fontdimen 11\font =1.11pt\relax \fontdimen 12\font
+(fontspec)             =6.0pt\relax \fontdimen 13\font =0pt\relax 
+
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `normal' on input line 8
+5.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on inpu
+t line 85.
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `bold' on input line 85.
+
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on inpu
+t line 85.
+\AtBeginShipoutBox=\box54
+Package hyperref Info: Link coloring OFF on input line 85.
+
+(c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.
+sty
+Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
+
+(c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount
+.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring/
+gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count295
+)
+LaTeX Info: Redefining \ref on input line 85.
+LaTeX Info: Redefining \pageref on input line 85.
+LaTeX Info: Redefining \nameref on input line 85.
+\@outlinefile=\write3
+\openout3 = `HVHV_00_001_geoinfosysteemid.out'.
+
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 87.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 87.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 87.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 8
+7.
+(c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 12.0011pt on input line 87.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 8.00073pt on input line 87.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 6.00055pt on input line 87.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 11.99872pt on input line 87.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.99915pt on input line 87.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 5.99936pt on input line 87.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 87.
+
+(c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 87.
+
+(c:/Users/a71386/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+
+] [2
+
+]
+\tf@toc=\write4
+\openout4 = `HVHV_00_001_geoinfosysteemid.toc'.
+
+[3] [4
+
+]
+Chapter 1.
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--103
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--105
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 105--107
+
+ []
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 109.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 109.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00092pt on input line 109.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00064pt on input line 109.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.00046pt on input line 109.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 109.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 109.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 109.
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--111
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--118
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--123
+
+ []
+
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/example_lotr_uuem
+aa.jpg Graphic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/example_lotr_uuemaa.jp
+g>
+
+Overfull \hbox (4.99579pt too wide) in paragraph at lines 131--132
+ []\TU/lmr/m/n/10 {[] 
+ []
+
+[5]
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/gis_wordcloud_wal
+lentin2015.png Graphic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/gis_wordcloud_wallenti
+n2015.png>
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/GISwordcloud.png 
+Graphic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/GISwordcloud.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[6]
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/intro_GISumbrella
+.png Graphic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/intro_GISumbrella.png>
+
+[7]
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/arcgis_logo.jpg G
+raphic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/arcgis_logo.jpg>
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/qgis_logo.png Gra
+phic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/qgis_logo.png>
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/grassgis_logo.png
+ Graphic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/grassgis_logo.png>
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/Rlogo.png Graphic
+ file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/Rlogo.png>
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/gis_natgeo.jpg Gr
+aphic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/gis_natgeo.jpg>
+
+Underfull \hbox (badness 10000) in paragraph at lines 202--202
+[]\TU/lmr/m/n/10 Figure 1.3: []Andmete hoidmine GISis kihtidena, [GIS
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 202--202
+\TU/lmr/m/n/10 NatGeo](https://www.nationalgeographic.org/encyclopedia/geograph
+ic-
+ []
+
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/qgis_attribute_ta
+ble.png Graphic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/qgis_attribute_table.p
+ng>
+[8] [9]
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/Timeline-of-major
+-GIS-events.png Graphic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/Timeline-of-major-GIS-
+events.png>
+
+Overfull \hbox (4.99165pt too wide) in paragraph at lines 223--224
+ []\TU/lmr/m/n/10 {[] 
+ []
+
+
+Underfull \hbox (badness 7203) in paragraph at lines 233--233
+[]\TU/lmr/m/n/10 Geoinfosüsteeme hakati arendama ja kasutama 1960ndatel, kui
+ []
+
+
+Underfull \hbox (badness 2012) in paragraph at lines 243--243
+\TU/lmr/m/n/10 Harvard Laboratory Computer Graphicsi poolt arendatud esimesel
+ []
+
+[10] [11]
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/keegi_allatiiv.jp
+eg Graphic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/keegi_allatiiv.jpeg>
+
+Underfull \hbox (badness 10000) in paragraph at lines 289--289
+\TU/lmr/m/n/10 [siit](http://rurake.keeleressursid.ee/index.php/andrus-saareste
+s-unpublished-
+ []
+
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/arheo_example_tee
+makaart_kimber.jpeg Graphic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/arheo_example_teemakaa
+rt_kimber.jpeg>
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/arheo_example_kim
+ber_lohukivid_totalviewshed.jpg Graphic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/arheo_example_kimber_l
+ohukivid_totalviewshed.jpg>
+
+Underfull \hbox (badness 10000) in paragraph at lines 300--300
+[][]
+ []
+
+
+Underfull \hbox (badness 1681) in paragraph at lines 300--300
+[]\TU/lmr/m/n/10 Figure 1.6: []Muististe jaotumise visualiseerimine ja maastiku
+ nähtavuse
+ []
+
+[12] [13]
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/arheo_example_haa
+v_asulate_mudel.png Graphic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/arheo_example_haav_asu
+late_mudel.png>
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/arheo_example_ros
+entau2013.png Graphic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/arheo_example_rosentau
+2013.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 304--304
+[][]
+ []
+
+
+LaTeX Warning: Float too large for page by 229.29698pt on input line 305.
+
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/example_france_tr
+ains_geddes2014.png Graphic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/example_france_trains_
+geddes2014.png>
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/example_moncla_pa
+ris_street_mentions.png Graphic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/example_moncla_paris_s
+treet_mentions.png>
+
+Package natbib Warning: Citation `Jessop2008' on page 14 undefined on input lin
+e 343.
+
+[14] [15] [16]
+
+Package natbib Warning: Citation `Presner2015' on page 17 undefined on input li
+ne 345.
+
+
+Underfull \hbox (badness 7099) in paragraph at lines 361--361
+[]\TU/lmr/m/n/10 Milliseid murekohti näed arvutuslike meetodite ja arvutipõhist
+e
+ []
+
+[17] [18
+
+]
+Chapter 2.
+
+Underfull \hbox (badness 4660) in paragraph at lines 382--382
+[]\TU/lmr/bx/it/10 Community mapping\TU/lmr/m/n/10 , \TU/lmr/bx/it/10 participa
+tory mapping \TU/lmr/m/n/10 - kogukondlik
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
+\TU/lmr/m/n/10 hanimede, aadresside) muutmine geograafilisteks koordinaatideks.
+
+ []
+
+[19]
+File: ./imgs/padlet_projektid.pdf Graphic file (type pdf)
+<use ./imgs/padlet_projektid.pdf>
+[20]
+Overfull \hbox (18.54173pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 2.3.  RÜHMATÖÖ 2: HUMANITAARIA VS. KVANTITATIIVSED MEETODID \TU
+/lmr/m/n/10 21
+ []
+
+[21]
+File: ./imgs/padlet-debatt.pdf Graphic file (type pdf)
+<use ./imgs/padlet-debatt.pdf>
+[22]
+Overfull \hbox (18.54173pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 2.3.  RÜHMATÖÖ 2: HUMANITAARIA VS. KVANTITATIIVSED MEETODID \TU
+/lmr/m/n/10 23
+ []
+
+[23] [24
+
+]
+Chapter 3.
+[25]
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/Bolstad2016.png G
+raphic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/Bolstad2016.png>
+[26]
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/points_lines_poly
+gons.png Graphic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/points_lines_polygons.
+png>
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/Bolstad2016_point
+slinespolygons.png Graphic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/Bolstad2016_pointsline
+spolygons.png>
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/pringi1.png Graph
+ic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/pringi1.png>
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/pringi2.png Graph
+ic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/pringi2.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 546--546
+[]\TU/lmr/m/n/10 Figure 3.4: [][Pringi Ohvrimägi punktina ja polügoon-
+ []
+
+
+Overfull \hbox (149.78pt too wide) in paragraph at lines 546--546
+\TU/lmr/m/n/10 ina](https://hiitemaja.maps.arcgis.com/apps/webappviewer/index.h
+tml?id=db7d4fe754d245b9ac53f6d9a76e229e) 
+ []
+
+[27] [28]
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/pringi3.png Graph
+ic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/pringi3.png>
+
+Overfull \hbox (5.00092pt too wide) in paragraph at lines 551--552
+ []\TU/lmr/m/n/10 {[] 
+ []
+
+File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/spaghetti_topolog
+ical.png Graphic file (type bmp)
+<C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/spaghetti_topological.
+png>
+
+LaTeX Warning: File `http://resources.arcgis.com/en/help/main/10.2/01mm/pdf/top
+ology_rules_poster.pdf' not found on input line 577.
+
+! Unable to load picture or PDF file 'http://resources.arcgis.com/en/help/main/
+10.2/01mm/pdf/topology_rules_poster.pdf'.
+<to be read again> 
+                   }
+l.577 .../10.2/01mm/pdf/topology_rules_poster.pdf}
+                                                   
 Here is how much of TeX's memory you used:
- 15950 strings out of 481384
- 284194 string characters out of 5926174
- 717161 words of memory out of 5000000
- 33212 multiletter control sequences out of 15000+600000
- 532714 words of font info for 27 fonts, out of 8000000 for 9000
+ 17354 strings out of 481648
+ 327332 string characters out of 5930142
+ 727459 words of memory out of 5000000
+ 34211 multiletter control sequences out of 15000+600000
+ 541547 words of font info for 83 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 53i,0n,50p,922b,270s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 52i,6n,118p,1501b,493s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-No pages of output.
+Output written on HVHV_00_001_geoinfosysteemid.pdf (28 pages).
