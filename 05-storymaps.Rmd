@@ -17,8 +17,6 @@ Kõige rohkemate funktsioonide ja võimalustega teenust *story map*'ide tegemise
 
 <iframe width="640px" height="480px" src="https://storymaps.esri.com/stories/2016/humboldt/index.html" frameborder="0" scrolling="yes"></iframe>
 
-<iframe width="640px" height="480pxpx" src="https://storymaps.esri.com/stories/2017/oral-histories/" frameborder="0" scrolling="yes"></iframe>
-
 <iframe width="640px" height="480px" src="https://storymaps.esri.com/stories/2017/hip-hop/map/" frameborder="0" scrolling="yes"></iframe>
 
 <iframe width="640px" height="480px" src="https://story.maps.arcgis.com/apps/Cascade/index.html?appid=46daf1304a0c4ad69a8935c7ed2ab692" frameborder="0" scrolling="yes"></iframe>
@@ -51,6 +49,7 @@ Kui oled oma loo n-ö ära seadistanud, siis saad hakata lisama sisu.
 - Kui oled loo valmis saanud, siis salvesta see.  
 - Oma lugu võib jagada lingiga või ka näiteks otse Twitteri, Facebooki või Google+'i kaudu. Samuti võib selle *iframe*'i koodi abil lisada otse enda veebilehele (näiteks Wordpressi, Mediumi või mujale). Ka sellele lehele siin võib lisada äsja tehtud *story map*'i, kleepides lihtsalt *iframe*'i koodi tänase praktikumi lähtekoodi (lugu ilmub siia pärast praktikumi lõppu).
 
+<iframe src="https://uploads.knightlab.com/storymapjs/9369be87bcb6fd22e6881a172e10a9c9/janis-joplin/index.html" frameborder="0" width="640px" height="480px" scrolling="yes"></iframe>
 
 Enamik kasutajaid lepib nende võimalustega, mis on olemas, ent neil, kes tunnevad HTMLi ja JavaScripti, õnnestub lisaks veel päris palju asju kohandada (vaata sakki *Help* -> *Advanced*).
 

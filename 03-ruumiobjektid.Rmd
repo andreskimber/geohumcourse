@@ -90,7 +90,7 @@ knitr::include_graphics(here::here("imgs", "spaghetti_topological.PNG"))
 
 Topoloogilised suhted on aluseks topoloogiareeglitele.
 
-![Topoloogiareeglid ArcGISis](http://resources.arcgis.com/en/help/main/10.2/01mm/pdf/topology_rules_poster.pdf){width=100% height=700}
+![Topoloogiareeglid ArcGISis](imgs/topology_rules_poster.pdf){width=100% height=700}
 
 
 Topoloogilisi suhteid ja reegleid kasutatakse näiteks siis, kui tahetakse planeerida võimalikult kiiret teekonda ühest punktist teise või hoonestuse paiknemist, aga ka paljuks muuks. Pelgaks visualiseerimiseks pole aga topoloogilisi suhteid andmebaasis vaja defineerida.   
@@ -227,5 +227,5 @@ Kujuta ette, et Google Mapsi ei ole veel leiutatud ja paberkaardid on väga kall
 
 ## Järgmisel korral
 
-Neljapäeval räägime lähemalt kaartidest ja nende omadustest ning uurime vabavaraliste kaardirakenduste võimalusi ja piiranguid.  
+Neljapäeval räägime lähemalt kaartidest ja nende omadustest ning uurime veebipõhiste kaardirakenduste võimalusi ja piiranguid.  
 

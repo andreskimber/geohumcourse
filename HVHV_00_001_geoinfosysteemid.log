@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.9.28)  2 OCT 2020 12:27
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.9.28)  5 OCT 2020 13:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1055,13 +1055,13 @@ e
 ]
 Chapter 2.
 
-Underfull \hbox (badness 4660) in paragraph at lines 382--382
+Underfull \hbox (badness 4660) in paragraph at lines 379--379
 []\TU/lmr/bx/it/10 Community mapping\TU/lmr/m/n/10 , \TU/lmr/bx/it/10 participa
 tory mapping \TU/lmr/m/n/10 - kogukondlik
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 386--386
+Underfull \hbox (badness 10000) in paragraph at lines 383--383
 \TU/lmr/m/n/10 hanimede, aadresside) muutmine geograafilisteks koordinaatideks.
 
  []
@@ -1108,12 +1108,12 @@ File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/pringi2.png Graph
 ic file (type bmp)
 <C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/pringi2.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 546--546
+Underfull \hbox (badness 10000) in paragraph at lines 543--543
 []\TU/lmr/m/n/10 Figure 3.4: [][Pringi Ohvrimägi punktina ja polügoon-
  []
 
 
-Overfull \hbox (149.78pt too wide) in paragraph at lines 546--546
+Overfull \hbox (149.78pt too wide) in paragraph at lines 543--543
 \TU/lmr/m/n/10 ina](https://hiitemaja.maps.arcgis.com/apps/webappviewer/index.h
 tml?id=db7d4fe754d245b9ac53f6d9a76e229e) 
  []
@@ -1123,7 +1123,7 @@ File: C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/pringi3.png Graph
 ic file (type bmp)
 <C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/pringi3.png>
 
-Overfull \hbox (5.00092pt too wide) in paragraph at lines 551--552
+Overfull \hbox (5.00092pt too wide) in paragraph at lines 548--549
  []\TU/lmr/m/n/10 {[] 
  []
 
@@ -1133,13 +1133,13 @@ ical.png Graphic file (type bmp)
 png>
 
 LaTeX Warning: File `http://resources.arcgis.com/en/help/main/10.2/01mm/pdf/top
-ology_rules_poster.pdf' not found on input line 577.
+ology_rules_poster.pdf' not found on input line 574.
 
 ! Unable to load picture or PDF file 'http://resources.arcgis.com/en/help/main/
 10.2/01mm/pdf/topology_rules_poster.pdf'.
 <to be read again> 
                    }
-l.577 .../10.2/01mm/pdf/topology_rules_poster.pdf}
+l.574 .../10.2/01mm/pdf/topology_rules_poster.pdf}
                                                    
 Here is how much of TeX's memory you used:
  17354 strings out of 481648

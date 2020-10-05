@@ -363,9 +363,6 @@ Artiklite pdf-id leiad Moodle'ist.
   Kas humanitaarteadused on omavahel ühildatavad? Aga teiste valdkondadega? Milline on interdistsiplinaarsete uurimuste/projektide olevik, milline tulevik?
 \end{itemize}
 
-\hypertarget{kirjandus}{%
-\section{Kirjandus}\label{kirjandus}}
-
 \hypertarget{seminar}{%
 \chapter{Seminar}\label{seminar}}
 
@@ -730,9 +727,6 @@ Kujuta ette, et Google Mapsi ei ole veel leiutatud ja paberkaardid on väga kall
 
 Neljapäeval räägime lähemalt kaartidest ja nende omadustest ning uurime vabavaraliste kaardirakenduste võimalusi ja piiranguid.
 
-\hypertarget{kirjandus-1}{%
-\section{Kirjandus}\label{kirjandus-1}}
-
 \hypertarget{kaardirakendused}{%
 \chapter{Kaardirakendused}\label{kaardirakendused}}
 
@@ -800,7 +794,7 @@ Kaardi \textbf{mõõtkava} näitab, kui palju reaalset objekti on vähendatud. T
 
 Kui liigume suurelt mõõtkavalt väiksemale, peame andmeid loetavuse huvides üldistama ning valima, mida ja mis detailsusastmega esitada. Üldistada võib lihtsustades, siludes, ühendades jne.
 
-\hypertarget{htmlwidget-ad6b0a4b17cf482b4af0}{}
+\hypertarget{htmlwidget-55d7087b91f42c73ed9d}{}
 \begin{leaflet}
 
 \end{leaflet}
@@ -1082,6 +1076,203 @@ Kui sul õnnestub teha mingite andmetega ka kaart, mida eksportida või jagada, 
 \section{Järgmisel korral}\label{juxe4rgmisel-korral-2}}
 
 Esmaspäeval mõtiskleme veidi laiemalt kaartide mõiste üle ning uurime, kuidas saab kaardi abil lugusid jutustada (\emph{Story Maps}).
+
+\hypertarget{storymaps}{%
+\chapter{Story maps}\label{storymaps}}
+
+\hypertarget{story-maps}{%
+\section{Story maps}\label{story-maps}}
+
+\textbf{\emph{Story map}}, mille võiks ehk tõlkida kui \emph{loojutustuskaart}, on formaat, mis võimaldab piltide, teksti, video ja kohainfo kaudu jutustada lugusid fotograafiast, kunstist, kirjandusest, spordist, ajaloost, teadusest, ühiskonnast ja paljust muust.
+
+Kontseptsioon on lihtne: kaardile märgitakse punktid, mille juurde saab lisada nii tekstilist kui ka pildilist infot selles kohas toimunud sündmuse või selles kohas paikneva objekti kohta. Kaardi punkte omavahel ühendades tekibki mingi narratiiv.
+Laiemas tõlgenduses ei pea \emph{story map}'i \emph{kaart} olema tingimata geograafiline. Kontekstina võib toimida ka näiteks mõni maal, foto või muu visuaal, ent taust on sel juhul siiski käsitletav ruumina, milles saab loogiliselt liikuda. Klassikalises \emph{story map}'is on lähtepunktiks siiski mingi narratiiv, mida mööda liikudes liigume ka vastavatesse paikadesse geograafilisel kaardil.
+
+Ühest küljest on \emph{story map}'il palju ühist tavaliste veebilehtedega, kus jutustatakse mingit lugu, mida illustreerivad muu materjali kõrval ka kaardid, ent \emph{story map}'il on \textbf{koht (ja aeg) oluliselt prominentsemal kohal}.
+Teiselt poolt on \emph{story map}il ühisjooni tavaliste kaardirakendustega, kuhu saab lisada ruumiobjekte, mida iseloomustavad teatud atribuudid. Atribuudina võib näiteks lisada ka pikema teksti, lingi pildile või videole jpm. Väga selget piiri \emph{story map}'i ja kindlasti-mitte-\emph{story}-\emph{map}'i vahele on raske tõmmata, ent kuna \emph{story map}'i fookus on aga selgelt mingi loo jutustamisel või argumendi esitamisel, on see enamasti \textbf{visuaalselt esteetilisem ja sujuvam} ning oluliseks omaduseks on \textbf{väljundi võimalikult lihtne ja kiire integreeritavus} erinevatele veebiplatvormidele.
+Story map on hea meedium näiteks esitluste ja ettekannete jaoks, kui aeg ja koht (õigemini kohad) on narratiivi või argumendi esitamise seisukohast olulised.
+
+Kõige rohkemate funktsioonide ja võimalustega teenust \emph{story map}'ide tegemiseks pakub ilmselt \textbf{ESRI} oma \textbf{ArcGIS StoryMaps} rakenduse kaudu. ESRIl on ka eraldi digihumanitaaria \href{https://collections.storymaps.esri.com/humanities/}{\emph{story map}'ide kollektsioon}. Mõned näited:
+
+ESRI teenus on aga tasuline, mistõttu sellel kursusel katsetame hoopis vabavaralist platvormi \textbf{\href{https://storymap.knightlab.com/}{StoryMapJS}}. Teeme tehniliselt läbi ühe \emph{story map}'i loomise protsessi. Võtame aluseks mingi Vikipeedia artikli, näiteks \href{https://en.wikipedia.org/wiki/Janis_Joplin}{selle siin}, ning püüame panna selle \emph{story map}'i vormi.\\
+
+\begin{itemize}
+\tightlist
+\item
+  Loo tegemiseks pead Google'i kasutajakontoga sisse logima.\\
+\item
+  Kui oled sisse loginud, vajuta nupul \emph{New}.\\
+\item
+  Nimeta oma lugu. Loo nimi saab ühtlasi sinu projekti ID-ks, mida kasutatakse hiljem loole viitava lingi nimes. Kui kasutad mitmesõnalist nime, milles tühikud eraldavad sõnu, siis asendatakse need ID-s sidekriipsudega.\\
+\item
+  Sätete (\emph{Options}) alt saad valida:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    kaardi suuruse (kõrgus pikslites, laius protsentides ekraani laiusest);
+  \item
+    keele. Keel määrab ära, mis keeles kuvatakse kasutajale igasugu nupud ja juhised. Valikus on ka eesti keel;\\
+  \item
+    teksti fondi (küsimärgile vajutades näed ka, millised eri variandid välja näevad);\\
+  \item
+    kas soovid, et kaardi erinevate punktide vahele tõmmataks joon (\emph{treat as cartography}) või mitte (\emph{treat as image});\\
+  \item
+    esilehel kuvatava teksti (\emph{call to action});\\
+  \item
+    aluskaardi. Saad valida nii olemasolevate põhjade vahel kui ka omaenda või teiste kohandatud kaartide vahel. Näiteks on võimalik integreerida Mapboxi kaarte.
+  \end{itemize}
+\end{itemize}
+
+Kui oled oma loo n-ö ära seadistanud, siis saad hakata lisama sisu.
+
+\begin{itemize}
+\tightlist
+\item
+  Kõigepealt saad valida pildi, mida avalehel näidatakse, lisada tutvustava teksti ja muuta soovi korral tausta värvi.\\
+\item
+  \emph{Preview} lehe vasakul poolel hakkab kuvama loo kaarti, kui mingid kohad on juba ära märgitud.\\
+\item
+  Sisu lisamiseks lisa slaid. Iga slaid on seotud ühe kohaga.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Esmalt otsi koordinaatide või kohanime järgi koht, millega slaidil esitatav loo osa seotud on. Saad valida ka koha markeri.\\
+  \item
+    Võid lisada nii pilte kui ka videoid, samuti saab teksti sisse lisada linke.\\
+  \end{itemize}
+\item
+  Kui oled loo valmis saanud, siis salvesta see.\\
+\item
+  Oma lugu võib jagada lingiga või ka näiteks otse Twitteri, Facebooki või Google+'i kaudu. Samuti võib selle \emph{iframe}'i koodi abil lisada otse enda veebilehele (näiteks Wordpressi, Mediumi või mujale). Ka sellele lehele siin võib lisada äsja tehtud \emph{story map}'i, kleepides lihtsalt \emph{iframe}'i koodi tänase praktikumi lähtekoodi (lugu ilmub siia pärast praktikumi lõppu).
+\end{itemize}
+
+Enamik kasutajaid lepib nende võimalustega, mis on olemas, ent neil, kes tunnevad HTMLi ja JavaScripti, õnnestub lisaks veel päris palju asju kohandada (vaata sakki \emph{Help} -\textgreater{} \emph{Advanced}).
+
+Veel paar aastat tagasi oli võimalik vähese vaevaga kasutada \emph{story map}'ide tegemiseks ka platvorme nagu \href{https://mapstory.org}{MapStory} või \href{https://cartodb.github.io/odyssey.js/}{Odyssey.js}, ent nende kasutamine on praeguseks oluliselt raskendatud (nõuab veidi koodikirjutamisoskust ning kõik funktsioonid ei ole enam toetatud).
+
+\hypertarget{mapbox-studio}{%
+\section{Mapbox Studio}\label{mapbox-studio}}
+
+Kuna eelmisel korral vaatasime üsna primitiivseid veebipõhiseid kaardirakendusi, mis võib-olla ei olnud visuaalselt kõige ilusamad, siis teeme siinkohal lõpetuseks väikese kõrvalepõike ja tutvume korraks ka Mapboxi võimalustega. Mapbox on platvorm, mis pakub erinevaid tööriistu kaartide tegemise ja ruumiandmete analüüsiga seotud probleemide lahendamiseks (eelkõige veebis). Lisaks paljule muule võimaldab ka Mapbox \textbf{veebipõhiselt oma andmete kujutamist kaardil ning üsna ulatuslikku kaartide stiliseerimist (Mapbox Studio)}. Mapboxis võid muuta näiteks kaardi värviskaalat, läbipaistvust, piirjoonte paksust, teksti suurust, fonti, keelt, objektide omadusi, ikoone, ühendada satelliitpildi jpm. Kaardi saab eksportida pildifailina ning kaardi stiili svg-failidena; stiili saab eksportida ka otse QGISi või ArcGISi või ka muudele platvormidele. Kuna Mapbox pakub ulatuslikku kontrolli kaardi väljanägemise üle, sobib see hästi ka \emph{story map}'ide aluskaartide tegemiseks, kui on oluline, loo juurde käiks kvaliteetne visuaal. Näiteks võime eelmisel korral kasutatud vallakohtute andmestikku kuvada Mapboxis nii, et esitatud on võimalikult palju informatsiooni: normaliseeritud tekstid on tähistatud roheliste, normaliseerimata tekstid kollaste punktidega; lõunaeesti murrete alla jäävad vallad on märgitud punase, põhjaeesti murrete alla jäävad vallad sinise tekstiga; punktide suurus näitab kirjakeele morfoloogilisele analüsaatorile tundmatuks jäänud sõnavormide protsenti vastava valla protokollides. Kaardi põhjal saame otsustada, et nii tekstide normaliseerimine (st kirjakeelele sarnasemaks muutmine) kui ka põhjaeesti murderühma tekstide kasutamine aitavad automaatsel vormianalüsaatoril paremini sõnavorme ära tunda. Venekeelne riigi nimi küll otseselt sellesse loosse ei panusta, vaid illustreerib lihtsalt Mapboxi võimalusi.
+
+\begin{figure}
+\includegraphics[width=45.83in]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox_example} \caption{Mapboxis stiliseeritud kaardi näide}\label{fig:mapbox}
+\end{figure}
+
+Proovime stiliseerida \href{https://www.mapbox.com/mapbox-studio/}{Mapboxis} mingit kaarti ning laadime selle siis StoryMapJS'i aluskaardiks. Ka Mapboxi kasutamine eeldab, et oled registreerinud end kasutajaks.
+
+Kui oled sisse loginud, mine lehele Studio. Avaneb leht, mille ülaosas on kolm sakki: \emph{Datasets}, \emph{Styles} ja \emph{Tilesets}.
+
+\begin{figure}
+\includegraphics[width=0.45\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox1} \includegraphics[width=0.45\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox2} \caption{Mapbox Studio}\label{fig:mapbox1}
+\end{figure}
+
+\emph{Tileset} on Mapboxi ruumiandmete formaat (nii raster- kui ka vektorandmetele), mida kasutatakse andmete esitamiseks kaardil. Võid importida oma andmed Mapboxi valmis \emph{tileset}'ina või kasutada \emph{Datasets} sakki, et laadida oma andmed üles, neid soovi korral töödelda (nt muuta numbrilised atribuudid tekstiks või vastupidi) ning seejärel \emph{tileset}'i vormingusse konverteerida.
+
+Alustame sellest, et teeme uue stiili (sakk \emph{Styles} -\textgreater{} \emph{New style}).
+
+\begin{figure}
+\includegraphics[width=0.7\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox3} \caption{Vali kohandatav stiil}\label{fig:mapbox2}
+\end{figure}
+
+Saame lisada kaardile soovitud komponente (nt teed, looodusobjektid, kultuuriobjektid jne) ka üleliigseid kustutada (\textbf{\emph{Components}}). Samuti saame modifitseerida iga kaardi komponendi elementide omadusi (\textbf{\emph{Layers}}).
+
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox4} \includegraphics[width=0.5\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox5} \caption{Komponendid ja kihid}\label{fig:mapbox3}
+\end{figure}
+
+Teeme näiteks kaardi, millel ei oleks näidatud ühtegi konkreetset objekti ega ka teid ja transpordiühendusi, millel ei oleks linnade nimetusi ega maakonnapiire. Selleks:
+
+\begin{itemize}
+\tightlist
+\item
+  kustutame ära alustamisel vaikimisi lisatud kihid Transit, Road Network, Point of interest labels, Natural features ja Buildings;
+\item
+  komponendi \emph{Administrative boundaries} alt desaktiveerime maakonnapiirid (\emph{State/province} boundaries);\\
+\item
+  komponendi \emph{Place Labels} alt desaktiveerime kõik sildid peale riigi nime ning määrame kaardil kuvatavaks keeleks ``Local'' ehk eesti keele;\\
+\item
+  lülitame \emph{Land \& Water} saki alt välja elemendid \emph{Landuse} ja \emph{Landcover};
+\item
+  muudame ka kaardi värvi. Selleks on (vähemalt) kaks võimalust: esiteks võime muuta terve kaardi värviskaalat (vasakul) või valida üksikute elementide värvi (paremal). Viimase puhul tuleb muutmiseks vajutada esmalt nupul \emph{Override}.
+\end{itemize}
+
+\begin{figure}
+\includegraphics[width=0.45\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox6} \includegraphics[width=0.45\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox7} \caption{Kaardi komponentide värvi muutmine}\label{fig:mapbox4}
+\end{figure}
+
+Muudame näiteks veekogud tumelillaks ning maismaa tumeroheliseks.
+
+\begin{figure}
+\includegraphics[width=0.7\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox8} \caption{Muudetud värvidega kaart}\label{fig:mapbox5}
+\end{figure}
+
+Lisame nüüd kaardile ka eelmisel korral kasutatud vallakohtuprotokollide andmed. Selleks lisame uue kihi ning valime allika (\emph{Source}) puhul variandi \emph{Upload data}.\\
+Tasuta saab andmestikku ühes kuus üles laadida 20 korda. Valime faili \emph{vallakohtuprotokollid1.csv}, kus tulpad on eraldatud semikoolonitega ning punktide koordinaate näitavad tulbad Longitude ja Latitude. Üleslaadimine võib pisut aega võtta.
+
+\begin{figure}
+\includegraphics[width=0.45\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox9} \includegraphics[width=0.45\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox10} \caption{Andmekihtide lisamine}\label{fig:mapbox6}
+\end{figure}
+
+Seejärel vali pakutud allikates äsja üles laaditud kiht. Saad valida, millisena soovid andmekihti kuvada (nt punktidena, joontena, sümbolitena vm-na). Saki \emph{Style} alt saad omakorda määrata, milline valitud objektitüüp täpselt välja näeb.
+
+\begin{figure}
+\includegraphics[width=0.45\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox11} \includegraphics[width=0.45\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox12} \caption{Ruumikuju ja välimuse valimine}\label{fig:mapbox7}
+\end{figure}
+
+Kõiki elemente võib värvida ühtmoodi konkreetse väärtusega (nt kõik punktid olgu punased). Võimalik on aga kasutada värvi, läbipaistvust, suurust ka selleks, et väljendada mingit andmestiku atribuuti. Värvime punktid esmalt näiteks selle järgi, millised vallad kuuluvad põhja- ja millised lõunaeesti murrete kõnelemispiirkonda (kvalitatiivne rühmitav atribuut), ning seejärel muudame punktide suurust selle järgi, kui palju oli valdade protokollides keskmiselt selliseid sõnu, mida tänapäeva kirjakeelel treenitud morfoloogiline analüsaator ära ei tundnud (kvantitatiivne atribuut).
+
+Selleks, et kasutada kvalitatiivset atribuuti, peame valima andmekihil \emph{Style} -\textgreater{} \emph{Color} -\textgreater{} \textbf{\emph{Style with data conditions}}, valima grupeeriva tunnuse (L/P) ning määrama, mis värviga kumbagi tunnuse taset kaardil väljendada. Värvime lõunaeesti murrete alla kuuluvad vallad näiteks punaseks ja põhjaeesti alla kuuluvad vallad siniseks.
+
+\begin{figure}
+\includegraphics[width=0.45\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox13} \includegraphics[width=0.45\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox14} \caption{Kvalitatiivne grupeeriv atribuut}\label{fig:mapbox8}
+\end{figure}
+
+Kvantitatiivse atribuudi kasutamiseks peame valima andmekihil \emph{Style} -\textgreater{} \emph{Radius} -\textgreater{} \emph{Style across data range}, valima tunnuse, mille järgi punkti suurust muuta (TundmatuteProtsent) ning määrama tunnuse skaala otspunktide ehk kõige väiksema ja kõige suurema väärtuse suurused (kõik ülejäänud väärtused jäävad skaalal nende vahepeale). Valime näiteks kõige väiksema tundmatute analüüside protsendiga valla punkti suuruseks 3 pikslit ja kõige suurema omaks 15 pikslit.
+
+\begin{figure}
+\includegraphics[width=0.45\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox15} \includegraphics[width=0.45\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox16} \caption{Kvantitatiivne atribuut}\label{fig:mapbox9}
+\end{figure}
+
+Kuna punktid osaliselt kattuvad, võime need teha ka pisut läbipaistvaks (\emph{Opacity}).
+
+\begin{figure}
+\includegraphics[width=0.7\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox17} \caption{Läbipaistvuse suurendamine}\label{fig:mapbox10}
+\end{figure}
+
+Kui nüüd tahame näiteks lisada samast andmestikust ka teksti, sümboleid vm, siis saame lihtsalt lisada sama kihi uuesti ning kuvada sellel soovitud objekte. Mõistagi saab muuta värvi, suurust, läbipaistvust (ka vastavalt mõnele andmestiku atribuudile), paigutada teksti punkti suhtes vasakule-paremale, üles-alla jne.
+
+\begin{figure}
+\includegraphics[width=0.7\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox18} \caption{Uute andmekihtide lisamine}\label{fig:mapbox11}
+\end{figure}
+
+Võime nüüd oma kaardi printida. Selleks vajuta ülemises paremas nurgas sakile \emph{Print} ning vali avanenud aknakeses kaardi mõõtmed.
+
+\begin{figure}
+\includegraphics[width=0.7\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox19} \caption{Kaardi salvestamine}\label{fig:mapbox12}
+\end{figure}
+
+\hypertarget{mapbox-story-mapis}{%
+\section{\texorpdfstring{Mapbox \emph{story map}'is}{Mapbox story map'is}}\label{mapbox-story-mapis}}
+
+Selleks, et nüüd kasutada oma stiliseeritud kaarti (meil praegu vaikimisi koos andmetega, aga võib muidugi ka ilma), peame andma StoryMapJS keskkonnas stiili aadressi Mapboxi keskkonnas.
+
+\begin{figure}
+\includegraphics[width=0.7\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox_storymap} \caption{StoryMapJS-i kaardipõhja valimine}\label{fig:mapboxstorymap1}
+\end{figure}
+
+Vastava aadressi leiame Mapboxis ülevalt paremalt nurgast sakist \emph{Share}. Selleks, et oma kaardistiili kuskil mujal kasutada, tuleb see esmalt muuta avalikuks ning seejärel võid kopeerida \emph{Style URL} ja \emph{Access token} väärtused StoryMapJS keskkonna vastavatesse lahtritesse.
+
+\begin{figure}
+\includegraphics[width=0.45\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox20} \includegraphics[width=0.45\linewidth]{C:/Users/a71386/Desktop/GeoHum/andres/geohumcourse/imgs/mapbox21} \caption{Vajalik info Mapboxist}\label{fig:mapboxstorymap2}
+\end{figure}
+
+\hypertarget{juxe4rgmisel-korral-3}{%
+\section{Järgmisel korral}\label{juxe4rgmisel-korral-3}}
+
+Neljapäeval kolime lõpuks QGISi ning teeme esimesed sammud tarkvaraga tutvumisel.
 
   \bibliography{kirjandus.bib}
 
