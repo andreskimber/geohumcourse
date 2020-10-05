@@ -8,11 +8,11 @@ Enne, kui hakkame rääkima sellest, kuidas juba olemasolevate veebirakendustega
 Kaart on kitsamas tähenduses geograafilise informatsiooni visuaalne esitusviis. GISis on kaardid nii sisendiks kui ka väljundiks. Laiemas tähenduses võime kaardiks pidada mis tahes esitust maailmast. 
 
 
-```{r map-types, echo = F, fig.align="center", out.width = "100%", out.height = "100%", fig.cap = "[Erinevaid kaarte](https://geology.com/maps/types-of-maps/)"}
+```{r map-types, echo = F, fig.align="center", out.width = "70%", fig.cap = "[Erinevaid kaarte](https://geology.com/maps/types-of-maps/)"}
 knitr::include_graphics(here::here("imgs", "types-of-maps.jpg"))
 ```
 
-```{r paris metro, echo = F, fig.align="center", out.width = "100%", out.height = "100%", fig.cap = "[Pariisi metrookaart](http://www.urbanrail.net/eu/fr/paris/paris.htm/)"}
+```{r parismetro, echo = F, fig.align="center", out.width = "100%", out.height = "100%", fig.cap = "[Pariisi metrookaart](http://www.urbanrail.net/eu/fr/paris/paris.htm/)"}
 knitr::include_graphics(here::here("imgs", "paris-metro.png"))
 ```
 
@@ -23,7 +23,7 @@ knitr::include_graphics(here::here("imgs", "tartu_kaart_noored.PNG"))
 
 Kaarti tehes peame alati esmalt läbi mõtlema, mis on kaardi tegemise eesmärk ning kes on kaardi lõppkasutaja. Seejärel tuleb mõelda, mida ja mis kujul reaalsest maailmast esitame ning kui täpne peab esitus olema. Lõpuks tuleb mõelda ka tehnilistele aspektidele: mis formaadis andmed meil on kasutada, mis formaadis need andmed peavad olema kaardi tegemiseks ning mis formaadis tuleb kaart ise. 
 
-GISis võime infot esitada kaardikihtidena, kusjuures ühel kihil esitatakse nähtusi, mis omavad **ühesugust ruumiobjekti tüüpi**. See tähendab, et samal kihil ei tohiks esitada näiteks jõgesid (tüüpiliselt avatud jooned) ja ehitisi (tüüpiliselt suletud jooned ehk polügoonid). Küll aga võime soovi korral esitada samal kihil näiteks kive, restorane ja kogumispunkte, mis küll olemuslikult on erinevast klassist, aga geomeetriliselt esitatavad sama tüüpi ruumiobjekti (punkti) abil. Üldiselt on tavaks esitada ühel kaardikihil siiski ka temaatiliselt sarnaseid objekte.
+GISis võime infot esitada kaardikihtidena, kusjuures ühel kihil esitatakse nähtusi, mis omavad **ühesugust ruumiobjekti tüüpi**. See tähendab, et samal kihil ei tohiks esitada näiteks jõgesid (tüüpiliselt avatud jooned) ja ehitisi (tüüpiliselt suletud jooned ehk polügoonid). Küll aga võime soovi korral esitada samal kihil näiteks kive, restorane ja kogumispunkte, mis küll olemuslikult on erinevast klassist, aga geomeetriliselt esitatavad sama tüüpi ruumiobjekti (punkti abil). Üldiselt on tavaks esitada ühel kaardikihil siiski ka temaatiliselt sarnaseid objekte.
 
 Üha rohkem puutume tänapäeval paberkaartide asemel kokku digitaalkaartidega. Ehkki mõlemal juhul näeme kaardil seda infot, mida kaardi tegija soovib edastada, ning sellisel kujul, nagu tema vajalikuks peab, on paber- ja digitaalkaartidel olulisi erinevusi.
 
@@ -79,7 +79,7 @@ Daatumi ja sobiliku koordinaatsüsteemi abil saamegi määrata objektide asukoht
 > Kui iga kraad on jagatud 60 minutiks ja iga minut 60 sekundiks, siis kuidas kujutada kümnendsüsteemis koordinaate 58°22'48"N, 26°43'20"E?
 
 
-Selleks aga, et nüüd geograafilises ruumis paiknevaid objekte kujutada tasapinnalisel mudelil ehk kaardil, peame valima kaardi **projektsiooni**, mis määrab viisi, kuidas sfääriline pink tasapinnal esitatakse ning kuidas ruumilised koordinaadid (GCS) konverteeritakse ümber **tasapinnalisteks koordinaatideks** (PCS ehk *projected coordinate system*), mida väljendatakse *x*-i ja *y* abil. Sisuliselt määrab projektsioon ära ka selle, milliseid alasid maakeral me oleme nõus oma kaardil rohkem moonutama ja milliseid vähem ning mispidi me mingeid alasid kaardil venitame või kokku surume. Kui tahame kujutada ümmargust Maad kahemõõtmelisel tasapinnal, siis paratamatult peame mingit osa maakerast moonutama. Ühe või teise projektsiooni valimisel moonutame rohkem kas pindalasid, nurkasid, kujusid või joonpikkuseid.  
+Selleks aga, et nüüd geograafilises ruumis paiknevaid objekte kujutada tasapinnalisel mudelil ehk kaardil, peame valima kaardi **projektsiooni**, mis määrab viisi, kuidas sfääriline pind tasapinnal esitatakse ning kuidas ruumilised koordinaadid (GCS) konverteeritakse ümber **tasapinnalisteks koordinaatideks** (PCS ehk *projected coordinate system*), mida väljendatakse *x*-i ja *y* abil. Sisuliselt määrab projektsioon ära ka selle, milliseid alasid maakeral me oleme nõus oma kaardil rohkem moonutama ja milliseid vähem ning mispidi me mingeid alasid kaardil venitame või kokku surume. Kui tahame kujutada ümmargust Maad kahemõõtmelisel tasapinnal, siis paratamatult peame mingit osa maakerast moonutama. Ühe või teise projektsiooni valimisel moonutame rohkem kas pindalasid, nurkasid, kujusid või joonpikkuseid.  
 
 ```{r projections, echo = FALSE, fig.show = "hold", fig.align = "center", out.width = "100%", fig.cap = "[Erinevad projektsioonid](https://i.redd.it/8ssm7hfbeko21.png)"}
 knitr::include_graphics(here::here("imgs", "projections.png"))

@@ -5,6 +5,19 @@ date: "sügis 2020"
 site: bookdown::bookdown_site
 output:
   bookdown::gitbook:
+    config:
+      toc:
+        collapse: section
+        scroll_highlight: yes
+        before: null
+        after: null
+      toolbar:
+        position: fixed
+      edit : null
+      download: [["book.pdf", "PDF"], ["book.epub", "EPUB"]]
+      search: yes
+      sharing: null
+      info: yes
     self_contained: false
     split_bib: no
     # fig_caption: yes
