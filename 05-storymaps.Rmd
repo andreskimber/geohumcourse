@@ -1,47 +1,44 @@
-# Story Maps {#storymaps}
+# Story maps {#storymaps}
 
-***Story Map***, mille võiks ehk tõlkida kui *loojutustamiskaart*, on formaat, mis võimaldab piltide, teksti, video ja kohainfo kaudu jutustada lugusid fotograafiast, kunstist, kirjandusest, spordist, ajaloost, teadusest ja paljust muust. <!-- siia mingi täpsem definitsioon --> 
+## Story maps
+
+***Story map***, mille võiks ehk tõlkida kui *loojutustuskaart*, on formaat, mis võimaldab piltide, teksti, video ja kohainfo kaudu jutustada lugusid fotograafiast, kunstist, kirjandusest, spordist, ajaloost, teadusest, ühiskonnast ja paljust muust. <!-- siia mingi täpsem definitsioon --> 
 
 Kontseptsioon on lihtne: kaardile märgitakse punktid, mille juurde saab lisada nii tekstilist kui ka pildilist infot selles kohas toimunud sündmuse või selles kohas paikneva objekti kohta. Kaardi punkte omavahel ühendades tekibki mingi narratiiv. 
-Laiemas tõlgenduses ei pea *Story Map*'i *kaart* olema tingimata geograafiline. Kontekstina võib toimida ka näiteks mõni maal, foto või muu visuaal, ent taust on sel juhul siiski käsitletav ruumina, milles saab loogiliselt liikuda.  Klassikalises *Story Map*'is on lähtepunktiks siiski mingi narratiiv, mida mööda liikudes liigume ka vastavatesse paikadesse kaardil.  
+Laiemas tõlgenduses ei pea *story map*'i *kaart* olema tingimata geograafiline. Kontekstina võib toimida ka näiteks mõni maal, foto või muu visuaal, ent taust on sel juhul siiski käsitletav ruumina, milles saab loogiliselt liikuda.  Klassikalises *story map*'is on lähtepunktiks siiski mingi narratiiv, mida mööda liikudes liigume ka vastavatesse paikadesse geograafilisel kaardil.  
 
 
-Ühest küljest on *Story Map*'il palju ühist tavaliste veebilehtedega, kus jutustatakse mingit lugu, mida illustreerivad muu materjali kõrval ka kaardid, ent *Story Map*'is on koht ja aeg oluliselt prominentsemal kohal (või siis esitatakse infot nii, et on). 
-Teiselt poolt on *Story Map*il ühisjooni tavaliste kaardirakendustega, kuhu saab lisada ruumiobjekte, mida iseloomustavad teatud atribuudid. Atribuudina võib näiteks lisada ka pikema teksti, lingi pildile või videole jpm. Väga selget piiri *Story Map*'i ja kindlasti-mitte-*Story*-*Map*'i vahele on raske tõmmata, ent kuna *Story Map*'i fookus on aga selgelt mingi loo jutustamisel või argumendi esitamisel, on see enamasti visuaalselt esteetilisem ja sujuvam ning oluliseks omaduseks on väljundi võimalikult lihtne ja kiire integreeritavus erinevatele veebiplatvormidele.
-Story Map on hea vahend näiteks esitlustes ja ettekannetes kasutamiseks, kui aeg ja koht (õigemini kohad) on narratiivi või argumendi esitamise seisukohast olulised.
+Ühest küljest on *story map*'il palju ühist tavaliste veebilehtedega, kus jutustatakse mingit lugu, mida illustreerivad muu materjali kõrval ka kaardid, ent *story map*'il on **koht (ja aeg) oluliselt prominentsemal kohal**. 
+Teiselt poolt on *story map*il ühisjooni tavaliste kaardirakendustega, kuhu saab lisada ruumiobjekte, mida iseloomustavad teatud atribuudid. Atribuudina võib näiteks lisada ka pikema teksti, lingi pildile või videole jpm. Väga selget piiri *story map*'i ja kindlasti-mitte-*story*-*map*'i vahele on raske tõmmata, ent kuna *story map*'i fookus on aga selgelt mingi loo jutustamisel või argumendi esitamisel, on see enamasti **visuaalselt esteetilisem ja sujuvam** ning oluliseks omaduseks on **väljundi võimalikult lihtne ja kiire integreeritavus** erinevatele veebiplatvormidele.
+Story map on hea meedium näiteks esitluste ja ettekannete jaoks, kui aeg ja koht (õigemini kohad) on narratiivi või argumendi esitamise seisukohast olulised.
 
 
-<!-- Kirjandusest natuke kaartide mõjust ja Story Mapidest -->
+Kõige rohkemate funktsioonide ja võimalustega teenust *story map*'ide tegemiseks pakub ilmselt **ESRI** oma **ArcGIS StoryMaps** rakenduse kaudu. ESRIl on ka eraldi digihumanitaaria [*story map*'ide kollektsioon](https://collections.storymaps.esri.com/humanities/). Mõned näited:   
 
-Kõige rohkemate funktsioonide ja võimalustega teenust *Story Map*'ide tegemiseks pakub ilmselt ESRI oma ArcGIS StoryMaps rakenduse kaudu. <!-- mingeid näiteid otse praksi veebilehele -->  
-Mõned Eestiga seotud *Story Map*'id:
+<iframe width="640px" height="480px" src="https://storymaps.esri.com/stories/2016/humboldt/index.html" frameborder="0" scrolling="yes"></iframe>
 
-- https://www.arcgis.com/apps/MapJournal/index.html?appid=5b047c6a612848f6b49312f6c2e9c30a&webmap=7aa5b74adfdc436f9f3d6c85545fc994  
-- https://gis.egt.ee/portal/apps/MapJournal/index.html?appid=638ac8a1e69940eea7a26138ca8f6dcd  
-- https://euroopakaarttartus.voog.com/?fbclid=IwAR3hMjjnPywEQTABCwpfI3uBznB0AQNosaP_QN748zyt8hCptpg34lZe7M8 (pole päris StoryMapi kontseptsioon, aga midagi selle lähedale)
+<iframe width="640px" height="480pxpx" src="https://storymaps.esri.com/stories/2017/oral-histories/" frameborder="0" scrolling="yes"></iframe>
 
-ESRI teenus on aga tasuline, mistõttu sellel kursusel katsetame hoopis vabavaralist platvormi [StoryMapJS](https://storymap.knightlab.com/).  
+<iframe width="640px" height="480px" src="https://storymaps.esri.com/stories/2017/hip-hop/map/" frameborder="0" scrolling="yes"></iframe>
 
+<iframe width="640px" height="480px" src="https://story.maps.arcgis.com/apps/Cascade/index.html?appid=46daf1304a0c4ad69a8935c7ed2ab692" frameborder="0" scrolling="yes"></iframe>
 
-
-Teeme tehniliselt läbi ühe loo protsessi. Võta Vikipeediast mõni tänase, 4. oktoobriga seotud sündmus või 4. oktoobril sündinud/surnud isik ning kasuta Vikipeedia artiklit selleks, et Mõtle, millisel kujul on sinu valitud sündmust kõige parem esitada.  
+<iframe width="640px" height="480px" src="https://maps.calgary.ca/language/" frameborder="0" scrolling="yes"></iframe>
 
 
-- Uue loo tegemiseks pead tegema kasutaja ning sisse logima.  
-- Kui oled sisse loginud, vajuta nupul `Make a StoryMap`.  
-- Nimeta oma lugu. Loo nimi saab ühtlasi sinu projekti ID-ks. Kui kasutad mitmesõnalist nime, milles tühikud eraldavad sõnu, siis asendatakse need ID-s sidekriipsudega.  
+ESRI teenus on aga tasuline, mistõttu sellel kursusel katsetame hoopis vabavaralist platvormi **[StoryMapJS](https://storymap.knightlab.com/)**. Teeme tehniliselt läbi ühe *story map*'i loomise protsessi. Võtame aluseks mingi Vikipeedia artikli, näiteks [selle siin](https://en.wikipedia.org/wiki/Janis_Joplin), ning püüame panna selle *story map*'i vormi.  
+<!-- näita ka muid teenuseid, nt Juxtapose'i-->
+
+- Loo tegemiseks pead Google'i kasutajakontoga sisse logima.  
+- Kui oled sisse loginud, vajuta nupul *New*.  
+- Nimeta oma lugu. Loo nimi saab ühtlasi sinu projekti ID-ks, mida kasutatakse hiljem loole viitava lingi nimes. Kui kasutad mitmesõnalist nime, milles tühikud eraldavad sõnu, siis asendatakse need ID-s sidekriipsudega.  
 - Sätete (*Options*) alt saad valida:  
     + kaardi suuruse (kõrgus pikslites, laius protsentides ekraani laiusest);
     + keele. Keel määrab ära, mis keeles kuvatakse kasutajale igasugu nupud ja juhised. Valikus on ka eesti keel;   
     + teksti fondi (küsimärgile vajutades näed ka, millised eri variandid välja näevad);  
     + kas soovid, et kaardi erinevate punktide vahele tõmmataks joon (*treat as cartography*) või mitte (*treat as image*);  
     + esilehel kuvatava teksti (*call to action*);  
-    + aluskaardi. Saad valida nii olemasolevate põhjade vahel kui ka omaenda või teiste kohandatud kaartide vahel. Näiteks on võimalik integreerida Mapboxi kaarte. Kuna eelmisel korral vaatasime üsna primitiivseid veebipõhiseid kaardirakendusi, mis võib-olla ei olnud visuaalselt kõige ilusamad, siis teeme siinkohal väikese kõrvalepõike ja tutvume korraks ka Mapboxi võimalustega.   
-        - Mapbox on platvorm, mis pakub erinevaid tööriistu kaartide tegemise ja ruumiandmete analüüsiga seotud probleemide lahendamiseks (eelkõige veebis). Lisaks paljule muule võimaldab ka MapBox veebipõhiselt oma andmete kujutamist kaardil ning üsna ulatuslikku kaartide stiliseerimist. Mapboxis muuta näiteks kaardi värviskaalat, läbipaistvust, piirjoonte paksust, teksti suurust, fonti, keelt, objektide omadusi, ikoone, ühendada satelliitpildi jpm. Kaardi saab eksportida pildifailina ning kaardi stiili svg-failidena; stiili saab eksportida ka otse QGISi või ArcGISi. Kuna Mapbox pakub ulatuslikku kontrolli kaardi väljanägemise üle, sobib see hästi ka *Story Map*'ide aluskaartide tegemiseks, kui on oluline, et visuaal aitaks loole kaasa. Näiteks võime eelmisel korral kasutatud vallakohtute andmestikku kuvada Mapboxis nii, et esitatud on võimalikult palju informatsiooni: normaliseeritud tekstid on tähistatud roheliste, normaliseerimata tekstid kollaste punktidega; lõunaeesti murrete alla jäävad vallad on märgitud punase, põhjaeesti murrete alla jäävad vallad sinise tekstiga; punktide suurus näitab kirjakeele morfoloogilisele analüsaatorile tundmatuks jäänud sõnavormide protsenti vastava valla protokollides. Kaardi põhjal saame otsustada, et nii tekstide normaliseerimine (st kirjakeelele sarnasemaks muutmine) kui ka põhjaeesti murderühma tekstide kasutamine aitavad automaatsel vormianalüsaatoril paremini sõnavorme ära tunda. Venekeelne riigi nimi küll otseselt sellesse loosse ei panusta, vaid illustreerib lihtsalt Mapboxi võimalusi.   
-
-```{r mapbox, echo = F, fig.align="centre", fig.cap="Mapboxis stiliseeritud kaardi näide"}
-knitr::include_graphics(here::here("imgs", "mapbox_example.png"))
-```
+    + aluskaardi. Saad valida nii olemasolevate põhjade vahel kui ka omaenda või teiste kohandatud kaartide vahel. Näiteks on võimalik integreerida Mapboxi kaarte. 
  
 
 Kui oled oma loo n-ö ära seadistanud, siis saad hakata lisama sisu.  
@@ -52,10 +49,122 @@ Kui oled oma loo n-ö ära seadistanud, siis saad hakata lisama sisu.
     + Esmalt otsi koordinaatide või kohanime järgi koht, millega slaidil esitatav loo osa seotud on. Saad valida ka koha markeri.  
     + Võid lisada nii pilte kui ka videoid, samuti saab teksti sisse lisada linke.  
 - Kui oled loo valmis saanud, siis salvesta see.  
-- Oma lugu võib jagada lingiga või ka näiteks otse Twitteri, Facebooki või Google+'i kaudu. Samuti võib selle *iframe*'i koodi abil lisada otse enda veebilehele. Ka sellele lehele siin võib lisada äsja tehtud *Story Map*'i, kleepides lihtsalt *iframe*'i koodi tänase praktikumi lähtekoodi (lugu ilmub siia pärast praktikumi lõppu).
+- Oma lugu võib jagada lingiga või ka näiteks otse Twitteri, Facebooki või Google+'i kaudu. Samuti võib selle *iframe*'i koodi abil lisada otse enda veebilehele (näiteks Wordpressi, Mediumi või mujale). Ka sellele lehele siin võib lisada äsja tehtud *story map*'i, kleepides lihtsalt *iframe*'i koodi tänase praktikumi lähtekoodi (lugu ilmub siia pärast praktikumi lõppu).
 
-<iframe src="https://uploads.knightlab.com/storymapjs/9369be87bcb6fd22e6881a172e10a9c9/janis-joplin/index.html" frameborder="0" width="100%" height="800"></iframe>
 
-Enamik kasutajaid lepib nende võimalustega, mis on olemas, ent neil, kes ei karda koodikirjutamist, õnnestub päris palju asju muuta (vaata sakki *Advanced*).
+Enamik kasutajaid lepib nende võimalustega, mis on olemas, ent neil, kes tunnevad HTMLi ja JavaScripti, õnnestub lisaks veel päris palju asju kohandada (vaata sakki *Help* -> *Advanced*).
 
-Veel paar aastat tagasi oli võimalik vähese vaevaga kasutada *Story Map*'ide tegemiseks ka platvorme nagu [MapStory](mapstory.org) või [Odyssey.js](odyssey.js), ent nende kasutamine on praeguseks oluliselt raskendatud (nõuab koodikirjutamisoskust ning kõik funktsioonid ei ole enam toetatud). 
+Veel paar aastat tagasi oli võimalik vähese vaevaga kasutada *story map*'ide tegemiseks ka platvorme nagu [MapStory](https://mapstory.org) või [Odyssey.js](https://cartodb.github.io/odyssey.js/), ent nende kasutamine on praeguseks oluliselt raskendatud (nõuab veidi koodikirjutamisoskust ning kõik funktsioonid ei ole enam toetatud). 
+
+
+## Mapbox Studio
+
+Kuna eelmisel korral vaatasime üsna primitiivseid veebipõhiseid kaardirakendusi, mis võib-olla ei olnud visuaalselt kõige ilusamad, siis teeme siinkohal lõpetuseks väikese kõrvalepõike ja tutvume korraks ka Mapboxi võimalustega. Mapbox on platvorm, mis pakub erinevaid tööriistu kaartide tegemise ja ruumiandmete analüüsiga seotud probleemide lahendamiseks (eelkõige veebis). Lisaks paljule muule võimaldab ka Mapbox **veebipõhiselt oma andmete kujutamist kaardil ning üsna ulatuslikku kaartide stiliseerimist (Mapbox Studio)**. Mapboxis võid muuta näiteks kaardi värviskaalat, läbipaistvust, piirjoonte paksust, teksti suurust, fonti, keelt, objektide omadusi, ikoone, ühendada satelliitpildi jpm. Kaardi saab eksportida pildifailina ning kaardi stiili svg-failidena; stiili saab eksportida ka otse QGISi või ArcGISi või ka muudele platvormidele. Kuna Mapbox pakub ulatuslikku kontrolli kaardi väljanägemise üle, sobib see hästi ka *story map*'ide aluskaartide tegemiseks, kui on oluline, loo juurde käiks kvaliteetne visuaal. Näiteks võime eelmisel korral kasutatud vallakohtute andmestikku kuvada Mapboxis nii, et esitatud on võimalikult palju informatsiooni: normaliseeritud tekstid on tähistatud roheliste, normaliseerimata tekstid kollaste punktidega; lõunaeesti murrete alla jäävad vallad on märgitud punase, põhjaeesti murrete alla jäävad vallad sinise tekstiga; punktide suurus näitab kirjakeele morfoloogilisele analüsaatorile tundmatuks jäänud sõnavormide protsenti vastava valla protokollides. Kaardi põhjal saame otsustada, et nii tekstide normaliseerimine (st kirjakeelele sarnasemaks muutmine) kui ka põhjaeesti murderühma tekstide kasutamine aitavad automaatsel vormianalüsaatoril paremini sõnavorme ära tunda. Venekeelne riigi nimi küll otseselt sellesse loosse ei panusta, vaid illustreerib lihtsalt Mapboxi võimalusi.   
+
+```{r mapbox, echo = F, fig.align="centre", fig.cap="Mapboxis stiliseeritud kaardi näide"}
+knitr::include_graphics(here::here("imgs", "mapbox_example.png"))
+```
+
+Proovime stiliseerida [Mapboxis](https://www.mapbox.com/mapbox-studio/) mingit kaarti ning laadime selle siis StoryMapJS'i aluskaardiks. Ka Mapboxi kasutamine eeldab, et oled registreerinud end kasutajaks.
+
+Kui oled sisse loginud, mine lehele Studio. Avaneb leht, mille ülaosas on kolm sakki: *Datasets*, *Styles* ja *Tilesets*.   
+
+```{r mapbox1, echo=F, fig.align="centre", fig.show='hold', out.width="45%", fig.cap="Mapbox Studio"}
+knitr::include_graphics(here::here("imgs", c("mapbox1.PNG", "mapbox2.PNG")))
+```
+
+*Tileset* on Mapboxi ruumiandmete formaat (nii raster- kui ka vektorandmetele), mida kasutatakse andmete esitamiseks kaardil. Võid importida oma andmed Mapboxi valmis *tileset*'ina või kasutada *Datasets* sakki, et laadida oma andmed üles, neid soovi korral töödelda (nt muuta numbrilised atribuudid tekstiks või vastupidi) ning seejärel *tileset*'i vormingusse konverteerida.  
+
+Alustame sellest, et teeme uue stiili (sakk *Styles* -> *New style*). 
+
+```{r mapbox2, echo=F, fig.align="centre", out.width="70%", fig.show='hold', fig.cap="Vali kohandatav stiil"}
+knitr::include_graphics(here::here("imgs", "mapbox3.PNG"))
+```
+
+Saame lisada kaardile soovitud komponente (nt teed, looodusobjektid, kultuuriobjektid jne) ka üleliigseid kustutada (***Components***). Samuti saame modifitseerida iga kaardi komponendi elementide omadusi (***Layers***). 
+
+```{r mapbox3, echo=F, fig.align="centre", out.width="50%", fig.show='hold', fig.cap="Komponendid ja kihid"}
+knitr::include_graphics(here::here("imgs", c("mapbox4.PNG", "mapbox5.PNG")))
+```
+
+Teeme näiteks kaardi, millel ei oleks näidatud ühtegi konkreetset objekti ega ka teid ja transpordiühendusi, millel ei oleks linnade nimetusi ega maakonnapiire. Selleks: 
+
+- kustutame ära alustamisel vaikimisi lisatud kihid Transit, Road Network, Point of interest labels, Natural features ja Buildings;
+- komponendi *Administrative boundaries* alt desaktiveerime maakonnapiirid (*State/province* boundaries);  
+- komponendi *Place Labels* alt desaktiveerime kõik sildid peale riigi nime ning määrame kaardil kuvatavaks keeleks "Local" ehk eesti keele;  
+- lülitame *Land & Water* saki alt välja elemendid *Landuse* ja *Landcover*;
+- muudame ka kaardi värvi. Selleks on (vähemalt) kaks võimalust: esiteks võime muuta terve kaardi värviskaalat (vasakul) või valida üksikute elementide värvi (paremal). Viimase puhul tuleb muutmiseks vajutada esmalt nupul *Override*.   
+
+```{r mapbox4, echo=F, fig.align="centre", out.width="45%",fig.show='hold', fig.cap="Kaardi komponentide värvi muutmine"}
+knitr::include_graphics(here::here("imgs", c("mapbox6.PNG", "mapbox7.PNG")))
+```
+
+Muudame näiteks veekogud tumelillaks ning maismaa tumeroheliseks. 
+
+```{r mapbox5, echo=F, fig.align="centre", out.width="70%", fig.show='hold', fig.cap="Muudetud värvidega kaart"}
+knitr::include_graphics(here::here("imgs", "mapbox8.PNG"))
+```
+
+Lisame nüüd kaardile ka eelmisel korral kasutatud vallakohtuprotokollide andmed. Selleks lisame uue kihi ning valime allika (*Source*) puhul variandi *Upload data*.  
+Tasuta saab andmestikku ühes kuus üles laadida 20 korda. Valime faili *vallakohtuprotokollid1.csv*, kus tulpad on eraldatud semikoolonitega ning punktide koordinaate näitavad tulbad Longitude ja Latitude. Üleslaadimine võib pisut aega võtta.  
+
+```{r mapbox6, echo=F, fig.align="centre", out.width="45%",fig.show='hold', fig.cap="Andmekihtide lisamine"}
+knitr::include_graphics(here::here("imgs", c("mapbox9.PNG", "mapbox10.PNG")))
+```
+
+Seejärel vali pakutud allikates äsja üles laaditud kiht. Saad valida, millisena soovid andmekihti kuvada (nt punktidena, joontena, sümbolitena vm-na). Saki *Style* alt saad omakorda määrata, milline valitud objektitüüp täpselt välja näeb.  
+
+```{r mapbox7, echo=F, fig.align="centre", out.width="45%",fig.show='hold', fig.cap="Ruumikuju ja välimuse valimine"}
+knitr::include_graphics(here::here("imgs", c("mapbox11.PNG", "mapbox12.PNG")))
+```
+
+Kõiki elemente võib värvida ühtmoodi konkreetse väärtusega (nt kõik punktid olgu punased). Võimalik on aga kasutada värvi, läbipaistvust, suurust ka selleks, et väljendada mingit andmestiku atribuuti. Värvime punktid esmalt näiteks selle järgi, millised vallad kuuluvad põhja- ja millised lõunaeesti murrete kõnelemispiirkonda (kvalitatiivne rühmitav atribuut), ning seejärel muudame punktide suurust selle järgi, kui palju oli valdade protokollides keskmiselt selliseid sõnu, mida tänapäeva kirjakeelel treenitud morfoloogiline analüsaator ära ei tundnud (kvantitatiivne atribuut).  
+
+Selleks, et kasutada kvalitatiivset atribuuti, peame valima andmekihil *Style* -> *Color* -> ***Style with data conditions***, valima grupeeriva tunnuse (L/P) ning määrama, mis värviga kumbagi tunnuse taset kaardil väljendada. Värvime lõunaeesti murrete alla kuuluvad vallad näiteks punaseks ja põhjaeesti alla kuuluvad vallad siniseks.  
+
+```{r mapbox8, echo=F, fig.align="centre", out.width="45%",fig.show='hold', fig.cap="Kvalitatiivne grupeeriv atribuut"}
+knitr::include_graphics(here::here("imgs", c("mapbox13.PNG", "mapbox14.PNG")))
+```
+
+Kvantitatiivse atribuudi kasutamiseks peame valima andmekihil *Style* -> *Radius* -> *Style across data range*, valima tunnuse, mille järgi punkti suurust muuta (TundmatuteProtsent) ning määrama tunnuse skaala otspunktide ehk kõige väiksema ja kõige suurema väärtuse suurused (kõik ülejäänud väärtused jäävad skaalal nende vahepeale). Valime näiteks kõige väiksema tundmatute analüüside protsendiga valla punkti suuruseks 3 pikslit ja kõige suurema omaks 15 pikslit.  
+
+```{r mapbox9, echo=F, fig.align="centre", out.width="45%", fig.show='hold', fig.cap="Kvantitatiivne atribuut"}
+knitr::include_graphics(here::here("imgs", c("mapbox15.PNG", "mapbox16.PNG")))
+```
+
+Kuna punktid osaliselt kattuvad, võime need teha ka pisut läbipaistvaks (*Opacity*).
+
+
+```{r mapbox10, echo=F, fig.align="centre", out.width="70%",fig.show='hold', fig.cap="Läbipaistvuse suurendamine"}
+knitr::include_graphics(here::here("imgs", "mapbox17.PNG"))
+```
+
+Kui nüüd tahame näiteks lisada samast andmestikust ka teksti, sümboleid vm, siis saame lihtsalt lisada sama kihi uuesti ning kuvada sellel soovitud objekte. Mõistagi saab muuta värvi, suurust, läbipaistvust (ka vastavalt mõnele andmestiku atribuudile), paigutada teksti punkti suhtes vasakule-paremale, üles-alla jne.    
+
+```{r mapbox11, echo=F, fig.align="centre", out.width="70%",fig.show='hold', fig.cap="Uute andmekihtide lisamine"}
+knitr::include_graphics(here::here("imgs", "mapbox18.PNG"))
+```
+
+Võime nüüd oma kaardi printida. Selleks vajuta ülemises paremas nurgas sakile *Print* ning vali avanenud aknakeses kaardi mõõtmed.  
+
+```{r mapbox12, echo=F, fig.align="centre", out.width="70%",fig.show='hold', fig.cap="Kaardi salvestamine"}
+knitr::include_graphics(here::here("imgs", "mapbox19.PNG"))
+```
+
+## Mapbox *story map*'is
+
+Selleks, et nüüd kasutada oma stiliseeritud kaarti (meil praegu vaikimisi koos andmetega, aga võib muidugi ka ilma), peame andma StoryMapJS keskkonnas stiili aadressi Mapboxi keskkonnas. 
+
+```{r mapboxstorymap1, echo=F, fig.align="centre",fig.show='hold', out.width="70%", fig.cap="StoryMapJS-i kaardipõhja valimine"}
+knitr::include_graphics(here::here("imgs", "mapbox_storymap.PNG"))
+```
+
+Vastava aadressi leiame Mapboxis ülevalt paremalt nurgast sakist *Share*. Selleks, et oma kaardistiili kuskil mujal kasutada, tuleb see esmalt muuta avalikuks ning seejärel võid kopeerida *Style URL* ja *Access token* väärtused StoryMapJS keskkonna vastavatesse lahtritesse.  
+
+```{r mapboxstorymap2, echo=F, fig.align="centre",fig.show='hold', out.width="45%", fig.cap="Vajalik info Mapboxist"}
+knitr::include_graphics(here::here("imgs", c("mapbox20.PNG", "mapbox21.PNG")))
+```
+
+## Järgmisel korral
+
+Neljapäeval kolime lõpuks QGISi ning teeme esimesed sammud tarkvaraga tutvumisel.  
