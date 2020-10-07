@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Praktikum 2 Seminar | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
-  <meta name="description" content="Praktikum 2 Seminar | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <title>Praktikum 6 Sissejuhatus QGISi | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
+  <meta name="description" content="Praktikum 6 Sissejuhatus QGISi | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Praktikum 2 Seminar | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta property="og:title" content="Praktikum 6 Sissejuhatus QGISi | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Praktikum 2 Seminar | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta name="twitter:title" content="Praktikum 6 Sissejuhatus QGISi | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="ruumiobjektid.html"/>
+<link rel="prev" href="storymaps.html"/>
+<link rel="next" href="kirjandus.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -134,56 +134,85 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="seminar" class="section level1">
-<h1><span class="header-section-number">Praktikum 2</span> Seminar</h1>
-<div id="mõisted" class="section level2">
-<h2><span class="header-section-number">2.1</span> Mõisted</h2>
-<p>Mõne artiklis kasutatud mõiste seletusi:</p>
+<div id="qgis_1" class="section level1">
+<h1><span class="header-section-number">Praktikum 6</span> Sissejuhatus QGISi</h1>
+<div id="installimine" class="section level2">
+<h2><span class="header-section-number">6.1</span> Installimine</h2>
+<p>QGISil on alati kaks hetkeversioon: stabiilne <em>Long term release</em> ja uusimate võimalustega <em>Latest release</em>. Kuna <em>Latest release</em> pidevalt uueneb, siis on kursusel lihtsuse huvides kasutusel <em>Long term release</em>, milleks hetkel 3.10. Väga suuri erinevusi nende versioonide vahel ei ole. Kel huvi, võib vaadata ka <a href="https://qgis.org/en/site/getinvolved/development/roadmap.html#release">väljalaske graafikut</a>.</p>
+<p>QGIS 3.10 saab alla laadida <a href="https://qgis.org/en/site/forusers/download.html">ametlikult kodulehelt</a>, valides enda arvuti operatsioonisüsteemile sobiva variandi. Windowsi jaoks <em>QGIS Standalone Installer Version 3.14 (64 bit)</em> ja macOSi jaoks <em>QGIS macOS Installer Version 3.10</em>. Kui allalaadimine on lõppenud, ava fail ning installi see nagu iga teine programm. Kasutada vaikimisi valikuid. Uute versioonide ajagraafikut</p>
+<p><img src="imgs/qgis_3.10.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="andmed-ja-failihaldus" class="section level2">
+<h2><span class="header-section-number">6.2</span> Andmed ja failihaldus</h2>
+<p>Segaduste vältimiseks soovitame kasutada kaustade strutktuuri, kus selle kursuse kaustas on teil QGISi projekti fail(id) .qgz ja kaks kausta <em>andmed</em> ja <em>kaardid</em>, kuhu panete vastavalt kõik praktikumites kasutatavad andmed ja valminud kaardid. Võimalike probleemide vältimiseks võiks kursuse kaust olla kohas, kus ei ole täpitähti. Nt <em>C:/ut/magistrantuur/sygis_2020/gis_humanitaarias/</em>.</p>
+<p>Näiteks:</p>
 <ul>
-<li><strong><em>Cognitive maps</em></strong> - kujutluskaart. Inimese (või muu elusolendi) kogemuste põhjal ajju talletatud ettekujutus/mudel mingist reaalsest või irreaalsest ruumist; laiemas käsituses mis tahes protsessist või mõistest.<br />
-</li>
-<li><strong><em>Community mapping</em></strong>, <strong><em>participatory mapping</em></strong> - kogukondlik ja/või osaluskaardistamine. Kaartide tegemine n-ö tavaliste inimeste poolt tavaliste inimeste jaoks, praktikas sageli mingil ühiskondlikul-kultuurilisel või poliitilisel eesmärgil (nt pärandi, keele kaitsmiseks, mingi kogukonna arengu planeerimiseks, mingi piirkonna ressursside õiglasemaks jaotamiseks). Nende mõistetega on lähedalt seotud ka mõiste <strong><em>counter-mapping</em></strong>, mis veelgi selgemalt tegeleb alternatiivse kaardistamise abil traditsiooniliste võimusuhete lammutamise ja õõnestamisega. Nii osaluskaardistamine kui ka <em>vastukaardistamine</em> esindavad <strong><em>kriitilise kartograafia</em></strong> rakendusi. Kriitilise kartograafia põhitees on, et kaardid peegeldavad ja kinnistavad võimusuhteid ning seda enamasti ühiskonnas domineeriva klassi positsioonilt.<br />
-</li>
-<li><strong><em>Gazetteer</em></strong> - kohanimeloend. Koondab tavaliselt infot kohanimega seotud koordinaatide ja koha tüübi kohta (nt mägi, jõgi, linn, küla), aga võib lisaks sisaldada ka nt rööpnimekujusid, asustuse infot, seoseid teiste sõnastiku kirjetega jm infot.<br />
-</li>
-<li><strong><em>Geocoding</em></strong> - geokodeerimine ehk kohtade tekstiliste viidete (nt kohanimede, aadresside) muutmine geograafilisteks koordinaatideks. Tagurpidi geokodeerimine muudab omakorda geograafilised koordinaadid kohanimedeks või aadressideks.<br />
-</li>
-<li><strong><em>Locative media</em></strong> - 1) digitaalne sisu (nt pildid, videod, helid) või selle loomiseks kasutatud vahendid, millele on lisatud asukohainfo; 2) vahendid, mis kasutavad digitaalse sisu edastamiseks asukohainfot. Digihumanitaaria kontekstis ka raamistik, mille kaudu uurida üksikisiku suhteid ja vastastikuseid mõjusid koha ja tehnoloogiaga.<br />
-</li>
-<li><strong><em>Psychogeography</em></strong> - kunsti- ja teadussuund, mille fookuses on see, kuidas kogetakse (eeskätt) linnakeskkondi ning kuidas keskkond mõjutab meie emotsioone ja käitumist. Sealjuures pööratakse tähelepanu viisidele, kuidas saada ümbritsevast uusi ja ootamatuid elamusi ning avastada “tavapärasest erinevat”.<br />
-</li>
-<li><strong><em>Thick mapping</em></strong> - paljude erinevate geograafiliste või kohaspetsiifiliste andmete (pildid, narratiivid, kaardid, suulised ja kirjalikud mälestused jne) kogumine, koondamine/agregeerimine ja visualiseerimine selleks, et pakkuda kohtadele ja neis toimunud sündmustele erinevaid perspektiive (ka nt millegi alusel marginaliseeritud või vähem häälekate gruppide omi). Kasutatud on ka terminit <em>deep mapping</em>.</li>
-</ul>
-</div>
-<div id="rühmatöö-1-gisi-ja-ruumi-geohumanitaaria-projekte-ja-rakendusi" class="section level2">
-<h2><span class="header-section-number">2.2</span> Rühmatöö 1: GISi ja ruumi-/geohumanitaaria projekte ja rakendusi</h2>
-<p>Võite osaleda üksi või rühmaga (maksimaalselt 3 inimest).</p>
-<p>Otsige üks enda erialaga (lähemalt või kaugemalt) seotud projekt, mis kasutaks GISi või tegeleks ruumi- või geohumanitaariaga. Alustada võib näiteks <a href="https://anterotesis.com/wordpress/mapping-resources/dh-gis-projects/">siit</a>, aga kindlasti võiks lähemalt uurida ka artiklites olnud viiteid.</p>
-<p>Lisage <a href="https://padlet.com/maarjaliisapilvik/14fuhzi8dpw9i2to">virtuaalsele tahvlile</a>:</p>
+<li>C:/…/kursuse_kaust/
 <ul>
-<li>projekti nimi,</li>
-<li>projekti link,</li>
-<li>valdkond,<br />
-</li>
-<li>kirjeldus selle kohta, millega projektis tegeletakse,<br />
-</li>
-<li>võimalusel visuaalset lisamaterjali (nt pilte rakendustest, kaartidest vm).</li>
+<li>praktikum_6.qgz</li>
+<li>andmed/
+<ul>
+<li>kirikud.gpkg</li>
+<li>vallakohtuprotokollid1.csv</li>
+<li>jne</li>
+</ul></li>
+<li>kaardid/
+<ul>
+<li>ylesanne_1_kimber.png</li>
+<li>ylesanne_2_kimber.jpeg</li>
+<li>jne</li>
+</ul></li>
+</ul></li>
 </ul>
-<div class="figure">
-<embed src="./imgs/padlet_projektid.pdf" style="width:100.0%" height="700" />
-<p class="caption">Erinevaid projekte</p>
+<p>Praktikumis kasutatavad andmed leiate <a href="https://moodle.ut.ee/">Moodle’ist</a>. Laadige need alla, pakkige lahti (parempoolne klikk ja <em>Extract here</em>) ja asetage kausta <em>andmed</em>. Soovi korral võite Eesti maakondade kihi ka ise <a href="https://geoportaal.maaamet.ee/est/Ruumiandmed/Haldus-ja-asustusjaotus-p119.html">Maa-ameti Geoportaalist</a> alla laadida, kuna tegu on avalike ruumiandmetega. Õige fail on <em>Maakond SHP</em>. Klikkides lehel *Ruumiandmed" leiab ka rohkelt muid andmeid.</p>
+</div>
+<div id="esimene-seadistamine-ja-kasutajaliides" class="section level2">
+<h2><span class="header-section-number">6.3</span> Esimene seadistamine ja kasutajaliides</h2>
+<p>Avage töölaual kaustas QGIS 3.10 <em>QGIS Desktop 3.10.10 with GRASS 7.8.3</em>. Sageli on esimisel korral avades QGIS eestikeelne. See on küll tore, kuid kahjuks on tõlge poolik ning internetist abi otsides on vähe kasu eestikeelsetest terminitest. Niisiis kasutame kursuse käigus ingliskeelset versiooni. Selleks vali ülevalt servast menüüst <em>Seaded → Valikud → Üldine</em> (vasakul servas). Tee linnuke <em>Override system locale</em> ette. Vali <em>User Interface Translation</em> rippmenüüst <em>American English</em>. <em>Locale (numbers, date and currency formats)</em> juures ei tule midagi muuta. Tähendab, et see peab jääma Estonian Estonia (et_EE). Vajuta all servas <em>OK</em>. Sulge QGIS ning ava uuesti. Nüüd on programm ingliskeelne.</p>
+<div class="figure" style="text-align: center">
+<img src="imgs/change_language.gif" alt="Keele muutmine QGISis" width="100%" />
+<p class="caption">
+(#fig:change_language)Keele muutmine QGISis
+</p>
+</div>
+<div id="vaikimisi-koordinaatsüsteemi-sätestamine." class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Vaikimisi koordinaatsüsteemi sätestamine.</h3>
+<p>Kuna harjutused käsitlevad Eesti kaarte ja koordinaate, siis tuleb valida ka Eesti koordinaatsüsteem:
+- Ülevalt servast menüüst <em>Settings → Options → CRS (Coordinate Reference System)</em>.
+- <em>CRS for Projects</em> all vali <em>Use a default CRS</em>, kliki rippmenüü kõrval ikoonil ja kirjuta seal otsinguse <em>Estonian Coordinate System 1997</em>. Vajuta sellele otsingu tulemusele ning menüü alumises servas <em>OK</em>. Tee sama <em>CRS for Layers</em> juures.
+- Salvesta kursuse kausta enda QGIS projekt valides ülevalt vasakult <em>Project → Save</em>. Failinimeks pane näiteks <em>praktikum_6</em>. Ära unusta ka praktikumi jooksul aeg-ajalt salvestada!</p>
+<div class="figure" style="text-align: center">
+<img src="imgs/default_crs.gif" alt="Vaikimisi koordinaatsüsteemi sätestamine" width="100%" />
+<p class="caption">
+(#fig:default_crs)Vaikimisi koordinaatsüsteemi sätestamine
+</p>
+</div>
+<!-- kihtide aken, kaart, koordinaadid, crs, tööriistaribad -->
 </div>
 </div>
-<div id="rühmatöö-2-humanitaaria-vs.-kvantitatiivsed-meetodid" class="section level2">
-<h2><span class="header-section-number">2.3</span> Rühmatöö 2: humanitaaria vs. kvantitatiivsed meetodid</h2>
-<p>Moodustage 3 inimesest koosnevad rühmad.</p>
-<p>Pooled rühmad saavad <strong>skeptikute/pessimistide</strong> rolli: teie arvates ei saa GISi ja laiemalt praeguste arvutuslike meetodite ja kvantitatiivse lähenemisega humanitaaria andmete ja küsimustega töötada (või siis mitte vähemalt väga hästi). Ka interdistsiplinaarsus on teie meelest praktikas väga raskesti saavutatav.</p>
-<p>Teine pool rühmadest saab <strong>optimistide</strong> rolli: teie arvates on humanitaaria eri suunad ka metodoloogiliselt pidevas arengus ning analüüsimeetodite vahetamine, laenamine ja kohandamine eri distsipliinide vahel ja sees annab humanitaariale väga palju juurde.</p>
-<p>Koondage <a href="https://padlet.com/maarjaliisapilvik/irf5y9aiahqkr9s1">siia</a> võimalikult palju argumente ja lihtsalt arvamusi, näiteid jm, mis teie rühma esindatavat seisukohta toetaksid. Võite sealjuures loomulikult ära kasutada artikleid, guugeldada, aga ka rühma sees ise ideid genereerida.</p>
-<div class="figure">
-<embed src="./imgs/padlet-debatt.pdf" style="width:100.0%" height="700" />
-<p class="caption">Debatt</p>
+<div id="andmete-avamine" class="section level2">
+<h2><span class="header-section-number">6.4</span> Andmete avamine</h2>
+<!-- Vektor ja raster -->
+<!-- punktid - nt kirikud  -->
+<!-- jooned - jõed -->
+<!-- alad - maakonnad  -->
+<!-- raster - ortofoto  -->
+<!-- raster - kõrgus mudel  -->
+<!-- kihtide järjekord, zoom, pan -->
 </div>
+<div id="kihtide-visualiseerimine" class="section level2">
+<h2><span class="header-section-number">6.5</span> Kihtide visualiseerimine</h2>
+<!-- Värv, kuju, suurus -->
+<!-- Läbipaistvus -->
+<!-- Väljapaistvus, värviskaalad -->
+</div>
+<div id="aluskaardid" class="section level2">
+<h2><span class="header-section-number">6.6</span> Aluskaardid</h2>
+<!-- Quickmap ja OSM  -->
+<!-- Maa-ameti wms  -->
+</div>
+<div id="järgmisel-korral" class="section level2">
+<h2><span class="header-section-number">6.7</span> Järgmisel korral</h2>
 
 </div>
 </div>
@@ -192,8 +221,8 @@
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ruumiobjektid.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="storymaps.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="kirjandus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

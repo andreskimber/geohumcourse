@@ -1,0 +1,80 @@
+# Sissejuhatus QGISi {#qgis_1}
+
+
+## Installimine
+
+QGISil on alati kaks hetkeversioon: stabiilne *Long term release* ja uusimate võimalustega *Latest release*. Kuna *Latest release* pidevalt uueneb, siis on kursusel lihtsuse huvides kasutusel *Long term release*, milleks hetkel 3.10. Väga suuri erinevusi nende versioonide vahel ei ole. Kel huvi, võib vaadata ka [väljalaske graafikut](https://qgis.org/en/site/getinvolved/development/roadmap.html#release).
+
+QGIS 3.10 saab alla laadida [ametlikult kodulehelt](https://qgis.org/en/site/forusers/download.html), valides enda arvuti operatsioonisüsteemile sobiva variandi. Windowsi jaoks *QGIS Standalone Installer Version 3.14 (64 bit)* ja macOSi jaoks *QGIS macOS Installer Version 3.10*. Kui allalaadimine on lõppenud, ava fail ning installi see nagu iga teine programm. Kasutada vaikimisi valikuid. Uute versioonide ajagraafikut 
+
+```{r qgis_3.1, echo=F, fig.show='hold', fig.align='center', out.width= "100%"}
+knitr::include_graphics(here::here("imgs", "qgis_3.10.png"))
+```
+
+## Andmed ja failihaldus
+
+Segaduste vältimiseks soovitame kasutada kaustade strutktuuri, kus selle kursuse kaustas on teil QGISi projekti fail(id) .qgz ja kaks kausta *andmed* ja *kaardid*, kuhu panete vastavalt kõik praktikumites kasutatavad andmed ja valminud kaardid. Võimalike probleemide vältimiseks võiks kursuse kaust olla kohas, kus ei ole täpitähti. Nt *C:/ut/magistrantuur/sygis_2020/gis_humanitaarias/*.
+
+Näiteks: 
+
+ - C:/.../kursuse_kaust/
+    - praktikum_6.qgz
+    - andmed/
+        - kirikud.gpkg
+        - vallakohtuprotokollid1.csv
+        - jne
+    - kaardid/
+        - ylesanne_1_kimber.png
+        - ylesanne_2_kimber.jpeg
+        - jne
+        
+Praktikumis kasutatavad andmed leiate [Moodle'ist](https://moodle.ut.ee/). Laadige need alla, pakkige lahti (parempoolne klikk ja *Extract here*) ja asetage kausta *andmed*. Soovi korral võite Eesti maakondade kihi ka ise [Maa-ameti Geoportaalist](https://geoportaal.maaamet.ee/est/Ruumiandmed/Haldus-ja-asustusjaotus-p119.html) alla laadida, kuna tegu on avalike ruumiandmetega. Õige fail on *Maakond SHP*. Klikkides lehel *Ruumiandmed" leiab ka rohkelt muid andmeid.
+
+## Esimene seadistamine ja kasutajaliides
+
+Avage töölaual kaustas QGIS 3.10 *QGIS Desktop 3.10.10 with GRASS 7.8.3*. Sageli on esimisel korral avades QGIS eestikeelne. See on küll tore, kuid kahjuks on tõlge poolik ning internetist abi otsides on vähe kasu eestikeelsetest terminitest. Niisiis kasutame kursuse käigus ingliskeelset versiooni. Selleks vali ülevalt servast menüüst *Seaded → Valikud → Üldine* (vasakul servas). Tee linnuke *Override system locale* ette. Vali *User Interface Translation* rippmenüüst *American English*. *Locale (numbers, date and currency formats)* juures ei tule midagi muuta. Tähendab, et see peab jääma Estonian Estonia (et_EE). Vajuta all servas *OK*. Sulge QGIS ning ava uuesti. Nüüd on programm ingliskeelne.
+
+```{r change_language, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Keele muutmine QGISis"}
+knitr::include_graphics(here::here("imgs", "change_language.gif"))
+```
+
+### Vaikimisi koordinaatsüsteemi sätestamine.
+
+Kuna harjutused käsitlevad Eesti kaarte ja koordinaate, siis tuleb valida ka Eesti koordinaatsüsteem:
+- Ülevalt servast menüüst *Settings → Options → CRS (Coordinate Reference System)*.
+- *CRS for Projects* all vali *Use a default CRS*, kliki rippmenüü kõrval ikoonil ja kirjuta seal otsinguse *Estonian Coordinate System 1997*. Vajuta sellele otsingu tulemusele ning menüü alumises servas *OK*. Tee sama *CRS for Layers* juures. 
+- Salvesta kursuse kausta enda QGIS projekt valides ülevalt vasakult *Project → Save*. Failinimeks pane näiteks *praktikum_6*. Ära unusta ka praktikumi jooksul aeg-ajalt salvestada!
+
+```{r default_crs, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Vaikimisi koordinaatsüsteemi sätestamine"}
+knitr::include_graphics(here::here("imgs", "default_crs.gif"))
+```
+
+<!-- kihtide aken, kaart, koordinaadid, crs, tööriistaribad -->
+
+## Andmete avamine
+
+<!-- Vektor ja raster -->
+
+<!-- punktid - nt kirikud  -->
+<!-- jooned - jõed -->
+<!-- alad - maakonnad  -->
+<!-- raster - ortofoto  -->
+<!-- raster - kõrgus mudel  -->
+
+<!-- kihtide järjekord, zoom, pan -->
+
+## Kihtide visualiseerimine
+
+<!-- Värv, kuju, suurus -->
+<!-- Läbipaistvus -->
+<!-- Väljapaistvus, värviskaalad -->
+
+
+
+## Aluskaardid
+
+<!-- Quickmap ja OSM  -->
+
+<!-- Maa-ameti wms  -->
+
+## Järgmisel korral
