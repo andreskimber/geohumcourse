@@ -112,7 +112,10 @@
 <li class="chapter" data-level="6.3.1" data-path="qgis-1.html"><a href="qgis-1.html#vaikimisi-koordinaatsüsteemi-sätestamine."><i class="fa fa-check"></i><b>6.3.1</b> Vaikimisi koordinaatsüsteemi sätestamine.</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="qgis-1.html"><a href="qgis-1.html#andmete-avamine"><i class="fa fa-check"></i><b>6.4</b> Andmete avamine</a></li>
-<li class="chapter" data-level="6.5" data-path="qgis-1.html"><a href="qgis-1.html#kihtide-visualiseerimine"><i class="fa fa-check"></i><b>6.5</b> Kihtide visualiseerimine</a></li>
+<li class="chapter" data-level="6.5" data-path="qgis-1.html"><a href="qgis-1.html#kihtide-visualiseerimine"><i class="fa fa-check"></i><b>6.5</b> Kihtide visualiseerimine</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="qgis-1.html"><a href="qgis-1.html#harjutus-1"><i class="fa fa-check"></i><b>6.5.1</b> Harjutus 1</a></li>
+<li class="chapter" data-level="6.5.2" data-path="qgis-1.html"><a href="qgis-1.html#harjutus-2"><i class="fa fa-check"></i><b>6.5.2</b> Harjutus 2</a></li>
+</ul></li>
 <li class="chapter" data-level="6.6" data-path="qgis-1.html"><a href="qgis-1.html#aluskaardid"><i class="fa fa-check"></i><b>6.6</b> Aluskaardid</a></li>
 <li class="chapter" data-level="6.7" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>6.7</b> Järgmisel korral</a></li>
 </ul></li>
@@ -169,10 +172,10 @@
 <div id="esimene-seadistamine-ja-kasutajaliides" class="section level2">
 <h2><span class="header-section-number">6.3</span> Esimene seadistamine ja kasutajaliides</h2>
 <p>Avage töölaual kaustas QGIS 3.10 <em>QGIS Desktop 3.10.10 with GRASS 7.8.3</em>. Sageli on esimisel korral avades QGIS eestikeelne. See on küll tore, kuid kahjuks on tõlge poolik ning internetist abi otsides on vähe kasu eestikeelsetest terminitest. Niisiis kasutame kursuse käigus ingliskeelset versiooni. Selleks vali ülevalt servast menüüst <em>Seaded → Valikud → Üldine</em> (vasakul servas). Tee linnuke <em>Override system locale</em> ette. Vali <em>User Interface Translation</em> rippmenüüst <em>American English</em>. <em>Locale (numbers, date and currency formats)</em> juures ei tule midagi muuta. Tähendab, et see peab jääma Estonian Estonia (et_EE). Vajuta all servas <em>OK</em>. Sulge QGIS ning ava uuesti. Nüüd on programm ingliskeelne.</p>
-<div class="figure" style="text-align: center">
+<div class="figure" style="text-align: center"><span id="fig:changelanguage"></span>
 <img src="imgs/change_language.gif" alt="Keele muutmine QGISis" width="100%" />
 <p class="caption">
-(#fig:change_language)Keele muutmine QGISis
+Figure 6.1: Keele muutmine QGISis
 </p>
 </div>
 <div id="vaikimisi-koordinaatsüsteemi-sätestamine." class="section level3">
@@ -181,38 +184,123 @@
 - Ülevalt servast menüüst <em>Settings → Options → CRS (Coordinate Reference System)</em>.
 - <em>CRS for Projects</em> all vali <em>Use a default CRS</em>, kliki rippmenüü kõrval ikoonil ja kirjuta seal otsinguse <em>Estonian Coordinate System 1997</em>. Vajuta sellele otsingu tulemusele ning menüü alumises servas <em>OK</em>. Tee sama <em>CRS for Layers</em> juures.
 - Salvesta kursuse kausta enda QGIS projekt valides ülevalt vasakult <em>Project → Save</em>. Failinimeks pane näiteks <em>praktikum_6</em>. Ära unusta ka praktikumi jooksul aeg-ajalt salvestada!</p>
-<div class="figure" style="text-align: center">
+<div class="figure"><span id="fig:defaultcrs"></span>
 <img src="imgs/default_crs.gif" alt="Vaikimisi koordinaatsüsteemi sätestamine" width="100%" />
 <p class="caption">
-(#fig:default_crs)Vaikimisi koordinaatsüsteemi sätestamine
+Figure 6.2: Vaikimisi koordinaatsüsteemi sätestamine
 </p>
 </div>
-<!-- kihtide aken, kaart, koordinaadid, crs, tööriistaribad -->
+<p>Vaata QGISi kasutajaliidest. Suurde keskel olevasse aknasse ilmuvad kaardid ja ruumiandmete kihid. Vasakul on kihtide aken <em>Layers</em>. All servas on näitab kursori asukoha koordinaate, mõõtkava, mida saab seal ka muuta, ning paremal nurgas on koordinaatsüsteem, mis peaks praegu olema EPSG:3301, mis tähendabki Eesti 1997. a koordinaatsüsteemi. Üleval servas on menüüd ja kõiksugused tööriistad.</p>
 </div>
 </div>
 <div id="andmete-avamine" class="section level2">
 <h2><span class="header-section-number">6.4</span> Andmete avamine</h2>
-<!-- Vektor ja raster -->
-<!-- punktid - nt kirikud  -->
-<!-- jooned - jõed -->
-<!-- alad - maakonnad  -->
-<!-- raster - ortofoto  -->
-<!-- raster - kõrgus mudel  -->
-<!-- kihtide järjekord, zoom, pan -->
+<p>Nagu varasematest mäletate on olemas raster- ja vektorandmed. Viimased neist võivad koosneda punktidest, joontest või aladest. Avame kõigist andmetest näite.</p>
+<ul>
+<li><p>Ava Eesti maakondade kiht.</p>
+<ul>
+<li><em>Layer → Add layer → Add vector layer</em>.</li>
+<li>Kliki <em>Vector Dataset(s)</em> juures sirvimise ikoonil (kolm punkti). Vali andmete kaustast fail <em>maakond_20201001.shp</em> ja vajuta <em>Open</em>. Seejärel menüü all servas <em>Add</em> ja <em>Close</em>.</li>
+<li>Nüüd on avatud kiht kõigi Eesti maakondade piirjoontega.</li>
+</ul></li>
+<li><p>Ava muinsuskaitse all olevate kirikute kiht. Kõik samamoodi nagu eelmise kihiga, valida tuleb aga <em>kirikud.gpkg</em>.</p></li>
+<li><p>Ava suuremate jõgede kiht <em>joed.gpkg</em>.</p></li>
+</ul>
+<p>Kihtide paneelil <em>Layers</em> saab kihte välja ja sisse lülitada ning hiirega tõstes muuta nende järjekorda. Peaaknas saab hiire rullikuga suumida (all servas muutub ka mõõtkava). Hiire vasakpoolset klahvi all hoides ja ka klaviatuuril nooltega saab liikuda. Kihi terve ulatuse nägemiseks tee <em>Layers</em> paneelil kihil parempoolne klikk ning vali <em>Zoom to Layer</em>. Sellest on abi ka siis, kui oled ei suuda kihti enam üles leida. Kihtide atribuuttabelit saab vaadata tehes paremkliki ja <em>Open Attribute Table</em>. Proovi kaardil ringi liikuda ning vaata kõikide kihtide atribuuttabelit!</p>
+<p>Vaatame ka näidet rasterandmetest ortofotode näol. Ava 2020. a ja 1995. a ortofotod kasutades <em>Layer → Add layer → Add Raster Layer</em> ning vali vastavalt failid orto_2020.tif ja orto_1995.tif. Liigu kihtide juurde ja vaata nende erinevusi. Proovi ka lähedale suumida, et näha eraldiseisvaid piksleid. Rasteri pikslisuuruse vaatamiseks tee kihil paremklikk → <em>Properties</em>. <em>Information from provider</em> on kirjas <em>Pixel size</em> kui piksli küljepikkus meetrites. Pärast seda võib rasterkihid eemaldada. Selleks tee paremklikk → <em>Remove layer</em>.</p>
+<p>Ortofotode kohta rohkem lugeda ja neid ka ise kaardiruutude kaupa allalaadida <a href="https://geoportaal.maaamet.ee/est/Ruumiandmed/Ortofotod-p99.html">Geoportaalist</a>.</p>
 </div>
 <div id="kihtide-visualiseerimine" class="section level2">
 <h2><span class="header-section-number">6.5</span> Kihtide visualiseerimine</h2>
-<!-- Värv, kuju, suurus -->
-<!-- Läbipaistvus -->
-<!-- Väljapaistvus, värviskaalad -->
+<p>Selleks, et kõik kihid välja paistaksid peaksid need ülevalt alla olema järjekorras kirikud, jõed, maakonnad. Andmete visualiseerisemiseks on meil punktide puhul kasutada värv, kuju ja suurus. Joonte ja alade puhul piirdume üldiselt värvi ja suurusega.</p>
+<div id="harjutus-1" class="section level3">
+<h3><span class="header-section-number">6.5.1</span> Harjutus 1</h3>
+<p>Muuda kihtide stiili nii et kirikud paistaksid selgelt välja, jõed oleksid sinised ja nähtavad ning maakonnad oleks ainult piirjooned. Lisa ka maakonnanimi.</p>
+<p>Sümbolite muutmiseks tee kihil topeltkliki ja vaata, et avanenud aknas oleks vasakul servas valitud <em>Symbology</em>. Avanenud menüüs saab punkt- ja joonobjektidele valida värvi ja suurus või laiust. Pindobjektidel ehk aladel valige <em>Fill</em> all <em>Simple fill</em> asemel <em>Outline: Simple line</em>.</p>
+<p>Lisa maakonnanimi valides samas menüüs vali vasakult <em>Labels</em> ning seal <em>No labels</em> asemel <em>Single labels</em>. <em>Value</em> alt vali <em>MNIMI</em> ja vajuta all paremal OK.</p>
+<div class="figure"><span id="fig:harjutus1"></span>
+<img src="imgs/harjutus_1.png" alt="Harjus 1 tulemus" width="100%" />
+<p class="caption">
+Figure 6.3: Harjus 1 tulemus
+</p>
+</div>
+<p>Kas see on hea visualiseerimine? Mis on hea, mis on puudu, mis on üleliigne?</p>
+</div>
+<div id="harjutus-2" class="section level3">
+<h3><span class="header-section-number">6.5.2</span> Harjutus 2</h3>
+<p>Seo tabel kirikute arvust maakonnas maakondade kihiga ning värvi maakonnad vastavalt kirikute arvule.</p>
+<p>Ava Exceli vms programmiga fail <em>kirikud_maakonniti.csv</em>. Nagu näha on tegu väga lihtsa andmestikuga. <strong>Ava sama fail QGISis: </strong></p>
+<ul>
+<li><em>Layer → Add layer → Add delimited text layer</em></li>
+<li>Kliki <em>File Name</em> juures sirvimise ikoonil (kolm punkti). Vali kaustast fail <em>kirikud_maakonniti.csv</em></li>
+<li><em>Record and Fields Options juures</em> tee linnuke <em>First record has field names</em> ette. See on vajalik, et QGIS arvestaks tabeli esimest rida kui tulpade pealkirju.</li>
+<li><em>Geometry definition</em> vali <em>No geometry (attribute only table)</em>. See tuleb valida kuna antud tabelis ei ole koordinaate.</li>
+<li>Kas all sample data juures on andmed kujutatud eraldi tulpades ja täpitähed olemas? Kui täpitähti pole vali üleval <em>Encoding</em> rippmenüüst <em>ISO-8859-15</em>, mis on ametlik eesti keele kodeering.</li>
+<li><em>Add → Close</em>. Nagu näha ei ilmunud QGISi peaaknasse midagi, kuna tegu pole ruumiandmete kihiga, vaid lihtsalt tabeliga.</li>
+<li>Vaata kihtide paneelis selle atribuuttabelit. Nagu näha on see täpselt sama, mis Excelis.</li>
+</ul>
+<p><strong>Ühenda kultuurimälestiste tabel maakondade kihiga: </strong></p>
+<ul>
+<li>Maakondade kihil topeltklikk → vasakul servas <em>Joins</em> → all servas roheline plussmärk.
+<ul>
+<li><em>Join layer:</em> kirikud_maakonniti</li>
+<li><em>Join field:</em> maakond</li>
+<li><em>Target field:</em> MNIMI. Siin määrame, milliste tulpade põhjal tuleks tabel ja maakonnad kokku panna</li>
+<li><em>Joined fields</em> ette linnuke ja ka linnuke ainult <em>kirikud</em> ette, kuna me ei soovi tabelist võtta ka maakondade nimesid, mis on maakondade kihis juba olemas.</li>
+<li><em>Custom Field Name Prefix</em> ette linnuke ja kustuta sealses lahtris olev tekst.<br />
+</li>
+<li><em>OK</em></li>
+<li>Vaata uuesti maakondade kihi atribuuttabelit, et näha, kas igale maakonnale said lisatud kirikute arvud.</li>
+</ul></li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:tablejoin"></span>
+<img src="imgs/table_join.png" alt="Kirikute tabel ühendatud maakondade kihiga" width="75%" />
+<p class="caption">
+Figure 6.4: Kirikute tabel ühendatud maakondade kihiga
+</p>
+</div>
+<p><strong>Värvi maakonnad vastavalt kirikute arvule</strong></p>
+<ul>
+<li>Maakondade kihil paremklikk <em>→ Properties → Symbology</em></li>
+<li><em>Simple line</em> asemel vali uuesti <em>Symbol layer type</em> juurest <em>Simple fill</em></li>
+<li>Menüü ülaservast <em>Single symbol</em> asemel <em>Graduated:</em>
+<ul>
+<li><em>Column</em> juures vali <em>kirikuid</em>. See määrab, millise tulba väärtuste põhjal maakonnad värvitakse.</li>
+<li><em>Color ramp:</em> vali rippmenüüst värviskaala, millel on ühtlane 2–3 tooni üleminek. Näiteks helekollasest tumeroheliseks.</li>
+<li>Kliki <em>Classify</em>. Proovi ka erinevate jaotumistega (nt <em>Equal interval</em> ja <em>Pretty breaks</em>) ja klasside hulgaga (Classes). Näiteks <em>Pretty breaks</em> ja neli klassi annab ilusa tulemuse. Jälgi, et kõik või enamik maakondi ei oleks ühte värvi.</li>
+<li>OK</li>
+</ul></li>
+<li>Nüüd on kõik maakonnad värvitud valitud värviskaalaga vastavalt sellele, kui palju on neis kirikuid. Kas see kaart on informatiivne? Mida peaks lisama või ära võtma?</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:harjutus2"></span>
+<img src="imgs/harjutus_2.png" alt="Harjutus 2 tulemus" width="100%" />
+<p class="caption">
+Figure 6.5: Harjutus 2 tulemus
+</p>
+</div>
+</div>
 </div>
 <div id="aluskaardid" class="section level2">
 <h2><span class="header-section-number">6.6</span> Aluskaardid</h2>
-<!-- Quickmap ja OSM  -->
-<!-- Maa-ameti wms  -->
+<p>Nagu varasemates loengutes nägime on olemas rohkelt aluskaarte, mida erinevateks rakendustes kasutatakse. Neid saab kasuta QGISis läbi pistikprogrmammide ehk <em>Plugins</em> või WMS- ja WFS-teenuste. Vastavalt <em>web map service</em> ja <em>web feature service</em>.
+WMS-teenuse läbi saab kasutada peaaegu kõiki <a href="https://xgis.maaamet.ee/xgis2/page/app/maainfo">Maa-ameti XGISis</a> olevaid kihte. Täpsemalt sellest <a href="https://geoportaal.maaamet.ee/est/Teenused/WMS-teenused-p65.html">WMS teenuste lehel</a>. Lisaks saab paljusid muid andmeid kogu maailmast. WMS-teenuse kaarte saab kasutada sisuliselt ainult visualiseerimiseks. Päringuid neid teha ei saa.</p>
+<p><strong>Lisa WMS-teenusest taustaks kaart:</strong></p>
+<ul>
+<li><em>Layer → Add layer → Add WMS/WMTS layer</em>.</li>
+<li><em>New</em>. Seal <em>Name: Maaamet alus</em> ning URL juurde kopeeri aadress <a href="http://kaart.maaamet.ee/wms/alus" class="uri">http://kaart.maaamet.ee/wms/alus</a>? ja vajuta <em>OK</em>. Nüüd on paika pandud, millise Maa-ameti kaardiserveriga QGIS ühenduse loob.</li>
+<li>Kliki <em>Connect</em> ja vali <em>138 MAANTEED</em> ning kliki <em>Add</em>.</li>
+<li>Lisa veel üks ühendus. <em>New</em>. Seal kirjuta <em>Name:</em> lahtrisse <em>Maaamet orto ja reljeef</em> ning URL juurde kopeeri aadress <a href="https://kaart.maaamet.ee/wms/fotokaart" class="uri">https://kaart.maaamet.ee/wms/fotokaart</a> ja vajuta <em>OK</em>.</li>
+<li>Kliki <em>Connect</em> ja vali <em>21 vreljeef</em> ning kliki <em>Add</em>. Sulge aken.</li>
+<li>Nüüd on peaaknas näha tänapäevane maanteed koos reljeefiga. Kui WMS kihid ei paista välja, siis muuda kihtide järjekorda.</li>
+</ul>
+<p><strong>Quickmap ja OSM</strong></p>
+<p>Lisa veebikaartide plugin.
+- Üleval servas <em>Plugins → Manage and Install Plugins</em>. Otsingusse kirjuta <em>Quickmap</em>. Vali <em>QuickMapSercives</em> ja installi see. Sulge aken.
+- Üleval servas <em>Web → QuickMapServices → OSM → OSM standard</em>. Nüüd on aluskaardiks OpenStreetMap. Proovi ka teisi kaarte. Nt Google.</p>
 </div>
 <div id="järgmisel-korral" class="section level2">
 <h2><span class="header-section-number">6.7</span> Järgmisel korral</h2>
+<p>Kaartide kujundamine ja eksportimine, sümbolite visualiseerimine reeglipõhiselt, andmete loomine ja digitaliseerimine.</p>
 
 </div>
 </div>
