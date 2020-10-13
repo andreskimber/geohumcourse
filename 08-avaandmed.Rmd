@@ -1,0 +1,41 @@
+# Avaandmed ja repositooriumid {#avaandmed}
+
+
+## Neljapäeval
+
+Mis on avaandmed? Milleks avaandmed?
+
+Sekundaarsed andmed (olemasolevad andmekogud, mida saab enda uurimisküsimuste jaoks kasutada)
+
+Eesti ruumiandmed
+Muude riikide ruumiandmed
+Humanitaaria andmed? Kaggle?
+
+Maa-ameti kogud
+Digitaalsed kaardikollektsioonid 
+Arheoloogide andmed
+Twitter?
+
+Ülesanne: leia kuskilt mingis kindlas vormingus andmestik / kindlal teemal andmestik ja laadi see QGISi.
+
+
+## Esmaspäeval
+
+Primaarsed andmed: kuidas enda kogutud andmetele koordinaate külge saada?
+
+Käsitsi
+EKI kohanimeandmebaas
+ajaloolised kohanimed
+
+Geokodeerimine
+https://geoportaal.maaamet.ee/est/Teenused/Geokodeerimise-teenus-p440.html
+täpsus, kvaliteet
+
+Näiteks kv.ee andmestik (Taivo Pungas): suur andmestik, kus aadressid. 
+Kuidas kinnisvarahinnad on aastate jooksul muutunud? Kas on näha mingite piirkondade populaarsuse kasvu nt viimase 10 aasta jooksul?
+Võrdle Maa-ameti teenust teiste sarnastega (nt välismaa omadega)
+
+Vastupidine geokodeerimine (koordinaadid kohanimeks)
+
+Andmestike ühendamine (NB! koordinaatide referentsüsteemid)
+
