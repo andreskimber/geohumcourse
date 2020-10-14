@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>
+      <![CDATA[Delhi Traffic Circle]]>
+    </name>
+    <Style>
+      <ListStyle>
+        <listItemType>checkHideChildren</listItemType>
+      </ListStyle>
+    </Style>
+    <NetworkLink>
+      <Region>
+        <LatLonAltBox>
+          <north>28.8106389793</north>
+          <south>28.4996314526</south>
+          <east>77.3316693277</east>
+          <west>76.986297366</west>
+        </LatLonAltBox>
+        <Lod>
+          <minLodPixels>128</minLodPixels>
+          <maxLodPixels>-1</maxLodPixels>
+        </Lod>
+      </Region>
+      <Link>
+        <viewRefreshMode>onRequest</viewRefreshMode>
+        <href>http://mapwarper.net/maps/50945.kml?DBOX=76.986297366,28.4996314526,77.3316693277,28.8106389793,1</href>
+      </Link>
+    </NetworkLink>
+  </Document>
+</kml>

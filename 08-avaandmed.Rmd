@@ -75,8 +75,13 @@ Eesti ajaloolised administratiivpiirid 20. sajandil: https://archive.org/details
 
 Eesti digiteeritud kaartide kollektsioon on Rahvusarhiivi kaartide infosüsteem [ra.ee/kaardid](http://www.ra.ee/kaardid/), mis sisaldab Rahvusarhiivis ja Tallinna Linnaarhiivis hoitavate kaartide kirjeldusi ja digikujutisi. Infosüsteem võimaldab kaarte otsida ka kaardil piirkonda märkides.
 
+
+Digaris (ilmselt samad kaardid suht, mis RA-s): https://www.digar.ee/arhiiv/et/pildimaterjal?id=162
 <!-- Lisada näiteid teistest riikidest -->
 
+https://www.oldmapsonline.org/
+Georefereeritud kaardid: https://mapwarper.net/
+Georefereeritud kaardid: http://maps.nypl.org/warper/
 
 ### Ülesanne 
 
@@ -97,10 +102,10 @@ Arheoloogia andmete suurimaks koondajaks on [Ariadne Plus](https://ariadne-infra
 
 <!-- Andres teeb. Võid mõtteid ja linke lisada. Tean, et on mingi sait, kust saab kõik riigipiirid, looduse asjade (jõed järved jms), teed jms kätte. otsin üles -->
 
-Natural Earth Data: https://www.naturalearthdata.com/
-EuroGlobalMap: https://eurogeographics.org/maps-for-europe/open-data/
-Teadusandmete repositoorium: https://www.re3data.org/
-DataCite
+- [Natural Earth Data](https://www.naturalearthdata.com/): vektorkujul rannajoon, maa, ookeanid, saared, jõed, järved jm. Olemas ka rasterandmeid aluskaartide jaoks.  
+- [EuroGlobalMap](https://eurogeographics.org/maps-for-europe/open-data/)  
+- [DIVA-GIS](http://www.diva-gis.org/Data): nii ülemaailmsed kui ka üksikute riikide ruumiandmed 
+- [Robin Wilsoni põhjalik nimekiri vabalt kasutatavatest ruumiandmetest](http://freegisdata.rtwilson.com/)
 
 <!-- ML lisab hommikul veel -->
 
@@ -126,3 +131,6 @@ Vastupidine geokodeerimine (koordinaadid kohanimeks)
 
 Andmestike ühendamine (NB! koordinaatide referentsüsteemid) -->
 
+## Järgmisel korral
+
+Esmaspäeval vaatame lähemalt, kuidas enda andmeid ruumiandmetega ühendada ning kuidas kasutada geokodeerimist.  
