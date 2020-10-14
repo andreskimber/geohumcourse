@@ -1,19 +1,68 @@
 # Avaandmed ja repositooriumid {#avaandmed}
 
+## Mis on avaandmed? Milleks avaandmed?
 
-## Neljapäeval
 
-Mis on avaandmed? Milleks avaandmed?
+<!-- Lisada utlib materjale ja muu üldine ülevaade. Andres võib teha.  -->
 
-Sekundaarsed andmed (olemasolevad andmekogud, mida saab enda uurimisküsimuste jaoks kasutada)
 
-Eesti ruumiandmed
-Muude riikide ruumiandmed
-Humanitaaria andmed? Kaggle?
+```{r fairdataprinciples, echo = F, fig.align="center", out.width = "100%", fig.cap = "FAIR põhimõtted"}
+knitr::include_graphics(here::here("imgs", "FAIR_data_principles.jpg"))
+```
 
-Maa-ameti kogud
-Digitaalsed kaardikollektsioonid 
-Arheoloogide andmed
+
+### Litsentsid
+
+<!-- Paar sõna sellest, et andmetel peab olema litsents. Vaadata utlib videot või nt github litsentside juhist.  -->
+
+
+## Sekundaarsed andmed (olemasolevad andmekogud, mida saab enda uurimisküsimuste jaoks kasutada)
+
+## Eesti ruumiandmed
+
+### Maa-ameti Geoportaal
+
+Eesti ruumiandmete peamine haldaja ja levitaja on Maa-amet. Alates 2018. a suvest on sisuliselt kõik Maa-ameti andmed avalikult ning ka koheselt allalaetavad lehelt [geoportaal.maaamet.ee](https://geoportaal.maaamet.ee/). Nende kasutamist käsitleb [Maa-ameti avatud ruumiandmete litsents](https://geoportaal.maaamet.ee/docs/Avaandmed/ETAK_ruumiandmete_litsentsileping.pdf).
+
+Peamised punktid: 
+
+- õigus andmeid kasutada tasuta, kasutaja valitud kõlbelisel eesmärgil, kooskõlas seaduste ja heade tavadega
+- andmete publitseerimisel ja edasi levitamisel peab viitama nende päritolule
+- Maa-amet ei vastuta otsese ega kaudse kahju eest, mis võib tekkida tulenevalt andmete kasutamisest
+
+
+### Kohanimeraamat
+
+### Kohanimeregister
+
+## Digitaalsed kaardikollektsioonid 
+
+Eesti digiteeritud kaartide kollektsioon on Rahvusarhiivi kaartide infosüsteem [ra.ee/kaardid](http://www.ra.ee/kaardid/), mis sisaldab Rahvusarhiivis ja Tallinna Linnaarhiivis hoitavate kaartide kirjeldusi ja digikujutisi. Infosüsteem võimaldab kaarte otsida ka kaardil piirkonda märkides.
+
+<!-- Lisada näiteid teistest riikidest -->
+
+
+### Ülesanne 
+
+Otsige kaartide infosüsteemist vanim kaart, kus on kujutatud teie kodukoht. Soovitatav on otsida maal asuva kodu, vanavanemate kodu, suvila või mõne muu maal asuva huvipakkuva koha kaarti, kuna linnad on väga palju muutunud ning sealt võib olla raske konkreetset kohta leida. Otsingut võib lihtsustada see, kui teate, millise mõisa alla otsitav koht kuulus. Selleks vaadake kaardirakenduses [Ajaloolised kaardid](https://xgis.maaamet.ee/xgis2/page/app/ajalooline) ajaloolist haldusjaotust (tehke vasakul paneelis linnuke vastava kihi ette). Mõisa nime saab kaartide infosüsteemis sisestada täpsemas otsingus väljale *Koht hierarhias*. Kuna 19. saj lõpust pärinev üheverstaline kaart on georefereeritult samuti rakendusest näha, siis võib koha lokaliseerimisel sellest abi olla. 
+
+```{r palukyla, echo = F, fig.align="center", out.width = "100%", fig.cap = "Suuremõisa mõisa Paluküla küla kaart aastast 1881. EAA.3724.4.762 leht 1"}
+knitr::include_graphics(here::here("imgs", "kodukoht_kaardil.jpg"))
+```
+
+
+## Arheoloogia andmed
+
+<!-- Andres teeb. Võid mõtteid ja linke lisada -->
+
+Arheoloogia andmete suurimaks koondajaks on [Ariadne Plus](https://ariadne-infrastructure.eu/), mis koondab üle 2 miljoni andmestiku kogu Euroopast...
+
+## Muude riikide ruumiandmed
+
+<!-- Andres teeb. Võid mõtteid ja linke lisada. Tean, et on mingi sait, kust saab kõik riigipiirid, looduse asjade (jõed järved jms), teed jms kätte. otsin üles -->
+
+## Humanitaaria andmed? Kaggle?
+
 Twitter?
 
 Ülesanne: leia kuskilt mingis kindlas vormingus andmestik / kindlal teemal andmestik ja laadi see QGISi.
