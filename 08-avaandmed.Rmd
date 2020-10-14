@@ -2,6 +2,7 @@
 
 ## Mis on avaandmed? Milleks avaandmed?
 
+Avaandmed (*Open Data*) on vabalt ja avalikult kasutamiseks antud andmed. Avaandmeid võib ilma piiranguteta alla laadida, kasutada ja levitada, juhul kui viidatakse autorile ning andmeid kasutatakse vastavalt litsentsitingimustele.
 
 <!-- Lisada utlib materjale ja muu üldine ülevaade. Andres võib teha.  -->
 
@@ -9,6 +10,26 @@
 ```{r fairdataprinciples, echo = F, fig.align="center", out.width = "100%", fig.cap = "FAIR põhimõtted"}
 knitr::include_graphics(here::here("imgs", "FAIR_data_principles.jpg"))
 ```
+<!-- 
+- Andmete **leitavusele** aitab kaasa see, kui
+    + andmetel on püsiidentifikaator DOI,
+    + andmed on masinloetaval kujul,  
+    + andmed on varustatud võtme- ja märksõnadega,  
+    + andmetel on olemas metainfo.
+- Andmete **kättesaadavusele** aitab kaasa see, kui  
+    + andmeid (või osa nendest) säilitatakse avatud repositooriumis.
+- Andmete **ristkasutusele** aitab kaasa see, kui  
+    + andmeid hoitakse laialt levinud vormingus,  
+    + kasutatakse mingeid andmete v metaandmete standardeid,  
+- Andmete **taaskasutatavusele** aitab kaasa see, kui  
+    + dokumenteeritakse andmetöötluse protsessi,  
+    + varustatakse andmed litsentsiga,  
+    + tagatakse andmete kvaliteet.  -->
+
+
+
+Tartu Ülikool pakub TÜ Raamatukogu kaudu võimalust säilitada oma andmeid [DataDOI](https://datadoi.ee/) repositooriumis. Seal saavad andmed endale digitaalobjekti identifikaatori ehk DOI ning need registreeritakse koos metaandmetega rahvusvahelises DataCite registris. [DataCite Eesti](http://datacite.ee/datacite.php) koondab ka teisi Eesti teadusega seotud repositooriume, nt [Sarv](http://geokogud.info/).
+
 
 
 ### Litsentsid
@@ -30,6 +51,22 @@ Peamised punktid:
 - andmete publitseerimisel ja edasi levitamisel peab viitama nende päritolule
 - Maa-amet ei vastuta otsese ega kaudse kahju eest, mis võib tekkida tulenevalt andmete kasutamisest
 
+<!-- Siia mingi lühike ülesanne? -->
+
+### Statistikaamet
+
+Statistikaametil on oma [kaardirakendus](https://estat.stat.ee/StatistikaKaart/VKR), mis võimaldab teha rakenduses nende andmebaasi põhjal teemakaarte, aga ka vastavaid andmeid alla laadida.  
+
+<!-- lisa siia screenshot -->
+<!-- laadi mingid andmed alla ja proovi saada QGISi? Nt Loendused -> Rahva ja eluruumide loendus -> Eesti emakeelega rahvastik murdekeele oskuse järgi -> Asustusüksus -> Oskab mõnda murret  -->
+
+### Eesti Avaandmete Portaal
+
+Hulk Eestiga seotud avaandmeid, sh Maa-ameti andmed, on üleval [Eesti Avaandmete Portaalis](https://opendata.riik.ee/). Näiteks saab sealt küsida kõiki Tartuga seotud avaandmeid.  
+
+### Muu
+
+Eesti ajaloolised administratiivpiirid 20. sajandil: https://archive.org/details/HistoricalAdministrativeBordersOfEstonia
 
 ### Kohanimeraamat
 
@@ -60,6 +97,9 @@ Arheoloogia andmete suurimaks koondajaks on [Ariadne Plus](https://ariadne-infra
 ## Muude riikide ruumiandmed
 
 <!-- Andres teeb. Võid mõtteid ja linke lisada. Tean, et on mingi sait, kust saab kõik riigipiirid, looduse asjade (jõed järved jms), teed jms kätte. otsin üles -->
+
+Natural Earth Data: https://www.naturalearthdata.com/
+EuroGlobalMap: https://eurogeographics.org/maps-for-europe/open-data/
 
 ## Humanitaaria andmed? Kaggle?
 
