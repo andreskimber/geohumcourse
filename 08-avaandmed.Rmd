@@ -37,7 +37,6 @@ Tartu Ülikool pakub TÜ Raamatukogu kaudu võimalust säilitada oma andmeid [Da
 <!-- Paar sõna sellest, et andmetel peab olema litsents. Vaadata utlib videot või nt github litsentside juhist.  -->
 
 
-## Sekundaarsed andmed (olemasolevad andmekogud, mida saab enda uurimisküsimuste jaoks kasutada)
 
 ## Eesti ruumiandmed
 
@@ -100,6 +99,8 @@ Arheoloogia andmete suurimaks koondajaks on [Ariadne Plus](https://ariadne-infra
 
 Natural Earth Data: https://www.naturalearthdata.com/
 EuroGlobalMap: https://eurogeographics.org/maps-for-europe/open-data/
+Teadusandmete repositoorium: https://www.re3data.org/
+DataCite
 
 ## Humanitaaria andmed? Kaggle?
 
