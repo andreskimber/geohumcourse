@@ -1,34 +1,24 @@
 # Avaandmed ja repositooriumid {#avaandmed}
 
-## Mis on avaandmed? Milleks avaandmed?
+## Mis on avaandmed?  
 
-Avaandmed (*Open Data*) on vabalt ja avalikult kasutamiseks antud andmed. Avaandmeid võib ilma piiranguteta alla laadida, kasutada ja levitada, juhul kui viidatakse autorile ning andmeid kasutatakse vastavalt litsentsitingimustele.
+Avaandmed (*Open Data*) on vabalt ja avalikult kasutamiseks antud andmed. Avaandmeid võib ilma piiranguteta alla laadida, kasutada ja levitada, juhul kui autorile viidatakse ning andmeid kasutatakse vastavalt litsentsitingimustele.
 
 <!-- Lisada utlib materjale ja muu üldine ülevaade. Andres võib teha.  -->
 
+Avaandmetele lähedane mõiste, mis on eeskätt kasutuses teadusandmete kontekstis, on *FAIR*-andmed ehk andmed, mis on leitavad, kättesaadavad, ristkasutatavad ja taaskasutatavad. FAIR-andmed ei ole tingimata kättesaadavad *kõikidele* ja *mis tahes tingimustel*, ent samal ajal on sellised andmed oluliselt põhjalikumad, paremini dokumenteeritud ning hõlpsamini taaskasutatavad.   
 
 ```{r fairdataprinciples, echo = F, fig.align="center", out.width = "100%", fig.cap = "FAIR põhimõtted"}
 knitr::include_graphics(here::here("imgs", "FAIR_data_principles.jpg"))
 ```
-<!-- 
-- Andmete **leitavusele** aitab kaasa see, kui
-    + andmetel on püsiidentifikaator DOI,
-    + andmed on masinloetaval kujul,  
-    + andmed on varustatud võtme- ja märksõnadega,  
-    + andmetel on olemas metainfo.
-- Andmete **kättesaadavusele** aitab kaasa see, kui  
-    + andmeid (või osa nendest) säilitatakse avatud repositooriumis.
-- Andmete **ristkasutusele** aitab kaasa see, kui  
-    + andmeid hoitakse laialt levinud vormingus,  
-    + kasutatakse mingeid andmete v metaandmete standardeid,  
-- Andmete **taaskasutatavusele** aitab kaasa see, kui  
-    + dokumenteeritakse andmetöötluse protsessi,  
-    + varustatakse andmed litsentsiga,  
-    + tagatakse andmete kvaliteet.  -->
 
 
+- Andmete **leitavusele** aitab näiteks kaasa see, kui andmed on masinloetaval kujul, nad on kirjeldatud metainfo kaudu, need on varustatud märksõnadega ja neil on püsiidentifikaator DOI.    
+- Kui andmeid (või osa nendest) hoitakse mingis avalikus repositooriumis ehk elektroonilises varamus, kust neid on võimalik alla laadida, on need hästi **kättesaadavad**.   
+- Kui andmete vorming vastab mingitele kokkulepitud standarditele või andmeid hoitakse lihtsalt laialt kasutusel olevas, platvormist sõltumatus vormingus (nt CSV, XML), on need ka hõlpsasti **ristkasutatavad**.   
+- Kui andmete kogumise ja töötlemise protsess on põhjalikult dokumenteeritud ning andmed on varustatud litsentsiga, on need ka **taaskasutatavad**.   
 
-Tartu Ülikool pakub TÜ Raamatukogu kaudu võimalust säilitada oma andmeid [DataDOI](https://datadoi.ee/) repositooriumis. Seal saavad andmed endale digitaalobjekti identifikaatori ehk DOI ning need registreeritakse koos metaandmetega rahvusvahelises DataCite registris. [DataCite Eesti](http://datacite.ee/datacite.php) koondab ka teisi Eesti teadusega seotud repositooriume, nt [Sarv](http://geokogud.info/).
+Tartu Ülikool pakub TÜ Raamatukogu kaudu võimalust säilitada oma teadusandmeid [DataDOI](https://datadoi.ee/) repositooriumis. Seal saavad andmed endale digitaalobjekti identifikaatori ehk DOI ning need registreeritakse koos metaandmetega rahvusvahelises DataCite registris. [DataCite Eesti](http://datacite.ee/datacite.php) koondab ka teisi Eesti teadusega seotud repositooriume, nt [Sarv](http://geokogud.info/).  
 
 
 
@@ -50,14 +40,24 @@ Peamised punktid:
 - andmete publitseerimisel ja edasi levitamisel peab viitama nende päritolule
 - Maa-amet ei vastuta otsese ega kaudse kahju eest, mis võib tekkida tulenevalt andmete kasutamisest
 
-<!-- Siia mingi lühike ülesanne? -->
+**Ülesanne**  
+Laadime QGISi faili *tartuaadressid.csv*, mis on alamosa Maa-ameti [jõusolevate aadressiobjektide andmestikust](https://xgis.maaamet.ee/adsavalik/extracts). Fail sisaldab Tartumaa elukondlike hoonete ja eluruumide aadresse, millel on olemas ka koordinaadid. Laadime andmestiku QGISi ning vaatame, kas meil õnnestub aadressipunkti suurust ja läbipaistvust muutes tuvastada näiteks suurte kortermajadega piirkonnad Tartu linnas ja Tartumaal.  
+
+<!-- lisan siia täpsema juhendi ka-->
+
 
 ### Statistikaamet
 
-Statistikaametil on oma [kaardirakendus](https://estat.stat.ee/StatistikaKaart/VKR), mis võimaldab teha rakenduses nende andmebaasi põhjal teemakaarte, aga ka vastavaid andmeid alla laadida.  
+Statistikaamet pakub lisaks avalikule andmebaasile ka [kaardirakenduse](https://estat.stat.ee/StatistikaKaart/VKR) kasutamisvõimalust. Rakendus võimaldab teha nende andmebaasi põhjal teemakaarte, aga ka vastavaid andmeid alla laadida.  
 
 <!-- lisa siia screenshot -->
 <!-- laadi mingid andmed alla ja proovi saada QGISi? Nt Loendused -> Rahva ja eluruumide loendus -> Eesti emakeelega rahvastik murdekeele oskuse järgi -> Asustusüksus -> Oskab mõnda murret  -->
+
+**Ülesanne**  
+Vaatame järgmist teemakaarti.  
+<!-- lisa screenshot -->
+Laadime andmestiku SHP-failina alla ning püüame teha QGISis sarnase kaardi.  
+
 
 ### Eesti Avaandmete Portaal
 
@@ -80,7 +80,7 @@ Eesti digiteeritud kaartide kollektsioon on Rahvusarhiivi kaartide infosüsteem 
 
 ### Ülesanne 
 
-Otsige kaartide infosüsteemist vanim kaart, kus on kujutatud teie kodukoht. Soovitatav on otsida maal asuva kodu, vanavanemate kodu, suvila või mõne muu maal asuva huvipakkuva koha kaarti, kuna linnad on väga palju muutunud ning sealt võib olla raske konkreetset kohta leida. Otsingut võib lihtsustada see, kui teate, millise mõisa alla otsitav koht kuulus. Selleks vaadake kaardirakenduses [Ajaloolised kaardid](https://xgis.maaamet.ee/xgis2/page/app/ajalooline) ajaloolist haldusjaotust (tehke vasakul paneelis linnuke vastava kihi ette). Mõisa nime saab kaartide infosüsteemis sisestada täpsemas otsingus väljale *Koht hierarhias*. Kuna 19. saj lõpust pärinev üheverstaline kaart on georefereeritult samuti rakendusest näha, siis võib koha lokaliseerimisel sellest abi olla. 
+Otsime kaartide infosüsteemist vanima kaardi, kus on kujutatud meie kodukoht. Soovitatav on otsida maal asuva kodu, vanavanemate kodu, suvila või mõne muu maal asuva huvipakkuva koha kaarti, kuna linnad on väga palju muutunud ning sealt võib olla raske konkreetset kohta leida. Otsingut võib lihtsustada see, kui teate, millise mõisa alla otsitav koht kuulus. Selleks võib vaadata kaardirakenduses [Ajaloolised kaardid](https://xgis.maaamet.ee/xgis2/page/app/ajalooline) ajaloolist haldusjaotust (tehke vasakul paneelis linnuke vastava kihi ette). Mõisa nime saab kaartide infosüsteemis sisestada täpsemas otsingus väljale *Koht hierarhias*. Kuna 19. saj lõpust pärinev üheverstaline kaart on georefereeritult samuti rakendusest näha, siis võib koha lokaliseerimisel sellest abi olla. 
 
 ```{r palukyla, echo = F, fig.align="center", out.width = "100%", fig.cap = "Suuremõisa mõisa Paluküla küla kaart aastast 1881. EAA.3724.4.762 leht 1"}
 knitr::include_graphics(here::here("imgs", "kodukoht_kaardil.jpg"))
@@ -102,14 +102,11 @@ EuroGlobalMap: https://eurogeographics.org/maps-for-europe/open-data/
 Teadusandmete repositoorium: https://www.re3data.org/
 DataCite
 
-## Humanitaaria andmed? Kaggle?
-
-Twitter?
-
-Ülesanne: leia kuskilt mingis kindlas vormingus andmestik / kindlal teemal andmestik ja laadi see QGISi.
+<!-- ML lisab hommikul veel -->
 
 
-## Esmaspäeval
+
+<!-- ## Esmaspäeval
 
 Primaarsed andmed: kuidas enda kogutud andmetele koordinaate külge saada?
 
@@ -127,5 +124,5 @@ Võrdle Maa-ameti teenust teiste sarnastega (nt välismaa omadega)
 
 Vastupidine geokodeerimine (koordinaadid kohanimeks)
 
-Andmestike ühendamine (NB! koordinaatide referentsüsteemid)
+Andmestike ühendamine (NB! koordinaatide referentsüsteemid) -->
 
