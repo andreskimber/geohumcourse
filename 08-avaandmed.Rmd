@@ -18,14 +18,7 @@ knitr::include_graphics(here::here("imgs", "FAIR_data_principles.jpg"))
 - Kui andmete vorming vastab mingitele kokkulepitud standarditele või andmeid hoitakse lihtsalt laialt kasutusel olevas, platvormist sõltumatus vormingus (nt CSV, XML), on need ka hõlpsasti **ristkasutatavad**.   
 - Kui andmete kogumise ja töötlemise protsess on põhjalikult dokumenteeritud ning andmed on varustatud litsentsiga, on need ka **taaskasutatavad**.   
 
-Tartu Ülikool pakub TÜ Raamatukogu kaudu võimalust säilitada oma teadusandmeid [DataDOI](https://datadoi.ee/) repositooriumis. Seal saavad andmed endale digitaalobjekti identifikaatori ehk DOI ning need registreeritakse koos metaandmetega rahvusvahelises DataCite registris. [DataCite Eesti](http://datacite.ee/datacite.php) koondab ka teisi Eesti teadusega seotud repositooriume, nt [Sarv](http://geokogud.info/).  
-
-
-
-### Litsentsid
-
-<!-- Paar sõna sellest, et andmetel peab olema litsents. Vaadata utlib videot või nt github litsentside juhist.  -->
-
+Tartu Ülikool pakub TÜ Raamatukogu kaudu võimalust säilitada oma teadusandmeid [DataDOI](https://datadoi.ee/) repositooriumis. Seal saavad andmed endale digitaalobjekti identifikaatori ehk DOI ning need registreeritakse koos metaandmetega rahvusvahelises DataCite registris. [DataCite Eesti](http://datacite.ee/datacite.php) koondab ka teisi Eesti teadusega seotud repositooriume, nt [Sarv](http://geokogud.info/). Raamatukogul on ka ülevaade enimlevinud [Open Access andmebaasidest](https://utlib.ut.ee/avatud-juurdepaas) ja [teaduse avaandmete repositooriumitest](https://utlib.ut.ee/teaduse-avaandmed-open-data).
 
 
 ## Eesti ruumiandmed
@@ -94,18 +87,24 @@ knitr::include_graphics(here::here("imgs", "kodukoht_kaardil.jpg"))
 
 ## Arheoloogia andmed
 
-<!-- Andres teeb. Võid mõtteid ja linke lisada -->
+- Arheoloogia andmete suurimaks koondajaks on [Ariadne Plus](https://ariadne-infrastructure.eu/), mis koondab üle 2 miljoni andmestiku kogu Euroopast. Projekti eesmärk on luua pilvepõhine virtuaalne teadustöö tegemise keskkond. 
+- [ADS (Archaeology Data Sercive)](https://archaeologydataservice.ac.uk/): juhtiv repositoorium arheoloogia ja laiemalt kogu pärandi andmete pikaajaliseks säilitamiseks ja jagamiseks 
+- [tDAR (The Digital Archaeology Record)](https://www.tdar.org/): rahvusvaheline arheoloogiliste uuringute andmete repositoorium
+- [DANS (Data Archivin and Networked Services)](https://dans.knaw.nl/): Madalmaade digiandmete repositoorium
 
-Arheoloogia andmete suurimaks koondajaks on [Ariadne Plus](https://ariadne-infrastructure.eu/), mis koondab üle 2 miljoni andmestiku kogu Euroopast...
+*Eesti arheoloogia andmestikud*
+
+- Arheoloogilise ja pärimusliku kohainfo andmebaas: ei ole avatud juurdepääsuga. Riina Juuriku (riina.juurik@ut.ee) poole pöördudes saab juurdepääsu aga küsida. 
+- [TARA (Tartu Ülikooli arheoloogia infosüsteem)](https://tara.ut.ee/): leidude, luude, proovide, arhiivi, fotode jms kogud
+
 
 ## Muude riikide ruumiandmed
-
-<!-- Andres teeb. Võid mõtteid ja linke lisada. Tean, et on mingi sait, kust saab kõik riigipiirid, looduse asjade (jõed järved jms), teed jms kätte. otsin üles -->
 
 - [Natural Earth Data](https://www.naturalearthdata.com/): vektorkujul rannajoon, maa, ookeanid, saared, jõed, järved jm. Olemas ka rasterandmeid aluskaartide jaoks.  
 - [EuroGlobalMap](https://eurogeographics.org/maps-for-europe/open-data/)  
 - [DIVA-GIS](http://www.diva-gis.org/Data): nii ülemaailmsed kui ka üksikute riikide ruumiandmed 
 - [Robin Wilsoni põhjalik nimekiri vabalt kasutatavatest ruumiandmetest](http://freegisdata.rtwilson.com/)
+- [Pleiades](https://pleiades.stoa.org/home) - *ajalooliste* kohtade, riikide ja nimede ruumiandmed
 
 <!-- ML lisab hommikul veel -->
 
