@@ -1,0 +1,86 @@
+# Avaandmed ja repositooriumid (2) {#avaandmed2}
+
+<!-- Andmestikud:
+- vallakohtuprotokollide andmestik + Maa-ameti haldusjaotuse shapefile'id
+- geokodeeritud Album Academicumi andmestik (parandamata)
+- geokodeeritud Album Academicumi andmestik (parandatud)
+- vallakohtuprotokollide kohanimede andmeid + ajalooline aluskaart
+-->
+
+# Andmestike ühendamine
+
+Kui meil on olemas andmestik, milles ruumilist infot väljendavad ainult mingid tekstilised tunnused (nt riikide, maakondade, linnade, talude vm nimed), saame nende konkreetsete asukohtade määramiseks, kaardil kuvamiseks ning ruumiliseks analüüsimiseks kasutada ära vabalt kättesaadavaid ruumiandmeid (nt Maa-ameti ruumiandmeid).  
+
+Vaatame esmalt varasemast oluliselt suuremat 19. sajandi vallakohtute andmestikku. See on osa [Rahvusarhiivi ühisloomeprojektist](www.ra.ee/vallakohtud), mille käigus on praeguseks sisestatud üle 40 000 vallakohtuprotokolli. Siin kasutatavas andmestikus on umbes 25 000 protokolli andmed.  
+
+Tabel näeb välja selline:
+
+
+
+Ühendame maakonnapiiride andmed vallakohtute andmetega.
+Selleks, et tavalist andmestikku ruumiandmetega ühendada, peab kahel andmestikul olema vähemalt üks ühine tunnus (näiteks tulp maakonnanimedega). Millised on vallakohtute maakonnanimed ja millised Maa-ameti maakonnapiiride maakonnanimed?
+Asendame maakonnapiiride tabelis maakonnanimed nii, et need ühtiksid vallakohtute andmetega (nt *Viljandi maakond* -> *Viljandi*). Selleks Field calculatoris regexp_replace("MNIMI", '\\smaakond', '').
+Leiame maakondade polügoonide keskpunktid (Vector -> Geometry Tools -> Centroids).
+Lisame koordinaadid atribuuttabelisse (Vector -> Geometry Tools -> Add Geometry Attributes).
+Ühendame csv-kihi maakondade nimede järgi keskpunktide koordinaatide kihiga.
+Salvestame csv kihi uue csv-failina ning loeme uuesti sisse nii, et määrame ära koordinaatide tulbad.
+Point displacement.
+
+Otsime välja näiteks teemad.
+
+
+
+
+
+
+
+# Geokodeerimine
+
+Täpsemate asukohtade määramiseks (nt aadresside jaoks) saab kasutada geokodeerimise teenust. Geokodeerimine on ... Tagurpidi geokodeerimine omakorda võimaldab koordinaatidest tuletada aadressid.  
+
+Maa-amet pakub tasuta geokodeerimise teenust. Sealjuures on võimalik geokodeerida ainult üht aadressi/kohta korraga kui ka tervet hulka andmeid (massgeokodeerimine). Massgeokodeerimise sisendiks sobivad CSV-, XLS- või XLSX-formaadis andmetabelid. CSV-formaadi puhul peab välju eraldama semikoolon. <!-- kas koma ei või? -->      
+Võimalik on töödelda andmeid sünkroonselt (andmeid geokodeeritakse jooksvalt kohe pärast andmete üleslaadimist) või asünkroonselt (andmed laetakse serverisse ning kasutajale saadetakse tulemus mingi aja pärast meilile). 
+Massgeokodeerimise väljundit võib kuvada Maa-ameti aadressi
+
+Geokodeerimine töötab väga hästi tänapäevaste aadressidega. Löö näiteks sisse enda või vanematekodu aadress ja vaata, kas geokodeerija leiab sellele õiged koordinaadid.  
+
+Vaatame aga nüüd ka natuke vanemaid andmeid, nimelt Rahvusarhiivi kaudu kasutatavat Tartu Ülikooli ja Eesti Ajalooarhiivi andmebaasi "Album Academicum 1918–1944", mis koondab matrikliraamatutele jt allikatele tuginedes infot Tartu Ülikooli immatrikuleeritud üliõpilastest aastatel 1918-1944 ([vaata lähemalt](http://www.ra.ee/apps/andmed/index.php/site/page?view=aaut_annotation)). Kuna andmestik ise on üpris mahukas, sisaldades infot enam kui 20 000 tudengi kohta, siis vaatame siin ainult kahe väga levinud perekonnanimega (Tamm ja Saar) üliõpilaste andmeid ning võrdleme nende perekonnanimedega üliõpilaste päritolu. Naisüliõpilaste andmete puhul ei pruugi võrdlus olla väga täpne, kuna andmestikus sisalduvad ka need kirjed, kus *Tamm* või *Saar* on saadud perekonnanimeks abiellumisel.  
+Oleme andmebaasis kajastatud sünnikohtadel lühendid lahti kirjutanud ning lisanud erinevate tasemete vahele komad.
+
+<!-- kuva andmetabeli päis-->
+
+
+Võime proovida praktikumis tabelit XXXXXXX massgeokodeerimisse saata, ent kui teeme seda kõik koos, võib server saada üle koormatud. Seepärast oleme lisanud praktikumi materjalidesse ka juba geokodeeritud failid. Neist esimene on n-ö "toored andmed" ning teine veidi parandatud
+
+Laadi geokodeeritud andmestiku shapefile vektorkihina QGISi, värvi punktid selle järgi, kas tegemist on Tamme- või Saare-nimeliste üliõpilastega. Võid kasutada ka erinevaid sümboleid. Muuda punktide läbipaistvus 30% peale. Muuda taustakaart mustvalgeks.  
+
+Vaatame nüüd atribuuttabelit.   
+Kuna tegemist on ajaloolise andmebaasiga, on paljud kohanimed vahepeal muutunud. Vaatame geokodeeritud tabelit ning püüame välja selgitada, milliste kohtadega on geokodeerijal probleeme olnud. Eeskätt aitab selle puhul puuduvate aadresside ridade tuvastamine ning sisend- ja täisaadressi tulpade võrdlus. Selleks liiguta atribuuttabelis aadressitulbad üksteise kõrvale.  
+
+
+<!--
+- **Vana-Roosa valda** näiteks sellisel kujul enam tänapäeval ei eksisteeri, asemel on Varstu vald, ent geokodeerija määrab koordinaadid hoopis Vana-Roosa küla järgi;  
+- samamoodi ei ole näiteks pärast 1939. aastat enam **Peri valda**;   
+- *Jä Koeru khk* saab koordinaatideks Paide linna koordinaadid, kuna **Koeru kihelkonda** enam ei eksisteeri;  
+- Venemaa ja Liivimaa **kubermangusid** kubermangusid Maa-ameti geokodeerija ei suuda kaardile automaatselt panna;  
+- Virumaa maakond on tänapäeval jagunenud kaheks;  
+- jne.  
+
+Samuti võivad sisestatud andmed olla valed.  
+Näiteks on ... päritoluks sattunud *Vil Lustivere v Pudivere*, ent kuna Pudivere küla Lustivere vallas on tegelikult hoopis Jõgevamaal, siis on koordinaadid määratud lihtsalt Viljandimaa keskpunkti järgi ning saaksime sama tulemuse siis, kui otsiksime lihtsalt Viljandimaad. 
+
+-->
+
+Seetõttu peab ajalooliste andmete geokodeerimisel olema ettevaatlik ning punktid sobival aluskaardil üle kontrollima.  
+
+<!-- screenshot -->
+
+
+ 
+
+
+Geokodeeritud andmestiku kasutamine QGISis, ühendamine teiste andmetega. Nt arvuta X andmestiku tulba Q ja Y andmestiku tulba Q vahe ja värvi polügoonid selle järgi.
+
+Vanemate kohanimede puhul tasub kasutada kohanimeandmebaasi ning Maa-ameti ajalooliste kaartide rakendust või aluskaarti.  
+
+Näiteks mingi protokolli kohanimed Maa-ameti ajalooliste kaartide kihil. Nt Harju_Hageri_Kohila_id4010_1890a.ann ja txt.
