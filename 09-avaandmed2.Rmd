@@ -7,7 +7,7 @@
 - vallakohtuprotokollide kohanimede andmeid + ajalooline aluskaart
 -->
 
-# Andmestike ühendamine
+## Andmestike ühendamine
 
 Kui meil on olemas andmestik, milles ruumilist infot väljendavad ainult mingid tekstilised tunnused (nt riikide, maakondade, linnade, talude vm nimed), saame nende konkreetsete asukohtade määramiseks, kaardil kuvamiseks ning ruumiliseks analüüsimiseks kasutada ära vabalt kättesaadavaid ruumiandmeid (nt Maa-ameti ruumiandmeid).  
 
@@ -15,26 +15,49 @@ Vaatame esmalt varasemast oluliselt suuremat 19. sajandi vallakohtute andmestikk
 
 Tabel näeb välja selline:
 
+```{r kood, echo = F, cache = TRUE}
+f <- read.delim("failid/praks_19okt/vallakohtud_RA.csv", header = T, sep = "\t", fileEncoding = "UTF-8")
+knitr::kable(head(f))
+```
 
 
-Ühendame maakonnapiiride andmed vallakohtute andmetega.
+Ühendame [Maa-ameti maakonnapiiride andmed](https://geoportaal.maaamet.ee/docs/haldus_asustus/maakond_shp.zip?t=20201001005508) vallakohtute andmetega.  
+Esmalt laadime mõlemad andmestikud QGISi. 
+
+
+
+
 Selleks, et tavalist andmestikku ruumiandmetega ühendada, peab kahel andmestikul olema vähemalt üks ühine tunnus (näiteks tulp maakonnanimedega). Millised on vallakohtute maakonnanimed ja millised Maa-ameti maakonnapiiride maakonnanimed?
+
+Kahe andmestiku ühendamiseks on nüüd kaks viisi.
+
+**1. Esiteks võime ühendada csv-tabeli shapefile'iga**. Sellisel juhul säilib shapefile'i struktuur, milles on 15 rida (iga maakonna kohta üks) ning csv-failist lisatakse igale reale ainult mingid keskmised näitajad. Võime siin näiteks ühendada shapefile'iga iga maakonna keskmise protokolli pikkuse tähemärkides.
+Selleks:  
+
+- leiame keskmise tähemärkide arvu
+
+
+**2. Teiseks võime ühendada shapefile'i ruumiinfo csv-tabeliga**. Sellisel juhul säilib csv-faili struktuur, milles on üle 25 000 rea (iga protokolli kohta üks) ning iga rida saab juurde koordinaadid. Võime siin näiteks ühendada csv-failiga iga maakonna keskpunkti (*tsentroidi*) koordinaadid. 
+
+
 Asendame maakonnapiiride tabelis maakonnanimed nii, et need ühtiksid vallakohtute andmetega (nt *Viljandi maakond* -> *Viljandi*). Selleks Field calculatoris regexp_replace("MNIMI", '\\smaakond', '').
 Leiame maakondade polügoonide keskpunktid (Vector -> Geometry Tools -> Centroids).
 Lisame koordinaadid atribuuttabelisse (Vector -> Geometry Tools -> Add Geometry Attributes).
 Ühendame csv-kihi maakondade nimede järgi keskpunktide koordinaatide kihiga.
 Salvestame csv kihi uue csv-failina ning loeme uuesti sisse nii, et määrame ära koordinaatide tulbad.
-Point displacement.
+Teeme heat mapi (mida rohkem punkte on üksteise all, seda intensiivsem on ringi toon).
 
-Otsime välja näiteks teemad.
+Otsime välja näiteks teemad ja teeme heat mapi.
 
-
-
-
-
+Proovi sama kihelkondade andmetega. NB! Kihelkondade andmestikus on mõned polügoonid, mille ruumikuju on vigane ja millel seetõttu ei saa näiteks keskpunkte leida. Selleks, et see segama ei hakkaks, määra praegu 
+Settings -> Options -> Processing -> General menu -> Invalid features filtering (= Skip (ignore) invalid geometries). 
 
 
-# Geokodeerimine
+
+
+
+
+## Geokodeerimine
 
 Täpsemate asukohtade määramiseks (nt aadresside jaoks) saab kasutada geokodeerimise teenust. Geokodeerimine on ... Tagurpidi geokodeerimine omakorda võimaldab koordinaatidest tuletada aadressid.  
 
@@ -77,9 +100,8 @@ Seetõttu peab ajalooliste andmete geokodeerimisel olema ettevaatlik ning punkti
 
 
  
+## Aluskaartide kasutamine
 
-
-Geokodeeritud andmestiku kasutamine QGISis, ühendamine teiste andmetega. Nt arvuta X andmestiku tulba Q ja Y andmestiku tulba Q vahe ja värvi polügoonid selle järgi.
 
 Vanemate kohanimede puhul tasub kasutada kohanimeandmebaasi ning Maa-ameti ajalooliste kaartide rakendust või aluskaarti.  
 
