@@ -1,4 +1,4 @@
-id	year	month	day	protocol_number	X_record_type	maakond	kihelkond	vald	number_of_characters	Added geom info_MNIMI	Added geom info_MKOOD	Added geom info_xcoord	Added geom info_ycoord
+id	year	month	day	protocol_number	X_record_type	maakond	kihelkond	vald	number_of_characters	koord_keskpunktid_MNIMI	koord_keskpunktid_MKOOD	koord_keskpunktid_xcoord	koord_keskpunktid_ycoord
 "399"	"1885"	"7"	"19"	"159"	"Maade ja hoonete rentimine, mõõtmine ja pärandamine. Ehitamine. Suhted mõisa ja kroonuga."	Pärnu	Halliste	Penuja	"409"	Pärnu maakond	"0068"	527920.617616871	6476344.04590085
 "182"	"1823"	"5"	"19"	NULL	NULL	Viljandi	Helme	Lõve	"84"	Viljandi maakond	"0084"	590879.425873858	6467185.68687056
 "508"	"1856"	"2"	"17"	"4"	NULL	Tartu	Kodavere	Alatskivi	"211"	Tartu maakond	"0079"	658056.466567159	6475218.89392946
