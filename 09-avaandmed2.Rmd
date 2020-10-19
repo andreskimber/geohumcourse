@@ -52,8 +52,11 @@ knitr::include_graphics(here::here("imgs", "virtuallayer.PNG"))
     + tee duplikaadi kiht aktiivseks ning mine muutmise režiimi (*Edit*, vajuta kollasel pliiatsil);  
     + vajuta valiku tööriista (*Select*) ning Ctrl-klahvi all hoides vali Ida- ja Lääne-Virumaa polügoonid;  
     + vali menüüs *Edit* -> *Merge selected polygons*, jälgi, et nii MNIMI kui ka MNIMI2 tulpadel oleks Id *Manual value* ning määra ühendatud kihile tulba *MNIMI* väärtuseks *Viru maakond* ning tulba *MNIMI2* väärtuseks *Viru*.  Juhul, kui atribuuttabelisse jääb endiselt väärtus *Lääne-Viru* või *Ida-Viru*, muuda see käsitsi atribuuttabelis ära (muutmiseks vajuta atribuuttabelis kollasel pliiatsil ning muutmise lõpetamiseks uuesti kollasel pliiatsil). Lõplikus atribuuttabelis peaks olema ainult *Viru* ja *Viru maakond*.  
-    ```{r merge, echo=F, fig.show='hold', fig.align='center', out.width= "45%", fig.cap="Virumaa polügoonide ühendamine"}
-knitr::include_graphics(here::here("imgs", c("merge_viru.PNG", "edit_attributes.PNG")))
+    ```{r merge, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Virumaa polügoonide ühendamine"}
+knitr::include_graphics(here::here("imgs", "merge_viru.PNG"))
+```
+    ```{r merge2, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Atribuuttabeli parandamine"}
+knitr::include_graphics(here::here("imgs", "edit_attributes.PNG"))
 ```
 
     + Salvesta kihi muudatused (*Save layer edits*) ning välju muutmise režiimist (vajuta uuesti kollasel pliiatsil).  
