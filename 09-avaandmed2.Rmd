@@ -51,9 +51,9 @@ knitr::include_graphics(here::here("imgs", "virtuallayer.PNG"))
 - Kuna vallakohtute andmestikus on kahe Viru maakonna (Ida-Viru ja Lääne-Viru) asemel lihtsalt üks Virumaa, siis ühendame maakonna kihi duplikaadis Ida- ja Lääne-Viru polügoonid üheks. Selleks   
     + tee duplikaadi kiht aktiivseks ning mine muutmise režiimi (*Edit*, vajuta kollasel pliiatsil);  
     + vajuta valiku tööriista (*Select*) ning Ctrl-klahvi all hoides vali Ida- ja Lääne-Virumaa polügoonid;  
-    + vali menüüs *Edit* -> *Merge selected polygons* ning määra ühendatud kihile tulba *MNIMI* väärtuseks *Viru maakond* ning tulba *MNIMI2* väärtuseks *Viru*.  
-    ```{r merge, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Virumaa polügoonide ühendamine"}
-knitr::include_graphics(here::here("imgs", "merge_viru.PNG"))
+    + vali menüüs *Edit* -> *Merge selected polygons*, jälgi, et nii MNIMI kui ka MNIMI2 tulpadel oleks Id *Manual value* ning määra ühendatud kihile tulba *MNIMI* väärtuseks *Viru maakond* ning tulba *MNIMI2* väärtuseks *Viru*.  Juhul, kui atribuuttabelisse jääb endiselt väärtus *Lääne-Viru* või *Ida-Viru*, muuda see käsitsi atribuuttabelis ära (muutmiseks vajuta atribuuttabelis kollasel pliiatsil ning muutmise lõpetamiseks uuesti kollasel pliiatsil). Lõplikus atribuuttabelis peaks olema ainult *Viru* ja *Viru maakond*.  
+    ```{r merge, echo=F, fig.show='hold', fig.align='center', out.width= "45%", fig.cap="Virumaa polügoonide ühendamine"}
+knitr::include_graphics(here::here("imgs", c("merge_viru.PNG", "edit_attributes.PNG")))
 ```
 
     + Salvesta kihi muudatused (*Save layer edits*) ning välju muutmise režiimist (vajuta uuesti kollasel pliiatsil).  
@@ -76,9 +76,6 @@ knitr::include_graphics(here::here("imgs", "join2.PNG"))
 knitr::include_graphics(here::here("imgs", "centroids.PNG"))
 ```
 - Järgmiseks lisame kihi *Centroids* atribuuttabelisse punktide *x*- ja *y*-koordinaadid: tee kiht aktiivseks -> *Vector* -> *Geometry Tools* -> *Add Geometry Attributes*, jäta jällegi vaikeväärtused ning vajuta *Run* ja *Close*. Tekkis uus kiht *Added geom info*. Nimetame selle ümber nt *koord_keskpunktid*.  
-    ```{r koordkeskpunktid, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Keskpunktide koordinaadid atribuuttabelis"}
-knitr::include_graphics(here::here("imgs", "koord_keskpunktid.PNG"))
-```
 - Ühendame nüüd CSV-kihi maakondade nimede järgi keskpunktide koordinaatide kihiga. Tee paremklikk kihil *vallakohtud_RA* -> *Properties* -> *Joins* -> *Add new join*   
     ```{r join3, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap="Andmestike ühendamine (2)"}
 knitr::include_graphics(here::here("imgs", "join3.PNG"))
