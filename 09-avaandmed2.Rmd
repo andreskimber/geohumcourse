@@ -1,0 +1,182 @@
+# Avaandmed ja repositooriumid 2 {#avaandmed2}
+
+<!-- Andmestikud:
+- vallakohtuprotokollide andmestik + Maa-ameti haldusjaotuse shapefile'id
+- geokodeeritud Album Academicumi andmestik (parandamata)
+- geokodeeritud Album Academicumi andmestik (parandatud)
+- vallakohtuprotokollide kohanimede andmeid + ajalooline aluskaart
+-->
+
+## Andmestike ühendamine
+
+Kui meil on olemas andmestik, milles ruumilist infot väljendavad ainult mingid tekstilised tunnused (nt riikide, maakondade, linnade, talude vm nimed), saame nende konkreetsete asukohtade määramiseks, kaardil kuvamiseks ning ruumiliseks analüüsimiseks kasutada ära vabalt kättesaadavaid ruumiandmeid (nt Maa-ameti ruumiandmeid).  
+
+Vaatame esmalt varasemast oluliselt suuremat 19. sajandi vallakohtute andmestikku. See on osa [Rahvusarhiivi ühisloomeprojektist](www.ra.ee/vallakohtud), mille käigus on praeguseks sisestatud üle 40 000 vallakohtuprotokolli, kus arutatakse muuhulgas näiteks laenusid ja võlanõudeid, varavastaseid kuritegusid, pärimisasju, kahjutasunõudeid, aga ka näiteks sõimu ja vägivalda ning muid üleastumisi. Siin praktikumis kasutatavas andmestikus on umbes 25 000 protokolli andmed.  
+
+Tabel näeb välja selline:
+
+```{r kood, echo = F, cache = TRUE}
+f <- read.delim("failid/praks_19okt/vallakohtud_RA.csv", header = T, sep = "\t", fileEncoding = "UTF-8")
+head(f)
+```
+
+
+Selleks, et protokollide andmeid kaardil kuvada, ühendame [Maa-ameti maakonnapiiride andmed](https://geoportaal.maaamet.ee/docs/haldus_asustus/maakond_shp.zip?t=20201001005508) vallakohtute andmetega.  
+Esmalt laadime mõlemad andmestikud QGISi. 
+
+- Maa-ameti andmed laadime vektorkihina: *Layer* -> *Add Layer* -> *Add Vector Layer* -> [vali SHP-fail] -> *Add* -> *Close*  
+- Vallakohtute andmed laadime csv-kihina: *Layer* -> *Add Layer* -> *Add Delimited Text Layer* -> [vali fail *vallakohtud_RA.csv*] -> tulpade eraldaja on tabulaator (*Tab*), linnuke on kastide ees *First record has field names* ja *Detect field types*, *Geometry Definition* on *No geometry* -> Add -> Close  
+
+
+Selleks, et tavalist andmestikku ruumiandmetega ühendada, peab kahel andmestikul olema vähemalt üks ühine tunnus (näiteks tulp maakonnanimedega). **Millised on vallakohtute maakonnanimed ja millised Maa-ameti maakonnapiiride maakonnanimed?** Vaatame atribuuttabelist.  
+Asendame Maa-ameti maakonnapiiride atribuuttabelis maakonnanimed nii, et need ühtiksid vallakohtute andmetega (nt *Viljandi maakond* -> *Viljandi*). Selleks lisame tabelisse uue tulba nagu eelmiselgi korral. Tee paremklikk maakonnapiiride kihil -> *Properties* -> *Fields* -> *Field calculator* -> *Create new field* ning kasutame [regulaaravaldist](https://et.wikipedia.org/wiki/Regulaaravaldis), mis kustutab pärast maakonnanime osa " maakond" (teisisõnu: asendab selle osa mitte millegagi). `\\s` märgib siin tühikut.  
+
+```{r regexpreplace, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Maakonnanimede asendamine regulaaravaldise abil"}
+knitr::include_graphics(here::here("imgs", "regex_replace.PNG"))
+```
+
+Nüüd on meil tunnus **MNIMI2**, mille abil saame kaht andmestikku ühendada. Ühendamiseks on aga kaks viisi.
+
+- **Esiteks võime ühendada csv-tabeli _shapefile_'iga**. Sellisel juhul säilib *shapefile*'i struktuur, milles on 15 rida (iga maakonna kohta üks) ning csv-failist lisatakse igale reale ainult mingid keskmised näitajad. Võime siin näiteks ühendada *shapefile*'iga iga maakonna protokollide keskmise pikkuse tähemärkides.
+- **Teiseks võime ühendada _shapefile_'i ruumiinfo csv-tabeliga**. Sellisel juhul säilib csv-faili struktuur, milles on üle 25 000 rea (iga protokolli kohta üks) ning iga rida saab juurde koordinaadid. Võime siin näiteks ühendada csv-failiga iga maakonna keskpunkti (*tsentroidi*) koordinaadid. 
+
+
+### CSV info ühendamine SHP-ga
+
+- Esmalt on meil vaja CSV-tabelist saada tabel, kus oleks iga maakonna kohta protokollide keskmine pikkus tähemärkides. Selleks saame luua näiteks uue virtuaalse kihi ning kasutada SQL-i päringut. Mine *Layer* -> *Create Layer* -> *New Virtual Layer*, nimeta kiht nt *keskmised*, *Embedded layers* saki alt vali *Import* ning impordi kiht *vallakohtud_RA*. Sisesta *Query* väljale pildil näidatud SQL-i päring ning vajuta *Add*.    
+    ```{r virtuallayer, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Virtuaalse kihi loomine"}
+knitr::include_graphics(here::here("imgs", "virtuallayer.PNG"))
+```
+- Tee nüüd maakonna kihist duplikaat: paremklikk kihil -> *Duplicate Layer*.  
+- Kuna vallakohtute andmestikus on kahe Viru maakonna (Ida-Viru ja Lääne-Viru) asemel lihtsalt üks Virumaa, siis ühendame maakonna kihi duplikaadis Ida- ja Lääne-Viru polügoonid üheks. Selleks   
+    + tee duplikaadi kiht aktiivseks ning mine muutmise režiimi (*Edit*, vajuta kollasel pliiatsil);  
+    + vajuta valiku tööriista (*Select*) ning Ctrl-klahvi all hoides vali Ida- ja Lääne-Virumaa polügoonid;  
+    + vali menüüs *Edit* -> *Merge selected polygons*, jälgi, et nii MNIMI kui ka MNIMI2 tulpadel oleks Id *Manual value* ning määra ühendatud kihile tulba *MNIMI* väärtuseks *Viru maakond* ning tulba *MNIMI2* väärtuseks *Viru*.  Juhul, kui atribuuttabelisse jääb endiselt väärtus *Lääne-Viru* või *Ida-Viru*, muuda see käsitsi atribuuttabelis ära (muutmiseks vajuta atribuuttabelis kollasel pliiatsil ning muutmise lõpetamiseks uuesti kollasel pliiatsil). Lõplikus atribuuttabelis peaks olema ainult *Viru* ja *Viru maakond*.  
+    ```{r merge, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Virumaa polügoonide ühendamine"}
+knitr::include_graphics(here::here("imgs", "merge_viru.PNG"))
+```
+    ```{r merge2, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Atribuuttabeli parandamine"}
+knitr::include_graphics(here::here("imgs", "edit_attributes.PNG"))
+```
+
+    + Salvesta kihi muudatused (*Save layer edits*) ning välju muutmise režiimist (vajuta uuesti kollasel pliiatsil).  
+- Nüüd saame ühendada kihi *keskmised* ja maakonnapiiride kihi koopia. Selleks tee paremklikk maakonnapiiride kihi koopial -> *Properties* -> *Joins* ->  lisa rohelisest plussmärgist uus ühendamine, täida väljad nii nagu allpool oleval pildil ning vajuta *OK* ja uuesti *OK*.  
+```{r join1, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap="Andmestike ühendamine (1)"}
+knitr::include_graphics(here::here("imgs", "join1.PNG"))
+```
+
+- Nüüd on meil maakonnapiiride kiht, mille atribuuttabelis on ka infot selle kohta, kui pikad vastava maakonna vallakohtuprotokollid keskmiselt on. Kasuta seda tulpa selleks, et värvida maakonnad eri tooni (pikemate protokollidega maakonnad tumedamalt, lühematega heledamalt). Selleks kasuta juba eelmistes praktikumides näidatud viise (*Symbology* -> *Graduated* jne).  
+    ```{r join2, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Ühendatud andmestikud"}
+knitr::include_graphics(here::here("imgs", "join2.PNG"))
+```
+
+
+### SHP info ühendamine CSV-ga
+
+- Ühendame nüüd csv-failiga iga maakonna keskpunkti (*tsentroidi*) koordinaadid. Selleks tuleb meil esmalt leida maakondade polügoonide keskpunktid. Tee uus maakonnapiiride kihi koopia (duplikaat) ning nimeta see nt *maakonnad2* (paremklikk kihil -> *Rename Layer*). 
+- Tee kiht *maakonnad2* aktiivseks -> *Vector* -> *Geometry Tools* -> *Centroids...* -> jäta vaikeväärtused ning vajuta *Run*. Maakondade kihile ilmuvad nüüd uuel kihil polügoonide keskpunktid.   
+    ```{r centroids, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Polügoonide keskpunktide leidmine"}
+knitr::include_graphics(here::here("imgs", "centroids.PNG"))
+```
+- Järgmiseks lisame kihi *Centroids* atribuuttabelisse punktide *x*- ja *y*-koordinaadid: tee kiht aktiivseks -> *Vector* -> *Geometry Tools* -> *Add Geometry Attributes*, jäta jällegi vaikeväärtused ning vajuta *Run* ja *Close*. Tekkis uus kiht *Added geom info*. Nimetame selle ümber nt *koord_keskpunktid*.  
+- Ühendame nüüd CSV-kihi maakondade nimede järgi keskpunktide koordinaatide kihiga. Tee paremklikk kihil *vallakohtud_RA* -> *Properties* -> *Joins* -> *Add new join*   
+    ```{r join3, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap="Andmestike ühendamine (2)"}
+knitr::include_graphics(here::here("imgs", "join3.PNG"))
+```
+- Salvestame kihi *vallakohtud_RA* uue CSV-failina (paremklikk -> *Export* -> *Save features as*). Jälgi, et kodeering oleks UTF-8, väljade eraldaja (*SEPARATOR*) oleks tabulaator ning koordinaatsüsteem EPSG:3301.  
+    ```{r savecsv, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap="Koordinaatidega csv-faili salvestamine"}
+knitr::include_graphics(here::here("imgs", "newcsv.PNG"))
+```
+- Nüüd loeme salvestatud faili uuesti csv-failina sisse nii, et määrame ära koordinaatide tulbad: *Layer* -> *Add Layer* -> *Add Delimited Text Layer*
+    ```{r readnewcsv, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap="Koordinaatidega csv-faili sisselugemine"}
+knitr::include_graphics(here::here("imgs", "readnewcsv.PNG"))
+```
+- Nüüd on meil kaardil üksteise all igas maakonnas sadu ja tuhandeid punkte, ehkki vaikimisi näeme, et igas maakonnas on ainult üks punkt. Selleks, et protokollide jaotumist visuaalselt veidi paremini näidata, võime näiteks filtreerida välja ainult protokollid, mille teemaks on (ainult) "Sõim ja vägivald" ning teha *heatmap*'i. 
+    ```{r heatmap, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap="Heatmap"}
+knitr::include_graphics(here::here("imgs", "heatmap.PNG"))
+```
+
+Võid proovida teha sama kihelkondade andmetega, kasutades näiteks [siit](https://archive.org/download/HistoricalAdministrativeBordersOfEstonia/ee_admin_20thC_shapefiles.zip) alla laaditavaid 1897. aasta kihelkonnapiiride andmeid. NB! Kihelkondade andmestikus on mõned polügoonid, mille ruumikuju on vigane ja millel seetõttu ei saa nende puhul näiteks keskpunkte leida. Selleks, et see segama ei hakkaks, määra QGISis *Settings* -> *Options* -> *Processing* -> *General menu* -> *Invalid features filtering* (= *Skip (ignore) invalid geometries*). 
+
+
+
+## Geokodeerimine
+
+Täpsemate asukohtade määramiseks (nt aadresside jaoks) saab kasutada geokodeerimise teenust. Geokodeerimine on  aadressi  või  kohanime  seostamine  geograafiliste  koordinaatidega. Tagurpidi geokodeerimine omakorda võimaldab koordinaatidest tuletada aadressid ja kohanimed.    
+
+Maa-amet pakub tasuta [geokodeerimise teenust](https://geoportaal.maaamet.ee/est/Teenused/Geokodeerimise-teenus-p440.html). Sealjuures on võimalik geokodeerida ainult üht aadressi/kohta korraga kui ka tervet hulka andmeid (massgeokodeerimine). 
+
+[Geokodeeri](https://inaadress.maaamet.ee/geocoder/one) alustuseks näiteks **enda, oma sõbra, vanemate vt aadress**. Saad väljundit kuvada nii aadressiobjektide kaardirakendused kui ka alla erinevates formaatides alla laadida. Kas jääd tulemuse täpsusega rahule?
+
+[**Massgeokodeerimise**](https://inaadress.maaamet.ee/geocoder/bulk) sisendiks sobivad CSV-, XLS- või XLSX-formaadis andmetabelid. CSV-formaadi puhul peab välju eraldama semikoolon. Vaatame seda lühikese näite abil, kus geokodeerime Tartu Ülikooli valdkondade ametlikud aadressid.
+
+
+- Kodeerimisel pead ära määrama, millises tulbas paikneb lähteaadress, mida geokodeerima hakatakse. Antud juhul on selleks tulp *Aadress*.  
+- Seejärel saad valida,   
+    + kas tahad aadresse lihtsalt normaliseerida (st viia kujule, milles need esinevad nt kohanimeregistris), ilma et saaksid aadressidele koordinaadid;
+    + milliste objektide hulgast vasteid otsitakse. Meid huvitavad siin eeskätt õppehooned, aga veidi ebatäpsemate aadresside puhul (talud, tänavad, maakonnad, linnad jne) tasub otsida ka teiste objektide seast;  
+    + kas tahad, et andmeid töödeldaks sünkroonselt, mispuhul saad protsessi jälgida kohe samas veebilehitseja aknas, või asünkroonselt, mispuhul andmed laetakse serverisse ning kasutajale saadetakse mõne aja pärast tulemus meilile. Viimast tasub teha eeskätt siis, kui andmestik on mahukas.  
+    + milliseid ruumiandmete tulpasid väljundisse soovid (nt kas kõiki aadressiobjektide id-sid ja tasemeid);  
+    + kuidas vasteid esitatakse. Eeskätt puudutab see aadresse, millel on kas mitu vastet või millele täpset vastet ei leita.  
+    ```{r geocoding2, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Massgeokodeerimine (2)"}
+knitr::include_graphics(here::here("imgs", "ut_geocoding.PNG"))
+```
+
+
+Geokodeerimine töötab väga hästi tänapäevaste aadressidega.  
+Vaatame aga nüüd ka natuke vanemaid andmeid, nimelt Rahvusarhiivi kaudu kasutatavat **Tartu Ülikooli ja Eesti Ajalooarhiivi andmebaasi "Album Academicum 1918–1944"**, mis koondab matrikliraamatutele jt allikatele tuginedes infot Tartu Ülikooli immatrikuleeritud üliõpilastest aastatel 1918-1944 ([vaata lähemalt](http://www.ra.ee/apps/andmed/index.php/site/page?view=aaut_annotation)).   Kuna andmestik ise on üpris mahukas, sisaldades infot enam kui 20 000 tudengi kohta, siis vaatame siin ainult kahe väga levinud perekonnanimega (Tamm ja Saar) üliõpilaste andmeid ning võrdleme nende perekonnanimedega üliõpilaste päritolu. Naisüliõpilaste andmete puhul ei pruugi võrdlus olla väga täpne, kuna andmestikus sisalduvad ka need kirjed, kus *Tamm* või *Saar* on saadud perekonnanimeks abiellumisel.  
+Oleme veidi algandmestikku täiendanud ning lisanud standardiseeritud sünnikoha tulba, kus andmebaasis kajastatud sünnikohtadel on lühendid lahti kirjutatud ning erinevate tasemete vahele on lisatud komad.
+
+```{r tbl, echo = F}
+f2 <- read.csv2("failid/tamm_saar_koond2.csv", header = T, sep = ";", fileEncoding = "UTF-8")
+head(f2)
+```
+
+Põhimõtteliselt võib proovida ka praktikumis tabelit *tamm_saar_koond2.csv* massgeokodeerimisse saata, ent kui teeme seda kõik koos, võib server saada üle koormatud. Seepärast oleme lisanud praktikumi materjalidesse ka juba geokodeeritud SHP-faili kaustas *RA_geokodeeritud*.  
+
+```{r geokod, echo = F, fig.show = 'hold', fig.align = 'center', out.width = "90%", fig.cap = "Massgeokodeerimine (RA)"}
+knitr::include_graphics(here::here("imgs", "geocoding_RA.PNG"))
+
+```
+
+
+
+**Ülesanne**
+
+- Laadi geokodeeritud andmestiku *shapefile* vektorkihina QGISi (NB! Arvesta kodeeringut valides, et tegemist on Maa-ameti failiga);
+- vali andmetele sobiv aluskaart;  
+- värvi punktid selle järgi, kas tegemist on Tamme- või Saare-nimeliste üliõpilastega (tulp *pk*). Võid kasutada ka erinevaid sümboleid; 
+- vii punktide läbipaistvus 30% peale;   
+- vajadusel muuda aluskaart mustvalgeks.  
+
+    ```{r tammsaarmap, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Tamme- ja Saare-nimeliste üliõpilaste sünnikohad Album Academicumis"}
+knitr::include_graphics(here::here("imgs", "Tamm_Saar_map.PNG"))
+```
+
+Vaatame nüüd ka atribuuttabelit.   
+Kuna tegemist on ajaloolise andmebaasiga, on paljud kohanimed vahepeal muutunud. Vaatame geokodeeritud tabelit ning püüame välja selgitada, milliste kohtadega on geokodeerijal probleeme olnud. Eeskätt aitab selle puhul puuduvate aadresside ridade tuvastamine ning sisend- ja täisaadressi tulpade võrdlus. Selleks liiguta atribuuttabelis aadressitulbad üksteise kõrvale. 
+Milliseid probleeme märkad?
+
+
+ 
+## Ruumiandmete käsitsi lisamine
+
+Alati ei anna automatiseeritud lahendused ja olemasolevad ruumiandmed piisavalt kvaliteetset tulemust. Sellisel juhul (näiteks ajalooliste andmestike puhul) tasub kasutada kohanimeandmebaase ja ajaloolisi kaarte aluskaartidena.
+
+Vaatame näiteks Hageri vallakohtu protokolli aastast 1890. Protokollis on ära märgendatud ka nimeüksused, ent need ei ole tänapäevases kirjaviisis. Nimed sisalduvad failis *Harju_Hageri_Kohila_id4010_1890a_nimed.csv* olevas tabelis, ent võid võrdluseks kõrvale võtta lahti ka terve protokolli teksti (vastav txt-fail).  
+
+- Impordi andmed csv-failina QGISi (NB! tabelil ei ole tulbanimesid).  
+- Filtreeri andmestikust välja ainult kohanimed (KO_koht).
+- Lisa Maa-ameti WMS/WMTS teenuse kaudu ajalooliste kaartide hulgast Schmiti-Rückeri aluskaart (XIX saj./1884), soovi korral ka mingi tänapäevane kaart.  
+- Leia kaardilt võimalikult palju CSV-tabeli kohanimedest ning tee uus kiht, kuhu märgid vastavatesse kohtadesse punktid (*Layer* -> *Create Layer* -> *New shapefile layer*). Punktide märkimiseks tee loodud kiht aktiivseks ning vajuta kollasel pliiatsil, seejärel *Add Point Feature*.   
+
+    ```{r manual, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="1890. aasta Hageri vallakohtuprotokollis mainitud kohanimed"}
+knitr::include_graphics(here::here("imgs", "manual.PNG"))
+```
+
+Puuduvaid nimesid võid otsida ka näiteks [kohanimeandmebaasist](https://www.eki.ee/knab/p_ee_et.htm) või [Maa-ameti ajalooliste kaartide kaardirakendusest](https://xgis.maaamet.ee/xgis2/page/app/ajalooline), mis võimaldab ka hõlpsat otsingut.  
+
+
+## Järgmisel korral
+
+Neljapäeval tegeleme georefereerimisega.  
