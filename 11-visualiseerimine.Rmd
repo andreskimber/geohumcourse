@@ -1,0 +1,130 @@
+# Ruumiandmete visualiseerimine {#visualiseerimine1}
+
+## Avaldised
+
+Avaldised (*expressions*) on tehted ja vormelid, mille abil hõlpsalt muuta atribuutide väärtusi, luua uusi (virtuaalseid) atribuute, kihte, andmetest alamhulki välja filtreerida jne. Avaldiste abil saab andmeid mitmekülgsemalt analüüsida ning visualiseerida.  
+
+Avaldistele pääseb ligi mitmest kohast, näiteks saab neid kasutada 
+
+- kihtide paneelis avaldiste nupu alt (*Expression String Builder*) <!-- pilt -->,  
+- objektide valimiseks *Select By Expression* tööriista abil <!-- pilt-->,  
+- atribuutide muutmiseks *Field calculator*'is *calculateField* väljal,
+- *Query builder*'ist
+- sümbolite, siltide või paigutuse parameetrite muutmiseks *Data defined override tool* abil,  
+- jne.  
+
+
+Avaldisi saab eeldefineeritud funktsioonide abil koostada mitmeks erinevaks otstarbeks, vaata näiteks ülevaadet [siit](https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/expression.html#vector-expressions).  
+Vaatame sel korral lähemalt matemaatilisi funktsioone, operaatoreid, tingimuslauseid ning teksti muutmise võimalusi.  
+
+
+### Matemaatilised avaldised
+
+### Operaatorid
+
+- `a` **+** `b`
+- 
+
+### Tingimused
+
+### Tekst
+
+
+## Ülesanne 1
+<!-- regex, tekst-->
+Select By Expression
+Field Calculator
+Categorized style
+
+Laadi QGISi kihelkondade *shapefile* ja murdekorpuse sagedusandmestik *ei ole*/*pole* varieerumisest.  
+
+- Tee mõlemast kihist koopia.
+- Kontrollime, kas ühendamine võiks üldse õnnestuda. Selleks, et leida kahe kihi ühised kihelkonnad/murrakud, saame kasutada SQLi päringut
+`SELECT Murrak FROM eiole_pole_mk_props INTERSECT SELECT Parish_id FROM kihelkonnad2;`. Selleks, et leida aga kihelkonnad, mida teises andmestikus ei ole, võib kasutada päringut `SELECT Murrak FROM eiole_pole_mk_props EXCEPT SELECT Parish_id FROM kihelkonnad2;`.  
+- Paranda csv-failis selle murraku nime, mis ei sisaldu kihelkondade *shapefile*'is.  <!-- muuda ühe khk nimi ära-->
+- Lisa kihelkondade *shapefile*'i koopiale *ei ole*/*pole* andmed. Kasuta vastavalt *Parish_id* ja *Murrak* tulpasid. 
+- Värvi kihelkonnad2 polügoonid vastavalt *ei ole* suhtelisele sagedusele kihelkonnas. Kasutame võrdseid intervalle sammuga 0,2. Lisame ka klassi, mis määrab värvi ka NULL väärtustele ehk kihelkondadele, kust meil sagedusinfo puudub (*Symbology* -> *Rule-based*). 
+ "eiole_pole_mk_props_eiole" IS NULL
+
+
+## Ülesanne 2
+
+- Kasutades reeglipõhist värvimist, kuva ainult sagedused, mille puhul proportsioonide absoluuterinevus on vähemalt 0,5. Ülejäänutele määra hall värv (sh puuduvatele väärtustele).  
+- Nüüd muuda reegleid nii, et kihelkonnad, mille puhul *ei_ole* ja *pole* vahe on negatiivne (-0,5 või vähem), on sinised, ja need, mille vahe on positiivne (0,5 või suurem), on punased.
+
+
+## Ülesanne 3
+
+-  Muuda kihil kihelkonnad2 murrete nimetustes kõik Setud Setodeks. Ära loo uut kihti. <!-- regex-->
+update existing field (Dialect_et)
+ if("Dialect_et" = 'Setu', 'Seto', "Dialect_et")
+- Leia kõik kihelkondade nimed, mille saksakeelne nimi algab lühendiga *St.* ning muuda see *Sankt*'iks. 
+update existing field (Ger_name)
+regexp("Ger_name", 'St.', 'Sankt')
+
+
+
+Query builder
+"Dialect_et" IN ('Ida', 'Kesk')
+"Dialect_et" = 'Ida' OR "Dialect_et" = 'Kesk'
+
+
+## Ülesanne 4
+
+ei ole/pole
+
+- filtreeri ainult need read, millel on keelend märgitud
+    filter "Keelend" IS NOT NULL
+- visualiseeri keelend sümbolitena. mitu erinevat varianti on?
+- lisa binaarne virtuaalne tunnus, kus on ainult "ei ole", "pole"
+    CASE WHEN "Keelend" LIKE '%p%' THEN 'pole' ELSE 'ei ole' END <!-- kas if-iga ei saa? -->
+- lisa binaarne tunnus sildina
+- kustuta visualiseeri binaarset tunnust teisiti (värvi, kujundi abil)
+- lisa murdekorpuse sagedusandmed
+- salvesta kaart
+
+
+
+<!-- matemaatilised avaldised, tingimused, operaatorid-->
+<!-- Millised tasemed kihelkondadel kummaski andmestikus on? -->
+Ühenda vallakohtute andmed kihelkondade andmestikuga.
+
+- Tekita kihelkondade kihist duplikaat.  
+- Kuidas on kummaski andmestikus kihelkondi märgitud?  
+- Tekita uus virtuaalne kiht, kuhu on märgitud atribuutidena iga kihelkonna keskmine protokollide pikkus, kõige varasem ning kõige hilisem protokolli aasta.  
+- Kuva kaardil kihelkonnad, kus protokollide keskmine pikkus on üle kõikide kihelkondade keskmise.
+- Kuva kaardil teisiti kihelkonnad, kus protokollide keskmine pikkus on alla keskmise.
+
+Select feature by expression , kasuta 'and'-i -> uus kiht
+värvi need, mis üle keskmise, punasega, ja need, mis alla keskmise, sinisega
+
+
+## Ülesanne 3
+
+
+ei ole/pole
+
+- filtreeri ainult need read, millel on keelend märgitud
+    filter "Keelend" IS NOT NULL
+- visualiseeri keelend sümbolitena. mitu erinevat varianti on?
+- lisa binaarne virtuaalne tunnus, kus on ainult "ei ole", "pole"
+    CASE WHEN "Keelend" LIKE '%p%' THEN 'pole' ELSE 'ei ole' END <!-- kas if-iga ei saa? -->
+- lisa binaarne tunnus sildina
+- kustuta visualiseeri binaarset tunnust teisiti (värvi, kujundi abil)
+- lisa murdekorpuse sagedusandmed
+- salvesta kaart
+
+LIKE
+
+LIKE 'a%'
+LIKE '%a'
+LIKE '%a%'
+LIKE '_r%'
+LIKE 'a_%'
+LIKE 'a__%'
+LIKE 'a%o'
+
+
+## Päringud
+
+Query builder
