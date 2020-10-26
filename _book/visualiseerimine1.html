@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Praktikum 1 Ruumiandmete visualiseerimine | 11-visualiseerimine.utf8</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Praktikum 1 Ruumiandmete visualiseerimine | 11-visualiseerimine.utf8" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Praktikum 1 Ruumiandmete visualiseerimine | 11-visualiseerimine.utf8" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path=""><a href="#visualiseerimine1"><i class="fa fa-check"></i><b>1</b> Ruumiandmete visualiseerimine</a><ul>
+<li class="chapter" data-level="1.1" data-path=""><a href="#avaldised"><i class="fa fa-check"></i><b>1.1</b> Avaldised</a></li>
+<li class="chapter" data-level="1.2" data-path=""><a href="#ülesanne-1"><i class="fa fa-check"></i><b>1.2</b> Ülesanne 1</a></li>
+<li class="chapter" data-level="1.3" data-path=""><a href="#ülesanne-2"><i class="fa fa-check"></i><b>1.3</b> Ülesanne 2</a></li>
+<li class="chapter" data-level="1.4" data-path=""><a href="#ülesanne-3"><i class="fa fa-check"></i><b>1.4</b> Ülesanne 3</a></li>
+<li class="chapter" data-level="1.5" data-path=""><a href="#ülesanne-4"><i class="fa fa-check"></i><b>1.5</b> Ülesanne 4</a></li>
+<li class="chapter" data-level="1.6" data-path=""><a href="#ülesanne-5"><i class="fa fa-check"></i><b>1.6</b> Ülesanne 5</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<!--bookdown:title:end-->
+<!--bookdown:title:start-->
+<div id="visualiseerimine1" class="section level1">
+<h1><span class="header-section-number">Praktikum 1</span> Ruumiandmete visualiseerimine</h1>
+<div id="avaldised" class="section level2">
+<h2><span class="header-section-number">1.1</span> Avaldised</h2>
+<p>Avaldised (<em>expressions</em>) on tehted ja vormelid, mille abil hõlpsalt muuta atribuutide väärtusi, luua uusi (virtuaalseid) atribuute või kihte, andmetest alamhulki välja filtreerida, teha statistikat jne. Avaldiste abil saab andmeid QGISis mitmekülgsemalt analüüsida ning visualiseerida.</p>
+<p>Avaldisi saab QGISis kasutada mitmes kohas, näiteks</p>
+<ul>
+<li>objektide valimiseks <em>Select Features by Expression</em> tööriista abil,<br />
+</li>
+<li>objektide valimiseks atribuuttabeli alumisest vasakust nurgast <em>Advanced Filter (Expression)</em>,<br />
+</li>
+<li>atribuutide muutmiseks <em>Field calculator</em>’is,<br />
+</li>
+<li><em>Query builder</em>’is,<br />
+</li>
+<li>sümbolite, siltide või paigutuse parameetrite reeglipõhisel muutmisel,<br />
+</li>
+<li><em>Database Manager</em>’is,<br />
+</li>
+<li>jne.</li>
+</ul>
+<p>Avaldisi saab eeldefineeritud funktsioonide abil koostada mitmeks erinevaks otstarbeks, vaata ülevaadet <a href="https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/expression.html#vector-expressions">siit</a>. Sealjuures saab sageli üht ja sama asja teha erineval moel.<br />
+Vaatame sel korral ülesannete toel lähemalt matemaatilisi funktsioone, operaatoreid, tingimuslauseid ning teksti muutmise võimalusi.</p>
+<p>Lisaks funktsioonidele saab kasutada ka <a href="https://www.w3schools.com/sql/">SQL-i päringuid</a>. Põhililised funktsioonid:</p>
+<ul>
+<li><a href="https://www.w3schools.com/sql/sql_select.asp">Ridade ja tulpade valimine</a>
+<ul>
+<li><strong>SELECT</strong> tulp <strong>FROM</strong> andmestik;</li>
+<li><strong>SELECT</strong> tulp1, tulp2 <strong>FROM</strong> andmestik;</li>
+<li><strong>SELECT DISTINCT</strong> tulp <strong>FROM</strong> andmestik;<br />
+</li>
+<li><strong>SELECT</strong> * <strong>FROM</strong> andmestik;</li>
+<li><strong>SELECT</strong> * <strong>FROM</strong> andmestik <strong>WHERE</strong> tulp = ‘Mingi väärtus’;<br />
+</li>
+<li><strong>SELECT</strong> tulp1, tulp2 <strong>FROM</strong> andmestik <strong>WHERE</strong> tulp1 &gt; 50 <strong>AND</strong> tulp2 <strong>ILIKE</strong> ‘%St%’;<br />
+</li>
+</ul></li>
+<li><a href="https://www.w3schools.com/sql/sql_update.asp">Muutmine</a>
+<ul>
+<li><strong>UPDATE</strong> andmestik <strong>SET</strong> tulp = ‘Mingi uus väärtus’ <strong>WHERE</strong> tulp = ‘Mingi vana väärtus’;</li>
+<li><strong>UPDATE</strong> andmestik <strong>SET</strong> tulp = ‘Mingi uus väärtus’ <strong>WHERE</strong> id = 8;</li>
+</ul></li>
+<li><a href="https://www.w3schools.com/sql/sql_insert.asp">Lisamine</a>
+<ul>
+<li><strong>INSERT INTO</strong> andmestik (tulp1, tulp2, tulp3, tulp4) <strong>VALUES</strong> (‘tulp1 väärtus’, ‘tulp2 väärtus’, ‘tulp3 väärtus’, ‘tulp4 väärtus’);</li>
+</ul></li>
+<li><a href="https://www.w3schools.com/sql/sql_delete.asp">Kustutamine</a>
+<ul>
+<li><strong>DELETE FROM</strong> andmestik <strong>WHERE</strong> tulp = ‘Mingi väärtus’;</li>
+</ul></li>
+<li><a href="https://www.w3schools.com/sql/sql_orderby.asp">Järjestamine</a>
+<ul>
+<li><strong>SELECT</strong> tulp1, tulp2, tulp3 <strong>FROM</strong> andmestik <strong>ORDER BY</strong> tulp1;</li>
+<li><strong>SELECT</strong> tulp1, tulp2, tulp3 <strong>FROM</strong> andmestik <strong>ORDER BY</strong> tulp1, tulp2;<br />
+</li>
+</ul></li>
+<li><a href="https://www.w3schools.com/sql/sql_groupby.asp">Grupeerimine</a>
+<ul>
+<li><strong>SELECT</strong> tulp1, tulp2 <strong>FROM</strong> andmestik <strong>GROUP BY</strong> tulp1;</li>
+<li><strong>SELECT</strong> tulp1, tulp2 <strong>FROM</strong> andmestik <strong>WHERE</strong> tulp1 = ‘Mingi väärtus’ <strong>GROUP BY</strong> tulp2;</li>
+</ul></li>
+</ul>
+<p>Põhimõtteliselt on selline SQLi päringusüsteem kõikide filtreerimiste, kihtide loomiste, muutmiste, suure osa operaatorite, funktsioonide jm taustal. QGIS paneb ise päringud SQLi keelde.</p>
+<p>Katsetame! Impordime esmalt QGISi</p>
+<ul>
+<li>kihelkondade <em>shapefile</em>’i (EKI, Peeter Päll),<br />
+</li>
+<li><em>shapefile</em>’i, mis sisaldab andmeid <em>ei ole</em> ja <em>pole</em> eituskonstruktsioonide <strong>levikust</strong> eesti murretes Andrus Saareste 1955. aasta “Väikese Eesti murdeatlase” põhjal (vaata lähemalt <a href="https://github.com/MPilvik/RuRaKe">siit</a>),<br />
+</li>
+<li>CSV-faili, mis sisaldab andmeid <em>ei ole</em> ja <em>pole</em> suhtelisest <strong>sagedusest</strong> <a href="www.murre.ut.ee/mkweb">Eesti murrete korpuses</a>.</li>
+</ul>
+</div>
+<div id="ülesanne-1" class="section level2">
+<h2><span class="header-section-number">1.2</span> Ülesanne 1</h2>
+<ul>
+<li>Tee koopia kihelkondade kihist (nimeta see nt <em>kihelkonnad2</em>).<br />
+</li>
+<li>Ühenda andmestik <em>eiole_pole_mk_props</em> kihiga <em>kihelkonnad2</em>. Esmalt kontrolli, kas ühendamine võiks üldse korralikult õnnestuda, st kas mõlemas kihis viidatakse samadele kihelkondadele ühtmoodi. Selleks, et leida kihelkonnad/murrakud, mis on kahele kihile ühised, saab kasutada SQLi päringut <strong><code>SELECT Murrak FROM eiole_pole_mk_props INTERSECT SELECT Parish_id FROM kihelkonnad2;</code></strong>. Selleks, et leida aga kihelkonnad, mida teises andmestikus ei ole, võib kasutada päringut <strong><code>SELECT Murrak FROM eiole_pole_mk_props EXCEPT SELECT Parish_id FROM kihelkonnad2;</code></strong>. Kasuta päringu tegemiseks <em>DB Manageri</em>.<br />
+</li>
+<li>Paranda CSV-kihis selle murraku nime, mis ei sisaldu kihelkondade <em>shapefile</em>’is. Kuna CSV-faili atribuute muuta ei saa, lisa kihile uus virtuaalne atribuut <em>Murrak2</em>, kus asendad vigase nime õigega (kasuta tingimuslauset).<br />
+</li>
+<li>Lisa kihile <em>kihelkonnad2</em> <em>ei ole</em>/<em>pole</em> andmed. Kasuta vastavalt <em>Parish_id</em> ja <em>Murrak2</em> tulpasid.<br />
+</li>
+<li>Värvi <em>ei ole</em>/<em>pole</em> proportsioonide infoga täiendatud kihi <em>kihelkonnad2</em> polügoonid vastavalt <em>ei ole</em> suhtelisele sagedusele kihelkonnas/murrakus nii, et halliga oleksid märgitud ka kihelkonnad, millest murdekorpuse sagedusinfot ei ole. Selleks peab kasutama reeglipõhist sümboloogiat.</li>
+</ul>
+</div>
+<div id="ülesanne-2" class="section level2">
+<h2><span class="header-section-number">1.3</span> Ülesanne 2</h2>
+<ul>
+<li>Tee kihist <em>kihelkonnad2</em> duplikaat nimega <em>kihelkonnad3</em>.<br />
+</li>
+<li>Kasutades reeglipõhist polügoonide värvimist, kuva kihil <em>kihlekonnad3</em> värviliselt ainult sagedused, mille puhul <em>ei ole</em> ja <em>pole</em> <strong>proportsioonide absoluuterinevus</strong> on vähemalt 0,5. Ülejäänud polügoonidele (sh puuduvatele väärtustele) määra hall värv.<br />
+</li>
+<li>Nüüd muuda reegleid nii, et kihelkonnad, mille puhul <em>ei_ole</em> ja <em>pole</em> vahe on negatiivne (-0,5 või vähem), on sinised, ja need, mille vahe on positiivne (0,5 või suurem), on punased.</li>
+</ul>
+</div>
+<div id="ülesanne-3" class="section level2">
+<h2><span class="header-section-number">1.4</span> Ülesanne 3</h2>
+<ul>
+<li>Muuda kihil <em>kihelkonnad3</em> eestikeelsete murrete nimetustes kõik Setu murded Seto murreteks, kasutades <em>CASE</em>-tingimuslauset.<br />
+</li>
+<li>Muuda kihil <em>kihelkonnad3</em> ingliskeelsete murrete nimetustes kõik Setu murded Seto murreteks, kasutades <em>if</em>-tingimuslauset.<br />
+</li>
+<li>Leia kõik kihelkondade nimed, mille saksakeelne nimi algab lühendiga <em>St.</em> ning muuda see <em>Sankt</em>’iks, kasutades regulaaravaldist.<br />
+</li>
+<li>Leia kõik kihelkonnad, mille nimed lõppevad <em>la</em>-ga (nt <em>Ambla</em>) ja asenda need lõpud uues tulbas <em>LA</em>-ga (<em>AmbLA</em>), kasutades regulaaravaldist.</li>
+</ul>
+<p>Põhimõtteliselt võiksime kasutada DB Manageris ka <em>UPDATE CASE WHERE</em> lauseid, ent kuna ükski meie kihtidest ei ole QGISi jaoks päris andmebaas, siis saame teha DB Manageris ainult päringuid, aga tabelit muuta ei saa. Saame aga eksportida mõne <em>virtuaalse kihi</em> näiteks GeoPackage-formaadis failina ning seda uuesti sisse lugedes saame andmestikku DB Manageris ka SQL-lausete abil muuta.</p>
+</div>
+<div id="ülesanne-4" class="section level2">
+<h2><span class="header-section-number">1.5</span> Ülesanne 4</h2>
+<ul>
+<li>Filtreeri <em>ei ole</em>/<em>pole</em> <strong>levikuandmete</strong> kihilt välja ainult need read, millel on keelend märgitud.<br />
+</li>
+<li>Lisa binaarne virtuaalne tunnus, kus on erinevate keelendite asemel ainult üldistatud kategooriad <em>ei_ole</em> ja <em>pole</em>. Kasuta ükskõik millist tingimuslauset lihtsustatud tingimusega, et kategooria saab väärtuse <em>pole</em>, kui keelendi väärtuses esineb <em>p</em>-täht, ning väärtuse <em>ei ole</em>, kui <em>p</em>-tähte ei esine.<br />
+</li>
+<li>Lisa binaarne tunnus sildina.</li>
+<li>Eemalda sildid ning väljenda binaarset tunnust eri sümbolite, värvi vm abil.</li>
+</ul>
+</div>
+<div id="ülesanne-5" class="section level2">
+<h2><span class="header-section-number">1.6</span> Ülesanne 5</h2>
+<ul>
+<li>Salvesta kaart, mis näitab korraga nii leviku- kui ka sagedusandmeid (kasuta kihti <em>kihelkonnad2</em>). Lisa kaardikiht, legend ning allikad.</li>
+</ul>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>

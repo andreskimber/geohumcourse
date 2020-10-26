@@ -2,129 +2,96 @@
 
 ## Avaldised
 
-Avaldised (*expressions*) on tehted ja vormelid, mille abil hõlpsalt muuta atribuutide väärtusi, luua uusi (virtuaalseid) atribuute, kihte, andmetest alamhulki välja filtreerida jne. Avaldiste abil saab andmeid mitmekülgsemalt analüüsida ning visualiseerida.  
+Avaldised (*expressions*) on tehted ja vormelid, mille abil hõlpsalt muuta atribuutide väärtusi, luua uusi (virtuaalseid) atribuute või kihte, andmetest alamhulki välja filtreerida, teha statistikat jne. Avaldiste abil saab andmeid QGISis mitmekülgsemalt analüüsida ning visualiseerida.  
 
-Avaldistele pääseb ligi mitmest kohast, näiteks saab neid kasutada 
+Avaldisi saab QGISis kasutada mitmes kohas, näiteks 
 
-- kihtide paneelis avaldiste nupu alt (*Expression String Builder*) <!-- pilt -->,  
-- objektide valimiseks *Select By Expression* tööriista abil <!-- pilt-->,  
-- atribuutide muutmiseks *Field calculator*'is *calculateField* väljal,
-- *Query builder*'ist
-- sümbolite, siltide või paigutuse parameetrite muutmiseks *Data defined override tool* abil,  
+- objektide valimiseks *Select Features by Expression* tööriista abil,    
+- objektide valimiseks atribuuttabeli alumisest vasakust nurgast *Advanced Filter (Expression)*,  
+- atribuutide muutmiseks *Field calculator*'is,  
+- *Query builder*'is,   
+- sümbolite, siltide või paigutuse parameetrite reeglipõhisel muutmisel,  
+- *Database Manager*'is,  
 - jne.  
 
 
-Avaldisi saab eeldefineeritud funktsioonide abil koostada mitmeks erinevaks otstarbeks, vaata näiteks ülevaadet [siit](https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/expression.html#vector-expressions).  
-Vaatame sel korral lähemalt matemaatilisi funktsioone, operaatoreid, tingimuslauseid ning teksti muutmise võimalusi.  
+Avaldisi saab eeldefineeritud funktsioonide abil koostada mitmeks erinevaks otstarbeks, vaata ülevaadet [siit](https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/expression.html#vector-expressions). Sealjuures saab sageli üht ja sama asja teha erineval moel.    
+Vaatame sel korral ülesannete toel lähemalt matemaatilisi funktsioone, operaatoreid, tingimuslauseid ning teksti muutmise võimalusi.  
 
 
-### Matemaatilised avaldised
+Lisaks funktsioonidele saab kasutada ka [SQL-i päringuid](https://www.w3schools.com/sql/). Põhililised funktsioonid:  
 
-### Operaatorid
+- [Ridade ja tulpade valimine](https://www.w3schools.com/sql/sql_select.asp)
+    + **SELECT** tulp **FROM** andmestik;
+    + **SELECT** tulp1, tulp2 **FROM** andmestik;
+    + **SELECT DISTINCT** tulp **FROM** andmestik;  
+    + **SELECT** \* **FROM** andmestik;
+    + **SELECT** \* **FROM** andmestik **WHERE** tulp = 'Mingi väärtus';  
+    + **SELECT** tulp1, tulp2 **FROM** andmestik **WHERE** tulp1 > 50 **AND** tulp2 **ILIKE** '%St%';  
+- [Muutmine](https://www.w3schools.com/sql/sql_update.asp)  
+    + **UPDATE** andmestik **SET** tulp = 'Mingi uus väärtus' **WHERE** tulp = 'Mingi vana väärtus';
+    + **UPDATE** andmestik **SET** tulp = 'Mingi uus väärtus' **WHERE** id = 8;
+- [Lisamine](https://www.w3schools.com/sql/sql_insert.asp)  
+    + **INSERT INTO** andmestik (tulp1, tulp2, tulp3, tulp4) **VALUES** ('tulp1 väärtus', 'tulp2 väärtus', 'tulp3 väärtus', 'tulp4 väärtus');
+- [Kustutamine](https://www.w3schools.com/sql/sql_delete.asp)  
+    + **DELETE FROM** andmestik **WHERE** tulp = 'Mingi väärtus'; 
+- [Järjestamine](https://www.w3schools.com/sql/sql_orderby.asp)  
+    + **SELECT** tulp1, tulp2, tulp3 **FROM** andmestik **ORDER BY** tulp1;
+    + **SELECT** tulp1, tulp2, tulp3 **FROM** andmestik **ORDER BY** tulp1, tulp2;  
+- [Grupeerimine](https://www.w3schools.com/sql/sql_groupby.asp)  
+    + **SELECT** tulp1, tulp2 **FROM** andmestik **GROUP BY** tulp1;
+    + **SELECT** tulp1, tulp2 **FROM** andmestik **WHERE** tulp1 = 'Mingi väärtus' **GROUP BY** tulp2;  
 
-- `a` **+** `b`
-- 
 
-### Tingimused
+Põhimõtteliselt on selline SQLi päringusüsteem kõikide filtreerimiste, kihtide loomiste, muutmiste, suure osa operaatorite, funktsioonide jm taustal. QGIS paneb ise päringud SQLi keelde.      
+ 
 
-### Tekst
+Katsetame! Impordime esmalt QGISi 
+
+- kihelkondade *shapefile*'i (EKI, Peeter Päll),  
+- *shapefile*'i, mis sisaldab andmeid *ei ole* ja *pole* eituskonstruktsioonide **levikust** eesti murretes Andrus Saareste 1955. aasta "Väikese Eesti murdeatlase" põhjal (vaata lähemalt [siit](https://github.com/MPilvik/RuRaKe)),  
+- CSV-faili, mis sisaldab andmeid *ei ole* ja *pole* suhtelisest **sagedusest** [Eesti murrete korpuses](www.murre.ut.ee/mkweb).  
 
 
 ## Ülesanne 1
-<!-- regex, tekst-->
-Select By Expression
-Field Calculator
-Categorized style
 
-Laadi QGISi kihelkondade *shapefile* ja murdekorpuse sagedusandmestik *ei ole*/*pole* varieerumisest.  
-
-- Tee mõlemast kihist koopia.
-- Kontrollime, kas ühendamine võiks üldse õnnestuda. Selleks, et leida kahe kihi ühised kihelkonnad/murrakud, saame kasutada SQLi päringut
-`SELECT Murrak FROM eiole_pole_mk_props INTERSECT SELECT Parish_id FROM kihelkonnad2;`. Selleks, et leida aga kihelkonnad, mida teises andmestikus ei ole, võib kasutada päringut `SELECT Murrak FROM eiole_pole_mk_props EXCEPT SELECT Parish_id FROM kihelkonnad2;`.  
-- Paranda csv-failis selle murraku nime, mis ei sisaldu kihelkondade *shapefile*'is.  <!-- muuda ühe khk nimi ära-->
-- Lisa kihelkondade *shapefile*'i koopiale *ei ole*/*pole* andmed. Kasuta vastavalt *Parish_id* ja *Murrak* tulpasid. 
-- Värvi kihelkonnad2 polügoonid vastavalt *ei ole* suhtelisele sagedusele kihelkonnas. Kasutame võrdseid intervalle sammuga 0,2. Lisame ka klassi, mis määrab värvi ka NULL väärtustele ehk kihelkondadele, kust meil sagedusinfo puudub (*Symbology* -> *Rule-based*). 
- "eiole_pole_mk_props_eiole" IS NULL
+- Tee koopia kihelkondade kihist (nimeta see nt *kihelkonnad2*).  
+- Ühenda andmestik *eiole_pole_mk_props* kihiga *kihelkonnad2*. Esmalt kontrolli, kas ühendamine võiks üldse korralikult õnnestuda, st kas mõlemas kihis viidatakse samadele kihelkondadele ühtmoodi. Selleks, et leida kihelkonnad/murrakud, mis on kahele kihile ühised, saab kasutada SQLi päringut **`SELECT Murrak FROM eiole_pole_mk_props INTERSECT SELECT Parish_id FROM kihelkonnad2;`**. Selleks, et leida aga kihelkonnad, mida teises andmestikus ei ole, võib kasutada päringut **`SELECT Murrak FROM eiole_pole_mk_props EXCEPT SELECT Parish_id FROM kihelkonnad2;`**. Kasuta päringu tegemiseks *DB Manageri*.  
+- Paranda CSV-kihis selle murraku nime, mis ei sisaldu kihelkondade *shapefile*'is. Kuna CSV-faili atribuute muuta ei saa, lisa kihile uus virtuaalne atribuut *Murrak2*, kus asendad vigase nime õigega (kasuta tingimuslauset).   
+- Lisa kihile *kihelkonnad2* *ei ole*/*pole* andmed. Kasuta vastavalt *Parish_id* ja *Murrak2* tulpasid.   
+- Värvi *ei ole*/*pole* proportsioonide infoga täiendatud kihi *kihelkonnad2* polügoonid vastavalt *ei ole* suhtelisele sagedusele kihelkonnas/murrakus nii, et halliga oleksid märgitud ka kihelkonnad, millest murdekorpuse sagedusinfot ei ole. Selleks peab kasutama reeglipõhist sümboloogiat.  
 
 
 ## Ülesanne 2
 
-- Kasutades reeglipõhist värvimist, kuva ainult sagedused, mille puhul proportsioonide absoluuterinevus on vähemalt 0,5. Ülejäänutele määra hall värv (sh puuduvatele väärtustele).  
-- Nüüd muuda reegleid nii, et kihelkonnad, mille puhul *ei_ole* ja *pole* vahe on negatiivne (-0,5 või vähem), on sinised, ja need, mille vahe on positiivne (0,5 või suurem), on punased.
+- Tee kihist *kihelkonnad2* duplikaat nimega *kihelkonnad3*.  
+- Kasutades reeglipõhist polügoonide värvimist, kuva kihil *kihlekonnad3* värviliselt ainult sagedused, mille puhul *ei ole* ja *pole* **proportsioonide absoluuterinevus** on vähemalt 0,5. Ülejäänud polügoonidele (sh puuduvatele väärtustele) määra hall värv.    
+- Nüüd muuda reegleid nii, et kihelkonnad, mille puhul *ei_ole* ja *pole* vahe on negatiivne (-0,5 või vähem), on sinised, ja need, mille vahe on positiivne (0,5 või suurem), on punased.  
 
 
 ## Ülesanne 3
 
--  Muuda kihil kihelkonnad2 murrete nimetustes kõik Setud Setodeks. Ära loo uut kihti. <!-- regex-->
-update existing field (Dialect_et)
- if("Dialect_et" = 'Setu', 'Seto', "Dialect_et")
-- Leia kõik kihelkondade nimed, mille saksakeelne nimi algab lühendiga *St.* ning muuda see *Sankt*'iks. 
-update existing field (Ger_name)
-regexp("Ger_name", 'St.', 'Sankt')
+- Muuda kihil *kihelkonnad3* eestikeelsete murrete nimetustes kõik Setu murded Seto murreteks, kasutades *CASE*-tingimuslauset.   
+- Muuda kihil *kihelkonnad3* ingliskeelsete murrete nimetustes kõik Setu murded Seto murreteks, kasutades *if*-tingimuslauset.  
+- Leia kõik kihelkondade nimed, mille saksakeelne nimi algab lühendiga *St.* ning muuda see *Sankt*'iks, kasutades regulaaravaldist.  
+- Leia kõik kihelkonnad, mille nimed lõppevad *la*-ga (nt *Ambla*) ja asenda need lõpud uues tulbas *LA*-ga (*AmbLA*), kasutades regulaaravaldist.  
 
-
-
-Query builder
-"Dialect_et" IN ('Ida', 'Kesk')
-"Dialect_et" = 'Ida' OR "Dialect_et" = 'Kesk'
+Põhimõtteliselt võiksime kasutada DB Manageris ka *UPDATE CASE WHERE* lauseid, ent kuna ükski meie kihtidest ei ole QGISi jaoks päris andmebaas, siis saame teha DB Manageris ainult päringuid, aga tabelit muuta ei saa. Saame aga eksportida mõne *virtuaalse kihi* näiteks GeoPackage-formaadis failina ning seda uuesti sisse lugedes saame andmestikku DB Manageris ka SQL-lausete abil muuta. 
 
 
 ## Ülesanne 4
 
-ei ole/pole
+- Filtreeri *ei ole*/*pole* **levikuandmete** kihilt välja ainult need read, millel on keelend märgitud.  
+- Lisa binaarne virtuaalne tunnus, kus on erinevate keelendite asemel ainult üldistatud kategooriad *ei_ole* ja *pole*. Kasuta ükskõik millist tingimuslauset lihtsustatud tingimusega, et kategooria saab väärtuse *pole*, kui keelendi väärtuses esineb *p*-täht, ning väärtuse *ei ole*, kui *p*-tähte ei esine.  
+- Lisa binaarne tunnus sildina.
+- Eemalda sildid ning väljenda binaarset tunnust eri sümbolite, värvi vm abil.  
 
-- filtreeri ainult need read, millel on keelend märgitud
-    filter "Keelend" IS NOT NULL
-- visualiseeri keelend sümbolitena. mitu erinevat varianti on?
-- lisa binaarne virtuaalne tunnus, kus on ainult "ei ole", "pole"
-    CASE WHEN "Keelend" LIKE '%p%' THEN 'pole' ELSE 'ei ole' END <!-- kas if-iga ei saa? -->
-- lisa binaarne tunnus sildina
-- kustuta visualiseeri binaarset tunnust teisiti (värvi, kujundi abil)
-- lisa murdekorpuse sagedusandmed
-- salvesta kaart
+
+## Ülesanne 5
+
+- Salvesta kaart, mis näitab korraga nii leviku- kui ka sagedusandmeid (kasuta kihti *kihelkonnad2*). Lisa kaardikiht, legend ning allikad.   
 
 
 
-<!-- matemaatilised avaldised, tingimused, operaatorid-->
-<!-- Millised tasemed kihelkondadel kummaski andmestikus on? -->
-Ühenda vallakohtute andmed kihelkondade andmestikuga.
-
-- Tekita kihelkondade kihist duplikaat.  
-- Kuidas on kummaski andmestikus kihelkondi märgitud?  
-- Tekita uus virtuaalne kiht, kuhu on märgitud atribuutidena iga kihelkonna keskmine protokollide pikkus, kõige varasem ning kõige hilisem protokolli aasta.  
-- Kuva kaardil kihelkonnad, kus protokollide keskmine pikkus on üle kõikide kihelkondade keskmise.
-- Kuva kaardil teisiti kihelkonnad, kus protokollide keskmine pikkus on alla keskmise.
-
-Select feature by expression , kasuta 'and'-i -> uus kiht
-värvi need, mis üle keskmise, punasega, ja need, mis alla keskmise, sinisega
 
 
-## Ülesanne 3
-
-
-ei ole/pole
-
-- filtreeri ainult need read, millel on keelend märgitud
-    filter "Keelend" IS NOT NULL
-- visualiseeri keelend sümbolitena. mitu erinevat varianti on?
-- lisa binaarne virtuaalne tunnus, kus on ainult "ei ole", "pole"
-    CASE WHEN "Keelend" LIKE '%p%' THEN 'pole' ELSE 'ei ole' END <!-- kas if-iga ei saa? -->
-- lisa binaarne tunnus sildina
-- kustuta visualiseeri binaarset tunnust teisiti (värvi, kujundi abil)
-- lisa murdekorpuse sagedusandmed
-- salvesta kaart
-
-LIKE
-
-LIKE 'a%'
-LIKE '%a'
-LIKE '%a%'
-LIKE '_r%'
-LIKE 'a_%'
-LIKE 'a__%'
-LIKE 'a%o'
-
-
-## Päringud
-
-Query builder
