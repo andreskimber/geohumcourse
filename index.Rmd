@@ -53,7 +53,7 @@ knitr::opts_chunk$set(message=FALSE,
 - Hindamine arvestuslik. Kursuse lõpuks peavad olema esitatud    
   + vabal valikul 2 kodutööd 5st,    
   + lõpuprojekt. Esitlused 14. ja 17. detsembril.
-- Kohalkäimine ei ole kohustuslik, ent võimalusel tungivalt soovituslik. Mis tahes haigusnähtude ilmnemisel jää siiski koju ja osale praktikumis veebi teel. Kõik praktikumid kantakse üle BigBlueButtoni keskonnas.   
+- Kohalkäimine ei ole kohustuslik, ent võimalusel tungivalt soovituslik. Mis tahes haigusnähtude ilmnemisel jää siiski koju ja osale praktikumis veebi teel. Kõik praktikumid kantakse üle BigBlueButtoni keskkonnas.   
 - Materjale hoitakse ja täiendatakse **[Moodle](https://moodle.ut.ee/course/view.php?id=10284)'is**. Sealt leiad igal nädalal ka BBB lingid. 
 
 

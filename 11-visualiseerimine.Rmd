@@ -79,7 +79,7 @@ knitr::include_graphics(here::here("imgs", "expressions7.png"))
 ```
 
 
-## Ülesanne 1
+## Ülesanne 1: "ei ole"/"pole" suhtelised sagedused
 
 - Tee koopia kihelkondade kihist (nimeta see nt *kihelkonnad2*). 
     + paremklikk kihelkondade kihil -> *Duplicate Layer*,
@@ -106,10 +106,10 @@ knitr::include_graphics(here::here("imgs", "expressions12.gif"))
 ```
 
 
-## Ülesanne 2
+## Ülesanne 2: "ei ole"/"pole" selged eelistused
 
 - Tee kihist *kihelkonnad2* duplikaat nimega *kihelkonnad3*.  
-- Kasutades reeglipõhist polügoonide värvimist, kuva kihil *kihlekonnad3* värviliselt ainult sagedused, mille puhul *ei ole* ja *pole* **proportsioonide absoluuterinevus** on vähemalt 0,5. Ülejäänud polügoonidele (sh puuduvatele väärtustele) määra hall värv.    
+- Kasutades reeglipõhist polügoonide värvimist, kuva kihil *kihelkonnad3* värviliselt ainult sagedused, mille puhul *ei ole* ja *pole* **proportsioonide absoluuterinevus** on vähemalt 0,5. Ülejäänud polügoonidele (sh puuduvatele väärtustele) määra hall värv.    
 ```{r expressions13, echo =F, fig.align='center', fig.show='hold', fig.cap = "Suured sageduserinevused", out.width="100%"}
 knitr::include_graphics(here::here("imgs", "expressions13.gif"))
 ```
@@ -119,7 +119,7 @@ knitr::include_graphics(here::here("imgs", "expressions14.gif"))
 ```
 
 
-## Ülesanne 3
+## Ülesanne 3: tekstiatribuutide muutmine
 
 - Muuda kihil *kihelkonnad3* eestikeelsete murrete nimetustes kõik Setu murded Seto murreteks, kasutades *CASE*-tingimuslauset.   
 ```{r expressions15, echo =F, fig.align='center', fig.show='hold', fig.cap = "Setu murre atribuuttabelis", out.width="100%"}
@@ -141,18 +141,6 @@ knitr::include_graphics(here::here("imgs", "expressions18.png"))
 
 Põhimõtteliselt võiksime kasutada DB Manageris ka *UPDATE CASE WHERE* lauseid, ent kuna ükski meie kihtidest ei ole QGISi jaoks päris andmebaas, siis saame teha DB Manageris ainult päringuid, aga tabelit muuta ei saa. Saame aga eksportida mõne *virtuaalse kihi* näiteks GeoPackage-formaadis failina ning seda uuesti sisse lugedes saame andmestikku DB Manageris ka SQL-lausete abil muuta. 
 
-
-## Ülesanne 4
-
-- Filtreeri *ei ole*/*pole* **levikuandmete** kihilt välja ainult need read, millel on keelend märgitud.  
-- Lisa binaarne virtuaalne tunnus, kus on erinevate keelendite asemel ainult üldistatud kategooriad *ei_ole* ja *pole*. Kasuta ükskõik millist tingimuslauset lihtsustatud tingimusega, et kategooria saab väärtuse *pole*, kui keelendi väärtuses esineb *p*-täht, ning väärtuse *ei ole*, kui *p*-tähte ei esine.  
-- Lisa binaarne tunnus sildina.
-- Eemalda sildid ning väljenda binaarset tunnust eri sümbolite, värvi vm abil.  
-
-
-## Ülesanne 5
-
-- Salvesta kaart, mis näitab korraga nii leviku- kui ka sagedusandmeid (kasuta kihti *kihelkonnad2*). Lisa kaardikiht, legend ning allikad.   
 
 
 
