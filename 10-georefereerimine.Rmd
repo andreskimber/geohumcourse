@@ -50,7 +50,11 @@ Märgi sama moodi veel neli kuni kümme punkti kaardil. See järel tuleb valida 
 knitr::include_graphics(here::here("imgs", "georef_settings.PNG"))
 ```
 
+<<<<<<< HEAD
 Nüüd ilmub georefereeritud kaart QGISi peaaknas. Vaata, kui hästi tänapäevaga koordinaatsüsteemiga sidumine õnnestus. Kui kaart on väga paigast ära, siis lisa rohkem punkte või muuda transformatsiooni tüüpi. Vastavatest algoritmidest saab täpsemalt lugeda *Georeferencer* [juhendist](https://docs.qgis.org/2.8/en/docs/user_manual/plugins/plugins_georeferencer.html#available-transformation-algorithms).
+=======
+Vajuta rohelisel noolekesel *Start Georeferencing*. Nüüd ilmub georefereeritud kaart QGISi peaaknas. Vaata, kui hästi tänapäevaga koordinaatsüsteemiga sidumine õnnestus. Kui kaart on väga paigast ära, siis lisa rohkem punkte või muuda transformatsiooni tüüpi. Vastavatest algoritmidest saab täpsemalt lugeda *Georeferencer* [juhendist](https://docs.qgis.org/2.8/en/docs/user_manual/plugins/plugins_georeferencer.html#available-transformation-algorithms).
+>>>>>>> 17ea0e27778cd91a94993f9058c7c5177ae1d81a
 
 ```{r georefvalmis, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Georefereeritud Tartu kaart hübriidkaardi ja ortofoto taustal"}
 knitr::include_graphics(here::here("imgs", "georef_valmis.PNG"))

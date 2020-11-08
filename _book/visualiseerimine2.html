@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Praktikum 12 Ruumiandmete visualiseerimine 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
+  <meta name="description" content="Praktikum 12 Ruumiandmete visualiseerimine 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Praktikum 12 Ruumiandmete visualiseerimine 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Praktikum 12 Ruumiandmete visualiseerimine 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  
+  
+  
+
+<meta name="author" content="Andres Kimber, Maarja-Liisa Pilvik" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="visualiseerimine1.html"/>
+<link rel="next" href="kirjandus.html"/>
+<script src="libs/header-attrs-2.2/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#kursuse-korraldusest"><i class="fa fa-check"></i><b>1.1</b> Kursuse korraldusest</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#mis-on-geoinfosüsteemid"><i class="fa fa-check"></i><b>1.2</b> Mis on geoinfosüsteemid?</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#geoinfosüsteemide-ajaloost"><i class="fa fa-check"></i><b>1.3</b> Geoinfosüsteemide ajaloost</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#ruumiandmed-ja-gis-humanitaarteadustes"><i class="fa fa-check"></i><b>1.4</b> Ruumiandmed ja GIS humanitaarteadustes</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#arheoloogia"><i class="fa fa-check"></i><b>1.4.1</b> Arheoloogia</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#veel-näiteid"><i class="fa fa-check"></i><b>1.4.2</b> Veel näiteid</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#küsitlus"><i class="fa fa-check"></i><b>1.5</b> Küsitlus</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>1.6</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>2</b> Seminar</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="seminar.html"><a href="seminar.html#mõisted"><i class="fa fa-check"></i><b>2.1</b> Mõisted</a></li>
+<li class="chapter" data-level="2.2" data-path="seminar.html"><a href="seminar.html#rühmatöö-1-gisi-ja-ruumi-geohumanitaaria-projekte-ja-rakendusi"><i class="fa fa-check"></i><b>2.2</b> Rühmatöö 1: GISi ja ruumi-/geohumanitaaria projekte ja rakendusi</a></li>
+<li class="chapter" data-level="2.3" data-path="seminar.html"><a href="seminar.html#rühmatöö-2-humanitaaria-vs.-kvantitatiivsed-meetodid"><i class="fa fa-check"></i><b>2.3</b> Rühmatöö 2: humanitaaria vs. kvantitatiivsed meetodid</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html"><i class="fa fa-check"></i><b>3</b> Ruumiobjektid ja ruumiandmed</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#vektorandmed"><i class="fa fa-check"></i><b>3.1</b> Vektorandmed</a></li>
+<li class="chapter" data-level="3.2" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#rasterandmed"><i class="fa fa-check"></i><b>3.2</b> Rasterandmed</a></li>
+<li class="chapter" data-level="3.3" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#vektor-vs.-raster"><i class="fa fa-check"></i><b>3.3</b> Vektor vs. raster</a></li>
+<li class="chapter" data-level="3.4" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#ülesanne"><i class="fa fa-check"></i><b>3.4</b> Ülesanne</a></li>
+<li class="chapter" data-level="3.5" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#järgmisel-korral-1"><i class="fa fa-check"></i><b>3.5</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="kaardirakendused.html"><a href="kaardirakendused.html"><i class="fa fa-check"></i><b>4</b> Kaardirakendused</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="kaardirakendused.html"><a href="kaardirakendused.html#kaart"><i class="fa fa-check"></i><b>4.1</b> Kaart</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="kaardirakendused.html"><a href="kaardirakendused.html#koordinaatsüsteemid-ja-projektsioonid"><i class="fa fa-check"></i><b>4.1.1</b> Koordinaatsüsteemid ja projektsioonid</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="kaardirakendused.html"><a href="kaardirakendused.html#veebipõhised-kaardirakendused"><i class="fa fa-check"></i><b>4.2</b> Veebipõhised kaardirakendused</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="kaardirakendused.html"><a href="kaardirakendused.html#google-my-maps"><i class="fa fa-check"></i><b>4.2.1</b> Google My Maps</a></li>
+<li class="chapter" data-level="4.2.2" data-path="kaardirakendused.html"><a href="kaardirakendused.html#ülesanne-1"><i class="fa fa-check"></i><b>4.2.2</b> Ülesanne</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="kaardirakendused.html"><a href="kaardirakendused.html#järgmisel-korral-2"><i class="fa fa-check"></i><b>4.3</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="storymaps.html"><a href="storymaps.html"><i class="fa fa-check"></i><b>5</b> Story maps</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="storymaps.html"><a href="storymaps.html#story-maps"><i class="fa fa-check"></i><b>5.1</b> Story maps</a></li>
+<li class="chapter" data-level="5.2" data-path="storymaps.html"><a href="storymaps.html#mapbox-studio"><i class="fa fa-check"></i><b>5.2</b> Mapbox Studio</a></li>
+<li class="chapter" data-level="5.3" data-path="storymaps.html"><a href="storymaps.html#mapbox-story-mapis"><i class="fa fa-check"></i><b>5.3</b> Mapbox <em>story map</em>’is</a></li>
+<li class="chapter" data-level="5.4" data-path="storymaps.html"><a href="storymaps.html#järgmisel-korral-3"><i class="fa fa-check"></i><b>5.4</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="qgis-1.html"><a href="qgis-1.html"><i class="fa fa-check"></i><b>6</b> Sissejuhatus QGISi</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="qgis-1.html"><a href="qgis-1.html#installimine"><i class="fa fa-check"></i><b>6.1</b> Installimine</a></li>
+<li class="chapter" data-level="6.2" data-path="qgis-1.html"><a href="qgis-1.html#andmed-ja-failihaldus"><i class="fa fa-check"></i><b>6.2</b> Andmed ja failihaldus</a></li>
+<li class="chapter" data-level="6.3" data-path="qgis-1.html"><a href="qgis-1.html#esimene-seadistamine-ja-kasutajaliides"><i class="fa fa-check"></i><b>6.3</b> Esimene seadistamine ja kasutajaliides</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="qgis-1.html"><a href="qgis-1.html#vaikimisi-koordinaatsüsteemi-sätestamine."><i class="fa fa-check"></i><b>6.3.1</b> Vaikimisi koordinaatsüsteemi sätestamine.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="qgis-1.html"><a href="qgis-1.html#andmete-avamine"><i class="fa fa-check"></i><b>6.4</b> Andmete avamine</a></li>
+<li class="chapter" data-level="6.5" data-path="qgis-1.html"><a href="qgis-1.html#kihtide-visualiseerimine"><i class="fa fa-check"></i><b>6.5</b> Kihtide visualiseerimine</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="qgis-1.html"><a href="qgis-1.html#harjutus-1"><i class="fa fa-check"></i><b>6.5.1</b> Harjutus 1</a></li>
+<li class="chapter" data-level="6.5.2" data-path="qgis-1.html"><a href="qgis-1.html#harjutus-2"><i class="fa fa-check"></i><b>6.5.2</b> Harjutus 2</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="qgis-1.html"><a href="qgis-1.html#aluskaardid"><i class="fa fa-check"></i><b>6.6</b> Aluskaardid</a></li>
+<li class="chapter" data-level="6.7" data-path="qgis-1.html"><a href="qgis-1.html#järgmisel-korral-4"><i class="fa fa-check"></i><b>6.7</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="qgis-2.html"><a href="qgis-2.html"><i class="fa fa-check"></i><b>7</b> Sissejuhatus QGISi 2</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="qgis-2.html"><a href="qgis-2.html#andmete-avamine-1"><i class="fa fa-check"></i><b>7.1</b> Andmete avamine</a></li>
+<li class="chapter" data-level="7.2" data-path="qgis-2.html"><a href="qgis-2.html#andmete-valimine-ja-mõõtmine-käsitsi"><i class="fa fa-check"></i><b>7.2</b> Andmete valimine ja mõõtmine (käsitsi)</a></li>
+<li class="chapter" data-level="7.3" data-path="qgis-2.html"><a href="qgis-2.html#kihi-ja-andmete-loomine"><i class="fa fa-check"></i><b>7.3</b> Kihi ja andmete loomine</a></li>
+<li class="chapter" data-level="7.4" data-path="qgis-2.html"><a href="qgis-2.html#kaartide-kujundamine-ja-eksportimine"><i class="fa fa-check"></i><b>7.4</b> Kaartide kujundamine ja eksportimine</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="avaandmed.html"><a href="avaandmed.html"><i class="fa fa-check"></i><b>8</b> Avaandmed ja repositooriumid</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="avaandmed.html"><a href="avaandmed.html#mis-on-avaandmed"><i class="fa fa-check"></i><b>8.1</b> Mis on avaandmed?</a></li>
+<li class="chapter" data-level="8.2" data-path="avaandmed.html"><a href="avaandmed.html#eesti-ruumiandmed"><i class="fa fa-check"></i><b>8.2</b> Eesti ruumiandmed</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="avaandmed.html"><a href="avaandmed.html#maa-ameti-geoportaal"><i class="fa fa-check"></i><b>8.2.1</b> Maa-ameti Geoportaal</a></li>
+<li class="chapter" data-level="8.2.2" data-path="avaandmed.html"><a href="avaandmed.html#statistikaamet"><i class="fa fa-check"></i><b>8.2.2</b> Statistikaamet</a></li>
+<li class="chapter" data-level="8.2.3" data-path="avaandmed.html"><a href="avaandmed.html#digitaalsed-kaardikollektsioonid"><i class="fa fa-check"></i><b>8.2.3</b> Digitaalsed kaardikollektsioonid</a></li>
+<li class="chapter" data-level="8.2.4" data-path="avaandmed.html"><a href="avaandmed.html#muu"><i class="fa fa-check"></i><b>8.2.4</b> Muu</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="avaandmed.html"><a href="avaandmed.html#muude-riikide-ruumiandmed"><i class="fa fa-check"></i><b>8.3</b> Muude riikide ruumiandmed</a></li>
+<li class="chapter" data-level="8.4" data-path="avaandmed.html"><a href="avaandmed.html#järgmisel-korral-5"><i class="fa fa-check"></i><b>8.4</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="avaandmed2.html"><a href="avaandmed2.html"><i class="fa fa-check"></i><b>9</b> Avaandmed ja repositooriumid 2</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="avaandmed2.html"><a href="avaandmed2.html#andmestike-ühendamine"><i class="fa fa-check"></i><b>9.1</b> Andmestike ühendamine</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="avaandmed2.html"><a href="avaandmed2.html#csv-info-ühendamine-shp-ga"><i class="fa fa-check"></i><b>9.1.1</b> CSV info ühendamine SHP-ga</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="avaandmed2.html"><a href="avaandmed2.html#geokodeerimine"><i class="fa fa-check"></i><b>9.2</b> Geokodeerimine</a></li>
+<li class="chapter" data-level="9.3" data-path="avaandmed2.html"><a href="avaandmed2.html#järgmisel-korral-6"><i class="fa fa-check"></i><b>9.3</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="georefereerimine.html"><a href="georefereerimine.html"><i class="fa fa-check"></i><b>10</b> Georefereerimine</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="georefereerimine.html"><a href="georefereerimine.html#kaartide-otsimine-ja-allalaadimine"><i class="fa fa-check"></i><b>10.1</b> Kaartide otsimine ja allalaadimine</a></li>
+<li class="chapter" data-level="10.2" data-path="georefereerimine.html"><a href="georefereerimine.html#georefereerimine-1"><i class="fa fa-check"></i><b>10.2</b> Georefereerimine</a></li>
+<li class="chapter" data-level="10.3" data-path="georefereerimine.html"><a href="georefereerimine.html#lõikamine"><i class="fa fa-check"></i><b>10.3</b> Lõikamine</a></li>
+<li class="chapter" data-level="10.4" data-path="georefereerimine.html"><a href="georefereerimine.html#ülesanne-2"><i class="fa fa-check"></i><b>10.4</b> Ülesanne</a></li>
+<li class="chapter" data-level="10.5" data-path="georefereerimine.html"><a href="georefereerimine.html#digiteerimine"><i class="fa fa-check"></i><b>10.5</b> Digiteerimine</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="georefereerimine.html"><a href="georefereerimine.html#veebilahendus"><i class="fa fa-check"></i><b>10.5.1</b> Veebilahendus</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="georefereerimine.html"><a href="georefereerimine.html#ülesanne-3"><i class="fa fa-check"></i><b>10.6</b> Ülesanne</a></li>
+<li class="chapter" data-level="10.7" data-path="georefereerimine.html"><a href="georefereerimine.html#järgmisel-korral-7"><i class="fa fa-check"></i><b>10.7</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="visualiseerimine1.html"><a href="visualiseerimine1.html"><i class="fa fa-check"></i><b>11</b> Ruumiandmete visualiseerimine</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="visualiseerimine1.html"><a href="visualiseerimine1.html#avaldised"><i class="fa fa-check"></i><b>11.1</b> Avaldised</a></li>
+<li class="chapter" data-level="11.2" data-path="visualiseerimine1.html"><a href="visualiseerimine1.html#ülesanne-1-ei-olepole-suhtelised-sagedused"><i class="fa fa-check"></i><b>11.2</b> Ülesanne 1: “ei ole”/“pole” suhtelised sagedused</a></li>
+<li class="chapter" data-level="11.3" data-path="visualiseerimine1.html"><a href="visualiseerimine1.html#ülesanne-2-ei-olepole-selged-eelistused"><i class="fa fa-check"></i><b>11.3</b> Ülesanne 2: “ei ole”/“pole” selged eelistused</a></li>
+<li class="chapter" data-level="11.4" data-path="visualiseerimine1.html"><a href="visualiseerimine1.html#ülesanne-3-tekstiatribuutide-muutmine"><i class="fa fa-check"></i><b>11.4</b> Ülesanne 3: tekstiatribuutide muutmine</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="visualiseerimine2.html"><a href="visualiseerimine2.html"><i class="fa fa-check"></i><b>12</b> Ruumiandmete visualiseerimine 2</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="visualiseerimine2.html"><a href="visualiseerimine2.html#ülesanne-1-ei-olepole-levikuandmed"><i class="fa fa-check"></i><b>12.1</b> Ülesanne 1: “ei ole”/“pole” levikuandmed</a></li>
+<li class="chapter" data-level="12.2" data-path="visualiseerimine2.html"><a href="visualiseerimine2.html#ülesanne-2-kaardi-salvestamine"><i class="fa fa-check"></i><b>12.2</b> Ülesanne 2: kaardi salvestamine</a></li>
+<li class="chapter" data-level="12.3" data-path="visualiseerimine2.html"><a href="visualiseerimine2.html#ülesanne-3-abielud-ja-lahutused"><i class="fa fa-check"></i><b>12.3</b> Ülesanne 3: abielud ja lahutused</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="visualiseerimine2.html"><a href="visualiseerimine2.html#aasta-jaanuari-abielude-ja-lahutuste-suhe"><i class="fa fa-check"></i><b>12.3.1</b> 2019. aasta jaanuari abielude ja lahutuste suhe</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="visualiseerimine2.html"><a href="visualiseerimine2.html#andmebaasid"><i class="fa fa-check"></i><b>12.4</b> Andmebaasid</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="kirjandus.html"><a href="kirjandus.html"><i class="fa fa-check"></i>Kirjandus</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="visualiseerimine2" class="section level1" number="12">
+<h1><span class="header-section-number">Praktikum 12</span> Ruumiandmete visualiseerimine 2</h1>
+<p>Esmalt lõpetame eelmisel korral tegemata jäänud ülesanded avaldiste kasutamise kohta. Kui sul ei ole salvestatud projekti, võta 11. praktikumi andmed ning tee praktikumi ülesanded järjekorras läbi.</p>
+<div id="ülesanne-1-ei-olepole-levikuandmed" class="section level2" number="12.1">
+<h2><span class="header-section-number">12.1</span> Ülesanne 1: “ei ole”/“pole” levikuandmed</h2>
+<ul>
+<li>Filtreeri <em>ei ole</em>/<em>pole</em> <strong>levikuandmete</strong> kihilt välja ainult need read, millel on keelend märgitud: paremklikk kihil -&gt; <em>Filter</em> -&gt; <code>"Keelend" IS NOT NULL</code>.<br />
+</li>
+<li>Lisa binaarne virtuaalne tunnus <em>Variant</em>, kus on erinevate keelendite asemel ainult üldistatud kategooriad <em>ei_ole</em> ja <em>pole</em>. Kasuta ükskõik millist tingimuslauset lihtsustatud tingimusega, et kategooria saab väärtuse <em>pole</em>, kui keelendi väärtuses esineb <em>p</em>-täht, ning väärtuse <em>ei ole</em>, kui <em>p</em>-tähte ei esine.<br />
+
+<div class="figure" style="text-align: center"><span id="fig:eiolebinary"></span>
+<img src="imgs/eiolebinary.gif" alt="Binaarse tunnuse lisamine" width="100%" />
+<p class="caption">
+Figure 12.1: Binaarse tunnuse lisamine
+</p>
+</div></li>
+<li>Lisa binaarne tunnus sildina: paremklikk kihil -&gt; <em>Properties</em> -&gt; <em>Labels</em> -&gt; <em>Single labels</em> -&gt; <em>Value</em> (= Variant) -&gt; <em>OK</em></li>
+<li>Eemalda sildid ning väljenda binaarset tunnust eri sümbolite, värvi vm abil: paremklikk kihil -&gt; <em>Properties</em> -&gt; <em>Symbology</em> -&gt; <em>Categorized</em> -&gt; <em>Value</em> (= Variant) -&gt; <em>Classify</em> jne.<br />
+
+<div class="figure" style="text-align: center"><span id="fig:eiolebinary1"></span>
+<img src="imgs/eiolebinary_symbols.PNG" alt="'ei ole' ja 'pole' leviku- ja sagedusandmed" width="100%" />
+<p class="caption">
+Figure 12.2: ‘ei ole’ ja ‘pole’ leviku- ja sagedusandmed
+</p>
+</div></li>
+</ul>
+</div>
+<div id="ülesanne-2-kaardi-salvestamine" class="section level2" number="12.2">
+<h2><span class="header-section-number">12.2</span> Ülesanne 2: kaardi salvestamine</h2>
+<ul>
+<li>Salvesta kaart, mis näitab korraga nii leviku- kui ka sagedusandmeid (<strong>kasuta kihti <em>kihelkonnad2</em></strong>). Lisa kaardikiht, legend, allikad ja pealkiri.
+<ul>
+<li>Mine <em>Project</em> -&gt; <em>New Print Layout</em> ja sisesta oma kaardi nimi (nt <em>levik ja sagedus</em>).<br />
+</li>
+<li>Kaardikihi lisamiseks vali menüüst <em>Add Item</em> -&gt; <em>Add Map</em> ning joonista soovitud piirkonda kaardikihi ala. Kaardi liigutamiseks raami sees ning kaardikihil sisse- ja väljasuumimiseks vajuta klahvil C või vali 3 noolekesega tööriist <em>Move item content</em>, uuesti raami enda liigutamiseks vajuta klahvil V või vali ühe noolekesega tööriist <em>Select/Move item</em>.<br />
+
+<div class="figure" style="text-align: center"><span id="fig:drawmap1"></span>
+<img src="imgs/drawmap1.PNG" alt="Kaardiala lisamine" width="100%" />
+<p class="caption">
+Figure 12.3: Kaardiala lisamine
+</p>
+</div></li>
+<li>Legendi lisamiseks vali menüüst <em>Add Item</em> -&gt; <em>Add Legend</em> ning joonista soovitud piirkonda legendi ala. Legendi <em>Item Properties</em> all tee <em>Legend Items</em> sektsioonis linnuke kasti <em>Only show items inside linked map</em>, et kaotada legendilt ära kasutamata kihid. Samas sektsioonis tee topeltklikk kihtide nimel, et muuta nende pealkirju legendil. Pane näiteks <em>30_ei_ole</em> kihi nimeks legendil <em>Levikuandmed</em> ning <em>kihelkonnad2</em> kihi nimeks <em>Sagedusandmed</em>. Tee vajadusel teksti suurust veidi suuremaks sektsioonis <em>Fonts and Text Formatting</em>.<br />
+
+<div class="figure" style="text-align: center"><span id="fig:drawmap2"></span>
+<img src="imgs/drawmap2.PNG" alt="Legendi lisamine" width="100%" />
+<p class="caption">
+Figure 12.4: Legendi lisamine
+</p>
+</div></li>
+<li>Allikate lisamiseks vali menüüst <em>Add Item</em> -&gt; <em>Add Label</em> ning joonista soovitud piirkonda tekstiala. <em>Item Properties</em> all kirjuta kasti <em>Main Properties</em> tekst <em>Allikad: Maa-ameti geoportaal, eesti murrete korpus, Andrus Saareste “Väike Eesti murdeatlas” (1955)</em>. Muuda vajadusel fondi suurust <em>Appearance</em> saki alt ning joonda tekst paremale.
+<div class="figure" style="text-align: center"><span id="fig:drawmap3"></span>
+<img src="imgs/drawmap3.PNG" alt="Allikate lisamine" width="100%" />
+<p class="caption">
+Figure 12.5: Allikate lisamine
+</p>
+</div></li>
+<li>Lisa pealkiri samal moel nagu allikad.<br />
+</li>
+<li>Kaardi salvestamiseks vali <em>Layout</em> -&gt; <em>Export as Image</em>.<br />
+
+<div class="figure" style="text-align: center"><span id="fig:drawmap4"></span>
+<img src="imgs/levikjasagedus.png" alt="Salvestatud kaart" width="100%" />
+<p class="caption">
+Figure 12.6: Salvestatud kaart
+</p>
+</div></li>
+</ul></li>
+</ul>
+</div>
+<div id="ülesanne-3-abielud-ja-lahutused" class="section level2" number="12.3">
+<h2><span class="header-section-number">12.3</span> Ülesanne 3: abielud ja lahutused</h2>
+<p>Teeme harjutamise mõttes läbi veel üle ülesande.
+Ühendame Statistikaameti abielude ja lahutuste registreerimise andmed (aastatest 2006-2020) Maa-ameti ruumiandmetega. Andmestikud <em>abielude_registreerimised.csv</em> ja <em>lahutuste_registreerimised.csv</em> on pärit vastavalt <a href="https://andmed.stat.ee/et/stat/rahvastik__rahvastikusundmused__abielud/RV02/sortedtable/tableViewSorted">siit</a> ja <a href="https://andmed.stat.ee/et/stat/rahvastik__rahvastikusundmused__abielulahutused/RV05/sortedtable/tableViewSorted">siit</a> ning nn laiast tabelist, kus kuude andmed on eraldi tulpades, on tehtud pikk tabel, kus kuud on ühe omaette tunnusena ühes tulbas ning sündmuste arv samuti omaette tulbas. Pika tabeli tegemiseks on kasutatud järgmist R-i koodi.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="visualiseerimine2.html#cb1-1"></a><span class="kw">library</span>(tidyr) <span class="co"># Laadi vajalik pakett</span></span>
+<span id="cb1-2"><a href="visualiseerimine2.html#cb1-2"></a></span>
+<span id="cb1-3"><a href="visualiseerimine2.html#cb1-3"></a><span class="co"># Loe andmed sisse (esimesed kaks rida jäta välja)</span></span>
+<span id="cb1-4"><a href="visualiseerimine2.html#cb1-4"></a>abielud &lt;-<span class="st"> </span><span class="kw">read.delim</span>(<span class="st">&quot;abielude_registreerimised_alg.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">skip =</span> <span class="dv">2</span>, <span class="dt">fileEncoding =</span> <span class="st">&quot;UTF-8&quot;</span>)</span>
+<span id="cb1-5"><a href="visualiseerimine2.html#cb1-5"></a>lahutused &lt;-<span class="st"> </span><span class="kw">read.delim</span>(<span class="st">&quot;lahutuste_registreerimised_alg.csv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">skip =</span> <span class="dv">2</span>, <span class="dt">fileEncoding =</span> <span class="st">&quot;UTF-8&quot;</span>)</span>
+<span id="cb1-6"><a href="visualiseerimine2.html#cb1-6"></a></span>
+<span id="cb1-7"><a href="visualiseerimine2.html#cb1-7"></a><span class="co"># Tee laiadest tabelitest pikad</span></span>
+<span id="cb1-8"><a href="visualiseerimine2.html#cb1-8"></a>abielud &lt;-<span class="st"> </span><span class="kw">gather</span>(abielud, <span class="co"># tabelis &#39;abielu&#39;</span></span>
+<span id="cb1-9"><a href="visualiseerimine2.html#cb1-9"></a>                  Kuu, <span class="co"># loo tulp &#39;Kuu&#39;, mis sisaldaks kuude tulbanimesid</span></span>
+<span id="cb1-10"><a href="visualiseerimine2.html#cb1-10"></a>                  Arv, <span class="co"># ja tulp &#39;Arv&#39;, mis sisaldaks sagedusi</span></span>
+<span id="cb1-11"><a href="visualiseerimine2.html#cb1-11"></a>                  Jaanuar<span class="op">:</span>Detsember) <span class="co"># leia sagedused ja kuude nimed tulbast &#39;Jaanuar&#39; kuni tulbani &#39;Detsember&#39;</span></span>
+<span id="cb1-12"><a href="visualiseerimine2.html#cb1-12"></a>lahutused &lt;-<span class="st"> </span><span class="kw">gather</span>(lahutused, Kuu, Arv, Jaanuar<span class="op">:</span>Detsember) <span class="co"># tee sama lahutustega</span></span>
+<span id="cb1-13"><a href="visualiseerimine2.html#cb1-13"></a></span>
+<span id="cb1-14"><a href="visualiseerimine2.html#cb1-14"></a><span class="co"># Salvesta pikad tabelid</span></span>
+<span id="cb1-15"><a href="visualiseerimine2.html#cb1-15"></a><span class="kw">write.table</span>(abielud, <span class="st">&quot;abielude_registreerimised.csv&quot;</span>, <span class="dt">quote =</span> F, <span class="dt">sep =</span> <span class="st">&quot;;&quot;</span>, <span class="dt">row.names =</span> F, <span class="dt">fileEncoding =</span> <span class="st">&quot;UTF-8&quot;</span>)</span>
+<span id="cb1-16"><a href="visualiseerimine2.html#cb1-16"></a><span class="kw">write.table</span>(lahutused, <span class="st">&quot;lahutuste_registreerimised.csv&quot;</span>, <span class="dt">quote =</span> F, <span class="dt">sep =</span> <span class="st">&quot;;&quot;</span>, <span class="dt">row.names =</span> F, <span class="dt">fileEncoding =</span> <span class="st">&quot;UTF-8&quot;</span>)</span></code></pre></div>
+<p>Kuna Statistikaameti andmetes on kohainfo esitatud üldiselt maakondade näol, ent Tallinna linn on eraldi üksus, siis peame kasutama <a href="https://geoportaal.maaamet.ee/docs/haldus_asustus/omavalitsus_shp.zip?t=20201001005510">Maa-ameti omavalitsuste andmeid</a>.</p>
+<ul>
+<li>Impordi omavalitsuste vektorandmed (.SHP) ning abielude ja lahutuste tabelid (.CSV).
+<div class="figure" style="text-align: center"><span id="fig:praks1"></span>
+<img src="imgs/praks12_1.PNG" alt="Imporditud kihid" width="100%" />
+<p class="caption">
+Figure 12.7: Imporditud kihid
+</p>
+</div></li>
+<li>Ühenda lahutuste ja abielude andmed. Kuna peame ühendama andmeid mitme tulba info järgi (aasta, maakond, kuu), võime ühendamiseks teha mõlemasse andmestikku näiteks uue tulba <em>AMK</em>, kus see info on kokku kleebitud. Ühendame mõlemad andmestikud AMK tulba järgi ning ühendame lahutuste andmestikust ainult lahutuste arvu (kõik teised andmed on andmestikes samad).<br />
+
+<div class="figure" style="text-align: center"><span id="fig:praks2"></span>
+<img src="imgs/praks12_2.gif" alt="Abielude ja lahutuste andmete ühendamine" width="100%" />
+<p class="caption">
+Figure 12.8: Abielude ja lahutuste andmete ühendamine
+</p>
+</div></li>
+<li>Muudame andmestiku <em>abielude registreerimised</em> nime kujule <em>abielud_lahutused</em> ning muudame ka tulpade <em>Arv</em> ja <em>lahutuste_registreerimised_Arv</em> nimed vastavalt <em>abielude_arv</em> ja <em>lahutuste_arv</em> (ajutised asendusnimed).<br />
+
+<div class="figure" style="text-align: center"><span id="fig:praks3"></span>
+<img src="imgs/praks12_3.gif" alt="Andmestiku ja tulbanimede muutmine" width="100%" />
+<p class="caption">
+Figure 12.9: Andmestiku ja tulbanimede muutmine
+</p>
+</div></li>
+<li>Tee omavalitsuste kihist duplikaat nimega <em>koopia</em>.<br />
+</li>
+<li>Ühenda duubeldatud omavalitsuste kihil (<em>koopia</em>) kõik omavalitsused, välja arvatud Tallinn, maakondadeks. Selleks vali <em>Select</em> tööriista abil kõik omavalitsused peale Tallinna ning vali menüüst <em>Vector</em> -&gt; <em>Geoprocessing Tools</em> -&gt; <em>Dissolve</em>. Tee linnuke valiku ette <em>Selected features only</em> ja vali <em>Dissolve field(s)</em> väärtuseks <em>MNIMI</em>. Uue kihi nimetuseks määra <em>maakonnad</em>.<br />
+
+<div class="figure" style="text-align: center"><span id="fig:praks4"></span>
+<img src="imgs/praks12_4.gif" alt="Maakondade kihi loomine" width="100%" />
+<p class="caption">
+Figure 12.10: Maakondade kihi loomine
+</p>
+</div></li>
+<li>Vali kihilt <em>koopia</em> nüüd ainult Tallinna linn ning salvesta see eraldi kihina: paremklikk omavalitsuste kihil -&gt; <em>Export</em> -&gt; <em>Save Features As</em>.<br />
+
+<div class="figure" style="text-align: center"><span id="fig:praks5"></span>
+<img src="imgs/praks12_5.gif" alt="Tallinna kihi salvestamine" width="100%" />
+<p class="caption">
+Figure 12.11: Tallinna kihi salvestamine
+</p>
+</div></li>
+<li>Nüüd ühenda maakondade ja Tallinna linna kihid: <em>Vector</em> -&gt; <em>Data Management Tools</em> -&gt; <em>Merge Vector Layers</em>.<br />
+
+<div class="figure" style="text-align: center"><span id="fig:praks6"></span>
+<img src="imgs/praks12_6.gif" alt="Kihtide liitmine" width="100%" />
+<p class="caption">
+Figure 12.12: Kihtide liitmine
+</p>
+</div></li>
+<li>Tee uuest ühendatud kihist koopia nimega <em>Yhendatud_mk</em>.<br />
+</li>
+<li>Filtreeri kihilt <em>abielud_lahutused</em> ainult 2019. aasta andmed: paremklikk kihil -&gt; <em>Filter…</em> -&gt; <em>“Aasta” = 2019</em> -&gt; <em>OK</em>. Kui QGIS küsib, kas oled nõus sellega, et ühendamiseks tehakse kihist virtuaalne kiht, siis vajuta <em>OK</em>. NB! Virtuaalsel kihil muudetakse tulbanimed <em>abielude_arv</em> ja <em>lahutuste arv</em> tagasi nende algsele kujule.<br />
+</li>
+<li>Ühenda nüüd uus virtuaalne kiht ruumiandmetega abielude-lahutuste andmetega. Selleks kontrolli esmalt, kuidas on kohainfole (maakondadele) kahes andmestikus viidatud. Ühtlusta nimed kihi <em>Yhendatud_mk</em> uues tulbas <em>MNIMI2</em>.<br />
+
+<div class="figure" style="text-align: center"><span id="fig:praks7"></span>
+<img src="imgs/praks12_7.gif" alt="Maakonnanimede muutmine" width="100%" />
+<p class="caption">
+Figure 12.13: Maakonnanimede muutmine
+</p>
+</div></li>
+<li>Enne järgmist sammu salvesta kindlasti projekt!<br />
+</li>
+<li>Kõigepealt nimeta ümber abielude-lahutuste virtuaalne kiht nimega <em>abielud_lahutused_2019</em>. Kuna tahame nüüd, et iga abielude-lahutuste rida (abielud ja lahutused teatud aastal teatud maakonnas) oleks seotud ruumiinfoga, ei saa me kasutada varasemalt õpitud andmete ühendamist, vaid peame kasutama SQL-i vahendeid. Selleks mine DB Manageri, tee aktiivseks ükskõik kumb ühendatavatest kihtidest ning kirjuta päringuaknasse <code>SELECT * FROM Yhendatud_mk JOIN abielud_lahutused_2019 ON Yhendatud_mk.MNIMI2 = abielud_lahutused_2019.Maakond;</code>, tee linnuke valiku ette <em>Load as new layer</em> ning vajuta <em>Execute</em> (võib võtta natuke aega). Selle käsuga valime kõik tulbad ruumiandmete kihilt ning ühendame need abielude_lahutuste kihi andmetega, kusjuures ühendamise aluseks on esimesest andmestikust tulp <em>MNIMI2</em> ja teisest andmestikust tulp <em>Maakond</em>.
+<div class="figure" style="text-align: center"><span id="fig:praks8"></span>
+<img src="imgs/praks12_8.gif" alt="Andmestike ühendamine SQLi abil" width="100%" />
+<p class="caption">
+Figure 12.14: Andmestike ühendamine SQLi abil
+</p>
+</div></li>
+</ul>
+<p><strong>Kui ühendamine võtab liiga kaua aega või QGIS jookseb kokku, ava Moodle’isse üles laaditud lõppfail <em>abielud_lahutused_mk_2019.gpkg</em>, kus on ainult 2019. aasta andmed. NB! Tegemist on <em>GeoPackage</em>-formaadiga!</strong></p>
+<p>Järgmiseks peaksime saadud andmeid visualiseerima.</p>
+<div id="aasta-jaanuari-abielude-ja-lahutuste-suhe" class="section level3" number="12.3.1">
+<h3><span class="header-section-number">12.3.1</span> 2019. aasta jaanuari abielude ja lahutuste suhe</h3>
+<ul>
+<li>Värvi polügoonid selle järgi, milline on lahutuste osakaal kõikidest registreeritud perekonnatoimingutest 2019. aastal jaanuarikuus.
+<ul>
+<li>Kontrolli esmalt abielude ja lahutuste arvu tulpade tüüpi ja vajadusel loo uued arvulised tulbad.<br />
+</li>
+<li>Filtreeri andmed ja visualiseeri.<br />
+
+<div class="figure" style="text-align: center"><span id="fig:praks9"></span>
+<img src="imgs/praks12_9.gif" alt="Lahutuste osakaal perekonnatoimingutest 2019. aasta jaanuaris" width="100%" />
+<p class="caption">
+Figure 12.15: Lahutuste osakaal perekonnatoimingutest 2019. aasta jaanuaris
+</p>
+</div></li>
+</ul></li>
+<li>Värvi polügoonid selle järgi, milline on lahutuste suhe abieludesse mingis maakonnas tervel 2019. aastal (st kui mitu korda on lahutusi vähem/rohkem kui abielusid). (P.S. See, et Tallinnas ja Harjumaal näib 2019. aastal olevat ühepalju abielusid-lahutusi, ei ole meie viga, vaid tuli Statistikaameti andmebaasiga kaasa).
+<ul>
+<li>Võta kuu filter maha.<br />
+</li>
+<li>Liida kuude andmed kokku, kasutades DB Manageri.</li>
+<li>Visualiseeri.<br />
+
+<div class="figure" style="text-align: center"><span id="fig:praks10"></span>
+<img src="imgs/praks12_10.gif" alt="Lahutuste suhe abieludesse" width="100%" />
+<p class="caption">
+Figure 12.16: Lahutuste suhe abieludesse
+</p>
+</div></li>
+</ul></li>
+</ul>
+<p>Kui tahame võrrelda erinevate aastate või kuude andmeid nagu esimesel juhul, peame andmeid ühendama nii, nagu seda siin praktikumis tegime. Kui aga tahame agregeerida ja üldistada ainult ühe aasta kohta üle kõikide kuude nagu teisel juhul, oleks tegelikult mõistlikum leida abielude-lahutuste suhted enne ruumiandmetega ühendamist, et vähendada andmemahtu ja kiirendada protsesse.</p>
+</div>
+</div>
+<div id="andmebaasid" class="section level2" number="12.4">
+<h2><span class="header-section-number">12.4</span> Andmebaasid</h2>
+<p>Ruumiinfoga varustatud failiformaatide (nt .shp või .gpkg) kõrval kasutatakse üha enam andmebaase, mis võimaldavad andmete hõlpsamat, kiiremat ja paindlikumat muutmist ja täiendamist ning samuti integreerimist teiste keskkondadega, mitme kasutaja koostööd jpm. Eriti oluliseks on andmebaasid saanud suurandmetega töötades, kuna vajalike päringute tegemine terve andmekihi importimise asemel hoiab kokku kõvasti arvutuslikku (ja ajalist) ressurssi. Kõige laialdasemalt kasutatakse ruumiandmete analüüsil <strong>PostGIS</strong>-i, mis on olemuselt ruumiandmeid analüüsida võimaldav laiendus PostgreSQLi andmebaasihaldussüsteemile, mis omakorda kasutab SQL-i päringukeelt (ning veel hulka laiendusi).</p>
+<div class="figure" style="text-align: center"><span id="fig:postgis"></span>
+<img src="imgs/postgis.PNG" alt="[PostGIS vs shapefile](https://medium.com/@tjukanov/why-should-you-care-about-postgis-a-gentle-introduction-to-spatial-databases-9eccd26bc42b)" width="70%" />
+<p class="caption">
+Figure 12.17: <a href="https://medium.com/@tjukanov/why-should-you-care-about-postgis-a-gentle-introduction-to-spatial-databases-9eccd26bc42b">PostGIS vs shapefile</a>
+</p>
+</div>
+<p>Loome nüüd ka ise andmebaasi. Teeme siin SpatiaLite’i andmebaasi, mida on lihtsam üles seada kui nt PostGISi andmebaase. SpatiaLite’i miinuseks on see, et see ei võimalda sama andmebaasiga töötada mitmel kasutajal korraga. Lokaalseks (nt oma arvutis enda uurimistööks) kasutamiseks on see aga mugavam lahendus kui PostGIS.</p>
+<p>Andmebaasi tegemiseks tee brauseris paremklikk SpatiaLite’i ikoonil ning vali <em>Create Database</em>. Nimeta oma andmebaas nt nimega <em>minudb</em>.</p>
+<ul>
+<li>Esmalt <strong>impordi</strong> loodud <em>koond2019</em> kihilt andmed. Selleks mine DB Manageri, vali oma loodud SpatiaLite’i andmebaas (vajuta noolekesel andmebaasi ees, nii et aknasse ilmuks andmebaasi üldine info) ja vajuta nupul <em>Import Layer/File…</em>. Vali kiht <em>koond2019</em> ning vajuta <em>OK</em>.<br />
+</li>
+<li>Teiseks <strong>sisesta</strong> ise uus tabel. Kasuta andmete sisestamiseks samuti <a href="https://andmed.stat.ee/et/stat/rahvastik__rahvastikusundmused__sunnid/RV061/sortedtable/tableViewSorted">Statistikaameti andmeid sündide arvu kohta aastatel 2017-2019</a>, ent kujuta ette, et oled need kogunud ise ega saa neid lihtsalt tabelina alla laadida ega importida. NB! Vali hetkel tabelist <strong>ainult Tartumaa andmed aastast 2019</strong> ning vorminda tabel samamoodi nagu abielude ja lahutuste andmed: selle asemel, et iga kuu andmed eraldi tulpa lisada (nn <em>lai formaat</em>), tee andmetabelisse kuu jaoks eraldi tulp <em>Kuu</em> ning iga kuu sündide arvu kajasta samuti eraldi tulbas nimega <em>Arv</em> (nn <em>pikk formaat</em>).<br />
+</li>
+<li>Ava jälle <em>SQL Window</em> ning kasuta sündide tabeli lisamiseks käsku <code>CREATE TABLE tabelinimi (tulp1 ANDMETÜÜP, tulp2 ANDMETÜÜP, tulp3 ANDMETÜÜP, ...);</code>, näiteks <code>CREATE TABLE synnid (Aasta INT, Maakond VARCHAR, Kuu VARCHAR, Arv INT);</code> Andmetüüpide kohta saad rohkem lugeda nt <a href="https://www.w3schools.com/sql/sql_datatypes.asp">siit</a>.<br />
+</li>
+<li>Värskenda andmebaaside vaadet ülevalt vasakult <em>Refresh</em> nupu abil.<br />
+</li>
+<li>Järgmiseks pead hakkama tabelisse sisestama ridu. Ridade lisamiseks saab kasutada käsku <code>INSERT INTO tabelinimi (tulp1, tulp2, tulp3, ...) VALUES ('väärtus1', 'väärtus2', 'väärtus3', ...)</code>.
+<ul>
+<li>Kui oled kindel, et lisatavate väärtuste arv on sama, mis tulpade arv, ning kõik väärtused lähevad õigetesse tulpadesse, võib tulpade nimetamise ka vahele jätta, nt <code>INSERT INTO synnid VALUES ('2019', 'Tartu maakond', 'Jaanuar', '154');</code>.</li>
+<li>Võid sisestada ka mitu rida korraga, nt <code>INSERT INTO synnid VALUES ('2019', 'Tartu maakond', 'Veebruar', '154'), ('2019', 'Tartu maakond', 'Märts', '178'), ('2019', 'Tartu maakond', 'Aprill', '185');</code></li>
+<li>Meil on siin kaks igal real korduvat elementi: aasta ja maakond. Selleks, et oma töövaeva vähendada, saab lisada esmalt <code>INSERT</code> käsuga ainult muutuva info ehk info kuu ja sündide arvu kohta ning hiljem tabelis käsuga <code>UPDATE</code> uuendada aasta ja maakonna infot nendel ridadel, kust see esialgu puudu jäi.</li>
+</ul></li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:praks11"></span>
+<img src="imgs/praks12_11.gif" alt="Andmetabeli täitmine SQLi abil" width="100%" />
+<p class="caption">
+Figure 12.18: Andmetabeli täitmine SQLi abil
+</p>
+</div>
+<ul>
+<li>Nüüd on olemas Tartu maakonna 2019. aasta sündide info. Agregeeri see, liites kõikide kuude andmed kokku (nagu tegime enne) ning lisa andmestikule <em>koond2019</em>. Millega pead kõigepealt tegelema?</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="visualiseerimine1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="kirjandus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["book.pdf", "PDF"], ["book.epub", "EPUB"]],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"info": true
+});
+});
+</script>
+
+</body>
+
+</html>
