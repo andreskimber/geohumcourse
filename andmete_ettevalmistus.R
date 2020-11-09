@@ -1,18 +1,3 @@
-paketid <- c("dplyr", "ggplot2", "sf", 
-             # "wesanderson", 
-             "magrittr", "raster",
-             "plotly",
-             "leaflet", "knitr", "tmap",
-             "tidyr", "rio"
-             # "rasterVis",
-             # "lidR",
-             # "rgdal",
-             # "rgeos", # one side buffer jaoks
-             # "lwgeom", # joonte splittimise jaoks
-             # "spatialEco",  # gaussian smooth jaoks
-             # "rvest", "rebus", "stringr" # web scraping jaoks
-)
-lapply(paketid, library, character.only = TRUE)
 
 
 # maakonnad 
@@ -85,3 +70,19 @@ mka_ala = mka_ala_raw %>%
 mka = rbind(mka_ala, mka_pt)
 
 st_write(mka, "./andmed/malestised.gpkg")
+
+
+# muuseumid 
+
+muuseumid_raw = readr::read_delim("./andmed/KU054_20201109-092831.csv", delim = ",",
+                                  skip = 2, locale = readr::locale(encoding = "UTF-8"))
+
+muuseumid = muuseumid_raw %>% 
+    filter(
+        !Maakond == "..Tallinn"
+    ) %>% 
+    select(
+        -Aasta
+    )
+
+readr::write_delim(muuseumid, "./andmed/muuseumid.csv", delim = ",")

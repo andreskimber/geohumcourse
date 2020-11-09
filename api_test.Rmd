@@ -1,0 +1,60 @@
+---
+title: "api_test"
+author: "Andres Kimber"
+date: "08/11/2020"
+output: html_document
+---
+
+Testin API kasutamist läbi R'i, et saaks otse andmeid alla laadida. 
+Juhend lehelt https://www.dataquest.io/blog/r-api-tutorial/
+
+
+```{r}
+library(httr)
+library(jsonlite)
+res = GET("http://api.open-notify.org/astros.json")
+res
+rawToChar(res$content)
+data = fromJSON(rawToChar(res$content))
+names(data)
+data$people
+res = GET("http://api.open-notify.org/iss-pass.json", query = list(lat = 40.7, lon = -74))
+res
+```
+
+Test MKA apiga 
+
+Ei saa aru, kuidas peaks neid väärtusi määrama koodis. Praegu olen aadressi vaadanud inimloetavalt lehelt https://register.muinas.ee/rest/v1/browser.php
+Võtan kõikide mälestiste data. Määrata tuleb limit, et võtaks kõik asjad, mitte default ainult 20. 
+```{r}
+res = GET("https://register.muinas.ee/rest/v1/monuments?",
+          query = list(
+              limit = 100
+          ))
+# res
+# res$times
+# rawToChar(res$content)
+monuments = fromJSON(rawToChar(res$content))
+
+```
+
+Vaatan ka arhiivi materjal
+
+```{r}
+res_archival = GET("https://register.muinas.ee/rest/v1/archivalmaterials?",
+                   query = list(
+                       limit = 20
+                   ))
+res_archival
+archival_material = fromJSON(rawToChar(res_archival$content))
+```
+
+
+Vaatan ka regulation and directive listi
+
+```{r}
+res_regu = GET("https://register.muinas.ee/rest/v1/ertlinks?")
+res_regu
+regu_and_dir = fromJSON(rawToChar(res_regu$content))
+regu_and_dir[1,]
+```

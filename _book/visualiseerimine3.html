@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Kirjandus | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
-  <meta name="description" content="Kirjandus | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <title>Praktikum 13 Ruumiandmete visualiseerimine 3 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
+  <meta name="description" content="Praktikum 13 Ruumiandmete visualiseerimine 3 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Kirjandus | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta property="og:title" content="Praktikum 13 Ruumiandmete visualiseerimine 3 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Kirjandus | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta name="twitter:title" content="Praktikum 13 Ruumiandmete visualiseerimine 3 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="visualiseerimine3.html"/>
-
+<link rel="prev" href="visualiseerimine2.html"/>
+<link rel="next" href="kirjandus.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -193,61 +193,62 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="kirjandus" class="section level1 unnumbered">
-<h1>Kirjandus</h1>
+<div id="visualiseerimine3" class="section level1">
+<h1><span class="header-section-number">Praktikum 13</span> Ruumiandmete visualiseerimine 3</h1>
+<div id="värvidest" class="section level2">
+<h2><span class="header-section-number">13.1</span> Värvidest</h2>
+<p>Andmete visualiseerimisel tuleb alati tähelepanu pöörata sellele, et kasutatud värvivalik ja skaala võimalikult hästi ja kõigile kättesaadavalt infot edastaks. Värviskaalaga kaarti, joonist või graafikut vaadates peaks olema võimalikult selge ülevaade andmete ulatusest ning üldiselt ei tohiks ühtegi väärtust (eriti neid, mis pole äärmustes) petlikult rõhutada. Niisiis ei tohiks tekkida kunstlikke tunnuseid ega varjata reaalset infot. Värvivaliku puhul tuleb ka arvestada, kuidas näevad seda värvipimedad või kuidas jääks sama skaala näha mustvalgena (näiteks trükitult). Sel teemal ilmusid hiljuti ka artiklid <a href="https://www.nature.com/articles/s41467-020-19160-7">The misuse of colour in science communication</a> <span class="citation">(Crameri et al. <a href="kirjandus.html#ref-Crameri2020" role="doc-biblioref">2020</a>)</span> ja <a href="https://ieeexplore.ieee.org/document/9167329">The Importance of Colormaps</a> <span class="citation">(Thyng <a href="kirjandus.html#ref-Thyng2020" role="doc-biblioref">2020</a>)</span>. Vaata lisaks <a href="http://www.fabiocrameri.ch/colourmaps.php">fabiocrameri.ch/colourmaps.php</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:cramerifig2"></span>
+<img src="imgs/crameri_fig2.webp" alt="Erinevate värviskaalade nähtavus sagedate värvipimeduste korral [@Crameri2020, fig 2]." width="75%" />
+<p class="caption">
+Figure 13.1: Erinevate värviskaalade nähtavus sagedate värvipimeduste korral <span class="citation">(Crameri et al. <a href="kirjandus.html#ref-Crameri2020" role="doc-biblioref">2020</a>, fig 2)</span>.
+</p>
+</div>
+<p>Üldiselt on soovitatav vältida ka liiga erksaid ning kontrastseid värve nii esteetilistel põhjustel kui ka seetõttu, et need võivad varjata muud infot. Erinevat tüüpi andmete jaoks värvide valimisel on abiks <a href="https://colorbrewer2.org/">colorbrewer2.org</a>.</p>
+</div>
+<div id="visualiseerimine" class="section level2">
+<h2><span class="header-section-number">13.2</span> Visualiseerimine</h2>
+<p>Ava kiht <em>asustusyksused_malestised.gpkg</em>, kus on lisaks asustusüksustele kirjas ka mälestiste arv liikide kaupa (ajaloolised, arheoloogilised, kunstimälestised). Värvi asustusüksused vastavalt vabalt valitud väärtusele. Tegemist on lihtsustatud andmestikuga, kus kultuurimälestised, mis kuuluvad mitmesse liiki, on loetud korduvalt.</p>
+<p>Vali välja üks vald, millest soovid kaarti teha ning ekspordi andmestikust ainult selle valla asustusüksused.</p>
+<!-- Üldine ülesanne: mingi maakonna piires asustusüksuse kaupa teatud tüüpi mälestised. Kasutada mingi visualiseerimist. Nt burst.
+ -  
+ -->
+<p>Sarnaselt siltidele saab igale kihi elemendile lisada ka graafikuid. Lisa sektordiagramm, mis näitab, kuidas mälestised jagunevad igas külas liigiti.</p>
+<!-- Rasteri histogrammid -->
+<!-- graafikud kaardile -->
+<!-- ## Heatmap kõigist mälestistest -->
+<!-- Eesti ala või maakonna välja lõikamine.  -->
+<div id="sildid" class="section level3">
+<h3><span class="header-section-number">13.2.1</span> Sildid</h3>
+<p>Sageli on olukordi, kus andmetele on vaja lisada silte, kuid need asuvad tihedalt koos ja ei paista seetõttu hästi välja. Siin on abiks <em>callouts</em>, mis võimaldab joonte abil objeti sildi kaugemale asetada.</p>
+<ul>
+<li>kihil paremklikk -&gt; <em>Properties</em> -&gt; <em>Labels</em> -&gt; <em>Single labels</em> -&gt; <em>Callouts</em> -&gt; linnuke <em>Draw callouts</em> ette -&gt; OK</li>
+<li>peaaknas kliki ikoonil <em>Moves a layer or diagramm</em> ning kliki sildil ja liiguta see sobivasse kohta.</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:labelicons"></span>
+<img src="imgs/label_icons.PNG" alt="Siltidega töötamise ikoonid." width="75%" />
+<p class="caption">
+Figure 13.2: Siltidega töötamise ikoonid.
+</p>
+</div>
+<p>Siltidele ja diagrammidele võib lisada ka puhvrid, mis toovad need need paremini muude andmete taustal välja. Samamoodi saab neile lisada varjud.</p>
+</div>
+</div>
+<div id="kaardi-tegemine" class="section level2">
+<h2><span class="header-section-number">13.3</span> Kaardi tegemine</h2>
+<p>Kui oled andmete visualiseerimisega valmis saanud, ava kaardi tegemiseks <em>Print Layout</em> ja lisa peaaknas olev kaart. Kaart näeb sageli parem välja, kui see ei ulatu päris servani, vaid jäetud väike äär. Selleks, et kaugus servast jääks kõigis külgedes sama, lülita sisse <em>View</em> alt <em>Show grid</em> ja <em>Snap to grid</em>.</p>
+<p>Kui tegemist on väljavõttega mingist suuremast alast, siis võib olla kasulik näidata, kus kohas see praegune vaade paikneb ehk luua kaart kaardis. Selle saab teha Overview abil</p>
+<p>Kaardi servadesse saab lisada koordinaatruudustiku, mis võib lihtsustada esitatud objektide koordinaatide mõistmist.</p>
+<p>Vajadusel saab atribuut tabeli lisada ka eksporditavale kaardile.</p>
+<div class="figure" style="text-align: center"><span id="fig:polva"></span>
+<img src="imgs/polva_malestised.png" alt="Põlva valla kultuurimälestiste jaotumine" width="100%" />
+<p class="caption">
+Figure 13.3: Põlva valla kultuurimälestiste jaotumine
+</p>
+</div>
+<!-- atlase tegemine -->
 
-<div id="refs" class="references">
-<div id="ref-Aunap2019">
-<p>Aunap, R. 2019. Geodeetilised alused. In <em>Geoinformaatika</em>, 125–182.</p>
-</div>
-<div id="ref-Ballas2018">
-<p>Ballas, D., Clarke, G., Franklin, R., &amp; Newing, A. 2018. <em>GIS and the social sciences: Theory and application</em>. Routledge.</p>
-</div>
-<div id="ref-Bolstad2016">
-<p>Bolstad, P. 2016. <em>A first text on geographic information systems, 5th edition</em>.</p>
-</div>
-<div id="ref-Crameri2020">
-<p>Crameri, F., Shephard, G.E., &amp; Heron, P.J. 2020. The misuse of colour in science communication. <em>Nature Communications</em> 11(1): 5444. Available at: <a href="https://doi.org/10.1038/s41467-020-19160-7">https://doi.org/10.1038/s41467-020-19160-7</a>.</p>
-</div>
-<div id="ref-Gregory2014">
-<p>Gregory, I.N., &amp; Geddes, A. 2014. <em>Toward spatial humanities: Historical gis and spatial history</em>. Available at: <a href="https://www.jstor.org/stable/j.ctt16gz7s5">https://www.jstor.org/stable/j.ctt16gz7s5</a>.</p>
-</div>
-<div id="ref-Haav2014">
-<p>Haav, A. 2014. <em>Ruumiarheoloogiline vaade asustusmustrile: Fragment kagu-eesti eelviikingiajast hilisrauaajani (6. – 13. Saj)</em>. Master’s Thesis. University of Tartu. Available at: <a href="https://dspace.ut.ee/bitstream/handle/10062/41911/Haav%7B\_%7DMA14.pdf?sequence=1">https://dspace.ut.ee/bitstream/handle/10062/41911/Haav{\_}MA14.pdf?sequence=1</a>.</p>
-</div>
-<div id="ref-Jessop2008">
-<p>Jessop, M. 2008. The inhibition of geographical information in digital humanities scholarship. <em>Literary and Linguistic Computing</em> 23(1): 39–50.</p>
-</div>
-<div id="ref-Kimber2016">
-<p>Kimber, A. 2016. Lohukivid, vaated ja helid muistsel maastikul. <em>Tutulus: Eesti arheoloogia aastakiri</em>: 44–46.</p>
-</div>
-<div id="ref-Moncla2019">
-<p>Moncla, L. et al. 2019. Mapping urban fingerprints of odonyms automatically extracted from french novels. <em>International Journal of Geographical Information Science</em> 33(12): 2477–2497. Available at: <a href="https://www.tandfonline.com/doi/abs/10.1080/13658816.2019.1584804">https://www.tandfonline.com/doi/abs/10.1080/13658816.2019.1584804</a>.</p>
-</div>
-<div id="ref-Murrieta-Flores2019">
-<p>Murrieta-Flores, P., &amp; Martins, B. 2019. The geospatial humanities: past, present and future. 33: 2424–2429. Available at: <a href="https://www.tandfonline.com/doi/full/10.1080/13658816.2019.1645336">https://www.tandfonline.com/doi/full/10.1080/13658816.2019.1645336</a>.</p>
-</div>
-<div id="ref-Okabe2006">
-<p>Okabe, A. 2006. <em>GIS-based studies in the humanities and social sciences</em>. Taylor &amp; Francis Group.</p>
-</div>
-<div id="ref-Pilvik2019">
-<p>Pilvik, M.-L. et al. 2019. Möistus sai kuulotedu: 19. Sajandi vallakohtuprotokollide tekstidest digitaalse ressursi loomine. <em>Eesti Rakenduslingvistika Ühingu Aastaraamat, 15</em>: 139–158.</p>
-</div>
-<div id="ref-Presner2016">
-<p>Presner, T., &amp; Shepard, D. 2016. Mapping the geospatial turn. In <em>A new companion to digital humanities</em>, 199–212.</p>
-</div>
-<div id="ref-Rosentau2013">
-<p>Rosentau, A. et al. 2013. Stone age settlement and holocene shore displacement in the narva-luga klint bay area, eastern gulf of finland. <em>Boreas</em> 42(4): 912–931.</p>
-</div>
-<div id="ref-Suurna&amp;Sisas2010">
-<p>Suurna, R., &amp; Sisas, E. 2010. GIS ja kartograafia alused. Available at: <a href="https://www.digar.ee/arhiiv/nlib-digar:120392">https://www.digar.ee/arhiiv/nlib-digar:120392</a>.</p>
-</div>
-<div id="ref-Thyng2020">
-<p>Thyng, K.M. 2020. The Importance of Colormaps. <em>Computing in Science and Engineering</em> 22(5): 96–102.</p>
-</div>
-<div id="ref-Wallentin2015">
-<p>Wallentin, G., Hofer, B., &amp; Traun, C. 2015. Assessment of workforce demands to shape gis&amp;T education. <em>Transactions in GIS</em> 19(3): 439–454. Available at: <a href="http://doi.wiley.com/10.1111/tgis.12148">http://doi.wiley.com/10.1111/tgis.12148</a>.</p>
-</div>
+
 </div>
 </div>
             </section>
@@ -255,8 +256,8 @@
           </div>
         </div>
       </div>
-<a href="visualiseerimine3.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="visualiseerimine2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="kirjandus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

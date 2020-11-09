@@ -1,0 +1,68 @@
+# Ruumiandmete visualiseerimine 3 {#visualiseerimine3}
+
+## Värvidest
+
+Andmete visualiseerimisel tuleb alati tähelepanu pöörata sellele, et kasutatud värvivalik ja skaala võimalikult hästi ja kõigile kättesaadavalt infot edastaks. Värviskaalaga kaarti, joonist või graafikut vaadates peaks olema võimalikult selge ülevaade andmete ulatusest ning üldiselt ei tohiks ühtegi väärtust (eriti neid, mis pole äärmustes) petlikult rõhutada. Niisiis ei tohiks tekkida kunstlikke tunnuseid ega varjata reaalset infot. Värvivaliku puhul tuleb ka arvestada, kuidas näevad seda värvipimedad või kuidas jääks sama skaala näha mustvalgena (näiteks trükitult). Sel teemal ilmusid hiljuti ka artiklid [The misuse of colour in science communication](https://www.nature.com/articles/s41467-020-19160-7) [@Crameri2020] ja [The Importance of Colormaps](https://ieeexplore.ieee.org/document/9167329) [@Thyng2020]. Vaata lisaks [fabiocrameri.ch/colourmaps.php](http://www.fabiocrameri.ch/colourmaps.php). 
+
+
+```{r cramerifig2, echo =F, fig.align='center', fig.show='hold', fig.cap = "Erinevate värviskaalade nähtavus sagedate värvipimeduste korral [@Crameri2020, fig 2].", out.width="75%"}
+knitr::include_graphics(here::here("imgs", "crameri_fig2.webp"))
+```
+
+Üldiselt on soovitatav vältida ka liiga erksaid ning kontrastseid värve nii esteetilistel põhjustel kui ka seetõttu, et need võivad varjata muud infot. Erinevat tüüpi andmete jaoks värvide valimisel on abiks [colorbrewer2.org](https://colorbrewer2.org/).
+
+
+## Visualiseerimine
+
+Ava kiht *asustusyksused_malestised.gpkg*, kus on lisaks asustusüksustele kirjas ka mälestiste arv liikide kaupa (ajaloolised, arheoloogilised, kunstimälestised). Värvi asustusüksused vastavalt vabalt valitud väärtusele. Tegemist on lihtsustatud andmestikuga, kus kultuurimälestised, mis kuuluvad mitmesse liiki, on loetud korduvalt.
+
+Vali välja üks vald, millest soovid kaarti teha ning ekspordi andmestikust ainult selle valla asustusüksused.
+
+<!-- Üldine ülesanne: mingi maakonna piires asustusüksuse kaupa teatud tüüpi mälestised. Kasutada mingi visualiseerimist. Nt burst.
+ -  
+ -->
+
+Sarnaselt siltidele saab igale kihi elemendile lisada ka graafikuid. Lisa sektordiagramm, mis näitab, kuidas mälestised jagunevad igas külas liigiti. 
+
+<!-- Rasteri histogrammid -->
+
+<!-- graafikud kaardile -->
+
+<!-- ## Heatmap kõigist mälestistest -->
+
+<!-- Eesti ala või maakonna välja lõikamine.  -->
+
+### Sildid
+
+Sageli on olukordi, kus andmetele on vaja lisada silte, kuid need asuvad tihedalt koos ja ei paista seetõttu hästi välja. Siin on abiks *callouts*, mis võimaldab joonte abil objeti sildi kaugemale asetada. 
+
+
+- kihil paremklikk -> *Properties* -> *Labels* -> *Single labels* -> *Callouts* -> linnuke *Draw callouts* ette -> OK
+- peaaknas kliki ikoonil *Moves a layer or diagramm* ning kliki sildil ja liiguta see sobivasse kohta.
+
+```{r labelicons, echo =F, fig.align='center', fig.show='hold', fig.cap = "Siltidega töötamise ikoonid.", out.width="75%"}
+knitr::include_graphics(here::here("imgs", "label_icons.PNG"))
+```
+
+Siltidele ja diagrammidele võib lisada ka puhvrid, mis toovad need need paremini muude andmete taustal välja. Samamoodi saab neile lisada varjud.
+
+## Kaardi tegemine
+
+Kui oled andmete visualiseerimisega valmis saanud, ava kaardi tegemiseks *Print Layout* ja lisa peaaknas olev kaart. Kaart näeb sageli parem välja, kui see ei ulatu päris servani, vaid jäetud väike äär. Selleks, et kaugus servast jääks kõigis külgedes sama, lülita sisse *View* alt *Show grid* ja *Snap to grid*. 
+
+Kui tegemist on väljavõttega mingist suuremast alast, siis võib olla kasulik näidata, kus kohas see praegune vaade paikneb ehk luua kaart kaardis. Selle saab teha Overview abil 
+
+Kaardi servadesse saab lisada koordinaatruudustiku, mis võib lihtsustada esitatud objektide koordinaatide mõistmist. 
+
+Vajadusel saab atribuut tabeli lisada ka eksporditavale kaardile. 
+
+
+```{r polva, echo =F, fig.align='center', fig.show='hold', fig.cap = "Põlva valla kultuurimälestiste jaotumine", out.width="100%"}
+knitr::include_graphics(here::here("imgs", "polva_malestised.png"))
+```
+
+<!-- atlase tegemine -->
+
+
+
+
