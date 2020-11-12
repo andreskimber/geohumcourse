@@ -1,0 +1,49 @@
+# Ruumiandmete visualiseerimine 4 {#visualiseerimine4}
+
+## Euroopa ja maailma andmed 
+
+Lae alla avaandmete praktikumist tuttavalt lehelt [Natural Earth Data](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/) maailmariikide (*Admin - 0*) ja linnade (*Populated places*) kihid. Paki need lahti oma andmete kausta ning ava QGISis.
+
+```{r naturalearth, echo =F, fig.align='center', fig.show='hold', fig.cap = "Natural Earth logo", out.width="75%"}
+knitr::include_graphics(here::here("imgs", "natural_earth.png"))
+```
+
+### Koordinaatsüsteemid
+
+Kuna maailma andmestik on ulatuselt oluliselt suurem kui Eesti ala, millega seni tegelenud oleme, siis on vaja muuta ka koordinaatsüsteemi. Natural Earth Data andmestikud on esitatud geograafilises koordinaatsüsteemis World Geodetic System 1984 (WGS 84, EPSG 4326). Selleks, et andmeid korralikult näha tuleb vahetada senikasutatud EPSG 3301 õige vastu. Selleks kliki all paremal nurgas koordinaatsüsteemi tekstile ning otsi avanenud aknas *4326*.
+
+```{r wgs, echo =F, fig.align='center', fig.show='hold', fig.cap = "Koordinaatsüsteemi vahetamine nn on-the-fly", out.width="100%"}
+knitr::include_graphics(here::here("imgs", "wgs84.gif"))
+```
+
+Nüüd peaks andmed õigesti visualiseeritud olema. Vaata mõlema andmestiku atribuuttabeleid ning ka riikide piire. Nagu näha on riigipiirid olulised lihtsustatud, kuna see teeb kihi väiksemaks ja töö sellega lihtsamaks ning sellisel skaalal ei ole detailsus niivõrd oluline. 
+
+## Euroopa riikide ja linnade filtreerimine
+
+Lõika välja ainult Euroopa riigid ja ka Euroopa linnad. Riikide andmestikus on olemas tulp *Region_UN*, mille põhjal saamegi valida ainult riigid, mille väärtus on seal tulbas on *Europe*. Kasuta selleks näiteks tööriista *Select features by value*. Kui riigid valitud, siis ekspordi valik Geopackage failina. Vali aga mõõtkavaks EPSG 3034. Eemaldada maailmariikide kiht ja kustuta Euroopa kihist Venemaa. 
+
+## SKP/in visualiseerimine 
+
+Proovime visualiseerida siseriikliku kogutoodangut inimese kohta nii riigi värvina kui ka diagrammina, mis kujutab ka rahvaarvu. Kasutame reeglipõhist värvimist, kus jagame GDP rahvaarvuga ning jaotame need väärtused kolme kuni seitsmesse gruppi. Näiteks **GDP_MD_EST"  /  "POP_EST" * 1000000 > 5000 AND "GDP_MD_EST"  /  "POP_EST" * 1000000 <= 10000**. Võib lisada *Shapeburst fill* efekte.
+
+```{r euroskp, echo =F, fig.align='center', fig.show='hold', fig.cap = "SKP inimese kohta Euroopa riikides."}
+knitr::include_graphics(here::here("imgs", "europe_skp.png"))
+```
+
+```{r eurodia, echo =F, fig.align='center', fig.show='hold', fig.cap = "SKP inimese kohta Euroopa riikides diagramidena. Ringi suurus näitab rahvaarvu."}
+knitr::include_graphics(here::here("imgs", "europe_skp_dia.png"))
+```
+
+
+## Rastriga katsetamine
+
+Loome linnade populatsiooni põhjal interpoleeritud kihi kogu Euroopa jaoks. 
+
+```{r euroint, echo =F, fig.align='center', fig.show='hold', fig.cap = "Linnade populatsioonist interpoleeritud rasterkiht."}
+knitr::include_graphics(here::here("imgs", "europe_interpolation_pop.png"))
+```
+
+
+## Järgmisel korral
+
+Maarja-Liisa räägib kahel järgmisel korral tekstianalüüsist. Pärast seda on jäänud veel geostatistika ning veebirakenduste praktikum. 
