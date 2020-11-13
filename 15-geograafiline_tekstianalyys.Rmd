@@ -184,6 +184,8 @@ Käsitsi on märgendatud 28 teksti (u 250 000 sõna), mis moodustavad nn kuldsta
 xml-ist txt-kujule viimisel kasutatud ka ebastandardsete kirjutusviiside normaliseerimist ja toimetuse käigus tekkinud vigu.
 Kõiki kohanimesid ei saa kätte: kohanimed varieeruvad nii kirjapildis kui ka üldisemalt.
 Need, mis tuvastati, on enamasti tõepoolest kohanimed.
+Standardiseerimiseks kasutati VARD2 tarkvara.
+http://ucrel.lancs.ac.uk/vard/about/
 
 
 Ülesanne http://jekyll.inf.ed.ac.uk/geoparser/
