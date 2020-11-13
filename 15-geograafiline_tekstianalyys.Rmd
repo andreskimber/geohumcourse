@@ -1,0 +1,194 @@
+# Geograafiline tekstianalüüs {#tekstianalyys}
+
+- Mis see on?
+- Millised on sammud?
+- Näited
+- Olemasolevad ressursid: GeoTxt, Corpus of Lake District Writings
+- Eesti keele vahendid
+- Kohtadega seotud tekstide emotsioonid
+- 
+
+Geograafiline tekstianalüüs on uurimissuund ja metodoloogia, mis ühendab kirjandusteaduste traditsioonilised tekstianalüüsi meetodid ruumianalüüsi ja arvutuslike meetoditega.
+Kitsamalt on geograafilise tekstianalüüsi mõiste seotud Lancasteri ülikooliga ning nimedega nagu Ian Gregory, Chris Donaldson, Patricia Murrieta-Flores jpt. Laiemalt võib geograafilise tekstianalüüsi alla paigutada aga mis tahes kohtadega seotud teksti analüüsi ja visualiseerimise, nn *literary GIS*.
+
+Geograafilises tekstianalüüsis on prominentsel kohal just mainitud kohanimed ja sellega seostuv: kuidas kohti on tekstis kujutatud (milliste sõnadega, milliseid kohti ja kui sagedasti?). Nõnda erinevad need üksjagu tavapärastest teemakaartidest, kus kohad on mõtestatavad atribuutidena, mis mingeid objekte ja nende jaotumist iseloomustavad. Samuti erineb geograafiline tekstianalüüs näiteks lihtsalt kirjandusteoste sündmuskohtade kaardistamisest, kuna esimesel juhul analüüsitakse ka kohaga seotud teksti ennast, teisel juhul on sel heal juhul aga vaid illustreeriv funktsioon (näited).
+1. Mis kohtadest tekstides räägitakse?
+2. Mida tekstides nende kohtade kohta öeldakse?
+3. Mida öeldakse tekstides asjade või sündmuste kohta, mis on nende kohtadega seotud?
+
+Humanitaarteadustes on meetodit kasutatud eeskätt ajalooliste (st enne 20. sajandit kirjutatud) tekstide analüüsil, ent sellel on suur ühisosa ka tänapäevaste (nt Twitteri) tekstide analüüsiga. Ajalooliste tekstide puhul lisandub analüüsi sageli teoste digiteerimise protsess (sh tekstituvastus, OCR), mida võivad oluliselt komplitseerida toimunud muutused kirjastamises, trükiformaatides, aga ka keeles ja kirjaviisis endas.
+
+Tekstid ja kirjandus Sageli kohtame kirjandusteoste sündmuskohtade kaardistamist.
+
+Üha kasvav osa n-ö kirjandus(teadus)likust kaardistamisest (*literary mapping*) kasutab ära tänapäevaseid loomuliku keele töötluse vahendeid, eeskätt selleks, et eraldada suurest hulgast tekstidest automaatselt kohanimesid ning neid standardiseerida.
+
+Geotagging - KOHAnimede tuvastamine.
+GeoNames - kohanimeloend http://www.geonames.org/
+Ka eesti andmed (u 15 000 kohanime). NB! täpitähed!
+
+Laias laastus tegelevadki tänapäevased kirjandusliku GISi ja geograafilise tekstianalüüsi projektid 
+1) tekstis viidatud kohtade **identifitseerimisega** (võib olla nii kvalitatiivne kui ka kvantitatiivne; loomuliku keele töötluse vahendite kasutamine - automaatne nimetuvastus (Named Entity Recognition)) - geoparsing. Geoparsimine ongi kohanimede identifitseerimine, teksti(de)st eraldamine ja koordinaatidega sidumine, sisaldades nii ka geokodeerimist. Vahel eristatakse geoparsimist kui vabatekstiliste kohaviidete (nt *Anne sauna taga*) koordinaatidega sidumist üldisemast kohanimede koordinaatidega varustamisest (*toponym resolution*). Sageli kasutatakse geoparsimiseks koordinaatidega varustatud kohanimeloendeid (*gazetteer*). Koordinaatide lisamist ennast nimetatakse geomärkimiseks (*geotagging*). Geoparsimine on seega erinev geokodeerimisest, kuna tegeleb (ideaalis) ka ebamäärasemate kohaviidete tuvastamise ning viitesuhete lahendamisega.
+- kohanimede ehk toponüümide tuvastamine tekstist
+- tuvastatud kohanimede ehk toponüümide sidumine sobivate geograafiliste koordinaatidega
+2) Kohanimede viitesuhete lahendamine (käsitsi).
+2) seejärel kohtadega seotu **analüüsimisega** ja **tõlgendamisega** (nt ühisloome kasutamine, korpuslingvistika, aga ka kvalitatiivne analüüs, siin kasutatakse GISi eeskätt esituseks)
+
+Identifitseeritud kohtade mainimissagedusi võib võrrelda näiteks rahvastikunäitajatega (kas tihedamini asustatud kohti mainitakse ka rohkem?), muude ajalooliste, etnograafiliste vm andmetega. Aga võib ka analüüsida seda, mis kontekstis kohanimesid on tekstides mainitud, näiteks mis emotsioonidega seoses, milliste omadussõnadega seoses jne. Selleks kasutatakse tihtipeale korpuslingvistilisi meetodeid (automaatne) või ühisloomet (käsitsi).
+
+
+Näiteks
+1. Automaatselt eralda kohanimed, kasutades NER-i.
+2. Kasuta lisaks ajaloolisi kohanimeloendeid, et tuvastada mainitud kohti.
+3. Vali kõige sagedamad kohanimed.
+4. Võta tekstidest juhuslik valim katkenditest, kus igat kohanime mainitakse. 
+5. Kodeeri, kui sagedasti viidatakse kohanimega päriselt kõige esilduvamale kohale.
+6. Saadud osakaalu tõlgenda tõenäosusena ning korruta sellega läbi terves korpuses esineva vastava kohanime üldsagedused.
+7. Normaliseeri sagedused, jagades iga kohanime skaleeritud sageduse läbi korpuse tekstide sõnade arvuga (ja korrutades nt 100 000ga).
+8. Kasuta GISi, et iga koht esitada kas polügoonina või punktina. Võib kasutada ajaloolisi aluskaarte.
+9. Võrdle sagedusi muude andmetega.
+10. Ühisloome: 
+10.1. 20 osalejat loevad ja annoteerivad iga koha (165) kümmet 200-sõnalist katkendit ja märgivad
+	- kas kohta ainult mainitakse või on see sündmuskoht
+	- pooled: kas hirmu seostatakse kohaga või kogetakse kohas
+	- pooled: kas õnnelikkust seostatakse kohaga või kogetakse kohas
+
+Teosed võivad esindada näiteks ainult väga kindlat osa mingist kohast. Näiteks 18.-19. sajandi Londonis mainiti oluliselt rohkem selle läänepoolset osa, ehkki linn arenes kiiresti igas suunas. Kirjanduslik perspektiiv pakub seega alternatiivse kaardi Londoni mõistmiseks (peab mingeid osi vähem oluliseks või mainimisväärseks). See on jäänud kinni 17. sajandi alguse Londonisse, mil kesklinnast hakati rohkem liikuma West Endi suunas.
+Sageli avastatakse niisiis, et kirjanduslik tähelepanu kohtadele ei korreleeru rahvastiku kasvuga ning kirjanduses rõhutatakse pigem mingite kohtade ajaloolist, avalikku ja kaubanduslikku tähtsust.
+
+Stanford Literary Lab
+
+Kohanimed ei ole kirjandusteostes muidugi ainuke viis ruumile ja kohtadele viitamiseks, aga arvatakse, et konkreetsed kohanimedega tehakse veidi teisi asju kui ümberütlemistega: luuakse korraga narratiivset ja geograafilist ruumi.
+
+Kohanimed võivad olla ka ambivalentsed. Näiteks võib olla erinevatel küladel sama nimi. Seetõttu ei piisa adekvaatseks analüüsiks lihtsalt kohanimede sagedustest. Lahendusena on kasutatud näiteks juhuvalimit iga kohanimega seotud tekstikatketest ning nende läbilugemisel on käsitsi kodeeritud koht, millele kohanimega tegelikult viidati.
+
+Nimetuvastus ei pruugi hästi töötada ajalooliste kohanimedega, mistõttu saab lisaks kasutada ka näiteks ajaloolisi kohanimeloendeid.
+
+Geograafilisele tekstianalüüsile eelneb tekstikogu koostamine: digiteerimine, OCR, taassisestus vm.
+
+Kuna kirjandusteostes nimetatud kohtade kaardid ilma kontekstilise infota pakuvad vähe tõlgendusvõimalusi, lisatakse sageli juurde lihtsalt tekstikatkendeid vastavatest peatükkidest
+
+Võimalik ka näiteks kaardistada konkreetsete kohtadega seotud emotsioone kirjandusteostes ja seeläbi ühendada ilukirjanduse kvalitatiivselt erinevad afektiivsed esitused geograafilise ruumi ja ajalooliste sotsioloogiliste andmete kvantitatiivsete mõõtmetega. Ühendab "irratsionaalse" ja "ratsionaalse".
+
+Geograafiline tekstianalüüs on üks suundasid, mis 
+
+Analüüsi käigus selgub, milliseid osi tekstikorpusest tuleb n-ö lähilugeda ja milliste osadega saab hakkama ka kauglugemise teel.
+
+## Geoparsimine
+Geoparsitud korpuseid ei ole veel kuigi palju.
+
+
+### Automaatne nimetuvastus
+
+Üksikute tekstide puhul on võimalik ka käsitsi kõik nimed välja otsida, suuremate tekstikorpuste puhul läheb see aga liiga aeganõudvaks ja ressursimahukaks.
+
+Eesti keele automaatanalüüsi tööriistade kõige terviklikum komplekt sisaldub Pythoni EstNLTK teekides (viide), NerTagger. Nende kasutamiseks tuleb aga osata pisut Pythonis orienteeruda.
+Juhendid nt siin. Selle kursuse tarbeks on lihtne ja lühike juhend siin. 
+EstNLTK nimetuvastaja eristab kolme tüüpi nimesid
+- isikunimed,
+- kohanimed,
+- organisatsiooninimed.
+
+EstNLTK ei ühesta viitesuhteid, st ühel kohanimel on ainult üks referent.
+
+Saab kasutada ka koos kohanimeloendiga.
+
+Hindame kvaliteeti.
+
+Kui oskad veidi skriptida, saab nimetuvastust omakorda täiendada reeglitega (nt määrata konstruktsioonid "X talu" alati kohanimedeks) ja statistiliste tõenäosustega (nt "Lisbon" või "Scotland" üldiselt tõenäolisemalt Euroopa kohanimedele, aga Ameerika kirjanike puhul või USA idarannikust rääkides tõenäolisemalt Connecticuti osariigi samanimelistele väikelinnadele)
+
+Ingliskeelsete tekstide jaoks võib kasutada nt Edinburgh Geoparserit (jookseb ainult Macil ja Linuxil).
+Online versioon: http://jekyll.inf.ed.ac.uk/geoparser/
+
+Siin praktikumides tegeleme naiivse geoparsimisega ning määrame koordinaatideks kõige tõenäolisema vaste (nt kõige suurema rahvaarvuga koha).
+
+probleemid metonüümiaga (nt koht pro organisatsioon mingi riigi valitsuse, meeskondade vmt puhul)
+
+### Geokodeerimine
+
+Kohanimesid saab geokodeerida nii Maa-ameti kodulehel kui ka estnltk teegi abil (AddressTagger).
+
+Suurem osa veebipõhiseid geoparsereid on siiski tavalised geokodeerijad, mis lihtsalt annavad ka võimaluse väljastada ainult kõige tõenäolisem vaste.
+
+Pythonil on geoparser Mordecai teegis, mis võtab sisendiks teksti ja väljastab kohanimed koos koordinaatidega.
+
+GEOLocate Web Application (NB! failiformaat)
+https://www.geo-locate.org/web/WebFileGeoref.aspx
+
+Edinburghi geoparser töötab hästi jooksva tekstiga (kasutab kontekstilist infot).
+
+https://geocode.xyz/
+
+# Ülesanne
+
+Millised kohad Eesti kirjandusteostes positiivsed, millised negatiivsed?
+(Exceli laiendus)
+
+
+Nimeüksused - esimeses praktikumis
+Geokodeerimine - esimeses praktikumis
+
+EKI emotsioonidetektor - teises praktikumis
+Leiame kõige sagedama emotsiooni ja visualiseerime selle järgi
+Visualiseerime positiivse/negatiivse/neutraalse protsendi järgi
+
+1) Kohanimede NER-tagimine (eri vormid jäävad eri vormideks)
+2) NER-tage sisaldavate tekstilõikude väljaotsimine
+3) NER-tagide standardiseerimine/lemmatiseerimine
+4) Lemmade geokodeerimine
+5) Tekstilõikude emotsioonide hindamine
+
+1-3 Pythoni skriptidega.
+5 Excelis EKI emotsioonidetektoriga
+
+Tekstilõik|NER-tag|emotsioon|Lemma|Koordinaadid
+
+
+
+Kollokatsioonid (R-i virtuaalkeskkond) - teises praktikumis
+
+Corpus of Lake District Writing (CLDW): https://github.com/UCREL/LakeDistrictCorpus/tree/master/gold_standard
+80 käsitsi digiteeritud ja annoteeritud teksti (kokku üle 1,5 miljoni sõna), mis on kirjutatud aastatel 1622-1900 ning esindavad erinevaid žanre ja autoreid (https://dl.acm.org/doi/10.1145/3149858.3149865).
+Tekstid moodustavad valimi Inglismaa järvepiirkonna (Lake District).
+28 neist on avalikult üleval.
+Korpus moodustab ka n-ö testandmestiku, mille põhjal hinnata geoparserite kvaliteeti.
+
+Üldine kaardistamine
+Places associated with the term 'beautiful'.
+
+Skriptid githubi üles.
+Kohanimede märgendamine estnltk-ga. Väljundiks tabel nime märgendi ja selle standardiseeritud kujuga. ipynb
+CLDW tekstide puhastamine ja geotaggimine (koordinaatide lisamine)
+
+https://bighumanities.files.wordpress.com/2013/09/2_3_rayson_paper.pdf
+
+
+geoparsimist raskendab see, kui
+1) ei ole ühtset tööriista
+2) kohanimedes võib esineda varieerumist (nt nii Sankt Peterburg kui ka Peterburi viitavad samale kohale)
+3) kohanimed võivad esineda erinevates käänetes, aga geokodeerimine eeldab üldiselt sõnaraamatuvormi (v.a kokkulangevate käänete puhul nt küla (nimetav), küla (omastav), küla (osastav))
+4) sageli esinevad nimede küljes liiginimed, mis eri objektidele viitavaid kohanimesid eristavad (Pärnu jõgi, Pärnu linn, Pärnu maakond), aga vahel on need ka juba nime osad ning seega eraldi enam ei mainita (Emajõgi, Külaküla vs. Emajõe jõgi? Külaküla küla?)
+
+Seega peame eesti keele puhul läbi tegema eraldi vähemalt kolm faasi: 
+1) kohanimede identifitseerimise (nimetuvastaja),
+2) kohanimede standardiseerimise (morfoloogiline analüsaator),
+3) kohanimede sidumine koordinaatidega (geokodeerimine).
+
+Digiteerimise käigus tekib alati vigu, ükskõik kas optilise tekstituvastusega või käsitsi sisestamisega.
+Ajalooliste tekstide puhul on veelgi keerulisem see, et seal esinevad kohanimed ei pruugi sisalduda andmetes, mille peal automaatse analüüsi vahendid on treenitud. Samuti esineb vanemates tekstides oluliselt rohkem varieeruvust ning seoseid tänapäevaste kohanimedega võib olla keeruline leida.
+
+Meie korpuses on nimeüksused juba märgitud, meil tuleks sealt 
+
+Lake District (Järvemaa) on paljude mägede ja järvedega ala Loode-Inglismaal, mis on olnud sajandeid populaarne puhkekoht ja inspireerinud mitmeid kirjanikke. Sealt on ka pärit omajagu luuletajaid.
+Käsitsi on märgendatud 28 teksti (u 250 000 sõna), mis moodustavad nn kuldstandardi, mille suhtes automaatse analüüsi vahendeid testida. Loe ka https://www.lancaster.ac.uk/fass/projects/spatialhum.wordpress/wp-content/uploads/2013/12/06691671.pdf
+
+xml-ist txt-kujule viimisel kasutatud ka ebastandardsete kirjutusviiside normaliseerimist ja toimetuse käigus tekkinud vigu.
+Kõiki kohanimesid ei saa kätte: kohanimed varieeruvad nii kirjapildis kui ka üldisemalt.
+Need, mis tuvastati, on enamasti tõepoolest kohanimed.
+
+
+Ülesanne http://jekyll.inf.ed.ac.uk/geoparser/
+Üks ingliskeelse, aga üks ka eestikeelse tekstiga, kus oleks sees vorm "Tartus".
+
+
+Geoparserid üldiselt kasutavad viitesuhete lahendamiseks tänapäevaseid rahvastikuandmeid (mis on kõige tõenäolisem koht, millest räägitakse? kus on kõige rohkem rahvast?). Need aga ei pruugi olla ajalooliste tekstide puhul sugugi abiks.
+
