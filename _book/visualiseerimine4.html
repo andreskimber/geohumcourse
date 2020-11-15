@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="visualiseerimine3.html"/>
-<link rel="next" href="kirjandus.html"/>
+<link rel="next" href="tekstianalyys.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -184,6 +184,12 @@
 <li class="chapter" data-level="14.4" data-path="visualiseerimine4.html"><a href="visualiseerimine4.html#rastriga-katsetamine"><i class="fa fa-check"></i><b>14.4</b> Rastriga katsetamine</a></li>
 <li class="chapter" data-level="14.5" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>14.5</b> Järgmisel korral</a></li>
 </ul></li>
+<li class="chapter" data-level="15" data-path="tekstianalyys.html"><a href="tekstianalyys.html"><i class="fa fa-check"></i><b>15</b> Geograafiline tekstianalüüs</a><ul>
+<li class="chapter" data-level="15.1" data-path="tekstianalyys.html"><a href="tekstianalyys.html#geoparsimine"><i class="fa fa-check"></i><b>15.1</b> Geoparsimine</a><ul>
+<li class="chapter" data-level="15.1.1" data-path="tekstianalyys.html"><a href="tekstianalyys.html#automaatne-nimetuvastus"><i class="fa fa-check"></i><b>15.1.1</b> Automaatne nimetuvastus</a></li>
+<li class="chapter" data-level="15.1.2" data-path="avaandmed2.html"><a href="avaandmed2.html#geokodeerimine"><i class="fa fa-check"></i><b>15.1.2</b> Geokodeerimine</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="kirjandus.html"><a href="kirjandus.html"><i class="fa fa-check"></i>Kirjandus</a></li>
 </ul>
 
@@ -206,9 +212,9 @@
 <h1><span class="header-section-number">Praktikum 14</span> Ruumiandmete visualiseerimine 4</h1>
 <div id="euroopa-ja-maailma-andmed" class="section level2">
 <h2><span class="header-section-number">14.1</span> Euroopa ja maailma andmed</h2>
-<p>Lae alla avaandmete praktikumist tuttavalt lehelt <a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/">Natural Earth Data</a> maailmariikide (<em>Admin - 0</em>) ja linnade (<em>Populated places</em>) kihid. Paki need lahti oma andmete kausta ning ava QGISis.</p>
+<p>Varasemates praktikumides oleme tegelenud sisuliselt ainult Eesti alaga. Sageli võib olla vaja aga visualiseerida andmeid ka teistest riikidest. Sellega käesolevas praktikumis tegelemegi. Lae alla avaandmete praktikumist tuttavalt lehelt <a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/">Natural Earth Data</a> maailmariikide (<em>Admin 0 - Countries</em>) ja linnade (<em>Populated places</em>) kihid. Paki need lahti oma andmete kausta ning ava QGISis. Huvi korral vaata ka lähemalt, mida andmetes täpsemalt kujutatakse, klikkides lingil <em>About | Issues | Version History »</em>.</p>
 <div class="figure" style="text-align: center"><span id="fig:naturalearth"></span>
-<img src="imgs/natural_earth.png" alt="Natural Earth logo" width="75%" />
+<img src="imgs/natural_earth.png" alt="Natural Earth logo" width="50%" />
 <p class="caption">
 Figure 14.1: Natural Earth logo
 </p>
@@ -222,26 +228,57 @@ Figure 14.1: Natural Earth logo
 Figure 14.2: Koordinaatsüsteemi vahetamine nn on-the-fly
 </p>
 </div>
-<p>Nüüd peaks andmed õigesti visualiseeritud olema. Vaata mõlema andmestiku atribuuttabeleid ning ka riikide piire. Nagu näha on riigipiirid olulised lihtsustatud, kuna see teeb kihi väiksemaks ja töö sellega lihtsamaks ning sellisel skaalal ei ole detailsus niivõrd oluline.</p>
+<p>Nüüd peaks andmed õigesti näha olema. Vaata mõlema andmestiku atribuuttabeleid ning ka riikide piire. Nagu näha on riigipiirid olulised lihtsustatud, kuna see teeb kihi väiksemaks ja töö sellega lihtsamaks ning sellisel skaalal ei ole detailsus niivõrd oluline.</p>
+<p>Nagu varasemates praktikumis räägitud, moonutab Mercatori</p>
 </div>
 </div>
 <div id="euroopa-riikide-ja-linnade-filtreerimine" class="section level2">
 <h2><span class="header-section-number">14.2</span> Euroopa riikide ja linnade filtreerimine</h2>
-<p>Lõika välja ainult Euroopa riigid ja ka Euroopa linnad. Riikide andmestikus on olemas tulp <em>Region_UN</em>, mille põhjal saamegi valida ainult riigid, mille väärtus on seal tulbas on <em>Europe</em>. Kasuta selleks näiteks tööriista <em>Select features by value</em>. Kui riigid valitud, siis ekspordi valik Geopackage failina. Vali aga mõõtkavaks EPSG 3034. Eemaldada maailmariikide kiht ja kustuta Euroopa kihist Venemaa.</p>
+<p>Lõika välja ainult Euroopa riigid ja ka Euroopa linnad. Riikide andmestikus on olemas tulp <em>Region_UN</em>, mille põhjal saamegi valida ainult riigid, mille väärtus on seal tulbas on <em>Europe</em>. Kasuta selleks näiteks tööriista <em>Select features by value</em>. Käsitsi võid valida riigid ka <em>Select</em> funktsiooniga ükshaaval neil klikkides (hoia all <em>Shift</em> klahvi, et valida mitu korraga) või kastiga valides.</p>
+<div class="figure" style="text-align: center"><span id="fig:selecteur"></span>
+<img src="imgs/select_eur.gif" alt="Euroopa riikide valimine" width="100%" />
+<p class="caption">
+Figure 14.3: Euroopa riikide valimine
+</p>
+</div>
+<p>Kui riigid valitud, siis ekspordi valik Geopackage failina, näiteks nimega <em>euroopa_riigid</em>. Eemaldada maailmariikide kiht. Vaheta projekti mõõtkava. Ülemaailmse EPSG 4326 asemel vali mõõtkavaks <strong>ETRS89-extended / LCC Europe EPSG 3034</strong>, mis on sobilik kogu Euroopa alaga töötamiseks. Kustuta Euroopa kihist Venemaa, et saaksime töötada väiksema ulatusega.</p>
+<p>Mitmel Euroopa riigil on alasid ka Euroopa mandrist väljaspool. Need alad tulevad ka praeguse valikuga kaasa ning praeguse ülesande juures need ei sega. Vajadusel saab eraldiseisvad polügoni ka kustutada. Hetkel aga proovides kustutada näiteks Prantsuse Guajaanat kustub ka kogu Prantsusmaa. Seda seetõttu, et kõiki ühele riigile kuuluvaid alasid käsitletakse selles andmestikus ühe objektina, mida kujutab atribuuttabelis ka üks rida. Sellise kihi geomeetria on <em>Multipolygon</em>. Soovides eraldiseisvaid polügone kustutada, tuleb need kõigepealt mitmeks objektiks teha. Näiteks funktsiooniga <em>Multipart to singleparts</em>, kuid hektel pole see vajalik.</p>
+<div class="figure" style="text-align: center"><span id="fig:exporteur"></span>
+<img src="imgs/export_eur.gif" alt="Euroopa eksportimine ja koordinaatsüsteemi vahetamine" width="100%" />
+<p class="caption">
+Figure 14.4: Euroopa eksportimine ja koordinaatsüsteemi vahetamine
+</p>
+</div>
 </div>
 <div id="skpin-visualiseerimine" class="section level2">
 <h2><span class="header-section-number">14.3</span> SKP/in visualiseerimine</h2>
-<p>Proovime visualiseerida siseriikliku kogutoodangut inimese kohta nii riigi värvina kui ka diagrammina, mis kujutab ka rahvaarvu. Kasutame reeglipõhist värvimist, kus jagame GDP rahvaarvuga ning jaotame need väärtused kolme kuni seitsmesse gruppi. Näiteks <strong>GDP_MD_EST" / “POP_EST” * 1000000 &gt; 5000 AND “GDP_MD_EST” / “POP_EST” * 1000000 &lt;= 10000</strong>. Võib lisada <em>Shapeburst fill</em> efekte.</p>
+<p>Proovime visualiseerida siseriikliku kogutoodangut inimese kohta nii riigi värvina kui ka diagrammina, mis kujutab ka rahvaarvu. Kasutame reeglipõhist värvimist, kus jagame GDP rahvaarvuga ning jaotame need väärtused kolme kuni seitsmesse gruppi. Paremklikk <em>-&gt; Properties -&gt; Symbology - Rule-based</em>. Loo rohelise plussmärgiga iga vahemiku jaoks eraldi reeglid (vt valmis näidet). Reegli <em>Filter</em> lahtrisse kirjuta avaldis <strong>GDP_MD_EST" / “POP_EST” * 1000000 &gt; 5000 AND “GDP_MD_EST” / “POP_EST” * 1000000 &lt;= 10000</strong>. Loo samasugused reeglid ka teiste vahemike jaoks. Reeglipõhistest sümbolitest on lähemalt juttu prakikumis <a href="visualiseerimine1.html#visualiseerimine1">11</a>. Värvivalikul võid lähtuda eelmises praktikumis käsitletud <a href="https://colorbrewer2.org/">Colorbreweri</a> võimalustest. Seal kujutatud värvide <em>HEX</em> väärtuse saab kopeerida QGISis värvivalikute juures <em>HTML notation</em> reale.</p>
+<!-- Võib lisada *Shapeburst fill* efekte. -->
 <div class="figure" style="text-align: center"><span id="fig:euroskp"></span>
 <img src="imgs/europe_skp.png" alt="SKP inimese kohta Euroopa riikides." width="1754" />
 <p class="caption">
-Figure 14.3: SKP inimese kohta Euroopa riikides.
+Figure 14.5: SKP inimese kohta Euroopa riikides.
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:eurodia"></span>
+<p>Visualiseerime ka diagrammidena. Tee kihist <em>euroopa_riigid</em> koopia. Sellel kihil ava <em>Properties -&gt; Diagrams -&gt; Pie chart -&gt; Attributes</em> ning lisa <em>Assigned attributes</em> juurde samad avaldised, mida kasutasid eelmises kihis riikide värvimiseks. Nagu näha kattavad mõned diagrammid kogu riigi ning varjavad ka teisi diagramme.</p>
+<div class="figure" style="text-align: center"><span id="fig:diagrammeexpression"></span>
+<img src="imgs/exp_diagramm.gif" alt="Avaldiste loomine diagrammi jaoks."  />
+<p class="caption">
+Figure 14.6: Avaldiste loomine diagrammi jaoks.
+</p>
+</div>
+<p>Paneme diagrammi suuruse sõltuma riigi rahvaarvust. Lisaks tuleb määrata neile ka miinimum suurus, et väiksema rahvaarvuga riigite diagrammid oleks nähtavad. Maksimumväärtuse võiks määrata pisut suurema kui suurim rahvaarv. Siin kasutame 100 000 000. Taoliste sätetega on 100 miljoni elanikuga riigi diagramm 15 mm suurune ning väiksema rahvaarvuga riikidelt järjest väiksem.</p>
+<div class="figure" style="text-align: center"><span id="fig:diagrammesize"></span>
+<img src="imgs/diagramm_size.gif" alt="SKP inimese kohta Euroopa riikides diagramidena. Ringi suurus näitab rahvaarvu."  />
+<p class="caption">
+Figure 14.7: SKP inimese kohta Euroopa riikides diagramidena. Ringi suurus näitab rahvaarvu.
+</p>
+</div>
+<p>Vali riikidele ka meelepärane värv ning ekspordi kaart koos legendiga. Võid katsetada ka erinevate visualiseerimise efektidega. Selleks tee <em>Simple fill</em> sümboloogia juures all pool linnuke <em>Draw effects</em> ette ning kliki kollasel tähekesel efektide valimiseks.</p>
+<div class="figure" style="text-align: center"><span id="fig:diagrammeeurope"></span>
 <img src="imgs/europe_skp_dia.png" alt="SKP inimese kohta Euroopa riikides diagramidena. Ringi suurus näitab rahvaarvu." width="1754" />
 <p class="caption">
-Figure 14.4: SKP inimese kohta Euroopa riikides diagramidena. Ringi suurus näitab rahvaarvu.
+Figure 14.8: SKP inimese kohta Euroopa riikides diagramidena. Ringi suurus näitab rahvaarvu.
 </p>
 </div>
 </div>
@@ -251,14 +288,13 @@ Figure 14.4: SKP inimese kohta Euroopa riikides diagramidena. Ringi suurus näit
 <div class="figure" style="text-align: center"><span id="fig:euroint"></span>
 <img src="imgs/europe_interpolation_pop.png" alt="Linnade populatsioonist interpoleeritud rasterkiht." width="1754" />
 <p class="caption">
-Figure 14.5: Linnade populatsioonist interpoleeritud rasterkiht.
+Figure 14.9: Linnade populatsioonist interpoleeritud rasterkiht.
 </p>
 </div>
 </div>
 <div id="järgmisel-korral" class="section level2">
 <h2><span class="header-section-number">14.5</span> Järgmisel korral</h2>
 <p>Maarja-Liisa räägib kahel järgmisel korral tekstianalüüsist. Pärast seda on jäänud veel geostatistika ning veebirakenduste praktikum.</p>
-
 
 </div>
 </div>
@@ -268,7 +304,7 @@ Figure 14.5: Linnade populatsioonist interpoleeritud rasterkiht.
         </div>
       </div>
 <a href="visualiseerimine3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="kirjandus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tekstianalyys.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

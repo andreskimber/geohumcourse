@@ -1,10 +1,10 @@
 # Ruumiandmete visualiseerimine 4 {#visualiseerimine4}
 
-## Euroopa ja maailma andmed 
+## Euroopa ja maailma andmed
 
-Lae alla avaandmete praktikumist tuttavalt lehelt [Natural Earth Data](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/) maailmariikide (*Admin - 0*) ja linnade (*Populated places*) kihid. Paki need lahti oma andmete kausta ning ava QGISis.
+Varasemates praktikumides oleme tegelenud sisuliselt ainult Eesti alaga. Sageli võib olla vaja aga visualiseerida andmeid ka teistest riikidest. Sellega käesolevas praktikumis tegelemegi. Lae alla avaandmete praktikumist tuttavalt lehelt [Natural Earth Data](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/) maailmariikide (*Admin 0 - Countries*) ja linnade (*Populated places*) kihid. Paki need lahti oma andmete kausta ning ava QGISis. Huvi korral vaata ka lähemalt, mida andmetes täpsemalt kujutatakse, klikkides lingil *About | Issues | Version History »*. 
 
-```{r naturalearth, echo =F, fig.align='center', fig.show='hold', fig.cap = "Natural Earth logo", out.width="75%"}
+```{r naturalearth, echo =F, fig.align='center', fig.show='hold', fig.cap = "Natural Earth logo", out.width="50%"}
 knitr::include_graphics(here::here("imgs", "natural_earth.png"))
 ```
 
@@ -16,28 +16,59 @@ Kuna maailma andmestik on ulatuselt oluliselt suurem kui Eesti ala, millega seni
 knitr::include_graphics(here::here("imgs", "wgs84.gif"))
 ```
 
-Nüüd peaks andmed õigesti visualiseeritud olema. Vaata mõlema andmestiku atribuuttabeleid ning ka riikide piire. Nagu näha on riigipiirid olulised lihtsustatud, kuna see teeb kihi väiksemaks ja töö sellega lihtsamaks ning sellisel skaalal ei ole detailsus niivõrd oluline. 
+Nüüd peaks andmed õigesti näha olema. Vaata mõlema andmestiku atribuuttabeleid ning ka riikide piire. Nagu näha on riigipiirid olulised lihtsustatud, kuna see teeb kihi väiksemaks ja töö sellega lihtsamaks ning sellisel skaalal ei ole detailsus niivõrd oluline.
+
+Nagu varasemates praktikumis räägitud, moonutab Mercatori
 
 ## Euroopa riikide ja linnade filtreerimine
 
-Lõika välja ainult Euroopa riigid ja ka Euroopa linnad. Riikide andmestikus on olemas tulp *Region_UN*, mille põhjal saamegi valida ainult riigid, mille väärtus on seal tulbas on *Europe*. Kasuta selleks näiteks tööriista *Select features by value*. Kui riigid valitud, siis ekspordi valik Geopackage failina. Vali aga mõõtkavaks EPSG 3034. Eemaldada maailmariikide kiht ja kustuta Euroopa kihist Venemaa. 
+Lõika välja ainult Euroopa riigid ja ka Euroopa linnad. Riikide andmestikus on olemas tulp *Region_UN*, mille põhjal saamegi valida ainult riigid, mille väärtus on seal tulbas on *Europe*. Kasuta selleks näiteks tööriista *Select features by value*. Käsitsi võid valida riigid ka *Select* funktsiooniga ükshaaval neil klikkides (hoia all *Shift* klahvi, et valida mitu korraga) või kastiga valides. 
+
+```{r selecteur, echo =F, fig.align='center', fig.show='hold', fig.cap = "Euroopa riikide valimine", out.width="100%"}
+knitr::include_graphics(here::here("imgs", "select_eur.gif"))
+```
+
+Kui riigid valitud, siis ekspordi valik Geopackage failina, näiteks nimega *euroopa_riigid*. Eemaldada maailmariikide kiht. Vaheta projekti mõõtkava. Ülemaailmse EPSG 4326 asemel vali mõõtkavaks **ETRS89-extended / LCC Europe EPSG 3034**, mis on sobilik kogu Euroopa alaga töötamiseks. Kustuta Euroopa kihist Venemaa, et saaksime töötada väiksema ulatusega.
+
+Mitmel Euroopa riigil on alasid ka Euroopa mandrist väljaspool. Need alad tulevad ka praeguse valikuga kaasa ning praeguse ülesande juures need ei sega. Vajadusel saab eraldiseisvad polügoni ka kustutada. Hetkel aga proovides kustutada näiteks Prantsuse Guajaanat kustub ka kogu Prantsusmaa. Seda seetõttu, et kõiki ühele riigile kuuluvaid alasid käsitletakse selles andmestikus ühe objektina, mida kujutab atribuuttabelis ka üks rida. Sellise kihi geomeetria on *Multipolygon*. Soovides eraldiseisvaid polügone kustutada, tuleb need kõigepealt mitmeks objektiks teha. Näiteks funktsiooniga *Multipart to singleparts*, kuid hektel pole see vajalik. 
+
+
+```{r exporteur, echo =F, fig.align='center', fig.show='hold', fig.cap = "Euroopa eksportimine ja koordinaatsüsteemi vahetamine", out.width="100%"}
+knitr::include_graphics(here::here("imgs", "export_eur.gif"))
+```
 
 ## SKP/in visualiseerimine 
 
-Proovime visualiseerida siseriikliku kogutoodangut inimese kohta nii riigi värvina kui ka diagrammina, mis kujutab ka rahvaarvu. Kasutame reeglipõhist värvimist, kus jagame GDP rahvaarvuga ning jaotame need väärtused kolme kuni seitsmesse gruppi. Näiteks **GDP_MD_EST"  /  "POP_EST" * 1000000 > 5000 AND "GDP_MD_EST"  /  "POP_EST" * 1000000 <= 10000**. Võib lisada *Shapeburst fill* efekte.
+Proovime visualiseerida siseriikliku kogutoodangut inimese kohta nii riigi värvina kui ka diagrammina, mis kujutab ka rahvaarvu. Kasutame reeglipõhist värvimist, kus jagame GDP rahvaarvuga ning jaotame need väärtused kolme kuni seitsmesse gruppi. Paremklikk *-> Properties -> Symbology - Rule-based*. Loo rohelise plussmärgiga iga vahemiku jaoks eraldi reeglid (vt valmis näidet). Reegli *Filter* lahtrisse kirjuta avaldis **GDP_MD_EST"  /  "POP_EST" * 1000000 > 5000 AND "GDP_MD_EST"  /  "POP_EST" * 1000000 <= 10000**. Loo samasugused reeglid ka teiste vahemike jaoks. Reeglipõhistest sümbolitest on lähemalt juttu prakikumis \@ref(visualiseerimine1). Värvivalikul võid lähtuda eelmises praktikumis käsitletud [Colorbreweri](https://colorbrewer2.org/) võimalustest. Seal kujutatud värvide *HEX* väärtuse saab kopeerida QGISis värvivalikute juures *HTML notation* reale. 
+
+<!-- Võib lisada *Shapeburst fill* efekte. -->
 
 ```{r euroskp, echo =F, fig.align='center', fig.show='hold', fig.cap = "SKP inimese kohta Euroopa riikides."}
 knitr::include_graphics(here::here("imgs", "europe_skp.png"))
 ```
 
-```{r eurodia, echo =F, fig.align='center', fig.show='hold', fig.cap = "SKP inimese kohta Euroopa riikides diagramidena. Ringi suurus näitab rahvaarvu."}
+Visualiseerime ka diagrammidena. Tee kihist *euroopa_riigid* koopia. Sellel kihil ava *Properties -> Diagrams -> Pie chart -> Attributes* ning lisa *Assigned attributes* juurde samad avaldised, mida kasutasid eelmises kihis riikide värvimiseks. Nagu näha kattavad mõned diagrammid kogu riigi ning varjavad ka teisi diagramme. 
+
+```{r diagrammeexpression, echo =F, fig.align='center', fig.show='hold', fig.cap = "Avaldiste loomine diagrammi jaoks."}
+knitr::include_graphics(here::here("imgs", "exp_diagramm.gif"))
+```
+
+Paneme diagrammi suuruse sõltuma riigi rahvaarvust. Lisaks tuleb määrata neile ka miinimum suurus, et väiksema rahvaarvuga riigite diagrammid oleks nähtavad. Maksimumväärtuse võiks määrata pisut suurema kui suurim rahvaarv. Siin kasutame 100 000 000. Taoliste sätetega on 100 miljoni elanikuga riigi diagramm 15 mm suurune ning väiksema rahvaarvuga riikidelt järjest väiksem.
+
+```{r diagrammesize, echo =F, fig.align='center', fig.show='hold', fig.cap = "SKP inimese kohta Euroopa riikides diagramidena. Ringi suurus näitab rahvaarvu."}
+knitr::include_graphics(here::here("imgs", "diagramm_size.gif"))
+```
+
+Vali riikidele ka meelepärane värv ning ekspordi kaart koos legendiga. Võid katsetada ka erinevate visualiseerimise efektidega. Selleks tee *Simple fill* sümboloogia juures all pool linnuke *Draw effects* ette ning kliki kollasel tähekesel efektide valimiseks.
+
+```{r diagrammeeurope, echo =F, fig.align='center', fig.show='hold', fig.cap = "SKP inimese kohta Euroopa riikides diagramidena. Ringi suurus näitab rahvaarvu."}
 knitr::include_graphics(here::here("imgs", "europe_skp_dia.png"))
 ```
 
 
 ## Rastriga katsetamine
 
-Loome linnade populatsiooni põhjal interpoleeritud kihi kogu Euroopa jaoks. 
+Loome linnade populatsiooni põhjal interpoleeritud kihi kogu Euroopa jaoks.
 
 ```{r euroint, echo =F, fig.align='center', fig.show='hold', fig.cap = "Linnade populatsioonist interpoleeritud rasterkiht."}
 knitr::include_graphics(here::here("imgs", "europe_interpolation_pop.png"))
@@ -46,4 +77,4 @@ knitr::include_graphics(here::here("imgs", "europe_interpolation_pop.png"))
 
 ## Järgmisel korral
 
-Maarja-Liisa räägib kahel järgmisel korral tekstianalüüsist. Pärast seda on jäänud veel geostatistika ning veebirakenduste praktikum. 
+Maarja-Liisa räägib kahel järgmisel korral tekstianalüüsist. Pärast seda on eel geostatistika, veebirakenduste ja R'i kasutamise praktikum.  
