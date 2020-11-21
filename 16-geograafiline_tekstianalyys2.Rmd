@@ -1,0 +1,209 @@
+# Geograafiline tekstianalüüs 2 {#tekstianalyys2}
+
+Tänases praktikumis tegeleme geograafilise tekstianalüüsiga, kasutades eesti keele automaattöötluseks loodud vahendeid. 
+Nagu eelmises praktikumis mainitud, sisaldub selleks kõige põhjalikum tööriistade komplekt Pythoni EstNLTK teekides.
+
+Materjali ja aja kokkuhoiu huvides oleme juba eraldanud tekstidest kohanimeüksused. Koodid ja juhendid leiad [siit](https://github.com/MPilvik/bornhohe_analyys).   
+
+Kasutame geograafilise tekstianalüüsi näitlikustamiseks siin [Tartu Linnaraamatukogu e-raamatute eeltöödeldud faile](https://datadoi.ee/handle/33/76) (lehel kasutas *soned.zip*). Tegeleme selles praktikumis Eduard Bornhöhe teosega "Vürst Gabriel ehk Pirita kloostri viimsed päevad".  
+
+
+## Ülesanne 1: lihtne teksti meelsuse analüüs
+
+Esimeses ülesandes 
+
+- vaatleme, **milliseid kohanimeüksusi** on teoses mainitud;
+- loeme kokku, **kui palju** mingit kohta on mainitud;  
+- analüüsime, milline on kohanimeüksust sisaldava **tekstikatkendi meelsus**: kas tekst on pigem positiivne, negatiivne, vastuoluline või neutraalne;  
+- geokodeerime kohanimeüksused;  
+- visualiseerime andmeid.  
+
+
+```{r bornhohe1, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= '"Vürst Gabriel ehk Pirita kloostri viimsed päevad" lähtetekst'}
+knitr::include_graphics(here::here("imgs", "16_bornhohe.PNG"))
+```
+
+Kõigepealt vaatame faili **_kontekstitabel_bornhohe_incorr.csv_**, kus on tabelkujul 
+
+- kohanimeüksus sellisel kujul, nagu see tekstis esineb (tulp *kohad*). Mitmest sõnast koosneva kohanimeüksuse puhul (nt *Tallinna linnast*) ainult kõige esimene komponent (nt *Tallinna*);  
+- katkend/kontekst ehk 20 sõna kohanimest vasakule ja paremale (tulp *kontekstid*);  
+- kohanimeüksuse kõige esimese komponendi lemma (tulp *lemmad1*) ehk sõnaraamatukuju (nt *Tallinn*);  
+- terve kohanimeüksus (tulp *lemmad2*), milles lemmatiseeritud ehk sõnaraamatukujule viidud ainult kõige viimane element (nt *Tallinna __linn__*).  
+
+Tabelis on nimetuvastaja automaatne väljund, kus mingeid parandusi ei ole tehtud.  
+
+```{r kontekstitabel, echo = F}
+dat <- read.csv2("failid/kontekstitabel_bornhohe_incorr.csv", fileEncoding = "UTF-8")
+head(dat)
+```
+
+
+### Tekstikatkendite meelsuse tuvastamine
+
+Järgmiseks määrame tekstikatkendite meelsuse. Selleks saame kasutada näiteks [Eesti Keele Instituudi emotsioonidetektorit](http://peeter.eki.ee:5000/applications/list), mida saab kasutada ka Microsoft Excelis. 
+Selleks installime kõigepealt vastava pistikprogrammi (*plugin*):
+
+- laadime alla faili **valence.xlam**; 
+- avame Exceli ja valime *File* -> *Options* -> *Add-Ins*;
+- kõige all valime *Manage* -> *Excel Add-ins* -> *Go* -> *Browse* -> valime faili *valence.xlam* -> OK;
+- paneme Exceli kinni ning teeme uuesti lahti.
+
+Järgmiseks avame Excelis faili **kontekstitabel_bornhohe_incorr.csv**: *Data* -> *From Text* -> *Delimited*,  *File origin: Unicode (UTF-8)* ja *My data has headers* -> *Next* -> *Delimiters* (ainult Semicolon) -> *Next* -> *Finish*. (Uuemate Exceli versioonide puhul vaata juhendit [siit](https://support.microsoft.com/en-us/office/import-or-export-text-txt-or-csv-files-5250ac4c-663c-47ce-937b-339e391393ba)).   
+
+- Tekitame uue tulba, nt nimega "Ajutine".  
+- Kirjutame uue tulba esimesse lahtrisse funktsiooni `=Valence.Test()` ning funktsiooni sulgude sisse vastaval real asuva lahtri viite, kus on tekstikatkend, nt `=Valence.Test(B2)`.
+- Kopeerime valemi kõikidesse ajutise tulba lahtritesse nii, et igal real oleks funktsiooni sulgude sees vastava rea number (`B2`, `B3`, `B4`, `B5` jne) ning funktsiooni vasteks õige tekstikatkendi hinnang.  
+- Teeme tulba kõrvale uue tulba nimega "Emotsioonid" ning kopeerime kõik ajutise tulba väärtused sellesse tulpa, kasutades väärtustena kleepimist (*Paste as Values*).  
+- Kustutame tulba "Ajutine" ning salvestame faili csv- või xlsx-failina. NB! Windowsis muutub csv-na salvestamisel faili kodeering UTF-8st WIndowsis endas kasutatavaks, keelespetsiifiliseks kodeeringuks. Kui tahad kodeeringut tagasi UTF-8ks muuta, siis installi näiteks Notepad++, ava csv-fail seal ning vali *Encoding* -> *Convert to UTF-8* -> *Save*.  
+
+```{r excel1, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= 'Teksti meelsuse tuvastamine'}
+knitr::include_graphics(here::here("imgs", "16_excel1.gif"))
+```
+
+### Geosildistamine
+
+Nüüd peame saama oma tabelile koordinaadid. Selleks kasutame [Maa-ameti massgeokodeerimise teenust](https://inaadress.maaamet.ee/geocoder/bulk). 
+
+```{r bornhohe2, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Geokodeerimise sätted"}
+knitr::include_graphics(here::here("imgs", "16_bornhohe2.PNG"))
+```
+
+Laadime üles csv- või xlsx-faili, kasutame sisendaadressiks/lähteaadressiks pikka kohanimeüksust ehk tulpa *lemmad2* ning kui töö on valmis, siis saadud tabeli **SHP-failina** alla (eeldame, et me ei hakka käsitsi faili koordinaate muutma).  
+
+
+### Visualiseerimine
+
+Avame QGISi ning laadime sinna geokodeeritud faili.  
+Valime sobiva aluskaardi, näiteks eelmisel korral kasutatud [Natural Earth Data vektorandmed](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/) (admin0 Countries). 
+
+```{r qgis1, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Andmekihid QGISis"}
+knitr::include_graphics(here::here("imgs", "16_qgis1.PNG"))
+```
+
+
+Visualiseerimiseks on meil vaja teada,  
+
+- kui mitu korda igat kohta mainiti,  
+- kui mitu igast mainimisest olid negatiivses, positiivses, neutraalses või vastuolulises kontekstis.  
+
+Võime vastavad andmed tuletada mitut moodi. Siin teeme esmalt geokodeeritud kihist DB Manageris uue kihi, kus iga kohanimeüksuse esinemisjuhud on kokku loetud (*count*).   
+```
+SELECT lemmad__1, count(*) as arv, geometry
+FROM geocoded
+GROUP BY lemmad__1;
+```
+Tee ka linnuke *Load as new layer* ette ning laadi tulemus uue kihina nimega *koguarv*.  
+
+```{r qgis2, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Andmekihid QGISis"}
+knitr::include_graphics(here::here("imgs", "16_qgis2.gif"))
+```
+
+Visualiseerime kohanimeüksuste esinemissagedusi punktidena nii, et 
+
+- ringide suurus näitaks mainimiste arvu,
+- siltide teksti suurus näitaks mainimiste arvu (näita kõiki silte).  
+
+
+```{r qgis3, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Andmekihid QGISis"}
+knitr::include_graphics(here::here("imgs", "16_qgis3.gif"))
+```
+
+Näeme, et automaatne nimetuvastus ja automaatne geokodeerimine ilma mingi vahekontrolli, täpsustuste ja parandusteta ei tööta Bornhöhe tekstil hästi ning tegelikult peaksime adekvaatsete tulemuste saamiseks siiski ka pisut käsitööd tegema.  
+
+Praegu aga ignoreerime ebatäpseid tulemusi ja teeme enam-vähem samal moel kihi, kus on eraldi kokku loetud positiivsete, negatiivsete jne katkendite hulk iga kohanime puhul.
+
+```
+SELECT lemmad__1, count(*) as arv, geometry, Emotsiooni
+FROM geocoded
+GROUP BY lemmad__1, Emotsiooni;
+```
+
+(Pane tähele, et kui emotsioone sisaldav tulbanimi oli enne *Emotsioonid*, siis QGIS võib tulbanime pisut lühendada.)  
+
+
+```{r qgis4, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Andmekihid QGISis"}
+knitr::include_graphics(here::here("imgs", "16_qgis4.gif"))
+```
+
+Nüüd saame visualiseerida lihtsalt teatud emotsioonidega seotud kohti, ent võime ka kaks kihti ühendada ning arvutada iga emotsiooni osakaalu vastava koha katkendite hulgas.
+
+Ühendamiseks võime liita emotsioonidega kihile esimese, koondsagedustega kihi.  
+Ühendatud kihil loome uue atribuudi *osakaal* (tulp *arv* jagatud tulbaga *koguarv_arv* ja korrutatud 100-ga).  
+
+```{r qgis5, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Andmekihid QGISis"}
+knitr::include_graphics(here::here("imgs", "16_qgis5.gif"))
+```
+
+Nüüd visualiseerime piirkondi nii, et   
+
+- punkti värv väljendab vastava kohaga seotud emotsiooni,
+- punkti suurus vastava emotsiooni osakaalu.  
+
+Teeme punktid pisut läbipaistvamaks.  
+
+```{r qgis6, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Andmekihid QGISis"}
+knitr::include_graphics(here::here("imgs", "16_qgis6.gif"))
+```
+
+
+Lõpuks võiksime veel teha heatmapi, nagu eelmisel korral, kus kuvame algse punktikihi põhjal punktide jaotumist rastrina ning kuvame selle peal loodud vektorkihti.  
+
+```{r qgis7, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Andmekihid QGISis"}
+knitr::include_graphics(here::here("imgs", "16_qgis7.gif"))
+```
+
+
+
+## Ülesanne 2: lihtne kollokatsioonide analüüs 
+
+Teises ülesandes püüame leida kohanimede kontekstist **kollokatsioone** ehk sõnu, mis esinevad konkreetsete kohanimedega sagedamini koos, kui võiks arvata nende üldisest esinemissagedusest tekstis.
+
+Oleme otsinud kohanimedega koos esinevaid omadussõnu, mis EstNLTK morfoloogilises analüsaatoris on eristatud märgendiga 'A'.  
+
+Tuvastatud kohanimedega tabel asub failis **sonapaarid_bornhohe_freqs_corr.csv**.  
+
+```{r kolltabel, echo = F}
+dat <- read.csv2("failid/sonapaarid_bornhohe_freqs_corr.csv", fileEncoding = "UTF-8")
+head(dat)
+```
+
+Automaatse nimetuvastuse tulemusi on siin käsitsi veidi kohendatud ja parandatud. Näiteks on kohanimeks märgitud *Pirita* ja *Liivi*, mittekohanimedeks jällegi suurtähelised sõnad nagu *Haleda* ja *Viimse*. 
+
+Laadime tabeli Maa-ameti geokodeerijasse. Seekord kasutame koordinaatide saamiseks ainult kohanimeüksuse esimest komponenti (tulbas *KOHAD*).  
+Kuna on tõenäoline, et tahame koordinaate veel käsitsi muuta (nt välisriikide kohanimesid), siis laadime geokodeeritud tabeli alla csv- või xlsx-failina.
+
+Kasutame nüüd näiteks Google Mapsi, et leida üldised koordinaadid kohanimedele nagu Rootsi, Rootsimaa, Liivimaa, Lääne-Euroopa jms. Pane tähele, et Google Mapsist saame WGS84(EPSG:4326) süsteemis koordinaadid ehk geograafilised, mitte projitseeritud koordinaadid. Seega peaksime muutma koordinaate tulpades **N** ja **E** (mitte eesti süsteemis koordinaatide tulbas). Võime seda teha Excelis. 
+
+- Muudame ära näiteks koordinaadid kohtadel *Eesti*, *Kura* (Kuramaa), *Liivi* (määrame nt Riia linna), *Läti*, *Lääs* (tekstis *Lääne maa*), *Maarja* ja *Marienthal* (viidatakse Püha Brigitta kloostri varemetele), *Moskva*, *Pihkva*, *Poola*, *Rooma*, *Rootsi*, *Rootsimaa*, *Rootsi-Saksa*, *Saksa*, *Saksamaa*, *Vene*, *Viru*, *Virumaa* ja *Võnnu* (Cesis).   
+- Lisame koordinaadid *Lõuna-Liivile* ja *Lääne-Euroopale*.   
+
+
+Salvesta parandatud fail csv-formaadis ja laadi see QGISi. NB! Kasutades EPSG4326 koordinaate tahab QGIS, et csv-failis oleksid pikkus- ja laiuskraadide komakohad eraldatud punktiga. Maa-ameti kodeerija aga eraldab need komaga. Seega peaksime (nt Excelis) enne ka komad punktidega asendama ning salvestama koordinaatide tulbad arvuliste tüüpidena. 
+
+
+```{r qgis8, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Parandatud koordinaatidega faili importimine"}
+knitr::include_graphics(here::here("imgs", "16_qgis8.PNG"))
+```
+
+Kuna nüüd on meil ka Euroopa teiste kohtade koordinaatidega punktid, muuda projekti aknas all paremas nurgas projekti koordinaatsüsteemiks Euroopa koordinaatsüsteem **EPSG:3857**.
+
+
+```{r qgis9, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Kaart uues koordinaatide referentssüsteemis"}
+knitr::include_graphics(here::here("imgs", "16_qgis9.PNG"))
+```
+
+
+- Visualiseerime jälle kõigepealt üldist punktide jaotumist (nt punktide suuruse abil või kontsentriliste ringidena: *Symbology* -> *Point Displacement*).  
+- *Renderer Settings* alt saame määrata punktide värvi ja suuruse ning välise ringi ära kaotada.  
+
+```{r qgis10, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Punktid kontsentriliste ringidena"}
+knitr::include_graphics(here::here("imgs", "16_qgis10.gif"))
+```
+
+- Lisame sõnapaaride sildid ainult nendele sõnapaaridele, kus sõnadevahelise seose tugevuse statistik z-skoor on üle 50 (*Rule-based labeling*). NB! Jälgi, mis tüüpi on Z-skoori tunnus. Siltide nihutamiseks võib kasutada näiteks *callout*'e.   
+
+```{r qgis11, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Siltide lisamine"}
+knitr::include_graphics(here::here("imgs", "16_qgis11.gif"))
+```
+
+Proovi nüüd kaarti paremini stiliseerida.
