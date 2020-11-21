@@ -200,7 +200,7 @@ knitr::include_graphics(here::here("imgs", "16_qgis9.PNG"))
 knitr::include_graphics(here::here("imgs", "16_qgis10.gif"))
 ```
 
-- Lisame sõnapaaride sildid ainult nendele sõnapaaridele, kus sõnadevahelise seose tugevuse statistik z-skoor on üle 50 (*Rule-based labeling*). NB! Jälgi, mis tüüpi on Z-skoori tunnus. Siltide nihutamiseks võib kasutada näiteks *callout*'e.   
+- Lisame sõnapaaride sildid ainult nendele sõnapaaridele, kus sõnadevahelise seose tugevuse statistik z-skoor on üle 70 (*Rule-based labeling*). NB! Jälgi, mis tüüpi on Z-skoori tunnus. Siltide nihutamiseks võib kasutada näiteks *callout*'e.   
 
 ```{r qgis11, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Siltide lisamine"}
 knitr::include_graphics(here::here("imgs", "16_qgis11.gif"))
