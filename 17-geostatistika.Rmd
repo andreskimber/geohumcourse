@@ -49,7 +49,7 @@ Miks aga üldse seda teha? Tihti saame ju niigi aru, milline on intensiivsus eri
 <!-- - ääre efektid -->
 
 
-## Ülesanne
+## Ülesanne 1
 
 Vaata Tartumaa asustuse punktimustrit, vaata üldist ülevaadet andmetest ning loode Kernel density estimation. Lae Moodle'ist alla kiht tartumaa_asustus.gpkg ning ava see QGISis. Andmestik pärineb [Kohanimeregistrist](https://kohanimeregister.ee/knravalik/) ning selles on igale Tartumaa küla või aleviku nimele lisatud [Kohanimeraamatust](https://www.eki.ee/dict/knr/) esmamainimise aasta, kihelkond ning nime etümoloogia. Lisaks võid taustale avada ka eelmistes praktikumides kasutatud maakondade ja/või kihelkondade kihi.
 
