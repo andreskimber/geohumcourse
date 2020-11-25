@@ -60,7 +60,7 @@ Järgmiseks avame Excelis faili **kontekstitabel_bornhohe_incorr.csv**: *Data* -
 knitr::include_graphics(here::here("imgs", "16_excel1.gif"))
 ```
 
-### Geosildistamine
+### Koordinaatide lisamine (geokodeerimine)
 
 Nüüd peame saama oma tabelile koordinaadid. Selleks kasutame [Maa-ameti massgeokodeerimise teenust](https://inaadress.maaamet.ee/geocoder/bulk). 
 
@@ -94,9 +94,13 @@ GROUP BY lemmad__1;
 ```
 Tee ka linnuke *Load as new layer* ette ning laadi tulemus uue kihina nimega *koguarv*.  
 
-```{r qgis2, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Andmekihid QGISis"}
+```{r qgis2, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Kohanimede mainimiste kokkulugemine SQLiga"}
 knitr::include_graphics(here::here("imgs", "16_qgis2.gif"))
-```
+```  
+ 
+- Põhimõtteliselt saaksime punktide arvu mingis kohas teada ka nii, et valime *Processing* -> *Toolbox* -> *Vector analysis* -> *Statistics by categories*, valides sisendkihiks *geocoded* ja *Field(s) with categories* väärtuseks *lemmad__1*, ent sellisel juhul ei tuleks kaasa punktide geomeetriat ja me ei saaks tulemusi otse kaardil kuvada. 
+- Kui tahame esialgse tabeliga kihist koopiat, kuhu on lisatud ka uus tulp, kus iga mainimise kohta on selle koha mainimiste koguarv, võib valida *Processing* -> *Toolbox* -> *Vector general* -> *Join attributes by location (summary)*, määrata mõlemaks ühendatavaks kihiks *geocoded*, *Fields to summarise* väärtuseks *lemmad__1* ja *Summaries to calculate* väärtuseks *count*.  
+
 
 Visualiseerime kohanimeüksuste esinemissagedusi punktidena nii, et 
 
@@ -104,9 +108,11 @@ Visualiseerime kohanimeüksuste esinemissagedusi punktidena nii, et
 - siltide teksti suurus näitaks mainimiste arvu (näita kõiki silte).  
 
 
-```{r qgis3, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Andmekihid QGISis"}
+```{r qgis3, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Punktide ja teksti suuruse muutmine vastavalt andmestiku tunnusele"}
 knitr::include_graphics(here::here("imgs", "16_qgis3.gif"))
-```
+```   
+
+- Lihtsalt visualiseerimiseks võib muidugi ka üldse mitte uut kihti teha ning kasutada avaldisi, et kohandada olemasoleva kihi sümboloogiat, näiteks *geocoded* kihil paremklikk -> *Properties* -> *Symbology* -> *Single symbol* -> *Simple marker* -> *Size* -> *Data defined override* -> *Edit* -> `count("Sisend_ID", group_by:="lemmad__1") / 2`. Samamoodi siltide lisamisel. 
 
 Näeme, et automaatne nimetuvastus ja automaatne geokodeerimine ilma mingi vahekontrolli, täpsustuste ja parandusteta ei tööta Bornhöhe tekstil hästi ning tegelikult peaksime adekvaatsete tulemuste saamiseks siiski ka pisut käsitööd tegema.  
 
@@ -121,7 +127,7 @@ GROUP BY lemmad__1, Emotsiooni;
 (Pane tähele, et kui emotsioone sisaldav tulbanimi oli enne *Emotsioonid*, siis QGIS võib tulbanime pisut lühendada.)  
 
 
-```{r qgis4, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Andmekihid QGISis"}
+```{r qgis4, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Kohanimede mainimiste kokkulugemine vastavalt emotsioonile"}
 knitr::include_graphics(here::here("imgs", "16_qgis4.gif"))
 ```
 
@@ -130,9 +136,11 @@ Nüüd saame visualiseerida lihtsalt teatud emotsioonidega seotud kohti, ent võ
 Ühendamiseks võime liita emotsioonidega kihile esimese, koondsagedustega kihi.  
 Ühendatud kihil loome uue atribuudi *osakaal* (tulp *arv* jagatud tulbaga *koguarv_arv* ja korrutatud 100-ga).  
 
-```{r qgis5, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Andmekihid QGISis"}
+```{r qgis5, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Andmekihtide ühendamine"}
 knitr::include_graphics(here::here("imgs", "16_qgis5.gif"))
 ```
+
+- Kihte võib ühendada jällegi ka nii, et valime *Processing* -> *Toolbox* -> *Vector general* -> *Join attributes by field value* (NB! *one-to-many*!).  
 
 Nüüd visualiseerime piirkondi nii, et   
 
@@ -141,14 +149,14 @@ Nüüd visualiseerime piirkondi nii, et
 
 Teeme punktid pisut läbipaistvamaks.  
 
-```{r qgis6, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Andmekihid QGISis"}
+```{r qgis6, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Punktide visualiseerimine kategoorilise ja arvulise tunnuse järgi"}
 knitr::include_graphics(here::here("imgs", "16_qgis6.gif"))
 ```
 
 
 Lõpuks võiksime veel teha heatmapi, nagu eelmisel korral, kus kuvame algse punktikihi põhjal punktide jaotumist rastrina ning kuvame selle peal loodud vektorkihti.  
 
-```{r qgis7, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Andmekihid QGISis"}
+```{r qgis7, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Punktide jaotumise heatmap"}
 knitr::include_graphics(here::here("imgs", "16_qgis7.gif"))
 ```
 
@@ -178,7 +186,7 @@ Kasutame nüüd näiteks Google Mapsi, et leida üldised koordinaadid kohanimede
 - Lisame koordinaadid *Lõuna-Liivile* ja *Lääne-Euroopale*.   
 
 
-Salvesta parandatud fail csv-formaadis ja laadi see QGISi. NB! Kasutades EPSG4326 koordinaate tahab QGIS, et csv-failis oleksid pikkus- ja laiuskraadide komakohad eraldatud punktiga. Maa-ameti kodeerija aga eraldab need komaga. Seega peaksime (nt Excelis) enne ka komad punktidega asendama ning salvestama koordinaatide tulbad arvuliste tüüpidena. 
+Salvesta parandatud fail csv-formaadis ja laadi see QGISi. NB! Kasutades EPSG4326 koordinaate tahab QGIS, et csv-failis oleksid pikkus- ja laiuskraadide komakohad eraldatud punktiga. Maa-ameti kodeerija aga eraldab need komaga. Seega peaksime (nt Excelis) enne ka komad punktidega asendama ning salvestama koordinaatide tulbad arvuliste tüüpidena. (Teine variant oleks määrata lihtsalt faili sisse lugedes et *Decimal separator is comma*.)  
 
 
 ```{r qgis8, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Parandatud koordinaatidega faili importimine"}

@@ -1,0 +1,46 @@
+---
+title: "Kursuse lõpuprojekt"
+output: html_document
+---
+
+Kursuse lõpuprojektis analüüsitakse kursusel õpitud meetodi(te) abil mõnd vabalt valitud või etteantud andmestikku, esitatakse selle kohta kirjalik raport ning esitletakse oma tööd ka suuliselt (u 5 minutit).
+
+Lõputöö võib olla näiteks
+
+- kaardi georefereerimine ja sellelt mingi info digiteerimine,  
+- *story map* + Mapboxis stiliseeritud kaardipõhi,  
+- mingit tüüpi sagedus-/levikuandmete esitamine ja kaardi stiliseerimine,  
+- punktide jaotumise analüüs (kas paiknemine on juhuslik või klastrites),  
+- erinevate andmekihtide info esitamine samal kaardil,   
+- samade andmete esitamine erineval kujul (võiks olla siiski kuidagi põhjendatud, nt ühel moel paremini näha mingid tuumalad, teisel moel perifeersed),  
+- ...
+
+Mis tahes lähenemise puhul peaks esmane olema siiski uurimisküsimus: mida tahetakse valitud analüüsi- ja esitusviisiga öelda?
+
+Kui teil on mingi idee, aga pole kindel, kas see sobiks, või on mingid andmed, aga pole täpselt ettekujutust, mida nendega teha, siis küsige/kirjutage ja arutame läbi. 
+Hea meelega aitame andmestike leidmise/kogumisega, vähema heameelega uurimisküsimuste väljamõtlemisega.  
+
+**Kirjaliku raporti** võib vormistada vabalt valitud keskkonnas (Wordis, LaTeXis, Markdownis või mujal), soovitatavalt on väljund pdf-formaadis. Raportiga paki kaasa ka **kasutatud andmestikud ja analüüsi väljundid** (nt kaartide failid, lokaalselt töötavad html-lehed vmt). Kui väljund on ainult veebis, siis lisa kindlasti raportisse ka töötav link.
+
+Raport ise peab sisaldama
+
+- uurimisküsimuse püstitust (mida uuritakse ja miks?);   
+- lähteandmete kirjeldust:  
+	+ kust andmed on saadud,   
+	+ mis formaadis andmed on:  
+		- raster/vektor/tabel/lihttekst/...?  
+		- failitüüp (nt .shp, .gpkg, .csv, .xlsx, ...)  
+		- kui lähteandmed sisaldavad ka ruumiinfot, siis milline on koordinaatide referentssüsteem (nt EPSG:3301, EPSG:4326);  
+- andmetöötlusprotsessi lühidat kirjeldust (kas lähteandmed sisaldavad ka ruumiinfot, kas neid on olnud vaja geokodeerida (kus?), kas need on ühendatud mingi tunnuse alusel muudest allikatest saadud ruumiandmetega, kas mingid andmed on välja filtreeritud, kas on lisatud uusi tunnuseid jne);   
+- tulemuste esitamist, sh vähemalt üht kaarti koos legendi, pealkirja ja lähteandmete viitega (tore on muidugi, kui kaarte on rohkem):  
+	- millise(d) vastuse(d) uurimisküsimus(t)ele saadi?   
+	- mis olid probleemid?   
+	- mis jääb lahtiseks? mida võiks edasi uurida?   
+
+Raporti pikkus (koos kaartide ja joonistega) võiks olla **umbes 5 lehekülge**. Pikemate raportite eest muidugi karistada ei saa, väga palju lühemate puhul aga ei saa kohustuslikud punktid tõenäoliselt piisava põhjalikkusega kaetud. Palju oleneb mõistagi ka valitud fondist, reavahedest ja muust vormistusest. Vägisi ei ole mõtet raportit 5-leheküljeliseks venitada.
+
+
+**Suulise ettekande** võib pidada klassiruumis või veebi teel (Big Blue Buttonis). Selleks tarbeks võib teha eraldi slaidid, aga võib näidata ka vormistatud lõputööd. Oluline on, et kuulajad saaksid aru, milline on töö sisend ja milline väljund, mis oli töö eesmärk ja millised on tulemused ja järeldused.
+
+
+Oma lõputöö laadi Moodle'isse kokkupakitud failina (.zip) üles **hiljemalt 12. detsembriks**.

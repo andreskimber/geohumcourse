@@ -10,7 +10,7 @@ Avaldisi saab QGISis kasutada mitmes kohas, näiteks
 - objektide valimiseks atribuuttabeli alumisest vasakust nurgast *Advanced Filter (Expression)*,  
 - atribuutide muutmiseks *Field calculator*'is,  
 - *Query builder*'is,   
-- sümbolite, siltide või paigutuse parameetrite reeglipõhisel muutmisel,  
+- sümbolite, siltide või paigutuse parameetrite muutmisel,  
 - *Database Manager*'is,  
 - jne.  
 
@@ -100,6 +100,11 @@ knitr::include_graphics(here::here("imgs", "expressions10.png"))
 ```{r expressions11, echo =F, fig.align='center', fig.show='hold', fig.cap = "Kihtide ühendamine", out.width="100%"}
 knitr::include_graphics(here::here("imgs", "expressions11.png"))
 ```
+    + Teine moodus kihte ühe tunnuse alusel ühendada on nii, kui valid *Processing* -> *Toolbox* -> *Vector general* -> *Join attributes by field value*. Erinevus tavalise *Join*-funktsiooniga on selles, et tekib uus kiht (vaikimisi nimega *Joined layer*), kus ei eristata kihi algset ja lisatud infot.    
+```{r expressions011, echo =F, fig.align='center', fig.show='hold', fig.cap = "Kihtide ühendamine", out.width="100%"}
+knitr::include_graphics(here::here("imgs", "11_processing_join.PNG"))
+```
+
 - Värvi *ei ole*/*pole* proportsioonide infoga täiendatud kihi *kihelkonnad2* polügoonid vastavalt *ei ole* suhtelisele sagedusele kihelkonnas/murrakus nii, et halliga oleksid märgitud ka kihelkonnad, millest murdekorpuse sagedusinfot ei ole. Selleks peab kasutama reeglipõhist sümboloogiat.  
 ```{r expressions12, echo =F, fig.align='center', fig.show='hold', fig.cap = "Reeglipõhine polügoonide värvimine", out.width="100%"}
 knitr::include_graphics(here::here("imgs", "expressions12.gif"))

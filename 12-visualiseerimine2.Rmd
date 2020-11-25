@@ -73,34 +73,45 @@ knitr::include_graphics(here::here("imgs", "praks12_1.png"))
 ```{r praks2, echo =F, fig.align='center', fig.show='hold', fig.cap = "Abielude ja lahutuste andmete ühendamine", out.width="100%"}
 knitr::include_graphics(here::here("imgs", "praks12_2.gif"))
 ``` 
-
-- Muudame andmestiku *abielude registreerimised* nime kujule *abielud_lahutused* ning muudame ka tulpade *Arv* ja *lahutuste_registreerimised_Arv* nimed vastavalt *abielude_arv* ja *lahutuste_arv* (ajutised asendusnimed).  
+    + Jällegi võime ühendamiseks kasutada ka *Processing* -> *Toolbox* -> *Join attributes by field value*, mille tulemusel tekib täiesti uus kiht.
+```{r praks02, echo =F, fig.align='center', fig.show='hold', fig.cap = "Abielude ja lahutuste andmete ühendamine Processing Toolbox'iga", out.width="100%"}
+knitr::include_graphics(here::here("imgs", "12_processing_join.PNG"))
+```  
+- Muudame andmestiku *abielude registreerimised* (või teisel viisil andmete ühendamisel tekkinud kihi *Joined layer*) nime kujule *abielud_lahutused* ning muudame ka tulpade *Arv* ja *lahutuste_registreerimised_Arv* nimed vastavalt *abielude_arv* ja *lahutuste_arv* (ajutised asendusnimed).  
 ```{r praks3, echo =F, fig.align='center', fig.show='hold', fig.cap = "Andmestiku ja tulbanimede muutmine", out.width="100%"}
 knitr::include_graphics(here::here("imgs", "praks12_3.gif"))
 ```
-- Tee omavalitsuste kihist duplikaat nimega *koopia*.  
-- Ühenda duubeldatud omavalitsuste kihil (*koopia*) kõik omavalitsused, välja arvatud Tallinn, maakondadeks. Selleks vali *Select* tööriista abil kõik omavalitsused peale Tallinna ning vali menüüst *Vector* -> *Geoprocessing Tools* -> *Dissolve*. Tee linnuke valiku ette *Selected features only* ja vali *Dissolve field(s)* väärtuseks *MNIMI*. Uue kihi nimetuseks määra *maakonnad*.    
+- Teeme omavalitsuste kihist duplikaadi nimega *koopia*.  
+- Ühendame duubeldatud omavalitsuste kihil (*koopia*) kõik omavalitsused, välja arvatud Tallinn, maakondadeks. Selleks valime *Select* tööriista abil kõik omavalitsused peale Tallinna ning valime menüüst *Vector* -> *Geoprocessing Tools* -> *Dissolve*. Teeme linnukese valiku ette *Selected features only* ja valime *Dissolve field(s)* väärtuseks *MNIMI*. Uue kihi nimetuseks määrame *maakonnad*.    
 ```{r praks4, echo =F, fig.align='center', fig.show='hold', fig.cap = "Maakondade kihi loomine", out.width="100%"}
 knitr::include_graphics(here::here("imgs", "praks12_4.gif"))
 ```
-- Vali kihilt *koopia* nüüd ainult Tallinna linn ning salvesta see eraldi kihina: paremklikk omavalitsuste kihil -> *Export* -> *Save Features As*.  
+- Valime kihilt *koopia* nüüd ainult Tallinna linna ning salvestame selle eraldi kihina: paremklikk omavalitsuste kihil -> *Export* -> *Save Features As*.  
 ```{r praks5, echo =F, fig.align='center', fig.show='hold', fig.cap = "Tallinna kihi salvestamine", out.width="100%"}
 knitr::include_graphics(here::here("imgs", "praks12_5.gif"))
 ```
-- Nüüd ühenda maakondade ja Tallinna linna kihid: *Vector* -> *Data Management Tools* -> *Merge Vector Layers*.  
+    + Kui sa ei taha eraldi valitud polügooni faili salvestada, vaid lihtsalt projektis kasutada, siis võib valida ka *Processing* -> *Toolbox* -> *Vector general* -> *Extract selected features*, mille tulemusel tekib ainult QGISi keskkonda uus kiht *Selected features*, mille võid nimetada ümber nimega *Tallinn*.   
+```{r praks05, echo =F, fig.align='center', fig.show='hold', fig.cap = "Tallinna kihi eraldamine", out.width="100%"}
+knitr::include_graphics(here::here("imgs", "12_processing_extract.PNG"))
+```
+- Nüüd ühendame maakondade ja Tallinna linna kihid: *Vector* -> *Data Management Tools* -> *Merge Vector Layers*.  
 ```{r praks6, echo =F, fig.align='center', fig.show='hold', fig.cap = "Kihtide liitmine", out.width="100%"}
 knitr::include_graphics(here::here("imgs", "praks12_6.gif"))
 ```
-- Tee uuest ühendatud kihist koopia nimega *Yhendatud_mk*.  
-- Filtreeri kihilt *abielud_lahutused* ainult 2019. aasta andmed: paremklikk kihil -> *Filter...* -> *"Aasta" = 2019* -> *OK*. Kui QGIS küsib, kas oled nõus sellega, et ühendamiseks tehakse kihist virtuaalne kiht, siis vajuta *OK*. NB! Virtuaalsel kihil muudetakse tulbanimed *abielude_arv* ja *lahutuste arv* tagasi nende algsele kujule.   
-- Ühenda nüüd uus virtuaalne kiht ruumiandmetega abielude-lahutuste andmetega. Selleks kontrolli esmalt, kuidas on kohainfole (maakondadele) kahes andmestikus viidatud. Ühtlusta nimed kihi *Yhendatud_mk* uues tulbas *MNIMI2*.  
+- Teeme uuest ühendatud kihist koopia nimega *Yhendatud_mk*.  
+- Filtreerime kihilt *abielud_lahutused* ainult 2019. aasta andmed: paremklikk kihil -> *Filter...* -> *"Aasta" = 2019* -> *OK*. Kui QGIS küsib, kas oled nõus sellega, et ühendamiseks tehakse kihist virtuaalne kiht, siis vajuta *OK*. NB! Virtuaalsel kihil muudetakse tulbanimed *abielude_arv* ja *lahutuste arv* tagasi nende algsele kujule.   
+- Ühendame nüüd uue virtuaalse ruumiandmetega kihi *yhendatud_mk* abielude-lahutuste 2019. aasta andmetega. Selleks kontrollime esmalt, kuidas on kohainfole (maakondadele) kahes andmestikus viidatud. Ühtlustame nimed kihi *Yhendatud_mk* uues tulbas *MNIMI2*.  
 ```{r praks7, echo =F, fig.align='center', fig.show='hold', fig.cap = "Maakonnanimede muutmine", out.width="100%"}
 knitr::include_graphics(here::here("imgs", "praks12_7.gif"))
 ```
 - Enne järgmist sammu salvesta kindlasti projekt!  
-- Kõigepealt nimeta ümber abielude-lahutuste virtuaalne kiht nimega *abielud_lahutused_2019*. Kuna tahame nüüd, et iga abielude-lahutuste rida (abielud ja lahutused teatud aastal teatud maakonnas) oleks seotud ruumiinfoga, ei saa me kasutada varasemalt õpitud andmete ühendamist, vaid peame kasutama SQL-i vahendeid. Selleks mine DB Manageri, tee aktiivseks ükskõik kumb ühendatavatest kihtidest ning kirjuta päringuaknasse `SELECT * FROM Yhendatud_mk JOIN abielud_lahutused_2019 ON Yhendatud_mk.MNIMI2 = abielud_lahutused_2019.Maakond;`, tee linnuke valiku ette *Load as new layer* ning vajuta *Execute* (võib võtta natuke aega). Selle käsuga valime kõik tulbad ruumiandmete kihilt ning ühendame need abielude_lahutuste kihi andmetega, kusjuures ühendamise aluseks on esimesest andmestikust tulp *MNIMI2* ja teisest andmestikust tulp *Maakond*. 
+- Kõigepealt nimetame ümber abielude-lahutuste virtuaalse kihi nimega *abielud_lahutused_2019*. Kuna tahame nüüd, et iga abielude-lahutuste rida (abielud ja lahutused teatud aastal teatud maakonnas) oleks seotud ruumiinfoga, kasutame SQL-i vahendeid. Selleks läheme DB Manageri, teeme aktiivseks ükskõik kumma ühendatavatest kihtidest ning kirjutame päringuaknasse `SELECT * FROM Yhendatud_mk JOIN abielud_lahutused_2019 ON Yhendatud_mk.MNIMI2 = abielud_lahutused_2019.Maakond;`, teeme linnukese valiku ette *Load as new layer* ning vajutame *Execute* (võib võtta natuke aega). Selle käsuga valime kõik tulbad ruumiandmete kihilt ning ühendame need abielude_lahutuste kihi andmetega, kusjuures ühendamise aluseks on esimesest andmestikust tulp *MNIMI2* ja teisest andmestikust tulp *Maakond*. 
 ```{r praks8, echo =F, fig.align='center', fig.show='hold', fig.cap = "Andmestike ühendamine SQLi abil", out.width="100%"}
 knitr::include_graphics(here::here("imgs", "praks12_8.gif"))
+```
+    + Teine variant ruumiandmete lisamiseks mitmele sama atribuudi väärtusega vaatlusele (nt erinevate kuude näitajale ühest ja samas maakonnast) on kasutada jällegi *Processing* -> *Toolbox* -> *Vector general* -> *Join Attributes by Field Value*, valida *Join type*'iks __*one-to-many*__, mis määrab maakonna koordinaadid 2019. aasta iga kuu reale ühest maakonnast (mitte ainult ühele - *one-to-one*, mida teeb ka tavaline Join-tööriist) ning väljastab uue kihi, vaikimisi nimega *Joined layer*. See protsess võib vahel olla ka kiirem kui SQLiga.    
+    ```{r praks08, echo =F, fig.align='center', fig.show='hold', fig.cap = "Andmestike ühendamine Processing Toolboxi abil", out.width="100%"}
+knitr::include_graphics(here::here("imgs", "12_processing_join2.PNG"))
 ```
 
 __Kui ühendamine võtab liiga kaua aega või QGIS jookseb kokku, ava Moodle'isse üles laaditud lõppfail *abielud_lahutused_mk_2019.gpkg*, kus on ainult 2019. aasta andmed. NB! Tegemist on *GeoPackage*-formaadiga!__
@@ -112,14 +123,18 @@ Järgmiseks peaksime saadud andmeid visualiseerima.
 
 - Värvi polügoonid selle järgi, milline on lahutuste osakaal kõikidest registreeritud perekonnatoimingutest 2019. aastal jaanuarikuus. 
     + Kontrolli esmalt abielude ja lahutuste arvu tulpade tüüpi ja vajadusel loo uued arvulised tulbad.  
+        - Kui sa ei taha luua uusi tulpasid, vaid lihtsalt olemasoleva tulba tüüpi ära muuta (tekstist arvuliseks), siis võid valida ka *Processing* -> *Toolbox* -> *Vector table* -> *Refactor fields*, mis loob küll hoopis järjekordse uue kihi, vaikimisi nimega *Refactored*. Seal saad muuta ka näiteks tulbanimesid.  
+```{r praks09, echo =F, fig.align='center', fig.show='hold', fig.cap = "Lahutuste osakaal perekonnatoimingutest 2019. aasta jaanuaris", out.width="100%"}
+knitr::include_graphics(here::here("imgs", "12_processing_refactor.PNG"))
+```
     + Filtreeri andmed ja visualiseeri.  
 ```{r praks9, echo =F, fig.align='center', fig.show='hold', fig.cap = "Lahutuste osakaal perekonnatoimingutest 2019. aasta jaanuaris", out.width="100%"}
 knitr::include_graphics(here::here("imgs", "praks12_9.gif"))
 ```
 - Värvi polügoonid selle järgi, milline on lahutuste suhe abieludesse mingis maakonnas tervel 2019. aastal (st kui mitu korda on lahutusi vähem/rohkem kui abielusid). (P.S. See, et Tallinnas ja Harjumaal näib 2019. aastal olevat ühepalju abielusid-lahutusi, ei ole meie viga, vaid tuli Statistikaameti andmebaasiga kaasa).   
     + Võta kuu filter maha.  
-    + Liida kuude andmed kokku, kasutades DB Manageri.
-    + Visualiseeri.  
+    + Liida kuude andmed kokku, kasutades DB Manageri: `SELECT geometry, MNIMI2, SUM(abielude_arv), SUM(lahutuste_arv) FROM yhend2019 GROUP BY MNIMI2;`.  
+    + Visualiseeri: *graduated symbology* -> *expression*: `"SUM(lahutuste_arv) / SUM(abielude_arv)"`. 
 ```{r praks10, echo =F, fig.align='center', fig.show='hold', fig.cap = "Lahutuste suhe abieludesse", out.width="100%"}
 knitr::include_graphics(here::here("imgs", "praks12_10.gif"))
 ```    

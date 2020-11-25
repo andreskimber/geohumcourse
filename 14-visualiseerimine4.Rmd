@@ -77,4 +77,4 @@ knitr::include_graphics(here::here("imgs", "europe_interpolation_pop.png"))
 
 ## Järgmisel korral
 
-Maarja-Liisa räägib kahel järgmisel korral tekstianalüüsist. Pärast seda on eel geostatistika, veebirakenduste ja R'i kasutamise praktikum.  
+Kahel järgmisel korral tekstianalüüs. Pärast seda veel geostatistika, veebirakenduste ja R'i kasutamise praktikumid.  
