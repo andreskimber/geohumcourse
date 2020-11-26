@@ -15,6 +15,7 @@ paketid <- c("tidyverse",
              # "rgeos", # one side buffer jaoks
              # "lwgeom", # joonte splittimise jaoks
              # "spatialEco",  # gaussian smooth jaoks
+             "janitor",
              "rvest", "rebus", "stringr" # web scraping jaoks
 )
 
@@ -304,3 +305,50 @@ tartu_join = tartu_esmamainimine %>%
     left_join(., tartu_kylad, by = c(kohanimi = "Kohanimi"))
 
 write_csv2(tartu_join, "./andmed/tartumaa_asustus.csv")
+
+# Saaremaa asustus ####
+
+saare_kylad_raw = read_delim("./andmed/saare_kylad_kohanimeregister.csv", delim = ";", locale=locale(decimal_mark = "."))
+
+saare_kylad = saare_kylad_raw %>% 
+    janitor::clean_names() %>% 
+    select(
+        kohanimi, nimeobjekti_liik, x, y
+    ) %>%
+    mutate(
+        kohanimi = str_replace_all(kohanimi, " küla", "") #%>%
+            # # kustutan külanimedel sidekriipsu ees oleva teksti. see on eksitav minu arust
+            # str_replace_all("^.+-", "")
+    )
+
+saare_knr = knr_scrape(saare_kylad$kohanimi)
+
+write_csv2(saare_knr, "./andmed/saare_knr_scrape_raw.csv")
+
+saare_knr_puhas = knr_clean(saare_knr) #, maakond = "saare"
+
+saare_knr_puhas2 = saare_knr_puhas %>% 
+    filter(
+        kihelkond %in% c("Muh", "Jaa", "Vll", "Mus", "Kaa", "Kär", "Khk", "Jäm",
+                         "Krj", "Pöi", "Pha", "Ans")
+    )
+
+saare_esmamainimine = saare_knr_puhas2 %>% 
+    mutate(
+        # valin ainult aastaarvu ja teen eraldi tulbaks 
+        esmamainimine = str_match(.$nimekujud, "1\\d{3}")[,1] %>% as.double(),
+        # eraldi tulpa asustusüksus. valin kõik mis enne on enne white space'i
+        asustusyksus = str_match(.$kohainfo, "\\w+")[,1] %>% as.character()
+    ) %>%
+    relocate(c(asustusyksus, esmamainimine, nimekujud), .after = kohanimi) %>% 
+    filter(
+        asustusyksus %in% c("küla", "alevik", "paik"),
+        !is.na(esmamainimine)#,
+        # esmamainimine < 1800
+    ) %>% 
+    distinct()
+
+saare_join = saare_esmamainimine %>% 
+    left_join(., saare_kylad, by = c(kohanimi = "kohanimi"))
+
+write_csv2(saare_join, "./andmed/saaremaa_asustus.csv")

@@ -114,3 +114,7 @@ Arvuta Tartumaa asustuse Nearest Neighbor Index iga sajandi kohta või näiteks 
 ## Järgmisel korral 
 
 Interpoleerimine, arvutused rastritega ja võimalusel QGIS Graphical Modeler. 
+
+
+<!-- Liina küsimus: -->
+<!-- Mul on küsimus tulevaseks projektiks, et kui mul on samamoodi punktid erinevate väärtustega, siis kuidas oleks võimalik nende punktide põhjal arvutada välja maakondade keskmine? Idee on maakonnad skooride järgi eristada. -->

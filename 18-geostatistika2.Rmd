@@ -1,0 +1,55 @@
+# Geostatistika 2 {#geostatistika2}
+
+## Asukohapõhised kokkuvõtted 
+
+Nagu eelmisel korral küsimusest selgus on, võib olla vajalik teha punktandmetest kokkuvõtteid mingi alapõhiselt. Näitan uuesti, kuidas seda teha ning saate ka ise järgi proovida.
+
+## Klasterdamine
+
+Saaremaa külade klasterdamine (K-means) ja võrdlus kihelkondadega. 
+
+## Interpoleerimine
+
+
+erinevad interpoleerimismeetodid
+
+```{r 18simpleinterpolation, echo =F, fig.align='center', fig.show='hold', fig.cap = "Lihtsad interpoleerimise näited. A - kahe punkti ja lineaarse interpoleerimisega D = 15. B - lisades kolmanda punkt ja interpoleerides IDW abil D = 12.5 [@Gillings2020, fig 7.1].", out.width="100%"}
+knitr::include_graphics(here::here("imgs/18_simple_interpolation.PNG"))
+```
+
+Vaatame korraks ka IDW valemit, et meetodit paremini mõista. 
+
+```{r 18idwformula, echo =F, fig.align='center', fig.show='hold', fig.cap = "IDW meetodi valem.", out.width="50%"}
+knitr::include_graphics(here::here("imgs/18_idw_formula.PNG"))
+```
+
+Ja joonisel oleva punkti D arvutamiseks.
+
+```{r 18idwformulaex, echo =F, fig.align='center', fig.show='hold', fig.cap = "IDW meetodi valemi näide punkti D väärtuse arvutamiseks.", out.width="50%"}
+knitr::include_graphics(here::here("imgs/18_idw_formula.PNG"))
+```
+
+
+### Spline
+
+```{r 18spline, echo =F, fig.align='center', fig.show='hold', fig.cap = "Spline meetodi põhimõte. A - regulariseeritud kõrgusväärtusega, mis lubab punkti väärtusest suuremad väärtuseid. B - *tension spline*, mis hoiab rohkem kinni punktide väärtustest, et luua siledam/ühtlasem pind", out.width="100%"}
+knitr::include_graphics(here::here("imgs/18_spline.PNG"))
+```
+
+### Ülesanne 1
+
+eiole pole kihelkondade centroidid.
+
+```{r 18splineeiole, echo =F, fig.align='center', fig.show='hold', fig.cap = "Thin plate spline meetodiga arvutatud raster 'ei ole' proportsioonidest", out.width="100%"}
+knitr::include_graphics(here::here("imgs/18_spline_eiole.PNG"))
+```
+
+rasteri profiili vaatamine
+
+gauss silumine
+
+thinplate spline töötab hästi eiole data radius 30000 ja min punkte 3
+
+rasterite omavahel võrdlemine. kuidas saaks RMS arvutada. 
+
+rasterite väärtused punktide kohal
