@@ -2,54 +2,74 @@
 
 ## Asukohapõhised kokkuvõtted 
 
-Nagu eelmisel korral küsimusest selgus on, võib olla vajalik teha punktandmetest kokkuvõtteid mingi alapõhiselt. Näitan uuesti, kuidas seda teha ning saate ka ise järgi proovida.
+Nagu eelmisel korral küsimusest selgus, siis võib-olla vajalik teha punktandmetest kokkuvõtteid mingi alas. Teeme selle läbi!
+
+### Ülesanne 1
+
+Tõmba Moodle'ist kiht *saaremaa_asustus.gpkg* ning ava see QGISis. Lisaks ava kihelkondade või omavalitsuste kiht.  *Processing -> Toolbox -> Join attributes by location (summary)*. Loeme kokku palju, igas kihelkonnas külasid on ning võib võtta ka esmamainimise min, max ja keskmise. Eelnevalt oleks kasulik valida välja ainult Saaremaa kihelkonnad ning teha neist eraldi kiht. 
 
 ## Klasterdamine
 
-Saaremaa külade klasterdamine (K-means) ja võrdlus kihelkondadega. 
+K-means klasterdamine on meetod, mille abil jagatakse väärtused (punktid) erinevateks gruppideks ehk klastriteks. Klastritesse jaotumine sõltub sellest, millise klastri keskpunktile vastav punkt kõige lähemal on. 
+
+### Ülesanne 2
+
+Klasterda Saaremaa külad sama paljudeks klastriteks, kui on Saaremaal kihelkondi ja valdasid. *Processing -> Toolbox -> K-means clustering* Vaata, kas lihtsalt distantis põhine külade jaotamine gruppidesse kattub kihelkondadega. Sama võiks teha näiteks taludega ja võrrelda küladesse jaotumist.
+
+
+```{r 18kalster, echo =F, fig.align='center', fig.show='hold', fig.cap = "Saaremaa külade jaotumine klastriteks.", out.width="100%"}
+knitr::include_graphics(here::here("imgs/18_klaster_saaremaa.PNG"))
+```
 
 ## Interpoleerimine
 
+Selleks, et hinnata mingi nähtuse väärtust kohas, kust meil (valimis) andmeid ei ole, tuleb kasutada interpoleerimist, mis põhineb nn ennustamise funktsioonil (*prediction*). Sageli kasutatakse interpoleerimist selleks, et luua pidev rastermudel mingist eraldiseisvate punktide hulgast. Interpoleerimiseks on erinevaid meetodeid ning õige valik võib olla kohati suhteliselt keeruline. Eelkõige oleneb andmete iseloomust ja ulatusest ning nähtusest, millest üritame miskit rohkem mõista. Tulemus võib samuti meetodist olenevalt suuresti erineda.
 
-erinevad interpoleerimismeetodid
+Sisuliselt on interpoleerimine ennustav mudeldamine väärtuste hindamiseks mõõtmiskohtade vahel. Teistest meetoditest, nagu näiteks eelmisel korral vaadatud KDE, erinebki see just sellepoolest, et interpoleerimine mitte ei iseloomusta mingi andmestiku, vaid pigem ennustab selle põhjal. KDE võtab mingi nähtuse esinemissageduse ning muudab selle tiheduseks, aga ei ennusta tihedust punktide vahel, vaid ainult iseloomustab seda. Kuna interpoleerimine aga ennnustab, siis on tegu ka keerukama meetodiga. 
+
+### Distantsi kaaluv interpoleerimine
+
+Lineaarne distantsipõhine meetod meetod on suhteliselt lihtne, nagu allolevalt jooniselt näha. 
 
 ```{r 18simpleinterpolation, echo =F, fig.align='center', fig.show='hold', fig.cap = "Lihtsad interpoleerimise näited. A - kahe punkti ja lineaarse interpoleerimisega D = 15. B - lisades kolmanda punkt ja interpoleerides IDW abil D = 12.5 [@Gillings2020, fig 7.1].", out.width="100%"}
 knitr::include_graphics(here::here("imgs/18_simple_interpolation.PNG"))
 ```
 
-Vaatame korraks ka IDW valemit, et meetodit paremini mõista. 
+Populaarne distantsipõhine meetod on IDW ehk inverse distance weighing. Selle puhul nn kaalutakse punkte vastavalt nende üksteise vahelise distantsi ruudule. Niimoodi kahaneb oluliselt kaugemate punktide mõju lähedal olevatele punktidele. Vaatame korraks ka IDW valemit, et meetodit paremini mõista. 
 
-```{r 18idwformula, echo =F, fig.align='center', fig.show='hold', fig.cap = "IDW meetodi valem.", out.width="50%"}
+```{r 18idwformula, echo =F, fig.align='center', fig.show='hold', fig.cap = "IDW meetodi valem.", out.width="25%"}
 knitr::include_graphics(here::here("imgs/18_idw_formula.PNG"))
 ```
 
 Ja joonisel oleva punkti D arvutamiseks.
 
-```{r 18idwformulaex, echo =F, fig.align='center', fig.show='hold', fig.cap = "IDW meetodi valemi näide punkti D väärtuse arvutamiseks.", out.width="50%"}
-knitr::include_graphics(here::here("imgs/18_idw_formula.PNG"))
+```{r 18idwformulaex, echo =F, fig.align='center', fig.show='hold', fig.cap = "IDW meetodi valemi näide punkti D väärtuse arvutamiseks.", out.width="25%"}
+knitr::include_graphics(here::here("imgs/18_idw_formula_example.PNG"))
 ```
 
 
 ### Spline
 
+*Spline*  on pidev kõver, mis ühendab punkte. *Thin plate spline* meetodi puhul üritatakse kõverat punktide vahele (ja peale) sättida nii, et sel oleks võimalikult vähe kumerust. *Regularized spline* lubab kõverale ka väärtuseid, mis on punktide enda väärtustest suuremad või väiksemad. *Tension spline* ei lase kumerustel tekkida. Nagu teiste interpoleerimismeetoditega on ka siin palju subjektiivseid valikuid ning parim lahendus on erinevate meetodite ja väärtustega katsetamine. 
+
 ```{r 18spline, echo =F, fig.align='center', fig.show='hold', fig.cap = "Spline meetodi põhimõte. A - regulariseeritud kõrgusväärtusega, mis lubab punkti väärtusest suuremad väärtuseid. B - *tension spline*, mis hoiab rohkem kinni punktide väärtustest, et luua siledam/ühtlasem pind", out.width="100%"}
 knitr::include_graphics(here::here("imgs/18_spline.PNG"))
 ```
 
-### Ülesanne 1
+### Ülesanne 3
 
-eiole pole kihelkondade centroidid.
+Interpoleeri erinevate meetoditega *ei_ole_pole_props* kihi põhjal *ei_ole* või *pole* jaotumine terves Eestis. Kuna andmestikus on info kihelkondadena, siis kõige pealt tuleb see siduda kihelkondade kihiga *Joins* funktsiooniga. Kuna interpoleerimiseks vajame aga punkte, siis tuleb teha kihelkondadest, kus proportsioonide andmed on olemas. Selleks vali õige kihelkonnad avaldisega *"ei_ole" IS NOT NULL*. Tee kihelkondadest keskpunkt. *Vector -> Geometry tools -> Centroids*. Otsi *Processing Toolbox*'ist interpoleerimismeetodeid. 
 
 ```{r 18splineeiole, echo =F, fig.align='center', fig.show='hold', fig.cap = "Thin plate spline meetodiga arvutatud raster 'ei ole' proportsioonidest", out.width="100%"}
 knitr::include_graphics(here::here("imgs/18_spline_eiole.PNG"))
 ```
 
-rasteri profiili vaatamine
+Vaatame ka rasterite profiile, et nendest parem ettekujutus saada. *Plugins* -> *Profile tool*.
 
-gauss silumine
+<!-- gauss silumine -->
 
-thinplate spline töötab hästi eiole data radius 30000 ja min punkte 3
+<!-- thinplate spline töötab hästi eiole data radius 30000 ja min punkte 3 -->
 
-rasterite omavahel võrdlemine. kuidas saaks RMS arvutada. 
+<!-- rasterite omavahel võrdlemine. kuidas saaks RMS arvutada.  -->
 
-rasterite väärtused punktide kohal
+<!-- rasterite väärtused punktide kohal -->

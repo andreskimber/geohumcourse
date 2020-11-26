@@ -217,11 +217,16 @@
 <li class="chapter" data-level="17.5" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>17.5</b> Järgmisel korral</a></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="geostatistika2.html"><a href="geostatistika2.html"><i class="fa fa-check"></i><b>18</b> Geostatistika 2</a><ul>
-<li class="chapter" data-level="18.1" data-path="geostatistika2.html"><a href="geostatistika2.html#asukohapõhised-kokkuvõtted"><i class="fa fa-check"></i><b>18.1</b> Asukohapõhised kokkuvõtted</a></li>
-<li class="chapter" data-level="18.2" data-path="geostatistika2.html"><a href="geostatistika2.html#klasterdamine"><i class="fa fa-check"></i><b>18.2</b> Klasterdamine</a></li>
+<li class="chapter" data-level="18.1" data-path="geostatistika2.html"><a href="geostatistika2.html#asukohapõhised-kokkuvõtted"><i class="fa fa-check"></i><b>18.1</b> Asukohapõhised kokkuvõtted</a><ul>
+<li class="chapter" data-level="18.1.1" data-path="georefereerimine.html"><a href="georefereerimine.html#ülesanne-1"><i class="fa fa-check"></i><b>18.1.1</b> Ülesanne 1</a></li>
+</ul></li>
+<li class="chapter" data-level="18.2" data-path="geostatistika2.html"><a href="geostatistika2.html#klasterdamine"><i class="fa fa-check"></i><b>18.2</b> Klasterdamine</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="geostatistika1.html"><a href="geostatistika1.html#ülesanne-2"><i class="fa fa-check"></i><b>18.2.1</b> Ülesanne 2</a></li>
+</ul></li>
 <li class="chapter" data-level="18.3" data-path="geostatistika2.html"><a href="geostatistika2.html#interpoleerimine"><i class="fa fa-check"></i><b>18.3</b> Interpoleerimine</a><ul>
-<li class="chapter" data-level="18.3.1" data-path="geostatistika2.html"><a href="geostatistika2.html#spline"><i class="fa fa-check"></i><b>18.3.1</b> Spline</a></li>
-<li class="chapter" data-level="18.3.2" data-path="georefereerimine.html"><a href="georefereerimine.html#ülesanne-1"><i class="fa fa-check"></i><b>18.3.2</b> Ülesanne 1</a></li>
+<li class="chapter" data-level="18.3.1" data-path="geostatistika2.html"><a href="geostatistika2.html#distantsi-kaaluv-interpoleerimine"><i class="fa fa-check"></i><b>18.3.1</b> Distantsi kaaluv interpoleerimine</a></li>
+<li class="chapter" data-level="18.3.2" data-path="geostatistika2.html"><a href="geostatistika2.html#spline"><i class="fa fa-check"></i><b>18.3.2</b> Spline</a></li>
+<li class="chapter" data-level="18.3.3" data-path="geostatistika2.html"><a href="geostatistika2.html#ülesanne-3"><i class="fa fa-check"></i><b>18.3.3</b> Ülesanne 3</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="kirjandus.html"><a href="kirjandus.html"><i class="fa fa-check"></i>Kirjandus</a></li>
@@ -246,57 +251,78 @@
 <h1><span class="header-section-number">Praktikum 18</span> Geostatistika 2</h1>
 <div id="asukohapõhised-kokkuvõtted" class="section level2">
 <h2><span class="header-section-number">18.1</span> Asukohapõhised kokkuvõtted</h2>
-<p>Nagu eelmisel korral küsimusest selgus on, võib olla vajalik teha punktandmetest kokkuvõtteid mingi alapõhiselt. Näitan uuesti, kuidas seda teha ning saate ka ise järgi proovida.</p>
+<p>Nagu eelmisel korral küsimusest selgus, siis võib-olla vajalik teha punktandmetest kokkuvõtteid mingi alas. Teeme selle läbi!</p>
+<div id="ülesanne-1" class="section level3">
+<h3><span class="header-section-number">18.1.1</span> Ülesanne 1</h3>
+<p>Tõmba Moodle’ist kiht <em>saaremaa_asustus.gpkg</em> ning ava see QGISis. Lisaks ava kihelkondade või omavalitsuste kiht. <em>Processing -&gt; Toolbox -&gt; Join attributes by location (summary)</em>. Loeme kokku palju, igas kihelkonnas külasid on ning võib võtta ka esmamainimise min, max ja keskmise. Eelnevalt oleks kasulik valida välja ainult Saaremaa kihelkonnad ning teha neist eraldi kiht.</p>
+</div>
 </div>
 <div id="klasterdamine" class="section level2">
 <h2><span class="header-section-number">18.2</span> Klasterdamine</h2>
+<p>K-means klasterdamine on meetod, mille abil jagatakse väärtused (punktid) erinevateks gruppideks ehk klastriteks. Klastritesse jaotumine sõltub sellest, millise klastri keskpunktile vastav punkt kõige lähemal on.</p>
+<div id="ülesanne-2" class="section level3">
+<h3><span class="header-section-number">18.2.1</span> Ülesanne 2</h3>
+<p>Klasterda Saaremaa külad sama paljudeks klastriteks, kui on Saaremaal kihelkondi ja valdasid. <em>Processing -&gt; Toolbox -&gt; K-means clustering</em> Vaata, kas lihtsalt distantis põhine külade jaotamine gruppidesse kattub kihelkondadega. Sama võiks teha näiteks taludega ja võrrelda küladesse jaotumist.</p>
+<div class="figure" style="text-align: center"><span id="fig:18kalster"></span>
+<img src="imgs/18_klaster_saaremaa.PNG" alt="Saaremaa külade jaotumine klastriteks." width="100%" />
+<p class="caption">
+Figure 18.1: Saaremaa külade jaotumine klastriteks.
+</p>
+</div>
+</div>
 </div>
 <div id="interpoleerimine" class="section level2">
 <h2><span class="header-section-number">18.3</span> Interpoleerimine</h2>
-<p>erinevad interpoleerimismeetodid</p>
+<p>Selleks, et hinnata mingi nähtuse väärtust kohas, kust meil (valimis) andmeid ei ole, tuleb kasutada interpoleerimist, mis põhineb nn ennustamise funktsioonil (<em>prediction</em>). Sageli kasutatakse interpoleerimist selleks, et luua pidev rastermudel mingist eraldiseisvate punktide hulgast. Interpoleerimiseks on erinevaid meetodeid ning õige valik võib olla kohati suhteliselt keeruline. Eelkõige oleneb andmete iseloomust ja ulatusest ning nähtusest, millest üritame miskit rohkem mõista. Tulemus võib samuti meetodist olenevalt suuresti erineda.</p>
+<p>Sisuliselt on interpoleerimine ennustav mudeldamine väärtuste hindamiseks mõõtmiskohtade vahel. Teistest meetoditest, nagu näiteks eelmisel korral vaadatud KDE, erinebki see just sellepoolest, et interpoleerimine mitte ei iseloomusta mingi andmestiku, vaid pigem ennustab selle põhjal. KDE võtab mingi nähtuse esinemissageduse ning muudab selle tiheduseks, aga ei ennusta tihedust punktide vahel, vaid ainult iseloomustab seda. Kuna interpoleerimine aga ennnustab, siis on tegu ka keerukama meetodiga.</p>
+<div id="distantsi-kaaluv-interpoleerimine" class="section level3">
+<h3><span class="header-section-number">18.3.1</span> Distantsi kaaluv interpoleerimine</h3>
+<p>Lineaarne distantsipõhine meetod meetod on suhteliselt lihtne, nagu allolevalt jooniselt näha.</p>
 <div class="figure" style="text-align: center"><span id="fig:18simpleinterpolation"></span>
 <img src="imgs/18_simple_interpolation.PNG" alt="Lihtsad interpoleerimise näited. A - kahe punkti ja lineaarse interpoleerimisega D = 15. B - lisades kolmanda punkt ja interpoleerides IDW abil D = 12.5 [@Gillings2020, fig 7.1]." width="100%" />
 <p class="caption">
-Figure 18.1: Lihtsad interpoleerimise näited. A - kahe punkti ja lineaarse interpoleerimisega D = 15. B - lisades kolmanda punkt ja interpoleerides IDW abil D = 12.5 <span class="citation">(Gillings et al. <a href="kirjandus.html#ref-Gillings2020" role="doc-biblioref">2020</a>, fig 7.1)</span>.
+Figure 18.2: Lihtsad interpoleerimise näited. A - kahe punkti ja lineaarse interpoleerimisega D = 15. B - lisades kolmanda punkt ja interpoleerides IDW abil D = 12.5 <span class="citation">(Gillings et al. <a href="kirjandus.html#ref-Gillings2020" role="doc-biblioref">2020</a>, fig 7.1)</span>.
 </p>
 </div>
-<p>Vaatame korraks ka IDW valemit, et meetodit paremini mõista.</p>
+<p>Populaarne distantsipõhine meetod on IDW ehk inverse distance weighing. Selle puhul nn kaalutakse punkte vastavalt nende üksteise vahelise distantsi ruudule. Niimoodi kahaneb oluliselt kaugemate punktide mõju lähedal olevatele punktidele. Vaatame korraks ka IDW valemit, et meetodit paremini mõista.</p>
 <div class="figure" style="text-align: center"><span id="fig:18idwformula"></span>
-<img src="imgs/18_idw_formula.PNG" alt="IDW meetodi valem." width="50%" />
+<img src="imgs/18_idw_formula.PNG" alt="IDW meetodi valem." width="25%" />
 <p class="caption">
-Figure 18.2: IDW meetodi valem.
+Figure 18.3: IDW meetodi valem.
 </p>
 </div>
 <p>Ja joonisel oleva punkti D arvutamiseks.</p>
 <div class="figure" style="text-align: center"><span id="fig:18idwformulaex"></span>
-<img src="imgs/18_idw_formula.PNG" alt="IDW meetodi valemi näide punkti D väärtuse arvutamiseks." width="50%" />
+<img src="imgs/18_idw_formula_example.PNG" alt="IDW meetodi valemi näide punkti D väärtuse arvutamiseks." width="25%" />
 <p class="caption">
-Figure 18.3: IDW meetodi valemi näide punkti D väärtuse arvutamiseks.
+Figure 18.4: IDW meetodi valemi näide punkti D väärtuse arvutamiseks.
 </p>
 </div>
+</div>
 <div id="spline" class="section level3">
-<h3><span class="header-section-number">18.3.1</span> Spline</h3>
+<h3><span class="header-section-number">18.3.2</span> Spline</h3>
+<p><em>Spline</em> on pidev kõver, mis ühendab punkte. <em>Thin plate spline</em> meetodi puhul üritatakse kõverat punktide vahele (ja peale) sättida nii, et sel oleks võimalikult vähe kumerust. <em>Regularized spline</em> lubab kõverale ka väärtuseid, mis on punktide enda väärtustest suuremad või väiksemad. <em>Tension spline</em> ei lase kumerustel tekkida. Nagu teiste interpoleerimismeetoditega on ka siin palju subjektiivseid valikuid ning parim lahendus on erinevate meetodite ja väärtustega katsetamine.</p>
 <div class="figure" style="text-align: center"><span id="fig:18spline"></span>
 <img src="imgs/18_spline.PNG" alt="Spline meetodi põhimõte. A - regulariseeritud kõrgusväärtusega, mis lubab punkti väärtusest suuremad väärtuseid. B - *tension spline*, mis hoiab rohkem kinni punktide väärtustest, et luua siledam/ühtlasem pind" width="100%" />
 <p class="caption">
-Figure 18.4: Spline meetodi põhimõte. A - regulariseeritud kõrgusväärtusega, mis lubab punkti väärtusest suuremad väärtuseid. B - <em>tension spline</em>, mis hoiab rohkem kinni punktide väärtustest, et luua siledam/ühtlasem pind
+Figure 18.5: Spline meetodi põhimõte. A - regulariseeritud kõrgusväärtusega, mis lubab punkti väärtusest suuremad väärtuseid. B - <em>tension spline</em>, mis hoiab rohkem kinni punktide väärtustest, et luua siledam/ühtlasem pind
 </p>
 </div>
 </div>
-<div id="ülesanne-1" class="section level3">
-<h3><span class="header-section-number">18.3.2</span> Ülesanne 1</h3>
-<p>eiole pole kihelkondade centroidid.</p>
+<div id="ülesanne-3" class="section level3">
+<h3><span class="header-section-number">18.3.3</span> Ülesanne 3</h3>
+<p>Interpoleeri erinevate meetoditega <em>ei_ole_pole_props</em> kihi põhjal <em>ei_ole</em> või <em>pole</em> jaotumine terves Eestis. Kuna andmestikus on info kihelkondadena, siis kõige pealt tuleb see siduda kihelkondade kihiga <em>Joins</em> funktsiooniga. Kuna interpoleerimiseks vajame aga punkte, siis tuleb teha kihelkondadest, kus proportsioonide andmed on olemas. Selleks vali õige kihelkonnad avaldisega <em>“ei_ole” IS NOT NULL</em>. Tee kihelkondadest keskpunkt. <em>Vector -&gt; Geometry tools -&gt; Centroids</em>. Otsi <em>Processing Toolbox</em>’ist interpoleerimismeetodeid.</p>
 <div class="figure" style="text-align: center"><span id="fig:18splineeiole"></span>
 <img src="imgs/18_spline_eiole.PNG" alt="Thin plate spline meetodiga arvutatud raster 'ei ole' proportsioonidest" width="100%" />
 <p class="caption">
-Figure 18.5: Thin plate spline meetodiga arvutatud raster ‘ei ole’ proportsioonidest
+Figure 18.6: Thin plate spline meetodiga arvutatud raster ‘ei ole’ proportsioonidest
 </p>
 </div>
-<p>rasteri profiili vaatamine</p>
-<p>gauss silumine</p>
-<p>thinplate spline töötab hästi eiole data radius 30000 ja min punkte 3</p>
-<p>rasterite omavahel võrdlemine. kuidas saaks RMS arvutada.</p>
-<p>rasterite väärtused punktide kohal</p>
+<p>Vaatame ka rasterite profiile, et nendest parem ettekujutus saada. <em>Plugins</em> -&gt; <em>Profile tool</em>.</p>
+<!-- gauss silumine -->
+<!-- thinplate spline töötab hästi eiole data radius 30000 ja min punkte 3 -->
+<!-- rasterite omavahel võrdlemine. kuidas saaks RMS arvutada.  -->
+<!-- rasterite väärtused punktide kohal -->
 
 
 </div>
