@@ -1,0 +1,130 @@
+# Veebikaardid {#veebikaardid}
+
+Tavalised arvutis hoitavad kaardid on **digitaalsed kaardid**, mille võib panna ka veebilehele, ent mille koostamine, säilitamine ja näitamine ei sõltu kuidagi veebitehnoloogiast. Digitaalsed kaardid on staatilised. **Veebikaardid** aga lihtsalt ei paikne veebis, vaid on veebist sõltuvad: nii nende koostamine kui ka vaatamine sõltub veebitehnoloogiast. Sageli on veebikaardid dünaamilised, interaktiivsed ning võivad kasutada ka mujalt veebist päritavaid andmeid.
+
+Lisaks sellele, et veebikaartidel saab kuvada korraga mitut kihti, mingeid kihte sisse ja välja lülitada või kasutada andmete esitamiseks animatsiooni, saab nendele lisada ka erinevaid lisaelemente, näiteks sisse- ja väljasuumimine, vahemaade mõõtmine, legend, pealkirjad, otsing jpm. Samuti saab määrata, mis juhtub, kui kasutaja liigub hiirega mingi punkti peale, sellel klikib või mingil muul moel veebikaardiga suhtleb.  
+
+Tänapäevase veebikaardi aluskaart koosneb **paanidest** (*tiles*), tüüpiliselt 256×256 piksli suurustest rasterpiltidest (aga juba ka vektoritest), mida laaditakse vastavalt kasutaja valikutele kaardipaanide serverist (näiteks OpenStreetMapi serverist). See tähendab, et kasutajale näidatakse ainult seda osa kaardist, mida tal on vaja näha, muutes kaardi laadimise oluliselt kiiremaks.  
+
+```{r tiles, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Kaardipaanide laadimine (Allikas: [Axis Maps](https://www.axismaps.com/guide/what-is-a-web-map))"}
+knitr::include_graphics(here::here("imgs", "19_tiles.gif"))
+```
+
+Aluskaart annab sinu veebikaardile geograafilise konteksti, ent ei ole iseenesest kaardi tegemise ega vaatamise põhjuseks. Aluskaardil saab omakorda kuvada muid vektor- või rasterandmeid.
+
+Suur osa veebikaartidest (ja neid pakkuvatest APIdest) on vaikimisi Web Mercatori (EPSG:3857) projektsioonis, mille puhul peab arvestama sellega, et alade suurus on moonutatud. 
+
+<iframe width="100%" height="480px" src="https://thetruesize.com/#?borders=1~!MTU2MDMyNDc.NDgyOTAxOQ*MzM0ODE1MTM(NDAxMDYxNQ~!CONTIGUOUS_US*MTAwMjQwNzU.MjUwMjM1MTc(MTc1)MA~!IN*NTI2NDA1MQ.Nzg2MzQyMQ)Mg~!CN*OTkyMTY5Nw.NzMxNDcwNQ(MjI1)MQ" frameborder="0" scrolling="yes"></iframe>
+
+Kui tahta teha sageli, palju või korralikke veebikaarte ja kaardirakendusi, tasub vähemalt mingil algtasemel ära õppida keel, milles seda teha saab. 
+Veebilehed kasutavad (vähemalt) [**HTML**](https://www.w3schools.com/html/default.asp)i, et veebilehte struktureerida, [**CSS**](https://www.w3schools.com/css/default.asp)i, et veebilehte kujundada, ning [**JavaScript**](https://www.w3schools.com/js/default.asp)i, et lisada veebilehele interaktiivsust.
+<!-- javascript võib lehe sisu muuta, muuta selle väljanägemist mingis brauseris, saata serverile mingit informatsiooni või küsida serverilt uut informatsiooni-->
+
+
+```{r htmlcssjs, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap= "HTML, CSS ja JavaScript (Allikas: [dev.to](https://dev.to/fabcodingzest/how-to-get-started-with-web-development-front-end-part-1-5c6h))"}
+knitr::include_graphics(here::here("imgs", "19_htmlcssjs.jpg"))
+```
+
+Ühe lihtsa veebilehe struktuur võib välja näha näiteks selline: 
+
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Minu lehe pealkiri</title>
+    <link href="stiil.css" type="text/css"/ rel="stylesheet">
+  </head>
+  <body bgcolor="black" text="white">
+    <h1>Minu esimene veebileht</h1>
+    <p>Siin on mingi tekst.</p>
+	<p>Siin on <a href="https://tartugeohum.github.io/" target="_blank">link</a>, kust leiab kõik selle kursuse materjalid</p>
+    <p>Siin all on nupp, millele vajutades saab veel midagi teada.</p>
+    <p id="pealkiri" style="display:none">See on minu esimene veebileht!</p>
+    <button type="button" onclick="document.getElementById('pealkiri').style.display='block'">Vajuta siia!</button>
+  </body>
+</html>
+```
+
+Selle veebilehe juurde käiv CSS-fail omakorda selline:
+
+```
+h1{
+  text-align: center;
+  color: blue;
+  font-size: 40px;
+}
+p{
+  font-family: courier;
+  font-size: 20px;
+}
+```
+
+Kokku saab ühe väga lihtsa lehe, mis näeb välja selline:
+
+```{r html, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Lihtne veebileht"}
+knitr::include_graphics(here::here("imgs", "19_html.PNG"))
+```
+
+Interaktiivsete **veebikaartide** jaoks kasutatakse sageli näiteks JavaScripti [**Leaflet**](https://leafletjs.com/)i või [**OpenLayers**](https://openlayers.org/)i APIsid, mis suhtlevad erinevate serveritega ning muudavad ja kuvavad kaarti vastavalt kasutaja valikutele. Mõlemad teegid on vabavaralised ja avatud lähtekoodiga, samas kui näiteks Google Mapsi API ja ArcGISi API on seotud konkreetse omandusliku (*proprietary*) tarkvaraga. 
+<!-- Veebikaartide APId sisaldavad kaardiklasse ja kihte, ilma et peaks ise kirjutama tervet pikka koodi, millega mingit kaarti programmaatiliselt joonistada. APIde abil saab seega kirjutada programme kiiremini ja lihtsamalt -->
+
+```{r leafletOL, echo=F, fig.show='hold', fig.align='center', out.width= "48%", fig.cap= "Leaflet ja OpenLayers"}
+knitr::include_graphics(here::here("imgs", c("19_leaflet.png", "19_openlayers.png")))
+```
+
+
+Leafleti kasutatakse üldiselt rohkem, see on ökonoomsem, lihtsama APIga ning sobib hästi lihtsamate kaardirakenduste tegemiseks (*Leaflet does the 20% of things that are required 80% of the time*). Samas saab paljud funktsioonid kätte ainult erinevatest pluginatest ning kõiki võib-olla ei olegi veel olemas. Suure hulga funktsionaalsustega kaardirakenduste jaoks soovitatakse kasutada pigem OpenLayersit, mille API on keerulisem, ent selle võrra on see paindlikum ning pakub rohkem funktsioone. 
+
+
+## Kaardikihid QGISis
+
+Eelmisel korral tegime kaardi, kus interpoleerisime **murdekorpuse sagedusandmete** põhjalt "ei ole" ja "pole"  rasterkihi, kus kihelkondade keskpunktide väärtuste järgi oli ennustatud ka vahepealseid väärtusi, kuigi sealt algselt andmeid ei olnud.
+
+Seekord teeme võrdluseks kaardi **murdeatlase levikuandmete** põhjalt. Selleks:  
+
+1) laadime QGISi kihelkondade ja atlase andmete vektorkihid,  
+2) filtreerime välja read, kus keelendeid ei ole,  
+3) värvime allesjäänud punktid vastavalt variandile "ei ole" või "pole",  
+4) loeme kokku iga kihelkonna piiridesse jäävad punktid,  
+5) loeme kokku iga kihelkonna piiridesse jäävad "ei ole" punktid,  
+6) leiame "ei ole" osakaalu,  
+7) leiame nüüd uuesti kihelkondade tsentroidid (meil on küll esialgsed punktiandmed täpsemad, aga kategoriaalsed ja annavad infot ainult ühe variandi kohta),  
+8) interpoleerime IDW-ga tsentroidide kihi põhjal,   
+9) peidame kihtidelt tunnused, mida me ei taha veebikaardil näidata,  
+10) valime kaardile aluskaardi (*QuickMapServices*).  
+
+
+## Veebikaartide eksportimine
+
+Tehtud kaartide hõlpsaks lisamiseks veebi saab installida nüüd **qgis2web** plugina. See genereerib QGISi projektist kas OpenLayersi, Leafleti või Mapboxi API abil veebikaardi tervikliku veebilehena koos kõikide vajalike kaustade ja failidega, ilma et peaksime tingimata ise JavaScriptis, CSSis ja HTMLis koodi kirjutama. 
+
+Vali seejärel *Web* -> *qgis2web* -> *Create web map*.  
+
+Katseta erinevate sätetega, võrdle OpenLayersi ja Leafleti failide suurusi, failistruktuure.
+
+
+
+## Veebikaartide majutamine
+
+Valmis veebikaardi jagamiseks teistega võid saata kogu rakenduse kausta kellelegi lokaalselt vaatamiseks või selle kuskile serverisse avalikult üles panna. Tartu Ülikooli tudengitel ja töötajatel on TÜ serveris \\\\pohl.ut.ee oma võrguketas (vaikimisi 1GB), kus on võimalik hoida ja varundada oma isiklikke faile. Samuti saab TÜ serverisse oma kodukataloogi salvestada ja üles panna loodud veebilehed (vaata juhendit [siit](https://www.ut.ee/et/4891)). Veebilehed tuleks salvestada kodukataloogi alamkausta **public_html** ning nendele saab ligi aadressilt **https://www.ut.ee/~kasutajanimi/**.  
+
+Ülikooli võrguketastele ligipääsemiseks peab olema ülikooli sisevõrgus. Väljastpoolt ülikooli saab sisevõrku turvaliselt [ühenduse virtuaalse privaatvõrgu](https://wiki.ut.ee/pages/viewpage.action?pageId=17105590) (**VPN**) abil. 
+
+Ülikooli sisevõrgus olles saab isikliku võrguketta kodu- või sülearvutile [külge haakida](https://wiki.ut.ee/pages/viewpage.action?pageId=17105488). NB! Kasutajanimi olgu kujul domenis\\kasutajanimi (mitte kasutajanimi@ut.ee)
+ 
+(Kui see kohe ei tööta, siis proovi esmalt [seda](https://www.techcrumble.net/2018/03/you-cant-access-this-shared-folder-because-your-organizations-security-policies-block-unauthenticated-guest-access/).)
+
+
+Veebikaarte saab tasuta majutada näiteks ka [**GitHubis**](https://github.com/) (vaata lühikest juhendit [siit](https://rogerdudler.github.io/git-guide/)). Selleks tuleks teha uus avalik repositoorium, kuhu paigutada *qgis2web*i väljundkausta sisu (sh kindlasti ka fail *index.html*). Vaata juhendit näiteks [siit](https://github.com/NieneB/Webmapping_for_beginners/wiki/Hosting-on-github). 
+
+Kuskile serverisse riputatud veebilehte saab omakorda paigutada teise veebilehe sisse, nt HTML-i [**iframe**](https://www.w3schools.com/tags/tag_iframe.ASP)-märgendi abil. 
+
+Oma veebikaarte võib jagada ka otse QGISist, nt [QGIS Cloud](https://qgiscloud.com/)i või [Gisquick](http://gisquick.org/) pluginate abil. 
+
+## Lisa
+
+Kui tahad veebikaartide tegemise kohta rohkem õppida, siis väga hea ja põhjaliku kursuse veebikaartide kohta leiad näiteks [siit](https://github.com/jakobzhao/geog371). 
+
+## Järgmisel korral
+
+Ruumiandmete analüüs R-is. Selleks palun installi endale [**R**](https://www.r-project.org/) ja [**RStudio**](https://rstudio.com/products/rstudio/download/) uusimad versioonid.
