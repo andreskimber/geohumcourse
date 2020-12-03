@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Praktikum 10 Georefereerimine | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
-  <meta name="description" content="Praktikum 10 Georefereerimine | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <title>Praktikum 20 Ruumiandmete analüüs R-iga | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
+  <meta name="description" content="Praktikum 20 Ruumiandmete analüüs R-iga | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Praktikum 10 Georefereerimine | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta property="og:title" content="Praktikum 20 Ruumiandmete analüüs R-iga | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Praktikum 10 Georefereerimine | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta name="twitter:title" content="Praktikum 20 Ruumiandmete analüüs R-iga | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="avaandmed2.html"/>
-<link rel="next" href="visualiseerimine1.html"/>
+<link rel="prev" href="veebikaardid.html"/>
+<link rel="next" href="kirjandus.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,6 +52,70 @@
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -270,94 +334,167 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="georefereerimine" class="section level1">
-<h1><span class="header-section-number">Praktikum 10</span> Georefereerimine</h1>
-<p>Georefereerimine on kaartide või ka aerofotode ühendamine geograafilise koordinaatsüsteemiga. Tänapäeval tehakse peamiselt digitaalselt. Võimalik ka teistes koordinaatsüsteemides või üldse kohalikus (sisemises) koordinaatsüsteemis kaarte siduda meie kasutatava koordinaatsüsteemiga. Projektsioonidest ja koordinaatsüsteemidest oli lähemalt juttu kaardirakenduste praktikumis.</p>
-<p>Georefereerimiseks tuleb märkida samad kohad võimalikult täpselt georefereeritaval kaardil või fotol ja (tänapäevasel) kindlas koortinaatsüsteemis oleval aluskaardil.</p>
-<p>Praktikumi käigus otsime ajaloolised kaardid, mida soovime GISis kasutada, georefeerime need, lõikame vajalikku suurusesse ning digiteerime neilt huvipakkuvad objektid.</p>
-<div id="kaartide-otsimine-ja-allalaadimine" class="section level2">
-<h2><span class="header-section-number">10.1</span> Kaartide otsimine ja allalaadimine</h2>
-<p>Otsi Rahvusarhiivi kaartide infosüsteemist <a href="http://www.ra.ee/kaardid/">ra.ee/kaardid</a> kaart 19. saj Tartust ning rootsiaegne kaart Jõelähtme ja Jägala-Joa piirkonnast. Näidetes kasutan järgmisi kaarte:</p>
-<ul>
-<li>Plan der Stadt Dorpat mit Bezeichnung der hervorragenden Gebäude und Sämmtlicher Hausnummern, EAA.402.5.637, 1870. Tartu linna kaart koos silmapaistvate hoonete ja majanumbritega.</li>
-<li>Jackowal Hofs Byar uti Jegelecht Sochn belägne, EAA.1.2.C-III-8, 1688. Jägala mõisa külad Jõelähtme kihelkonnas.</li>
-</ul>
-<div class="figure" style="text-align: center"><span id="fig:dorpat1870"></span>
-<img src="imgs/tartu_1870.JPG" alt="Tartu kaart 1870. a" width="80%" />
+<div id="r" class="section level1">
+<h1><span class="header-section-number">Praktikum 20</span> Ruumiandmete analüüs R-iga</h1>
+<p>Lae Moodle’ist alla tänase praktikumi fail, paki see lahti ning aseta need failid enda selle kursuse kausta. Ava Rstudio ning seal ava fail <em>ruumiandmed_r.rmd</em>, valides ülevalt vasakust nurgast <em>File -&gt; Open file</em>.</p>
+<div id="pakettide-installimine" class="section level2">
+<h2><span class="header-section-number">20.1</span> Pakettide installimine</h2>
+<p>Kuna paljud teist kasutavad R-i esimest korda, siis kõigepealt installime vajalikud paketid. Selleks jooksuta sin all olev kood, klikkides kooditüki paremal üleval nurgas rohelisele nupule (<em>Run current chunk</em>). Selle tulemusena tõmbab R kõik vajalikud paketid ja installib need. Sellega võib minna natuke aga. Kui protsess on lõppenud, siis kaob konsooli paremas nurgas väike punane STOP-märk. Paketid tuleb alati uuesti laadida, kui oled vahepeal Rstudio sulgenud.</p>
+<p>Kui paketid on installitud, siis tuleb teha veel üks väike muudatus, et faili vaatamine oleks mugavam. Nimelt ei peaks koodi jooksutamise tulemust kohe siin koodi all näitama. Selleks <em>Tools -&gt; Global options -&gt; Rmarkdown</em> ning võta ära linnuke <em>Show output inline for all Rmarkdown documents</em> eest ja seejärel all servas <em>OK</em>.</p>
+<p>Viimase asjana paneme paika <em>Working directory</em>. Siin kasutame seda peamiselt selleks, et saaks andmeid lugeda lähtuvalt nende asukohast seoses selle faili asukohaga. Sellepärast palusingi teil panna see fail samasse kausta, kus on ka teie andmete kaust. <em>Workind directory</em> seadistamiseks ülevalt menüüribalt <em>Session -&gt; Set working directory -&gt; To source file location</em>. See järel jooksuta alljärgnev kood. Kui kõik on õigesti, peaks tulemuseks olema selle faili asukoht. Minul on see näiteks “C:/teaching/geohumcourse”.</p>
+</div>
+<div id="miks-teha-kaarte-koodipõhiselt" class="section level2">
+<h2><span class="header-section-number">20.2</span> Miks teha kaarte koodipõhiselt?</h2>
+<p>Miks vaevata ennast ja võib-olla ka teisi koodi õppima, kui saame (võrdlemisi) samasuguseid kaarte teha ka GISis või mõnes veebirakenduses nagu näiteks MapBox? Miks üldse midagi koodipõhiselt teha? Meie näeme, et sel on mitu eelist. Erinevalt nn musta kasti ja <em>point-and-click</em> tarkvaradest jääb koodi kirjutades selge jälg sellest, mida tehti. See aitab nii endal kui ka teistel paremini mõista, kuidas antud tulemuseni jõuti. See suhestub eelkõige teadusmaailmas <strong>reprodutseeritavuse</strong> teemadega. Samas lihtsustab kood enda tööprotsesse oluliselt. Eriti juhtudel, kus andmed võivad vahepeal täieneda või tuleb teha mitmeid sarnaseid asju. Näiteks olukord, kus tegid lõputöö või publikatsiooni jaoks kaardi ning kuu aega hiljem palub juhendaja või toimetaja paari detaili kaardil muuta. Ülejäänud kaart aga peaks jääma täpselt samaks. Samas oled vahepeal aga rohkelt enda ruumiandmetega edasi tegelenud. Millised olid täpselt kasutatud andmed, värvid, joone paksus, mõõtkava, mudeldamiseks kasutatud meetod jpm? Koodis on see info aga kõik olemas. Niisiis pole tarvis kogu kaarditegemise protsessi uuesti läbi teha, vaid muuta koodis vajalikud detailid.</p>
+</div>
+<div id="r-rstudio-ja-rmarkdown" class="section level2">
+<h2><span class="header-section-number">20.3</span> R, Rstudio ja Rmarkdown</h2>
+<p><a href="https://www.r-project.org/"><strong>R</strong></a> on vabavaraline väga võimas programmeerimiskeel ja keskkond andmeanalüüsiks, statistilisteks arvutusteks ning andmete visualiseerimiseks. R pakub väga palju statistilisi ja graafilisi meetodeid ning hästi laiendatav. Üks selle tugevaid külgi on just võimalus teha kõrge kvaliteediga jooniseid ja graafikuid. Kuna tegu on koodipõhise tarkvaraga, siis annab see kasutajatele suhteliselt vabad käed ning võimaldab vastavalt vajadusele luua uusi funktsioone.</p>
+<p><strong>Paketid</strong> ehk teegid (<em>package</em>) on R-i põhiline jagatava koodi nn ühik. Pakettide eesmärk on lisada mingeid funktsioone. Paljud paketid tulevad R-iga kohe kaasa, aga üldiselt peab neid juurde installima. Hetkel on R-i kodulehel <a href="http://cran.r-project.org/">cran.r-project.org/</a> üle 14000 paketi. Pakett koosneb koodist, andmetest, dokumentatsioonist ning testidest ja seda on lihtne teistega jagada.</p>
+<p><a href="https://rstudio.com/"><strong>Rstudio</strong></a> on R-i integreeritud arenduskeskkond (<em>integrated development environment</em> ehk <em>IDE</em>). See koosneb konsoolist, tekstiredaktorist ning tööriistadest graafikute tegemisest, koodi silumiseks, kogu keskkonna ja ajaloo majandamiseks jpm. Rstudiost on nii vabavaraline kui ka kommertsversioon. Meie kasutame vabavaralist.</p>
+<div class="figure" style="text-align: center"><span id="fig:20rstudioide"></span>
+<img src="imgs/20_rstudio_ui.png" alt="Rstudio kasutajaliidese peamised osad ([viide](https://sfg-ucsb.github.io/fishery-manageR/getting-started-with-rstudio.html))." width="75%" />
 <p class="caption">
-Figure 10.1: Tartu kaart 1870. a
+Figure 20.1: Rstudio kasutajaliidese peamised osad (<a href="https://sfg-ucsb.github.io/fishery-manageR/getting-started-with-rstudio.html">viide</a>).
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:jaggowal1688"></span>
-<img src="imgs/jaggowal_1688.jpg" alt="Jägala mõisa kaart 1688. a" width="80%" />
-<p class="caption">
-Figure 10.2: Jägala mõisa kaart 1688. a
-</p>
-</div>
-<p>Võid kasutada samu või otsida muud sarnased kaardid. Laadi kaardid alla ning tõstke need enda arvutis kursuse kaustas andmete või kaartide kausta.</p>
-</div>
-<div id="georefereerimine-1" class="section level2">
-<h2><span class="header-section-number">10.2</span> Georefereerimine</h2>
-<p>Ava QGIS ning lülita sisse georefereerimise tööriist. <em>Plugins -&gt; Manage and Install Plugins</em> -&gt; otsingusse kirjuta <em>Georeferencer</em> -&gt; tee linnuke <em>Georefencer GDAL Plugin</em> ette ja sulge see aken. Nüüd on <em>Raster</em> menüü all näha <em>Georeferencer</em>. Ava see. Tööriista sisselülitamine on ühekordne tegevus. Järgmisel korral QGISi avades on see <em>Raster</em> menüü all juba olemas.</p>
-<div class="figure" style="text-align: center"><span id="fig:georefenable"></span>
-<img src="imgs/georeferences_enabling.gif" alt="Georefereerija sisselülitamine" width="100%" />
-<p class="caption">
-Figure 10.3: Georefereerija sisselülitamine
-</p>
-</div>
-<p>Ava <em>Georeferencer</em> ning ava selles 19. saj Tartu kaart. <em>File</em> -&gt; <em>Open Raster</em>. Selles aknas liikumine on on samamoodi nagu tavalisel kaardiaknal. Saab suumida hiire rullikuga või <em>ctrl</em> all hoides ning liikuda nooltega ja hiirega kui valitud on käekujuline <em>Pan</em> ikoon. Vaadake kaardil ringi, kas tunnete ära mõningad tuntud kohad.</p>
-<p>Nüüd on vaja aluskaarti, mille pealt leida ühised punktid ajaloolise kaardiga. Selleks ava Maa-ameti WMS teenusest Hybriidkaart, Põhikaart ja Ortofoto. Hübriidkaardi kasutamiseks tuleb luua ühenduse aadressiga <em><a href="https://kaart.maaamet.ee/wms/ajalooline" class="uri">https://kaart.maaamet.ee/wms/ajalooline</a></em>. Ortofoto kasutamiseks tuleb luua ühenduse aadressiga <em><a href="https://kaart.maaamet.ee/wms/fotokaart" class="uri">https://kaart.maaamet.ee/wms/fotokaart</a></em>. Kui need ühendus pole teil varem seadistatud, siis tehke seda. WMS ühenduse loomisest on täpsemalt praktikumides Sissejuhatus QGISi ja Sissejuhatus QGISi 2.</p>
-<p>Lisaks võite ajalooliste kaartide WMS teenusest võtta ka üheverstase kaardi, millega on hea georefereerimisel tänapäevast olukorda kõrvutada. Pidage meeles, et ka üheverstane kaart on georefereeritud ning seetõttu võib esineda ebatäpsuseid.</p>
-<p>Märgi punktid ajaloolisel kaardil ja tänapäevasel aluskaardil. Võtke ette jälle <em>Georeferencer</em> aken. Georefereerija aknas <em>Edit</em> -&gt; <em>Add point</em> ja kliki mõlemalt kaardil hästi tuvastataval objektil. Näiteks TÜ peahoone, raekoda, kaarsild, tähetorn, Jaani kirik jms. Seejärel vali <em>From map canvas</em> ning kliki tänapäevasel aluskaardil samas kohas.</p>
-<div class="figure" style="text-align: center"><span id="fig:georef1"></span>
-<img src="imgs/georeferencing.gif" alt="Sama asukoha märkimine" width="100%" />
-<p class="caption">
-Figure 10.4: Sama asukoha märkimine
-</p>
-</div>
-<p>Märgi sama moodi veel neli kuni kümme punkti kaardil. See järel tuleb valida georefereerimise sätted. Georefeerija aknas kliki kollasel hammasrattal ja vaata, et sätted oleks nii nagu siinsel pildil.</p>
-<div class="figure" style="text-align: center"><span id="fig:georefsettings"></span>
-<img src="imgs/georef_settings.PNG" alt="Georefereerimise sätted" width="50%" />
-<p class="caption">
-Figure 10.5: Georefereerimise sätted
-</p>
-</div>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-Nüüd ilmub georefereeritud kaart QGISi peaaknas. Vaata, kui hästi tänapäevaga koordinaatsüsteemiga sidumine õnnestus. Kui kaart on väga paigast ära, siis lisa rohkem punkte või muuda transformatsiooni tüüpi. Vastavatest algoritmidest saab täpsemalt lugeda <em>Georeferencer</em> <a href="https://docs.qgis.org/2.8/en/docs/user_manual/plugins/plugins_georeferencer.html#available-transformation-algorithms">juhendist</a>.
-=======
-Vajuta rohelisel noolekesel <em>Start Georeferencing</em>. Nüüd ilmub georefereeritud kaart QGISi peaaknas. Vaata, kui hästi tänapäevaga koordinaatsüsteemiga sidumine õnnestus. Kui kaart on väga paigast ära, siis lisa rohkem punkte või muuda transformatsiooni tüüpi. Vastavatest algoritmidest saab täpsemalt lugeda <em>Georeferencer</em> <a href="https://docs.qgis.org/2.8/en/docs/user_manual/plugins/plugins_georeferencer.html#available-transformation-algorithms">juhendist</a>.
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; 17ea0e27778cd91a94993f9058c7c5177ae1d81a</p>
-<div class="figure" style="text-align: center"><span id="fig:georefvalmis"></span>
-<img src="imgs/georef_valmis.PNG" alt="Georefereeritud Tartu kaart hübriidkaardi ja ortofoto taustal" width="100%" />
-<p class="caption">
-Figure 10.6: Georefereeritud Tartu kaart hübriidkaardi ja ortofoto taustal
-</p>
+<p><a href="https://rmarkdown.rstudio.com/"><strong>Rmarkdown</strong></a> on formaat tavalise teksti ning koodi kombineerimiseks, mis seetõttu võimaldab kirjutada täielikult reprodutseeritavaid artikleid, raamatuid, raporteid ning koostada veebilehti, interaktiivseid lahendusi jpm. Nii see juhend kui ka kogu kursuse materjalid on kirjutatud Rmarkdownis.</p>
+<p>Rmarkdown koosnebki tavaliselt tekstist nagu see siin.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="r.html#cb1-1"></a><span class="co"># Ning kooditükkidest nagu see siin. Kooditükid on Rstudios kolme ` vahel.</span></span>
+<span id="cb1-2"><a href="r.html#cb1-2"></a><span class="co"># Trellid teksti tähistavad kommentaari ning seda koodi jooksutamisel ei arvestata.</span></span>
+<span id="cb1-3"><a href="r.html#cb1-3"></a><span class="co"># See on lihtsalt inimesele lugemiseks.</span></span></code></pre></div>
+<div id="kood" class="section level3">
+<h3><span class="header-section-number">20.3.1</span> Kood</h3>
+<p>Vaatame mõnda näidet koodist, et mõista, kuidas üldiselt asjad töötavad.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="r.html#cb2-1"></a><span class="co"># Arvutuste tegemine. Koodi jooksutades näidatakse tulemust. </span></span>
+<span id="cb2-2"><a href="r.html#cb2-2"></a><span class="dv">5</span> <span class="op">+</span><span class="st"> </span><span class="dv">11</span></span></code></pre></div>
+<pre><code>## [1] 16</code></pre>
+<p>Väärtustele (ja ka andmestikele, funktsioonidele jm) saab anda nime ning järgnevates osades kasutada seda.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="r.html#cb4-1"></a>a =<span class="st"> </span><span class="dv">3</span></span>
+<span id="cb4-2"><a href="r.html#cb4-2"></a>b =<span class="st"> </span><span class="dv">7</span></span>
+<span id="cb4-3"><a href="r.html#cb4-3"></a>a <span class="op">+</span><span class="st"> </span>b</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>Rohkemate väärtuste puhul on hea võimalus demonstreerida funktsiooni kasutamist.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="r.html#cb6-1"></a>x =<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb6-2"><a href="r.html#cb6-2"></a>y =<span class="st"> </span><span class="dv">4</span></span>
+<span id="cb6-3"><a href="r.html#cb6-3"></a>a <span class="op">+</span><span class="st"> </span>b <span class="op">+</span><span class="st"> </span>x <span class="op">+</span><span class="st"> </span>y</span></code></pre></div>
+<pre><code>## [1] 16</code></pre>
+<p>Kombineerime funksiooniga <code>c</code> väärtustest nimekirja ning liidame funktsiooniga <code>sum</code> kõik nimekirja väärtused kokku.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="r.html#cb8-1"></a>nimekiri =<span class="st"> </span><span class="kw">c</span>(a, b, x, y)</span>
+<span id="cb8-2"><a href="r.html#cb8-2"></a>nimekiri</span></code></pre></div>
+<pre><code>## [1] 3 7 2 4</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="r.html#cb10-1"></a><span class="kw">sum</span>(nimekiri) </span></code></pre></div>
+<pre><code>## [1] 16</code></pre>
 </div>
 </div>
-<div id="lõikamine" class="section level2">
-<h2><span class="header-section-number">10.3</span> Lõikamine</h2>
-<p>Lõika georefereeritud kaardist välja ainult vanalinna osa. Selleks <em>Raster → Extraction → Clip raster by extent</em>. Vaata, et <em>Input layer</em> oleks georefereeritud kaart ning <em>Clipping extent</em> juures kliki sirvimise ikoonil ja vali <em>Select extent on canvas</em> ning joonista peaaknas nelinurk, mis katab suurema osa vanalinnast. <em>Clipped extent</em> juures kliki sirvimise ikoonil ja vali kursuse kaust ning failile arusaadav nimi. Kliki <em>Run</em>. Nüüd on lõigatud kaart peaaknas näha. Sellist lõikamist saab teha ka vektorkihi abil, aga sellest järgmistel kordadel.</p>
+<div id="joonised-ja-kaardid-r-is" class="section level2">
+<h2><span class="header-section-number">20.4</span> Joonised ja kaardid R-is</h2>
+<p>Ggplot2 on väga populaarne R-i pakett andmete visualiseerimiseks. See on ka osa Tidyverse’i pakettide kogumiku osa. Sellega saab teha nii kõiksugu jooniseid kui ka kaarte. Pakett põhine kontseptsioonil <em>Grammar of Graphics</em>, mis võimaldab luua jooniseid kombineerides erinevaid komponente. Samas ei ole tegemist mingi etteantud graafikute valikuga, vaid neid saab kombineerida ja muuta vastavalt oma vajadustele. Sisuliselt toimub komponentide lisamine kihtidena pisut sarnaselt sellele, kuidas oleme siiani QGISi teinud. Kõigepealt lisatakse toorandmed, ning seejärel kokkuvõtted neist ja kõikvõimalikud märkused ja lisad.</p>
+<p>ggplot paketi põhielemendid:</p>
+<ol style="list-style-type: decimal">
+<li>andmed:
+andmestik, mida tahetakse kujutada</li>
+<li>geomeetria <code>geom_</code>:
+geomeetrilised kujundid, mis esindavad andmeid. Nt punktid, jooned, alad.</li>
+<li>esteetika ehk välimus <code>aes()</code>:
+objektide asukoht, värv, suurus, kuju, läbipaistvus</li>
+<li>mõõtkava <code>scale_</code></li>
+<li>statistilised kokkuvõtted <code>stat_</code></li>
+<li>koordinaatsüsteem <code>coord_</code></li>
+<li>tahud <code>facet_</code>:
+visualiseerimine korraga mitmel tahul. graafikute ruudustiku loomine</li>
+<li>visuaalne teema <code>theme()</code>:
+visuaalse poole vaikimisi sätted. Taust, font, teljed jne.</li>
+</ol>
 </div>
-<div id="ülesanne" class="section level2">
-<h2><span class="header-section-number">10.4</span> Ülesanne</h2>
-<p>Georefereeri samamoodi 17. sajandi kaart. Kuna niivõrd vanal kaardil on hooneid, teid ja muid pidepunkte vähem, siis on soovitatav kasutada looduslikke objekte. Sellel kaardil on heaks ühiseks objektiks jõgi.</p>
+<div id="ruumiandmed" class="section level2">
+<h2><span class="header-section-number">20.5</span> Ruumiandmed</h2>
+<div id="andmete-avamine" class="section level3">
+<h3><span class="header-section-number">20.5.1</span> Andmete avamine</h3>
+<p>Andmete avamiseks kasutame vastavalt andmestikule sobivaid funktsioone. Tabelandmestiku puhul nt <code>read_csv</code> ja vektorkujul ruumiandmete puhul <code>st_read</code>.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="r.html#cb12-1"></a>maakonnad  =<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;./andmed/maakond_20201001.shp&quot;</span>)</span>
+<span id="cb12-2"><a href="r.html#cb12-2"></a><span class="co"># Seda koodi võiks lugeda järgmiselt. *Ava selle Rmarkdown failiga samas kaustas </span></span>
+<span id="cb12-3"><a href="r.html#cb12-3"></a><span class="co"># olevast kaustast *andmed* fail maakond_20201001.shp ja anna sellele nimeks maakonnad.</span></span>
+<span id="cb12-4"><a href="r.html#cb12-4"></a></span>
+<span id="cb12-5"><a href="r.html#cb12-5"></a>kirikud =<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;./andmed/kirikud.gpkg&quot;</span>)</span>
+<span id="cb12-6"><a href="r.html#cb12-6"></a>malestised =<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;./andmed/kultuurimalestised.shp&quot;</span>)</span>
+<span id="cb12-7"><a href="r.html#cb12-7"></a></span>
+<span id="cb12-8"><a href="r.html#cb12-8"></a><span class="co"># avame Saaremaa ja Tartumaa asustuse kihid. </span></span>
+<span id="cb12-9"><a href="r.html#cb12-9"></a>saare_asustus =<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;./andmed/saaremaa_asustus.gpkg&quot;</span>)</span>
+<span id="cb12-10"><a href="r.html#cb12-10"></a>tartu_asustus =<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;./andmed/tartu_kylad.gpkg&quot;</span>)</span></code></pre></div>
 </div>
-<div id="digiteerimine" class="section level2">
-<h2><span class="header-section-number">10.5</span> Digiteerimine</h2>
-<p>Loo tühi <strong>ala</strong> kiht <em>Layer → Create Layer → New Geopackage Layer</em>. Digiteeri georefereeritud 17. saj kaardilt Koila küla põllumaad. Digiteerimisest ja kihtide loomisest on täpsemalt juttu praktikumis Sissejuhatus QGISi 2.</p>
-<p>Põllumaade tuvastamisel aitab Rahvusarhiivi <a href="http://www.ra.ee/kaardid/index.php/et/site/page?view=symbols">leppemärkide juhend</a>. Koila küla põllumaade tuvastamisel aitab kaardi vasakul all nurgas olev legend. Koila küla peaks olema tähistatud <em>B</em> tähega.</p>
-<div id="veebilahendus" class="section level3">
-<h3><span class="header-section-number">10.5.1</span> Veebilahendus</h3>
-<p><a href="http://www.georeferencer.com/">georeferencer.com</a> töötab sisuliselt täpselt samamoodi nagu QGISi Georeferencer, aga võimaldab seda teha internetis ja ilma spetsiaalse tarkvarata. Mugav ja kiire lahendus.</p>
+<div id="kaartide-tegemine" class="section level3">
+<h3><span class="header-section-number">20.5.2</span> Kaartide tegemine</h3>
+<p>Teeme ggplotiga kaardi.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="r.html#cb13-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> maakonnad) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb13-2"><a href="r.html#cb13-2"></a><span class="st">    </span><span class="kw">geom_sf</span>()</span></code></pre></div>
+<p><img src="HVHV_00_001_geoinfosysteemid_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>Lisame rohkem elemente kaardile.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="r.html#cb14-1"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb14-2"><a href="r.html#cb14-2"></a><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> maakonnad, </span>
+<span id="cb14-3"><a href="r.html#cb14-3"></a>            <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, </span>
+<span id="cb14-4"><a href="r.html#cb14-4"></a>            <span class="dt">fill =</span> <span class="st">&quot;#fec44f&quot;</span>) <span class="op">+</span><span class="st">                           </span></span>
+<span id="cb14-5"><a href="r.html#cb14-5"></a><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> kirikud, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></span>
+<span id="cb14-6"><a href="r.html#cb14-6"></a><span class="st">    </span><span class="kw">coord_sf</span>(<span class="dt">crs =</span> <span class="dv">3301</span>) <span class="op">+</span></span>
+<span id="cb14-7"><a href="r.html#cb14-7"></a><span class="st">    </span><span class="kw">annotation_scale</span>(<span class="dt">location =</span> <span class="st">&quot;bl&quot;</span>) <span class="op">+</span></span>
+<span id="cb14-8"><a href="r.html#cb14-8"></a><span class="st">    </span><span class="kw">labs</span>(</span>
+<span id="cb14-9"><a href="r.html#cb14-9"></a>        <span class="dt">title =</span> <span class="st">&quot;Eesti maakonnad&quot;</span>,</span>
+<span id="cb14-10"><a href="r.html#cb14-10"></a>        <span class="dt">subtitle =</span> <span class="st">&quot;Oktoorber 2020 seisuga&quot;</span>,</span>
+<span id="cb14-11"><a href="r.html#cb14-11"></a>        <span class="dt">caption =</span> <span class="st">&quot;Andmed: Maa-amet 2020&quot;</span></span>
+<span id="cb14-12"><a href="r.html#cb14-12"></a>    ) <span class="op">+</span></span>
+<span id="cb14-13"><a href="r.html#cb14-13"></a><span class="st">    </span><span class="kw">theme_map</span>()</span></code></pre></div>
+<p><img src="HVHV_00_001_geoinfosysteemid_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+<div id="andmete-filtreerimine" class="section level3">
+<h3><span class="header-section-number">20.5.3</span> Andmete filtreerimine</h3>
+<p>Ruumiandmete filtreerimine, ühendamine jms käib R-is valdavalt samamoodi nagu teiste andmete puhul. Selleks on meil kasutada <code>dplyr</code> pakett, mis võimaldab paari funktsiooni abil suure osa andmetöötlusest ära teha.</p>
+<p>Soovime näiteks teha kaarti Saaremaa asustusüksustest, mille esmamainimine on olnud hiljemalt aastal 1500.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="r.html#cb15-1"></a><span class="co"># Filtreerime maakondadest Saaremaa välja </span></span>
+<span id="cb15-2"><a href="r.html#cb15-2"></a></span>
+<span id="cb15-3"><a href="r.html#cb15-3"></a>saaremaa =<span class="st"> </span>maakonnad <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb15-4"><a href="r.html#cb15-4"></a><span class="st">    </span><span class="kw">filter</span>(</span>
+<span id="cb15-5"><a href="r.html#cb15-5"></a>        MNIMI <span class="op">==</span><span class="st"> &quot;Saare maakond&quot;</span> </span>
+<span id="cb15-6"><a href="r.html#cb15-6"></a>    )</span>
+<span id="cb15-7"><a href="r.html#cb15-7"></a><span class="co"># kontrollime, kas kõik toimis</span></span>
+<span id="cb15-8"><a href="r.html#cb15-8"></a><span class="kw">ggplot</span>(saaremaa) <span class="op">+</span></span>
+<span id="cb15-9"><a href="r.html#cb15-9"></a><span class="st">    </span><span class="kw">geom_sf</span>()</span></code></pre></div>
+<p><img src="HVHV_00_001_geoinfosysteemid_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>Välja tuleb filtreerida ka õige vanusega külad.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="r.html#cb16-1"></a>saare_asustus_vana =<span class="st"> </span>saare_asustus <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb16-2"><a href="r.html#cb16-2"></a><span class="st">    </span><span class="kw">filter</span>(</span>
+<span id="cb16-3"><a href="r.html#cb16-3"></a>        esmamainimine <span class="op">&lt;</span><span class="st"> </span><span class="dv">1500</span></span>
+<span id="cb16-4"><a href="r.html#cb16-4"></a>    )</span></code></pre></div>
+<p>Teeme neist kaardi.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="r.html#cb17-1"></a><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb17-2"><a href="r.html#cb17-2"></a><span class="st">    </span><span class="kw">geom_sf</span>(saaremaa, <span class="dt">mapping =</span> ggplot2<span class="op">::</span><span class="kw">aes</span>(),</span>
+<span id="cb17-3"><a href="r.html#cb17-3"></a>            <span class="dt">show.legend =</span> T) <span class="op">+</span></span>
+<span id="cb17-4"><a href="r.html#cb17-4"></a><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> saare_asustus_vana,</span>
+<span id="cb17-5"><a href="r.html#cb17-5"></a>            <span class="dt">mapping =</span> ggplot2<span class="op">::</span><span class="kw">aes</span>(<span class="dt">shape =</span> asustusyksus), <span class="dt">size =</span> <span class="dv">3</span>,</span>
+<span id="cb17-6"><a href="r.html#cb17-6"></a>            ) <span class="op">+</span></span>
+<span id="cb17-7"><a href="r.html#cb17-7"></a><span class="st">    </span><span class="kw">coord_sf</span>(<span class="dt">crs =</span> <span class="dv">3301</span>) <span class="op">+</span></span>
+<span id="cb17-8"><a href="r.html#cb17-8"></a><span class="st">    </span><span class="kw">annotation_scale</span>(<span class="dt">location =</span> <span class="st">&quot;br&quot;</span>) <span class="op">+</span></span>
+<span id="cb17-9"><a href="r.html#cb17-9"></a><span class="st">    </span><span class="kw">labs</span>(</span>
+<span id="cb17-10"><a href="r.html#cb17-10"></a>        <span class="dt">title =</span> <span class="st">&quot;Saaremaa asustus aastani 1500&quot;</span>,</span>
+<span id="cb17-11"><a href="r.html#cb17-11"></a>        <span class="dt">caption =</span> <span class="st">&quot;Andmed: Maa-amet 2020, EKI Kohanimeraamat&quot;</span></span>
+<span id="cb17-12"><a href="r.html#cb17-12"></a>    ) <span class="op">+</span></span>
+<span id="cb17-13"><a href="r.html#cb17-13"></a><span class="st">    </span><span class="kw">theme_map</span>()</span></code></pre></div>
+<p><img src="HVHV_00_001_geoinfosysteemid_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>
+<div id="ülesanne" class="section level3">
+<h3><span class="header-section-number">20.5.4</span> Ülesanne</h3>
+<p>Tee kaart, kus on kujutatud Tartu maakonna kõiki arheoloogia mälestisi. Kirjuta kood all olevasse kooditükki. Saad kombineerida täpselt sama koodi, mida varem kasutasime. Pead aga avama ka kihelkondade kihi ning mälestiste kihist filtreerima väärtused, kus tulbas <em>ARHEOLOOGI</em> on väärtuseks <em>Y</em>. Muuda värve ja suurusi vastavalt enda maitsele.</p>
+</div>
+<div id="kaartide-eksportimine" class="section level3">
+<h3><span class="header-section-number">20.5.5</span> Kaartide eksportimine</h3>
+<p>Kaarte saab eksportida paremal olevast <em>Plots</em> aknast valides <em>Export</em>. Samuti võib koodi lõppu lisada funktsiooni <code>ggsave("failinimi.jpg")</code>.</p>
 </div>
 </div>
-<div id="ülesanne-1" class="section level2">
-<h2><span class="header-section-number">10.6</span> Ülesanne</h2>
-<p>Georefereerige käsitsi tehtud kaardid Tartu kesklinnast.</p>
-</div>
-<div id="järgmisel-korral" class="section level2">
-<h2><span class="header-section-number">10.7</span> Järgmisel korral</h2>
-<p>Ruumiandmete visualiseerimine</p>
+<div id="r-i-raamatud-ja-juhendid" class="section level2">
+<h2><span class="header-section-number">20.6</span> R-i raamatud ja juhendid</h2>
+<p><a href="https://r4ds.had.co.nz/">R for Data Science</a></p>
+<p><a href="https://geocompr.robinlovelace.net/">Geocomputation with R</a></p>
+<p><a href="https://rc2e.com/">R Cookbook</a></p>
+
 
 </div>
 </div>
@@ -366,8 +503,8 @@ Figure 10.6: Georefereeritud Tartu kaart hübriidkaardi ja ortofoto taustal
           </div>
         </div>
       </div>
-<a href="avaandmed2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="visualiseerimine1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="veebikaardid.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="kirjandus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
