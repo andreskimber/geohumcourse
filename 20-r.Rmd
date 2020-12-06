@@ -4,7 +4,7 @@ Lae Moodle'ist alla tänase praktikumi fail, paki see lahti ning aseta need fail
 
 ## Pakettide installimine
 
-Kuna paljud teist kasutavad R-i esimest korda, siis kõigepealt installime vajalikud paketid. Selleks jooksuta sin all olev kood, klikkides kooditüki paremal üleval nurgas rohelisele nupule (*Run current chunk*). Selle tulemusena tõmbab R kõik vajalikud paketid ja installib need. Sellega võib minna natuke aga. Kui protsess on lõppenud, siis kaob konsooli paremas nurgas väike punane STOP-märk. Paketid tuleb alati uuesti laadida, kui oled vahepeal Rstudio sulgenud. 
+Kuna paljud teist kasutavad R-i esimest korda, siis kõigepealt installime vajalikud paketid. Selleks jooksuta siin all olev kood, klikkides kooditüki paremal üleval nurgas rohelisele nupule (*Run current chunk*). Selle tulemusena tõmbab R kõik vajalikud paketid ja installib need. Sellega võib minna natuke aga. Kui protsess on lõppenud, siis kaob konsooli paremas nurgas väike punane STOP-märk. Paketid tuleb alati uuesti laadida, kui oled vahepeal Rstudio sulgenud. 
 
 ```{r, echo = F, include = F}
 need = c("tidyverse", "sf", "magrittr", "ggspatial", "spData", "ggthemes")
@@ -15,7 +15,7 @@ invisible(lapply(need, library, character.only = T))
 
 Kui paketid on installitud, siis tuleb teha veel üks väike muudatus, et faili vaatamine oleks mugavam. Nimelt ei peaks koodi jooksutamise tulemust kohe siin koodi all näitama. Selleks *Tools -> Global options -> Rmarkdown* ning võta ära linnuke *Show output inline for all Rmarkdown documents* eest ja seejärel all servas *OK*.
 
-Viimase asjana paneme paika *Working directory*. Siin kasutame seda peamiselt selleks, et saaks andmeid lugeda lähtuvalt nende asukohast seoses selle faili asukohaga. Sellepärast palusingi teil panna see fail samasse kausta, kus on ka teie andmete kaust. *Workind directory* seadistamiseks ülevalt menüüribalt *Session -> Set working directory -> To source file location*. See järel jooksuta alljärgnev kood. Kui kõik on õigesti, peaks tulemuseks olema selle faili asukoht. Minul on see näiteks "C:/teaching/geohumcourse".
+Viimase asjana paneme paika *Working directory*. Siin kasutame seda peamiselt selleks, et saaks andmeid lugeda lähtuvalt nende asukohast seoses selle faili asukohaga. Sellepärast palusingi teil panna see fail samasse kausta, kus on ka teie andmete kaust. *Working directory* seadistamiseks ülevalt menüüribalt *Session -> Set working directory -> To source file location*. See järel jooksuta alljärgnev kood. Kui kõik on õigesti, peaks tulemuseks olema selle faili asukoht. Minul on see näiteks "C:/teaching/geohumcourse".
 
 ```{r, echo = F, results=F}
 getwd()
@@ -24,16 +24,16 @@ getwd()
 
 ## Miks teha kaarte koodipõhiselt?
 
-Miks vaevata ennast ja võib-olla ka teisi koodi õppima, kui saame (võrdlemisi) samasuguseid kaarte teha ka GISis või mõnes veebirakenduses nagu näiteks MapBox? Miks üldse midagi koodipõhiselt teha? Meie näeme, et sel on mitu eelist. Erinevalt nn musta kasti ja *point-and-click* tarkvaradest jääb koodi kirjutades selge jälg sellest, mida tehti. See aitab nii endal kui ka teistel paremini mõista, kuidas antud tulemuseni jõuti. See suhestub eelkõige teadusmaailmas **reprodutseeritavuse** teemadega. Samas lihtsustab kood enda tööprotsesse oluliselt. Eriti juhtudel, kus andmed võivad vahepeal täieneda või tuleb teha mitmeid sarnaseid asju. Näiteks olukord, kus tegid lõputöö või publikatsiooni jaoks kaardi ning kuu aega hiljem palub juhendaja või toimetaja paari detaili kaardil muuta. Ülejäänud kaart aga peaks jääma täpselt samaks. Samas oled vahepeal aga rohkelt enda ruumiandmetega edasi tegelenud. Millised olid täpselt kasutatud andmed, värvid, joone paksus, mõõtkava, mudeldamiseks kasutatud meetod jpm? Koodis on see info aga kõik olemas. Niisiis pole tarvis kogu kaarditegemise protsessi uuesti läbi teha, vaid muuta koodis vajalikud detailid.
+Miks vaevata ennast ja võib-olla ka teisi koodi õppima, kui saame (võrdlemisi) samasuguseid kaarte teha ka QGISis või mõnes veebirakenduses, nagu näiteks MapBox? Miks üldse midagi koodipõhiselt teha? Meie näeme, et sel on mitu eelist. Erinevalt nn musta kasti ja *point-and-click* tarkvaradest jääb koodi kirjutades selge jälg sellest, mida tehti. See aitab nii endal kui ka teistel paremini mõista, kuidas antud tulemuseni jõuti. See suhestub eelkõige teadusmaailmas **reprodutseeritavuse** teemadega. Samas lihtsustab kood enda tööprotsesse oluliselt. Eriti juhtudel, kus andmed võivad vahepeal täieneda või tuleb teha mitmeid sarnaseid asju. Näiteks olukord, kus tegid lõputöö või publikatsiooni jaoks kaardi ning kuu aega hiljem palub juhendaja või toimetaja paari detaili kaardil muuta. Ülejäänud kaart aga peaks jääma täpselt samaks. Samas oled vahepeal aga rohkelt enda ruumiandmetega edasi tegelenud. Millised olid täpselt kasutatud andmed, värvid, joone paksus, mõõtkava, mudeldamiseks kasutatud meetod jpm? Koodis on see info kõik olemas. Niisiis pole tarvis kogu kaarditegemise protsessi uuesti läbi teha, vaid muuta koodis vajalikud detailid.
 
 
 ## R, Rstudio ja Rmarkdown 
 
-[**R**](https://www.r-project.org/) on vabavaraline väga võimas programmeerimiskeel ja keskkond andmeanalüüsiks, statistilisteks arvutusteks ning andmete visualiseerimiseks. R pakub väga palju statistilisi ja graafilisi meetodeid ning hästi laiendatav. Üks selle tugevaid külgi on just võimalus teha kõrge kvaliteediga jooniseid ja graafikuid. Kuna tegu on koodipõhise tarkvaraga, siis annab see kasutajatele suhteliselt vabad käed ning võimaldab vastavalt vajadusele luua uusi funktsioone.
+[**R**](https://www.r-project.org/) on vabavaraline väga võimas programmeerimiskeel ja keskkond andmeanalüüsiks, statistilisteks arvutusteks ning andmete visualiseerimiseks. R pakub väga palju statistilisi ja graafilisi meetodeid ning on hästi laiendatav. Üks selle tugevaid külgi on just võimalus teha kõrge kvaliteediga jooniseid ja graafikuid. Kuna tegu on koodipõhise tarkvaraga, siis annab see kasutajatele suhteliselt vabad käed ning võimaldab vastavalt vajadusele luua uusi funktsioone.
 
 **Paketid** ehk teegid (*package*) on R-i põhiline jagatava koodi nn ühik. Pakettide eesmärk on lisada mingeid funktsioone. Paljud paketid tulevad R-iga kohe kaasa, aga üldiselt peab neid juurde installima. Hetkel on R-i kodulehel [cran.r-project.org/](http://cran.r-project.org/) üle 14000 paketi. Pakett koosneb koodist, andmetest, dokumentatsioonist ning testidest ja seda on lihtne teistega jagada.
 
-[**Rstudio**](https://rstudio.com/) on R-i integreeritud arenduskeskkond (*integrated development environment* ehk *IDE*). See koosneb konsoolist, tekstiredaktorist ning tööriistadest graafikute tegemisest, koodi silumiseks, kogu keskkonna ja ajaloo majandamiseks jpm. Rstudiost on nii vabavaraline kui ka kommertsversioon. Meie kasutame vabavaralist.
+[**RStudio**](https://rstudio.com/) on R-i integreeritud arenduskeskkond (*integrated development environment* ehk *IDE*). See koosneb konsoolist, tekstiredaktorist ning tööriistadest graafikute tegemiseks, koodi silumiseks, kogu keskkonna ja ajaloo majandamiseks jpm. RStudiost on nii vabavaraline kui ka kommertsversioon. Meie kasutame vabavaralist.
 
 
 ```{r 20rstudioide, echo =F, fig.align='center', fig.show='hold', fig.cap = "Rstudio kasutajaliidese peamised osad ([viide](https://sfg-ucsb.github.io/fishery-manageR/getting-started-with-rstudio.html)).", out.width="75%"}
@@ -46,7 +46,7 @@ Rmarkdown koosnebki tavaliselt tekstist nagu see siin.
 
 ```{r}
 # Ning kooditükkidest nagu see siin. Kooditükid on Rstudios kolme ` vahel.
-# Trellid teksti tähistavad kommentaari ning seda koodi jooksutamisel ei arvestata.
+# Trellids tähistavad kommentaari ning seda koodi jooksutamisel ei arvestata.
 # See on lihtsalt inimesele lugemiseks.
 ```
 
@@ -145,7 +145,7 @@ ggplot() +
     annotation_scale(location = "bl") +
     labs(
         title = "Eesti maakonnad",
-        subtitle = "Oktoorber 2020 seisuga",
+        subtitle = "Oktoober 2020 seisuga",
         caption = "Andmed: Maa-amet 2020"
     ) +
     theme_map()
