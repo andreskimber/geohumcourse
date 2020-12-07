@@ -7,7 +7,7 @@ Lae Moodle'ist alla tänase praktikumi fail, paki see lahti ning aseta need fail
 Kuna paljud teist kasutavad R-i esimest korda, siis kõigepealt installime vajalikud paketid. Selleks jooksuta sin all olev kood, klikkides kooditüki paremal üleval nurgas rohelisele nupule (*Run current chunk*). Selle tulemusena tõmbab R kõik vajalikud paketid ja installib need. Sellega võib minna natuke aga. Kui protsess on lõppenud, siis kaob konsooli paremas nurgas väike punane STOP-märk. Paketid tuleb alati uuesti laadida, kui oled vahepeal Rstudio sulgenud. 
 
 ```{r, echo = F, include = F}
-need = c("tidyverse", "sf", "magrittr", "ggspatial", "spData", "ggthemes")
+need = c("tidyverse", "sf", "magrittr", "ggspatial", "ggthemes")
 have = need %in% rownames(installed.packages())
 if(any(!have)) install.packages((need[!have]))
 invisible(lapply(need, library, character.only = T))
@@ -15,7 +15,7 @@ invisible(lapply(need, library, character.only = T))
 
 Kui paketid on installitud, siis tuleb teha veel üks väike muudatus, et faili vaatamine oleks mugavam. Nimelt ei peaks koodi jooksutamise tulemust kohe siin koodi all näitama. Selleks *Tools -> Global options -> Rmarkdown* ning võta ära linnuke *Show output inline for all Rmarkdown documents* eest ja seejärel all servas *OK*.
 
-Viimase asjana paneme paika *Working directory*. Siin kasutame seda peamiselt selleks, et saaks andmeid lugeda lähtuvalt nende asukohast seoses selle faili asukohaga. Sellepärast palusingi teil panna see fail samasse kausta, kus on ka teie andmete kaust. *Workind directory* seadistamiseks ülevalt menüüribalt *Session -> Set working directory -> To source file location*. See järel jooksuta alljärgnev kood. Kui kõik on õigesti, peaks tulemuseks olema selle faili asukoht. Minul on see näiteks "C:/teaching/geohumcourse".
+Viimase asjana paneme paika *Working directory*. Siin kasutame seda peamiselt selleks, et saaks andmeid lugeda lähtuvalt nende asukohast seoses selle faili asukohaga. Sellepärast palusingi teil panna see fail samasse kausta, kus on ka teie andmete kaust. *Working directory* seadistamiseks ülevalt menüüribalt *Session -> Set working directory -> To source file location*. See järel jooksuta alljärgnev kood. Kui kõik on õigesti, peaks tulemuseks olema selle faili asukoht. Minul on see näiteks "C:/teaching/geohumcourse".
 
 ```{r, echo = F, results=F}
 getwd()
@@ -80,7 +80,7 @@ Kombineerime funksiooniga `c` väärtustest nimekirja ning liidame funktsiooniga
 ```{r}
 nimekiri = c(a, b, x, y)
 nimekiri
-sum(nimekiri) 
+sum(nimekiri)
 ```
 
 ## Joonised ja kaardid R-is
@@ -144,7 +144,7 @@ ggplot() +
     coord_sf(crs = 3301) +
     annotation_scale(location = "bl") +
     labs(
-        title = "Eesti maakonnad",
+        title = "Eesti maakonnad ja kirikud",
         subtitle = "Oktoorber 2020 seisuga",
         caption = "Andmed: Maa-amet 2020"
     ) +
@@ -154,7 +154,6 @@ ggplot() +
 
 
 ### Andmete filtreerimine
-
 
 Ruumiandmete filtreerimine, ühendamine jms käib R-is valdavalt samamoodi nagu teiste andmete puhul. Selleks on meil kasutada `dplyr` pakett, mis võimaldab paari funktsiooni abil suure osa andmetöötlusest ära teha.
 
