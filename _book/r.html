@@ -368,7 +368,7 @@ Figure 20.1: Rstudio kasutajaliidese peamised osad (<a href="https://sfg-ucsb.gi
 <p><a href="https://rmarkdown.rstudio.com/"><strong>Rmarkdown</strong></a> on formaat tavalise teksti ning koodi kombineerimiseks, mis seetõttu võimaldab kirjutada täielikult reprodutseeritavaid artikleid, raamatuid, raporteid ning koostada veebilehti, interaktiivseid lahendusi jpm. Nii see juhend kui ka kogu kursuse materjalid on kirjutatud Rmarkdownis.</p>
 <p>Rmarkdown koosnebki tavaliselt tekstist nagu see siin.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="r.html#cb1-1"></a><span class="co"># Ning kooditükkidest nagu see siin. Kooditükid on Rstudios kolme ` vahel.</span></span>
-<span id="cb1-2"><a href="r.html#cb1-2"></a><span class="co"># Trellids tähistavad kommentaari ning seda koodi jooksutamisel ei arvestata.</span></span>
+<span id="cb1-2"><a href="r.html#cb1-2"></a><span class="co"># Trellid ehk *hashtag* tähistavad kommentaari ning seda koodi jooksutamisel ei arvestata.</span></span>
 <span id="cb1-3"><a href="r.html#cb1-3"></a><span class="co"># See on lihtsalt inimesele lugemiseks.</span></span></code></pre></div>
 <div id="kood" class="section level3">
 <h3><span class="header-section-number">20.3.1</span> Kood</h3>
@@ -420,15 +420,16 @@ visuaalse poole vaikimisi sätted. Taust, font, teljed jne.</li>
 <h3><span class="header-section-number">20.5.1</span> Andmete avamine</h3>
 <p>Andmete avamiseks kasutame vastavalt andmestikule sobivaid funktsioone. Tabelandmestiku puhul nt <code>read_csv</code> ja vektorkujul ruumiandmete puhul <code>st_read</code>.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="r.html#cb12-1"></a>maakonnad  =<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;./andmed/maakond_lihtsustatud.gpkg&quot;</span>)</span>
-<span id="cb12-2"><a href="r.html#cb12-2"></a><span class="co"># Seda koodi võiks lugeda järgmiselt. *Ava selle Rmarkdown failiga samas kaustas </span></span>
-<span id="cb12-3"><a href="r.html#cb12-3"></a><span class="co"># olevast kaustast *andmed* fail maakond_20201001.shp ja anna sellele nimeks maakonnad.</span></span>
-<span id="cb12-4"><a href="r.html#cb12-4"></a></span>
-<span id="cb12-5"><a href="r.html#cb12-5"></a>kirikud =<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;./andmed/kirikud.gpkg&quot;</span>)</span>
-<span id="cb12-6"><a href="r.html#cb12-6"></a>malestised =<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;./andmed/kultuurimalestised.gpkg&quot;</span>)</span>
-<span id="cb12-7"><a href="r.html#cb12-7"></a></span>
-<span id="cb12-8"><a href="r.html#cb12-8"></a><span class="co"># avame Saaremaa ja Tartumaa asustuse kihid. </span></span>
-<span id="cb12-9"><a href="r.html#cb12-9"></a>saare_asustus =<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;./andmed/saaremaa_asustus.gpkg&quot;</span>)</span>
-<span id="cb12-10"><a href="r.html#cb12-10"></a>tartu_asustus =<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;./andmed/tartu_kylad.gpkg&quot;</span>)</span></code></pre></div>
+<span id="cb12-2"><a href="r.html#cb12-2"></a></span>
+<span id="cb12-3"><a href="r.html#cb12-3"></a><span class="co"># Seda koodi võiks lugeda järgmiselt. *Ava selle Rmarkdown failiga samas kaustas </span></span>
+<span id="cb12-4"><a href="r.html#cb12-4"></a><span class="co"># olevast kaustast *andmed* fail maakond_lihtsustatud.gpkg ja anna sellele nimeks maakonnad.</span></span>
+<span id="cb12-5"><a href="r.html#cb12-5"></a></span>
+<span id="cb12-6"><a href="r.html#cb12-6"></a>kirikud =<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;./andmed/kirikud.gpkg&quot;</span>)</span>
+<span id="cb12-7"><a href="r.html#cb12-7"></a>malestised =<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;./andmed/kultuurimalestised.gpkg&quot;</span>)</span>
+<span id="cb12-8"><a href="r.html#cb12-8"></a></span>
+<span id="cb12-9"><a href="r.html#cb12-9"></a><span class="co"># avame Saaremaa ja Tartumaa asustuse kihid. </span></span>
+<span id="cb12-10"><a href="r.html#cb12-10"></a>saare_asustus =<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;./andmed/saaremaa_asustus.gpkg&quot;</span>)</span>
+<span id="cb12-11"><a href="r.html#cb12-11"></a>tartu_asustus =<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;./andmed/tartu_kylad.gpkg&quot;</span>)</span></code></pre></div>
 </div>
 <div id="kaartide-tegemine" class="section level3">
 <h3><span class="header-section-number">20.5.2</span> Kaartide tegemine</h3>
@@ -474,22 +475,24 @@ visuaalse poole vaikimisi sätted. Taust, font, teljed jne.</li>
 <p>Teeme neist kaardi.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="r.html#cb17-1"></a><span class="kw">ggplot</span>() <span class="op">+</span></span>
 <span id="cb17-2"><a href="r.html#cb17-2"></a><span class="st">    </span><span class="kw">geom_sf</span>(saaremaa, <span class="dt">mapping =</span> ggplot2<span class="op">::</span><span class="kw">aes</span>(), </span>
-<span id="cb17-3"><a href="r.html#cb17-3"></a>            <span class="dt">show.legend =</span> T) <span class="op">+</span></span>
-<span id="cb17-4"><a href="r.html#cb17-4"></a><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> saare_asustus_vana,</span>
-<span id="cb17-5"><a href="r.html#cb17-5"></a>            <span class="dt">mapping =</span> ggplot2<span class="op">::</span><span class="kw">aes</span>(<span class="dt">shape =</span> asustusyksus, <span class="dt">color =</span> esmamainimine), <span class="dt">size =</span> <span class="dv">3</span>,</span>
-<span id="cb17-6"><a href="r.html#cb17-6"></a>            ) <span class="op">+</span></span>
-<span id="cb17-7"><a href="r.html#cb17-7"></a><span class="st">    </span><span class="kw">coord_sf</span>(<span class="dt">crs =</span> <span class="dv">3301</span>) <span class="op">+</span></span>
-<span id="cb17-8"><a href="r.html#cb17-8"></a><span class="st">    </span><span class="kw">annotation_scale</span>(<span class="dt">location =</span> <span class="st">&quot;br&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="co"># lisame mõõtkava. &quot;br&quot; tähendam bottom right</span></span>
-<span id="cb17-9"><a href="r.html#cb17-9"></a><span class="st">    </span><span class="kw">labs</span>(</span>
-<span id="cb17-10"><a href="r.html#cb17-10"></a>        <span class="dt">title =</span> <span class="st">&quot;Saaremaa asustus aastani 1500&quot;</span>,</span>
-<span id="cb17-11"><a href="r.html#cb17-11"></a>        <span class="dt">caption =</span> <span class="st">&quot;Andmed: Maa-amet 2020, EKI Kohanimeraamat&quot;</span></span>
-<span id="cb17-12"><a href="r.html#cb17-12"></a>    ) <span class="op">+</span></span>
-<span id="cb17-13"><a href="r.html#cb17-13"></a><span class="st">    </span><span class="co"># peidame taustal oleva koordinaatteljestiku</span></span>
-<span id="cb17-14"><a href="r.html#cb17-14"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">rect =</span> <span class="kw">element_blank</span>(), </span>
-<span id="cb17-15"><a href="r.html#cb17-15"></a>          <span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>(), </span>
-<span id="cb17-16"><a href="r.html#cb17-16"></a>          <span class="dt">axis.text.y =</span> <span class="kw">element_blank</span>(), </span>
-<span id="cb17-17"><a href="r.html#cb17-17"></a>          <span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>()</span>
-<span id="cb17-18"><a href="r.html#cb17-18"></a>    )</span></code></pre></div>
+<span id="cb17-3"><a href="r.html#cb17-3"></a>            <span class="dt">show.legend =</span> T</span>
+<span id="cb17-4"><a href="r.html#cb17-4"></a>            ) <span class="op">+</span></span>
+<span id="cb17-5"><a href="r.html#cb17-5"></a><span class="st">    </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> saare_asustus_vana,</span>
+<span id="cb17-6"><a href="r.html#cb17-6"></a>            <span class="dt">mapping =</span> ggplot2<span class="op">::</span><span class="kw">aes</span>(<span class="dt">shape =</span> asustusyksus, <span class="dt">color =</span> esmamainimine), </span>
+<span id="cb17-7"><a href="r.html#cb17-7"></a>            <span class="dt">size =</span> <span class="dv">3</span></span>
+<span id="cb17-8"><a href="r.html#cb17-8"></a>            ) <span class="op">+</span></span>
+<span id="cb17-9"><a href="r.html#cb17-9"></a><span class="st">    </span><span class="kw">coord_sf</span>(<span class="dt">crs =</span> <span class="dv">3301</span>) <span class="op">+</span></span>
+<span id="cb17-10"><a href="r.html#cb17-10"></a><span class="st">    </span><span class="kw">annotation_scale</span>(<span class="dt">location =</span> <span class="st">&quot;br&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="co"># lisame mõõtkava. &quot;br&quot; tähendam bottom right</span></span>
+<span id="cb17-11"><a href="r.html#cb17-11"></a><span class="st">    </span><span class="kw">labs</span>(</span>
+<span id="cb17-12"><a href="r.html#cb17-12"></a>        <span class="dt">title =</span> <span class="st">&quot;Saaremaa asustus aastani 1500&quot;</span>,</span>
+<span id="cb17-13"><a href="r.html#cb17-13"></a>        <span class="dt">caption =</span> <span class="st">&quot;Andmed: Maa-amet 2020, EKI Kohanimeraamat&quot;</span></span>
+<span id="cb17-14"><a href="r.html#cb17-14"></a>        ) <span class="op">+</span></span>
+<span id="cb17-15"><a href="r.html#cb17-15"></a><span class="st">    </span><span class="co"># peidame taustal oleva koordinaatteljestiku</span></span>
+<span id="cb17-16"><a href="r.html#cb17-16"></a><span class="st">    </span><span class="kw">theme</span>(<span class="dt">rect =</span> <span class="kw">element_blank</span>(), </span>
+<span id="cb17-17"><a href="r.html#cb17-17"></a>          <span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>(), </span>
+<span id="cb17-18"><a href="r.html#cb17-18"></a>          <span class="dt">axis.text.y =</span> <span class="kw">element_blank</span>(), </span>
+<span id="cb17-19"><a href="r.html#cb17-19"></a>          <span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>()</span>
+<span id="cb17-20"><a href="r.html#cb17-20"></a>          )</span></code></pre></div>
 <p><img src="HVHV_00_001_geoinfosysteemid_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>Vaatame ka näidet, kuidas saab andmeid ühendada ja neist kokkuvõtteid teha. Näiteks
 soovime teha kaardi, mis näitaks kirikute arvu maakonnas. Kirikud on meil aga hetkel
@@ -539,6 +542,8 @@ punktidena. Niisiis tuletame kirikute andmestikust kiriku arvu igas maakonnas ja
 <p><a href="https://r4ds.had.co.nz/">R for Data Science</a></p>
 <p><a href="https://geocompr.robinlovelace.net/">Geocomputation with R</a></p>
 <p><a href="https://rc2e.com/">R Cookbook</a></p>
+<p><a href="https://r-graphics.org/">R Graphics Cookbook</a></p>
+<p><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a></p>
 
 </div>
 </div>

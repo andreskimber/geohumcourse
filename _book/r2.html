@@ -393,7 +393,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>andmete visualiseerimist.</li>
 </ul>
-<p>Sel korral vaatame, kuidas teha R-is lihtsat veebirakendust, mis kuvaks kaarti vastavalt kasutaja valikutele. Siin tuleb osata pisut R-i (või juhendeid lugeda), aga mitte näiteks JavaScripti ega HTMLi.</p>
+<p>Sel korral vaatame, kuidas teha R-is lihtsat rakendust, mis kuvaks kaarti vastavalt kasutaja valikutele. Siin tuleb osata pisut R-i (või juhendeid lugeda), aga mitte näiteks JavaScripti ega HTMLi.</p>
 <p>R-is saab interaktiivsete rakenduste tegemiseks kasutada <strong><a href="https://shiny.rstudio.com/">Shiny</a></strong> paketti. Kui sinu RStudios ei ole veel Shiny võimalust, tuleb pakett esmalt installida.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="r2.html#cb1-1" aria-hidden="true"></a><span class="co"># Trüki konsooli</span></span>
 <span id="cb1-2"><a href="r2.html#cb1-2" aria-hidden="true"></a><span class="cf">if</span>(<span class="op">!</span><span class="st">&quot;shiny&quot;</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">rownames</span>(<span class="kw">installed.packages</span>())) <span class="kw">install.packages</span>(<span class="st">&quot;shiny&quot;</span>)</span>
@@ -401,7 +401,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-4"><a href="r2.html#cb1-4" aria-hidden="true"></a><span class="co"># Käsus kontrollitakse, kas shiny pakett sisaldub</span></span>
 <span id="cb1-5"><a href="r2.html#cb1-5" aria-hidden="true"></a><span class="co"># installitud pakettide nimede hulgas</span></span>
 <span id="cb1-6"><a href="r2.html#cb1-6" aria-hidden="true"></a><span class="co"># ning kui ei sisaldu (hüüumärki kasutatakse mingi tingimuse eitamiseks),</span></span>
-<span id="cb1-7"><a href="r2.html#cb1-7" aria-hidden="true"></a><span class="co"># siis installi.</span></span></code></pre></div>
+<span id="cb1-7"><a href="r2.html#cb1-7" aria-hidden="true"></a><span class="co"># siis installitakse.</span></span></code></pre></div>
 <p>Seejärel vali <strong><code>File</code> -&gt; <code>New File</code> -&gt; <code>Shiny Web App</code></strong>, anna oma rakendusele nimi (nt <em>kultuurimalestised</em> vmt) ning jäta rakenduse tüübi (<em>Application type</em>) valikuks <em>Single File</em>. See tähendab, et nii kasutajaliides (<em>ui</em> - see osa, mida kasutaja näeb ja mille abil rakendusega suhtleb) kui ka serveri loogika (<em>server</em> - see osa, mis vastavalt kasutaja valikutele tegelikult andmetega midagi teeb) on ühes R-i failis koos ning selle faili nimi on <em>app.R</em>.
 <em>Multiple File</em> tähendaks, et ühes failis on kasutajaliidese osa ning teises serveri osa ning kui tahta rakendust kasutada, peavad olemas olema mõlemad failid.
 Kasutuses kahel variandil praktiliselt vahet ei ole.</p>
@@ -455,7 +455,7 @@ Kui tahad nüüd näha rakenduse endaga paralleelselt koodi, millega rakendus on
 <p>Aseta rakenduse kausta (kus on ka fail <em>app.R</em>) ka vajalikud failid (<em>maakond_20201001.shp</em> ja <em>kultuurimalestised.shp</em>).</p>
 <div id="pakettide-laadimine-ja-andmete-töötlemine" class="section level2" number="21.1">
 <h2><span class="header-section-number">21.1</span> Pakettide laadimine ja andmete töötlemine</h2>
-<p>Kõigepealt võiks faili päisesse lisada kommentaarid (kõik #-märkidega read on kommentaarid) selle kohta, mida rakendus teeb, milliseid faile ja pakette kasutab ning kes ja millal on rakenduse teinud. Kommentaarid rakenduses kuskil näha ei jää ega ole sisuliselt olulised, seega võib need ka ära kustutada.</p>
+<p>Kõigepealt võiks faili päisesse lisada kommentaarid (kõik #-märkidega read on kommentaarid) selle kohta, mida rakendus teeb, milliseid faile ja pakette kasutab ning kes ja millal on rakenduse teinud. Kommentaarid rakenduses kuskil näha ei jää ega ole rakenduse töötamise seisukohast olulised.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="r2.html#cb4-1" aria-hidden="true"></a><span class="co"># See rakendus kuvab veebikaardi kultuurimälestistest.</span></span>
 <span id="cb4-2"><a href="r2.html#cb4-2" aria-hidden="true"></a><span class="co">#</span></span>
 <span id="cb4-3"><a href="r2.html#cb4-3" aria-hidden="true"></a><span class="co"># Rakenduse sisendfailideks on</span></span>
@@ -465,7 +465,7 @@ Kui tahad nüüd näha rakenduse endaga paralleelselt koodi, millega rakendus on
 <span id="cb4-7"><a href="r2.html#cb4-7" aria-hidden="true"></a><span class="co">#</span></span>
 <span id="cb4-8"><a href="r2.html#cb4-8" aria-hidden="true"></a><span class="co"># Maarja-Liisa Pilvik</span></span>
 <span id="cb4-9"><a href="r2.html#cb4-9" aria-hidden="true"></a><span class="co"># 7.12.2020</span></span></code></pre></div>
-<p>Järgmiseks laaditakse rakenduse töötamiseks vajalikud paketid. Kuna vaikimisi avaneval rakendusel pole aimugi, mida rakendusega päriselt tegema hakatakse, on tema ainukeseks nõudeks see, et <em>shiny</em> pakett oleks installitud ja laaditud.<br />
+<p>Järgmiseks laadime rakenduse töötamiseks vajalikud paketid. Kuna vaikimisi avaneval rakendusel pole aimugi, mida rakendusega päriselt tegema hakatakse, on tema ainukeseks nõudeks see, et <em>shiny</em> pakett oleks installitud ja laaditud.<br />
 Meie laadime lisaks <code>shiny</code>-paketile ka paketid <code>sf</code> ja <code>tidyverse</code>.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="r2.html#cb5-1" aria-hidden="true"></a><span class="co"># 1. Laadime paketid ja loeme sisse andmed ----</span></span>
 <span id="cb5-2"><a href="r2.html#cb5-2" aria-hidden="true"></a><span class="kw">library</span>(shiny) <span class="co"># vajalik rakenduse töötamiseks</span></span>
@@ -540,7 +540,7 @@ Meie teeme lihtsa kasutajaliidese, kus on</p>
 <div id="server" class="section level2" number="21.3">
 <h2><span class="header-section-number">21.3</span> Server</h2>
 <p>Järgmiseks defineerime selle, mis juhtub, kui kasutaja mingeid valikuid teeb.
-Teeme nii, et rakenduse avamisel kuvatakse kasutajale lihtsalt ilma mälestisteta Eesti maakondade kaarti ning kaarti uuendatakse vastavalt sellele, millised andmed (kultuurimälestiste liigid) valitakse, ning millisesse piirkonda tahetakse sisse suumida.</p>
+Teeme nii, et rakenduse avamisel kuvatakse kasutajale lihtsalt ilma mälestisteta Eesti maakondade kaart ning kaarti uuendatakse vastavalt sellele, millised andmed (kultuurimälestiste liigid) valitakse ning millisesse piirkonda tahetakse sisse suumida.</p>
 <p>Kasutajaliidese <code>Input</code>-klassi elementidele viidatakse serveriosas dollarimärgi ja omistatud id-ga kujul <code>input$...</code> (nt <code>input$liik</code> või <code>input$maakond</code>). <code>Output</code>-klassi elementidele kujul <code>output$...</code> (nt <code>output$kaart</code>).</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="r2.html#cb8-1" aria-hidden="true"></a><span class="co"># 3. Defineerime serveri loogika ehk selle, mida rakendus teeb ----</span></span>
 <span id="cb8-2"><a href="r2.html#cb8-2" aria-hidden="true"></a>server &lt;-<span class="st"> </span><span class="cf">function</span>(input, output){</span>
@@ -595,7 +595,7 @@ Teeme nii, et rakenduse avamisel kuvatakse kasutajale lihtsalt ilma mälestistet
 <div id="rakenduse-jagamine" class="section level2" number="21.5">
 <h2><span class="header-section-number">21.5</span> Rakenduse jagamine</h2>
 <p>Shiny rakendusi saab jagada ainult kas lokaalselt (<em>app.R</em> + selle juurde kuuluvad failid) või üles laadituna serverisse, kuhu on installitud ka R ja <em><a href="https://rstudio.com/products/shiny/download-server/">Shiny Server</a></em> (viimast saab installida ainult Linuxis). See tähendab, et tavalist HTML-faili Shiny rakendusest otse teha ei saa, sest JavaScript ei tea, mida R-i kooditükkidega pihta hakata.
-Küll aga saab rakenduse üles laadida näiteks <strong><em><a href="https://www.shinyapps.io/">shinyapps.io</a></em></strong> serverisse ning lisada rakendus seejärel <em>iframe</em>’i abil mõne teise (HTMLis) veebilehe sisse.
+Küll aga saab rakenduse üles laadida näiteks <strong><em><a href="https://www.shinyapps.io/">shinyapps.io</a></em></strong> serverisse ning lisada rakenduse seejärel <em>iframe</em>’i abil mõne teise (HTMLis) veebilehe sisse.
 <em>Shinyapps.io</em> pakub Shiny rakenduste majutuse teenust, kusjuures tasuta saab üles laadida kuni 5 rakendust ja neid ei tohi serveris ühes kuus aktiivselt kasutada rohkem kui 25 tundi.</p>
 <p>Rakenduse laadimiseks serverisse tuleb esmalt teha endale <em>shinyapps.io</em> kasutaja, logida sisse ning valida seejärel <em>Account</em> -&gt; <em>Tokens</em>.
 Samal ajal installi endale R-is pakett <code>rsconnect</code> ja laadi see.</p>

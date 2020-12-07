@@ -112,8 +112,9 @@ Andmete avamiseks kasutame vastavalt andmestikule sobivaid funktsioone. Tabeland
 
 ```{r, echo=T,results=F}
 maakonnad  = st_read("./andmed/maakond_lihtsustatud.gpkg")
+
 # Seda koodi võiks lugeda järgmiselt. *Ava selle Rmarkdown failiga samas kaustas 
-# olevast kaustast *andmed* fail maakond_20201001.shp ja anna sellele nimeks maakonnad.
+# olevast kaustast *andmed* fail maakond_lihtsustatud.gpkg ja anna sellele nimeks maakonnad.
 
 kirikud = st_read("./andmed/kirikud.gpkg")
 malestised = st_read("./andmed/kultuurimalestised.gpkg")
@@ -134,7 +135,6 @@ ggplot(data = maakonnad) +
 
 Lisame rohkem elemente kaardile. 
 
-
 ```{r}
 ggplot() + 
     geom_sf(data = maakonnad, 
@@ -149,7 +149,6 @@ ggplot() +
         caption = "Andmed: Maa-amet 2020"
     ) +
     theme_map()
-
 ```
 
 
@@ -243,6 +242,7 @@ ggplot(maakonnad_kirikutega) +
 
 
 ### Ülesanne 
+
 
 Tee kaart, kus on kujutatud Tartu maakonna asustusüksusi, mille esmamainimine jääb Põhjasõja eelsesse aega. Kirjuta kood all olevasse kooditükki. Saad kombineerida täpselt sama koodi, mida varem kasutasime.
 
