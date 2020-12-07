@@ -110,7 +110,7 @@ ggplot paketi põhielemendid:
 
 Andmete avamiseks kasutame vastavalt andmestikule sobivaid funktsioone. Tabelandmestiku puhul nt `read_csv` ja vektorkujul ruumiandmete puhul `st_read`. 
 
-```{r, echo=T,results=F}
+```{r, echo=T,results=F,eval=F}
 maakonnad  = st_read("./andmed/maakond_20201001.shp")
 # Seda koodi võiks lugeda järgmiselt. *Ava selle Rmarkdown failiga samas kaustas 
 # olevast kaustast *andmed* fail maakond_20201001.shp ja anna sellele nimeks maakonnad.
@@ -121,6 +121,19 @@ malestised = st_read("./andmed/kultuurimalestised.shp")
 # avame Saaremaa ja Tartumaa asustuse kihid. 
 saare_asustus = st_read("./andmed/saaremaa_asustus.gpkg")
 tartu_asustus = st_read("./andmed/tartu_kylad.gpkg")
+```
+
+```{r, echo=F,results=F,eval=T}
+maakonnad  = st_read("./andmed/maakond_20201001.shp")
+# Seda koodi võiks lugeda järgmiselt. *Ava selle Rmarkdown failiga samas kaustas 
+# olevast kaustast *andmed* fail maakond_20201001.shp ja anna sellele nimeks maakonnad.
+
+kirikud = st_read("./andmed/kirikud.gpkg")
+malestised = st_read("./andmed/kultuurimalestised.shp")
+
+# avame Saaremaa ja Tartumaa asustuse kihid. 
+saare_asustus = st_read("./andmed/saaremaa_asustus.gpkg")
+tartu_asustus = st_read("./andmed/tartumaa_asustus.gpkg")
 ```
 
 ### Kaartide tegemine
@@ -144,13 +157,8 @@ ggplot() +
     coord_sf(crs = 3301) +
     annotation_scale(location = "bl") +
     labs(
-<<<<<<< HEAD
         title = "Eesti maakonnad ja kirikud",
-        subtitle = "Oktoorber 2020 seisuga",
-=======
-        title = "Eesti maakonnad",
         subtitle = "Oktoober 2020 seisuga",
->>>>>>> e9d5a9273be94f31f6b8fd47250429d690cab4c5
         caption = "Andmed: Maa-amet 2020"
     ) +
     theme_map()
@@ -206,7 +214,7 @@ ggplot() +
 
 ### Ülesanne 
 
-Tee kaart, kus on kujutatud Tartu maakonna kõiki arheoloogia mälestisi. Kirjuta kood all olevasse kooditükki. Saad kombineerida täpselt sama koodi, mida varem kasutasime. Pead aga avama ka kihelkondade kihi ning mälestiste kihist filtreerima väärtused, kus tulbas *ARHEOLOOGI* on väärtuseks *Y*. Muuda värve ja suurusi vastavalt enda maitsele. 
+Tee kaart, kus on kujutatud Tartu maakonna kõiki arheoloogia mälestisi. Kirjuta kood all olevasse kooditükki. Saad kombineerida täpselt sama koodi, mida varem kasutasime. Pead aga avama ka külade kihi ning mälestiste kihist filtreerima väärtused, kus tulbas *ARHEOLOOGI* on väärtuseks *Y*. Muuda värve ja suurusi vastavalt enda maitsele. 
 
 ```{r}
 

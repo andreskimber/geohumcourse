@@ -7,7 +7,7 @@ Eelmisel korral vaatasime, kuidas R-iga lihtsamaid kaarte teha. See hõlmas
 - andmete filtreerimist,  
 - andmete visualiseerimist.
 
-Sel korral vaatame, kuidas teha R-is lihtsat veebirakendust, mis kuvaks kaarti vastavalt kasutaja valikutele. Siin tuleb osata pisut R-i (või juhendeid lugeda), aga mitte näiteks JavaScripti ega HTMLi.
+Sel korral vaatame, kuidas teha R-is lihtsat rakendust, mis kuvaks kaarti vastavalt kasutaja valikutele. Siin tuleb osata pisut R-i (või juhendeid lugeda), aga mitte näiteks JavaScripti ega HTMLi.
 
 R-is saab interaktiivsete rakenduste tegemiseks kasutada **[Shiny](https://shiny.rstudio.com/)** paketti. Kui sinu RStudios ei ole veel Shiny võimalust, tuleb pakett esmalt installida.
 
@@ -18,7 +18,7 @@ if(!"shiny" %in% rownames(installed.packages())) install.packages("shiny")
 # Käsus kontrollitakse, kas shiny pakett sisaldub
 # installitud pakettide nimede hulgas
 # ning kui ei sisaldu (hüüumärki kasutatakse mingi tingimuse eitamiseks),
-# siis installi.
+# siis installitakse.
 ```
 
 Seejärel vali **`File` -> `New File` -> `Shiny Web App`**, anna oma rakendusele nimi (nt *kultuurimalestised* vmt) ning jäta rakenduse tüübi (*Application type*) valikuks *Single File*. See tähendab, et nii kasutajaliides (*ui* - see osa, mida kasutaja näeb ja mille abil rakendusega suhtleb) kui ka serveri loogika (*server* - see osa, mis vastavalt kasutaja valikutele tegelikult andmetega midagi teeb) on ühes R-i failis koos ning selle faili nimi on *app.R*.
@@ -87,7 +87,7 @@ Aseta rakenduse kausta (kus on ka fail *app.R*) ka vajalikud failid (*maakond_20
 
 ## Pakettide laadimine ja andmete töötlemine
 
-Kõigepealt võiks faili päisesse lisada kommentaarid (kõik #-märkidega read on kommentaarid) selle kohta, mida rakendus teeb, milliseid faile ja pakette kasutab ning kes ja millal on rakenduse teinud. Kommentaarid rakenduses kuskil näha ei jää ega ole sisuliselt olulised, seega võib need ka ära kustutada.
+Kõigepealt võiks faili päisesse lisada kommentaarid (kõik #-märkidega read on kommentaarid) selle kohta, mida rakendus teeb, milliseid faile ja pakette kasutab ning kes ja millal on rakenduse teinud. Kommentaarid rakenduses kuskil näha ei jää ega ole rakenduse töötamise seisukohast olulised.
 
 ```{r, eval = F}
 # See rakendus kuvab veebikaardi kultuurimälestistest.
@@ -101,7 +101,7 @@ Kõigepealt võiks faili päisesse lisada kommentaarid (kõik #-märkidega read 
 # 7.12.2020
 ```
 
-Järgmiseks laaditakse rakenduse töötamiseks vajalikud paketid. Kuna vaikimisi avaneval rakendusel pole aimugi, mida rakendusega päriselt tegema hakatakse, on tema ainukeseks nõudeks see, et *shiny* pakett oleks installitud ja laaditud.  
+Järgmiseks laadime rakenduse töötamiseks vajalikud paketid. Kuna vaikimisi avaneval rakendusel pole aimugi, mida rakendusega päriselt tegema hakatakse, on tema ainukeseks nõudeks see, et *shiny* pakett oleks installitud ja laaditud.  
 Meie laadime lisaks `shiny`-paketile ka paketid `sf` ja `tidyverse`.
 
 ```{r, eval = F}
@@ -184,7 +184,7 @@ ui <- fluidPage( # vaade, mis kohandub kasutaja brauseriakna suurusega
 ## Server
 
 Järgmiseks defineerime selle, mis juhtub, kui kasutaja mingeid valikuid teeb.
-Teeme nii, et rakenduse avamisel kuvatakse kasutajale lihtsalt ilma mälestisteta Eesti maakondade kaarti ning kaarti uuendatakse vastavalt sellele, millised andmed (kultuurimälestiste liigid) valitakse, ning millisesse piirkonda tahetakse sisse suumida.
+Teeme nii, et rakenduse avamisel kuvatakse kasutajale lihtsalt ilma mälestisteta Eesti maakondade kaart ning kaarti uuendatakse vastavalt sellele, millised andmed (kultuurimälestiste liigid) valitakse ning millisesse piirkonda tahetakse sisse suumida.
 
 Kasutajaliidese `Input`-klassi elementidele viidatakse serveriosas dollarimärgi ja omistatud id-ga kujul `input$...` (nt `input$liik` või `input$maakond`). `Output`-klassi elementidele kujul `output$...` (nt `output$kaart`).  
 
@@ -248,7 +248,7 @@ Meie rakendus teeb oma töö ära, ent on nii kujunduselt kui ka kasutusmugavuse
 ## Rakenduse jagamine
 
 Shiny rakendusi saab jagada ainult kas lokaalselt (*app.R* + selle juurde kuuluvad failid) või üles laadituna serverisse, kuhu on installitud ka R ja *[Shiny Server](https://rstudio.com/products/shiny/download-server/)* (viimast saab installida ainult Linuxis). See tähendab, et tavalist HTML-faili Shiny rakendusest otse teha ei saa, sest JavaScript ei tea, mida R-i kooditükkidega pihta hakata.
-Küll aga saab rakenduse üles laadida näiteks **_[shinyapps.io](https://www.shinyapps.io/)_** serverisse ning lisada rakendus seejärel *iframe*'i abil mõne teise (HTMLis) veebilehe sisse.
+Küll aga saab rakenduse üles laadida näiteks **_[shinyapps.io](https://www.shinyapps.io/)_** serverisse ning lisada rakenduse seejärel *iframe*'i abil mõne teise (HTMLis) veebilehe sisse.
 *Shinyapps.io* pakub Shiny rakenduste majutuse teenust, kusjuures tasuta saab üles laadida kuni 5 rakendust ja neid ei tohi serveris ühes kuus aktiivselt kasutada rohkem kui 25 tundi.
 
 Rakenduse laadimiseks serverisse tuleb esmalt teha endale *shinyapps.io* kasutaja, logida sisse ning valida seejärel  *Account* -> *Tokens*.
