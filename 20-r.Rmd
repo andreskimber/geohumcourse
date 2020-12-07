@@ -46,7 +46,7 @@ Rmarkdown koosnebki tavaliselt tekstist nagu see siin.
 
 ```{r}
 # Ning kooditükkidest nagu see siin. Kooditükid on Rstudios kolme ` vahel.
-# Trellids tähistavad kommentaari ning seda koodi jooksutamisel ei arvestata.
+# Trellid ehk *hashtag* tähistavad kommentaari ning seda koodi jooksutamisel ei arvestata.
 # See on lihtsalt inimesele lugemiseks.
 ```
 
@@ -75,7 +75,7 @@ y = 4
 a + b + x + y
 ```
 
-Kombineerime funksiooniga `c` väärtustest nimekirja ning liidame funktsiooniga `sum` kõik nimekirja väärtused kokku. 
+Funktsiooni puhul kirjutatakse kõigepealt nimi ning sellele järgnevad sulud, kus saab funktsiooni parameetritele väärtuseid anda. Kombineerime funksiooniga `c` väärtustest nimekirja ning liidame funktsiooniga `sum` kõik nimekirja väärtused kokku. 
 
 ```{r}
 nimekiri = c(a, b, x, y)
@@ -87,7 +87,7 @@ sum(nimekiri)
 
 Ggplot2 on väga populaarne R-i pakett andmete visualiseerimiseks. See on ka osa Tidyverse'i pakettide kogumiku osa. Sellega saab teha nii kõiksugu jooniseid kui ka kaarte. Pakett põhine kontseptsioonil *Grammar of Graphics*, mis võimaldab luua jooniseid kombineerides erinevaid komponente. Samas ei ole tegemist mingi etteantud graafikute valikuga, vaid neid saab kombineerida ja muuta vastavalt oma vajadustele. Sisuliselt toimub komponentide lisamine kihtidena pisut sarnaselt sellele, kuidas oleme siiani QGISi teinud. Kõigepealt lisatakse toorandmed, ning seejärel kokkuvõtted neist ja kõikvõimalikud märkused ja lisad.
 
-ggplot paketi põhielemendid:
+Ggplot2 paketi põhielemendid:
 
 1. andmed:
     andmestik, mida tahetakse kujutada
@@ -111,12 +111,12 @@ ggplot paketi põhielemendid:
 Andmete avamiseks kasutame vastavalt andmestikule sobivaid funktsioone. Tabelandmestiku puhul nt `read_csv` ja vektorkujul ruumiandmete puhul `st_read`. 
 
 ```{r, echo=T,results=F}
-maakonnad  = st_read("./andmed/maakond_20201001.shp")
+maakonnad  = st_read("./andmed/maakond_lihtsustatud.gpkg")
 # Seda koodi võiks lugeda järgmiselt. *Ava selle Rmarkdown failiga samas kaustas 
 # olevast kaustast *andmed* fail maakond_20201001.shp ja anna sellele nimeks maakonnad.
 
 kirikud = st_read("./andmed/kirikud.gpkg")
-malestised = st_read("./andmed/kultuurimalestised.shp")
+malestised = st_read("./andmed/kultuurimalestised.gpkg")
 
 # avame Saaremaa ja Tartumaa asustuse kihid. 
 saare_asustus = st_read("./andmed/saaremaa_asustus.gpkg")
@@ -142,15 +142,10 @@ ggplot() +
             fill = "#fec44f") +                           
     geom_sf(data = kirikud, color = "blue", size = 3) +
     coord_sf(crs = 3301) +
-    annotation_scale(location = "bl") +
-    labs(
-<<<<<<< HEAD
+    annotation_scale(location = "bl") + # 
+    labs( # Lisame pealkirja ja muu olulise teksti
         title = "Eesti maakonnad ja kirikud",
         subtitle = "Oktoorber 2020 seisuga",
-=======
-        title = "Eesti maakonnad",
-        subtitle = "Oktoober 2020 seisuga",
->>>>>>> e9d5a9273be94f31f6b8fd47250429d690cab4c5
         caption = "Andmed: Maa-amet 2020"
     ) +
     theme_map()
@@ -158,7 +153,7 @@ ggplot() +
 ```
 
 
-### Andmete filtreerimine
+### Andmete filtreerimine ja ühendamine
 
 Ruumiandmete filtreerimine, ühendamine jms käib R-is valdavalt samamoodi nagu teiste andmete puhul. Selleks on meil kasutada `dplyr` pakett, mis võimaldab paari funktsiooni abil suure osa andmetöötlusest ära teha.
 
@@ -189,24 +184,67 @@ Teeme neist kaardi.
 
 ```{r}
 ggplot() +
-    geom_sf(saaremaa, mapping = ggplot2::aes(),
-            show.legend = T) +
+    geom_sf(saaremaa, mapping = ggplot2::aes(), 
+            show.legend = T
+            ) +
     geom_sf(data = saare_asustus_vana,
-            mapping = ggplot2::aes(shape = asustusyksus), size = 3,
+            mapping = ggplot2::aes(shape = asustusyksus, color = esmamainimine), 
+            size = 3
             ) +
     coord_sf(crs = 3301) +
-    annotation_scale(location = "br") +
+    annotation_scale(location = "br") + # lisame mõõtkava. "br" tähendam bottom right
     labs(
         title = "Saaremaa asustus aastani 1500",
         caption = "Andmed: Maa-amet 2020, EKI Kohanimeraamat"
+        ) +
+    # peidame taustal oleva koordinaatteljestiku
+    theme(rect = element_blank(), 
+          axis.text.x = element_blank(), 
+          axis.text.y = element_blank(), 
+          axis.ticks = element_blank()
+          )
+```
+
+Vaatame ka näidet, kuidas saab andmeid ühendada ja neist kokkuvõtteid teha. Näiteks
+soovime teha kaardi, mis näitaks kirikute arvu maakonnas. Kirikud on meil aga hetkel
+punktidena. Niisiis tuletame kirikute andmestikust kiriku arvu igas maakonnas ja 
+ühendame selle maakondade kihiga
+
+```{r}
+# Grupeerime kirikute andmestiku tulba "MK_NIMI" alusel ja loeme kokku kirikud. 
+kirikud_maakonniti = kirikud %>% 
+    group_by(MK_NIMI) %>% 
+    summarise("kirikuid" = n())
+
+# ühendame maakondade kihi just tehtud uue andmestikuga tulpade põhjal, kus on kirjas
+# maakond. 
+maakonnad_kirikutega = maakonnad %>% 
+    st_join(x = ., y = kirikud_maakonniti, by = c(MNIMI = "MK_NIMI"))
+
+
+# Paneme kokku kaardi ja määrame HEX koodidega värviskaala. 
+ggplot(maakonnad_kirikutega) +
+    geom_sf(mapping = aes(fill = kirikuid)) +
+    scale_fill_gradient(
+        low = "#ffffcc",
+        high = "#fc4e2a",
+        space = "Lab",
+        na.value = "grey50",
+        guide = "colourbar",
+        aesthetics = "fill"
     ) +
-    theme_map()
+    # peidame taustal oleva koordinaatteljestiku
+    theme(rect = element_blank(), 
+          axis.text.x = element_blank(), 
+          axis.text.y = element_blank(), 
+          axis.ticks = element_blank()
+    )
 ```
 
 
 ### Ülesanne 
 
-Tee kaart, kus on kujutatud Tartu maakonna kõiki arheoloogia mälestisi. Kirjuta kood all olevasse kooditükki. Saad kombineerida täpselt sama koodi, mida varem kasutasime. Pead aga avama ka kihelkondade kihi ning mälestiste kihist filtreerima väärtused, kus tulbas *ARHEOLOOGI* on väärtuseks *Y*. Muuda värve ja suurusi vastavalt enda maitsele. 
+Tee kaart, kus on kujutatud Tartu maakonna asustusüksusi, mille esmamainimine jääb Põhjasõja eelsesse aega. Kirjuta kood all olevasse kooditükki. Saad kombineerida täpselt sama koodi, mida varem kasutasime.
 
 ```{r}
 
@@ -215,7 +253,7 @@ Tee kaart, kus on kujutatud Tartu maakonna kõiki arheoloogia mälestisi. Kirjut
 
 ### Kaartide eksportimine
 
-Kaarte saab eksportida paremal olevast *Plots* aknast valides *Export*. Samuti võib koodi lõppu lisada funktsiooni `ggsave("failinimi.jpg")`. 
+Kaarte saab eksportida paremal olevast *Plots* aknast valides *Export*. Samuti võib koodi lõppu lisada funktsiooni `ggsave("failinimi.jpg")`. Seejärel salvestatakse fail *Working directory* asukohta, mida saad vaadata funktsiooniga `getwd()`.
 
 ## R-i raamatud ja juhendid
 
@@ -226,6 +264,9 @@ Kaarte saab eksportida paremal olevast *Plots* aknast valides *Export*. Samuti v
 
 [R Cookbook](https://rc2e.com/)
 
+[R Graphics Cookbook](https://r-graphics.org/)
+
+[R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
 
 
 
