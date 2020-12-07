@@ -119,6 +119,8 @@ Veebikaarte saab tasuta majutada näiteks ka [**GitHubis**](https://github.com/)
 
 Kuskile serverisse riputatud veebilehte saab omakorda paigutada teise veebilehe sisse, nt HTML-i [**iframe**](https://www.w3schools.com/tags/tag_iframe.ASP)-märgendi abil. 
 
+<iframe src="https://mpilvik.github.io/veebikaart/index.html" width="100%" height="400" style="border:none;" title="Veebikaart GitHubist (mpilvik.github.io/veebikaart/)"></iframe>
+
 Oma veebikaarte võib jagada ka otse QGISist, nt [QGIS Cloud](https://qgiscloud.com/)i või [Gisquick](http://gisquick.org/) pluginate abil. 
 
 ## Lisa
