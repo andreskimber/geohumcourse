@@ -61,14 +61,13 @@ Ruumiandmed on alati seotud mingi kohaga. Maakera on kolmemõõtmeline ja põhim
 Esmalt tuleb objektid ja nähtused siduda mingite koordinaatidega. **Koordinaadid** on arvud, mis määravad punkti asendi tasandil või ruumis ning **koordinaatsüsteem** vastavalt teatud reeglitel põhinev raamistik, mida nende arvude määramiseks kahe- või kolmemõõtmelises ruumis kasutatakse. Ühtse koordinaatsüsteemi abil on võimalik siduda ja koos esitada erinevaid andmeid, ent kui tahame määrata koordinaate maapinnal, siis koordinaatsüsteemist üksi ei piisa. Vaja on siduda see ka Maa kui füüsilise keha ja selle kujuga.
 
 Maa tegelik füüsiline kuju on ebakorrapärane ja pidevalt muutuv ning seda on väga raske adekvaatselt mõõta. Maa pinna geofüüsilist mudelit nimetatakse geodeesias **geoidiks**, mis esitab Maa kuju tingimustes, kus see sõltuks ainult gravitatsiooniväljast ja Maa pöörlemisest. See on samuti üpris keerukas ning korrapäratu vorm ning ehkki see võimaldab üsna täpselt määrata nt objektide kõrgust, ei sobi see väga hästi nn horisontaalsete koordinaatide määramiseks. 
-Seepärast kasutatakse pikkus- ja laiuskraadide määramiseks, kauguste ja pindalade arvutamiseks ning kaartide tegemiseks referentspinnana enamasti **ellipsoidi** kui Maa idealiseeritud matemaatilist mudelit. Erinevate ellipsoidide mõõtmed võivad pisut erineda (nt nende pooltelgede pikkused või ellipsoidi lapikus), sest Maa tegelik füüsiline kuju ja geoid on ellipsoidist märksa keerulisem. Nõnda sobivad mõned **lokaalsed** daatumid, mis ei ole tingimata seotud Maa keskpunktiga, väikesele maa-alale paremini, sest järgivad selles konkreetses kohas paremini Maa tegelikku kuju, ent ei ole jällegi hästi kasutatavad teistes kohtades. 
-Eestis kasutatakse tänapäeval **globaalset** geotsentrilist ellipsoidi **GRS80**, mis on praktiliselt identne palju laialdasemalt kasutusel oleva globaalse **WGS84** ellipsoidiga. 
+Seepärast kasutatakse pikkus- ja laiuskraadide määramiseks, kauguste ja pindalade arvutamiseks ning kaartide tegemiseks referentspinnana enamasti **ellipsoidi** kui Maa idealiseeritud matemaatilist mudelit. Erinevate ellipsoidide mõõtmed võivad pisut erineda (nt nende pooltelgede pikkused või ellipsoidi lapikus). 
 
 ```{r geoid-ellipsoid, echo = F, fig.align = "center", fig.show = "hold", fig.cap="Geoid, ellipsoid ja maapind (allikas: [Maa-amet](https://geoportaal.maaamet.ee/est/Ruumiandmed/Geodeetilised-andmed/Geodeetilised-vorgud/Geoid-p287.html))"}
 knitr::include_graphics(here::here("imgs", "geoid_ellipsoid_maapind.PNG"))
 ```
 
-Ellipsoid ja selle orienteerimise parameetrid (nt kus on ellipsoidi keskpunkt või millise maapinna punkti järgi see on orienteeritud) moodustavad nn **daatumi** ehk geodeetilise referentssüsteemi. Daatum määrab ära, kui täpselt mingi ellipsoid geoidi pinnale vastab (kui lähedal need teineteisele on). Geograafilised koordinaadid on alati seotud mingi daatumiga. 
+Ellipsoid ja selle orienteerimise parameetrid (nt kus on ellipsoidi keskpunkt või millise maapinna punkti järgi see on orienteeritud) moodustavad nn **daatumi** ehk geodeetilise referentssüsteemi. Daatum määrab ära, kui täpselt mingi ellipsoid geoidi pinnale vastab (kui lähedal need teineteisele on). **Lokaalsed** daatumid, mis ei ole tingimata seotud Maa keskpunktiga, sobivad mingile väikesele maa-alale paremini, sest järgivad selles konkreetses kohas paremini Maa tegelikku kuju, ent ei ole hästi kasutatavad teistes kohtades. Eestis kasutatakse tänapäeval **globaalset** geotsentrilist ellipsoidi **GRS80**, mis on praktiliselt identne palju laialdasemalt kasutusel oleva globaalse **WGS84** ellipsoidiga. 
 
 ```{r daatumid, echo = F, fig.align = "center", fig.show = "hold", fig.cap="Erinevad daatumid: globaalne, geotsentriline WGS84 ja lokaalne NAD27 ([allikas](https://slideplayer.com/slide/3432120/))"}
 knitr::include_graphics(here::here("imgs", "lokaalsed_globaalsed_daatumid.jpg"))
@@ -110,14 +109,14 @@ knitr::include_graphics(here::here("imgs", "uuemaabonne.PNG"))
 
 Erinevatest projektsioonidest räägime kursuse jooksul lähemalt veel.  
 
-Lõpetuseks. GIS-tarkvarades kohtad mõistet **koordinaatide referentssüsteemi** (CRS - *Coordinate reference system*), mis koosneb daatumist ehk Maa matemaatilisest mudelist ja projektsioonist, mis konverteerib geograafilised koordinaadid tasapinnalisteks koordinaatideks. 
+Lõpetuseks. GIS-tarkvarades kohtad mõistet **koordinaatide referentssüsteemi** (CRS - *Coordinate reference system*), mis koosneb daatumist ja projektsioonist. 
 
 
 
 
 ## Veebipõhised kaardirakendused
 
-Alati ei pea kaardi tegemiseks õppima põhjalikult tundma geoinfosüsteemide hingeelu ning kasutama mingit GIS-tarkvara. Veebis on valmis kaardirakendusi, mis võimaldavad teha ruumiandmete päringuid ja lihtsamaid analüüse (nt leia lühim/kiireim teekond punktist A punkti B), ilma et peaksid ise kaartide koostamise ja kujundamisega liiga palju vaeva nägema. Lisaks pakuvad mõned platvormid lisaks platvormi kaudu leitava info kasutamisele võimalust integreerida nendega ka enda andmeid ning kas või luua uusi ruumiandmeid. Lisaks sellele, et on võimalik enda andmeid n-ö olemasolevas süsteemis kuvada, pakuvad mõned platvormid võimalust ka ise aluskaardi tegemisel kaasa lüüa. Sellised on näiteks OpenStreetMap, WikiMapia ja Here WeGo, mis töötavad sarnaselt Vikipeediale: kasutajad saavad kaardi informatiivsust ja kvaliteeti ise parandada, lisades kaardile hooneid, teid jm objekte ning täiendades või parandades olemasolevate objektide infot. 
+Alati ei pea kaardi tegemiseks õppima põhjalikult tundma geoinfosüsteemide hingeelu ning kasutama mingit võimast GIS-tarkvara. Veebis on valmis kaardirakendusi, mis võimaldavad teha ruumiandmete päringuid ja lihtsamaid analüüse (nt leia lühim/kiireim teekond punktist A punkti B), ilma et peaksid ise kaartide koostamise ja kujundamisega liiga palju vaeva nägema. Lisaks pakuvad mõned platvormid lisaks platvormi kaudu leitava info kasutamisele võimalust integreerida nendega ka enda andmeid ning kas või luua uusi ruumiandmeid. Lisaks sellele, et on võimalik enda andmeid n-ö olemasolevas süsteemis kuvada, pakuvad mõned platvormid võimalust ka ise aluskaardi tegemisel kaasa lüüa. Sellised on näiteks [OpenStreetMap](https://www.openstreetmap.org), [WikiMapia](https://wikimapia.org/) ja [Here WeGo](https://wego.here.com/), mis töötavad sarnaselt Vikipeediale: kasutajad saavad kaardi informatiivsust ja kvaliteeti ise parandada, lisades kaardile hooneid, teid jm objekte ning täiendades või parandades olemasolevate objektide infot. 
 
 Selles praktikumis vaatleme eelkõige veebirakendusi, mis võimaldavad teha lihtsamaid kaarte, mida võib siis esitada kas veebis või trükitult. Spetsiifiliselt veebilehtedel esitatavate kaartide tegemise võimalusi vaatame kursusel pisut hiljem.
 
@@ -134,13 +133,13 @@ Kõige olulisemaks miinuseks on mõistagi see, et kasutajal on väga vähe kontr
 
 Veebirakendus nõuab, et sul oleks Google'i konto.
 
-Vaatame näitena üht väikest osa 19. sajandi teise poole Lõuna-Eesti vallakohtuprotokollidest, mille 2000. aastatel sisestas digitaalsel kujul Tõnis Türna (Rahvusarhiiv).  2016. aastal taastati algselt *http://www.history.ee/vallakohus* lehel olnud protokollid veebiarhiivide põhjal ning katsetati nende peal eesti keele automaatset morfoloogilist analüsaatorit. Morfoloogilise analüsaatori ülesandeks on tunda ära sõnavorm ning pakkuda sellele sõnaraamatukuju, sõnaliigi, vormiinfot jm.
+Vaatame näitena üht väikest osa 19. sajandi teise poole Lõuna-Eesti vallakohtuprotokollidest, mille 2000. aastatel sisestas digitaalsel kujul Tõnis Türna (Rahvusarhiiv).  2016. aastal taastati algselt *http://www.history.ee/vallakohus* lehel olnud protokollid veebiarhiivide põhjal ning katsetati nende peal eesti keele automaatset morfoloogilist analüsaatorit. Morfoloogilise analüsaatori ülesandeks on tunda ära sõnavorm ning pakkuda sellele sõnaraamatukuju, sõnaliik, vormiinfo jm.
 
 ```{r protokoll, echo = F, fig.align = "center", fig.show='hold', out.width= "100%", fig.cap= "Vallakohtuprotokolli näide xml-kujul [@Pilvik2019]"}
 knitr::include_graphics(here::here("imgs", "vallakohtuprotokoll.PNG"))
 ```
 
-Automaatses analüüsis tundmatuteks jäänud sõnavormide osakaal on umbkaudseks indikaatoriks sellele, kui eripärane oli vastava protokolli keel tänapäeva keelest.
+Automaatses analüüsis tundmatuteks jäänud sõnavormide osakaal on umbkaudseks indikaatoriks sellele, kui erinev oli vastava protokolli keel tänapäeva keelest.
 
 Saame lisada ka erinevaid andmekihte, näiteks Maa-ameti Geoportaalist alla laetavad maakonnapiirid (shp-formaadi oleme eelnevalt konverteerinud kml-failiks).
 
