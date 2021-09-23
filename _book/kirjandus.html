@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Kirjandus | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
   <meta name="description" content="Kirjandus | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Kirjandus | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta property="og:type" content="book" />
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="seminar.html"/>
 
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -41,7 +42,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -140,7 +140,7 @@ Bodenhamer, D.J. 2010. <span class="nocase">The Potential of Spatial Humanities<
 Gregory, I.N., &amp; Geddes, A. eds. 2014. <em><span class="nocase">Toward Spatial Humanities: Historical GIS and Spatial History</span></em>. Indiana University Press. Available at: <a href="https://www.jstor.org/stable/j.ctt16gz7s5">https://www.jstor.org/stable/j.ctt16gz7s5</a>.
 </div>
 <div id="ref-Haav2014" class="csl-entry">
-Haav, A. 2014. <em><span class="nocase">Ruumiarheoloogiline vaade asustusmustrile: fragment Kagu-Eesti eelviikingiajast hilisrauaajani (6. – 13. saj)</span></em>. Master’s Thesis. University of Tartu. Available at: <a href="https://dspace.ut.ee/bitstream/handle/10062/41911/Haav_MA14.pdf?sequence=1">https://dspace.ut.ee/bitstream/handle/10062/41911/Haav_MA14.pdf?sequence=1</a>.
+Haav, A. 2014. <em><span class="nocase">Ruumiarheoloogiline vaade asustusmustrile: fragment Kagu-Eesti eelviikingiajast hilisrauaajani (6. – 13. saj)</span></em>. Master's Thesis. University of Tartu. Available at: <a href="https://dspace.ut.ee/bitstream/handle/10062/41911/Haav{\_}MA14.pdf?sequence=1">https://dspace.ut.ee/bitstream/handle/10062/41911/Haav{\_}MA14.pdf?sequence=1</a>.
 </div>
 <div id="ref-Kimber2016" class="csl-entry">
 Kimber, A. 2016. <span class="nocase">Lohukivid, vaated ja helid muistsel maastikul</span>. <em>Tutulus: Eesti arheoloogia aastakiri</em>: 44–46.
@@ -169,7 +169,6 @@ Wallentin, G., Hofer, B., &amp; Traun, C. 2015. <span class="nocase">Assessment 
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -197,7 +196,7 @@ gitbook.start({
 },
 "download": [["book.pdf", "PDF"], ["book.epub", "EPUB"]],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {
