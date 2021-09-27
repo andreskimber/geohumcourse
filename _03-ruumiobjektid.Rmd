@@ -1,8 +1,8 @@
 # Ruumiobjektid ja ruumiandmed {#ruumiobjektid}
 
-Meid ümbritsevas maailmas on palju erinevaid ruumiga seotud nähtusi, näiteks konkreetsed füüsilised objektid (nt teed, hooned), kokuleppelised või abstraktsed objektid (nt riigipiir), sündmused (nt katastroofid, meeleavaldused, spordiüritused) või ka mingid pidevad nähtused, nagu temperatuur, mis esinevad väljana terves ruumis ning mille konkreetset väärtust on mingites ruumi punktides võimalik määrata. 
+Meid ümbritsevas maailmas on palju erinevaid ruumiga seotud nähtusi, näiteks konkreetsed füüsilised objektid (teed, hooned), kokuleppelised või abstraktsed objektid (nt riigipiir), sündmused (nt katastroofid, meeleavaldused, spordiüritused) või ka mingid pidevad nähtused, nagu temperatuur, mis esinevad väljana terves ruumis ning mille konkreetset väärtust on mingites ruumi punktides võimalik määrata. 
 
-Humanitaarteaduste kontekstis võime mõelda ka sellistest ruumiga seotud nähtustest ja objektidest, nagu muistsed ohverdusrituaalid, kirjandusteoste sündmused, (tajutavad) murdepiirid, ajaloolised lahingud, sõjakäigud jne.  
+Humanitaarteaduste kontekstis võime mõelda ka sellistest ruumiga seotud nähtustest ja objektidest, nagu muistsed ohverdusrituaalid, kirjandusteoste sündmused, (tajutavad) murdepiirid, keelelised üksused (sõnad, konstruktsioonid), ajaloolised lahingud, sõjakäigud jne.  
 Nähtustel on omakorda mingid omadused, mille abil neid nähtusi või ruumi ennast kirjeldada. 
 
 <!-- Nähtused võivad seega olla looduslikud, tehislikud, mõttelised.-->
@@ -40,7 +40,7 @@ knitr::include_graphics(here::here("imgs", "Bolstad2016.PNG"))
 ## Vektorandmed
 
 
-**Vektormudelis** kujutatakse andmeobjekte (st reaalse või miks mitte ka kognitiivse maailma objekte ja nähtusi) **geomeetriliste kujundite** abil. 
+**Vektormudelis** kujutatakse andmeobjekte **geomeetriliste kujundite** abil. 
 Geomeetrilisi põhiobjekte ehk primitiive on 3:
 
 - **punkt** (nt torn, kivi)   
@@ -57,13 +57,13 @@ knitr::include_graphics(here::here("imgs", "points_lines_polygons.PNG"))
 
 Mitmest punktist moodustub ühemõõtmeline **joon**, enamasti *murdjoon*, mille (käänu)punktid saab ühendada sirglõiguga. <!-- joonel saab mõõta pikkust-->
 
-Joon(t)est omakorda saab moodustada **polügooni**, mispuhul joone algus- ja lõpp-punkt kattuvad.  <!-- polügoonil saab määrata pindala ja ümbermõõdu-->
+Joonest omakorda saab moodustada **polügooni**, mispuhul joone algus- ja lõpp-punkt kattuvad.  <!-- polügoonil saab määrata pindala ja ümbermõõdu-->
 
 ```{r points-lines-polygons, echo=F, fig.show='hold', fig.align='center', out.width= "60%", fig.cap= "Geomeetrilised objektid [@Bolstad2016 : 43]"}
 knitr::include_graphics(here::here("imgs", "Bolstad2016_pointslinespolygons.PNG"))
 ```
 
-Geomeetrilise objekti valik sõltub sealjuures sellest, kui täpselt mingit andmeobjekti soovitakse kujutada. Näiteks võib Eesti pühapaikade kaardistamisel kasutada punkti ruumikuju, pühapaiga lähemal vaatlusel aga kasutada hoopis polügooni ruumikuju, eristada selle sees omakorda teisi polügoone või punkte jne. <!-- pühapaikade näide -->
+Geomeetrilise objekti valik sõltub sealjuures sellest, kui täpselt mingit andmeobjekti soovitakse kujutada. Näiteks võib Eesti pühapaikade kaardistamisel kasutada punkti ruumikuju, pühapaiga lähemal vaatlusel aga kasutada hoopis polügooni ruumikuju, eristada selle sees omakorda teisi polügoone või punkte jne. 
 
 
 
@@ -102,8 +102,6 @@ Vektorandmeid hoitakse GISis enamasti kas SHP, GDB, TAB, DXF või VPF formaatide
 ## Rasterandmed
 
 **Rastermudelit** kasutatakse eeskätt pidevate andmeobjektide (nn *väljade*) kujutamiseks. Rastermudelis jagatakse ruum ühesuguste (kindla kujuga) osadega korrapäraseks võrguks ehk *rastriks*, nii et igale rastri elemendile saab koordinaatide abil ühtmoodi viidata. 
-
-<!-- joonis, ka digiteeritud kaardist -->
 
 
 Rastermudel peaks olema tõenäoliselt juba tuttav, kui oled kokku puutunud näiteks digifotodega või muude digiteeritud piltidega. Formaadid, nagu JPEG, TIFF, GIF jm, põhinevad kõik rastermudelil. Samuti põhinevad rastertehnoloogial nt kõiksugu LCD-monitorid.
