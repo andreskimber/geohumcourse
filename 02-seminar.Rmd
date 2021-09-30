@@ -3,13 +3,14 @@
 
 ## Mõisted
 
-Mõne artiklis kasutatud mõiste seletusi:
+Mõne artiklites kasutatud mõiste seletusi:
 
 - ***Cognitive maps*** - kujutluskaart. Inimese (või muu elusolendi) kogemuste põhjal ajju talletatud ettekujutus/mudel mingist reaalsest või irreaalsest ruumist; laiemas käsituses mis tahes protsessist või mõistest.  
 - ***Community mapping***, ***participatory mapping*** - kogukondlik ja/või osaluskaardistamine. Kaartide tegemine n-ö tavaliste inimeste poolt tavaliste inimeste jaoks, praktikas sageli mingil ühiskondlikul-kultuurilisel või poliitilisel eesmärgil (nt pärandi, keele kaitsmiseks, mingi kogukonna arengu planeerimiseks, mingi piirkonna ressursside õiglasemaks jaotamiseks). Nende mõistetega on lähedalt seotud ka mõiste ***counter-mapping***, mis veelgi selgemalt tegeleb alternatiivse kaardistamise abil traditsiooniliste võimusuhete lammutamise ja õõnestamisega. Nii osaluskaardistamine kui ka *vastukaardistamine* esindavad ***kriitilise kartograafia*** rakendusi. Kriitilise kartograafia põhitees on, et kaardid peegeldavad ja kinnistavad võimusuhteid ning seda enamasti ühiskonnas domineeriva klassi positsioonilt.    
 - ***Gazetteer*** - kohanimeloend. Koondab tavaliselt infot kohanimega seotud koordinaatide ja koha tüübi kohta (nt mägi, jõgi, linn, küla), aga võib lisaks sisaldada ka nt rööpnimekujusid, asustuse infot, seoseid teiste sõnastiku kirjetega jm infot.  
-- ***Geocoding***  - geokodeerimine ehk kohtade tekstiliste viidete (nt kohanimede, aadresside) muutmine geograafilisteks koordinaatideks. Tagurpidi  geokodeerimine muudab omakorda geograafilised koordinaadid kohanimedeks või aadressideks.  
-- ***Locative media*** - 1) digitaalne sisu (nt pildid, videod, helid) või selle loomiseks kasutatud vahendid, millele on lisatud asukohainfo; 2) vahendid, mis kasutavad digitaalse sisu edastamiseks asukohainfot. Digihumanitaaria kontekstis ka raamistik, mille kaudu uurida üksikisiku suhteid ja vastastikuseid mõjusid koha ja tehnoloogiaga.   
+- ***Geocoding*** - geokodeerimine ehk kohtade tekstiliste viidete (nt kohanimede, aadresside) muutmine geograafilisteks koordinaatideks. Tagurpidi geokodeerimine muudab omakorda geograafilised koordinaadid kohanimedeks või aadressideks.  
+- ***Locative media*** - 1) digitaalne sisu (nt pildid, videod, helid), millele on lisatud asukohainfo; 2) vahendid, mis kasutavad digitaalse sisu edastamiseks asukohainfot. Digihumanitaaria kontekstis ka raamistik, mille kaudu uurida üksikisiku suhteid ja vastastikuseid mõjusid koha ja tehnoloogiaga.  
+- ***Memory map*** - enamasti interaktiivne kaart, mis väljendab mingi koha ajalugu suuliste või kirjalike narratiivide ja neid toetava visuaalse materjali kaudu.   
 - ***Psychogeography*** - kunsti- ja teadussuund, mille fookuses on see, kuidas kogetakse (eeskätt) linnakeskkondi ning kuidas keskkond mõjutab meie emotsioone ja käitumist. Sealjuures pööratakse tähelepanu viisidele, kuidas saada ümbritsevast uusi ja ootamatuid elamusi ning avastada "tavapärasest erinevat".    
 - ***Thick mapping*** - paljude erinevate geograafiliste või kohaspetsiifiliste andmete (pildid, narratiivid, kaardid, suulised ja kirjalikud mälestused jne) kogumine, koondamine/agregeerimine ja visualiseerimine selleks, et pakkuda kohtadele ja neis toimunud sündmustele erinevaid perspektiive (ka nt millegi alusel marginaliseeritud või vähem häälekate gruppide omi). Kasutatud on ka terminit *deep mapping*.   
 
@@ -17,11 +18,11 @@ Mõne artiklis kasutatud mõiste seletusi:
 
 ## Rühmatöö 1: GISi ja ruumi-/geohumanitaaria projekte ja rakendusi
 
-Võite osaleda üksi või rühmaga (maksimaalselt 3 inimest).
+Võite osaleda üksi või kahekesi.
 
 Otsige üks enda erialaga (lähemalt või kaugemalt) seotud projekt, mis kasutaks GISi või tegeleks ruumi- või geohumanitaariaga. Alustada võib näiteks [siit](https://anterotesis.com/wordpress/mapping-resources/dh-gis-projects/), aga kindlasti võiks lähemalt uurida ka artiklites olnud viiteid.  
 
-Lisage [virtuaalsele tahvlile](https://padlet.com/maarjaliisapilvik/14fuhzi8dpw9i2to): 
+Lisage [virtuaalsele tahvlile](https://padlet.com/maarjaliisapilvik/geohumprojektid): 
 
 - projekti nimi, 
 - projekti link, 
@@ -30,21 +31,26 @@ Lisage [virtuaalsele tahvlile](https://padlet.com/maarjaliisapilvik/14fuhzi8dpw9
 - võimalusel visuaalset lisamaterjali (nt pilte rakendustest, kaartidest vm).
 
 
-
-![Erinevaid projekte](./imgs/padlet_projektid.pdf){width=100% height=700}
-
-
-
-## Rühmatöö 2: humanitaaria vs. kvantitatiivsed meetodid
-
-Moodustage 3 inimesest koosnevad rühmad.  
-
-Pooled rühmad saavad **skeptikute/pessimistide** rolli:  teie arvates ei saa GISi ja laiemalt praeguste arvutuslike meetodite ja kvantitatiivse lähenemisega humanitaaria andmete ja küsimustega töötada (või siis mitte vähemalt väga hästi). Ka interdistsiplinaarsus on teie meelest praktikas väga raskesti saavutatav.  
-
-Teine pool rühmadest saab **optimistide** rolli: teie arvates on humanitaaria eri suunad ka metodoloogiliselt pidevas arengus ning analüüsimeetodite vahetamine, laenamine ja kohandamine eri distsipliinide vahel ja sees annab humanitaariale väga palju juurde.  
+<div class="padlet-embed" style="border:1px solid rgba(0,0,0,0.1);border-radius:2px;box-sizing:border-box;overflow:hidden;position:relative;width:100%;background:#F4F4F4"><p style="padding:0;margin:0"><iframe src="https://padlet.com/embed/i4bs2p7npoldwj0w" frameborder="0"  style="width:100%;height:608px;display:block;padding:0;margin:0"></iframe></p><div style="padding:8px;text-align:right;margin:0;"><a href="https://padlet.com?ref=embed" style="padding:0;margin:0;border:none;display:block;line-height:1;height:16px" target="_blank"><img src="https://padlet.net/embeds/made_with_padlet.png" width="86" height="16" style="padding:0;margin:0;background:none;border:none;display:inline;box-shadow:none" alt="Tehtud Padletiga"></a></div></div>
+<!--![Erinevaid projekte](./imgs/padlet_projektid.pdf){width=100% height=700}-->
 
 
-Koondage [siia](https://padlet.com/maarjaliisapilvik/irf5y9aiahqkr9s1) võimalikult palju argumente ja lihtsalt arvamusi, näiteid jm, mis teie rühma esindatavat seisukohta toetaksid. Võite sealjuures loomulikult ära kasutada artikleid, guugeldada, aga ka rühma sees ise ideid genereerida.  
+
+## Rühmatöö 2: humanitaaria *vs*. kvantitatiivsed meetodid
+
+Moodustage 3-4 inimesest koosnevad rühmad.  
+
+Üks rühm saab **skeptikute/pessimistide** rolli:  teie arvates ei saa GISi ja laiemalt praeguste arvutuslike meetodite ja kvantitatiivse lähenemisega humanitaaria andmete ja küsimustega töötada (või siis mitte vähemalt väga hästi). Ka interdistsiplinaarsus on teie meelest praktikas väga raskesti saavutatav.  
+
+Teine rühm saab **optimistide** rolli: teie arvates on humanitaaria eri suunad ka metodoloogiliselt pidevas arengus ning analüüsimeetodite vahetamine, laenamine ja kohandamine eri distsipliinide vahel ja sees annab humanitaariale väga palju juurde.  
 
 
-![Debatt](./imgs/padlet-debatt.pdf){width=100% height=700}
+Koondage [siia](https://padlet.com/maarjaliisapilvik/geohumdebatt2021) võimalikult palju argumente ja lihtsalt arvamusi, näiteid jm, mis teie rühma esindatavat seisukohta toetaksid. Võite sealjuures loomulikult ära kasutada artikleid, guugeldada, aga ka rühma sees ise ideid genereerida.  
+
+<div class="padlet-embed" style="border:1px solid rgba(0,0,0,0.1);border-radius:2px;box-sizing:border-box;overflow:hidden;position:relative;width:100%;background:#F4F4F4"><p style="padding:0;margin:0"><iframe src="https://padlet.com/embed/dz33a1tf5gmwx9w7" frameborder="0"  style="width:100%;height:608px;display:block;padding:0;margin:0"></iframe></p><div style="padding:8px;text-align:right;margin:0;"><a href="https://padlet.com?ref=embed" style="padding:0;margin:0;border:none;display:block;line-height:1;height:16px" target="_blank"><img src="https://padlet.net/embeds/made_with_padlet.png" width="86" height="16" style="padding:0;margin:0;background:none;border:none;display:inline;box-shadow:none" alt="Tehtud Padletiga"></a></div></div>
+<!--![Debatt](./imgs/padlet-debatt.pdf){width=100% height=700}-->
+
+
+## Järgmisel korral
+
+Ruumiobjektid ja ruumiandmed: millisel kujul reaalse maailma objekte geoinfosüsteemides kujutada?

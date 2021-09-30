@@ -126,7 +126,7 @@ Geoparsitud tekstikogusid ei ole väga palju. Seega tuleb huvipakkuvate tekstide
 - [GEOLocate](https://www.geo-locate.org/web/WebFileGeoref.aspx) veebiparser on pigem geokodeerija (NB! failiformaat)
 
 
-Nimetatud ressursse saab mingil määral kasutada ka eesti keele jaoks, ent eesti keele puhul raskendab kohanimede tuvastamist oluliselt erinevate käändevormide kasutamine. Proovi näiteks mõnes ülalnimetatud geoparseritest parsida esmalt lõik *Annely Peebo was born on November 16, 1971 in Võhma. She studied choir conducting and piano in Tallinn and singing in Vienna. In the second half of the 90's he moved from Estonia to Austria. She has starred in a French film and hosted the 2002 Eurovision Song Contest in Tallinn. I don't know whether she has ever sung in Tartu.* ja seejärel vastav eestikeelne tekst *Annely Peebo sündis 16. novembril 1971 Võhmas. Ta on õppinud Tallinnas koorijuhtimist ja klaverimängu ning Viinis laulmist. 90ndate teises pooles kolis ta Eestist Austriasse. Ta on mänginud ühes Prantsusmaa filmis ning juhtinud Tallinnas 2002. aastal toimunud Eurovisiooni.*
+Nimetatud ressursse saab mingil määral kasutada ka eesti keele jaoks, ent eesti keele puhul raskendab kohanimede tuvastamist oluliselt erinevate käändevormide kasutamine. Proovi näiteks mõnes ülalnimetatud geoparseritest parsida esmalt lõik *Annely Peebo was born on November 16, 1971 in Võhma. She studied choir conducting and piano in Tallinn and singing in Vienna. In the second half of the 90's he moved from Estonia to Austria. She has starred in a French film and hosted the 2002 Eurovision Song Contest in Tallinn. I don't know whether she has ever sung in Tartu.* ja seejärel vastav eestikeelne tekst *Annely Peebo sündis 16. novembril 1971 Võhmas. Ta on õppinud Tallinnas koorijuhtimist ja klaverimängu ning Viinis laulmist. 90ndate teises pooles kolis ta Eestist Austriasse. Ta on mänginud ühes Prantsusmaa filmis ning juhtinud Tallinnas 2002. aastal toimunud Eurovisiooni. Ma ei tea, kas ta on kunagi Tartus laulnud.*
 
 Eesti keele automaatanalüüsi tööriistade kõige terviklikum komplekt sisaldub Pythoni [**EstNLTK**](https://github.com/estnltk/estnltk) teegis, mille kaudu on võimalik kasutada nii [nimetuvastajat](https://github.com/estnltk/estnltk/blob/version_1.6/tutorials/taggers/ner_tagger.ipynb), [morfoloogilist analüsaatorit](https://github.com/estnltk/estnltk/blob/version_1.6/tutorials/nlp_pipeline/B_07a_morph_analysis_with_user_dict.ipynb) kui ka [aadresside lisajat](https://github.com/estnltk/estnltk/blob/version_1.6/tutorials/taggers/address_tagging.ipynb). Nende kasutamiseks tuleb aga osata pisut Pythoni skripte kirjutada (baasasjad saab üpris lihtsa vaevaga omandada nt [siit](https://github.com/estnltk/estnltk/blob/version_1.6/tutorials/basics_of_estnltk.ipynb)).
 
@@ -138,7 +138,7 @@ EstNLTK nimetuvastaja eristab kolme tüüpi nimesid:
 
 
 Geoparsimiseks ongi lisaks valmislahendustele oluliselt laialdasemad võimalused erinevates programmeerimiskeeltes (nt Pythonis, Bashis, JavaScriptis).
-Pythonil on nt geoparsimise teegid [**Mordecai**](https://github.com/openeventdata/mordecai) ja [**geoparsepy**](https://pypi.org/project/geoparsepy/), mis võtavad sisendiks teksti ja väljastab kohanimed koos koordinaatidega.  <!-- Pythonit saab kasutada ka QGISis -->
+Pythonil on nt geoparsimise teegid [**Mordecai**](https://github.com/openeventdata/mordecai) ja [**geoparsepy**](https://pypi.org/project/geoparsepy/), mis võtavad sisendiks teksti ja väljastavad kohanimed koos koordinaatidega.  <!-- Pythonit saab kasutada ka QGISis -->
 
 
 ## Ülesanded
