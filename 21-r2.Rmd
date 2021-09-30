@@ -116,8 +116,8 @@ Loeme sisse ka rakenduses kasutatavad andmed ning töötleme neid selleks, et sa
 
 ```{r, eval = F}
 # Loeme andmestikud sisse (las need olla rakenduse kaustas).
-maakonnad  = st_read("maakond_20201001.shp")
-malestised = st_read("kultuurimalestised.shp")
+maakonnad  = st_read("./andmed/maakond_lihtsustatud.gpkg")
+malestised = st_read("./andmed/kultuurimalestised.gpkg")
 
 # Teeme kultuurimälestiste laiast tabelist 
 # (mälestiste liigid eraldi tulpades, st KUNST: Y-N, ARHITEKTUUR: Y-N jne) 

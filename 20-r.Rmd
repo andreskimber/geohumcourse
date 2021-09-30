@@ -117,7 +117,7 @@ maakonnad  = st_read("./andmed/maakond_lihtsustatud.gpkg")
 # olevast kaustast *andmed* fail maakond_lihtsustatud.gpkg ja anna sellele nimeks maakonnad.
 
 kirikud = st_read("./andmed/kirikud.gpkg")
-malestised = st_read("./andmed/kultuurimalestised.gpkg")
+malestised = st_read("./andmed/malestised.gpkg")
 
 # avame Saaremaa ja Tartumaa asustuse kihid. 
 saare_asustus = st_read("./andmed/saaremaa_asustus.gpkg")
@@ -247,6 +247,35 @@ ggplot(maakonnad_kirikutega) +
 Tee kaart, kus on kujutatud Tartu maakonna asustusüksusi, mille esmamainimine jääb Põhjasõja eelsesse aega. Kirjuta kood all olevasse kooditükki. Saad kombineerida täpselt sama koodi, mida varem kasutasime.
 
 ```{r}
+tartumaa = maakonnad %>% 
+    filter(
+        MNIMI == "Tartu maakond" 
+    )
+tartu_asustus_vana = tartu_asustus %>% 
+    filter(
+        esmamainimine < 1700
+    )
+
+ggplot() +
+    geom_sf(tartumaa, mapping = ggplot2::aes(), 
+            show.legend = T
+            ) +
+    geom_sf(data = tartu_asustus_vana,
+            mapping = ggplot2::aes(color = esmamainimine), 
+            size = 3
+            ) +
+    coord_sf(crs = 3301) +
+    annotation_scale(location = "br") + # lisame mõõtkava. "br" tähendam bottom right
+    labs(
+        title = "Tartu maakonna asustus aastani 1700",
+        caption = "Andmed: Maa-amet 2020, EKI Kohanimeraamat"
+        ) +
+    # peidame taustal oleva koordinaatteljestiku
+    theme(rect = element_blank(), 
+          axis.text.x = element_blank(), 
+          axis.text.y = element_blank(), 
+          axis.ticks = element_blank()
+          )
 
 ```
 

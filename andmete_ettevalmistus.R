@@ -7,7 +7,7 @@ paketid <- c("tidyverse",
              # "raster",
              # "plotly",
              # "leaflet", "knitr", "tmap",
-             "tidyr",
+             # "tidyr",
              # "rio",
              # "rasterVis",
              # "lidR",
@@ -155,8 +155,10 @@ knr_scrape_session = function(
         kohanimi = kohanimi,
         kihelkond = kn_khk,
         # ajaloolised_nimetused = kn_nmk_a,
+        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         # kui vastuseid on rohkem kui üks (näiteks küla Nasva) siis tuleb tibble error. seetõttu võtan praegu ainult esimese vastuse ehk [1].
         # peab kindlasti parandama!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         kohainfo = kn_kohainfo[1],
         # kohainfo_2 = kn_kohainfo[2],
         # kohainfo_3 = kn_kohainfo[3],
@@ -322,8 +324,8 @@ saare_kylad = saare_kylad_raw %>%
     )
 
 saare_knr = knr_scrape(saare_kylad$kohanimi)
-
 write_csv2(saare_knr, "./andmed/saare_knr_scrape_raw.csv")
+# saare_knr = read_csv2("./andmed/saare_knr_scrape_raw.csv")
 
 saare_knr_puhas = knr_clean(saare_knr) #, maakond = "saare"
 

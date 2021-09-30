@@ -14,8 +14,9 @@ library(sf) # vajalik ruumiandmete sisselugemiseks ja analüüsiks
 library(tidyverse) # sisaldab paketti ggplot2 (visualiseerimiseks) ja dplyr (andmetöötluseks)
 
 # Loeme andmestikud sisse (las need olla rakenduse kaustas).
-maakonnad  = st_read("maakond_20201001.shp")
-malestised = st_read("kultuurimalestised.shp")
+setwd("C:/teaching/geohumcourse/kultuurimalestised")
+maakonnad  = st_read("maakond_lihtsustatud.gpkg")
+malestised = st_read("kultuurimalestised.gpkg")
 
 # Teeme kultuurimälestiste laiast tabelist (mälestiste liigid eraldi tulpades, st KUNST: Y-N, ARHITEKTUUR: Y-N jne) samanimelise pika tabeli, kus oleks ainult üks tulp mälestiste liikidega (LIIK: KUNST, ARHITEKTUUR, ...).
 malestised <- gather(malestised, # andmestik, mida muuta
@@ -50,7 +51,7 @@ ui <- fluidPage( # vaade, mis kohandub kasutaja brauseriakna suurusega
             selectInput( # valikmenüü,kus: 
                 inputId = "maakond", # suvaline nimi, millega menüüd tähistada
                 label = "Vali maakond", # kuvatav juhendtekst
-                choices = c(unique(maakonnad$MNIMI), "Kõik maakonnad"), # maakonnad
+                choices = c(unique(as.character(maakonnad$MNIMI)), "Kõik maakonnad"), # maakonnad
                 selected = "Kõik maakonnad", # vaikimisi valitud kõik
                 multiple = FALSE)), # mitut korraga valida ei saa
         
