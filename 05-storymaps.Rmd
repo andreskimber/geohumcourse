@@ -2,7 +2,7 @@
 
 ## Story maps
 
-***Story map***, mille võiks ehk tõlkida kui *loojutustuskaart*, on formaat, mis võimaldab piltide, teksti, video ja kohainfo kaudu jutustada lugusid fotograafiast, kunstist, kirjandusest, spordist, ajaloost, teadusest, ühiskonnast ja paljust muust. <!-- siia mingi täpsem definitsioon --> 
+***Story map***, mille võiks ehk tõlkida kui *loojutustuskaart*, on formaat, mis võimaldab piltide, teksti, video ja kohainfo kaudu jutustada lugusid fotograafiast, kunstist, kirjandusest, spordist, ajaloost, teadusest, ühiskonnast ja paljust muust. 
 
 Kontseptsioon on lihtne: kaardile märgitakse punktid, mille juurde saab lisada nii tekstilist kui ka pildilist infot selles kohas toimunud sündmuse või selles kohas paikneva objekti kohta. Kaardi punkte omavahel ühendades tekibki mingi narratiiv. 
 Laiemas tõlgenduses ei pea *story map*'i *kaart* olema tingimata geograafiline. Kontekstina võib toimida ka näiteks mõni maal, foto või muu visuaal, ent taust on sel juhul siiski käsitletav ruumina, milles saab loogiliselt liikuda.  Klassikalises *story map*'is on lähtepunktiks siiski mingi narratiiv, mida mööda liikudes liigume ka vastavatesse paikadesse geograafilisel kaardil.  
@@ -10,7 +10,7 @@ Laiemas tõlgenduses ei pea *story map*'i *kaart* olema tingimata geograafiline.
 
 Ühest küljest on *story map*'il palju ühist tavaliste veebilehtedega, kus jutustatakse mingit lugu, mida illustreerivad muu materjali kõrval ka kaardid, ent *story map*'il on **koht (ja aeg) oluliselt prominentsemal kohal**. 
 Teiselt poolt on *story map*il ühisjooni tavaliste kaardirakendustega, kuhu saab lisada ruumiobjekte, mida iseloomustavad teatud atribuudid. Atribuudina võib näiteks lisada ka pikema teksti, lingi pildile või videole jpm. Väga selget piiri *story map*'i ja kindlasti-mitte-*story*-*map*'i vahele on raske tõmmata, ent kuna *story map*'i fookus on aga selgelt mingi loo jutustamisel või argumendi esitamisel, on see enamasti **visuaalselt esteetilisem ja sujuvam** ning oluliseks omaduseks on **väljundi võimalikult lihtne ja kiire integreeritavus** erinevatele veebiplatvormidele.
-Story map on hea meedium näiteks esitluste ja ettekannete jaoks, kui aeg ja koht (õigemini kohad) on narratiivi või argumendi esitamise seisukohast olulised.
+*Story map* on hea meedium näiteks esitluste ja ettekannete jaoks, kui aeg ja koht (õigemini kohad) on narratiivi või argumendi esitamise seisukohast olulised.
 
 
 Kõige rohkemate funktsioonide ja võimalustega teenust *story map*'ide tegemiseks pakub ilmselt **ESRI** oma **ArcGIS StoryMaps** rakenduse kaudu. ESRIl on ka eraldi digihumanitaaria [*story map*'ide kollektsioon](https://collections.storymaps.esri.com/humanities/). Mõned näited:   
@@ -24,8 +24,11 @@ Kõige rohkemate funktsioonide ja võimalustega teenust *story map*'ide tegemise
 <iframe width="640px" height="480px" src="https://maps.calgary.ca/language/" frameborder="0" scrolling="yes"></iframe>
 
 
-ESRI teenus on aga tasuline, mistõttu sellel kursusel katsetame hoopis vabavaralist platvormi **[StoryMapJS](https://storymap.knightlab.com/)**. Teeme tehniliselt läbi ühe *story map*'i loomise protsessi. Võtame aluseks mingi Vikipeedia artikli, näiteks [selle siin](https://en.wikipedia.org/wiki/Janis_Joplin), ning püüame panna selle *story map*'i vormi.  
-<!-- näita ka muid teenuseid, nt Juxtapose'i-->
+ESRI teenuses on aga tasuta võimalik kasutada ainult teatud funktsioone.  
+Sel korral katsetame esmalt vabavaralist platvormi **[StoryMapJS](https://storymap.knightlab.com/)** ning võrdleme seda seejärel ESRI tasuta funktsioonidega.  
+Teeme tehniliselt läbi ühe *story map*'i loomise protsessi. Võtame aluseks mingi Vikipeedia artikli, näiteks [selle siin](https://en.wikipedia.org/wiki/Janis_Joplin), ning püüame panna selle *story map*'i vormi.  
+
+
 
 - Loo tegemiseks pead Google'i kasutajakontoga sisse logima.  
 - Kui oled sisse loginud, vajuta nupul *New*.  

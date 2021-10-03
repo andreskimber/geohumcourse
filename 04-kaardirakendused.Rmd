@@ -1,6 +1,4 @@
-# Kaardirakendused {#kaardirakendused}
-
-Enne, kui hakkame rääkima sellest, kuidas juba olemasolevate veebirakendustega kaarte koostada, peame lühidalt ja sissejuhatavalt rääkima veidi sellest, **mis kaart on**.  
+# Kaardid, koordinaatsüsteemid ja projektsioonid {#kaardid}
 
 
 ## Kaart
@@ -8,7 +6,7 @@ Enne, kui hakkame rääkima sellest, kuidas juba olemasolevate veebirakendustega
 Kaart on kitsamas tähenduses geograafilise informatsiooni visuaalne esitusviis. GISis on kaardid nii sisendiks kui ka väljundiks. Laiemas tähenduses võime kaardiks pidada mis tahes esitust maailmast. 
 
 
-```{r map-types, echo = F, fig.align="center", out.width = "70%", fig.cap = "[Erinevaid kaarte](https://geology.com/maps/types-of-maps/)"}
+```{r map-types, echo = F, fig.align="center", out.width = "70%", fig.cap = "[Types of Maps](https://geology.com/maps/types-of-maps/)"}
 knitr::include_graphics(here::here("imgs", "types-of-maps.jpg"))
 ```
 
@@ -16,7 +14,7 @@ knitr::include_graphics(here::here("imgs", "types-of-maps.jpg"))
 knitr::include_graphics(here::here("imgs", "paris-metro.png"))
 ```
 
-```{r noored, echo = F, fig.align="center", out.width = "100%", out.height = "100%", fig.cap = "[Tartu kaart](https://tntk.tartu.ee/tartu-noorsootoo-keskus/reveal-youropean-cultural-heritage-enrich/tartu-kaart/)"}
+```{r noored, echo = F, fig.align="center", out.width = "100%", out.height = "100%", fig.cap = "[Marleen Eino Tartu kaart](https://tntk.tartu.ee/tartu-noorsootoo-keskus/reveal-youropean-cultural-heritage-enrich/tartu-kaart/)"}
 knitr::include_graphics(here::here("imgs", "tartu_kaart_noored.PNG"))
 ```
 
@@ -27,14 +25,14 @@ GISis võime infot esitada kaardikihtidena, kusjuures ühel kihil esitatakse nä
 
 Üha rohkem puutume tänapäeval paberkaartide asemel kokku digitaalkaartidega. Ehkki mõlemal juhul näeme kaardil seda infot, mida kaardi tegija soovib edastada, ning sellisel kujul, nagu tema vajalikuks peab, on paber- ja digitaalkaartidel olulisi erinevusi.
 
-```{r paber-digi, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Digitaal- vs. paberkaart [@Suurna&Sisas2010 : 26]"}
+```{r paber-digi, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Digitaal- vs. paberkaart [@Suurna&Sisas2010: 26]"}
 knitr::include_graphics(here::here("imgs", "digitaal_paberkaart.PNG"))
 ```
 
 Kaartidel edastatakse mingit objekti või nähtust kirjeldavat informatsiooni hästi eristuvate ja loetavate leppemärkide, värvitoonide ja kirjade abil. Kaardil on aga veel mitmeid komponente, näiteks mõõtkava, suunaviit jm. 
 
 
-```{r kaardi-komponendid, echo = FALSE, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Kaardi komponendid [@Suurna&Sisas2010 : 33]"}
+```{r kaardi-komponendid, echo = FALSE, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Kaardi komponendid [@Suurna&Sisas2010: 33]"}
 knitr::include_graphics(here::here("imgs", "kaardi_komponendid.PNG"))
 ```
 
@@ -88,14 +86,14 @@ Daatumi ja sobiliku koordinaatsüsteemi abil saamegi määrata objektide asukoht
 
 Selleks aga, et nüüd geograafilises ruumis paiknevaid objekte kujutada tasapinnalisel mudelil ehk kaardil, peame valima kaardi **projektsiooni**, mis määrab matemaatilise viisi, kuidas sfääriline pind tasapinnal esitatakse ning kuidas ruumilised koordinaadid (GCS) konverteeritakse ümber **tasapinnalisteks koordinaatideks** (PCS ehk *projected coordinate system*), mida väljendatakse *x*-i ja *y* abil. Sisuliselt määrab projektsioon ära ka selle, milliseid alasid maakeral me oleme nõus oma kaardil rohkem moonutama ja milliseid vähem ning mispidi me mingeid alasid kaardil venitame või kokku surume. Kui tahame kujutada ümmargust Maad kahemõõtmelisel tasapinnal, siis paratamatult peame mingit osa maakerast moonutama. Ühe või teise projektsiooni valimisel moonutame rohkem kas pindalasid, nurkasid, kujusid või joonpikkuseid.  
 
-```{r projections, echo = FALSE, fig.show = "hold", fig.align = "center", out.width = "100%", fig.cap = "[Erinevad projektsioonid](https://i.redd.it/8ssm7hfbeko21.png)"}
+```{r projections, echo = FALSE, fig.show = "hold", fig.align = "center", out.width = "100%", fig.cap = "Erinevad projektsioonid (allikas: [Compare Map Projections](https://map-projections.net/imglist.php))"}
 knitr::include_graphics(here::here("imgs", "projections.png"))
 ```
 
 
 Projektsioonid jagunevad üldisteks tüüpideks selle järgi, kas ruumilist maakera üritatakse projitseerida silindrile, koonusele või tasandile. Need üldised tüübid jaotatakse omakorda selle järgi, kuidas vastav siirdepind on maaellipsoidi suhtes orienteeritud (normaal-, põik- või kaldaspekt). 
 
-```{r projektsioonipered, echo = FALSE, fig.show = "hold", fig.align = "center", out.width = "100%", out.height = "100%", fig.cap="Projektsioonitüübid [@Aunap2019 : 169]"}
+```{r projektsioonipered, echo = FALSE, fig.show = "hold", fig.align = "center", out.width = "100%", out.height = "100%", fig.cap="Projektsioonitüübid [@Aunap2019: 169]"}
 knitr::include_graphics(here::here("imgs", "projektsiooniklassid.png"))
 
 ```
@@ -107,9 +105,9 @@ embed_url("https://www.youtube.com/watch?v=vVX-PrBRtTY")
 ```
 
 
-Vaatame mõningate näidete abil, kuidas projektsioonid moonutavad kaardil kujutatut. 
+Vaatame mõningaid näiteid sellest, kuidas projektsioonid moonutavad kaardil kujutatut. 
 
-```{r mathigon, echo = FALSE, fig.show='hold', fig.align='center', out.width= "70%", out.height = "70%", fig.cap= "Projektsioonide tõttu esinev moonutus [mathigon.org](https://mathigon.org/course/circles/spheres-cones-cylinders#sphere-maps)"}
+```{r mathigon, echo = FALSE, fig.show='hold', fig.align='center', out.width= "70%", out.height = "70%", fig.cap= "Projektsioonide tõttu esinev moonutus (allikas: [mathigon.org](https://mathigon.org/course/circles/spheres-cones-cylinders#sphere-maps))"}
 knitr::include_graphics(here::here("imgs", "4_mathigon.PNG"))
 ```
 
@@ -117,7 +115,7 @@ Riikide suurused erinevates asukohtades rakenduses [The True Size](https://thetr
 
 Lisaks n-ö kolmele geomeetrilisele põhiklassile on projektsioonide hulgas lisaks ka pseudoklasse, mis säilitavad ainult põhiklassi mõne tunnuse.
 
-```{r bonneprojection, echo = FALSE, fig.show = "hold", fig.align = "center", out.width = "70%", out.height = "70%", fig.cap = "Bonne'i pseudokooniline projektsioon, mille keskmesse on pandud Tartu [twitter.com/evelynuuemaa](https://twitter.com/evelynuuemaa/status/1196353283696316416)"}
+```{r bonneprojection, echo = FALSE, fig.show = "hold", fig.align = "center", out.width = "70%", out.height = "70%", fig.cap = "Bonne'i pseudokooniline projektsioon, mille keskmesse on pandud Tartu (allikas: [twitter.com/evelynuuemaa](https://twitter.com/evelynuuemaa/status/1196353283696316416))"}
 knitr::include_graphics(here::here("imgs", "uuemaabonne.PNG"))
 
 ```
