@@ -53,6 +53,11 @@ leaflet() %>% addTiles() %>% addMarkers(lng = 26.722234, lat = 58.380094) %>% ad
 
 Kaartide kujunduslikest komponentidest räägime lähemalt siis, kui ise QGISis kaarte tegema hakkame, ent üldiselt tuleks kaartide kujunduses silmas pidada lihtsust ja arusaadavust. See tähendab, et kujundid, sümbolid, värvid jm peaksid olema kujutatava nähtusega kergesti seostatavad. Muidugi võib kaarti käsitleda ka kui omalaadi kunstiteost, mispuhul kokkuleppelised ja harjumuspärased kujutusviisid võivad jääda tagaplaanile.
 
+```{r, echo = FALSE}
+library(vembedr)
+library(htmltools)
+embed_url("https://youtu.be/rblfKREj50o?t=138")
+```
 
 ### Koordinaatsüsteemid ja projektsioonid
 
@@ -95,10 +100,20 @@ knitr::include_graphics(here::here("imgs", "projektsiooniklassid.png"))
 
 ```
 
-
-```{r mathigontweet, echo = FALSE, fig.show='hold', fig.align='center', out.width= "70%", out.height = "70%", fig.cap= "Projektsioonide vahetamine [twitter.com/MathigonOrg](https://twitter.com/MathigonOrg/status/1308407528057901065)"}
-knitr::include_graphics(here::here("imgs", "mathigontweet.PNG"))
+```{r, echo = FALSE}
+library(vembedr)
+library(htmltools)
+embed_url("https://www.youtube.com/watch?v=vVX-PrBRtTY")
 ```
+
+
+Vaatame mõningate näidete abil, kuidas projektsioonid moonutavad kaardil kujutatut. 
+
+```{r mathigon, echo = FALSE, fig.show='hold', fig.align='center', out.width= "70%", out.height = "70%", fig.cap= "Projektsioonide tõttu esinev moonutus [mathigon.org](https://mathigon.org/course/circles/spheres-cones-cylinders#sphere-maps)"}
+knitr::include_graphics(here::here("imgs", "4_mathigon.PNG"))
+```
+
+Riikide suurused erinevates asukohtades rakenduses [The True Size](https://thetruesize.com/). Maa pöörlemine erinevates projektsioonides kujutatult rakenduses [Map Projection Transitions](https://www.jasondavies.com/maps/transition/).
 
 Lisaks n-ö kolmele geomeetrilisele põhiklassile on projektsioonide hulgas lisaks ka pseudoklasse, mis säilitavad ainult põhiklassi mõne tunnuse.
 
@@ -175,10 +190,10 @@ knitr::include_graphics(c("imgs/okt01_gif/gmaps13.gif", "imgs/okt01_gif/gmaps14.
 
 ### Ülesanne 
 
-Võrdle Google Mapsi teiste sarnaste platvormidega, nagu HERE WeGo ([HERE Map Creator](https://mapcreator.here.com)), [PinMaps](https://www.pinmaps.net/mymaps/), [Scribble Maps](https://www.scribblemaps.com/) või [ZeeMaps](https://www.zeemaps.com/). Võid julgelt kasutada ka Google'i abi (Vikipeedias näiteks on enamasti rakenduste funktsioonide loetelu ja ajoon üsna täpselt kirjeldatud). Abiks võib olla ka [see tabel](https://en.wikipedia.org/wiki/Comparison_of_web_map_services).    
+Võrdle Google Mapsi teiste sarnaste platvormidega, nagu HERE WeGo ([HERE Map Creator](https://mapcreator.here.com)), [PinMaps](https://www.pinmaps.net/mymaps/), [Scribble Maps](https://www.scribblemaps.com/) või [ZeeMaps](https://www.zeemaps.com/). Võid julgelt kasutada ka Google'i abi (Vikipeedias näiteks on enamasti rakenduste funktsioonide loetelu üsna täpselt kirjeldatud). Abiks võib olla ka [see tabel](https://en.wikipedia.org/wiki/Comparison_of_web_map_services).    
 
 
-Lisa [Padletisse](https://padlet.com/maarjaliisapilvik/n1tpoyussyalbsc6) testitud rakenduse kohta järgmist infot:
+Lisa [Padletisse](https://padlet.com/kimberandres/22d663vpn2dcy9ce) testitud rakenduse kohta järgmist infot:
 
 1. Ligipääsetavus  
   + kas rakenduse kasutamiseks peab registreerima?
@@ -195,13 +210,12 @@ Lisa [Padletisse](https://padlet.com/maarjaliisapilvik/n1tpoyussyalbsc6) testitu
   + kas on võimalik importida andmetabeleid?
   + millised piirangud andmetele on (nt formaat, failide maht jms)?
   + millised on ekspordivõimalused?
-  + ...
   
 Kui sul õnnestub teha mingite andmetega ka kaart, mida eksportida või jagada, siis võiksid panna ka selle oma sissekande juurde.  
 
 
 ```{r rakendused, echo = F, fig.show="hold", fig.align="center", out.width="100%", out.height="100%", fig.cap="Kaardirakenduste võrdlus"}
-knitr::include_graphics(here::here("imgs", "rakendustevordlus.PNG"))
+# knitr::include_graphics(here::here("imgs", "rakendustevordlus.PNG"))
 ```
 
 

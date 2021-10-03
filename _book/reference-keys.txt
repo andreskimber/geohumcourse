@@ -344,3 +344,4 @@ fig:leafletOL
 fig:20rstudioide
 andmete-filtreerimine-ja-ühendamine
 fig:koolerakaart
+fig:mathigon
