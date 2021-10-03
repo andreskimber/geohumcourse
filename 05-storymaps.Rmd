@@ -1,4 +1,4 @@
-# Story maps {#storymaps}
+# Story maps ja Mapbox {#storymaps}
 
 ## Story maps
 
@@ -25,10 +25,12 @@ Kõige rohkemate funktsioonide ja võimalustega teenust *story map*'ide tegemise
 
 
 ESRI teenuses on aga tasuta võimalik kasutada ainult teatud funktsioone.  
-Sel korral katsetame esmalt vabavaralist platvormi **[StoryMapJS](https://storymap.knightlab.com/)** ning võrdleme seda seejärel ESRI tasuta funktsioonidega.  
-Teeme tehniliselt läbi ühe *story map*'i loomise protsessi. Võtame aluseks mingi Vikipeedia artikli, näiteks [selle siin](https://en.wikipedia.org/wiki/Janis_Joplin), ning püüame panna selle *story map*'i vormi.  
+Sel korral katsetame esmalt vabavaralist platvormi **[StoryMapJS](https://storymap.knightlab.com/)** ning võrdleme seda seejärel **[ESRI](https://storymaps.arcgis.com/)** platvormi tasuta funktsioonidega.  
+
+Teeme mõlemaga tehniliselt läbi ühe *story map*'i loomise protsessi. Võtame aluseks mingi Vikipeedia artikli, näiteks [selle siin](https://en.wikipedia.org/wiki/Janis_Joplin), ning püüame panna selle *story map*'i vormi.  
 
 
+### StoryMapJS
 
 - Loo tegemiseks pead Google'i kasutajakontoga sisse logima.  
 - Kui oled sisse loginud, vajuta nupul *New*.  
@@ -38,8 +40,8 @@ Teeme tehniliselt läbi ühe *story map*'i loomise protsessi. Võtame aluseks mi
     + keele. Keel määrab ära, mis keeles kuvatakse kasutajale igasugu nupud ja juhised. Valikus on ka eesti keel;   
     + teksti fondi (küsimärgile vajutades näed ka, millised eri variandid välja näevad);  
     + kas soovid, et kaardi erinevate punktide vahele tõmmataks joon (*treat as cartography*) või mitte (*treat as image*);  
-    + esilehel kuvatava teksti (*call to action*);  
-    + aluskaardi. Saad valida nii olemasolevate põhjade vahel kui ka omaenda või teiste kohandatud kaartide vahel. Näiteks on võimalik integreerida Mapboxi kaarte. 
+    + esilehel kuvatava nupu nt vaatama kutsuva tekstiga (*call to action*);  
+    + aluskaardi. Saad valida nii olemasolevate põhjade vahel kui ka omaenda või teiste kohandatud kaartide vahel. Näiteks on võimalik integreerida Mapboxi kaarte (nendest allpool). 
  
 
 Kui oled oma loo n-ö ära seadistanud, siis saad hakata lisama sisu.  
@@ -52,9 +54,38 @@ Kui oled oma loo n-ö ära seadistanud, siis saad hakata lisama sisu.
 - Kui oled loo valmis saanud, siis salvesta see.  
 - Oma lugu võib jagada lingiga või ka näiteks otse Twitteri, Facebooki või Google+'i kaudu. Samuti võib selle *iframe*'i koodi abil lisada otse enda veebilehele (näiteks Wordpressi, Mediumi või mujale). Ka sellele lehele siin võib lisada äsja tehtud *story map*'i, kleepides lihtsalt *iframe*'i koodi tänase praktikumi lähtekoodi (lugu ilmub siia pärast praktikumi lõppu).
 
-<iframe src="https://uploads.knightlab.com/storymapjs/9369be87bcb6fd22e6881a172e10a9c9/janis-joplin/index.html" frameborder="0" width="640px" height="480px" scrolling="yes"></iframe>
+<!--<iframe src="https://uploads.knightlab.com/storymapjs/9369be87bcb6fd22e6881a172e10a9c9/janis-joplin/index.html" frameborder="0" width="640px" height="480px" scrolling="yes"></iframe>-->
 
-Enamik kasutajaid lepib nende võimalustega, mis on olemas, ent neil, kes tunnevad HTMLi ja JavaScripti, õnnestub lisaks veel päris palju asju kohandada (vaata sakki *Help* -> *Advanced*).
+
+### ArcGIS StoryMaps
+
+- Loo tegemiseks pead looma (avaliku) kasutajakonto. Seejärel saate meilile aktiveerimislingi ning sellele vajutades saategi konto loomise lõpule viia (määrata kasutajanime ja parooli jms).   
+- Kindluse mõttes võib esmalt ära vahetada vaikimisi platvormi keele, kui see ei ole inglise keel. Vastasel juhul võivad mõned tõlked arusaamatuks jääda (nt sõna *heading* tõlkena võib kohata sõna *suund*). Selleks saab minna üleval paremas nurgas enda profiili lingile ning vaadata lähemalt seadeid (*Kuva minu seaded*) ning uuenda keelt, numbri- ja kuupäevavorminguid.  
+- Uue loo tegemiseks vajuta nupul *New story*. Võib alustada tühja malliga või valida mallitüübi  
+    + *Sidecar* (tekst ja visuaal kuvatud kõrvuti paneelidel, sobib hästi, kui suurem rõhk on näiteks tekstil)  
+    + *Guided map tour* (tekst ja visuaal kuvatud kaardil, vaataja liigub mööda punkte kindlaks määratud järjekorras)  
+    + *Explorer map tour* (nagu eelmine vormel, aga vaataja saab valida, mis järjekorras mööda punkte liigub).  
+- Kasutame siin tühja malli, millele saame lisada teisi malle juurde. Tiitellehele märgi oma projekti nimi (nt *The life of Janis Joplin*) ja lühike tutvustus. Võid lisada juure ka pildi või video.  
+- Plussikestest saad lisada uusi plokke:  
+    + teksti,  
+    + nupu, mis viib nt mingile lingile,  
+    + sektsioonide eraldusriba,  
+    + kaardi,  
+    + pildi,  
+    + video,  
+    + *swipe*'i, mis lubab kõrvutada liuguri abil kaht kaarti või pilti,  
+    + teisi loomalle (*sidecar*, *map tour*), mille sisse omakorda võib lisada üleval nimetatud elemente.  
+- Tasulises versioonis on võimalik kasutada veel plokitüüpe.  
+- Kaardi lisamisel  
+    + tuleks valida esmalt aluskaart (*basemap*),  
+    + seejärel lisada tekst, meedia ja siduda punktid konkreetsete kohtadega. 
+- Kaardi võimalused sõltuvad pisut sellest, kas lisada kaart eraldi plokina või niäteks *map tour*'i mallis.  
+- Kui lugu on valmis, avalikusta lugu (*Publish story*).   
+- Kaarti saab jagada samuti lingiga (kui lugu on avalik) ning lisada *iframe*'i koodiga teistele veebilehtedele.  
+
+    
+---
+  
 
 Veel paar aastat tagasi oli võimalik vähese vaevaga kasutada *story map*'ide tegemiseks ka platvorme nagu [MapStory](https://mapstory.org) või [Odyssey.js](https://cartodb.github.io/odyssey.js/), ent nende kasutamine on praeguseks oluliselt raskendatud (nõuab veidi koodikirjutamisoskust ning kõik funktsioonid ei ole enam toetatud). 
 
