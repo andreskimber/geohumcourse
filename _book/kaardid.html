@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Praktikum 4 Kaardid, koordinaatsüsteemid ja projektsioonid | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
+  <meta name="description" content="Praktikum 4 Kaardid, koordinaatsüsteemid ja projektsioonid | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Praktikum 4 Kaardid, koordinaatsüsteemid ja projektsioonid | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Praktikum 4 Kaardid, koordinaatsüsteemid ja projektsioonid | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  
+  
+  
+
+<meta name="author" content="Andres Kimber, Maarja-Liisa Pilvik" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ruumiobjektid.html"/>
+<link rel="next" href="storymaps.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.4.1/leaflet.js"></script>
+<link href="libs/leaflet-measure-2.1.7/leaflet-measure.css" rel="stylesheet" />
+<script src="libs/leaflet-measure-2.1.7/leaflet-measure.min.js"></script>
+<script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
+<link href="libs/vembedr-0.1.4/css/vembedr.css" rel="stylesheet" />
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#kursuse-korraldusest"><i class="fa fa-check"></i><b>1.1</b> Kursuse korraldusest</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#mis-on-geoinfosüsteemid"><i class="fa fa-check"></i><b>1.2</b> Mis on geoinfosüsteemid?</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#geoinfosüsteemide-ajaloost"><i class="fa fa-check"></i><b>1.3</b> Geoinfosüsteemide ajaloost</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#ruumiandmed-ja-gis-humanitaarteadustes"><i class="fa fa-check"></i><b>1.4</b> Ruumiandmed ja GIS humanitaarteadustes</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#arheoloogia"><i class="fa fa-check"></i><b>1.4.1</b> Arheoloogia</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#veel-näiteid"><i class="fa fa-check"></i><b>1.4.2</b> Veel näiteid</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#küsitlus"><i class="fa fa-check"></i><b>1.5</b> Küsitlus</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>1.6</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>2</b> Seminar</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="seminar.html"><a href="seminar.html#mõisted"><i class="fa fa-check"></i><b>2.1</b> Mõisted</a></li>
+<li class="chapter" data-level="2.2" data-path="seminar.html"><a href="seminar.html#rühmatöö-1-gisi-ja-ruumi-geohumanitaaria-projekte-ja-rakendusi"><i class="fa fa-check"></i><b>2.2</b> Rühmatöö 1: GISi ja ruumi-/geohumanitaaria projekte ja rakendusi</a></li>
+<li class="chapter" data-level="2.3" data-path="seminar.html"><a href="seminar.html#rühmatöö-2-humanitaaria-vs.-kvantitatiivsed-meetodid"><i class="fa fa-check"></i><b>2.3</b> Rühmatöö 2: humanitaaria <em>vs</em>. kvantitatiivsed meetodid</a></li>
+<li class="chapter" data-level="2.4" data-path="seminar.html"><a href="seminar.html#järgmisel-korral-1"><i class="fa fa-check"></i><b>2.4</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html"><i class="fa fa-check"></i><b>3</b> Ruumiobjektid ja ruumiandmed</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#vektorandmed"><i class="fa fa-check"></i><b>3.1</b> Vektorandmed</a></li>
+<li class="chapter" data-level="3.2" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#rasterandmed"><i class="fa fa-check"></i><b>3.2</b> Rasterandmed</a></li>
+<li class="chapter" data-level="3.3" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#vektor-vs.-raster"><i class="fa fa-check"></i><b>3.3</b> Vektor vs. raster</a></li>
+<li class="chapter" data-level="3.4" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#ülesanne"><i class="fa fa-check"></i><b>3.4</b> Ülesanne</a></li>
+<li class="chapter" data-level="3.5" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#järgmisel-korral-2"><i class="fa fa-check"></i><b>3.5</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="kaardid.html"><a href="kaardid.html"><i class="fa fa-check"></i><b>4</b> Kaardid, koordinaatsüsteemid ja projektsioonid</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="kaardid.html"><a href="kaardid.html#kaart"><i class="fa fa-check"></i><b>4.1</b> Kaart</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="kaardid.html"><a href="kaardid.html#koordinaatsüsteemid-ja-projektsioonid"><i class="fa fa-check"></i><b>4.1.1</b> Koordinaatsüsteemid ja projektsioonid</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="kaardid.html"><a href="kaardid.html#veebipõhised-kaardirakendused"><i class="fa fa-check"></i><b>4.2</b> Veebipõhised kaardirakendused</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="kaardid.html"><a href="kaardid.html#google-my-maps"><i class="fa fa-check"></i><b>4.2.1</b> Google My Maps</a></li>
+<li class="chapter" data-level="4.2.2" data-path="kaardid.html"><a href="kaardid.html#ülesanne-1"><i class="fa fa-check"></i><b>4.2.2</b> Ülesanne</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="kaardid.html"><a href="kaardid.html#järgmisel-korral-3"><i class="fa fa-check"></i><b>4.3</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="storymaps.html"><a href="storymaps.html"><i class="fa fa-check"></i><b>5</b> Story maps ja Mapbox</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="storymaps.html"><a href="storymaps.html#story-maps"><i class="fa fa-check"></i><b>5.1</b> Story maps</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="storymaps.html"><a href="storymaps.html#storymapjs"><i class="fa fa-check"></i><b>5.1.1</b> <span>StoryMapJS</span></a></li>
+<li class="chapter" data-level="5.1.2" data-path="storymaps.html"><a href="storymaps.html#arcgis-storymaps"><i class="fa fa-check"></i><b>5.1.2</b> <span>ArcGIS StoryMaps</span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="storymaps.html"><a href="storymaps.html#mapbox-studio"><i class="fa fa-check"></i><b>5.2</b> Mapbox Studio</a></li>
+<li class="chapter" data-level="5.3" data-path="storymaps.html"><a href="storymaps.html#mapbox-story-mapis"><i class="fa fa-check"></i><b>5.3</b> Mapbox <em>story map</em>’is</a></li>
+<li class="chapter" data-level="5.4" data-path="storymaps.html"><a href="storymaps.html#järgmisel-korral-4"><i class="fa fa-check"></i><b>5.4</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="kirjandus.html"><a href="kirjandus.html"><i class="fa fa-check"></i>Kirjandus</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="kaardid" class="section level1" number="4">
+<h1><span class="header-section-number">Praktikum 4</span> Kaardid, koordinaatsüsteemid ja projektsioonid</h1>
+<div id="kaart" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Kaart</h2>
+<p>Kaart on kitsamas tähenduses geograafilise informatsiooni visuaalne esitusviis. GISis on kaardid nii sisendiks kui ka väljundiks. Laiemas tähenduses võime kaardiks pidada mis tahes esitust maailmast.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:map-types"></span>
+<img src="imgs/types-of-maps.jpg" alt="[Types of Maps](https://geology.com/maps/types-of-maps/)" width="70%" />
+<p class="caption">
+Figure 4.1: <a href="https://geology.com/maps/types-of-maps/">Types of Maps</a>
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:parismetro"></span>
+<img src="imgs/paris-metro.png" alt="[Pariisi metrookaart](http://www.urbanrail.net/eu/fr/paris/paris.htm/)" width="100%" height="100%" />
+<p class="caption">
+Figure 4.2: <a href="http://www.urbanrail.net/eu/fr/paris/paris.htm/">Pariisi metrookaart</a>
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:noored"></span>
+<img src="imgs/tartu_kaart_noored.PNG" alt="[Marleen Eino Tartu kaart](https://tntk.tartu.ee/tartu-noorsootoo-keskus/reveal-youropean-cultural-heritage-enrich/tartu-kaart/)" width="100%" height="100%" />
+<p class="caption">
+Figure 4.3: <a href="https://tntk.tartu.ee/tartu-noorsootoo-keskus/reveal-youropean-cultural-heritage-enrich/tartu-kaart/">Marleen Eino Tartu kaart</a>
+</p>
+</div>
+<p>Kaarti tehes peame alati esmalt läbi mõtlema, mis on kaardi tegemise eesmärk ning kes on kaardi lõppkasutaja. Seejärel tuleb mõelda, mida ja mis kujul reaalsest maailmast esitame ning kui täpne peab esitus olema. Lõpuks tuleb mõelda ka tehnilistele aspektidele: mis formaadis andmed meil on kasutada, mis formaadis need andmed peavad olema kaardi tegemiseks ning mis formaadis tuleb kaart ise.</p>
+<p>GISis võime infot esitada kaardikihtidena, kusjuures ühel kihil esitatakse nähtusi, mis omavad <strong>ühesugust ruumiobjekti tüüpi</strong>. See tähendab, et samal kihil ei tohiks esitada näiteks jõgesid (tüüpiliselt avatud jooned) ja ehitisi (tüüpiliselt suletud jooned ehk polügoonid). Küll aga võime soovi korral esitada samal kihil näiteks kive, restorane ja kogumispunkte, mis küll olemuslikult on erinevast klassist, aga geomeetriliselt esitatavad sama tüüpi ruumiobjekti (punkti abil). Üldiselt on tavaks esitada ühel kaardikihil siiski ka temaatiliselt sarnaseid objekte.</p>
+<p>Üha rohkem puutume tänapäeval paberkaartide asemel kokku digitaalkaartidega. Ehkki mõlemal juhul näeme kaardil seda infot, mida kaardi tegija soovib edastada, ning sellisel kujul, nagu tema vajalikuks peab, on paber- ja digitaalkaartidel olulisi erinevusi.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:paber-digi"></span>
+<img src="imgs/digitaal_paberkaart.PNG" alt="Digitaal- vs. paberkaart [@Suurna&amp;Sisas2010: 26]" width="100%" />
+<p class="caption">
+Figure 4.4: Digitaal- vs. paberkaart <span class="citation">(<a href="kirjandus.html#ref-Suurna&amp;Sisas2010" role="doc-biblioref">Suurna et al. 2010</a>: 26)</span>
+</p>
+</div>
+<p>Kaartidel edastatakse mingit objekti või nähtust kirjeldavat informatsiooni hästi eristuvate ja loetavate leppemärkide, värvitoonide ja kirjade abil. Kaardil on aga veel mitmeid komponente, näiteks mõõtkava, suunaviit jm.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:kaardi-komponendid"></span>
+<img src="imgs/kaardi_komponendid.PNG" alt="Kaardi komponendid [@Suurna&amp;Sisas2010: 33]" width="100%" />
+<p class="caption">
+Figure 4.5: Kaardi komponendid <span class="citation">(<a href="kirjandus.html#ref-Suurna&amp;Sisas2010" role="doc-biblioref">Suurna et al. 2010</a>: 33)</span>
+</p>
+</div>
+<p>Kaardi <strong>mõõtkava</strong> näitab, kui palju reaalset objekti on vähendatud. Tavaliselt väljendatakse mõõtkava murdosa või suhtena, mis seob kaardil esitatud mingi pikkusega joonlõigu sama joonlõiguga maapinnal. Näiteks mõõtkava 1:20000 või 1/20000 näitab, et 1 ühik kaardil vastab 20000 samale ühikule reaalses maailmas. Kui ühik on cm, siis esitab 1 cm kaardil 20000 cm ehk 200 m maapinnal. <!-- Kas see on suur või väike mõõtkava? -->Digitaalsetel kaartidel esitatakse mõõtkava sageli dünaamiliselt, mis tähendab, et mõõtkava saab sisse või välja suumides muuta. Samuti on tüüpiline mõõtkava esitamine mitte arvmõõtkavana, vaid visuaalselt: mingile ekraanil määratletud joonlõigule vastab tegelikkuses kindel vahemaa maapinnal, ent me ei pruugi täpselt näha, kui pika joonlõiguga on ekraanil tegemist.</p>
+<p>Kui liigume suurelt mõõtkavalt väiksemale, peame andmeid loetavuse huvides üldistama ning valima, mida ja mis detailsusastmega esitada. Üldistada võib lihtsustades, siludes, ühendades jne.</p>
+<div id="htmlwidget-6d08b645ad1b5b9f2c60" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6d08b645ad1b5b9f2c60">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[58.380094,26.722234,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addScaleBar","args":[{"maxWidth":50,"metric":true,"imperial":false,"updateWhenIdle":true,"position":"topright"}]},{"method":"addMeasure","args":[{"position":"topright","primaryLengthUnit":"meters","primaryAreaUnit":"sqmeters","activeColor":"#ABE67E","completedColor":"#C8F2BE","popupOptions":{"className":"leaflet-measure-resultpopup","autoPanPadding":[10,10]},"captureZIndex":10000,"localization":"en","decPoint":".","thousandsSep":","}]}],"limits":{"lat":[58.380094,58.380094],"lng":[26.722234,26.722234]}},"evals":[],"jsHooks":{"render":[{"code":"function(el, x, data) {\n  return (\n      function(el, x, data) {\n      // get the leaflet map\n      var map = this; //HTMLWidgets.find('#' + el.id);\n      // we need a new div element because we have to handle\n      // the mouseover output separately\n      // debugger;\n      function addElement () {\n      // generate new div Element\n      var newDiv = $(document.createElement('div'));\n      // append at end of leaflet htmlwidget container\n      $(el).append(newDiv);\n      //provide ID and style\n      newDiv.addClass('lnlt');\n      newDiv.css({\n      'position': 'relative',\n      'bottomleft':  '0px',\n      'background-color': 'rgba(255, 255, 255, 0.7)',\n      'box-shadow': '0 0 2px #bbb',\n      'background-clip': 'padding-box',\n      'margin': '0',\n      'padding-left': '5px',\n      'color': '#333',\n      'font': '9px/1.5 \"Helvetica Neue\", Arial, Helvetica, sans-serif',\n      'z-index': '700',\n      });\n      return newDiv;\n      }\n\n\n      // check for already existing lnlt class to not duplicate\n      var lnlt = $(el).find('.lnlt');\n\n      if(!lnlt.length) {\n      lnlt = addElement();\n\n      // grab the special div we generated in the beginning\n      // and put the mousmove output there\n\n      map.on('mousemove', function (e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                           ' lon: ' + (e.latlng.lng).toFixed(5) +\n                           ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                           ' | zoom: ' + map.getZoom() +\n                           ' | x: ' + L.CRS.EPSG3857.project(e.latlng).x.toFixed(0) +\n                           ' | y: ' + L.CRS.EPSG3857.project(e.latlng).y.toFixed(0) +\n                           ' | epsg: 3857 ' +\n                           ' | proj4: +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs ');\n      } else {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      }\n      });\n\n      // remove the lnlt div when mouse leaves map\n      map.on('mouseout', function (e) {\n      var strip = document.querySelector('.lnlt');\n      if( strip !==null) strip.remove();\n      });\n\n      };\n\n      //$(el).keypress(67, function(e) {\n      map.on('preclick', function(e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      var txt = document.querySelector('.lnlt').textContent;\n      console.log(txt);\n      //txt.innerText.focus();\n      //txt.select();\n      setClipboardText('\"' + txt + '\"');\n      }\n      });\n\n      }\n      ).call(this.getMap(), el, x, data);\n}","data":null}]}}</script>
+<p>Kaartide kujunduslikest komponentidest räägime lähemalt siis, kui ise QGISis kaarte tegema hakkame, ent üldiselt tuleks kaartide kujunduses silmas pidada lihtsust ja arusaadavust. See tähendab, et kujundid, sümbolid, värvid jm peaksid olema kujutatava nähtusega kergesti seostatavad. Muidugi võib kaarti käsitleda ka kui omalaadi kunstiteost, mispuhul kokkuleppelised ja harjumuspärased kujutusviisid võivad jääda tagaplaanile.</p>
+<div class="vembedr">
+<div>
+<iframe src="https://www.youtube.com/embed/rblfKREj50o?start=138" width="533" height="300" frameborder="0" allowfullscreen=""></iframe>
+</div>
+</div>
+<div id="koordinaatsüsteemid-ja-projektsioonid" class="section level3" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Koordinaatsüsteemid ja projektsioonid</h3>
+<p>Ruumiandmed on alati seotud mingi kohaga. Maakera on kolmemõõtmeline ja põhimõtteliselt võiksime üsna hästi kasutada objektide asukoha ja omaduste kujutamiseks gloobust. See aga ei ole sageli kuigi praktiline. Kaardil, mis on märksa praktilisem visualiseerimisvahend, on üldjuhul aga ainult kaks mõõdet. Kuidas siis kolmemõõtmelist ning ebakorrapärast kujundit kujutada kahemõõtmelise ja korrapärase meediumi kaudu ning kuidas paigutada reaalse maailma objekte ja alasid nii, et saaksime kaardi põhjal öelda, kus need maakeral asuvad?</p>
+<p>Esmalt tuleb objektid ja nähtused siduda mingite koordinaatidega. <strong>Koordinaadid</strong> on arvud, mis määravad punkti asendi tasandil või ruumis ning <strong>koordinaatsüsteem</strong> vastavalt teatud reeglitel põhinev raamistik, mida nende arvude määramiseks kahe- või kolmemõõtmelises ruumis kasutatakse. Ühtse koordinaatsüsteemi abil on võimalik siduda ja koos esitada erinevaid andmeid, ent kui tahame määrata koordinaate maapinnal, siis koordinaatsüsteemist üksi ei piisa. Vaja on siduda see ka Maa kui füüsilise keha ja selle kujuga.</p>
+<p>Maa tegelik füüsiline kuju on ebakorrapärane ja pidevalt muutuv ning seda on väga raske adekvaatselt mõõta. Maa pinna geofüüsilist mudelit nimetatakse geodeesias <strong>geoidiks</strong>, mis esitab Maa kuju tingimustes, kus see sõltuks ainult gravitatsiooniväljast ja Maa pöörlemisest. See on samuti üpris keerukas ning korrapäratu vorm ning ehkki see võimaldab üsna täpselt määrata nt objektide kõrgust, ei sobi see väga hästi nn horisontaalsete koordinaatide määramiseks.
+Seepärast kasutatakse pikkus- ja laiuskraadide määramiseks, kauguste ja pindalade arvutamiseks ning kaartide tegemiseks referentspinnana enamasti <strong>ellipsoidi</strong> kui Maa idealiseeritud matemaatilist mudelit. Erinevate ellipsoidide mõõtmed võivad pisut erineda (nt nende pooltelgede pikkused või ellipsoidi lapikus).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:geoid-ellipsoid"></span>
+<img src="imgs/geoid_ellipsoid_maapind.PNG" alt="Geoid, ellipsoid ja maapind (allikas: [Maa-amet](https://geoportaal.maaamet.ee/est/Ruumiandmed/Geodeetilised-andmed/Geodeetilised-vorgud/Geoid-p287.html))" width="564" />
+<p class="caption">
+Figure 4.6: Geoid, ellipsoid ja maapind (allikas: <a href="https://geoportaal.maaamet.ee/est/Ruumiandmed/Geodeetilised-andmed/Geodeetilised-vorgud/Geoid-p287.html">Maa-amet</a>)
+</p>
+</div>
+<p>Ellipsoid ja selle orienteerimise parameetrid (nt kus on ellipsoidi keskpunkt või millise maapinna punkti järgi see on orienteeritud) moodustavad nn <strong>daatumi</strong> ehk geodeetilise referentssüsteemi. Daatum määrab ära, kui täpselt mingi ellipsoid geoidi pinnale vastab (kui lähedal need teineteisele on). <strong>Lokaalsed</strong> daatumid, mis ei ole tingimata seotud Maa keskpunktiga, sobivad mingile väikesele maa-alale paremini, sest järgivad selles konkreetses kohas paremini Maa tegelikku kuju, ent ei ole hästi kasutatavad teistes kohtades. Eestis kasutatakse tänapäeval <strong>globaalset</strong> geotsentrilist ellipsoidi <strong>GRS80</strong>, mis on praktiliselt identne palju laialdasemalt kasutusel oleva globaalse <strong>WGS84</strong> ellipsoidiga.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:daatumid"></span>
+<img src="imgs/lokaalsed_globaalsed_daatumid.jpg" alt="Erinevad daatumid: globaalne, geotsentriline WGS84 ja lokaalne NAD27 ([allikas](https://slideplayer.com/slide/3432120/))" width="480" />
+<p class="caption">
+Figure 4.7: Erinevad daatumid: globaalne, geotsentriline WGS84 ja lokaalne NAD27 (<a href="https://slideplayer.com/slide/3432120/">allikas</a>)
+</p>
+</div>
+<p>Daatumi ja sobiliku koordinaatsüsteemi abil saamegi määrata objektide asukohti Maa pinnal: teame, millise kujuga ja mõõtmetega kujutame Maad ette, ning teame ka, millistes ühikutes ja millisest nullpunktist lugedes me sellel kujul objektide asukohti määravaid koordinaate arvestame. <strong>Geograafilised koordinaadid</strong> on alati seotud mingi daatumiga ning aitavad meil määrata objekti asukoha, kasutades pikkus- ja laiuskraade. Pikkuskraade loetakse kahele poole Greenwichi observatooriumi meridiaani (idapikkus ja läänepikkus), laiuskraade kahele poole ekvaatorit (lõunalaius ja põhjalaius). Asukohta esitatakse kraadides (°), minutites (’) ja sekundites (") või kraadides kümnendsüsteemis.</p>
+<p><strong>Mõtteharjutus</strong>:</p>
+<blockquote>
+<p>Kui iga kraad on jagatud 60 minutiks ja iga minut 60 sekundiks, siis kuidas kujutada kümnendsüsteemis koordinaate 58°22’48“N, 26°43’20”E?</p>
+</blockquote>
+<p>Selleks aga, et nüüd geograafilises ruumis paiknevaid objekte kujutada tasapinnalisel mudelil ehk kaardil, peame valima kaardi <strong>projektsiooni</strong>, mis määrab matemaatilise viisi, kuidas sfääriline pind tasapinnal esitatakse ning kuidas ruumilised koordinaadid (GCS) konverteeritakse ümber <strong>tasapinnalisteks koordinaatideks</strong> (PCS ehk <em>projected coordinate system</em>), mida väljendatakse <em>x</em>-i ja <em>y</em> abil. Sisuliselt määrab projektsioon ära ka selle, milliseid alasid maakeral me oleme nõus oma kaardil rohkem moonutama ja milliseid vähem ning mispidi me mingeid alasid kaardil venitame või kokku surume. Kui tahame kujutada ümmargust Maad kahemõõtmelisel tasapinnal, siis paratamatult peame mingit osa maakerast moonutama. Ühe või teise projektsiooni valimisel moonutame rohkem kas pindalasid, nurkasid, kujusid või joonpikkuseid.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:projections"></span>
+<img src="imgs/projections.png" alt="Erinevad projektsioonid (allikas: [Compare Map Projections](https://map-projections.net/imglist.php))" width="100%" />
+<p class="caption">
+Figure 4.8: Erinevad projektsioonid (allikas: <a href="https://map-projections.net/imglist.php">Compare Map Projections</a>)
+</p>
+</div>
+<p>Projektsioonid jagunevad üldisteks tüüpideks selle järgi, kas ruumilist maakera üritatakse projitseerida silindrile, koonusele või tasandile. Need üldised tüübid jaotatakse omakorda selle järgi, kuidas vastav siirdepind on maaellipsoidi suhtes orienteeritud (normaal-, põik- või kaldaspekt).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:projektsioonipered"></span>
+<img src="imgs/projektsiooniklassid.png" alt="Projektsioonitüübid [@Aunap2019: 169]" width="100%" height="100%" />
+<p class="caption">
+Figure 4.9: Projektsioonitüübid <span class="citation">(<a href="kirjandus.html#ref-Aunap2019" role="doc-biblioref">Aunap 2019</a>: 169)</span>
+</p>
+</div>
+<div class="vembedr">
+<div>
+<iframe src="https://www.youtube.com/embed/vVX-PrBRtTY" width="533" height="300" frameborder="0" allowfullscreen=""></iframe>
+</div>
+</div>
+<p>Vaatame mõningaid näiteid sellest, kuidas projektsioonid moonutavad kaardil kujutatut.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mathigon"></span>
+<img src="imgs/4_mathigon.png" alt="Projektsioonide tõttu esinev moonutus (allikas: [mathigon.org](https://mathigon.org/course/circles/spheres-cones-cylinders#sphere-maps))" width="70%" height="70%" />
+<p class="caption">
+Figure 4.10: Projektsioonide tõttu esinev moonutus (allikas: <a href="https://mathigon.org/course/circles/spheres-cones-cylinders#sphere-maps">mathigon.org</a>)
+</p>
+</div>
+<p>Riikide suurused erinevates asukohtades rakenduses <a href="https://thetruesize.com/">The True Size</a>. Maa pöörlemine erinevates projektsioonides kujutatult rakenduses <a href="https://www.jasondavies.com/maps/transition/">Map Projection Transitions</a>.</p>
+<p>Lisaks n-ö kolmele geomeetrilisele põhiklassile on projektsioonide hulgas lisaks ka pseudoklasse, mis säilitavad ainult põhiklassi mõne tunnuse.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bonneprojection"></span>
+<img src="imgs/uuemaabonne.PNG" alt="Bonne'i pseudokooniline projektsioon, mille keskmesse on pandud Tartu (allikas: [twitter.com/evelynuuemaa](https://twitter.com/evelynuuemaa/status/1196353283696316416))" width="70%" height="70%" />
+<p class="caption">
+Figure 4.11: Bonne’i pseudokooniline projektsioon, mille keskmesse on pandud Tartu (allikas: <a href="https://twitter.com/evelynuuemaa/status/1196353283696316416">twitter.com/evelynuuemaa</a>)
+</p>
+</div>
+<p>Erinevatest projektsioonidest räägime kursuse jooksul lähemalt veel.</p>
+<p>Lõpetuseks. GIS-tarkvarades kohtad mõistet <strong>koordinaatide referentssüsteemi</strong> (CRS - <em>Coordinate reference system</em>), mis koosneb daatumist ja projektsioonist.</p>
+</div>
+</div>
+<div id="veebipõhised-kaardirakendused" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Veebipõhised kaardirakendused</h2>
+<p>Alati ei pea kaardi tegemiseks õppima põhjalikult tundma geoinfosüsteemide hingeelu ning kasutama mingit võimast GIS-tarkvara. Veebis on valmis kaardirakendusi, mis võimaldavad teha ruumiandmete päringuid ja lihtsamaid analüüse (nt leia lühim/kiireim teekond punktist A punkti B), ilma et peaksid ise kaartide koostamise ja kujundamisega liiga palju vaeva nägema. Lisaks pakuvad mõned platvormid lisaks platvormi kaudu leitava info kasutamisele võimalust integreerida nendega ka enda andmeid ning kas või luua uusi ruumiandmeid. Lisaks sellele, et on võimalik enda andmeid n-ö olemasolevas süsteemis kuvada, pakuvad mõned platvormid võimalust ka ise aluskaardi tegemisel kaasa lüüa. Sellised on näiteks <a href="https://www.openstreetmap.org">OpenStreetMap</a>, <a href="https://wikimapia.org/">WikiMapia</a> ja <a href="https://wego.here.com/">Here WeGo</a>, mis töötavad sarnaselt Vikipeediale: kasutajad saavad kaardi informatiivsust ja kvaliteeti ise parandada, lisades kaardile hooneid, teid jm objekte ning täiendades või parandades olemasolevate objektide infot.</p>
+<p>Selles praktikumis vaatleme eelkõige veebirakendusi, mis võimaldavad teha lihtsamaid kaarte, mida võib siis esitada kas veebis või trükitult. Spetsiifiliselt veebilehtedel esitatavate kaartide tegemise võimalusi vaatame kursusel pisut hiljem.</p>
+<p>Ilmselt kõige tuntum ja laialdasemalt kasutatav kaardirakendus on Google Maps, mille pakutavate teenuste hulka kuuluvad näiteks teekondade planeerimine (erinevate liiklusvahenditega), navigeerimissüsteem, liiklusinfo kuvamine, tänavate panoraamvaated, teatud kohtades ka veealused panoraamvaated ja siseruumide vaated, 45-kraadised aerofotod jm. Google Maps pakub ka võimalust võrdlemisi lihtsalt kuvada sobival aluskaardil enda andmeid. Seda võimalust vaatamegi esmalt lähemalt.</p>
+<p>Vaatame sel korral koos esmalt just <strong><a href="https://www.google.com/mymaps/">Google Mapsi</a></strong> võimalusi ja seejärel võrdlete neid iseseisvalt teiste analoogsete rakendustega. Need on väga üldised kaardirakendused, mida kasutatakse kõiksugu erinevate teemakaartide loomiseks. Humanitaarteadlastele võiks eraldi aga pakkuda huvi ka pigem nende jaoks tehtud platvormid, nagu näiteks <a href="http://hdlab.stanford.edu/palladio/">Palladio</a>.</p>
+<div id="google-my-maps" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Google My Maps</h3>
+<p>Google My Maps on hea ja kiire variant vähenõudlikule kasutajale, kel on vaja koostada mingi teema kohta kaart, aga ei ole aega, et selleks spetsiaalselt mingit korralikku GIS-tarkvara kasutama õppida.</p>
+<p>Kõige olulisemaks miinuseks on mõistagi see, et kasutajal on väga vähe kontrolli selle üle, missugune tema kaart välja näeb ja kuidas GM tema ruumiandmetega käitub. Samuti ei ole võimalik veebirakenduses oma ruumiandmeid analüüsida rohkem, kui arvutada võrdlemisi robustselt vahemaid ja teekondi.</p>
+<p>Veebirakendus nõuab, et sul oleks Google’i konto.</p>
+<p>Vaatame näitena üht väikest osa 19. sajandi teise poole Lõuna-Eesti vallakohtuprotokollidest, mille 2000. aastatel sisestas digitaalsel kujul Tõnis Türna (Rahvusarhiiv). 2016. aastal taastati algselt <em><a href="http://www.history.ee/vallakohus" class="uri">http://www.history.ee/vallakohus</a></em> lehel olnud protokollid veebiarhiivide põhjal ning katsetati nende peal eesti keele automaatset morfoloogilist analüsaatorit. Morfoloogilise analüsaatori ülesandeks on tunda ära sõnavorm ning pakkuda sellele sõnaraamatukuju, sõnaliik, vormiinfo jm.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:protokoll"></span>
+<img src="imgs/vallakohtuprotokoll.PNG" alt="Vallakohtuprotokolli näide xml-kujul [@Pilvik2019]" width="100%" />
+<p class="caption">
+Figure 4.12: Vallakohtuprotokolli näide xml-kujul <span class="citation">(<a href="kirjandus.html#ref-Pilvik2019" role="doc-biblioref">Pilvik et al. 2019</a>)</span>
+</p>
+</div>
+<p>Automaatses analüüsis tundmatuteks jäänud sõnavormide osakaal on umbkaudseks indikaatoriks sellele, kui erinev oli vastava protokolli keel tänapäeva keelest.</p>
+<p>Saame lisada ka erinevaid andmekihte, näiteks Maa-ameti Geoportaalist alla laetavad maakonnapiirid (shp-formaadi oleme eelnevalt konverteerinud kml-failiks).</p>
+<p>NB! Suuri faile ei saa lisada: 5Mb piir, mis sisuliselt jätab väga suure osa võimalikest ruumiandmetest välja.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mymaps1"></span>
+<img src="imgs/okt01_gif/gmaps1.gif" alt="Kaardi tegemine Google My Mapsis (1)" width="50%" height="100%" /><img src="imgs/okt01_gif/gmaps2.gif" alt="Kaardi tegemine Google My Mapsis (1)" width="50%" height="100%" />
+<p class="caption">
+Figure 4.13: Kaardi tegemine Google My Mapsis (1)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mymaps2"></span>
+<img src="imgs/okt01_gif/gmaps3.gif" alt="Kaardi tegemine Google My Mapsis (2)" width="50%" height="100%" /><img src="imgs/okt01_gif/gmaps4.gif" alt="Kaardi tegemine Google My Mapsis (2)" width="50%" height="100%" />
+<p class="caption">
+Figure 4.14: Kaardi tegemine Google My Mapsis (2)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mymaps3"></span>
+<img src="imgs/okt01_gif/gmaps5.gif" alt="Kaardi tegemine Google My Mapsis (3)" width="50%" height="100%" /><img src="imgs/okt01_gif/gmaps6.gif" alt="Kaardi tegemine Google My Mapsis (3)" width="50%" height="100%" />
+<p class="caption">
+Figure 4.15: Kaardi tegemine Google My Mapsis (3)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mymaps4"></span>
+<img src="imgs/okt01_gif/gmaps7.gif" alt="Kaardi tegemine Google My Mapsis (4)" width="50%" height="100%" /><img src="imgs/okt01_gif/gmaps8.gif" alt="Kaardi tegemine Google My Mapsis (4)" width="50%" height="100%" />
+<p class="caption">
+Figure 4.16: Kaardi tegemine Google My Mapsis (4)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mymaps5"></span>
+<img src="imgs/okt01_gif/gmaps9.gif" alt="Kaardi tegemine Google My Mapsis (5)" width="50%" height="100%" /><img src="imgs/okt01_gif/gmaps10.gif" alt="Kaardi tegemine Google My Mapsis (5)" width="50%" height="100%" />
+<p class="caption">
+Figure 4.17: Kaardi tegemine Google My Mapsis (5)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mymaps6"></span>
+<img src="imgs/okt01_gif/gmaps11.gif" alt="Kaardi tegemine Google My Mapsis (6)" width="50%" height="100%" /><img src="imgs/okt01_gif/gmaps12.gif" alt="Kaardi tegemine Google My Mapsis (6)" width="50%" height="100%" />
+<p class="caption">
+Figure 4.18: Kaardi tegemine Google My Mapsis (6)
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mymaps7"></span>
+<img src="imgs/okt01_gif/gmaps13.gif" alt="Kaardi tegemine Google My Mapsis (7)" width="50%" height="100%" /><img src="imgs/okt01_gif/gmaps14.gif" alt="Kaardi tegemine Google My Mapsis (7)" width="50%" height="100%" />
+<p class="caption">
+Figure 4.19: Kaardi tegemine Google My Mapsis (7)
+</p>
+</div>
+</div>
+<div id="ülesanne-1" class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Ülesanne</h3>
+<p>Võrdle Google Mapsi teiste sarnaste platvormidega, nagu HERE WeGo (<a href="https://mapcreator.here.com">HERE Map Creator</a>), <a href="https://www.pinmaps.net/mymaps/">PinMaps</a>, <a href="https://www.scribblemaps.com/">Scribble Maps</a> või <a href="https://www.zeemaps.com/">ZeeMaps</a>. Võid julgelt kasutada ka Google’i abi (Vikipeedias näiteks on enamasti rakenduste funktsioonide loetelu üsna täpselt kirjeldatud). Abiks võib olla ka <a href="https://en.wikipedia.org/wiki/Comparison_of_web_map_services">see tabel</a>.</p>
+<p>Lisa <a href="https://padlet.com/kimberandres/22d663vpn2dcy9ce">Padletisse</a> testitud rakenduse kohta järgmist infot:</p>
+<ol style="list-style-type: decimal">
+<li>Ligipääsetavus<br />
+</li>
+</ol>
+<ul>
+<li>kas rakenduse kasutamiseks peab registreerima?</li>
+<li>kas mingite funktsioonide kasutamiseks peab maksma?<br />
+</li>
+<li>kas kasutamises on regionaalseid eripärasid? (mingid funktsioonid näiteks Eestis ei tööta või kaardi detailsusaste on väiksem)<br />
+</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Kasutatavus</li>
+</ol>
+<ul>
+<li>kui intuitiivne on kasutajaliides?</li>
+<li>milliseid funktsioone rakendus pakub?<br />
+</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Seosed teiste andmebaaside ja rakendustega</li>
+</ol>
+<ul>
+<li>milliseid teisi platvorme ja andmebaase on rakendusse integreeritud?<br />
+</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Muu</li>
+</ol>
+<ul>
+<li>kui paljusid aluskaardi kihte on võimalik kuvada?<br />
+</li>
+<li>kas on võimalik lisada objekte?</li>
+<li>kas on võimalik importida andmetabeleid?</li>
+<li>millised piirangud andmetele on (nt formaat, failide maht jms)?</li>
+<li>millised on ekspordivõimalused?</li>
+</ul>
+<p>Kui sul õnnestub teha mingite andmetega ka kaart, mida eksportida või jagada, siis võiksid panna ka selle oma sissekande juurde.</p>
+</div>
+</div>
+<div id="järgmisel-korral-3" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Järgmisel korral</h2>
+<p>Esmaspäeval mõtiskleme veidi laiemalt kaartide mõiste üle ning uurime, kuidas saab kaardi abil lugusid jutustada (<em>Story Maps</em>).</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ruumiobjektid.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="storymaps.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["book.pdf", "PDF"], ["book.epub", "EPUB"]],
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"info": true
+});
+});
+</script>
+
+</body>
+
+</html>
