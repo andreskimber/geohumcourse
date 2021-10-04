@@ -48,7 +48,7 @@ Geomeetrilisi põhiobjekte ehk primitiive on 3:
 - **pind/areaal/polügoon/ala/kontuur** (nt põld, mets, linn)
 
 
-```{r ruumiobjektid, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Punktid, jooned, polügoonid [@Ballas2018 : 13]"}
+```{r ruumiobjektid, echo=F, fig.show='hold', fig.align='center', out.width= "80%", fig.cap= "Punktid, jooned, polügoonid [@Ballas2018 : 13]"}
 knitr::include_graphics(here::here("imgs", "points_lines_polygons.PNG"))
 ```
 
@@ -84,13 +84,13 @@ Vektorandmete struktuur võib olla väga erinev. Kõige lihtsamas struktuuris on
 
 Teine levinud viis andmeid struktureerida on kasutada **topoloogilisi suhteid**, mis kirjeldaksid ruumiobjektide paiknemissuhteid nii, et need mingite teisenduste (nt pööramise, suumimise, nihutamise) käigus ei muutuks. Näiteks külgnevate polügoonide puhul teab polügoonide ühine joonelõik, et tema parem pool kuulub ühte polügooni ja vasak pool teise ning kaob ära vajadus samu koordinaate kaks korda määrata. 
 
-```{r spaghetti-topological, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Spagetistruktuur vs. topoloogiline struktuur [@Bolstad2016 : 48]"}
+```{r spaghetti-topological, echo=F, fig.show='hold', fig.align='center', out.width= "80%", fig.cap= "Spagetistruktuur vs. topoloogiline struktuur [@Bolstad2016 : 48]"}
 knitr::include_graphics(here::here("imgs", "spaghetti_topological.PNG"))
 ```
 
 Topoloogilised suhted on aluseks topoloogiareeglitele.
 
-![Topoloogiareeglid ArcGISis](imgs/topology_rules_poster.pdf){width=100% height=700}
+![Topoloogiareeglid ArcGISis](imgs/topology_rules_poster.pdf){width=80% height=700}
 
 
 Topoloogilisi suhteid ja reegleid kasutatakse näiteks siis, kui tahetakse planeerida võimalikult kiiret teekonda ühest punktist teise või hoonestuse paiknemist, aga ka paljuks muuks. Pelgaks visualiseerimiseks pole aga topoloogilisi suhteid andmebaasis vaja defineerida.   
@@ -107,7 +107,7 @@ Nii vektor- kui ka rasterandmeid saab hoida *geopackage*'i ([GPKG](https://en.wi
 
 Rastermudel peaks olema tõenäoliselt juba tuttav, kui oled kokku puutunud näiteks digifotodega või muude digiteeritud piltidega. Formaadid, nagu JPEG, TIFF, GIF jm, põhinevad kõik rastermudelil. Samuti põhinevad rastertehnoloogial nt kõiksugu LCD-monitorid.
 
-```{r raster, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Rastermudeli struktuur [@Bolstad2016 : 54]"}
+```{r raster, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap= "Rastermudeli struktuur [@Bolstad2016 : 54]"}
 knitr::include_graphics(here::here("imgs", "raster_model.PNG"))
 ```
 
@@ -124,7 +124,7 @@ GISi seisukohast on eraldi liik rasterandmeid **satelliitpildid, aerofotod ja or
 Satelliitide eri sensorite abil saadud info abil on võimalik kuvada suurt hulka maapinna omadusi ja protsesse. Passiivsed sensorid analüüsivad looduslikest allikatest (nt päikeselt) peegeldunud või kiiratud elektromagnetkiirgust. Aktiivsed sensorid edastavad ise mingit signaali ning analüüsivad selle tagasipeegeldumist Maa pinnalt. Erinevad satelliidid annavad erineva kvaliteediga pilte. 
 
 
-```{r satelliit, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "EstCube-1 tehtud satelliitpilt ([https://www.estcube.com/](https://www.estcube.com/))"}
+```{r satelliit, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap= "EstCube-1 tehtud satelliitpilt ([https://www.estcube.com/](https://www.estcube.com/))"}
 knitr::include_graphics(here::here("imgs", "estcube1.png"))
 ```
 
@@ -205,13 +205,13 @@ Rasterandmete levinumad formaadid on näiteks [JPEG](https://en.wikipedia.org/wi
 
 Paljud tänapäeva GIS-tehnoloogiad võimaldavad kasutada mõlemat mudelit paralleelselt. Näiteks digitaalsed maastikumudelid kuvavad sageli rasterandmete abil mingi piirkonna reljeefi või maakasutust, punktide abil huvipakkuvaid hooneid, joonte abil jõgesid ja teid ning polügoonide abil haldusjaotust. Sealjuures võib otsustada, kas kuvada näiteks kirikud, haiglad ja haridusasutused eraldi kihtidel või ühe kihina, milles sisaldub hoone funktsiooni määrav atribuut.  
 
-```{r arheo-ex, echo = FALSE, fig.show='hold', fig.align = 'center', out.width = "100%", fig.cap = "Maastiku nähtavuse analüüsimine [@Kimber2016]"}
+```{r arheo-ex, echo = FALSE, fig.show='hold', fig.align = 'center', out.width = "70%", fig.cap = "Maastiku nähtavuse analüüsimine [@Kimber2016]"}
 knitr::include_graphics(here::here("imgs", "arheo_example_kimber_lohukivid_totalviewshed.jpg"))
 ```
 
 Samuti võib üht ja sama nähtust kuvada erinevat moodi.
 
-```{r, echo = FALSE, fig.show='hold', fig.align = 'center', out.width = "100%", fig.cap = "Tänavaröövid Saitamas [@Okabe2006 : 8]"}
+```{r, echo = FALSE, fig.show='hold', fig.align = 'center', out.width = "70%", fig.cap = "Tänavaröövid Saitamas [@Okabe2006 : 8]"}
 knitr::include_graphics(here::here("imgs", "okabe_2006.PNG"))
 ```
 

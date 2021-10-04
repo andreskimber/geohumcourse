@@ -10,11 +10,11 @@ Kaart on kitsamas tähenduses geograafilise informatsiooni visuaalne esitusviis.
 knitr::include_graphics(here::here("imgs", "types-of-maps.jpg"))
 ```
 
-```{r parismetro, echo = F, fig.align="center", out.width = "100%", out.height = "100%", fig.cap = "[Pariisi metrookaart](http://www.urbanrail.net/eu/fr/paris/paris.htm/)"}
+```{r parismetro, echo = F, fig.align="center", out.width = "80%", fig.cap = "[Pariisi metrookaart](http://www.urbanrail.net/eu/fr/paris/paris.htm/)"}
 knitr::include_graphics(here::here("imgs", "paris-metro.png"))
 ```
 
-```{r noored, echo = F, fig.align="center", out.width = "100%", out.height = "100%", fig.cap = "[Marleen Eino Tartu kaart](https://tntk.tartu.ee/tartu-noorsootoo-keskus/reveal-youropean-cultural-heritage-enrich/tartu-kaart/)"}
+```{r noored, echo = F, fig.align="center", out.width = "80%", fig.cap = "[Marleen Eino Tartu kaart](https://tntk.tartu.ee/tartu-noorsootoo-keskus/reveal-youropean-cultural-heritage-enrich/tartu-kaart/)"}
 knitr::include_graphics(here::here("imgs", "tartu_kaart_noored.PNG"))
 ```
 
@@ -40,7 +40,7 @@ Kaardi **mõõtkava** näitab, kui palju reaalset objekti on vähendatud. Tavali
 
 Kui liigume suurelt mõõtkavalt väiksemale, peame andmeid loetavuse huvides üldistama ning valima, mida ja mis detailsusastmega esitada. Üldistada võib lihtsustades, siludes, ühendades jne.
 
-```{r leaflet, echo=F, message = F, fig.show="hold", fig.align="center", warning=F}
+```{r leaflet, echo=F, message = F, fig.show="hold", out.width="100%", fig.align="center", warning=F}
 library(leaflet)
 library(leafem)
 library(dplyr)
@@ -51,7 +51,7 @@ leaflet() %>% addTiles() %>% addMarkers(lng = 26.722234, lat = 58.380094) %>% ad
 
 Kaartide kujunduslikest komponentidest räägime lähemalt siis, kui ise QGISis kaarte tegema hakkame, ent üldiselt tuleks kaartide kujunduses silmas pidada lihtsust ja arusaadavust. See tähendab, et kujundid, sümbolid, värvid jm peaksid olema kujutatava nähtusega kergesti seostatavad. Muidugi võib kaarti käsitleda ka kui omalaadi kunstiteost, mispuhul kokkuleppelised ja harjumuspärased kujutusviisid võivad jääda tagaplaanile.
 
-```{r, echo = FALSE, warning=F}
+```{r, echo = FALSE, warning=F, fig.align='center'}
 library(vembedr)
 library(htmltools)
 embed_url("https://youtu.be/rblfKREj50o?t=138")
@@ -93,12 +93,12 @@ knitr::include_graphics(here::here("imgs", "projections.png"))
 
 Projektsioonid jagunevad üldisteks tüüpideks selle järgi, kas ruumilist maakera üritatakse projitseerida silindrile, koonusele või tasandile. Need üldised tüübid jaotatakse omakorda selle järgi, kuidas vastav siirdepind on maaellipsoidi suhtes orienteeritud (normaal-, põik- või kaldaspekt). 
 
-```{r projektsioonipered, echo = FALSE, fig.show = "hold", fig.align = "center", out.width = "100%", out.height = "100%", fig.cap="Projektsioonitüübid [@Aunap2019: 169]"}
+```{r projektsioonipered, echo = FALSE, fig.show = "hold", fig.align = "center", out.width = "80%", fig.cap="Projektsioonitüübid [@Aunap2019: 169]"}
 knitr::include_graphics(here::here("imgs", "projektsiooniklassid.png"))
 
 ```
 
-```{r, echo = FALSE, warning=F}
+```{r, echo = FALSE, warning=F, fig.align='center'}
 library(vembedr)
 library(htmltools)
 embed_url("https://www.youtube.com/watch?v=vVX-PrBRtTY")
@@ -148,7 +148,7 @@ Veebirakendus nõuab, et sul oleks Google'i konto.
 
 Vaatame näitena üht väikest osa 19. sajandi teise poole Lõuna-Eesti vallakohtuprotokollidest, mille 2000. aastatel sisestas digitaalsel kujul Tõnis Türna (Rahvusarhiiv).  2016. aastal taastati algselt *http://www.history.ee/vallakohus* lehel olnud protokollid veebiarhiivide põhjal ning katsetati nende peal eesti keele automaatset morfoloogilist analüsaatorit. Morfoloogilise analüsaatori ülesandeks on tunda ära sõnavorm ning pakkuda sellele sõnaraamatukuju, sõnaliik, vormiinfo jm.
 
-```{r protokoll, echo = F, fig.align = "center", fig.show='hold', out.width= "100%", fig.cap= "Vallakohtuprotokolli näide xml-kujul [@Pilvik2019]"}
+```{r protokoll, echo = F, fig.align = "center", fig.show='hold', out.width= "80%", fig.cap= "Vallakohtuprotokolli näide xml-kujul [@Pilvik2019]"}
 knitr::include_graphics(here::here("imgs", "vallakohtuprotokoll.PNG"))
 ```
 

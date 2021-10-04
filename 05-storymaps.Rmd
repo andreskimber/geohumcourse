@@ -54,7 +54,7 @@ Kui oled oma loo n-ö ära seadistanud, siis saad hakata lisama sisu.
 - Kui oled loo valmis saanud, siis salvesta see.  
 - Oma lugu võib jagada lingiga või ka näiteks otse Twitteri, Facebooki või Google+'i kaudu. Samuti võib selle *iframe*'i koodi abil lisada otse enda veebilehele (näiteks Wordpressi, Mediumi või mujale). Ka sellele lehele siin võib lisada äsja tehtud *story map*'i, kleepides lihtsalt *iframe*'i koodi tänase praktikumi lähtekoodi (lugu ilmub siia pärast praktikumi lõppu).
 
-<!--<iframe src="https://uploads.knightlab.com/storymapjs/9369be87bcb6fd22e6881a172e10a9c9/janis-joplin/index.html" frameborder="0" width="640px" height="480px" scrolling="yes"></iframe>-->
+<iframe src="https://uploads.knightlab.com/storymapjs/9369be87bcb6fd22e6881a172e10a9c9/janisjoplin/index.html" frameborder="0" width="100%" height="600px" scrolling="yes"></iframe>
 
 
 ### [ArcGIS StoryMaps](https://storymaps.arcgis.com/)
@@ -84,7 +84,8 @@ Kui oled oma loo n-ö ära seadistanud, siis saad hakata lisama sisu.
 - Kaarti saab jagada samuti lingiga (kui lugu on avalik) ning lisada *iframe*'i koodiga teistele veebilehtedele (meie tehtud *story map* ilmub siia pärast praktikumi lõppu).  
 - Vaata lähemalt kõikide ArcGIS-i *story map*'ide võimalusi [siit](https://storymaps.arcgis.com/stories/cea22a609a1d4cccb8d54c650b595bc4).  
 
-    
+<iframe src="https://storymaps.arcgis.com/stories/f103aad50aff4eefacf13144492c2a02" width="100%" height="1000px" frameborder="0" allowfullscreen allow="geolocation"></iframe>
+
     
 ---
   
@@ -118,7 +119,7 @@ knitr::include_graphics(here::here("imgs", "mapbox3.PNG"))
 
 Saame lisada kaardile soovitud komponente (nt teed, looodusobjektid, kultuuriobjektid jne) ka üleliigseid kustutada (***Components***). Samuti saame modifitseerida iga kaardi komponendi elementide omadusi (***Layers***). 
 
-```{r mapbox3, echo=F, fig.align="center", out.width="50%", fig.show='hold', fig.cap="Komponendid ja kihid"}
+```{r mapbox3, echo=F, fig.align="center", out.width="30%", out.height="600px", fig.show='hold', fig.cap="Komponendid ja kihid"}
 knitr::include_graphics(here::here("imgs", c("mapbox4.PNG", "mapbox5.PNG")))
 ```
 
@@ -195,7 +196,7 @@ knitr::include_graphics(here::here("imgs", "mapbox18.PNG"))
 
 Võime nüüd oma kaardi printida. Selleks vajuta ülemises paremas nurgas sakile *Print* ning vali avanenud aknakeses kaardi mõõtmed.  
 
-```{r mapbox12, echo=F, fig.align="center", out.width="70%",fig.show='hold', fig.cap="Kaardi salvestamine"}
+```{r mapbox12, echo=F, fig.align="center", out.width="50%", out.height="500px", fig.show='hold', fig.cap="Kaardi salvestamine"}
 knitr::include_graphics(here::here("imgs", "mapbox19.PNG"))
 ```
 
