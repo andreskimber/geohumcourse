@@ -41,14 +41,14 @@ knitr::include_graphics(here::here("imgs", "change_language.gif"))
 ### Vaikimisi koordinaatsüsteemi sätestamine.
 
 Kuna harjutused käsitlevad Eesti kaarte ja koordinaate, siis tuleb valida ka Eesti koordinaatsüsteem:
+
 - Ülevalt servast menüüst *Settings → Options → CRS (Coordinate Reference System)*.
-- *CRS for Projects* all vali *Use a default CRS*, kliki rippmenüü kõrval ikoonil ja kirjuta seal otsinguse *Estonian Coordinate System 1997*. Vajuta sellele otsingu tulemusele ning menüü alumises servas *OK*. Tee sama *CRS for Layers* juures. 
+- *CRS for Projects* all vali *Use a default CRS*, kliki rippmenüü kõrval ikoonil ja kirjuta seal otsinguse *Estonian Coordinate System 1997* ehk [L-EST97 koordinaatsüsteem](https://geoportaal.maaamet.ee/est/Ruumiandmed/Geodeetilised-andmed/Eesti-geodeetiline-susteem/L-EST97-koordinaatsusteem-p173.html). Vajuta sellele otsingu tulemusele ning menüü alumises servas *OK*. Tee sama *CRS for Layers* juures. 
 - Salvesta kursuse kausta enda QGIS projekt valides ülevalt vasakult *Project → Save*. Failinimeks pane näiteks *praktikum_6*. **Ära unusta ka praktikumi jooksul aeg-ajalt salvestada!**
 
 ```{r defaultcrs, echo=F, fig.show='hold', out.width= "100%", fig.cap="Vaikimisi koordinaatsüsteemi sätestamine"}
 knitr::include_graphics(here::here("imgs", "default_crs.gif"))
 ```
-
 
 Vaata QGISi kasutajaliidest. Suurde keskel olevasse aknasse ilmuvad kaardid ja ruumiandmete kihid. Vasakul on kihtide aken *Layers*. All servas on näitab kursori asukoha koordinaate, mõõtkava, mida saab seal ka muuta, ning paremal nurgas on koordinaatsüsteem, mis peaks praegu olema EPSG:3301, mis tähendabki Eesti 1997. a koordinaatsüsteemi. Üleval servas on menüüd ja kõiksugused tööriistad.  
 
@@ -58,17 +58,17 @@ Nagu varasematest mäletate on olemas raster- ja vektorandmed. Viimased neist v�
 
 - Ava Eesti maakondade kiht.
     - *Layer → Add layer → Add vector layer*.
-    - Kliki *Vector Dataset(s)* juures sirvimise ikoonil (kolm punkti). Vali andmete kaustast fail *maakond_20201001.shp* ja vajuta *Open*. Seejärel menüü all servas *Add* ja *Close*.
+    - Kliki *Vector Dataset(s)* juures sirvimise ikoonil (kolm punkti). Vali andmete kaustast shape fail *maakond_20201001.shp* ja vajuta *Open*. Seejärel menüü all servas *Add* ja *Close*.
     - Nüüd on avatud kiht kõigi Eesti maakondade piirjoontega.
 
-- Ava muinsuskaitse all olevate kirikute kiht. Kõik samamoodi nagu eelmise kihiga, valida tuleb aga *kirikud.gpkg*.
+- Ava muinsuskaitse all olevate kirikute kiht. Kõik samamoodi nagu eelmise kihiga, valida tuleb aga geopackage fail *kirikud.gpkg*.
 
-- Ava suuremate jõgede kiht *joed.gpkg*. 
+- Ava suuremate jõgede kiht *joed.gpkg*. Kuna nüüd on selge, kuidas käib menüü kaudu kihi avamine, siis võite selle kihi avamiseks faili lihtsalt kaardiaknasse lohistada. 
 
 
 Kihtide paneelil *Layers* saab kihte välja ja sisse lülitada ning hiirega tõstes muuta nende järjekorda. Peaaknas saab hiire rullikuga suumida (all servas muutub ka mõõtkava). Hiire vasakpoolset klahvi all hoides ja ka klaviatuuril nooltega saab liikuda. Kihi terve ulatuse nägemiseks tee *Layers* paneelil kihil parempoolne klikk ning vali *Zoom to Layer*. Sellest on abi ka siis, kui oled kaardil nö eksinud ja ei suuda kihti enam üles leida. Kihtide atribuuttabelit saab vaadata tehes paremkliki ja *Open Attribute Table*. Proovi kaardil ringi liikuda ning vaata kõikide kihtide atribuuttabelit!
 
-Vaatame ka näidet rasterandmetest ortofotode näol. Ava 2020. a ja 1995. a ortofotod kasutades *Layer → Add layer → Add Raster Layer* ning vali vastavalt failid orto_2020.tif ja orto_1995.tif. Liigu kihtide juurde ja vaata nende erinevusi. Proovi ka lähedale suumida, et näha eraldiseisvaid piksleid. Rasteri pikslisuuruse vaatamiseks tee kihil paremklikk → *Properties*. *Information from provider* on kirjas *Pixel size* kui piksli küljepikkus meetrites. Pärast seda võib rasterkihid eemaldada. Selleks tee paremklikk → *Remove layer*.
+Vaatame ka näidet rasterandmetest ortofotode näol. Ava 2020. a ja 1995. a ortofotod kasutades *Layer → Add layer → Add Raster Layer* ning vali vastavalt failid orto_2020.tif ja orto_1995.tif. Liigu kihtide juurde ja vaata nende erinevusi. Proovi ka lähedale suumida, et näha eraldiseisvaid piksleid. Rasteri pikslisuuruse vaatamiseks tee kihil paremklikk → *Properties*. *Information from provider* on kirjas *Pixel size* kui piksli küljepikkus meetrites. Pärast seda võib rasterkihid eemaldada. Selleks tee kihtide aknas kihil paremklikk → *Remove layer*.
 
 Ortofotode kohta saab rohkem lugeda ja neid ka ise kaardiruutude kaupa allalaadida [Maa-ameti Geoportaalist](https://geoportaal.maaamet.ee/est/Ruumiandmed/Ortofotod-p99.html). 
 
@@ -80,7 +80,9 @@ Selleks, et kõik kihid välja paistaksid peaksid need ülevalt alla olema järj
 
 Muuda kihtide stiili nii et kirikud paistaksid selgelt välja, jõed oleksid sinised ja nähtavad ning maakonnad oleks ainult piirjooned. Lisa ka maakonnanimi.
 
-Sümbolite muutmiseks tee kihil topeltkliki ja vaata, et avanenud aknas oleks vasakul servas valitud *Symbology*. Avanenud menüüs saab punkt- ja joonobjektidele valida värvi ja suurus või laiust. Pindobjektidel ehk aladel valige *Fill* all *Simple fill* asemel *Outline: Simple line*. See tähendab, et kogu ala pole mingi värviga täidetud, vaid näeme ainult ala piirjooni. 
+Sümbolite muutmiseks tee kihil topeltkliki ja vaata, et avanenud aknas oleks vasakul servas valitud *Symbology*. Avanenud menüüs saab punkt- ja joonobjektidele valida värvi ja suurus või laiust. Pindobjektidel ehk aladel valige *Fill* all *Simple fill* asemel *Outline: Simple line*. See tähendab, et kogu ala pole mingi värviga täidetud, vaid näeme ainult ala piirjooni.
+
+Alternatiivina võib kihi stiili muutmiseks sisse lülitada paneeli *Layer Styling*. Selleks üleval menüüriba *View → Panels → Layer Styling*. Nüüd on seesama *Symbology* aken kaardiakna kõrval ning muudatused on kohe paremini näha. 
 
 Lisa maakonnanimi valides samas menüüs vasakult *Labels* ning seal *No labels* asemel *Single labels*. *Value* alt vali *MNIMI* ja vajuta all paremal OK.
 
@@ -88,14 +90,14 @@ Lisa maakonnanimi valides samas menüüs vasakult *Labels* ning seal *No labels*
 knitr::include_graphics(here::here("imgs", "harjutus_1.png"))
 ```
 
-Kas see on hea visualiseerimine? Mis on hea, mis on puudu, mis on üleliigne? 
+Kas see on hea visualiseerimine? Mis on hea, mis on puudu, mis on üleliigne? Võib mõelda, et eesmärgiks on näidata kaitse all olevate kirikute arvu maakonnas.
 
 
 ### Harjutus 2 
 
-Seo tabel kirikute arvust maakonnas maakondade kihiga ning värvi maakonnad vastavalt kirikute arvule.
+Harjutuse eesmärk on luua kaart, mis näitab maakondade värvi abil, kui palju on muinsuskaitse all olevaid kirikuid maakondades. Selleks tuleb siduda tabel, kus on kirjas kiriku arv maakonnas, maakondade kihiga ning värvida maakonnad vastavalt kirikute arvule.
 
-Ava Exceli vms programmiga fail *kirikud_maakonniti.csv*. Nagu näha on tegu väga lihtsa andmestikuga. **Ava sama fail QGISis: **
+Ava Exceli vms programmiga fail *kirikud_maakonniti.csv*. Nagu näha on tegu väga lihtsa andmestikuga, kus ainult kaks tulpa ja 16 rida. **Ava sama fail QGISis: **
 
 - *Layer → Add layer → Add delimited text layer*
 - Kliki *File Name* juures sirvimise ikoonil (kolm punkti). Vali kaustast fail *kirikud_maakonniti.csv*
@@ -108,14 +110,15 @@ Ava Exceli vms programmiga fail *kirikud_maakonniti.csv*. Nagu näha on tegu vä
 
 **Ühenda kultuurimälestiste tabel maakondade kihiga: **
 
+- andmestike ühendamiseks peab olema mõlemas andmestikus tulp, mille sisu kattub teise andmestiku ühe tulba sisuga. Käesoleva kahe andmestiku puhul on mõlemal tulp maakondade nimedega. 
 - Maakondade kihil topeltklikk → vasakul servas *Joins* → all servas roheline plussmärk.
     - *Join layer:* kirikud_maakonniti
     - *Join field:* maakond
     - *Target field:* MNIMI. Siin määrame, milliste tulpade põhjal tuleks tabel ja maakonnad kokku panna
     - *Joined fields* ette linnuke ja ka linnuke ainult *kirikud* ette, kuna me ei soovi tabelist võtta ka maakondade nimesid, mis on maakondade kihis juba olemas.
-    - *Custom Field Name Prefix* ette linnuke ja kustuta sealses lahtris olev tekst.  
+    - *Custom Field Name Prefix* ette linnuke ja kustuta sealses lahtris olev tekst. 
     - *OK*
-    - Vaata uuesti maakondade kihi atribuuttabelit, et näha, kas igale maakonnale said lisatud kirikute arvud.
+    - Vaata uuesti maakondade kihi atribuuttabelit (kiirklahv F6), et näha, kas igale maakonnale said lisatud kirikute arvud.
     
 ```{r tablejoin, echo=F, fig.show='hold', fig.align = 'center', out.width= "75%", fig.cap="Kirikute tabel ühendatud maakondade kihiga"}
 knitr::include_graphics(here::here("imgs", "table_join.png"))
@@ -128,7 +131,7 @@ knitr::include_graphics(here::here("imgs", "table_join.png"))
 - Menüü ülaservast *Single symbol* asemel *Graduated:*
     - *Column* juures vali *kirikuid*. See määrab, millise tulba väärtuste põhjal maakonnad värvitakse.
     - *Color ramp:* vali rippmenüüst värviskaala, millel on ühtlane 2–3 tooni üleminek. Näiteks helekollasest tumeroheliseks.
-    - Kliki *Classify*. Proovi ka erinevate jaotumistega (nt *Equal interval* ja *Pretty breaks*) ja klasside hulgaga (Classes). Näiteks *Pretty breaks* ja neli klassi annab ilusa tulemuse. Jälgi, et kõik või enamik maakondi ei oleks ühte värvi.
+    - Kliki *Classify*. Proovi ka erinevate jaotumistega (nt *Equal interval* ja *Pretty breaks*) ja klasside hulgaga (*Classes*). Näiteks *Pretty breaks* ja neli klassi annab ilusa tulemuse. Jälgi, et kõik või enamik maakondi ei oleks ühte värvi.
     - OK
 - Nüüd on kõik maakonnad värvitud valitud värviskaalaga vastavalt sellele, kui palju on neis kirikuid. Kas see kaart on informatiivne? Mida peaks lisama või ära võtma?
 
@@ -139,8 +142,8 @@ knitr::include_graphics(here::here("imgs", "harjutus_2.png"))
 
 ## Aluskaardid
 
-Nagu varasemates loengutes nägime on olemas rohkelt aluskaarte, mida erinevateks rakendustes kasutatakse. Neid saab kasuta QGISis läbi pistikprogrmammide ehk *Plugins* või WMS- ja WFS-teenuste. Vastavalt *web map service* ja *web feature service*. 
-WMS-teenuse läbi saab kasutada peaaegu kõiki [Maa-ameti XGISis](https://xgis.maaamet.ee/xgis2/page/app/maainfo) olevaid kihte. Täpsemalt sellest [WMS teenuste lehel](https://geoportaal.maaamet.ee/est/Teenused/WMS-teenused-p65.html). Lisaks saab paljusid muid andmeid kogu maailmast. WMS-teenuse kaarte saab kasutada sisuliselt ainult visualiseerimiseks. Päringuid neid teha ei saa. 
+Nagu varasemates loengutes nägime on olemas rohkelt aluskaarte, mida erinevateks rakendustes kasutatakse. Neid saab kasuta QGISis läbi pistikprogrmammide ehk *Plugins* või WMS- ja WFS-teenuste (vastavalt *web map service* ja *web feature service*). 
+WMS-teenuse läbi saab kasutada peaaegu kõiki [Maa-ameti XGISis](https://xgis.maaamet.ee/xgis2/page/app/maainfo) olevaid kihte. Täpsemalt saab sellest lugeda [WMS teenuste lehel](https://geoportaal.maaamet.ee/est/Teenused/WMS-teenused-p65.html). Lisaks saab paljusid muid andmeid kogu maailmast. WMS-teenuse kaarte saab kasutada sisuliselt ainult visualiseerimiseks. Päringuid neid teha ei saa. 
 
 **Lisa WMS-teenusest taustaks kaart:**
 
@@ -149,7 +152,8 @@ WMS-teenuse läbi saab kasutada peaaegu kõiki [Maa-ameti XGISis](https://xgis.m
 - Kliki *Connect* ja vali *138 MAANTEED* ning kliki *Add*.
 - Lisa veel üks ühendus. *New*. Seal kirjuta *Name:* lahtrisse *Maaamet orto ja reljeef* ning URL juurde kopeeri aadress https://kaart.maaamet.ee/wms/fotokaart ja vajuta *OK*.
 - Kliki *Connect* ja vali *21 vreljeef* ning kliki *Add*. Sulge aken.
-- Nüüd on peaaknas näha tänapäevane maanteed koos reljeefiga. Kui WMS kihid ei paista välja, siis muuda kihtide järjekorda.
+- Nüüd on peaaknas näha maanteed koos reljeefiga. Kui WMS kihid ei paista välja, siis muuda kihtide järjekorda või suumi rohkem sisse või välja.
+- Võid proovida lisada ka täiendavaid kihte.
 
 **Quickmap ja OSM**
 
@@ -159,4 +163,4 @@ Lisa veebikaartide plugin.
 
 ## Järgmisel korral
 
-Kaartide kujundamine ja eksportimine, sümbolite visualiseerimine reeglipõhiselt, andmete loomine ja digitaliseerimine. 
+Kaartide kujundamine ja eksportimine, sümbolite visualiseerimine reeglipõhiselt, andmete loomine ja digitaliseerimine.

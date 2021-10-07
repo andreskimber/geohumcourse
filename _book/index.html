@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
   <meta name="description" content="HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta property="og:type" content="book" />
@@ -34,6 +34,7 @@
 <link rel="next" href="seminar.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -41,7 +42,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -143,6 +143,23 @@ div.csl-indent {
 <li class="chapter" data-level="5.2" data-path="storymaps.html"><a href="storymaps.html#mapbox-studio"><i class="fa fa-check"></i><b>5.2</b> Mapbox Studio</a></li>
 <li class="chapter" data-level="5.3" data-path="storymaps.html"><a href="storymaps.html#mapbox-story-mapis"><i class="fa fa-check"></i><b>5.3</b> Mapbox <em>story map</em>’is</a></li>
 <li class="chapter" data-level="5.4" data-path="storymaps.html"><a href="storymaps.html#järgmisel-korral-4"><i class="fa fa-check"></i><b>5.4</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="qgis_1.html"><a href="qgis_1.html"><i class="fa fa-check"></i><b>6</b> Sissejuhatus QGISi</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="qgis_1.html"><a href="qgis_1.html#installimine"><i class="fa fa-check"></i><b>6.1</b> Installimine</a></li>
+<li class="chapter" data-level="6.2" data-path="qgis_1.html"><a href="qgis_1.html#andmed-ja-failihaldus"><i class="fa fa-check"></i><b>6.2</b> Andmed ja failihaldus</a></li>
+<li class="chapter" data-level="6.3" data-path="qgis_1.html"><a href="qgis_1.html#esimene-seadistamine-ja-kasutajaliides"><i class="fa fa-check"></i><b>6.3</b> Esimene seadistamine ja kasutajaliides</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="qgis_1.html"><a href="qgis_1.html#vaikimisi-koordinaatsüsteemi-sätestamine."><i class="fa fa-check"></i><b>6.3.1</b> Vaikimisi koordinaatsüsteemi sätestamine.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="qgis_1.html"><a href="qgis_1.html#andmete-avamine"><i class="fa fa-check"></i><b>6.4</b> Andmete avamine</a></li>
+<li class="chapter" data-level="6.5" data-path="qgis_1.html"><a href="qgis_1.html#kihtide-visualiseerimine"><i class="fa fa-check"></i><b>6.5</b> Kihtide visualiseerimine</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="qgis_1.html"><a href="qgis_1.html#harjutus-1"><i class="fa fa-check"></i><b>6.5.1</b> Harjutus 1</a></li>
+<li class="chapter" data-level="6.5.2" data-path="qgis_1.html"><a href="qgis_1.html#harjutus-2"><i class="fa fa-check"></i><b>6.5.2</b> Harjutus 2</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="qgis_1.html"><a href="qgis_1.html#aluskaardid"><i class="fa fa-check"></i><b>6.6</b> Aluskaardid</a></li>
+<li class="chapter" data-level="6.7" data-path="qgis_1.html"><a href="qgis_1.html#järgmisel-korral-5"><i class="fa fa-check"></i><b>6.7</b> Järgmisel korral</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="kirjandus.html"><a href="kirjandus.html"><i class="fa fa-check"></i>Kirjandus</a></li>
 </ul>
@@ -403,7 +420,6 @@ Figure 1.14: Pariisi tänavate nimetamine kirjanduses <span class="citation">(<a
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -431,7 +447,7 @@ gitbook.start({
 },
 "download": [["book.pdf", "PDF"], ["book.epub", "EPUB"]],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {
