@@ -348,3 +348,4 @@ fig:mathigon
 kaardid
 storymapjs
 arcgis-storymaps
+fig:measuring

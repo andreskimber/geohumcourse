@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Praktikum 7 Sissejuhatus QGISi 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
+  <meta name="description" content="Praktikum 7 Sissejuhatus QGISi 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Praktikum 7 Sissejuhatus QGISi 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Praktikum 7 Sissejuhatus QGISi 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  
+  
+  
+
+<meta name="author" content="Andres Kimber, Maarja-Liisa Pilvik" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="qgis_1.html"/>
+<link rel="next" href="kirjandus.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#kursuse-korraldusest"><i class="fa fa-check"></i><b>1.1</b> Kursuse korraldusest</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#mis-on-geoinfosüsteemid"><i class="fa fa-check"></i><b>1.2</b> Mis on geoinfosüsteemid?</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#geoinfosüsteemide-ajaloost"><i class="fa fa-check"></i><b>1.3</b> Geoinfosüsteemide ajaloost</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#ruumiandmed-ja-gis-humanitaarteadustes"><i class="fa fa-check"></i><b>1.4</b> Ruumiandmed ja GIS humanitaarteadustes</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#arheoloogia"><i class="fa fa-check"></i><b>1.4.1</b> Arheoloogia</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#veel-näiteid"><i class="fa fa-check"></i><b>1.4.2</b> Veel näiteid</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#küsitlus"><i class="fa fa-check"></i><b>1.5</b> Küsitlus</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>1.6</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>2</b> Seminar</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="seminar.html"><a href="seminar.html#mõisted"><i class="fa fa-check"></i><b>2.1</b> Mõisted</a></li>
+<li class="chapter" data-level="2.2" data-path="seminar.html"><a href="seminar.html#rühmatöö-1-gisi-ja-ruumi-geohumanitaaria-projekte-ja-rakendusi"><i class="fa fa-check"></i><b>2.2</b> Rühmatöö 1: GISi ja ruumi-/geohumanitaaria projekte ja rakendusi</a></li>
+<li class="chapter" data-level="2.3" data-path="seminar.html"><a href="seminar.html#rühmatöö-2-humanitaaria-vs.-kvantitatiivsed-meetodid"><i class="fa fa-check"></i><b>2.3</b> Rühmatöö 2: humanitaaria <em>vs</em>. kvantitatiivsed meetodid</a></li>
+<li class="chapter" data-level="2.4" data-path="seminar.html"><a href="seminar.html#järgmisel-korral-1"><i class="fa fa-check"></i><b>2.4</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html"><i class="fa fa-check"></i><b>3</b> Ruumiobjektid ja ruumiandmed</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#vektorandmed"><i class="fa fa-check"></i><b>3.1</b> Vektorandmed</a></li>
+<li class="chapter" data-level="3.2" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#rasterandmed"><i class="fa fa-check"></i><b>3.2</b> Rasterandmed</a></li>
+<li class="chapter" data-level="3.3" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#vektor-vs.-raster"><i class="fa fa-check"></i><b>3.3</b> Vektor vs. raster</a></li>
+<li class="chapter" data-level="3.4" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#ülesanne"><i class="fa fa-check"></i><b>3.4</b> Ülesanne</a></li>
+<li class="chapter" data-level="3.5" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#järgmisel-korral-2"><i class="fa fa-check"></i><b>3.5</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="kaardid.html"><a href="kaardid.html"><i class="fa fa-check"></i><b>4</b> Kaardid, koordinaatsüsteemid ja projektsioonid</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="kaardid.html"><a href="kaardid.html#kaart"><i class="fa fa-check"></i><b>4.1</b> Kaart</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="kaardid.html"><a href="kaardid.html#koordinaatsüsteemid-ja-projektsioonid"><i class="fa fa-check"></i><b>4.1.1</b> Koordinaatsüsteemid ja projektsioonid</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="kaardid.html"><a href="kaardid.html#veebipõhised-kaardirakendused"><i class="fa fa-check"></i><b>4.2</b> Veebipõhised kaardirakendused</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="kaardid.html"><a href="kaardid.html#google-my-maps"><i class="fa fa-check"></i><b>4.2.1</b> Google My Maps</a></li>
+<li class="chapter" data-level="4.2.2" data-path="kaardid.html"><a href="kaardid.html#ülesanne-1"><i class="fa fa-check"></i><b>4.2.2</b> Ülesanne</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="kaardid.html"><a href="kaardid.html#järgmisel-korral-3"><i class="fa fa-check"></i><b>4.3</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="storymaps.html"><a href="storymaps.html"><i class="fa fa-check"></i><b>5</b> Story maps ja Mapbox</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="storymaps.html"><a href="storymaps.html#story-maps"><i class="fa fa-check"></i><b>5.1</b> Story maps</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="storymaps.html"><a href="storymaps.html#storymapjs"><i class="fa fa-check"></i><b>5.1.1</b> <span>StoryMapJS</span></a></li>
+<li class="chapter" data-level="5.1.2" data-path="storymaps.html"><a href="storymaps.html#arcgis-storymaps"><i class="fa fa-check"></i><b>5.1.2</b> <span>ArcGIS StoryMaps</span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="storymaps.html"><a href="storymaps.html#mapbox-studio"><i class="fa fa-check"></i><b>5.2</b> Mapbox Studio</a></li>
+<li class="chapter" data-level="5.3" data-path="storymaps.html"><a href="storymaps.html#mapbox-story-mapis"><i class="fa fa-check"></i><b>5.3</b> Mapbox <em>story map</em>’is</a></li>
+<li class="chapter" data-level="5.4" data-path="storymaps.html"><a href="storymaps.html#järgmisel-korral-4"><i class="fa fa-check"></i><b>5.4</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="qgis_1.html"><a href="qgis_1.html"><i class="fa fa-check"></i><b>6</b> Sissejuhatus QGISi</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="qgis_1.html"><a href="qgis_1.html#installimine"><i class="fa fa-check"></i><b>6.1</b> Installimine</a></li>
+<li class="chapter" data-level="6.2" data-path="qgis_1.html"><a href="qgis_1.html#andmed-ja-failihaldus"><i class="fa fa-check"></i><b>6.2</b> Andmed ja failihaldus</a></li>
+<li class="chapter" data-level="6.3" data-path="qgis_1.html"><a href="qgis_1.html#esimene-seadistamine-ja-kasutajaliides"><i class="fa fa-check"></i><b>6.3</b> Esimene seadistamine ja kasutajaliides</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="qgis_1.html"><a href="qgis_1.html#vaikimisi-koordinaatsüsteemi-sätestamine."><i class="fa fa-check"></i><b>6.3.1</b> Vaikimisi koordinaatsüsteemi sätestamine.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="qgis_1.html"><a href="qgis_1.html#andmete-avamine"><i class="fa fa-check"></i><b>6.4</b> Andmete avamine</a></li>
+<li class="chapter" data-level="6.5" data-path="qgis_1.html"><a href="qgis_1.html#kihtide-visualiseerimine"><i class="fa fa-check"></i><b>6.5</b> Kihtide visualiseerimine</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="qgis_1.html"><a href="qgis_1.html#harjutus-1"><i class="fa fa-check"></i><b>6.5.1</b> Harjutus 1</a></li>
+<li class="chapter" data-level="6.5.2" data-path="qgis_1.html"><a href="qgis_1.html#harjutus-2"><i class="fa fa-check"></i><b>6.5.2</b> Harjutus 2</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="qgis_1.html"><a href="qgis_1.html#aluskaardid"><i class="fa fa-check"></i><b>6.6</b> Aluskaardid</a></li>
+<li class="chapter" data-level="6.7" data-path="qgis_1.html"><a href="qgis_1.html#järgmisel-korral-5"><i class="fa fa-check"></i><b>6.7</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="qgis_2.html"><a href="qgis_2.html"><i class="fa fa-check"></i><b>7</b> Sissejuhatus QGISi 2</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="qgis_2.html"><a href="qgis_2.html#andmete-avamine-1"><i class="fa fa-check"></i><b>7.1</b> Andmete avamine</a></li>
+<li class="chapter" data-level="7.2" data-path="qgis_2.html"><a href="qgis_2.html#andmete-valimine-ja-mõõtmine-käsitsi"><i class="fa fa-check"></i><b>7.2</b> Andmete valimine ja mõõtmine (käsitsi)</a></li>
+<li class="chapter" data-level="7.3" data-path="qgis_2.html"><a href="qgis_2.html#kihi-ja-andmete-loomine"><i class="fa fa-check"></i><b>7.3</b> Kihi ja andmete loomine</a></li>
+<li class="chapter" data-level="7.4" data-path="qgis_2.html"><a href="qgis_2.html#kaartide-kujundamine-ja-eksportimine"><i class="fa fa-check"></i><b>7.4</b> Kaartide kujundamine ja eksportimine</a></li>
+<li class="chapter" data-level="7.5" data-path="qgis_2.html"><a href="qgis_2.html#järgmisel-korral-6"><i class="fa fa-check"></i><b>7.5</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="kirjandus.html"><a href="kirjandus.html"><i class="fa fa-check"></i>Kirjandus</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="qgis_2" class="section level1" number="7">
+<h1><span class="header-section-number">Praktikum 7</span> Sissejuhatus QGISi 2</h1>
+<div id="andmete-avamine-1" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Andmete avamine</h2>
+<p>Lae <a href="https://moodle.ut.ee/course/view.php?id=10284">Moodle’ist alla tänase praktikumi andmed</a> ning ava kõik need kihid QGISis. Võid jätkata eelmise praktikumi QGIS projekti. Kihelkondade kiht on kujutab 1917. aasta seisu. Kihis võib olla mõningaid ebatäpsusi. Mälestiste kihis on kõik muinsuskaitse all olevad mälestised. Aladena tähistatud mälestistest on siin lihtsama käsitlemise huvides tehtud samuti punktid. Pärast avamist vaadake ka andmete atribuuttabeleid, et näha millist infot on nendega kaasas. Vorbuse uurimisala kasutame harjutuse käigus ja praegu võib selle välja lülitada.</p>
+</div>
+<div id="andmete-valimine-ja-mõõtmine-käsitsi" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Andmete valimine ja mõõtmine (käsitsi)</h2>
+<p>Kihi valimise abil saame luua valikust uue kihi või muuta valiku atribuutandmeid. Hetkel vaatame käsitsi valimise variante. Kaardil objektide valimiseks kliki kihtide paneelis kihil, millest soovid valida. Objekte saab valida kaardil kuju joonistades või määrates väärtused, mille põhjal valik teha. Proovime mõlemat! Valitud objektid muutuvad kollaseks.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:selectiontools"></span>
+<img src="imgs/selection_tools.PNG" alt="Valimise tööriistad menüüribal" width="30%" />
+<p class="caption">
+Figure 7.1: Valimise tööriistad menüüribal
+</p>
+</div>
+<p>Vali kaardil kõik Saaremaa kihelkonnad valides menüüribal <em>Select Features by Area or Single Click</em> tööriista ja joonista tõmba hiire vasakpoolset klahvi all hoides Saaremaa ümber kast. Seejärel salvesta valitud kihelkonnad eraldi kihina tehes <em>paremklikk → Export → Save <strong>Selected Features As</strong>.
+Formaadiks </em>Geopackage* ja vali sirvimise ikoonile klikkides kursuse kaustas andmete kaust. Anna kihile mõistlik nimi. Näiteks <em>kihelkonnad_saaremaa</em> või <em>saaremaa_kihelkonnad</em>. Ava see kiht QGISis ja vaata, kas on olemas ikka ainult Saaremaa kihelkonnad.</p>
+<p>Vali kaardil Liivimaa kubermangu kihelkonnad. <em>Select Features By Value</em> ja kubermangu tulpa kirjuta “Liivimaa” <em>→ Select Features → Close</em>. Vali samamoodi kõik arheoloogia mälestised ja salvesta need eraldi kihina. Valiku tegemiseks vaata kihi atribuuttabelit. Neid valikuid salvestama ei pea. Valiku deselekteerimiseks kliki valimise tööriistade kõrval ikoonil <em>Deselect features from all layers</em>. Võid proovida olemasolevatest kihtides mõne atribuuttabeli väärtuse põhjal ka teisi valikuid teha. Järgmistel kordadel vaatame ka keerulisemaid valikuid <em>Select Features By Expression</em> abil.</p>
+<p>Kaardil vahemaade ja pindalade mõõtmiseks on <em>Measure</em> tööriist, mille leiab ülevalt menüüst <em>View → Measure</em> või ka samasuguse ikoonina tööriistaribalt. Mõõtmiseks kliki mõõdetava vahemaa algus- ja lõpp-punktis. Mõõtmise lõpetamiseks tee parempoolne klikk. Mõõtmise aknas saad vahetada ka ühikuid.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:measuring"></span>
+<img src="imgs/7_m66tmine.png" alt="Vahemaade mõõtmine kaardil" width="70%" />
+<p class="caption">
+Figure 7.2: Vahemaade mõõtmine kaardil
+</p>
+</div>
+</div>
+<div id="kihi-ja-andmete-loomine" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Kihi ja andmete loomine</h2>
+<p>Harjustuse käigus tuleb märkida vanalt topograafiliselt kaardilt uurimispiirkonna piires Tartust u 7 km kirdes asuva Vorbuse asula läheduses oleva Metsaküla küla suuremad teed ja talud, mida tänapäeval enam pole. Piirkonnas toimusid 1960.–70. aastate maaparandusega (uute põldude rajamisega) seoses mitmed ümberkorraldused. Niisiis saab proovida, kuidas käib ise punkt- ja joonkihtide loomine.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:vorbuse"></span>
+<img src="imgs/vorbuse.jpeg" alt="Vorbuse piirkonna talud ja teed, mida tänapäeval enam pole" width="80%" />
+<p class="caption">
+Figure 7.3: Vorbuse piirkonna talud ja teed, mida tänapäeval enam pole
+</p>
+</div>
+<p><strong>Lisa WMS-teenusest ajalooline topokaart ja tänapäevane põhikaart:</strong></p>
+<ul>
+<li>Lülita sisse Vorbuse uurimisala kiht ja liigu selle juurde (<em>Zoom to layer</em>).</li>
+<li>Lisa WMS kaart <em>Layer → Add layer → Add WMS/WMTS layer</em>.</li>
+<li>Avanenud aknas kliki New. Seal Name: Maaamet ajaloolised kaardid ning URL juurde kopeeri aadress <a href="https://kaart.maaamet.ee/wms/ajalooline" class="uri">https://kaart.maaamet.ee/wms/ajalooline</a>? ja vajuta OK.</li>
+<li>Kliki <em>Connect</em> ja vali <em>Ajalooline</em> alt <em>45 ew_25T Eesti topograafiline kaart 1:25000 (1923–1935)</em> ning seejärel <em>Add → Close</em>.
+<ul>
+<li>Kui soovid, võid samamoodi lisada ka 19. saj lõpust pärineva üheverstase kaardi valides <em>34 yheverstakaart</em>.</li>
+</ul></li>
+<li>Lisa eelmise punktiga sarnaselt WMS-teenusest tänapäevane aluskaart:
+<ul>
+<li>Loo uus ühendus või kasuta eelmises loengus seadistatud ühendust <em>Maa-amet alus</em>. Loomisel kasuta URLi <em><a href="http://kaart.maaamet.ee/wms/alus" class="uri">http://kaart.maaamet.ee/wms/alus</a>?</em></li>
+</ul></li>
+<li>Vali rippmenüüst Maa-amet alus, kliki <em>Connect</em> ja vali <em>Põhikaardid</em> alt *2 pohi _vr2 Põhikaart*.</li>
+<li>Vaata põgusalt, kuidas on märgitud talud ja teed ajaloolisel topokaardil ja tänapäevasel põhikaardil.</li>
+<li>Ajalooliste kaartide kohta leiab rohkem infot ja leppemärgide seletused <a href="https://geoportaal.maaamet.ee/est/Kaardirakendused/Ajaloolised-kaardid/Ajalooliste-kaartide-rakenduse-kirjeldus-p157.html">Maa-ameti ajalooliste kaartide lehele</a></li>
+</ul>
+<p><strong>Loo uued tühjad kihid talude ja teede märkimiseks</strong></p>
+<ul>
+<li>Ülevalt menüüst <em>Layer → Create Layer → New Geopackage Layer</em></li>
+<li>Sirvimise ikoonile klikkides liigu seal kausta kursuse andmete kausta. Pane faili nimeks vorbuse_talud ning vajuta <em>Save</em>.</li>
+<li>Vali <em>Geometry type: Point</em>.</li>
+<li>Rippmenüüst koordinaatsüsteem <em>EPSG: 3301, Estonian Coordinate System 1997</em>.</li>
+<li>Lisa kihile uus atribuutide väli. <em>New field</em> all <em>Name</em> järel kirjuta <em>nimi</em> ja kliki <em>Add to Fields List → OK</em>.</li>
+<li>Nüüd on talude märkimiseks loodud tühi kiht, mis ilmus ka kihtide paneelile. Seda kihti paneelil sisse-välja lülitades ei juhtu hetkel midagi, kuna selles pole veel ühtegi punkti. Vaadates kihi atribuuttabelit on näha, et see on tühi.</li>
+<li>Loo sarnaselt talude kihile ka teede vektorkiht. Vali teede märkimiseks õige <em>Geometry type</em>!</li>
+</ul>
+<p><em>Märgi ajalooliselt kaardilt talud ja teed, mida tänapäeval enam pole</em> Talud on topograafilisel kaardil tähistatud kandilise viirutatud alaga, millel asub must punkt, mis tähistab hoonet.</p>
+<ul>
+<li>Kliki kihtide paneelil kihil <em>Vorbuse_talud</em> ning vajuta üleval tööriista ribal kollasele pliiatsile (või <em>Layer → Toggle editing</em>). Pliiatsi kõrval olevad ikoonid muutuvad värviliseks. Vali kolme punktiga ikoon <em>Add features</em>. Nüüd saad kaardile punkte märkida.</li>
+<li>Kliki ajaloolisel topograafilisel kaardil talu peal. Avanenud aknas jäta <em>id</em> lahter tühjaks, aga kirjuta <em>nimi</em> juurde võimalusel märgitud talu nimi.</li>
+<li>Kui kõik talud on märgitud, siis salvesta muudatused. Selleks vajuta tööriistaribal kollase pliiatsi kõrval disketina kujutatud salvestamise ikoonile (<em>Save Layer</em>). Lülita editing välja vajutades kollasel pliiatsil.</li>
+<li>Nüüd peaksid näha olema kõikide talude peal värvilised punktid.
+<ul>
+<li>Muuda punktide värvi ja suurust, et need paremini välja paistaksid ning lisa nimesilt.</li>
+<li>Selleks, et sildid paremini välja paistaksid võid <em>Labels</em> menüüs <em>Background</em> alt teha linnukese <em>Draw background</em> ees ning <em>Placement</em> alt määrata <em>Distance: 2</em>. Selle tulemusena on siltide tekst taust valge ning sildid asuvad punktist 2 mm kaugusel.</li>
+</ul></li>
+</ul>
+<p>Märgi kihiga <em>vorbuse_teed</em> uurimispiirkonna piires need teed, mida tänapäevasel kaardil enam pole. Ära märgi väga väikseid või neid teid, mille asukoht või kurvilisus on ainult pisut muutunud.</p>
+<ul>
+<li>Teede märkimine on sisuliselt sama nagu punktide märkimine. Kolme punktiga ikooni asemel on tööriistaribal samas kohas aga lihtsalt nurgelise joonega ikoon.</li>
+<li>Märgi tee punktide abil joonena. Joone lõpetamiseks tee parempoolne klikk ja anna sellele järjekorra number. Joone paksust saab muuta samal viisil nagu punktil.</li>
+<li>Kui oled talud ja teed märkinud, siis lülita ajalooline topokaart välja. Nüüd on endised talud ja teed näha tänapäevasel põhikaardil.</li>
+</ul>
+</div>
+<div id="kaartide-kujundamine-ja-eksportimine" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Kaartide kujundamine ja eksportimine</h2>
+<p>Kui kaardiaknas on loodud sobiv lahendus ehk kõik talud ja teed on märgitud, siis ekspordi see kaardina. Kui on tõesti väga kiire, siis võiks hetkeseisust lihtsalt Print Screen teha ning Paint’is vajalik osa välja lõigata. Nii tehes oleks kaart aga seotud praeguse ekraani resolutsiooniga ning meil ei oleks võimalik lisada kaardi kasutamiseks olulisi elemente.</p>
+<p>Niisiis korraliku kaardi tegemiseks:</p>
+<ul>
+<li>Ülevalt vasakult <em>Project → New Print Layout</em>. Anna sellele sobiv nimi.</li>
+<li>Avanenud <em>Print Layout</em> aknas ülevalt <em>Add Item → Add Map</em>. Joonista akna valgele lehele nelinurk hoides all hiire vasakpoolset klahvi. QGIS-i peaaknas olev kaart kujutatakse sinna. Tee nelinurk sama suureks kui valge taust.
+<ul>
+<li>Alternatiivina võid parema väljanägemise huvides jätta kaardi ja tausta serva vahele u 1 cm vahe. Seejuures on abiks taustaruudustik ja selle külge haakumine. Nende sisselülitamiseks vali <em>Print Layout</em> akna üleval menüüst <em>View → Show Grid</em> ja <em>View → Snap to grid</em>. Nüüd saad kaarti tausta ruudustiku külge haakida.</li>
+</ul></li>
+<li>Säti kaarti nii et kõik vajalik oleks näha. Selleks vali <em>Edit → Move Content</em> või vajuta klaviatuuril C. Liiguta kaarti hiire vasakpoolset klahvi all hoides. Paremal servas <em>Item properties</em> alt saab valida kaardi mõõtkava (Scale), et kaarti suuremaks või väiksemaks teha.</li>
+<li>Lisa kaardile joonmõõtkava. <em>Add item → Add Scalebar</em> ning kliki kaardile. Avanenud aknas lihtsalt <em>OK</em>. Paremal <em>Item properties → Segments</em> saad muuta muuta mõõtkava pikkust. Vali <em>left 0</em> ja lisa paremale poole nii palju, kui soovid. <em>Fixed width</em> muudab mõõtkava ühe ühiku pikkust. <em>Style</em> rippmenüüst saad valida endale meelepärase stiili.</li>
+<li>Lisa kaardile põhjasuunda tähistav nool. <em>Add item → Add North Arrow</em> ning kliki kaardile. Paiguta noole kast kaardi ühte ülemisse nurka. Paremal <em>Item properties</em> all kliki <em>Search directories</em> ning vali soovi korral mõni muu nool.</li>
+<li>Lisa kaardile enda nimi ja viide Maa-ametile. <em>Add Item → Add Label</em> ning kliki kaardile. Avanenud aknas OK. Paiguta tekkinud kast kaardi ühte nurka. Paremal <em>Item properties</em> all kirjuta enda nimi ning vajadusel viide Maa-ameti andmetele. Nt Aluskaart: Maa-amet 2020.</li>
+<li>Ekspordi kaart kursuse kausta. Üleval servas vasakul <em>Layout → Export as Image</em>. Anna sellele mõistlik nimi. Avanenud aknas Save.</li>
+<li>Ava kaart kaustas ning vaata, kas kõik jäi õigesti.</li>
+</ul>
+</div>
+<div id="järgmisel-korral-6" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Järgmisel korral</h2>
+<p>Järgmisel korral tuleb juttu avaandmetest, nendega seotud põhimõtetest ja andmete kättesaadavusest.</p>
+
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="qgis_1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="kirjandus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["book.pdf", "PDF"], ["book.epub", "EPUB"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"info": true
+});
+});
+</script>
+
+</body>
+
+</html>
