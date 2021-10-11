@@ -3,9 +3,9 @@
 
 ## Installimine
 
-QGISil on alati kaks hetkeversioon: stabiilne *Long term release* ja uusimate võimalustega *Latest release*. Väga suuri erinevusi nende versioonide vahel ei ole. Kursusel kasutame uusimat versiooni, et tagada parim kasutajamugavus ka juhuks, kui tahate QGISi kasutada pärast kursuse lõppu. Siis olete järjest lisanduvate funktsionaalsustega juba mõneti tuttavad. Kel huvi, võib vaadata ka [väljalaske graafikut](https://qgis.org/en/site/getinvolved/development/roadmap.html#release).
+QGISil on alati kaks hetkeversiooni: stabiilne *Long term release* ja uusimate võimalustega *Latest release*. Väga suuri erinevusi nende versioonide vahel ei ole. Kursusel kasutame uusimat versiooni, et tagada parim kasutajamugavus ka juhuks, kui tahate QGISi kasutada pärast kursuse lõppu. Siis olete järjest lisanduvate funktsionaalsustega juba mõneti tuttavad. Kel huvi, võib vaadata ka [väljalaskegraafikut](https://qgis.org/en/site/getinvolved/development/roadmap.html#release).
 
-QGIS 3.20 saab alla laadida [ametlikult kodulehelt](https://qgis.org/en/site/forusers/download.html), valides enda arvuti operatsioonisüsteemile sobiva variandi. Windowsi jaoks *QGIS Standalone Installer Version 3.20* ja macOSi jaoks *QGIS macOS Installer Version 3.20*. Kui allalaadimine on lõppenud, ava fail ning installi see nagu iga teine programm. Kasutada vaikimisi valikuid. Uute versioonide ajagraafikut 
+QGIS 3.20 saab alla laadida [ametlikult kodulehelt](https://qgis.org/en/site/forusers/download.html), valides enda arvuti operatsioonisüsteemile sobiva variandi. Windowsi jaoks *QGIS Standalone Installer Version 3.20* ja macOSi jaoks *QGIS macOS Installer Version 3.20*. Kui allalaadimine on lõppenud, ava fail ning installi see nagu iga teine programm. Kasuta vaikimisi valikuid.   
 
 ```{r qgis_3.1, echo=F, fig.show='hold', fig.align='center', out.width= "50%"}
 knitr::include_graphics(here::here("imgs", "5_qgis_3.20.png"))
@@ -13,7 +13,7 @@ knitr::include_graphics(here::here("imgs", "5_qgis_3.20.png"))
 
 ## Andmed ja failihaldus
 
-Segaduste vältimiseks soovitame kasutada kaustade strutktuuri, kus selle kursuse kaustas on teil QGISi projekti fail(id) .qgz ja kaks kausta **andmed** ja **kaardid**, kuhu panete vastavalt kõik praktikumites kasutatavad andmed ja valminud kaardid. Võimalike probleemide vältimiseks võiks kursuse kaust olla kohas (*directory path*), kus ei ole täpitähti. Nt *C:/ut/magistrantuur/sygis_2021/gis_humanitaarias/*.
+Segaduste vältimiseks soovitame kasutada kaustade struktuuri, kus selle kursuse kaustas on teil QGISi projekti fail(id) .qgz ja kaks kausta **andmed** ja **kaardid**, kuhu panete vastavalt kõik praktikumites kasutatavad andmed ja valminud kaardid. Võimalike probleemide vältimiseks võiks kursuse kaust olla kohas (*directory path*), kus ei ole täpitähti. Nt *C:/ut/magistrantuur/sygis_2021/gis_humanitaarias/*.
 
 Näiteks: 
 
@@ -28,7 +28,7 @@ Näiteks:
         - ylesanne_2_kimber.jpeg
         - jne
         
-Praktikumis kasutatavad andmed leiate [Moodle'ist](https://moodle.ut.ee/). Laadige need alla, pakkige lahti (parempoolne klikk ja *Extract here*) ja asetage kausta *andmed*. Soovi korral võite Eesti maakondade kihi ka ise [Maa-ameti Geoportaalist](https://geoportaal.maaamet.ee/est/Ruumiandmed/Haldus-ja-asustusjaotus-p119.html) alla laadida, kuna tegu on avalike ruumiandmetega. Õige fail on *Maakond SHP*. Klikkides sakil *Ruumiandmed" leiab ka rohkelt muid andmeid.
+Praktikumis kasutatavad andmed leiate [Moodle'ist](https://moodle.ut.ee/). Laadige need alla, pakkige lahti (parempoolne klikk ja *Extract here*) ja asetage kausta *andmed*. Soovi korral võite Eesti maakondade kihi ka ise [Maa-ameti Geoportaalist](https://geoportaal.maaamet.ee/est/Ruumiandmed/Haldus-ja-asustusjaotus-p119.html) alla laadida, kuna tegu on avalike ruumiandmetega. Õige fail on *Maakond SHP*. Klikkides sakil *Ruumiandmed* leiab ka rohkelt muid andmeid.
 
 ## Esimene seadistamine ja kasutajaliides
 
@@ -46,35 +46,35 @@ Kuna harjutused käsitlevad Eesti kaarte ja koordinaate, siis tuleb valida ka Ee
 - *CRS for Projects* all vali *Use a default CRS*, kliki rippmenüü kõrval ikoonil ja kirjuta seal otsinguse *Estonian Coordinate System 1997* ehk [L-EST97 koordinaatsüsteem](https://geoportaal.maaamet.ee/est/Ruumiandmed/Geodeetilised-andmed/Eesti-geodeetiline-susteem/L-EST97-koordinaatsusteem-p173.html). Vajuta sellele otsingu tulemusele ning menüü alumises servas *OK*. Tee sama *CRS for Layers* juures. 
 - Salvesta kursuse kausta enda QGIS projekt valides ülevalt vasakult *Project → Save*. Failinimeks pane näiteks *praktikum_6*. **Ära unusta ka praktikumi jooksul aeg-ajalt salvestada!**
 
-```{r defaultcrs, echo=F, fig.show='hold', out.width= "100%", fig.cap="Vaikimisi koordinaatsüsteemi sätestamine"}
+```{r defaultcrs, echo=F, fig.show='hold', out.width= "100%", fig.cap="Vaikimisi koordinaatsüsteemi sätestamine", fig.align='center'}
 knitr::include_graphics(here::here("imgs", "default_crs.gif"))
 ```
 
-Vaata QGISi kasutajaliidest. Suurde keskel olevasse aknasse ilmuvad kaardid ja ruumiandmete kihid. Vasakul on kihtide aken *Layers*. All servas on näitab kursori asukoha koordinaate, mõõtkava, mida saab seal ka muuta, ning paremal nurgas on koordinaatsüsteem, mis peaks praegu olema EPSG:3301, mis tähendabki Eesti 1997. a koordinaatsüsteemi. Üleval servas on menüüd ja kõiksugused tööriistad.  
+Vaata QGISi kasutajaliidest. Suurde keskel olevasse aknasse ilmuvad kaardid ja ruumiandmete kihid. Vasakul on kihtide aken *Layers*. All servas näitab kursori asukoha koordinaate, mõõtkava, mida saab seal ka muuta, ning paremal nurgas on koordinaatsüsteem, mis peaks praegu olema EPSG:3301, mis tähendabki Eesti 1997. a koordinaatsüsteemi. Üleval servas on menüüd ja kõiksugused tööriistad.  
 
 ## Andmete avamine
 
-Nagu varasematest mäletate on olemas raster- ja vektorandmed. Viimased neist võivad koosneda punktidest, joontest või aladest. Avame kõigist andmetest näite.
+Nagu varasematest mäletate, on olemas raster- ja vektorandmed. Viimased neist võivad koosneda punktidest, joontest või aladest. Avame kõigist andmetüüpidest näite.
 
-- Ava Eesti maakondade kiht.
-    - *Layer → Add layer → Add vector layer*.
-    - Kliki *Vector Dataset(s)* juures sirvimise ikoonil (kolm punkti). Vali andmete kaustast shape fail *maakond_20201001.shp* ja vajuta *Open*. Seejärel menüü all servas *Add* ja *Close*.
-    - Nüüd on avatud kiht kõigi Eesti maakondade piirjoontega.
+- Ava Eesti maakondade kiht.  
+    - *Layer → Add layer → Add vector layer*.  
+    - Kliki *Vector Dataset(s)* juures sirvimise ikoonil (kolm punkti). Vali andmete kaustast *shape*-fail *maakond_20201001.shp* ja vajuta *Open*. Seejärel menüü all servas *Add* ja *Close*.  
+    - Nüüd on avatud kiht kõigi Eesti maakondade piirjoontega.  
 
-- Ava muinsuskaitse all olevate kirikute kiht. Kõik samamoodi nagu eelmise kihiga, valida tuleb aga geopackage fail *kirikud.gpkg*.
+- Ava muinsuskaitse all olevate kirikute kiht. Kõik samamoodi nagu eelmise kihiga, valida tuleb aga *geopackage*'i fail *kirikud.gpkg*.
 
 - Ava suuremate jõgede kiht *joed.gpkg*. Kuna nüüd on selge, kuidas käib menüü kaudu kihi avamine, siis võite selle kihi avamiseks faili lihtsalt kaardiaknasse lohistada. 
 
 
-Kihtide paneelil *Layers* saab kihte välja ja sisse lülitada ning hiirega tõstes muuta nende järjekorda. Peaaknas saab hiire rullikuga suumida (all servas muutub ka mõõtkava). Hiire vasakpoolset klahvi all hoides ja ka klaviatuuril nooltega saab liikuda. Kihi terve ulatuse nägemiseks tee *Layers* paneelil kihil parempoolne klikk ning vali *Zoom to Layer*. Sellest on abi ka siis, kui oled kaardil nö eksinud ja ei suuda kihti enam üles leida. Kihtide atribuuttabelit saab vaadata tehes paremkliki ja *Open Attribute Table*. Proovi kaardil ringi liikuda ning vaata kõikide kihtide atribuuttabelit!
+Kihtide paneelil *Layers* saab kihte välja ja sisse lülitada ning hiirega tõstes muuta nende järjekorda. Peaaknas saab hiire rullikuga suumida (all servas muutub ka mõõtkava). Hiire vasakpoolset klahvi all hoides ja ka klaviatuuri nooltega saab liikuda. Kihi terve ulatuse nägemiseks tee *Layers* paneelil kihil parempoolne klikk ning vali *Zoom to Layer*. Sellest on abi ka siis, kui oled kaardil nö eksinud ja ei suuda kihti enam üles leida. Kihtide atribuuttabelit saab vaadata tehes paremkliki ja *Open Attribute Table*. Proovi kaardil ringi liikuda ning vaata kõikide kihtide atribuuttabelit!
 
-Vaatame ka näidet rasterandmetest ortofotode näol. Ava 2020. a ja 1995. a ortofotod kasutades *Layer → Add layer → Add Raster Layer* ning vali vastavalt failid orto_2020.tif ja orto_1995.tif. Liigu kihtide juurde ja vaata nende erinevusi. Proovi ka lähedale suumida, et näha eraldiseisvaid piksleid. Rasteri pikslisuuruse vaatamiseks tee kihil paremklikk → *Properties*. *Information from provider* on kirjas *Pixel size* kui piksli küljepikkus meetrites. Pärast seda võib rasterkihid eemaldada. Selleks tee kihtide aknas kihil paremklikk → *Remove layer*.
+Vaatame ka näidet rasterandmetest ortofotode näol. Ava 2020. a ja 1995. a ortofotod kasutades *Layer → Add layer → Add Raster Layer* ning vali vastavalt failid *orto_2020.tif* ja *orto_1995.tif*. Liigu kihtide juurde ja vaata nende erinevusi. Proovi ka lähedale suumida, et näha eraldiseisvaid piksleid. Rasteri pikslisuuruse vaatamiseks tee kihil paremklikk → *Properties*. *Information from provider* on kirjas *Pixel size* kui piksli küljepikkus meetrites. Pärast seda võib rasterkihid eemaldada. Selleks tee kihtide aknas kihil paremklikk → *Remove layer*.
 
-Ortofotode kohta saab rohkem lugeda ja neid ka ise kaardiruutude kaupa allalaadida [Maa-ameti Geoportaalist](https://geoportaal.maaamet.ee/est/Ruumiandmed/Ortofotod-p99.html). 
+Ortofotode kohta saab rohkem lugeda ja neid ka ise kaardiruutude kaupa alla laadida [Maa-ameti Geoportaalist](https://geoportaal.maaamet.ee/est/Ruumiandmed/Ortofotod-p99.html). 
 
 ## Kihtide visualiseerimine
 
-Selleks, et kõik kihid välja paistaksid peaksid need ülevalt alla olema järjekorras kirikud, jõed, maakonnad. Andmete visualiseerisemiseks on meil punktide puhul kasutada värv, kuju ja suurus. Joonte ja alade puhul on meil kuju ette antud, kuid saame lisaks värvile ja suurusele vahetada mustrit (nt katkendjoon või viirutatud ala).
+Selleks, et kõik kihid välja paistaksid, peaksid need olema ülevalt alla järjekorras kirikud, jõed, maakonnad. Andmete visualiseerisemiseks on meil punktide puhul kasutada värv, kuju ja suurus. Joonte ja alade puhul on meil kuju ette antud, kuid saame lisaks värvile ja suurusele vahetada mustrit (nt katkendjoon või viirutatud ala).
 
 ### Harjutus 1
 
@@ -86,7 +86,7 @@ Alternatiivina võib kihi stiili muutmiseks sisse lülitada paneeli *Layer Styli
 
 Lisa maakonnanimi valides samas menüüs vasakult *Labels* ning seal *No labels* asemel *Single labels*. *Value* alt vali *MNIMI* ja vajuta all paremal OK.
 
-```{r harjutus1, echo=F, fig.show='hold', out.width= "100%", fig.cap="Harjus 1 tulemus"}
+```{r harjutus1, echo=F, fig.show='hold', out.width= "100%", fig.cap="Harjus 1 tulemus", fig.align='center'}
 knitr::include_graphics(here::here("imgs", "harjutus_1.png"))
 ```
 
@@ -102,10 +102,10 @@ Ava Exceli vms programmiga fail *kirikud_maakonniti.csv*. Nagu näha on tegu vä
 - *Layer → Add layer → Add delimited text layer*
 - Kliki *File Name* juures sirvimise ikoonil (kolm punkti). Vali kaustast fail *kirikud_maakonniti.csv*
 - *Record and Fields Options juures* tee linnuke *First record has field names* ette. See on vajalik, et QGIS arvestaks tabeli esimest rida kui tulpade pealkirju.
-- *Geometry definition* vali *No geometry (attribute only table)*. See tuleb valida kuna antud tabelis ei ole koordinaate.
+- *Geometry definition* vali *No geometry (attribute only table)*. See tuleb valida, kuna antud tabelis ei ole koordinaate.
 - Kas all sample data juures on andmed kujutatud eraldi tulpades ja täpitähed olemas? Kui täpitähti pole vali üleval *Encoding* rippmenüüst *ISO-8859-15*, mis on ametlik eesti keele kodeering.
 - *Add → Close*. Nagu näha ei ilmunud QGISi peaaknasse midagi, kuna tegu pole ruumiandmete kihiga, vaid lihtsalt tabeliga.
-- Vaata kihtide paneelis selle atribuuttabelit. Nagu näha on see täpselt sama, mis Excelis. 
+- Vaata kihtide paneelis selle atribuuttabelit. Nagu näha, on see täpselt sama mis Excelis. 
 
 
 **Ühenda kultuurimälestiste tabel maakondade kihiga: **
@@ -142,8 +142,8 @@ knitr::include_graphics(here::here("imgs", "harjutus_2.png"))
 
 ## Aluskaardid
 
-Nagu varasemates loengutes nägime on olemas rohkelt aluskaarte, mida erinevateks rakendustes kasutatakse. Neid saab kasuta QGISis läbi pistikprogrmammide ehk *Plugins* või WMS- ja WFS-teenuste (vastavalt *web map service* ja *web feature service*). 
-WMS-teenuse läbi saab kasutada peaaegu kõiki [Maa-ameti XGISis](https://xgis.maaamet.ee/xgis2/page/app/maainfo) olevaid kihte. Täpsemalt saab sellest lugeda [WMS teenuste lehel](https://geoportaal.maaamet.ee/est/Teenused/WMS-teenused-p65.html). Lisaks saab paljusid muid andmeid kogu maailmast. WMS-teenuse kaarte saab kasutada sisuliselt ainult visualiseerimiseks. Päringuid neid teha ei saa. 
+Nagu varasemates loengutes nägime, on olemas rohkelt aluskaarte, mida erinevateks rakendustes kasutatakse. Neid saab kasuta QGISis läbi pistikprogrammide ehk *Plugins* või WMS- ja WFS-teenuste (vastavalt *web map service* ja *web feature service*). 
+WMS-teenuse läbi saab kasutada peaaegu kõiki [Maa-ameti XGISis](https://xgis.maaamet.ee/xgis2/page/app/maainfo) olevaid kihte. Täpsemalt saab sellest lugeda [WMS teenuste lehel](https://geoportaal.maaamet.ee/est/Teenused/WMS-teenused-p65.html). Lisaks saab paljusid muid andmeid kogu maailmast. WMS-teenuse kaarte saab kasutada sisuliselt ainult visualiseerimiseks. Päringuid nendega teha ei saa. 
 
 **Lisa WMS-teenusest taustaks kaart:**
 
@@ -157,10 +157,13 @@ WMS-teenuse läbi saab kasutada peaaegu kõiki [Maa-ameti XGISis](https://xgis.m
 
 **Quickmap ja OSM**
 
-Lisa veebikaartide plugin.
-- Üleval servas *Plugins → Manage and Install Plugins*. Otsingusse kirjuta *Quickmap*. Vali *QuickMapSercives* ja installi see. Sulge aken.
-- Üleval servas *Web → QuickMapServices → OSM → OSM standard*. Nüüd on aluskaardiks OpenStreetMap. Proovi ka teisi kaarte. Nt Google. 
+Lisa veebikaartide *plugin*.  
+
+- Üleval servas *Plugins → Manage and Install Plugins*. Otsingusse kirjuta *Quickmap*. Vali *QuickMapSercives* ja installi see. Sulge aken.  
+- Üleval servas *Web → QuickMapServices → OSM → OSM standard*. Nüüd on aluskaardiks OpenStreetMap.  
+
+Proovi ka teisi kaarte. Nt Google. 
 
 ## Järgmisel korral
 
-Kaartide kujundamine ja eksportimine, sümbolite visualiseerimine reeglipõhiselt, andmete loomine ja digitaliseerimine.
+Kaartide kujundamine ja eksportimine, sümbolite visualiseerimine, andmete loomine ja digitaliseerimine.

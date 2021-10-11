@@ -2,7 +2,14 @@
 
 ## Andmete avamine
 
-Lae [Moodle'ist alla tänase praktikumi andmed](https://moodle.ut.ee/course/view.php?id=10284) ning ava kõik need kihid QGISis. Võid jätkata eelmise praktikumi QGIS projekti. Kihelkondade kiht on kujutab 1917. aasta seisu. Kihis võib olla mõningaid ebatäpsusi. Mälestiste kihis on kõik muinsuskaitse all olevad mälestised. Aladena tähistatud mälestistest on siin lihtsama käsitlemise huvides tehtud samuti punktid. Pärast avamist vaadake ka andmete atribuuttabeleid, et näha millist infot on nendega kaasas. Vorbuse uurimisala kasutame harjutuse käigus ja praegu võib selle välja lülitada.
+Lae Moodle'ist alla tänase praktikumi andmed ning ava kõik need kihid QGISis. Võid jätkata eelmise praktikumi QGISi projekti. 
+
+Kihelkondade kiht kujutab 1917. aasta seisu. Kihis võib olla mõningaid ebatäpsusi.  
+Mälestiste kihis on kõik muinsuskaitse all olevad mälestised. Aladena tähistatud mälestistest on siin lihtsama käsitlemise huvides tehtud samuti punktid. 
+
+Pärast avamist vaadake ka andmete atribuuttabeleid, et näha millist infot on nendega kaasas. 
+
+Vorbuse uurimisala kasutame harjutuse käigus ja praegu võib selle välja lülitada.
 
 ## Andmete valimine ja mõõtmine (käsitsi)
 
@@ -12,10 +19,15 @@ Kihi valimise abil saame luua valikust uue kihi või muuta valiku atribuutandmei
 knitr::include_graphics(here::here("imgs", "selection_tools.png"))
 ```
 
-Vali kaardil kõik Saaremaa kihelkonnad valides menüüribal *Select Features by Area or Single Click* tööriista ja joonista tõmba hiire vasakpoolset klahvi all hoides Saaremaa ümber kast. Seejärel salvesta valitud kihelkonnad eraldi kihina tehes *paremklikk → Export → Save **Selected Features As**.
-Formaadiks *Geopackage* ja vali sirvimise ikoonile klikkides kursuse kaustas andmete kaust. Anna kihile mõistlik nimi. Näiteks *kihelkonnad_saaremaa* või *saaremaa_kihelkonnad*. Ava see kiht QGISis ja vaata, kas on olemas ikka ainult Saaremaa kihelkonnad.
+Vali kaardil kõik Saaremaa kihelkonnad valides menüüribal *Select Features by Area or Single Click* tööriista ja joonista tõmba hiire vasakpoolset klahvi all hoides Saaremaa ümber kast. Seejärel salvesta valitud kihelkonnad eraldi kihina, tehes *paremklikk → Export → Save **Selected Features As**.  
+Formaadiks vali *geopackage* ja sirvimise ikoonile klikkides vali kursuse kaustas andmete kaust.  
+Anna kihile mõistlik nimi. Näiteks *kihelkonnad_saaremaa* või *saaremaa_kihelkonnad*.  
+Ava see kiht QGISis ja vaata, kas on olemas ikka ainult Saaremaa kihelkonnad.  
 
-Vali kaardil Liivimaa kubermangu kihelkonnad. *Select Features By Value* ja kubermangu tulpa kirjuta "Liivimaa" *→ Select Features → Close*. Vali samamoodi kõik arheoloogia mälestised ja salvesta need eraldi kihina. Valiku tegemiseks vaata kihi atribuuttabelit. Neid valikuid salvestama ei pea. Valiku deselekteerimiseks kliki valimise tööriistade kõrval ikoonil *Deselect features from all layers*. Võid proovida olemasolevatest kihtides mõne atribuuttabeli väärtuse põhjal ka teisi valikuid teha. Järgmistel kordadel vaatame ka keerulisemaid valikuid *Select Features By Expression* abil. 
+Vali kaardil Liivimaa kubermangu kihelkonnad. *Select Features By Value* ja kubermangu tulpa kirjuta "Liivimaa" *→ Select Features → Close*.  
+Vali samamoodi kõik arheoloogia mälestised ja salvesta need eraldi kihina. Valiku tegemiseks vaata kihi atribuuttabelit. Neid valikuid salvestama ei pea.  
+Valiku deselekteerimiseks kliki valimise tööriistade kõrval ikoonil *Deselect features from all layers*.  
+Võid proovida olemasolevatest kihtidest mõne atribuuttabeli väärtuse põhjal ka teisi valikuid teha. Järgmistel kordadel vaatame ka keerulisemaid valikuid *Select Features By Expression* abil. 
 
 Kaardil vahemaade ja pindalade mõõtmiseks on *Measure* tööriist, mille leiab ülevalt menüüst *View → Measure* või ka samasuguse ikoonina tööriistaribalt. Mõõtmiseks kliki mõõdetava vahemaa algus- ja lõpp-punktis. Mõõtmise lõpetamiseks tee parempoolne klikk. Mõõtmise aknas saad vahetada ka ühikuid.
 
@@ -32,18 +44,18 @@ Harjustuse käigus tuleb märkida vanalt topograafiliselt kaardilt uurimispiirko
 knitr::include_graphics(here::here("imgs", "vorbuse.jpeg"))
 ```
 
-**Lisa WMS-teenusest ajalooline topokaart ja tänapäevane põhikaart:**
+**Lisa WMS-teenusest ajalooline topokaart ja tänapäevane põhikaart:**  
 
 - Lülita sisse Vorbuse uurimisala kiht ja liigu selle juurde (*Zoom to layer*). 
 - Lisa WMS kaart *Layer → Add layer → Add WMS/WMTS layer*.
-- Avanenud aknas kliki New. Seal Name: Maaamet ajaloolised kaardid ning URL juurde kopeeri aadress https://kaart.maaamet.ee/wms/ajalooline? ja vajuta OK.
+- Avanenud aknas kliki *New*. Seal *Name*: Maaamet ajaloolised kaardid ning *URL* juurde kopeeri aadress https://kaart.maaamet.ee/wms/ajalooline? ja vajuta OK.
 - Kliki *Connect* ja vali *Ajalooline* alt *45 ew_25T Eesti topograafiline kaart 1:25000 (1923–1935)* ning seejärel *Add → Close*.
     - Kui soovid, võid samamoodi lisada ka 19. saj lõpust pärineva üheverstase kaardi valides *34 yheverstakaart*. 
 - Lisa eelmise punktiga sarnaselt WMS-teenusest tänapäevane aluskaart:
   - Loo uus ühendus või kasuta eelmises loengus seadistatud ühendust *Maa-amet alus*. Loomisel kasuta URLi  *http://kaart.maaamet.ee/wms/alus?*
-- Vali rippmenüüst Maa-amet alus, kliki *Connect* ja vali *Põhikaardid* alt *2 pohi _vr2 Põhikaart*.
+- Vali rippmenüüst *Maa-amet alus*, kliki *Connect* ja vali *Põhikaardid* alt *2 pohi \_vr2 Põhikaart*.
 - Vaata põgusalt, kuidas on märgitud talud ja teed ajaloolisel topokaardil ja tänapäevasel põhikaardil.
-- Ajalooliste kaartide kohta leiab rohkem infot ja leppemärgide seletused [Maa-ameti ajalooliste kaartide lehele](https://geoportaal.maaamet.ee/est/Kaardirakendused/Ajaloolised-kaardid/Ajalooliste-kaartide-rakenduse-kirjeldus-p157.html) 
+- Ajalooliste kaartide kohta leiab rohkem infot ja leppemärgide seletused [Maa-ameti ajalooliste kaartide lehelt](https://geoportaal.maaamet.ee/est/Kaardirakendused/Ajaloolised-kaardid/Ajalooliste-kaartide-rakenduse-kirjeldus-p157.html) 
 
 **Loo uued tühjad kihid talude ja teede märkimiseks** 
 
@@ -56,7 +68,7 @@ knitr::include_graphics(here::here("imgs", "vorbuse.jpeg"))
 - Loo sarnaselt talude kihile ka teede vektorkiht. Vali teede märkimiseks õige *Geometry type*! 
 
 
-*Märgi ajalooliselt kaardilt talud ja teed, mida tänapäeval enam pole* Talud on topograafilisel kaardil tähistatud kandilise viirutatud alaga, millel asub must punkt, mis tähistab hoonet.
+**Märgi ajalooliselt kaardilt talud ja teed, mida tänapäeval enam pole**. Talud on topograafilisel kaardil tähistatud kandilise viirutatud alaga, millel asub must punkt, mis tähistab hoonet.
 
 - Kliki kihtide paneelil kihil *Vorbuse_talud* ning vajuta üleval tööriista ribal kollasele pliiatsile (või *Layer → Toggle editing*). Pliiatsi kõrval olevad ikoonid muutuvad värviliseks. Vali kolme punktiga ikoon *Add features*. Nüüd saad kaardile punkte märkida.
 - Kliki ajaloolisel topograafilisel kaardil talu peal. Avanenud aknas jäta *id* lahter tühjaks, aga kirjuta *nimi* juurde võimalusel märgitud talu nimi.
@@ -73,7 +85,7 @@ Märgi kihiga *vorbuse_teed* uurimispiirkonna piires need teed, mida tänapäeva
 
 ## Kaartide kujundamine ja eksportimine
 
-Kui kaardiaknas on loodud sobiv lahendus ehk kõik talud ja teed on märgitud, siis ekspordi see kaardina. Kui on tõesti väga kiire, siis võiks hetkeseisust lihtsalt Print Screen teha ning Paint'is vajalik osa välja lõigata. Nii tehes oleks kaart aga seotud praeguse ekraani resolutsiooniga ning meil ei oleks võimalik lisada kaardi kasutamiseks olulisi elemente.
+Kui kaardiaknas on loodud sobiv lahendus ehk kõik talud ja teed on märgitud, siis ekspordi see kaardina. Kui on tõesti väga kiire, siis võiks hetkeseisust lihtsalt Print Screen teha ning Paintis vajalik osa välja lõigata. Nii tehes oleks kaart aga seotud praeguse ekraani resolutsiooniga ning meil ei oleks võimalik lisada kaardi kasutamiseks olulisi elemente.
 
 Niisiis korraliku kaardi tegemiseks: 
 
@@ -84,7 +96,7 @@ Niisiis korraliku kaardi tegemiseks:
 - Lisa kaardile joonmõõtkava. *Add item → Add Scalebar* ning kliki kaardile. Avanenud aknas lihtsalt *OK*. Paremal *Item properties → Segments* saad muuta muuta mõõtkava pikkust. Vali *left 0* ja lisa paremale poole nii palju, kui soovid. *Fixed width* muudab mõõtkava ühe ühiku pikkust. *Style* rippmenüüst saad valida endale meelepärase stiili. 
 - Lisa kaardile põhjasuunda tähistav nool. *Add item → Add North Arrow* ning kliki kaardile. Paiguta noole kast kaardi ühte ülemisse nurka. Paremal *Item properties* all kliki *Search directories* ning vali soovi korral mõni muu nool.
 - Lisa kaardile enda nimi ja viide Maa-ametile. *Add Item → Add Label* ning kliki kaardile. Avanenud aknas OK. Paiguta tekkinud kast kaardi ühte nurka. Paremal *Item properties* all kirjuta enda nimi ning vajadusel viide Maa-ameti andmetele. Nt Aluskaart: Maa-amet 2020.
-- Ekspordi kaart kursuse kausta. Üleval servas vasakul *Layout → Export as Image*. Anna sellele mõistlik nimi. Avanenud aknas Save.
+- Ekspordi kaart kursuse kausta. Üleval servas vasakul *Layout → Export as Image*. Anna sellele mõistlik nimi. Avanenud aknas vajuta *Save*.
 - Ava kaart kaustas ning vaata, kas kõik jäi õigesti.
 
 

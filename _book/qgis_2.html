@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Praktikum 7 Sissejuhatus QGISi 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
   <meta name="description" content="Praktikum 7 Sissejuhatus QGISi 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Praktikum 7 Sissejuhatus QGISi 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta property="og:type" content="book" />
@@ -34,7 +34,6 @@
 <link rel="next" href="kirjandus.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,6 +41,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
 
 
 
@@ -190,7 +190,11 @@ div.csl-indent {
 <h1><span class="header-section-number">Praktikum 7</span> Sissejuhatus QGISi 2</h1>
 <div id="andmete-avamine-1" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Andmete avamine</h2>
-<p>Lae <a href="https://moodle.ut.ee/course/view.php?id=10284">Moodle’ist alla tänase praktikumi andmed</a> ning ava kõik need kihid QGISis. Võid jätkata eelmise praktikumi QGIS projekti. Kihelkondade kiht on kujutab 1917. aasta seisu. Kihis võib olla mõningaid ebatäpsusi. Mälestiste kihis on kõik muinsuskaitse all olevad mälestised. Aladena tähistatud mälestistest on siin lihtsama käsitlemise huvides tehtud samuti punktid. Pärast avamist vaadake ka andmete atribuuttabeleid, et näha millist infot on nendega kaasas. Vorbuse uurimisala kasutame harjutuse käigus ja praegu võib selle välja lülitada.</p>
+<p>Lae Moodle’ist alla tänase praktikumi andmed ning ava kõik need kihid QGISis. Võid jätkata eelmise praktikumi QGISi projekti.</p>
+<p>Kihelkondade kiht kujutab 1917. aasta seisu. Kihis võib olla mõningaid ebatäpsusi.<br />
+Mälestiste kihis on kõik muinsuskaitse all olevad mälestised. Aladena tähistatud mälestistest on siin lihtsama käsitlemise huvides tehtud samuti punktid.</p>
+<p>Pärast avamist vaadake ka andmete atribuuttabeleid, et näha millist infot on nendega kaasas.</p>
+<p>Vorbuse uurimisala kasutame harjutuse käigus ja praegu võib selle välja lülitada.</p>
 </div>
 <div id="andmete-valimine-ja-mõõtmine-käsitsi" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Andmete valimine ja mõõtmine (käsitsi)</h2>
@@ -201,9 +205,14 @@ div.csl-indent {
 Figure 7.1: Valimise tööriistad menüüribal
 </p>
 </div>
-<p>Vali kaardil kõik Saaremaa kihelkonnad valides menüüribal <em>Select Features by Area or Single Click</em> tööriista ja joonista tõmba hiire vasakpoolset klahvi all hoides Saaremaa ümber kast. Seejärel salvesta valitud kihelkonnad eraldi kihina tehes <em>paremklikk → Export → Save <strong>Selected Features As</strong>.
-Formaadiks </em>Geopackage* ja vali sirvimise ikoonile klikkides kursuse kaustas andmete kaust. Anna kihile mõistlik nimi. Näiteks <em>kihelkonnad_saaremaa</em> või <em>saaremaa_kihelkonnad</em>. Ava see kiht QGISis ja vaata, kas on olemas ikka ainult Saaremaa kihelkonnad.</p>
-<p>Vali kaardil Liivimaa kubermangu kihelkonnad. <em>Select Features By Value</em> ja kubermangu tulpa kirjuta “Liivimaa” <em>→ Select Features → Close</em>. Vali samamoodi kõik arheoloogia mälestised ja salvesta need eraldi kihina. Valiku tegemiseks vaata kihi atribuuttabelit. Neid valikuid salvestama ei pea. Valiku deselekteerimiseks kliki valimise tööriistade kõrval ikoonil <em>Deselect features from all layers</em>. Võid proovida olemasolevatest kihtides mõne atribuuttabeli väärtuse põhjal ka teisi valikuid teha. Järgmistel kordadel vaatame ka keerulisemaid valikuid <em>Select Features By Expression</em> abil.</p>
+<p>Vali kaardil kõik Saaremaa kihelkonnad valides menüüribal <em>Select Features by Area or Single Click</em> tööriista ja joonista tõmba hiire vasakpoolset klahvi all hoides Saaremaa ümber kast. Seejärel salvesta valitud kihelkonnad eraldi kihina, tehes <em>paremklikk → Export → Save <strong>Selected Features As</strong>.<br />
+Formaadiks vali </em>geopackage* ja sirvimise ikoonile klikkides vali kursuse kaustas andmete kaust.<br />
+Anna kihile mõistlik nimi. Näiteks <em>kihelkonnad_saaremaa</em> või <em>saaremaa_kihelkonnad</em>.<br />
+Ava see kiht QGISis ja vaata, kas on olemas ikka ainult Saaremaa kihelkonnad.</p>
+<p>Vali kaardil Liivimaa kubermangu kihelkonnad. <em>Select Features By Value</em> ja kubermangu tulpa kirjuta “Liivimaa” <em>→ Select Features → Close</em>.<br />
+Vali samamoodi kõik arheoloogia mälestised ja salvesta need eraldi kihina. Valiku tegemiseks vaata kihi atribuuttabelit. Neid valikuid salvestama ei pea.<br />
+Valiku deselekteerimiseks kliki valimise tööriistade kõrval ikoonil <em>Deselect features from all layers</em>.<br />
+Võid proovida olemasolevatest kihtidest mõne atribuuttabeli väärtuse põhjal ka teisi valikuid teha. Järgmistel kordadel vaatame ka keerulisemaid valikuid <em>Select Features By Expression</em> abil.</p>
 <p>Kaardil vahemaade ja pindalade mõõtmiseks on <em>Measure</em> tööriist, mille leiab ülevalt menüüst <em>View → Measure</em> või ka samasuguse ikoonina tööriistaribalt. Mõõtmiseks kliki mõõdetava vahemaa algus- ja lõpp-punktis. Mõõtmise lõpetamiseks tee parempoolne klikk. Mõõtmise aknas saad vahetada ka ühikuid.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:measuring"></span>
 <img src="imgs/7_m66tmine.png" alt="Vahemaade mõõtmine kaardil" width="70%" />
@@ -225,7 +234,7 @@ Figure 7.3: Vorbuse piirkonna talud ja teed, mida tänapäeval enam pole
 <ul>
 <li>Lülita sisse Vorbuse uurimisala kiht ja liigu selle juurde (<em>Zoom to layer</em>).</li>
 <li>Lisa WMS kaart <em>Layer → Add layer → Add WMS/WMTS layer</em>.</li>
-<li>Avanenud aknas kliki New. Seal Name: Maaamet ajaloolised kaardid ning URL juurde kopeeri aadress <a href="https://kaart.maaamet.ee/wms/ajalooline" class="uri">https://kaart.maaamet.ee/wms/ajalooline</a>? ja vajuta OK.</li>
+<li>Avanenud aknas kliki <em>New</em>. Seal <em>Name</em>: Maaamet ajaloolised kaardid ning <em>URL</em> juurde kopeeri aadress <a href="https://kaart.maaamet.ee/wms/ajalooline" class="uri">https://kaart.maaamet.ee/wms/ajalooline</a>? ja vajuta OK.</li>
 <li>Kliki <em>Connect</em> ja vali <em>Ajalooline</em> alt <em>45 ew_25T Eesti topograafiline kaart 1:25000 (1923–1935)</em> ning seejärel <em>Add → Close</em>.
 <ul>
 <li>Kui soovid, võid samamoodi lisada ka 19. saj lõpust pärineva üheverstase kaardi valides <em>34 yheverstakaart</em>.</li>
@@ -234,9 +243,9 @@ Figure 7.3: Vorbuse piirkonna talud ja teed, mida tänapäeval enam pole
 <ul>
 <li>Loo uus ühendus või kasuta eelmises loengus seadistatud ühendust <em>Maa-amet alus</em>. Loomisel kasuta URLi <em><a href="http://kaart.maaamet.ee/wms/alus" class="uri">http://kaart.maaamet.ee/wms/alus</a>?</em></li>
 </ul></li>
-<li>Vali rippmenüüst Maa-amet alus, kliki <em>Connect</em> ja vali <em>Põhikaardid</em> alt *2 pohi _vr2 Põhikaart*.</li>
+<li>Vali rippmenüüst <em>Maa-amet alus</em>, kliki <em>Connect</em> ja vali <em>Põhikaardid</em> alt <em>2 pohi _vr2 Põhikaart</em>.</li>
 <li>Vaata põgusalt, kuidas on märgitud talud ja teed ajaloolisel topokaardil ja tänapäevasel põhikaardil.</li>
-<li>Ajalooliste kaartide kohta leiab rohkem infot ja leppemärgide seletused <a href="https://geoportaal.maaamet.ee/est/Kaardirakendused/Ajaloolised-kaardid/Ajalooliste-kaartide-rakenduse-kirjeldus-p157.html">Maa-ameti ajalooliste kaartide lehele</a></li>
+<li>Ajalooliste kaartide kohta leiab rohkem infot ja leppemärgide seletused <a href="https://geoportaal.maaamet.ee/est/Kaardirakendused/Ajaloolised-kaardid/Ajalooliste-kaartide-rakenduse-kirjeldus-p157.html">Maa-ameti ajalooliste kaartide lehelt</a></li>
 </ul>
 <p><strong>Loo uued tühjad kihid talude ja teede märkimiseks</strong></p>
 <ul>
@@ -248,7 +257,7 @@ Figure 7.3: Vorbuse piirkonna talud ja teed, mida tänapäeval enam pole
 <li>Nüüd on talude märkimiseks loodud tühi kiht, mis ilmus ka kihtide paneelile. Seda kihti paneelil sisse-välja lülitades ei juhtu hetkel midagi, kuna selles pole veel ühtegi punkti. Vaadates kihi atribuuttabelit on näha, et see on tühi.</li>
 <li>Loo sarnaselt talude kihile ka teede vektorkiht. Vali teede märkimiseks õige <em>Geometry type</em>!</li>
 </ul>
-<p><em>Märgi ajalooliselt kaardilt talud ja teed, mida tänapäeval enam pole</em> Talud on topograafilisel kaardil tähistatud kandilise viirutatud alaga, millel asub must punkt, mis tähistab hoonet.</p>
+<p><strong>Märgi ajalooliselt kaardilt talud ja teed, mida tänapäeval enam pole</strong>. Talud on topograafilisel kaardil tähistatud kandilise viirutatud alaga, millel asub must punkt, mis tähistab hoonet.</p>
 <ul>
 <li>Kliki kihtide paneelil kihil <em>Vorbuse_talud</em> ning vajuta üleval tööriista ribal kollasele pliiatsile (või <em>Layer → Toggle editing</em>). Pliiatsi kõrval olevad ikoonid muutuvad värviliseks. Vali kolme punktiga ikoon <em>Add features</em>. Nüüd saad kaardile punkte märkida.</li>
 <li>Kliki ajaloolisel topograafilisel kaardil talu peal. Avanenud aknas jäta <em>id</em> lahter tühjaks, aga kirjuta <em>nimi</em> juurde võimalusel märgitud talu nimi.</li>
@@ -268,7 +277,7 @@ Figure 7.3: Vorbuse piirkonna talud ja teed, mida tänapäeval enam pole
 </div>
 <div id="kaartide-kujundamine-ja-eksportimine" class="section level2" number="7.4">
 <h2><span class="header-section-number">7.4</span> Kaartide kujundamine ja eksportimine</h2>
-<p>Kui kaardiaknas on loodud sobiv lahendus ehk kõik talud ja teed on märgitud, siis ekspordi see kaardina. Kui on tõesti väga kiire, siis võiks hetkeseisust lihtsalt Print Screen teha ning Paint’is vajalik osa välja lõigata. Nii tehes oleks kaart aga seotud praeguse ekraani resolutsiooniga ning meil ei oleks võimalik lisada kaardi kasutamiseks olulisi elemente.</p>
+<p>Kui kaardiaknas on loodud sobiv lahendus ehk kõik talud ja teed on märgitud, siis ekspordi see kaardina. Kui on tõesti väga kiire, siis võiks hetkeseisust lihtsalt Print Screen teha ning Paintis vajalik osa välja lõigata. Nii tehes oleks kaart aga seotud praeguse ekraani resolutsiooniga ning meil ei oleks võimalik lisada kaardi kasutamiseks olulisi elemente.</p>
 <p>Niisiis korraliku kaardi tegemiseks:</p>
 <ul>
 <li>Ülevalt vasakult <em>Project → New Print Layout</em>. Anna sellele sobiv nimi.</li>
@@ -280,7 +289,7 @@ Figure 7.3: Vorbuse piirkonna talud ja teed, mida tänapäeval enam pole
 <li>Lisa kaardile joonmõõtkava. <em>Add item → Add Scalebar</em> ning kliki kaardile. Avanenud aknas lihtsalt <em>OK</em>. Paremal <em>Item properties → Segments</em> saad muuta muuta mõõtkava pikkust. Vali <em>left 0</em> ja lisa paremale poole nii palju, kui soovid. <em>Fixed width</em> muudab mõõtkava ühe ühiku pikkust. <em>Style</em> rippmenüüst saad valida endale meelepärase stiili.</li>
 <li>Lisa kaardile põhjasuunda tähistav nool. <em>Add item → Add North Arrow</em> ning kliki kaardile. Paiguta noole kast kaardi ühte ülemisse nurka. Paremal <em>Item properties</em> all kliki <em>Search directories</em> ning vali soovi korral mõni muu nool.</li>
 <li>Lisa kaardile enda nimi ja viide Maa-ametile. <em>Add Item → Add Label</em> ning kliki kaardile. Avanenud aknas OK. Paiguta tekkinud kast kaardi ühte nurka. Paremal <em>Item properties</em> all kirjuta enda nimi ning vajadusel viide Maa-ameti andmetele. Nt Aluskaart: Maa-amet 2020.</li>
-<li>Ekspordi kaart kursuse kausta. Üleval servas vasakul <em>Layout → Export as Image</em>. Anna sellele mõistlik nimi. Avanenud aknas Save.</li>
+<li>Ekspordi kaart kursuse kausta. Üleval servas vasakul <em>Layout → Export as Image</em>. Anna sellele mõistlik nimi. Avanenud aknas vajuta <em>Save</em>.</li>
 <li>Ava kaart kaustas ning vaata, kas kõik jäi õigesti.</li>
 </ul>
 </div>
@@ -301,6 +310,7 @@ Figure 7.3: Vorbuse piirkonna talud ja teed, mida tänapäeval enam pole
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -328,7 +338,7 @@ gitbook.start({
 },
 "download": [["book.pdf", "PDF"], ["book.epub", "EPUB"]],
 "search": {
-"engine": "fuse",
+"engine": "lunr",
 "options": null
 },
 "toc": {
