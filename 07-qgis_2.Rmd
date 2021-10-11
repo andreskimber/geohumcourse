@@ -15,6 +15,7 @@ Vorbuse uurimisala kasutame harjutuse käigus ja praegu võib selle välja lüli
 
 Kihi valimise abil saame luua valikust uue kihi või muuta valiku atribuutandmeid. Hetkel vaatame käsitsi valimise variante. Kaardil objektide valimiseks kliki kihtide paneelis kihil, millest soovid valida. Objekte saab valida kaardil kuju joonistades või määrates väärtused, mille põhjal valik teha. Proovime mõlemat! Valitud objektid muutuvad kollaseks. 
 
+
 ```{r selectiontools, echo=F, fig.show='hold', fig.align='center', out.width= "30%", fig.cap="Valimise tööriistad menüüribal"}
 knitr::include_graphics(here::here("imgs", "selection_tools.png"))
 ```
