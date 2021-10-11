@@ -120,8 +120,8 @@ Ava Exceli vms programmiga fail *kirikud_maakonniti.csv*. Nagu näha on tegu vä
     - *OK*
     - Vaata uuesti maakondade kihi atribuuttabelit (kiirklahv F6), et näha, kas igale maakonnale said lisatud kirikute arvud.
     
-```{r tablejoin, echo=F, fig.show='hold', fig.align = 'center', out.width= "75%", fig.cap="Kirikute tabel ühendatud maakondade kihiga"}
-knitr::include_graphics(here::here("imgs", "table_join.png"))
+```{r tablejoin, echo=F, fig.show='hold', fig.align = 'center', out.width= "70%", fig.cap="Kirikute tabel ühendatud maakondade kihiga"}
+knitr::include_graphics(here::here("imgs", "table_join.PNG"))
 ```
 
 **Värvi maakonnad vastavalt kirikute arvule**

@@ -19,7 +19,7 @@ Kihi valimise abil saame luua valikust uue kihi või muuta valiku atribuutandmei
 knitr::include_graphics(here::here("imgs", "selection_tools.png"))
 ```
 
-Vali kaardil kõik Saaremaa kihelkonnad valides menüüribal *Select Features by Area or Single Click* tööriista ja joonista tõmba hiire vasakpoolset klahvi all hoides Saaremaa ümber kast. Seejärel salvesta valitud kihelkonnad eraldi kihina, tehes *paremklikk → Export → Save **Selected Features As**.  
+Vali kaardil kõik Saaremaa kihelkonnad valides menüüribal *Select Features by Area or Single Click* tööriista ja joonista tõmba hiire vasakpoolset klahvi all hoides Saaremaa ümber kast. Seejärel salvesta valitud kihelkonnad eraldi kihina, tehes *paremklikk → Export → Save Selected Features As*.   
 Formaadiks vali *geopackage* ja sirvimise ikoonile klikkides vali kursuse kaustas andmete kaust.  
 Anna kihile mõistlik nimi. Näiteks *kihelkonnad_saaremaa* või *saaremaa_kihelkonnad*.  
 Ava see kiht QGISis ja vaata, kas on olemas ikka ainult Saaremaa kihelkonnad.  
