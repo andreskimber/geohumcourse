@@ -17,6 +17,16 @@ Lõputöö võib olla näiteks
 
 Mis tahes lähenemise puhul peaks esmane olema siiski uurimisküsimus: mida tahetakse valitud analüüsi- ja esitusviisiga öelda?
 
+Mõned näited eelmise aasta teemadest:  
+
+- Eesti keele riigieksami tulemuste visualiseerimine  
+- Tartu baaridega seotud kogemuslugude esitamine veebikaardil: [https://tartuooelu.glitch.me/](https://tartuooelu.glitch.me/)  
+- *Story map* sõna "lumi" väljendamise kohta erinevates Euroopa keeltes vastavalt keelkonnale  
+- UFOde kohta tulnud teadete kaardistamine *Story map*'il  
+- Praeguse sadamaala ajalooliste kaartide georefereerimine ja analüüs   
+- Ühe kihelkonna kaardi kujundamine ja halduspiiride võrdlus    
+- 20. ja 21. sajandi suuremate sõjaliste konfliktide ja nendes hukkunute arvu visualiseerimine  
+
 Kui teil on mingi idee, aga pole kindel, kas see sobiks, või on mingid andmed, aga pole täpselt ettekujutust, mida nendega teha, siis küsige/kirjutage ja arutame läbi. 
 Hea meelega aitame andmestike leidmise/kogumisega, vähema heameelega uurimisküsimuste väljamõtlemisega.  
 
@@ -40,7 +50,7 @@ Raport ise peab sisaldama
 Raporti pikkus (koos kaartide ja joonistega) võiks olla **umbes 5 lehekülge**. Pikemate raportite eest muidugi karistada ei saa, väga palju lühemate puhul aga ei saa kohustuslikud punktid tõenäoliselt piisava põhjalikkusega kaetud. Palju oleneb mõistagi ka valitud fondist, reavahedest ja muust vormistusest. Vägisi ei ole mõtet raportit 5-leheküljeliseks venitada.
 
 
-**Suulise ettekande** võib pidada klassiruumis või veebi teel (Big Blue Buttonis). Selleks tarbeks võib teha eraldi slaidid, aga võib näidata ka vormistatud lõputööd. Oluline on, et kuulajad saaksid aru, milline on töö sisend ja milline väljund, mis oli töö eesmärk ja millised on tulemused ja järeldused.
+**Suuline ettekanne** peetakse klassiruumis. Vajadusel korraldatakse seminar veebi teel (Big Blue Buttonis). Ettekande tarbeks võib teha eraldi slaidid, aga võib näidata ka vormistatud lõputööd. Oluline on, et kuulajad saaksid aru, milline on töö sisend ja milline väljund, mis oli töö eesmärk ja millised on tulemused ja järeldused.
 
 
-Oma lõputöö laadi Moodle'isse kokkupakitud failina (.zip) üles **hiljemalt 12. detsembriks**.
+Oma lõputöö laadi Moodle'isse kokkupakitud failina (.zip) üles **hiljemalt 11. detsembriks**.

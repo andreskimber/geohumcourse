@@ -349,3 +349,4 @@ kaardid
 storymapjs
 arcgis-storymaps
 fig:measuring
+fig:Flickr

@@ -9,13 +9,13 @@ Eesti avaliku sektori avaandmed on tehtud kättesaadavaks [Eesti Avaandmete Port
 <!-- Andmed saadud maksumaksja rahaga, faktid ei saa olla autoriõigustega kaitstud -->
 
 
-Avaandmetele lähedane mõiste, mis on eeskätt kasutuses teadusandmete kontekstis, on ***FAIR*-andmed** ehk andmed, mis on leitavad, kättesaadavad, ristkasutatavad ja taaskasutatavad. FAIR-andmed ei ole tingimata kättesaadavad *kõikidele* ja *mis tahes tingimustel*, ent samal ajal on sellised andmed oluliselt põhjalikumad, paremini dokumenteeritud ning hõlpsamini taaskasutatavad.   
+Avaandmetele lähedane mõiste, mis on eeskätt kasutuses teadusandmete kontekstis, on ***FAIR*-andmed** ehk andmed, mis on leitavad (*findable*), kättesaadavad (*accessible*), ristkasutatavad (*interoperable*) ja taaskasutatavad (*reusable*). FAIR-andmed ei ole tingimata kättesaadavad *kõikidele* ja *mis tahes tingimustel*, ent samal ajal on sellised andmed oluliselt põhjalikumad, paremini dokumenteeritud ning hõlpsamini taaskasutatavad.   
 
-```{r fairdataprinciples, echo = F, fig.align="center", out.width = "100%", fig.cap = "FAIR põhimõtted"}
+```{r fairdataprinciples, echo = F, fig.align="center", out.width = "70%", fig.cap = "FAIR põhimõtted"}
 knitr::include_graphics(here::here("imgs", "FAIR_data_principles.jpg"))
 ```
 
-- Andmete **leitavusele** aitab näiteks kaasa see, kui andmed on masinloetaval kujul, nad on kirjeldatud metainfo kaudu, need on varustatud märksõnadega ja neil on püsiidentifikaator DOI.    
+- Andmete **leitavusele** aitab näiteks kaasa see, kui andmed on masinloetaval kujul, nad on kirjeldatud metainfo kaudu, varustatud märksõnadega ja neil on püsiidentifikaator DOI (*Digital Object Identifier*).    
 - Kui andmeid (või osa nendest) hoitakse mingis avalikus repositooriumis ehk elektroonilises andmehoidlas, kust neid on võimalik alla laadida, on need hästi **kättesaadavad**.   
 - Kui andmete vorming vastab mingitele kokkulepitud standarditele või andmeid hoitakse lihtsalt laialt kasutusel olevas, platvormist sõltumatus vormingus (nt CSV, XML), on need ka hõlpsasti **ristkasutatavad**.   
 - Kui andmete kogumise ja töötlemise protsess on põhjalikult dokumenteeritud ning andmed on varustatud litsentsiga, on need ka **taaskasutatavad**.   
@@ -75,39 +75,45 @@ Tüüpilised avaandmete litsentsid on:
 </table>
 
 
+#### Ülesanne
+
+Vaata TÜ DataDOI repositooriumis mõnd jagatud andmestikku/andmekogu ning mõtle, kas ja kui hästi on selle puhul täidetud *FAIR*-põhimõtted.  
+
 
 ## Eesti ruumiandmed
 
 ### Maa-ameti Geoportaal
 
-Eesti ruumiandmete peamine haldaja ja levitaja on Maa-amet. Alates 2018. a suvest on sisuliselt kõik Maa-ameti andmed avalikult ning ka koheselt allalaetavad lehelt [geoportaal.maaamet.ee](https://geoportaal.maaamet.ee/). Nende kasutamist käsitleb [Maa-ameti avatud ruumiandmete litsents](https://geoportaal.maaamet.ee/docs/Avaandmed/ETAK_ruumiandmete_litsentsileping.pdf).
+Eesti ruumiandmete peamine haldaja ja levitaja on Maa-amet. Alates 2018. a suvest on sisuliselt kõik Maa-ameti andmed avalikult ning ka allalaetavad lehelt [https://geoportaal.maaamet.ee/](https://geoportaal.maaamet.ee/est/Ruumiandmed-p1.html). Nende kasutamist käsitleb [Maa-ameti avatud ruumiandmete litsents](https://geoportaal.maaamet.ee/docs/Avaandmed/ETAK_ruumiandmete_litsentsileping.pdf).
 
 Peamised punktid: 
 
-- õigus andmeid kasutada tasuta, kasutaja valitud kõlbelisel eesmärgil, kooskõlas seaduste ja heade tavadega
-- andmete publitseerimisel ja edasi levitamisel peab viitama nende päritolule
-- Maa-amet ei vastuta otsese ega kaudse kahju eest, mis võib tekkida tulenevalt andmete kasutamisest
+- Õigus kasutada andmeid tasuta, kasutaja valitud kõlbelisel eesmärgil, kooskõlas seaduste ja heade tavadega.  
+- Andmete publitseerimisel ja levitamisel peab viitama nende päritolule.  
+- Maa-amet ei vastuta otsese ega kaudse kahju eest, mis võib tekkida andmete kasutamisest tulenevalt.    
+
+Maa-ameti kaudu on vabalt kasutatavad ka **[ajalooliste haldusjaotuste](https://geoportaal.maaamet.ee/est/Ruumiandmed/Haldus-ja-asustusjaotus/Ajalooline-haldusjaotus-p827.html)** andmed, sh mõisate, kihelkondade, valdade, rajoonide kohta. Andmete kasutamisel tutvu kindlasti ka viitamistingimustega.   
 
 
-**Ülesanne**  
+#### Ülesanne  
 
-Vaatame faili *tartuaadressid.csv*, mis on alamosa Maa-ameti [jõusolevate aadressiobjektide andmestikust](https://xgis.maaamet.ee/adsavalik/extracts). Kuna algfail on väga suur, siis meie kasutatav fail sisaldab ainult Tartumaa elukondlike hoonete ja eluruumide aadresse, millel on olemas ka koordinaadid. Faili saamiseks saab näiteks kasutada järgmist R-i skripti:  
+Vaatame faili *tartuaadressid.csv* (Moodle'is), mis on alamosa Maa-ameti [jõusolevate aadressiobjektide andmestikust](https://xgis.maaamet.ee/adsavalik/extracts). Kuna algfail on väga suur (2 402 708 kirjet), siis meie kasutatav fail sisaldab ainult Tartumaa elukondlike hoonete ja eluruumide aadresse, millel on olemas ka koordinaadid. Faili saamiseks saab näiteks kasutada järgmist R-i skripti:  
 
 ```{r, eval = F}
 # Laadi vajalik pakett
 library(dplyr)
 
 # Maa-ameti jõusolevate aadressiobjektide faili aadress
-url <- "https://xgis.maaamet.ee/adsavalik/valjav6te/1_7052020_04345.zip"
+url <- "https://xgis.maaamet.ee/adsavalik/valjav6te/1_10102021_03950.zip"
 
-# Laadi andmed alla faili aadressid.zip
+# Laadi andmed faili aadressid.zip
 download.file(url = url, destfile = "aadressid.zip")
 
 # Paki alla laaditud fail töökaustas lahti
 unzip("aadressid.zip")
 
 # Loe lahti pakitud fail sisse
-dat <- read.delim("1_7052020_04345_1.csv", header = T, sep = ";")
+dat <- read.csv2("1_10102021_03950_1.csv", fileEncoding = "CP1257")
 
 # Jäta alles ainult Tartu maakonna eluruumide (ER) ja elukondlike hoonete (EE) aadressid, millel on X- ja Y-koordinaadid
 dat %>% 
@@ -117,10 +123,10 @@ dat %>%
     arrange(desc(TAISAADRESS)) -> tartudat
 
 # Kirjuta Tartu maakonna andmed UTF-8 kodeeringus csv-faili (väljad eraldatud tabulaatoriga)
-write.table(tartudat, "tartuaadressid.csv", quote = F, sep = "\t", fileEncoding = "UTF-8", row.names = F)
+write.table(tartudat, "tartuaadressid.csv", sep = "\t", fileEncoding = "UTF-8", row.names = F)
 
 # Eemalda alla laaditud ja lahti pakitud failid töökaustast
-file.remove(c("aadressid.zip", "1_7052020_04345_1.csv"))
+file.remove(c("aadressid.zip", "1_10102021_03950_1.csv"))
 ```
 
 Laadime andmestiku QGISi ning vaatame, kas meil õnnestub aadressipunkti suurust ja läbipaistvust muutes tuvastada näiteks suurte kortermajadega piirkonnad Tartu linnas ja Tartumaal.  
@@ -131,7 +137,7 @@ Laadime andmestiku QGISi ning vaatame, kas meil õnnestub aadressipunkti suurust
 - Määra aadressiobjektide punktide suuruseks 1, eemalda neilt välimine ringjoon ning määra nende väljapaistvusprotsendiks 5%: paremklikk aadressiobjektide kihil -> *Properties* -> *Symbology* -> *Simple marker* -> *Size* (= 1) ja *Stroke style* (= No Pen); *Marker* -> *Opacity* (= 5%). Suumi kaardilt välja nii, et mõõtkava oleks vähemalt 1:25000. 
 - Jäta alles ainult eluruumide (ehk korterite) info: paremklikk aadressiobjektide kihil -> *Filter* -> *Provide specific filter expression* -> *"ADOB_LIIK" = 'ER'* -> *OK*.   
 
-```{r aadressid, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap = "Suuremad kortermajad Tartus"}
+```{r aadressid, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap = "Suuremad kortermajad Tartus"}
 knitr::include_graphics(here::here("imgs", "aadressiobjektid.PNG"))
 ```
 
@@ -147,7 +153,7 @@ Tee kaardirakenduses pildil näidatud parameetritega teemakaart mingi murde kõn
 knitr::include_graphics(here::here("imgs", "statamet.PNG"))
 ```
 
-```{r statamet2, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap = "Mingi murde kõnelejate kuvamine Statistikaameti teemakaardil (2)"}
+```{r statamet2, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap = "Mingi murde kõnelejate kuvamine Statistikaameti teemakaardil (2)"}
 knitr::include_graphics(here::here("imgs", "statamet2.PNG"))
 ```
 
@@ -157,14 +163,16 @@ Kasutame QGISis kaardipõhjana juba olemasolevat Maa-ameti aluskaarti ning lisam
 
 - Lisa murdekõnelejate kiht: *Layer* -> *Add Layer* -> *Add Vector Layer* -> *Add* -> *Close*.   
 - Värvi lisatud kihis polügoonid selle järgi, kui palju on seal murdekõnelejaid. 
-    + Murdekõnelejate arv on atribuuttabelis tulbas VAARTUS, ent kui teeme kihil paremkliki ning valime *Properties* -> *Fields*, näeme, et VAARTUS on hetkel tuvastatud tekstilise tunnusena (*String*), mitte arvulisena. Kuna selleks, et kuvada murdekõnelejate arvu muutumist järkjärgulisena, vajame arvulist tunnust, teeme uue tunnuse. 
-```{r addnumericfield, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap = "Lisa arvuline tunnus"}
+    + Murdekõnelejate arv on atribuuttabelis tulbas VAARTUS, ent kui teeme kihil paremkliki ning valime *Properties* -> *Fields*, näeme, et VAARTUS on hetkel tuvastatud tekstilise tunnusena (*String*), mitte arvulisena. Selleks aga, et kuvada murdekõnelejate arvu muutumist järkjärgulisena, vajame arvulist tunnust. Üks võimalus on teha lihtsalt uus tunnus.  
+    
+```{r addnumericfield, echo=F, fig.show='hold', fig.align='center', out.width= "50%", fig.cap = "Lisa arvuline tunnus"}
 knitr::include_graphics(here::here("imgs", "addnumericfield.gif"))
 ```    
+    + Teine võimalus muuta atribuudi andmetüüpi on tööriista abil: *Processing* -> *Toolbox* -> *Refactor fields*. Tekib uus (virtuaalne) kiht nimega *Refactored*, millega saab edasi töötada, aga mis ei ole kuhugi salvestatud.      
     + Nüüd värvi polügoonid äsja loodud tunnuse põhjal: paremklikk kihil -> *Properties* -> *Symbology* -> *Graduated* -> *Value* (= VAARTUS2) -> *Color ramp* -> *All Color Ramps* -> *OrRd* -> *Classes* (= 4) -> eemalda linnuke *Link class boundaries* eest -> muuda *Values* väärtusi nii, et need vastaksid statistikaameti kaardile -> *Classify* -> *OK*.  
-    + Muudame veel kihi läbipaistvust ning polügoonide piirjoonte värvi ja paksust, et saada Statistikaametiga sarnane kaart.     
+    + Muudame veel polügoonide piirjoonte värvi ja paksust, et saada Statistikaametiga sarnane kaart.     
 
-```{r statamet3, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap = "Mingi murde kõnelejate kuvamine QGISis"}
+```{r statamet3, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap = "Mingi murde kõnelejate kuvamine QGISis"}
 knitr::include_graphics(here::here("imgs", "statamet3.PNG"))
 ```
 
@@ -175,11 +183,11 @@ knitr::include_graphics(here::here("imgs", "statamet3.PNG"))
 Eesti digiteeritud kaartide kollektsioon on Rahvusarhiivi kaartide infosüsteem [ra.ee/kaardid](http://www.ra.ee/kaardid/), mis sisaldab Rahvusarhiivis ja Tallinna Linnaarhiivis hoitavate kaartide kirjeldusi ja digikujutisi. Infosüsteem võimaldab kaarte otsida ka kaardil piirkonda märkides.
 
 
-**Ülesanne** 
+#### Ülesanne 
 
 Otsime kaartide infosüsteemist vanima kaardi, kus on kujutatud meie kodukoht. Soovitatav on otsida maal asuva kodu, vanavanemate kodu, suvila või mõne muu maal asuva huvipakkuva koha kaarti, kuna linnad on väga palju muutunud ning sealt võib olla raske konkreetset kohta leida. Otsingut võib lihtsustada see, kui teate, millise mõisa alla otsitav koht kuulus. Selleks võib vaadata kaardirakenduses [Ajaloolised kaardid](https://xgis.maaamet.ee/xgis2/page/app/ajalooline) ajaloolist haldusjaotust (tehke vasakul paneelis linnuke vastava kihi ette). Mõisa nime saab kaartide infosüsteemis sisestada täpsemas otsingus väljale *Koht hierarhias*. Kuna 19. saj lõpust pärinev üheverstaline kaart on georefereeritult samuti rakendusest näha, siis võib koha lokaliseerimisel sellest abi olla. 
 
-```{r palukyla, echo = F, fig.align="center", out.width = "100%", fig.cap = "Suuremõisa mõisa Paluküla küla kaart aastast 1881. EAA.3724.4.762 leht 1"}
+```{r palukyla, echo = F, fig.align="center", out.width = "70%", fig.cap = "Suuremõisa mõisa Paluküla küla kaart aastast 1881. EAA.3724.4.762 leht 1"}
 knitr::include_graphics(here::here("imgs", "kodukoht_kaardil.jpg"))
 ```
 
@@ -188,11 +196,13 @@ knitr::include_graphics(here::here("imgs", "kodukoht_kaardil.jpg"))
 ### Muu
 
 - Ruumiandmeid leiab [Eesti Avaandmete Portaalist](https://opendata.riik.ee), sh Maa-ameti ja Statistikaameti andmeid, aga ka näiteks kohalike omavalitsuste, registrite, ametite jt avaliku sektori institutsioonide andmeid.   
-- [Eesti ajaloolised administratiivpiirid 20. sajandil](https://archive.org/details/HistoricalAdministrativeBordersOfEstonia)  
+- [Tallinna ruumiandmed](https://www.tallinn.ee/est/geoportaal/Andmed) - Tallinna linna aluskaart, hooned, asumipiirid jpm.  
+- [Eesti ajaloolised administratiivpiirid 20. sajandil](https://archive.org/details/HistoricalAdministrativeBordersOfEstonia) - piirid erinevad veidi Maa-ameti andmete omast.   
 - Digiteeritud kaarte leiab ka [Digarist](https://www.digar.ee/arhiiv/et/pildimaterjal?id=162)  
-- Nii Eesti kui ka välisriikide praeguseid ja endiseid kujusid leiab nii Eesti Keele Instituudi [Kohanimeraamatust](https://www.eki.ee/dict/knr/) kui ka [Kohanimeandmebaasist](https://www.eki.ee/knab/knab.htm). Mõlema puhul on võimalik näiteks teadustöö eesmärgil saada enda kasutusse ka lähteandmeid (või osa nendest). Ametlikku [kohanimeregistrit](https://www.maaamet.ee/et/eesmargid-tegevused/kohanimeregister), mis esitab kohanimede ametliku, standardse nimekuju, haldab Maa-amet. 
-- Arheoloogilise ja pärimusliku kohainfo andmebaas: ei ole avatud juurdepääsuga. Riina Juuriku (riina.juurik@ut.ee) poole pöördudes saab juurdepääsu aga küsida.   
-- [TARA (Tartu Ülikooli arheoloogia infosüsteem)](https://tara.ut.ee/): leidude, luude, proovide, arhiivi, fotode jms kogud
+- Nii Eesti kui ka välisriikide praeguseid ja endiseid nimekujusid leiab nii Eesti Keele Instituudi [Kohanimeraamatust](https://www.eki.ee/dict/knr/) kui ka [Kohanimeandmebaasist](https://www.eki.ee/knab/knab.htm). Mõlema puhul on võimalik näiteks teadustöö eesmärgil saada enda kasutusse ka lähteandmeid (või osa nendest). Ametlikku [kohanimeregistrit](https://www.maaamet.ee/et/eesmargid-tegevused/kohanimeregister), mis esitab kohanimede ametliku, standardse nimekuju, haldab Maa-amet. 
+- Arheoloogilise ja pärimusliku kohainfo andmebaas: ei ole avatud juurdepääsuga. Riina Juuriku poole pöördudes saab juurdepääsu aga küsida.   
+- [TARA (Tartu Ülikooli arheoloogia infosüsteem)](https://tara.ut.ee/): leidude, luude, proovide, arhiivi, fotode jms kogud  
+- Andrus Saareste "[Eesti murdeatlase](https://github.com/MPilvik/RuRaKe/tree/master/Saareste-murdeatlas)" (1938/1941) ja "[Väikese eesti murdeatlase](https://github.com/MPilvik/RuRaKe/tree/master/Saareste-vaike-murdeatlas)" (1955) andmed.
 
 
 ## Muude riikide ruumiandmed
@@ -210,7 +220,19 @@ Juurdepääsupiiranguta ruumiandmeid leiab internetist otsides hulganisti. Täps
 - [ADS (Archaeology Data Sercive)](https://archaeologydataservice.ac.uk/): juhtiv repositoorium arheoloogia ja laiemalt kogu pärandi andmete pikaajaliseks säilitamiseks ja jagamiseks   
 - [tDAR (The Digital Archaeology Record)](https://www.tdar.org/): rahvusvaheline arheoloogiliste uuringute andmete repositoorium   
 - [DANS (Data Archivin and Networked Services)](https://dans.knaw.nl/): Madalmaade digiandmete repositoorium   
-- [Pleiades](https://pleiades.stoa.org/home) - *ajalooliste* kohtade, riikide ja nimede ruumiandmed  
+- [Pleiades](https://pleiades.stoa.org/home) - *ajalooliste* kohtade, riikide ja nimede ruumiandmed   
+- [Geographical database of the Uralic Languages](https://zenodo.org/record/4784188) - Uurali keelte (sh murrete) polügoonid ja punktandmed   
+
+
+Geoinfoga varustatud andmeid leiab ka mitmesugustelt üldistelt lehekülgedelt ja platvormidelt, nt [Twitterist](https://twitter.com/) või [Flickrist](https://www.flickr.com/), mis võimaldavad andmeid koguda oma API (*Application Programming Interface*) abil.  
+
+```{r Flickr, echo = F, fig.align="center", out.width = "70%", fig.cap = "Näide Flickrist kogutud andmete visualiseerimisest ([Postimees, 25. september 2021](https://arvamus.postimees.ee/7345222/viguriga-kaardid-kus-pildistatakse-enim?fbclid=IwAR2N2c1YQcE1EOzY7u_UC5wNClvhl0JZEpmBbpA2NY9UrKobrNwsW8D0zBY))"}
+knitr::include_graphics(here::here("imgs", "8_flickr.jpg"))
+```
+
+#### Ülesanne
+
+Püüa mõnest ülal nimetatud allikast (või mitmest) ruumiandmeid QGISi importida ning võimalusel kujundada.    
 
 
 ## Järgmisel korral
