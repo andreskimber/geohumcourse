@@ -350,3 +350,4 @@ storymapjs
 arcgis-storymaps
 fig:measuring
 fig:Flickr
+ülesanne-5

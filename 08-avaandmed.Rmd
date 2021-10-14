@@ -20,9 +20,9 @@ knitr::include_graphics(here::here("imgs", "FAIR_data_principles.jpg"))
 - Kui andmete vorming vastab mingitele kokkulepitud standarditele või andmeid hoitakse lihtsalt laialt kasutusel olevas, platvormist sõltumatus vormingus (nt CSV, XML), on need ka hõlpsasti **ristkasutatavad**.   
 - Kui andmete kogumise ja töötlemise protsess on põhjalikult dokumenteeritud ning andmed on varustatud litsentsiga, on need ka **taaskasutatavad**.   
 
-Suuremad rahvusvahelised teadusandmete repositooriumid on näiteks [Zenodo](https://zenodo.org/), [Harvard Dataverse](https://dataverse.harvard.edu/) (vaata ja [teisi *Dataverse*-projekte](https://dataverse.org/)) ja [Figshare](https://figshare.com/). Repositooriume võib omakorda otsida erinevatest registritest, nagu [Re3data.org](https://www.re3data.org/) või [OpenAIRE]( https://explore.openaire.eu/search/advanced/datasets).  
+Suuremad rahvusvahelised teadusandmete repositooriumid on näiteks [Zenodo](https://zenodo.org/), [Harvard Dataverse](https://dataverse.harvard.edu/) (vaata ka [teisi Dataverse'i projekte](https://dataverse.org/)), [OSF](https://osf.io) ja [Figshare](https://figshare.com/). Repositooriume võib omakorda otsida erinevatest registritest, nagu [Re3data.org](https://www.re3data.org/) või [OpenAIRE]( https://explore.openaire.eu/search/advanced/datasets).  
 
-Tartu Ülikool pakub TÜ Raamatukogu kaudu võimalust säilitada oma teadusandmeid [DataDOI](https://datadoi.ee/) repositooriumis. Seal saavad andmed endale digitaalobjekti identifikaatori ehk DOI ning need registreeritakse koos metaandmetega rahvusvahelises DataCite registris. [DataCite Eesti](http://datacite.ee/datacite.php) koondab ka teisi Eesti teadusega seotud repositooriume, nt [Sarv](http://geokogud.info/). Raamatukogul on ka ülevaade enimlevinud [Open Access andmebaasidest](https://utlib.ut.ee/avatud-juurdepaas) ja [teaduse avaandmete repositooriumidest](https://utlib.ut.ee/teaduse-avaandmed-open-data).
+Tartu Ülikool pakub TÜ Raamatukogu kaudu võimalust säilitada oma teadusandmeid [DataDOI](https://datadoi.ee/) repositooriumis. Seal saavad andmed endale digitaalobjekti identifikaatori ehk DOI ning need registreeritakse koos metaandmetega rahvusvahelises DataCite registris. [DataCite Eesti](https://datacite.ee/en/datacite-eesti-english/) koondab ka teisi Eesti teadusega seotud repositooriume, nt [Sarv](http://geokogud.info/). Raamatukogul on ka ülevaade enimlevinud [avatud juurdepääsuga andmebaasidest](https://utlib.ut.ee/avatud-juurdepaas) ja [teaduse avaandmete repositooriumidest ja registritest](https://utlib.ut.ee/teaduse-avaandmed-open-data).
 
 Vaata lähemalt ka [https://sisu.ut.ee/teadusandmed/](https://sisu.ut.ee/teadusandmed/).
 
@@ -31,43 +31,43 @@ Tüüpilised avaandmete litsentsid on:
 
 <table>
     <tr>
-        <th>Litsents</th>
-        <th>Valdkond</th>
-        <th>Tuleb viidata</th>
-        <th>Tohib levitada ainult sarnase litsentsiga</th>
+        <th style="text-align:left">Litsents</th>
+        <th style="text-align:left">Valdkond</th>
+        <th style="text-align:left">Tuleb viidata</th>
+        <th style="text-align:left">Tohib levitada ainult sarnase litsentsiga</th>
     </tr>
     <tr>
-        <td>[**CC-1.0**](https://creativecommons.org/publicdomain/zero/1.0/)</td>
+        <td>[**CC0**](https://creativecommons.org/publicdomain/zero/1.0/)</td>
         <td>Sisu, andmed</td>
         <td>Ei</td>
         <td>Ei</td>
     </tr>
     <tr>
-        <td>[**PDDL-1.0**](https://opendatacommons.org/licenses/pddl/summary/)</td>
+        <td>[**PDDL**](https://opendatacommons.org/licenses/pddl/summary/)</td>
         <td>Andmed</td>
         <td>Ei</td>
         <td>Ei</td>
     </tr>
     <tr>
-        <td>[**CC-BY-4.0**](https://creativecommons.org/licenses/by/4.0/)</td>
+        <td>[**CC-BY**](https://creativecommons.org/licenses/by/4.0/)</td>
         <td>Sisu, andmed</td>
         <td>Jah</td>
         <td>Ei</td>
     </tr>
     <tr>
-        <td>[**ODC-By-1.0**](https://opendatacommons.org/licenses/by/summary/)</td>
+        <td>[**ODC-BY**](https://opendatacommons.org/licenses/by/summary/)</td>
         <td>Andmed</td>
         <td>Jah</td>
         <td>Ei</td>
     </tr>
     <tr>
-        <td>[**CC-BY-SA-4.0**](https://creativecommons.org/licenses/by-sa/4.0/)</td>
+        <td>[**CC-BY-SA**](https://creativecommons.org/licenses/by-sa/4.0/)</td>
         <td>Sisu, andmed</td>
         <td>Jah</td>
         <td>Jah</td>
     </tr>
     <tr>
-        <td>[**ODbL-1.0**](https://opendatacommons.org/licenses/odbl/summary/)</td>
+        <td>[**ODbL**](https://opendatacommons.org/licenses/odbl/summary/)</td>
         <td>Andmed</td>
         <td>Jah</td>
         <td>Jah</td>
@@ -77,7 +77,7 @@ Tüüpilised avaandmete litsentsid on:
 
 #### Ülesanne
 
-Vaata TÜ DataDOI repositooriumis mõnd jagatud andmestikku/andmekogu ning mõtle, kas ja kui hästi on selle puhul täidetud *FAIR*-põhimõtted.  
+Vaata TÜ [DataDOI](https://datadoi.ee/) repositooriumis mõnd jagatud andmestikku/andmekogu ning mõtle, kas ja kui hästi on selle puhul täidetud *FAIR*-põhimõtted.  
 
 
 ## Eesti ruumiandmed
@@ -149,11 +149,11 @@ knitr::include_graphics(here::here("imgs", "aadressiobjektid.PNG"))
 Tee kaardirakenduses pildil näidatud parameetritega teemakaart mingi murde kõnelejate hulgast Eesti asustusüksustes. Jäta läbipaistvusele, väärtusvahemikele ja värviskaalale nende vaikeväärtused.  
 
 
-```{r statamet, echo=F, fig.show='hold', fig.align='center', out.width= "50%", fig.cap = "Mingi murde kõnelejate kuvamine Statistikaameti teemakaardil (1)"}
+```{r statamet, echo=F, fig.show='hold', fig.align='center', out.width= "30%", fig.cap = "Mingi murde kõnelejate kuvamine Statistikaameti teemakaardil (1)"}
 knitr::include_graphics(here::here("imgs", "statamet.PNG"))
 ```
 
-```{r statamet2, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap = "Mingi murde kõnelejate kuvamine Statistikaameti teemakaardil (2)"}
+```{r statamet2, echo=F, fig.show='hold', fig.align='center', out.width= "80%", fig.cap = "Mingi murde kõnelejate kuvamine Statistikaameti teemakaardil (2)"}
 knitr::include_graphics(here::here("imgs", "statamet2.PNG"))
 ```
 
@@ -168,9 +168,11 @@ Kasutame QGISis kaardipõhjana juba olemasolevat Maa-ameti aluskaarti ning lisam
 ```{r addnumericfield, echo=F, fig.show='hold', fig.align='center', out.width= "50%", fig.cap = "Lisa arvuline tunnus"}
 knitr::include_graphics(here::here("imgs", "addnumericfield.gif"))
 ```    
-    + Teine võimalus muuta atribuudi andmetüüpi on tööriista abil: *Processing* -> *Toolbox* -> *Refactor fields*. Tekib uus (virtuaalne) kiht nimega *Refactored*, millega saab edasi töötada, aga mis ei ole kuhugi salvestatud.      
-    + Nüüd värvi polügoonid äsja loodud tunnuse põhjal: paremklikk kihil -> *Properties* -> *Symbology* -> *Graduated* -> *Value* (= VAARTUS2) -> *Color ramp* -> *All Color Ramps* -> *OrRd* -> *Classes* (= 4) -> eemalda linnuke *Link class boundaries* eest -> muuda *Values* väärtusi nii, et need vastaksid statistikaameti kaardile -> *Classify* -> *OK*.  
-    + Muudame veel polügoonide piirjoonte värvi ja paksust, et saada Statistikaametiga sarnane kaart.     
+  
+    
++ Teine võimalus muuta atribuudi andmetüüpi on tööriista abil: *Processing* -> *Toolbox* -> *Refactor fields*. Tekib uus (virtuaalne) kiht nimega *Refactored*, millega saab edasi töötada, aga mis ei ole kuhugi salvestatud.      
++ Nüüd värvi polügoonid äsja loodud tunnuse põhjal: paremklikk kihil -> *Properties* -> *Symbology* -> *Graduated* -> *Value* (= arvulise väärtuse tulp) -> *Color ramp* -> *All Color Ramps* -> *OrRd* -> *Classes* (= 4) -> eemalda linnuke *Link class boundaries* eest -> muuda *Values* väärtusi nii, et need vastaksid statistikaameti kaardile -> *Classify* -> *OK*.  
++ Muudame veel kihi läbipaistvust ning polügoonide piirjoonte värvi ja paksust, et saada Statistikaametiga sarnane kaart.     
 
 ```{r statamet3, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap = "Mingi murde kõnelejate kuvamine QGISis"}
 knitr::include_graphics(here::here("imgs", "statamet3.PNG"))
@@ -199,10 +201,10 @@ knitr::include_graphics(here::here("imgs", "kodukoht_kaardil.jpg"))
 - [Tallinna ruumiandmed](https://www.tallinn.ee/est/geoportaal/Andmed) - Tallinna linna aluskaart, hooned, asumipiirid jpm.  
 - [Eesti ajaloolised administratiivpiirid 20. sajandil](https://archive.org/details/HistoricalAdministrativeBordersOfEstonia) - piirid erinevad veidi Maa-ameti andmete omast.   
 - Digiteeritud kaarte leiab ka [Digarist](https://www.digar.ee/arhiiv/et/pildimaterjal?id=162)  
-- Nii Eesti kui ka välisriikide praeguseid ja endiseid nimekujusid leiab nii Eesti Keele Instituudi [Kohanimeraamatust](https://www.eki.ee/dict/knr/) kui ka [Kohanimeandmebaasist](https://www.eki.ee/knab/knab.htm). Mõlema puhul on võimalik näiteks teadustöö eesmärgil saada enda kasutusse ka lähteandmeid (või osa nendest). Ametlikku [kohanimeregistrit](https://www.maaamet.ee/et/eesmargid-tegevused/kohanimeregister), mis esitab kohanimede ametliku, standardse nimekuju, haldab Maa-amet. 
+- Nii Eesti kui ka välisriikide praeguseid ja endiseid nimekujusid leiab nii Eesti Keele Instituudi [Kohanimeraamatust](https://www.eki.ee/dict/knr/) kui ka [Kohanimeandmebaasist](https://www.eki.ee/knab/knab.htm). Mõlema puhul on võimalik näiteks teadustöö eesmärgil saada enda kasutusse ka lähteandmeid (või osa nendest). Ametlikku [kohanimeregistrit](https://maaamet.ee/ruumiandmed-ja-kaardid/aadressid-ja-kohanimed/kohanimeregister), mis esitab kohanimede ametliku, standardse nimekuju, haldab Maa-amet. 
 - Arheoloogilise ja pärimusliku kohainfo andmebaas: ei ole avatud juurdepääsuga. Riina Juuriku poole pöördudes saab juurdepääsu aga küsida.   
 - [TARA (Tartu Ülikooli arheoloogia infosüsteem)](https://tara.ut.ee/): leidude, luude, proovide, arhiivi, fotode jms kogud  
-- Andrus Saareste "[Eesti murdeatlase](https://github.com/MPilvik/RuRaKe/tree/master/Saareste-murdeatlas)" (1938/1941) ja "[Väikese eesti murdeatlase](https://github.com/MPilvik/RuRaKe/tree/master/Saareste-vaike-murdeatlas)" (1955) andmed.
+- Andrus Saareste "[Eesti murdeatlase](https://github.com/MPilvik/RuRaKe/tree/master/Saareste-murdeatlas)" (1938/1941) ja "[Väikese eesti murdeatlase](https://github.com/MPilvik/RuRaKe/tree/master/Saareste-vaike-murdeatlas)" (1955) andmed, käsikirjalisi murdekaarte saab vaadata [siin](http://rurake.keeleressursid.ee/index.php/andrus-saarestes-unpublished-dialect-maps/).
 
 
 ## Muude riikide ruumiandmed
@@ -210,7 +212,7 @@ knitr::include_graphics(here::here("imgs", "kodukoht_kaardil.jpg"))
 Juurdepääsupiiranguta ruumiandmeid leiab internetist otsides hulganisti. Täpsed ruumiandmed on leitavad sageli huvipakkuva riigi enda avaandmete portaalidest. Siin on vaid toodud mõned üksikud näited üldisematest andmebaasidest ja repositooriumidest:  
 
 - [Natural Earth Data](https://www.naturalearthdata.com/): vektorkujul rannajooned, maa, ookeanid, saared, jõed, järved jm. Olemas ka rasterandmeid aluskaartide jaoks.  
-- [EuroGlobalMap](https://eurogeographics.org/maps-for-europe/open-data/)   
+- [Open Maps for Europe](https://www.mapsforeurope.org/)   
 - [DIVA-GIS](http://www.diva-gis.org/Data): nii ülemaailmsed kui ka üksikute riikide ruumiandmed   
 - [Robin Wilsoni põhjalik nimekiri vabalt kasutatavatest ruumiandmetest](http://freegisdata.rtwilson.com/)  
 - [Ajalooliste kaartide kollektsioon](https://www.oldmapsonline.org/)  
@@ -237,4 +239,4 @@ Püüa mõnest ülal nimetatud allikast (või mitmest) ruumiandmeid QGISi import
 
 ## Järgmisel korral
 
-Esmaspäeval vaatame lähemalt, kuidas enda andmeid ruumiandmetega ühendada ning kuidas kasutada geokodeerimist.  
+Esmaspäeval tegeleme georefereerimisega ehk seome skaneeritud kaarte geograafiliste koordinaatidega.
