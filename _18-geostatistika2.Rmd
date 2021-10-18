@@ -66,6 +66,10 @@ knitr::include_graphics(here::here("imgs/18_spline_eiole.PNG"))
 
 Vaatame ka rasterite profiile, et nendest parem ettekujutus saada. *Plugins* -> *Profile tool*.
 
+<!-- ### Idee ülesandeks -->
+
+<!-- Luua kaks raster kihti mingitest andmetest ja lahutada need üksteisest, et uurida mingite (interpoleeritud) nähtuste omavahelist erinevust. Vt twitteris bookmarkitud asja. Nt ajalooliste teede ja raudteede põhjal kohtade juurdepääsetavuse analüüs vms. Või distantsid erinevat tüüpi muististest? -->
+
 <!-- gauss silumine -->
 
 <!-- thinplate spline töötab hästi eiole data radius 30000 ja min punkte 3 -->

@@ -351,3 +351,8 @@ arcgis-storymaps
 fig:measuring
 fig:Flickr
 ülesanne-5
+ülesanne-6
+ülesanne-7
+harjutus-1-1
+harjutus-2-1
+harjutus-3

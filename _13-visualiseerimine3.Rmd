@@ -46,6 +46,8 @@ knitr::include_graphics(here::here("imgs", "label_icons.PNG"))
 
 Siltidele ja diagrammidele võib lisada ka puhvrid, mis toovad need need paremini muude andmete taustal välja. Samamoodi saab neile lisada varjud.
 
+<!-- Idee: diagrammid nt muuseumide külastatavuse kohta vms -->
+
 ## Kaardi tegemine
 
 Kui oled andmete visualiseerimisega valmis saanud, ava kaardi tegemiseks *Print Layout* ja lisa peaaknas olev kaart. Kaart näeb sageli parem välja, kui see ei ulatu päris servani, vaid jäetud väike äär. Selleks, et kaugus servast jääks kõigis külgedes sama, lülita sisse *View* alt *Show grid* ja *Snap to grid*. 
