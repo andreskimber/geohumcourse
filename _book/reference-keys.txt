@@ -356,3 +356,16 @@ fig:Flickr
 harjutus-1-1
 harjutus-2-1
 harjutus-3
+harjutused
+päringud
+harjutus
+harjutused-1
+ülesanne-3-ei-olepole-selged-eelistused
+ülesanne-4-tekstiatribuutide-muutmine
+fig:expressionsex1
+fig:expressionsex2
+fig:expressionsex3
+fig:expressionsex4
+fig:expressionsex5
+fig:expressionsex6
+avaldised-1

@@ -1,0 +1,243 @@
+# Avaldised ja päringud {#avaldised}
+
+Impordime tänaseks praktikumiks esmalt QGISi 
+
+- kihelkondade *shapefile*'i (EKI, Peeter Päll),  
+- *shapefile*'i, mis sisaldab andmeid *ei ole* ja *pole* eituskonstruktsioonide **leviku** kohta eesti murretes Andrus Saareste 1955. aasta ["Väikese Eesti murdeatlase"](https://github.com/MPilvik/RuRaKe/tree/master/Saareste-vaike-murdeatlas) põhjal,  
+- CSV-faili, mis sisaldab andmeid *ei ole* ja *pole* suhtelisest **sagedusest** [Eesti murrete korpuses](www.murre.ut.ee/mkweb). NB! Kodeering on UTF-8, välju eraldab semikoolon, esimesel real on tulbanimed ning koordinaatide infot failis ei ole. 
+
+
+```{r expressions7, echo =F, fig.align='center', fig.show='hold', fig.cap = "Lisatud kihid", out.width="70%"}
+knitr::include_graphics(here::here("imgs", "expressions7.png"))
+```
+
+Kui soovid võrrelda, kuidas EKI kihelkondade kaart klapib Maa-ameti kihelkondade kaardiga, võid taustaks panna veel WMS-i või WFS-i kaudu Maa-ameti ajaloolise haldusjaotuse kaardi: [https://teenus.maaamet.ee/ows/wms-ajalooline-haldus?](https://teenus.maaamet.ee/ows/wms-ajalooline-haldus?).
+
+
+## Avaldised
+
+Avaldised (*expressions*) on tehted ja vormelid, mille abil hõlpsalt muuta atribuutide väärtusi, luua uusi (virtuaalseid) atribuute või kihte, andmetest alamhulki välja filtreerida, teha statistikat jne. Avaldiste abil saab andmeid QGISis mitmekülgsemalt analüüsida ning visualiseerida.  
+
+Avaldisi saab QGISis kasutada mitmes kohas, näiteks 
+
+- objektide valimiseks *Select Features by Expression* tööriista abil,    
+- objektide valimiseks atribuuttabeli alumisest vasakust nurgast *Advanced Filter (Expression)*,  
+- atribuutide muutmiseks ja lisamiseks *Field calculator*'is,  
+- päringute tegemiseks *Query builder*'is,   
+- päringute tegemiseks *Database Manager*'is,  
+- sümbolite, siltide või paigutuse parameetrite muutmisel (*Symbology* -> *Rule-based*),  
+- jne.  
+
+
+```{r expressions1, echo =F, fig.align='center', fig.show='hold', fig.cap = "Avaldised 1) Select Features by Expression, 2) Advanced Filter (Expression), 3) Field Calculator, 4) Query Builder, 5) DB Manager, 6) Rule-based symbology", out.width="45%"}
+knitr::include_graphics(here::here("imgs", c("expressions1.png", "expressions2.png", "expressions3.png", "expressions4.png", "expressions6.png", "expressions5.png")))
+```
+
+
+Avaldisi saab eeldefineeritud funktsioonide abil koostada niisiis mitmeks erinevaks otstarbeks, vaata ülevaadet [siit](https://docs.qgis.org/3.16/en/docs/user_manual/working_with_vector/expression.html). Sealjuures saab sageli üht ja sama asja teha erineval moel.    
+
+Oleme juba kokku puutunud lihtsate avaldistega, kui   
+
+- [filtreerisime aadressiandmete andmestikust välja ainult eluruumid](https://tartugeohum.github.io/avaandmed.html#maa-ameti-geoportaal): `"ADOB_LIIK" = 'ER'`;
+- [tegime tekstina sisse loetud arvude tulbast arvulise tunnuse](https://tartugeohum.github.io/avaandmed.html#statistikaamet): `"VAARTUS"`;
+- [arvutasime digiteeritud polügoonide pindala](https://tartugeohum.github.io/georefereerimine.html#harjutus-3): `round($area / 10000, 2)`.
+
+
+
+Vaatame sel korral ülesannete toel lähemalt operaatoreid (*Operators*), matemaatilisi funktsioone (*Math*), tingimuslauseid (*Conditionals*) ning teksti muutmise võimalusi (*String*). 
+
+
+### Harjutused
+
+
+1. Kasutame valiku tööriista (***Select features by Expression***), et teha aktiivseks kõik need kihelkondade polügoonid, millel on midagi kirjutatud tulpa *Problem* (nt selleks, et hakata parandustega tegelema).   
+    + Kõikide atribuutide/tulpade nimed ja tüübid saab kätte jaotusest ***Fields and Values***. Nupp *All Unique* näitab atribuudi kõiki eri väärtuseid, nupp *10 Samples* sellest kuni kümmet esimest eri väärtust. Topeltklikk atribuudi nimel liigutab atribuudi jutumärkide vahel vasakul asuvasse avaldise kasti.   
+    + Jaotuse ***Operators*** alt leiame terve hulga sümboleid, mille abil teha nt arvutustehteid, võrdlustehteid või tekstitöötlust, sh vajamineva operaatori *IS NOT*.   
+    + Tahame leida niisiis atribuuttabelist neid ridu, kus tulp *Problem* ei ole tühi: **`"Problem" IS NOT NULL`**.   
+
+```{r expressionsex1, echo =F, fig.align='center', fig.show='hold', fig.cap = "Probleemsed kihelkonnad", out.width="70%"}
+knitr::include_graphics(here::here("imgs", "expressionsEx1.png"))
+```
+
+2. Kasutame tööriista ***Field Calculator***, et lisada *ei ole*/*pole* atlase levikuandmetesse virtuaalne (st ajutine) atribuut nimega *saj19*, kus oleks väärtus "jah" ridadel, kus keelejuhi sünniaeg on väiksem kui aasta 1900, "ei", kui keelejuhi sünniaeg on hilisem, ja "ei tea", kui keelejuhi sünniaega pole märgitud.  
+    + Siin läheb vaja tingimuslauseid jaotuses ***Conditionals***. Kasutame siin funktsiooni *if*, mille järel sulgude sees komadega eraldatult tuleb anda esmalt tingimus ("Kas tulbas SaKJSynd olev arv on väiksem kui 1900?"), seejärel väärtus juhul, kui tingimus vastab tõele, ning lõpuks väärtus juhul, kui tingimus ei vasta tõele: **`if("SaKJSynd" < 1900, 'jah', 'ei')`**.   
+    + Meil on aga atribuuttabelis ka sellised read, kus keelejuhi sünniaeg võrdub 0-ga või on *NULL*, sest see pole teada. Meil oleks oluline märkida ära, et nende puhul me tegelikult sünniaega hinnata ei oska: **`if("SaKJSynd" IS 0 OR "SaKJSynd" IS NULL, 'ei tea', if("SaKJSynd" < 1900, 'jah', 'ei'))`**:  
+        + Kui tulbas "SaKJSynd" on väärtus 0 VÕI polegi midagi (*NULL*), 
+        + märgi tulpa "saj19" väärtus *ei tea*,  
+        + vastasel juhul 
+            + kui tulbas "SaKJSynd" on väärtus, mis on väiksem kui 1900, 
+            + märgi tulpa "saj19" väärtus *jah*,
+            + vastasel juhul väärtus *ei*.   
+
+```{r expressionsex2, echo =F, fig.align='center', fig.show='hold', fig.cap = "Uue tulba tekitamine", out.width="70%"}
+knitr::include_graphics(here::here("imgs", "expressionsEx2.png"))
+```
+
+3. Värvime kihelkonnad selle järgi, kui mitu tähte nende nimes on.  
+    + Valime kihelkondade kihi ***Symbology*** alt *Graduated* ja *Value* puhul ühe konkreetse tunnuse nime valiku asemel vajutame lahtri kõrval olevat avaldise sümboliga nuppu.  
+    + Teksti/sõne pikkuse leidmiseks on jaotuse ***String*** all funktsioon *length*: **`length("Name")`**.  
+    + Lisame ka sildid, et kontrollida, kas värvilegend peab paika.  
+    
+```{r expressionsex3, echo =F, fig.align='center', fig.show='hold', fig.cap = "Kihelkonnad vastavalt nende nimede pikkusele", out.width="70%"}
+knitr::include_graphics(here::here("imgs", "expressionsEx3.png"))
+```
+
+4. Toome värvi ja/või sümboliga esile ainult need "ei ole"-"pole" andmestiku punktid, mille asustusüksuse nime lõpus või alguses on *Jõe-/-jõe* või *Järve-/-järve*. Teised punktid värvime halliks ja teeme läbipaistvamaks. Need punktid, millel asulanime atribuuttabelis ei ole, jätame jooniselt välja.       
+    + Asendame esmalt *ő*-sümbolid tulbas "ANIMI" *õ*-tähtedega:  
+        + Selleks saame *Field Calculator*'is uuendada olemasolevat atribuuti "ANIMI" (*Update existing field*) regulaaravaldise abil (*String* -> *regexp_replace*): **`regexp_replace("ANIMI", 'ő', 'õ')`**.  
+    + Valime nüüd punktide kihi ***Symbology*** alt *Categorized* ja *Value* puhul vajutame jälle avaldise sümboliga nuppu.  
+    + Saame kasutada näiteks operaatorit *ILIKE*: **`"ANIMI" ILIKE 'Jõe%' OR "ANIMI" ILIKE '%jõe' OR "ANIMI" ILIKE '%jõe %' OR "ANIMI" ILIKE 'Järve%' OR "ANIMI" ILIKE '%järve' OR "ANIMI" ILIKE '%järve %'`**.  
+    + Lisame sama avaldist kasutades ka sildid ainult kollastele punktidele: **`if("ANIMI" ILIKE 'Jõe%' OR "ANIMI" ILIKE '%jõe' OR "ANIMI" ILIKE '%jõe %' OR "ANIMI" ILIKE 'Järve%' OR "ANIMI" ILIKE '%järve' OR "ANIMI" ILIKE '%järve %', "ANIMI", NULL)`**.  
+    + Võime lisada alla veel Maa-ameti WMS-teenusest värvilise reljeefvarjutuse, et vaadata, kas leitud kohanimed ka päriselt veekogude ääres on.  
+
+```{r expressionsex4, echo =F, fig.align='center', fig.show='hold', fig.cap = "Jõe- ja järvenimelised asulanimed", out.width="70%"}
+knitr::include_graphics(here::here("imgs", "expressionsEx4.png"))
+```
+
+
+
+
+## Päringud
+
+Lisaks eeldefineeritud funktsioonidele saab kasutada ka [SQL-i päringuid](https://www.w3schools.com/sql/), näiteks:  
+
+- [Ridade ja tulpade valimine](https://www.w3schools.com/sql/sql_select.asp)
+    + **SELECT** tulp **FROM** andmestik;
+        + *vali andmestikust ainult üks tulp*  
+    + **SELECT** tulp1, tulp2 **FROM** andmestik;
+        + *vali andmestikust kaks tulpa*  
+    + **SELECT DISTINCT** tulp **FROM** andmestik;  
+        + *vali andmestikust tulba unikaalsed väärtused*  
+    + **SELECT** \* **FROM** andmestik;
+        + *vali andmestikust kõik read ja tulbad*  
+    + **SELECT** \* **FROM** andmestik **WHERE** tulp = 'Mingi väärtus';  
+        + *vali andmestikust kõik tulbad ja read, kus tulbas 'tulp' on väärtus 'Mingi väärtus'*  
+    + **SELECT** tulp1, tulp2 **FROM** andmestik **WHERE** tulp1 > 50 **AND** tulp2 **ILIKE** '%St%';  
+        + *vali andmestikust tulbad 'tulp1' ja 'tulp2' ning ainult sellised read, kus tulp1 väärtused on suuremad kui 50 ja kus tulp2s on lahtris kuskil tähejärjend 'St'*
+- [Muutmine](https://www.w3schools.com/sql/sql_update.asp)  
+    + **UPDATE** andmestik **SET** tulp = 'Mingi uus väärtus' **WHERE** tulp = 'Mingi vana väärtus';
+        + *uuenda andmestikku nii, et sea tulba 'tulp' väärtuseks 'Mingi uus väärtus' nendel ridadel, kus tulba 'tulp' väärtus on praegu 'Mingi vana väärtus'*
+    + **UPDATE** andmestik **SET** tulp = 'Mingi uus väärtus' **WHERE** id = 8;
+        + *uuenda andmestikku nii, et sea tulba 'tulp' väärtuseks 'Mingi uus väärtus' sellel real, kus id väärtus on 8*
+- [Lisamine](https://www.w3schools.com/sql/sql_insert.asp)  
+    + **INSERT INTO** andmestik (tulp1, tulp2, tulp3, tulp4) **VALUES** ('tulp1 väärtus', 'tulp2 väärtus', 'tulp3 väärtus', 'tulp4 väärtus');
+        + *sisesta andmestikku üks rida, kus tulpadesse 'tulp1', 'tulp2', 'tulp3' ja 'tulp4' lähevad vastavalt väärtused 'tulp1 väärtus', 'tulp2 väärtus', 'tulp3 väärtus' ja 'tulp4 väärtus'*  
+- [Kustutamine](https://www.w3schools.com/sql/sql_delete.asp)  
+    + **DELETE FROM** andmestik **WHERE** tulp = 'Mingi väärtus'; 
+        + *kustuta andmestikust read, kus tulbas 'tulp' on väärtus 'Mingi väärtus'*  
+- [Järjestamine](https://www.w3schools.com/sql/sql_orderby.asp)  
+    + **SELECT** tulp1, tulp2, tulp3 **FROM** andmestik **ORDER BY** tulp1;
+        + *vali andmestikust ainult tulbad 'tulp1', 'tulp2' ja 'tulp3' ning järjesta uus andmestik 'tulp1' väärtuste järgi (vaikimisi väiksemast suuremani või A-st Z-ni)*  
+    + **SELECT** tulp1, tulp2, tulp3 **FROM** andmestik **ORDER BY** tulp1, tulp2;  
+        + *vali andmestikust ainult tulbad 'tulp1', 'tulp2' ja 'tulp3' ning järjesta uus andmestik 'tulp1' ning siis 'tulp2' väärtuste järgi*  
+- [Grupeerimine](https://www.w3schools.com/sql/sql_groupby.asp)  
+    + **SELECT** tulp1, tulp2 **FROM** andmestik **GROUP BY** tulp1;
+        + *vali andmestikust tulbad 'tulp1' ja 'tulp2' ning grupeeri andmed 'tulp1' unikaalsete väärtuste järgi*
+    + **SELECT** tulp1, tulp2 **FROM** andmestik **WHERE** tulp1 = 'Mingi väärtus' **GROUP BY** tulp2;  
+        + *vali andmestikust tulbad 'tulp1' ja 'tulp2' ning ainult read, kus tulbal 'tulp1' on väärtused 'Mingi väärtus', grupeeri saadud tabel 'tulp2' unikaalsete väärtuste järgi*  
+
+
+Põhimõtteliselt on selline SQLi päringusüsteem kõikide filtreerimiste, kihtide loomiste, muutmiste, suure osa operaatorite, funktsioonide jm taustal. QGIS paneb ise päringud SQLi keelde.      
+ 
+
+### Harjutused
+
+SQL-i päringuid saab QGISis teha nt *DB Manager*'i tööriistaga.  
+
+1. Valime kihelkondade andmestikust ainult eestikeelse murrete nimede tulba ja salvestame selle eraldi kihil.  
+    + `SELECT ... FROM ...;`
+    + Kui tahame uuele kihile saada kaasa ka polügoonide andmeid, peame valima ka geomeetria: `SELECT ..., geometry FROM ...;`  
+2. Valime kihelkondade andmestikust kõik tulbad, aga ainult need Võru murde kihelkonna andmed, kus kihelkonna pindala on suurem kui kõikide eesti kihelkondade keskmine pindala.  
+    + `SELECT ... FROM ... WHERE ... = '...' AND ... > (SELECT AVG(...) FROM ...);`  
+3. Leiame murdealade kogupindalad.  
+    + `SELECT ..., ... FROM ... GROUP BY ...;`  
+
+
+## Ülesanne 1: "ei ole"/"pole" suhtelised sagedused
+
+Värvime kihelkondade polügoonid selle põhjal, kui palju neis kasutatakse murdekorpuse andmete põhjal protsentuaalselt eituse varianti *ei ole* (vs. *pole*). Need suhtelised sagedused on tabelis *eiole_pole_mk_props.csv*, aga selle tabeliga ei ole seotud mingeid koordinaate. Peame niisiis ühendama tabeli mingi tunnuse alusel (nt kihelkondade nimede järgi) olemasolevate ruumiandmetega.  
+
+- Tee koopia kihelkondade kihist (nimeta see nt *kihelkonnad2*). 
+    + paremklikk kihelkondade kihil -> *Duplicate Layer*,
+    + paremklikk kihil *kihelkonnad copy* -> *Rename Layer*   
+- Ühenda andmestik *eiole_pole_mk_props* kihiga *kihelkonnad2*. Esmalt kontrolli, kas ühendamine võiks üldse korralikult õnnestuda, st kas mõlemas kihis viidatakse samadele kihelkondadele ühtmoodi. Selleks, et leida kihelkonnad/murrakud, mis on kahele kihile ühised, saab kasutada SQLi päringut **`SELECT Murrak FROM eiole_pole_mk_props INTERSECT SELECT Parish_id FROM kihelkonnad2;`**. Selleks, et leida aga kihelkonnad, mida teises andmestikus ei ole, võib kasutada päringut **`SELECT Murrak FROM eiole_pole_mk_props EXCEPT SELECT Parish_id FROM kihelkonnad2;`**. Kasuta päringu tegemiseks *DB Manageri*. Kui oled vajutanud nupul *Execute*, väljastatakse alumisse aknasse need murrakute nimed, mis on küll andmestikus *eiole_pole_mk_props* tulbas *Murrak*, ent mida ei ole sellisel kujul andmestikus *kihelkonnad2* tulbas *Parish_id*.    
+```{r expressions8, echo =F, fig.align='center', fig.show='hold', fig.cap = "Vigase kihelkonnanime tuvastamine", out.width="70%"}
+knitr::include_graphics(here::here("imgs", "expressions8.png"))
+```
+
+- Paranda CSV-kihis selle murraku nime, mis ei sisaldu kihelkondade *shapefile*'is. Kuna CSV-faili atribuute muuta ei saa, lisa kihile uus virtuaalne atribuut *Murrak2*, kus asendad vigase nime õigega (kasuta *if*-tingimuslauset).   
+
+```{r expressions10, echo =F, fig.align='center', fig.show='hold', fig.cap = "Uue virtuaalse atribuudi loomine", out.width="70%"}
+knitr::include_graphics(here::here("imgs", "expressions10.png"))
+```
+- Lisa kihile *kihelkonnad2* *ei ole*/*pole* sagedusandmed. Kasuta vastavalt *Parish_id* ja *Murrak2* tulpasid.   
+```{r expressions11, echo =F, fig.align='center', fig.show='hold', fig.cap = "Kihtide ühendamine", out.width="70%"}
+knitr::include_graphics(here::here("imgs", "expressions11.png"))
+```
+    + Teine moodus kihte ühe tunnuse alusel ühendada on nii, kui valid *Processing* -> *Toolbox* -> *Vector general* -> *Join attributes by field value*. Erinevus tavalise *Join*-funktsiooniga on selles, et tekib uus kiht (vaikimisi nimega *Joined layer*).  
+```{r expressions011, echo =F, fig.align='center', fig.show='hold', fig.cap = "Kihtide ühendamine", out.width="50%"}
+knitr::include_graphics(here::here("imgs", "11_processing_join.PNG"))
+```
+
+- Värvi *ei ole*/*pole* proportsioonide infoga täiendatud kihi *kihelkonnad2* polügoonid vastavalt *ei ole* suhtelisele sagedusele kihelkonnas/murrakus nii, et halliga oleksid märgitud ka kihelkonnad, millest murdekorpuse sagedusinfot ei ole. Selleks peab kasutama reeglipõhist sümboloogiat. Nendele kihelkondadele, kust infot on, teeme 5 sagedusklassi (0-0.2, 0.2-0.4, 0.4-0.6, 0.6-0.8 ja 0.8-1.0)  
+```{r expressions12, echo =F, fig.align='center', fig.show='hold', fig.cap = "Reeglipõhine polügoonide värvimine", out.width="70%"}
+knitr::include_graphics(here::here("imgs", "expressions12.gif"))
+```
+
+
+## Ülesanne 2
+
+- Lisa joonisele ka murdeatlase punktandmed ning erista punktide välimus selle järgi, kas tegemist on "ei ole" või "pole" variandiga.  
+- Kuna praegu on keelendi tulbas igasuguseid variante, nt *põle*, *ei (äi) ole*, *ole ei (õi)*, *ei (äi, öi) pole*, siis peaks esmalt looma ühe binaarse tunnuse, kus oleksid ainult väärtused *ei ole* ja *pole*.  
+- Selleks teeme kihist *30_ei_ole* koopia (nt nimega *eitus_atlas*), filtreerime sellest välja ainult need read, kus keelendi info on olemas (`"Keelend" IS NOT NULL`) ning lisame selle atribuuttabelisse *Field Calculator*'i abil uue virtuaalse tulba nimega *Keelend2*, kuhu paneme väärtuse *pole* siis, kui keelendi tulbas esineb *p*-täht, ja *ei ole* siis, kui ei esine (see tähendab, et ka nt *ei pole* klassifitseeritakse *pole*-ks). Kasutame *if*-tingimuslauset ja *ILIKE*-avaldist: `if("Keelend" ILIKE '%p%', 'pole', 'ei ole')`. 
+
+```{r expressionsex5, echo =F, fig.align='center', fig.show='hold', fig.cap = "Jõe- ja järvenimelised asulanimed", out.width="70%"}
+knitr::include_graphics(here::here("imgs", "expressionsEx5.png"))
+```
+
+- Vali binaarsele keelendile vastav sümbol ja värv.  
+```{r expressionsex6, echo =F, fig.align='center', fig.show='hold', fig.cap = "Jõe- ja järvenimelised asulanimed", out.width="70%"}
+knitr::include_graphics(here::here("imgs", "expressionsEx6.png"))
+```
+
+
+
+## Ülesanne 3: "ei ole"/"pole" selged eelistused
+
+- Tee kihist *kihelkonnad2* duplikaat nimega *kihelkonnad3*.  
+- Kasutades reeglipõhist polügoonide värvimist, kuva kihil *kihelkonnad3* värviliselt ainult sagedused, mille puhul *ei ole* ja *pole* **proportsioonide absoluuterinevus** on vähemalt 0,5. Ülejäänud polügoonidele (sh puuduvatele väärtustele) määra hall värv.    
+```{r expressions13, echo =F, fig.align='center', fig.show='hold', fig.cap = "Suured sageduserinevused", out.width="70%"}
+knitr::include_graphics(here::here("imgs", "expressions13.gif"))
+```
+- Nüüd muuda reegleid nii, et kihelkonnad, mille puhul *ei_ole* ja *pole* suur vahe on negatiivne (-0,5 või vähem), on punased, ja need, mille vahe on positiivne (0,5 või suurem), on sinised.  
+```{r expressions14, echo =F, fig.align='center', fig.show='hold', fig.cap = "'ei ole' ja 'pole' konstruktsioonide eelistused murrakutes", out.width="70%"}
+knitr::include_graphics(here::here("imgs", "expressions14.gif"))
+```
+
+
+## Ülesanne 4: tekstiatribuutide muutmine
+
+- Muuda kihil *kihelkonnad3* eestikeelsete murrete nimetustes kõik Setu murded Seto murreteks, kasutades *if*-tingimuslauset.   
+
+```{r expressions16, echo =F, fig.align='center', fig.show='hold', fig.cap = "Setu murre Seto murdeks", out.width="70%"}
+knitr::include_graphics(here::here("imgs", "expressions16.png"))
+```
+
+- Muuda kihil *kihelkonnad3* ingliskeelsete murrete nimetustes kõik Setu murded Seto murreteks, kasutades *CASE*-tingimuslauset.    
+```{r expressions17, echo =F, fig.align='center', fig.show='hold', fig.cap = "Setu murre Seto murdeks (2)", out.width="70%"}
+knitr::include_graphics(here::here("imgs", "expressions17.png"))
+```
+- Leia kõik kihelkondade nimed, mille saksakeelne nimi algab lühendiga *St.* ning muuda lühend *Sankt*'iks, kasutades regulaaravaldist.  
+```{r expressions18, echo =F, fig.align='center', fig.show='hold', fig.cap = "'St.' muutmine 'Sankt'-iks", out.width="70%"}
+knitr::include_graphics(here::here("imgs", "expressions18.png"))
+```
+
+- Leia kõik kihelkonnad, mille nimed lõppevad *la*-ga (nt *Ambla*) ja asenda need lõpud uues tulbas *LA*-ga (*AmbLA*), kasutades regulaaravaldist.  
+
+Põhimõtteliselt võiksime kasutada DB Manageris ka *UPDATE CASE WHERE* lauseid, ent kuna ükski meie kihtidest ei ole QGISi jaoks päris andmebaas, siis saame teha DB Manageris ainult päringuid, aga tabelit muuta ei saa. Saame aga eksportida mõne *virtuaalse kihi* näiteks GeoPackage-formaadis failina ning seda uuesti sisse lugedes saame andmestikku DB Manageris ka SQL-lausete abil muuta. 
+
+
+
+
+
+

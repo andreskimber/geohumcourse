@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Praktikum 10 Ruumiandmete visualiseerimine | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
+  <meta name="description" content="Praktikum 10 Ruumiandmete visualiseerimine | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Praktikum 10 Ruumiandmete visualiseerimine | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Praktikum 10 Ruumiandmete visualiseerimine | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  
+  
+  
+
+<meta name="author" content="Andres Kimber, Maarja-Liisa Pilvik" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="georefereerimine.html"/>
+<link rel="next" href="kirjandus.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#kursuse-korraldusest"><i class="fa fa-check"></i><b>1.1</b> Kursuse korraldusest</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#mis-on-geoinfosüsteemid"><i class="fa fa-check"></i><b>1.2</b> Mis on geoinfosüsteemid?</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#geoinfosüsteemide-ajaloost"><i class="fa fa-check"></i><b>1.3</b> Geoinfosüsteemide ajaloost</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#ruumiandmed-ja-gis-humanitaarteadustes"><i class="fa fa-check"></i><b>1.4</b> Ruumiandmed ja GIS humanitaarteadustes</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#arheoloogia"><i class="fa fa-check"></i><b>1.4.1</b> Arheoloogia</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#veel-näiteid"><i class="fa fa-check"></i><b>1.4.2</b> Veel näiteid</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#küsitlus"><i class="fa fa-check"></i><b>1.5</b> Küsitlus</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>1.6</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>2</b> Seminar</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="seminar.html"><a href="seminar.html#mõisted"><i class="fa fa-check"></i><b>2.1</b> Mõisted</a></li>
+<li class="chapter" data-level="2.2" data-path="seminar.html"><a href="seminar.html#rühmatöö-1-gisi-ja-ruumi-geohumanitaaria-projekte-ja-rakendusi"><i class="fa fa-check"></i><b>2.2</b> Rühmatöö 1: GISi ja ruumi-/geohumanitaaria projekte ja rakendusi</a></li>
+<li class="chapter" data-level="2.3" data-path="seminar.html"><a href="seminar.html#rühmatöö-2-humanitaaria-vs.-kvantitatiivsed-meetodid"><i class="fa fa-check"></i><b>2.3</b> Rühmatöö 2: humanitaaria <em>vs</em>. kvantitatiivsed meetodid</a></li>
+<li class="chapter" data-level="2.4" data-path="seminar.html"><a href="seminar.html#järgmisel-korral-1"><i class="fa fa-check"></i><b>2.4</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html"><i class="fa fa-check"></i><b>3</b> Ruumiobjektid ja ruumiandmed</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#vektorandmed"><i class="fa fa-check"></i><b>3.1</b> Vektorandmed</a></li>
+<li class="chapter" data-level="3.2" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#rasterandmed"><i class="fa fa-check"></i><b>3.2</b> Rasterandmed</a></li>
+<li class="chapter" data-level="3.3" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#vektor-vs.-raster"><i class="fa fa-check"></i><b>3.3</b> Vektor vs. raster</a></li>
+<li class="chapter" data-level="3.4" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#ülesanne"><i class="fa fa-check"></i><b>3.4</b> Ülesanne</a></li>
+<li class="chapter" data-level="3.5" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#järgmisel-korral-2"><i class="fa fa-check"></i><b>3.5</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="kaardid.html"><a href="kaardid.html"><i class="fa fa-check"></i><b>4</b> Kaardid, koordinaatsüsteemid ja projektsioonid</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="kaardid.html"><a href="kaardid.html#kaart"><i class="fa fa-check"></i><b>4.1</b> Kaart</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="kaardid.html"><a href="kaardid.html#koordinaatsüsteemid-ja-projektsioonid"><i class="fa fa-check"></i><b>4.1.1</b> Koordinaatsüsteemid ja projektsioonid</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="kaardid.html"><a href="kaardid.html#veebipõhised-kaardirakendused"><i class="fa fa-check"></i><b>4.2</b> Veebipõhised kaardirakendused</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="kaardid.html"><a href="kaardid.html#google-my-maps"><i class="fa fa-check"></i><b>4.2.1</b> Google My Maps</a></li>
+<li class="chapter" data-level="4.2.2" data-path="kaardid.html"><a href="kaardid.html#ülesanne-1"><i class="fa fa-check"></i><b>4.2.2</b> Ülesanne</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="kaardid.html"><a href="kaardid.html#järgmisel-korral-3"><i class="fa fa-check"></i><b>4.3</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="storymaps.html"><a href="storymaps.html"><i class="fa fa-check"></i><b>5</b> Story maps ja Mapbox</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="storymaps.html"><a href="storymaps.html#story-maps"><i class="fa fa-check"></i><b>5.1</b> Story maps</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="storymaps.html"><a href="storymaps.html#storymapjs"><i class="fa fa-check"></i><b>5.1.1</b> <span>StoryMapJS</span></a></li>
+<li class="chapter" data-level="5.1.2" data-path="storymaps.html"><a href="storymaps.html#arcgis-storymaps"><i class="fa fa-check"></i><b>5.1.2</b> <span>ArcGIS StoryMaps</span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="storymaps.html"><a href="storymaps.html#mapbox-studio"><i class="fa fa-check"></i><b>5.2</b> Mapbox Studio</a></li>
+<li class="chapter" data-level="5.3" data-path="storymaps.html"><a href="storymaps.html#mapbox-story-mapis"><i class="fa fa-check"></i><b>5.3</b> Mapbox <em>story map</em>’is</a></li>
+<li class="chapter" data-level="5.4" data-path="storymaps.html"><a href="storymaps.html#järgmisel-korral-4"><i class="fa fa-check"></i><b>5.4</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="qgis_1.html"><a href="qgis_1.html"><i class="fa fa-check"></i><b>6</b> Sissejuhatus QGISi</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="qgis_1.html"><a href="qgis_1.html#installimine"><i class="fa fa-check"></i><b>6.1</b> Installimine</a></li>
+<li class="chapter" data-level="6.2" data-path="qgis_1.html"><a href="qgis_1.html#andmed-ja-failihaldus"><i class="fa fa-check"></i><b>6.2</b> Andmed ja failihaldus</a></li>
+<li class="chapter" data-level="6.3" data-path="qgis_1.html"><a href="qgis_1.html#esimene-seadistamine-ja-kasutajaliides"><i class="fa fa-check"></i><b>6.3</b> Esimene seadistamine ja kasutajaliides</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="qgis_1.html"><a href="qgis_1.html#vaikimisi-koordinaatsüsteemi-sätestamine."><i class="fa fa-check"></i><b>6.3.1</b> Vaikimisi koordinaatsüsteemi sätestamine.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="qgis_1.html"><a href="qgis_1.html#andmete-avamine"><i class="fa fa-check"></i><b>6.4</b> Andmete avamine</a></li>
+<li class="chapter" data-level="6.5" data-path="qgis_1.html"><a href="qgis_1.html#kihtide-visualiseerimine"><i class="fa fa-check"></i><b>6.5</b> Kihtide visualiseerimine</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="qgis_1.html"><a href="qgis_1.html#harjutus-1"><i class="fa fa-check"></i><b>6.5.1</b> Harjutus 1</a></li>
+<li class="chapter" data-level="6.5.2" data-path="qgis_1.html"><a href="qgis_1.html#harjutus-2"><i class="fa fa-check"></i><b>6.5.2</b> Harjutus 2</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="qgis_1.html"><a href="qgis_1.html#aluskaardid"><i class="fa fa-check"></i><b>6.6</b> Aluskaardid</a></li>
+<li class="chapter" data-level="6.7" data-path="qgis_1.html"><a href="qgis_1.html#järgmisel-korral-5"><i class="fa fa-check"></i><b>6.7</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="qgis_2.html"><a href="qgis_2.html"><i class="fa fa-check"></i><b>7</b> Sissejuhatus QGISi 2</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="qgis_2.html"><a href="qgis_2.html#andmete-avamine-1"><i class="fa fa-check"></i><b>7.1</b> Andmete avamine</a></li>
+<li class="chapter" data-level="7.2" data-path="qgis_2.html"><a href="qgis_2.html#andmete-valimine-ja-mõõtmine-käsitsi"><i class="fa fa-check"></i><b>7.2</b> Andmete valimine ja mõõtmine (käsitsi)</a></li>
+<li class="chapter" data-level="7.3" data-path="qgis_2.html"><a href="qgis_2.html#kihi-ja-andmete-loomine"><i class="fa fa-check"></i><b>7.3</b> Kihi ja andmete loomine</a></li>
+<li class="chapter" data-level="7.4" data-path="qgis_2.html"><a href="qgis_2.html#kaartide-kujundamine-ja-eksportimine"><i class="fa fa-check"></i><b>7.4</b> Kaartide kujundamine ja eksportimine</a></li>
+<li class="chapter" data-level="7.5" data-path="qgis_2.html"><a href="qgis_2.html#järgmisel-korral-6"><i class="fa fa-check"></i><b>7.5</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="avaandmed.html"><a href="avaandmed.html"><i class="fa fa-check"></i><b>8</b> Avaandmed ja repositooriumid</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="avaandmed.html"><a href="avaandmed.html#mis-on-avaandmed"><i class="fa fa-check"></i><b>8.1</b> Mis on avaandmed?</a></li>
+<li class="chapter" data-level="8.2" data-path="avaandmed.html"><a href="avaandmed.html#eesti-ruumiandmed"><i class="fa fa-check"></i><b>8.2</b> Eesti ruumiandmed</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="avaandmed.html"><a href="avaandmed.html#maa-ameti-geoportaal"><i class="fa fa-check"></i><b>8.2.1</b> Maa-ameti Geoportaal</a></li>
+<li class="chapter" data-level="8.2.2" data-path="avaandmed.html"><a href="avaandmed.html#statistikaamet"><i class="fa fa-check"></i><b>8.2.2</b> Statistikaamet</a></li>
+<li class="chapter" data-level="8.2.3" data-path="avaandmed.html"><a href="avaandmed.html#digitaalsed-kaardikollektsioonid"><i class="fa fa-check"></i><b>8.2.3</b> Digitaalsed kaardikollektsioonid</a></li>
+<li class="chapter" data-level="8.2.4" data-path="avaandmed.html"><a href="avaandmed.html#muu"><i class="fa fa-check"></i><b>8.2.4</b> Muu</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="avaandmed.html"><a href="avaandmed.html#muude-riikide-ruumiandmed"><i class="fa fa-check"></i><b>8.3</b> Muude riikide ruumiandmed</a></li>
+<li class="chapter" data-level="8.4" data-path="avaandmed.html"><a href="avaandmed.html#järgmisel-korral-7"><i class="fa fa-check"></i><b>8.4</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="georefereerimine.html"><a href="georefereerimine.html"><i class="fa fa-check"></i><b>9</b> Georefereerimine</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="georefereerimine.html"><a href="georefereerimine.html#kaartide-otsimine-ja-allalaadimine"><i class="fa fa-check"></i><b>9.1</b> Kaartide otsimine ja allalaadimine</a></li>
+<li class="chapter" data-level="9.2" data-path="georefereerimine.html"><a href="georefereerimine.html#harjutus-1-1"><i class="fa fa-check"></i><b>9.2</b> Harjutus 1</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="georefereerimine.html"><a href="georefereerimine.html#lõikamine"><i class="fa fa-check"></i><b>9.2.1</b> Lõikamine</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="georefereerimine.html"><a href="georefereerimine.html#harjutus-2-1"><i class="fa fa-check"></i><b>9.3</b> Harjutus 2</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="georefereerimine.html"><a href="georefereerimine.html#digiteerimine"><i class="fa fa-check"></i><b>9.3.1</b> Digiteerimine</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="georefereerimine.html"><a href="georefereerimine.html#harjutus-3"><i class="fa fa-check"></i><b>9.4</b> Harjutus 3</a></li>
+<li class="chapter" data-level="9.5" data-path="georefereerimine.html"><a href="georefereerimine.html#veebilahendus"><i class="fa fa-check"></i><b>9.5</b> Veebilahendus</a></li>
+<li class="chapter" data-level="9.6" data-path="georefereerimine.html"><a href="georefereerimine.html#järgmisel-korral-8"><i class="fa fa-check"></i><b>9.6</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="visualiseerimine1.html"><a href="visualiseerimine1.html"><i class="fa fa-check"></i><b>10</b> Ruumiandmete visualiseerimine</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="visualiseerimine1.html"><a href="visualiseerimine1.html#avaldised"><i class="fa fa-check"></i><b>10.1</b> Avaldised</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="visualiseerimine1.html"><a href="visualiseerimine1.html#harjutused"><i class="fa fa-check"></i><b>10.1.1</b> Harjutused</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="visualiseerimine1.html"><a href="visualiseerimine1.html#päringud"><i class="fa fa-check"></i><b>10.2</b> Päringud</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="visualiseerimine1.html"><a href="visualiseerimine1.html#harjutused-1"><i class="fa fa-check"></i><b>10.2.1</b> Harjutused</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="visualiseerimine1.html"><a href="visualiseerimine1.html#ülesanne-1-ei-olepole-suhtelised-sagedused"><i class="fa fa-check"></i><b>10.3</b> Ülesanne 1: “ei ole”/“pole” suhtelised sagedused</a></li>
+<li class="chapter" data-level="10.4" data-path="visualiseerimine1.html"><a href="visualiseerimine1.html#ülesanne-2-1"><i class="fa fa-check"></i><b>10.4</b> Ülesanne 2</a></li>
+<li class="chapter" data-level="10.5" data-path="visualiseerimine1.html"><a href="visualiseerimine1.html#ülesanne-3-ei-olepole-selged-eelistused"><i class="fa fa-check"></i><b>10.5</b> Ülesanne 3: “ei ole”/“pole” selged eelistused</a></li>
+<li class="chapter" data-level="10.6" data-path="visualiseerimine1.html"><a href="visualiseerimine1.html#ülesanne-4-tekstiatribuutide-muutmine"><i class="fa fa-check"></i><b>10.6</b> Ülesanne 4: tekstiatribuutide muutmine</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="kirjandus.html"><a href="kirjandus.html"><i class="fa fa-check"></i>Kirjandus</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="visualiseerimine1" class="section level1" number="10">
+<h1><span class="header-section-number">Praktikum 10</span> Ruumiandmete visualiseerimine</h1>
+<p>Impordime tänaseks praktikumiks esmalt QGISi</p>
+<ul>
+<li>kihelkondade <em>shapefile</em>’i (EKI, Peeter Päll),<br />
+</li>
+<li><em>shapefile</em>’i, mis sisaldab andmeid <em>ei ole</em> ja <em>pole</em> eituskonstruktsioonide <strong>leviku</strong> kohta eesti murretes Andrus Saareste 1955. aasta <a href="https://github.com/MPilvik/RuRaKe/tree/master/Saareste-vaike-murdeatlas">“Väikese Eesti murdeatlase”</a> põhjal,<br />
+</li>
+<li>CSV-faili, mis sisaldab andmeid <em>ei ole</em> ja <em>pole</em> suhtelisest <strong>sagedusest</strong> <a href="www.murre.ut.ee/mkweb">Eesti murrete korpuses</a>. NB! Kodeering on UTF-8, välju eraldab semikoolon, esimesel real on tulbanimed ning koordinaatide infot failis ei ole.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressions7"></span>
+<img src="imgs/expressions7.png" alt="Lisatud kihid" width="70%" />
+<p class="caption">
+Figure 10.1: Lisatud kihid
+</p>
+</div>
+<p>Kui soovid võrrelda, kuidas EKI kihelkondade kaart klapib Maa-ameti kihelkondade kaardiga, võid taustaks panna veel WMS-i või WFS-i kaudu Maa-ameti ajaloolise haldusjaotuse kaardi: <a href="https://teenus.maaamet.ee/ows/wms-ajalooline-haldus?">https://teenus.maaamet.ee/ows/wms-ajalooline-haldus?</a>.</p>
+<div id="avaldised" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> Avaldised</h2>
+<p>Avaldised (<em>expressions</em>) on tehted ja vormelid, mille abil hõlpsalt muuta atribuutide väärtusi, luua uusi (virtuaalseid) atribuute või kihte, andmetest alamhulki välja filtreerida, teha statistikat jne. Avaldiste abil saab andmeid QGISis mitmekülgsemalt analüüsida ning visualiseerida.</p>
+<p>Avaldisi saab QGISis kasutada mitmes kohas, näiteks</p>
+<ul>
+<li>objektide valimiseks <em>Select Features by Expression</em> tööriista abil,<br />
+</li>
+<li>objektide valimiseks atribuuttabeli alumisest vasakust nurgast <em>Advanced Filter (Expression)</em>,<br />
+</li>
+<li>atribuutide muutmiseks ja lisamiseks <em>Field calculator</em>’is,<br />
+</li>
+<li>päringute tegemiseks <em>Query builder</em>’is,<br />
+</li>
+<li>päringute tegemiseks <em>Database Manager</em>’is,<br />
+</li>
+<li>sümbolite, siltide või paigutuse parameetrite muutmisel (<em>Symbology</em> -&gt; <em>Rule-based</em>),<br />
+</li>
+<li>jne.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressions1"></span>
+<img src="imgs/expressions1.png" alt="Avaldised 1) Select Features by Expression, 2) Advanced Filter (Expression), 3) Field Calculator, 4) Query Builder, 5) DB Manager, 6) Rule-based symbology" width="45%" /><img src="imgs/expressions2.png" alt="Avaldised 1) Select Features by Expression, 2) Advanced Filter (Expression), 3) Field Calculator, 4) Query Builder, 5) DB Manager, 6) Rule-based symbology" width="45%" /><img src="imgs/expressions3.png" alt="Avaldised 1) Select Features by Expression, 2) Advanced Filter (Expression), 3) Field Calculator, 4) Query Builder, 5) DB Manager, 6) Rule-based symbology" width="45%" /><img src="imgs/expressions4.png" alt="Avaldised 1) Select Features by Expression, 2) Advanced Filter (Expression), 3) Field Calculator, 4) Query Builder, 5) DB Manager, 6) Rule-based symbology" width="45%" /><img src="imgs/expressions6.png" alt="Avaldised 1) Select Features by Expression, 2) Advanced Filter (Expression), 3) Field Calculator, 4) Query Builder, 5) DB Manager, 6) Rule-based symbology" width="45%" /><img src="imgs/expressions5.png" alt="Avaldised 1) Select Features by Expression, 2) Advanced Filter (Expression), 3) Field Calculator, 4) Query Builder, 5) DB Manager, 6) Rule-based symbology" width="45%" />
+<p class="caption">
+Figure 10.2: Avaldised 1) Select Features by Expression, 2) Advanced Filter (Expression), 3) Field Calculator, 4) Query Builder, 5) DB Manager, 6) Rule-based symbology
+</p>
+</div>
+<p>Avaldisi saab eeldefineeritud funktsioonide abil koostada niisiis mitmeks erinevaks otstarbeks, vaata ülevaadet <a href="https://docs.qgis.org/3.16/en/docs/user_manual/working_with_vector/expression.html">siit</a>. Sealjuures saab sageli üht ja sama asja teha erineval moel.</p>
+<p>Oleme juba kokku puutunud lihtsate avaldistega, kui</p>
+<ul>
+<li><a href="https://tartugeohum.github.io/avaandmed.html#maa-ameti-geoportaal">filtreerisime aadressiandmete andmestikust välja ainult eluruumid</a>: <code>"ADOB_LIIK" = 'ER'</code>;</li>
+<li><a href="https://tartugeohum.github.io/avaandmed.html#statistikaamet">tegime tekstina sisse loetud arvude tulbast arvulise tunnuse</a>: <code>"VAARTUS"</code>;</li>
+<li><a href="https://tartugeohum.github.io/georefereerimine.html#harjutus-3">arvutasime digiteeritud polügoonide pindala</a>: <code>round($area / 10000, 2)</code>.</li>
+</ul>
+<p>Vaatame sel korral ülesannete toel lähemalt operaatoreid (<em>Operators</em>), matemaatilisi funktsioone (<em>Math</em>), tingimuslauseid (<em>Conditionals</em>) ning teksti muutmise võimalusi (<em>String</em>).</p>
+<div id="harjutused" class="section level3" number="10.1.1">
+<h3><span class="header-section-number">10.1.1</span> Harjutused</h3>
+<ol style="list-style-type: decimal">
+<li>Kasutame valiku tööriista (<strong><em>Select features by Expression</em></strong>), et teha aktiivseks kõik need kihelkondade polügoonid, millel on midagi kirjutatud tulpa <em>Problem</em> (nt selleks, et hakata parandustega tegelema).
+<ul>
+<li>Kõikide atribuutide/tulpade nimed ja tüübid saab kätte jaotusest <strong><em>Fields and Values</em></strong>. Nupp <em>All Unique</em> näitab atribuutide kõiki eri väärtuseid, nupp <em>10 Samples</em> sellest kuni kümmet esimest eri väärtust. Topeltklikk atribuudi nimel liigutab atribuudi jutumärkide vahel vasakul asuvasse avaldise kasti.<br />
+</li>
+<li>Jaotuse <strong><em>Operators</em></strong> alt leiame terve hulga sümboleid, mille abil teha nt arvutustehteid, võrdlustehteid või tekstitöötlust, sh vajamineva operaatori <em>IS NOT</em>.<br />
+</li>
+<li>Tahame leida niisiis atribuuttabelist neid ridu, kus tulp <em>Problem</em> ei ole tühi: <strong><code>"Problem" IS NOT NULL</code></strong>.</li>
+</ul></li>
+</ol>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressionsex1"></span>
+<img src="imgs/expressionsEx1.png" alt="Probleemsed kihelkonnad" width="70%" />
+<p class="caption">
+Figure 10.3: Probleemsed kihelkonnad
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Kasutame tööriista <strong><em>Field Calculator</em></strong>, et lisada <em>ei ole</em>/<em>pole</em> atlase levikuandmetesse virtuaalne (st ajutine) atribuut nimega <em>saj19</em>, kus on “jah” ridadel, kus keelejuhi sünniaeg on varem kui aastal 1900, “ei”, kui keelejuhi sünniaeg on hilisem, ja “ei tea”, kui keelejuhi sünniaega pole märgitud.
+<ul>
+<li>Siin läheb vaja tingimuslauseid jaotuses <strong><em>Conditionals</em></strong>. Kasutame siin funktsiooni <em>if</em>, mille järel sulgude sees komadega eraldatult tuleb anda esmalt tingimus (“Kas tulbas SaKJSynd olev arv on väiksem kui 1900?”), seejärel väärtus juhul, kui tingimus vastab tõele, ning lõpuks väärtus juhul, kui tingimus ei vasta tõele: <strong><code>if("SaKJSynd" &lt; 1900, 'jah', 'ei')</code></strong>.<br />
+</li>
+<li>Meil on aga atribuuttabelis ka sellised read, kus keelejuhi sünniaeg võrdub 0-ga või on <em>NULL</em>, sest see pole teada. Meil oleks oluline märkida ära, et nende puhul me tegelikult sünniaega hinnata ei oska: <strong><code>if("SaKJSynd" IS 0 OR "SaKJSynd" IS NULL, 'ei tea', if("SaKJSynd" &lt; 1900, 'jah', 'ei'))</code></strong>:
+<ul>
+<li>Kui tulbas “SaKJSynd” on väärtus 0 VÕI polegi midagi (<em>NULL</em>),</li>
+<li>märgi tulpa “saj19” väärtus <em>ei tea</em>,<br />
+</li>
+<li>vastasel juhul
+<ul>
+<li>kui tulbas “SaKJSynd” on väärtus, mis on väiksem kui 1900,</li>
+<li>märgi tulpa “saj19” väärtus <em>jah</em>,</li>
+<li>vastasel juhul väärtus <em>ei</em>.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ol>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressionsex2"></span>
+<img src="imgs/expressionsEx2.png" alt="Uue tulba tekitamine" width="70%" />
+<p class="caption">
+Figure 10.4: Uue tulba tekitamine
+</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Värvime kihelkonnad selle järgi, kui mitu tähte nende nimes on.
+<ul>
+<li>Valime kihelkondade kihi <strong><em>Symbology</em></strong> alt <em>Graduated</em> ja <em>Value</em> puhul ühe konkreetse tunnuse nime valiku asemel vajutame lahtri kõrval olevat avaldise sümboliga nuppu.<br />
+</li>
+<li>Teksti/sõne pikkuse leidmiseks on jaotuse <strong><em>String</em></strong> all funktsioon <em>length</em>: <strong><code>length("Name")</code></strong>.<br />
+</li>
+<li>Lisame ka sildid, et kontrollida, kas värvilegend peab paika.</li>
+</ul></li>
+</ol>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressionsex3"></span>
+<img src="imgs/expressionsEx3.png" alt="Kihelkonnad vastavalt nende nimede pikkusele" width="70%" />
+<p class="caption">
+Figure 10.5: Kihelkonnad vastavalt nende nimede pikkusele
+</p>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Toome värvi ja/või sümboliga esile ainult need “ei ole”-“pole” andmestiku punktid, mille asustusüksuse nime lõpus või alguses on <em>Jõe-/-jõe</em> või <em>Järve-/-järve</em>. Teised punktid värvime halliks ja teeme läbipaistvamaks. Need punktid, millel asulanime atribuuttabelis ei ole, jätame jooniselt välja.
+<ul>
+<li>Asendame esmalt <em>ő</em>-sümbolid tulbas “ANIMI” <em>õ</em>-tähtedega:
+<ul>
+<li>Selleks saame <em>Field Calculator</em>’is uuendada olemasolevat atribuuti “ANIMI” (<em>Update existing field</em>) regulaaravaldise abil (<em>String</em> -&gt; <em>regexp_replace</em>): <strong><code>regexp_replace("ANIMI", 'ő', 'õ')</code></strong>.<br />
+</li>
+</ul></li>
+<li>Valime nüüd punktide kihi <strong><em>Symbology</em></strong> alt <em>Categorized</em> ja <em>Value</em> puhul vajutame jälle avaldise sümboliga nuppu.<br />
+</li>
+<li>Saame kasutada näiteks operaatorit <em>ILIKE</em>: <strong><code>"ANIMI" ILIKE 'Jõe%' OR "ANIMI" ILIKE '%jõe' OR "ANIMI" ILIKE '%jõe %' OR "ANIMI" ILIKE 'Järve%' OR "ANIMI" ILIKE '%järve' OR "ANIMI" ILIKE '%järve %'</code></strong>.<br />
+</li>
+<li>Lisame sama avaldist kasutades ka sildid ainult kollastele punktidele: <strong><code>if("ANIMI" ILIKE 'Jõe%' OR "ANIMI" ILIKE '%jõe' OR "ANIMI" ILIKE '%jõe %' OR "ANIMI" ILIKE 'Järve%' OR "ANIMI" ILIKE '%järve' OR "ANIMI" ILIKE '%järve %', "ANIMI", NULL)</code></strong>.<br />
+</li>
+<li>Võime lisada alla veel Maa-ameti WMS-teenusest värvilise reljeefvarjutuse, et vaadata, kas leitud kohanimed ka päriselt veekogude ääres on.</li>
+</ul></li>
+</ol>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressionsex4"></span>
+<img src="imgs/expressionsEx4.png" alt="Jõe- ja järvenimelised asulanimed" width="70%" />
+<p class="caption">
+Figure 10.6: Jõe- ja järvenimelised asulanimed
+</p>
+</div>
+</div>
+</div>
+<div id="päringud" class="section level2" number="10.2">
+<h2><span class="header-section-number">10.2</span> Päringud</h2>
+<p>Lisaks eeldefineeritud funktsioonidele saab kasutada ka <a href="https://www.w3schools.com/sql/">SQL-i päringuid</a>, näiteks:</p>
+<ul>
+<li><a href="https://www.w3schools.com/sql/sql_select.asp">Ridade ja tulpade valimine</a>
+<ul>
+<li><strong>SELECT</strong> tulp <strong>FROM</strong> andmestik;
+<ul>
+<li><em>vali andmestikust ainult üks tulp</em><br />
+</li>
+</ul></li>
+<li><strong>SELECT</strong> tulp1, tulp2 <strong>FROM</strong> andmestik;
+<ul>
+<li><em>vali andmestikust kaks tulpa</em><br />
+</li>
+</ul></li>
+<li><strong>SELECT DISTINCT</strong> tulp <strong>FROM</strong> andmestik;
+<ul>
+<li><em>vali andmestikust tulba unikaalsed väärtused</em><br />
+</li>
+</ul></li>
+<li><strong>SELECT</strong> * <strong>FROM</strong> andmestik;
+<ul>
+<li><em>vali andmestikust kõik read ja tulbad</em><br />
+</li>
+</ul></li>
+<li><strong>SELECT</strong> * <strong>FROM</strong> andmestik <strong>WHERE</strong> tulp = ‘Mingi väärtus’;
+<ul>
+<li><em>vali andmestikust kõik tulbad ja read, kus tulbas ‘tulp’ on väärtus ‘Mingi väärtus’</em><br />
+</li>
+</ul></li>
+<li><strong>SELECT</strong> tulp1, tulp2 <strong>FROM</strong> andmestik <strong>WHERE</strong> tulp1 &gt; 50 <strong>AND</strong> tulp2 <strong>ILIKE</strong> ‘%St%’;
+<ul>
+<li><em>vali andmestikust tulbad ‘tulp1’ ja ‘tulp2’ ning ainult sellised read, kus tulp1 väärtused on suuremad kui 50 ja kus tulp2s on lahtris kuskil tähejärjend ‘St’</em></li>
+</ul></li>
+</ul></li>
+<li><a href="https://www.w3schools.com/sql/sql_update.asp">Muutmine</a>
+<ul>
+<li><strong>UPDATE</strong> andmestik <strong>SET</strong> tulp = ‘Mingi uus väärtus’ <strong>WHERE</strong> tulp = ‘Mingi vana väärtus’;
+<ul>
+<li><em>uuenda andmestikku nii, et sea tulba ‘tulp’ väärtuseks ‘Mingi uus väärtus’ nendel ridadel, kus tulba ‘tulp’ väärtus on praegu ‘Mingi vana väärtus’</em></li>
+</ul></li>
+<li><strong>UPDATE</strong> andmestik <strong>SET</strong> tulp = ‘Mingi uus väärtus’ <strong>WHERE</strong> id = 8;
+<ul>
+<li><em>uuenda andmestikku nii, et sea tulba ‘tulp’ väärtuseks ‘Mingi uus väärtus’ sellel real, kus id väärtus on 8</em></li>
+</ul></li>
+</ul></li>
+<li><a href="https://www.w3schools.com/sql/sql_insert.asp">Lisamine</a>
+<ul>
+<li><strong>INSERT INTO</strong> andmestik (tulp1, tulp2, tulp3, tulp4) <strong>VALUES</strong> (‘tulp1 väärtus’, ‘tulp2 väärtus’, ‘tulp3 väärtus’, ‘tulp4 väärtus’);
+<ul>
+<li><em>sisesta andmestikku üks rida, kus tulpadesse ‘tulp1’, ‘tulp2’, ‘tulp3’ ja ‘tulp4’ lähevad vastavalt väärtused ‘tulp1 väärtus’, ‘tulp2 väärtus’, ‘tulp3 väärtus’ ja ‘tulp4 väärtus’</em><br />
+</li>
+</ul></li>
+</ul></li>
+<li><a href="https://www.w3schools.com/sql/sql_delete.asp">Kustutamine</a>
+<ul>
+<li><strong>DELETE FROM</strong> andmestik <strong>WHERE</strong> tulp = ‘Mingi väärtus’;
+<ul>
+<li><em>kustuta andmestikust read, kus tulbas ‘tulp’ on väärtus ‘Mingi väärtus’</em><br />
+</li>
+</ul></li>
+</ul></li>
+<li><a href="https://www.w3schools.com/sql/sql_orderby.asp">Järjestamine</a>
+<ul>
+<li><strong>SELECT</strong> tulp1, tulp2, tulp3 <strong>FROM</strong> andmestik <strong>ORDER BY</strong> tulp1;
+<ul>
+<li><em>vali andmestikust ainult tulbad ‘tulp1’, ‘tulp2’ ja ‘tulp3’ ning järjesta uus andmestik ‘tulp1’ väärtuste järgi (vaikimisi väiksemast suuremani või A-st Z-ni)</em><br />
+</li>
+</ul></li>
+<li><strong>SELECT</strong> tulp1, tulp2, tulp3 <strong>FROM</strong> andmestik <strong>ORDER BY</strong> tulp1, tulp2;
+<ul>
+<li><em>vali andmestikust ainult tulbad ‘tulp1’, ‘tulp2’ ja ‘tulp3’ ning järjesta uus andmestik ‘tulp1’ ning siis ‘tulp2’ väärtuste järgi</em><br />
+</li>
+</ul></li>
+</ul></li>
+<li><a href="https://www.w3schools.com/sql/sql_groupby.asp">Grupeerimine</a>
+<ul>
+<li><strong>SELECT</strong> tulp1, tulp2 <strong>FROM</strong> andmestik <strong>GROUP BY</strong> tulp1;
+<ul>
+<li><em>vali andmestikust tulbad ‘tulp1’ ja ‘tulp2’ ning grupeeri andmed ‘tulp1’ unikaalsete väärtuste järgi</em></li>
+</ul></li>
+<li><strong>SELECT</strong> tulp1, tulp2 <strong>FROM</strong> andmestik <strong>WHERE</strong> tulp1 = ‘Mingi väärtus’ <strong>GROUP BY</strong> tulp2;
+<ul>
+<li><em>vali andmestikust tulbad ‘tulp1’ ja ‘tulp2’ ning ainult read, kus tulbal ‘tulp1’ on väärtused ‘Mingi väärtus’, grupeeri saadud tabel ‘tulp2’ unikaalsete väärtuste järgi</em></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>Põhimõtteliselt on selline SQLi päringusüsteem kõikide filtreerimiste, kihtide loomiste, muutmiste, suure osa operaatorite, funktsioonide jm taustal. QGIS paneb ise päringud SQLi keelde.</p>
+<div id="harjutused-1" class="section level3" number="10.2.1">
+<h3><span class="header-section-number">10.2.1</span> Harjutused</h3>
+<p>SQL-i päringuid saab QGISis teha nt <em>DB Manager</em>’i tööriistaga.</p>
+<ol style="list-style-type: decimal">
+<li>Valime kihelkondade andmestikust ainult eestikeelse murrete nimede tulba ja salvestame selle eraldi kihil.
+<ul>
+<li><code>SELECT ... FROM ...;</code></li>
+<li>Kui tahame uuele kihile saada kaasa ka polügoonide andmeid, peame valima ka geomeetria: <code>SELECT ..., geometry FROM ...;</code><br />
+</li>
+</ul></li>
+<li>Valime kihelkondade andmestikust kõik tulbad, aga ainult need Võru murde kihelkonna andmed, kus kihelkonna pindala on suurem kui kõikide eesti kihelkondade keskmine pindala.
+<ul>
+<li><code>SELECT ... FROM ... WHERE ... = '...' AND ... &gt; (SELECT AVG(...) FROM ...);</code><br />
+</li>
+</ul></li>
+<li>Leiame murdealade kogupindalad.
+<ul>
+<li><code>SELECT ..., ... FROM ... GROUP BY ...;</code></li>
+</ul></li>
+</ol>
+</div>
+</div>
+<div id="ülesanne-1-ei-olepole-suhtelised-sagedused" class="section level2" number="10.3">
+<h2><span class="header-section-number">10.3</span> Ülesanne 1: “ei ole”/“pole” suhtelised sagedused</h2>
+<p>Värvime kihelkondade polügoonid selle põhjal, kui palju neis kasutatakse murdekorpuse andmete põhjal protsentuaalselt eituse varianti <em>ei ole</em> (vs. <em>pole</em>). Need suhtelised sagedused on tabelis <em>eiole_pole_mk_props.csv</em>, aga selle tabeliga ei ole seotud mingeid koordinaate. Peame niisiis ühendama tabeli mingi tunnuse alusel (nt kihelkondade nimede järgi) olemasolevate ruumiandmetega.</p>
+<ul>
+<li>Tee koopia kihelkondade kihist (nimeta see nt <em>kihelkonnad2</em>).
+<ul>
+<li>paremklikk kihelkondade kihil -&gt; <em>Duplicate Layer</em>,</li>
+<li>paremklikk kihil <em>kihelkonnad copy</em> -&gt; <em>Rename Layer</em><br />
+</li>
+</ul></li>
+<li>Ühenda andmestik <em>eiole_pole_mk_props</em> kihiga <em>kihelkonnad2</em>. Esmalt kontrolli, kas ühendamine võiks üldse korralikult õnnestuda, st kas mõlemas kihis viidatakse samadele kihelkondadele ühtmoodi. Selleks, et leida kihelkonnad/murrakud, mis on kahele kihile ühised, saab kasutada SQLi päringut <strong><code>SELECT Murrak FROM eiole_pole_mk_props INTERSECT SELECT Parish_id FROM kihelkonnad2;</code></strong>. Selleks, et leida aga kihelkonnad, mida teises andmestikus ei ole, võib kasutada päringut <strong><code>SELECT Murrak FROM eiole_pole_mk_props EXCEPT SELECT Parish_id FROM kihelkonnad2;</code></strong>. Kasuta päringu tegemiseks <em>DB Manageri</em>. Kui oled vajutanud nupul <em>Execute</em>, väljastatakse alumisse aknasse need murrakute nimed, mis on küll andmestikus <em>eiole_pole_mk_props</em> tulbas <em>Murrak</em>, ent mida ei ole sellisel kujul andmestikus <em>kihelkonnad2</em> tulbas <em>Parish_id</em>.<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressions8"></span>
+<img src="imgs/expressions8.png" alt="Vigase kihelkonnanime tuvastamine" width="70%" />
+<p class="caption">
+Figure 10.7: Vigase kihelkonnanime tuvastamine
+</p>
+</div></li>
+<li>Paranda CSV-kihis selle murraku nime, mis ei sisaldu kihelkondade <em>shapefile</em>’is. Kuna CSV-faili atribuute muuta ei saa, lisa kihile uus virtuaalne atribuut <em>Murrak2</em>, kus asendad vigase nime õigega (kasuta <em>if</em>-tingimuslauset).</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressions10"></span>
+<img src="imgs/expressions10.png" alt="Uue virtuaalse atribuudi loomine" width="70%" />
+<p class="caption">
+Figure 10.8: Uue virtuaalse atribuudi loomine
+</p>
+</div>
+<ul>
+<li>Lisa kihile <em>kihelkonnad2</em> <em>ei ole</em>/<em>pole</em> sagedusandmed. Kasuta vastavalt <em>Parish_id</em> ja <em>Murrak2</em> tulpasid.<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressions11"></span>
+<img src="imgs/expressions11.png" alt="Kihtide ühendamine" width="70%" />
+<p class="caption">
+Figure 10.9: Kihtide ühendamine
+</p>
+</div>
+<ul>
+<li>Teine moodus kihte ühe tunnuse alusel ühendada on nii, kui valid <em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Vector general</em> -&gt; <em>Join attributes by field value</em>. Erinevus tavalise <em>Join</em>-funktsiooniga on selles, et tekib uus kiht (vaikimisi nimega <em>Joined layer</em>).<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressions011"></span>
+<img src="imgs/11_processing_join.PNG" alt="Kihtide ühendamine" width="50%" />
+<p class="caption">
+Figure 10.10: Kihtide ühendamine
+</p>
+</div></li>
+</ul></li>
+<li>Värvi <em>ei ole</em>/<em>pole</em> proportsioonide infoga täiendatud kihi <em>kihelkonnad2</em> polügoonid vastavalt <em>ei ole</em> suhtelisele sagedusele kihelkonnas/murrakus nii, et halliga oleksid märgitud ka kihelkonnad, millest murdekorpuse sagedusinfot ei ole. Selleks peab kasutama reeglipõhist sümboloogiat. Nendele kihelkondadele, kust infot on, teeme 5 sagedusklassi (0-0.2, 0.2-0.4, 0.4-0.6, 0.6-0.8 ja 0.8-1.0)<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressions12"></span>
+<img src="imgs/expressions12.gif" alt="Reeglipõhine polügoonide värvimine" width="70%" />
+<p class="caption">
+Figure 10.11: Reeglipõhine polügoonide värvimine
+</p>
+</div></li>
+</ul>
+</div>
+<div id="ülesanne-2-1" class="section level2" number="10.4">
+<h2><span class="header-section-number">10.4</span> Ülesanne 2</h2>
+<ul>
+<li>Lisa joonisele ka murdeatlase punktandmed ning erista punktide välimus selle järgi, kas tegemist on “ei ole” või “pole” variandiga.<br />
+</li>
+<li>Kuna praegu on keelendi tulbas igasuguseid variante, nt <em>põle</em>, <em>ei (äi) ole</em>, <em>ole ei (õi)</em>, <em>ei (äi, öi) pole</em>, siis peaks esmalt looma ühe binaarse tunnuse, kus oleksid ainult väärtused <em>ei ole</em> ja <em>pole</em>.<br />
+</li>
+<li>Selleks teeme kihist <em>30_ei_ole</em> koopia (nt nimega <em>eitus_atlas</em>), filtreerime sellest välja ainult need read, kus keelendi info on olemas (<code>"Keelend" IS NOT NULL</code>) ning lisame selle atribuuttabelisse <em>Field Calculator</em>’i abil uue virtuaalse tulba nimega <em>Keelend2</em>, kuhu paneme väärtuse <em>pole</em> siis, kui keelendi tulbas esineb <em>p</em>-täht, ja <em>ei ole</em> siis, kui ei esine (see tähendab, et ka nt <em>ei pole</em> klassifitseeritakse <em>pole</em>-ks). Kasutame <em>if</em>-tingimuslauset ja <em>ILIKE</em>-avaldist: <code>if("Keelend" ILIKE '%p%', 'pole', 'ei ole')</code>.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressionsex5"></span>
+<img src="imgs/expressionsEx5.png" alt="Jõe- ja järvenimelised asulanimed" width="70%" />
+<p class="caption">
+Figure 10.12: Jõe- ja järvenimelised asulanimed
+</p>
+</div>
+<ul>
+<li>Vali binaarsele keelendile vastav sümbol ja värv.<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressionsex6"></span>
+<img src="imgs/expressionsEx6.png" alt="Jõe- ja järvenimelised asulanimed" width="70%" />
+<p class="caption">
+Figure 10.13: Jõe- ja järvenimelised asulanimed
+</p>
+</div></li>
+</ul>
+</div>
+<div id="ülesanne-3-ei-olepole-selged-eelistused" class="section level2" number="10.5">
+<h2><span class="header-section-number">10.5</span> Ülesanne 3: “ei ole”/“pole” selged eelistused</h2>
+<ul>
+<li>Tee kihist <em>kihelkonnad2</em> duplikaat nimega <em>kihelkonnad3</em>.<br />
+</li>
+<li>Kasutades reeglipõhist polügoonide värvimist, kuva kihil <em>kihelkonnad3</em> värviliselt ainult sagedused, mille puhul <em>ei ole</em> ja <em>pole</em> <strong>proportsioonide absoluuterinevus</strong> on vähemalt 0,5. Ülejäänud polügoonidele (sh puuduvatele väärtustele) määra hall värv.<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressions13"></span>
+<img src="imgs/expressions13.gif" alt="Suured sageduserinevused" width="70%" />
+<p class="caption">
+Figure 10.14: Suured sageduserinevused
+</p>
+</div></li>
+<li>Nüüd muuda reegleid nii, et kihelkonnad, mille puhul <em>ei_ole</em> ja <em>pole</em> suur vahe on negatiivne (-0,5 või vähem), on punased, ja need, mille vahe on positiivne (0,5 või suurem), on sinised.<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressions14"></span>
+<img src="imgs/expressions14.gif" alt="'ei ole' ja 'pole' konstruktsioonide eelistused murrakutes" width="70%" />
+<p class="caption">
+Figure 10.15: ‘ei ole’ ja ‘pole’ konstruktsioonide eelistused murrakutes
+</p>
+</div></li>
+</ul>
+</div>
+<div id="ülesanne-4-tekstiatribuutide-muutmine" class="section level2" number="10.6">
+<h2><span class="header-section-number">10.6</span> Ülesanne 4: tekstiatribuutide muutmine</h2>
+<ul>
+<li>Muuda kihil <em>kihelkonnad3</em> eestikeelsete murrete nimetustes kõik Setu murded Seto murreteks, kasutades <em>if</em>-tingimuslauset.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressions16"></span>
+<img src="imgs/expressions16.png" alt="Setu murre Seto murdeks" width="70%" />
+<p class="caption">
+Figure 10.16: Setu murre Seto murdeks
+</p>
+</div>
+<ul>
+<li>Muuda kihil <em>kihelkonnad3</em> ingliskeelsete murrete nimetustes kõik Setu murded Seto murreteks, kasutades <em>CASE</em>-tingimuslauset.<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressions17"></span>
+<img src="imgs/expressions17.png" alt="Setu murre Seto murdeks (2)" width="70%" />
+<p class="caption">
+Figure 10.17: Setu murre Seto murdeks (2)
+</p>
+</div></li>
+<li>Leia kõik kihelkondade nimed, mille saksakeelne nimi algab lühendiga <em>St.</em> ning muuda lühend <em>Sankt</em>’iks, kasutades regulaaravaldist.<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressions18"></span>
+<img src="imgs/expressions18.png" alt="'St.' muutmine 'Sankt'-iks" width="70%" />
+<p class="caption">
+Figure 10.18: ‘St.’ muutmine ‘Sankt’-iks
+</p>
+</div></li>
+<li>Leia kõik kihelkonnad, mille nimed lõppevad <em>la</em>-ga (nt <em>Ambla</em>) ja asenda need lõpud uues tulbas <em>LA</em>-ga (<em>AmbLA</em>), kasutades regulaaravaldist.</li>
+</ul>
+<p>Põhimõtteliselt võiksime kasutada DB Manageris ka <em>UPDATE CASE WHERE</em> lauseid, ent kuna ükski meie kihtidest ei ole QGISi jaoks päris andmebaas, siis saame teha DB Manageris ainult päringuid, aga tabelit muuta ei saa. Saame aga eksportida mõne <em>virtuaalse kihi</em> näiteks GeoPackage-formaadis failina ning seda uuesti sisse lugedes saame andmestikku DB Manageris ka SQL-lausete abil muuta.</p>
+
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="georefereerimine.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="kirjandus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["book.pdf", "PDF"], ["book.epub", "EPUB"]],
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"info": true
+});
+});
+</script>
+
+</body>
+
+</html>
