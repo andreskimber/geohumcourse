@@ -186,7 +186,7 @@ knitr::include_graphics(here::here("imgs", "expressions12.gif"))
 ```
 
 
-## Ülesanne 2
+## Ülesanne 2: "ei ole"/"pole" atlase levikuandmed
 
 - Lisa joonisele ka murdeatlase punktandmed ning erista punktide välimus selle järgi, kas tegemist on "ei ole" või "pole" variandiga.  
 - Kuna praegu on keelendi tulbas igasuguseid variante, nt *põle*, *ei (äi) ole*, *ole ei (õi)*, *ei (äi, öi) pole*, siis peaks esmalt looma ühe binaarse tunnuse, kus oleksid ainult väärtused *ei ole* ja *pole*.  
