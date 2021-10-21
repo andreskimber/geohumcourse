@@ -4,14 +4,14 @@ Impordime tänaseks praktikumiks esmalt QGISi
 
 - kihelkondade *shapefile*'i (EKI, Peeter Päll),  
 - *shapefile*'i, mis sisaldab andmeid *ei ole* ja *pole* eituskonstruktsioonide **leviku** kohta eesti murretes Andrus Saareste 1955. aasta ["Väikese Eesti murdeatlase"](https://github.com/MPilvik/RuRaKe/tree/master/Saareste-vaike-murdeatlas) põhjal,  
-- CSV-faili, mis sisaldab andmeid *ei ole* ja *pole* suhtelisest **sagedusest** [Eesti murrete korpuses](www.murre.ut.ee/mkweb). NB! Kodeering on UTF-8, välju eraldab semikoolon, esimesel real on tulbanimed ning koordinaatide infot failis ei ole. 
+- CSV-faili, mis sisaldab andmeid *ei ole* ja *pole* suhtelisest **sagedusest** [Eesti murrete korpuses](http://www.murre.ut.ee/mkweb/). NB! Kodeering on UTF-8, välju eraldab semikoolon, esimesel real on tulbanimed ning koordinaatide infot failis ei ole. 
 
 
 ```{r expressions7, echo =F, fig.align='center', fig.show='hold', fig.cap = "Lisatud kihid", out.width="70%"}
 knitr::include_graphics(here::here("imgs", "expressions7.png"))
 ```
 
-Kui soovid võrrelda, kuidas EKI kihelkondade kaart klapib Maa-ameti kihelkondade kaardiga, võid taustaks panna veel WMS-i või WFS-i kaudu Maa-ameti ajaloolise haldusjaotuse kaardi: [https://teenus.maaamet.ee/ows/wms-ajalooline-haldus?](https://teenus.maaamet.ee/ows/wms-ajalooline-haldus?).
+Kui soovid võrrelda, kuidas EKI kihelkondade kaart klapib Maa-ameti kihelkondade kaardiga, võid taustaks panna veel WMS-i või WFS-i kaudu Maa-ameti ajaloolise haldusjaotuse kaardi: *https://teenus.maaamet.ee/ows/wms-ajalooline-haldus?*.
 
 
 ## Avaldised
@@ -50,7 +50,7 @@ Vaatame sel korral ülesannete toel lähemalt operaatoreid (*Operators*), matema
 ### Harjutused
 
 
-1. Kasutame valiku tööriista (***Select features by Expression***), et teha aktiivseks kõik need kihelkondade polügoonid, millel on midagi kirjutatud tulpa *Problem* (nt selleks, et hakata parandustega tegelema).   
+1. Kasutame valiku tööriista (***Select Features by Expression***), et teha aktiivseks kõik need kihelkondade polügoonid, millel on midagi kirjutatud tulpa *Problem* (nt selleks, et hakata parandustega tegelema).   
     + Kõikide atribuutide/tulpade nimed ja tüübid saab kätte jaotusest ***Fields and Values***. Nupp *All Unique* näitab atribuudi kõiki eri väärtuseid, nupp *10 Samples* sellest kuni kümmet esimest eri väärtust. Topeltklikk atribuudi nimel liigutab atribuudi jutumärkide vahel vasakul asuvasse avaldise kasti.   
     + Jaotuse ***Operators*** alt leiame terve hulga sümboleid, mille abil teha nt arvutustehteid, võrdlustehteid või tekstitöötlust, sh vajamineva operaatori *IS NOT*.   
     + Tahame leida niisiis atribuuttabelist neid ridu, kus tulp *Problem* ei ole tühi: **`"Problem" IS NOT NULL`**.   
@@ -142,7 +142,7 @@ Põhimõtteliselt on selline SQLi päringusüsteem kõikide filtreerimiste, kiht
 
 ### Harjutused
 
-SQL-i päringuid saab QGISis teha nt *DB Manager*'i tööriistaga.  
+SQL-i päringuid saab QGISis teha nt *DB Manager*'i tööriistaga. Mõned SQL-i funktsioonid (nt UPDATE) töötavad ainult "päris" andmebaasiformaatidega, nt *GeoPackage*'i failidega (kui need on ka *GeoPackage*'ina sisse loetud, mitte lihtsalt vektorfaildena).   
 
 1. Valime kihelkondade andmestikust ainult eestikeelse murrete nimede tulba ja salvestame selle eraldi kihil.  
     + `SELECT ... FROM ...;`
@@ -159,7 +159,8 @@ Värvime kihelkondade polügoonid selle põhjal, kui palju neis kasutatakse murd
 
 - Tee koopia kihelkondade kihist (nimeta see nt *kihelkonnad2*). 
     + paremklikk kihelkondade kihil -> *Duplicate Layer*,
-    + paremklikk kihil *kihelkonnad copy* -> *Rename Layer*   
+    + paremklikk kihil *kihelkonnad copy* -> *Rename Layer*,  
+    + salvesta kiht uue *shapefile*'ina, et mitte olemasolevaid andmeid üle kirjutada.  
 - Ühenda andmestik *eiole_pole_mk_props* kihiga *kihelkonnad2*. Esmalt kontrolli, kas ühendamine võiks üldse korralikult õnnestuda, st kas mõlemas kihis viidatakse samadele kihelkondadele ühtmoodi. Selleks, et leida kihelkonnad/murrakud, mis on kahele kihile ühised, saab kasutada SQLi päringut **`SELECT Murrak FROM eiole_pole_mk_props INTERSECT SELECT Parish_id FROM kihelkonnad2;`**. Selleks, et leida aga kihelkonnad, mida teises andmestikus ei ole, võib kasutada päringut **`SELECT Murrak FROM eiole_pole_mk_props EXCEPT SELECT Parish_id FROM kihelkonnad2;`**. Kasuta päringu tegemiseks *DB Manageri*. Kui oled vajutanud nupul *Execute*, väljastatakse alumisse aknasse need murrakute nimed, mis on küll andmestikus *eiole_pole_mk_props* tulbas *Murrak*, ent mida ei ole sellisel kujul andmestikus *kihelkonnad2* tulbas *Parish_id*.    
 ```{r expressions8, echo =F, fig.align='center', fig.show='hold', fig.cap = "Vigase kihelkonnanime tuvastamine", out.width="70%"}
 knitr::include_graphics(here::here("imgs", "expressions8.png"))
@@ -232,7 +233,13 @@ knitr::include_graphics(here::here("imgs", "expressions17.png"))
 knitr::include_graphics(here::here("imgs", "expressions18.png"))
 ```
 
-- Leia kõik kihelkonnad, mille nimed lõppevad *la*-ga (nt *Ambla*) ja asenda need lõpud uues tulbas *LA*-ga (*AmbLA*), kasutades regulaaravaldist.  
+- Leia kõik kihelkonnad, mille nimed lõppevad *la*-ga (nt *Ambla*) ja asenda need lõpud uues tulbas *LA*-ga (*AmbLA*), kasutades regulaaravaldit: `regexp_replace("SaKhk", '(.*)la', '\\1LA')`. Siin ütleme, et  
+    + tulba *SaKhk* kõikides sõnades,   
+    + mis algavad mis iganes sümboliga `.`, 
+    + mida esineb ükskõik mitu korda `*` (nt *Kei*, *Viga*, *Amb*, *Halja*)  
+    + ja kus sellele millele iganes mitu iganes korda järgneb järjend *la*,   
+    + jäta alles see esimene (ja siin ainus) grupeeritud osa `(.*)` enne *la*-d,  
+    + aga grupeeritud osa lõpus asenda järjend *la* järjendiga *LA*.  
 
 Põhimõtteliselt võiksime kasutada DB Manageris ka *UPDATE CASE WHERE* lauseid, ent kuna ükski meie kihtidest ei ole QGISi jaoks päris andmebaas, siis saame teha DB Manageris ainult päringuid, aga tabelit muuta ei saa. Saame aga eksportida mõne *virtuaalse kihi* näiteks GeoPackage-formaadis failina ning seda uuesti sisse lugedes saame andmestikku DB Manageris ka SQL-lausete abil muuta. 
 

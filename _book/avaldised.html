@@ -237,7 +237,7 @@ div.csl-indent {
 </li>
 <li><em>shapefile</em>’i, mis sisaldab andmeid <em>ei ole</em> ja <em>pole</em> eituskonstruktsioonide <strong>leviku</strong> kohta eesti murretes Andrus Saareste 1955. aasta <a href="https://github.com/MPilvik/RuRaKe/tree/master/Saareste-vaike-murdeatlas">“Väikese Eesti murdeatlase”</a> põhjal,<br />
 </li>
-<li>CSV-faili, mis sisaldab andmeid <em>ei ole</em> ja <em>pole</em> suhtelisest <strong>sagedusest</strong> <a href="www.murre.ut.ee/mkweb">Eesti murrete korpuses</a>. NB! Kodeering on UTF-8, välju eraldab semikoolon, esimesel real on tulbanimed ning koordinaatide infot failis ei ole.</li>
+<li>CSV-faili, mis sisaldab andmeid <em>ei ole</em> ja <em>pole</em> suhtelisest <strong>sagedusest</strong> <a href="http://www.murre.ut.ee/mkweb/">Eesti murrete korpuses</a>. NB! Kodeering on UTF-8, välju eraldab semikoolon, esimesel real on tulbanimed ning koordinaatide infot failis ei ole.</li>
 </ul>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressions7"></span>
 <img src="imgs/expressions7.png" alt="Lisatud kihid" width="70%" />
@@ -245,7 +245,7 @@ div.csl-indent {
 Figure 10.1: Lisatud kihid
 </p>
 </div>
-<p>Kui soovid võrrelda, kuidas EKI kihelkondade kaart klapib Maa-ameti kihelkondade kaardiga, võid taustaks panna veel WMS-i või WFS-i kaudu Maa-ameti ajaloolise haldusjaotuse kaardi: <a href="https://teenus.maaamet.ee/ows/wms-ajalooline-haldus?">https://teenus.maaamet.ee/ows/wms-ajalooline-haldus?</a>.</p>
+<p>Kui soovid võrrelda, kuidas EKI kihelkondade kaart klapib Maa-ameti kihelkondade kaardiga, võid taustaks panna veel WMS-i või WFS-i kaudu Maa-ameti ajaloolise haldusjaotuse kaardi: <em><a href="https://teenus.maaamet.ee/ows/wms-ajalooline-haldus" class="uri">https://teenus.maaamet.ee/ows/wms-ajalooline-haldus</a>?</em>.</p>
 <div id="avaldised-1" class="section level2" number="10.1">
 <h2><span class="header-section-number">10.1</span> Avaldised</h2>
 <p>Avaldised (<em>expressions</em>) on tehted ja vormelid, mille abil hõlpsalt muuta atribuutide väärtusi, luua uusi (virtuaalseid) atribuute või kihte, andmetest alamhulki välja filtreerida, teha statistikat jne. Avaldiste abil saab andmeid QGISis mitmekülgsemalt analüüsida ning visualiseerida.</p>
@@ -282,9 +282,9 @@ Figure 10.2: Avaldised 1) Select Features by Expression, 2) Advanced Filter (Exp
 <div id="harjutused" class="section level3" number="10.1.1">
 <h3><span class="header-section-number">10.1.1</span> Harjutused</h3>
 <ol style="list-style-type: decimal">
-<li>Kasutame valiku tööriista (<strong><em>Select features by Expression</em></strong>), et teha aktiivseks kõik need kihelkondade polügoonid, millel on midagi kirjutatud tulpa <em>Problem</em> (nt selleks, et hakata parandustega tegelema).
+<li>Kasutame valiku tööriista (<strong><em>Select Features by Expression</em></strong>), et teha aktiivseks kõik need kihelkondade polügoonid, millel on midagi kirjutatud tulpa <em>Problem</em> (nt selleks, et hakata parandustega tegelema).
 <ul>
-<li>Kõikide atribuutide/tulpade nimed ja tüübid saab kätte jaotusest <strong><em>Fields and Values</em></strong>. Nupp <em>All Unique</em> näitab atribuutide kõiki eri väärtuseid, nupp <em>10 Samples</em> sellest kuni kümmet esimest eri väärtust. Topeltklikk atribuudi nimel liigutab atribuudi jutumärkide vahel vasakul asuvasse avaldise kasti.<br />
+<li>Kõikide atribuutide/tulpade nimed ja tüübid saab kätte jaotusest <strong><em>Fields and Values</em></strong>. Nupp <em>All Unique</em> näitab atribuudi kõiki eri väärtuseid, nupp <em>10 Samples</em> sellest kuni kümmet esimest eri väärtust. Topeltklikk atribuudi nimel liigutab atribuudi jutumärkide vahel vasakul asuvasse avaldise kasti.<br />
 </li>
 <li>Jaotuse <strong><em>Operators</em></strong> alt leiame terve hulga sümboleid, mille abil teha nt arvutustehteid, võrdlustehteid või tekstitöötlust, sh vajamineva operaatori <em>IS NOT</em>.<br />
 </li>
@@ -298,7 +298,7 @@ Figure 10.3: Probleemsed kihelkonnad
 </p>
 </div>
 <ol start="2" style="list-style-type: decimal">
-<li>Kasutame tööriista <strong><em>Field Calculator</em></strong>, et lisada <em>ei ole</em>/<em>pole</em> atlase levikuandmetesse virtuaalne (st ajutine) atribuut nimega <em>saj19</em>, kus on “jah” ridadel, kus keelejuhi sünniaeg on varem kui aastal 1900, “ei”, kui keelejuhi sünniaeg on hilisem, ja “ei tea”, kui keelejuhi sünniaega pole märgitud.
+<li>Kasutame tööriista <strong><em>Field Calculator</em></strong>, et lisada <em>ei ole</em>/<em>pole</em> atlase levikuandmetesse virtuaalne (st ajutine) atribuut nimega <em>saj19</em>, kus oleks väärtus “jah” ridadel, kus keelejuhi sünniaeg on väiksem kui aasta 1900, “ei”, kui keelejuhi sünniaeg on hilisem, ja “ei tea”, kui keelejuhi sünniaega pole märgitud.
 <ul>
 <li>Siin läheb vaja tingimuslauseid jaotuses <strong><em>Conditionals</em></strong>. Kasutame siin funktsiooni <em>if</em>, mille järel sulgude sees komadega eraldatult tuleb anda esmalt tingimus (“Kas tulbas SaKJSynd olev arv on väiksem kui 1900?”), seejärel väärtus juhul, kui tingimus vastab tõele, ning lõpuks väärtus juhul, kui tingimus ei vasta tõele: <strong><code>if("SaKJSynd" &lt; 1900, 'jah', 'ei')</code></strong>.<br />
 </li>
@@ -454,7 +454,7 @@ Figure 10.6: Jõe- ja järvenimelised asulanimed
 <p>Põhimõtteliselt on selline SQLi päringusüsteem kõikide filtreerimiste, kihtide loomiste, muutmiste, suure osa operaatorite, funktsioonide jm taustal. QGIS paneb ise päringud SQLi keelde.</p>
 <div id="harjutused-1" class="section level3" number="10.2.1">
 <h3><span class="header-section-number">10.2.1</span> Harjutused</h3>
-<p>SQL-i päringuid saab QGISis teha nt <em>DB Manager</em>’i tööriistaga.</p>
+<p>SQL-i päringuid saab QGISis teha nt <em>DB Manager</em>’i tööriistaga. Mõned SQL-i funktsioonid (nt UPDATE) töötavad ainult “päris” andmebaasiformaatidega, nt <em>GeoPackage</em>’i failidega (kui need on ka <em>GeoPackage</em>’ina sisse loetud, mitte lihtsalt vektorfaildena).</p>
 <ol style="list-style-type: decimal">
 <li>Valime kihelkondade andmestikust ainult eestikeelse murrete nimede tulba ja salvestame selle eraldi kihil.
 <ul>
@@ -481,7 +481,9 @@ Figure 10.6: Jõe- ja järvenimelised asulanimed
 <li>Tee koopia kihelkondade kihist (nimeta see nt <em>kihelkonnad2</em>).
 <ul>
 <li>paremklikk kihelkondade kihil -&gt; <em>Duplicate Layer</em>,</li>
-<li>paremklikk kihil <em>kihelkonnad copy</em> -&gt; <em>Rename Layer</em><br />
+<li>paremklikk kihil <em>kihelkonnad copy</em> -&gt; <em>Rename Layer</em>,<br />
+</li>
+<li>salvesta kiht uue <em>shapefile</em>’ina, et mitte olemasolevaid andmeid üle kirjutada.<br />
 </li>
 </ul></li>
 <li>Ühenda andmestik <em>eiole_pole_mk_props</em> kihiga <em>kihelkonnad2</em>. Esmalt kontrolli, kas ühendamine võiks üldse korralikult õnnestuda, st kas mõlemas kihis viidatakse samadele kihelkondadele ühtmoodi. Selleks, et leida kihelkonnad/murrakud, mis on kahele kihile ühised, saab kasutada SQLi päringut <strong><code>SELECT Murrak FROM eiole_pole_mk_props INTERSECT SELECT Parish_id FROM kihelkonnad2;</code></strong>. Selleks, et leida aga kihelkonnad, mida teises andmestikus ei ole, võib kasutada päringut <strong><code>SELECT Murrak FROM eiole_pole_mk_props EXCEPT SELECT Parish_id FROM kihelkonnad2;</code></strong>. Kasuta päringu tegemiseks <em>DB Manageri</em>. Kui oled vajutanud nupul <em>Execute</em>, väljastatakse alumisse aknasse need murrakute nimed, mis on küll andmestikus <em>eiole_pole_mk_props</em> tulbas <em>Murrak</em>, ent mida ei ole sellisel kujul andmestikus <em>kihelkonnad2</em> tulbas <em>Parish_id</em>.<br />
@@ -606,7 +608,19 @@ Figure 10.17: Setu murre Seto murdeks (2)
 Figure 10.18: ‘St.’ muutmine ‘Sankt’-iks
 </p>
 </div></li>
-<li>Leia kõik kihelkonnad, mille nimed lõppevad <em>la</em>-ga (nt <em>Ambla</em>) ja asenda need lõpud uues tulbas <em>LA</em>-ga (<em>AmbLA</em>), kasutades regulaaravaldist.</li>
+<li>Leia kõik kihelkonnad, mille nimed lõppevad <em>la</em>-ga (nt <em>Ambla</em>) ja asenda need lõpud uues tulbas <em>LA</em>-ga (<em>AmbLA</em>), kasutades regulaaravaldit: <code>regexp_replace("SaKhk", '(.*)la', '\\1LA')</code>. Siin ütleme, et
+<ul>
+<li>tulba <em>SaKhk</em> kõikides sõnades,<br />
+</li>
+<li>mis algavad mis iganes sümboliga <code>.</code>,</li>
+<li>mida esineb ükskõik mitu korda <code>*</code> (nt <em>Kei</em>, <em>Viga</em>, <em>Amb</em>, <em>Halja</em>)<br />
+</li>
+<li>ja kus sellele millele iganes mitu iganes korda järgneb järjend <em>la</em>,<br />
+</li>
+<li>jäta alles see esimene (ja siin ainus) grupeeritud osa <code>(.*)</code> enne <em>la</em>-d,<br />
+</li>
+<li>aga grupeeritud osa lõpus asenda järjend <em>la</em> järjendiga <em>LA</em>.</li>
+</ul></li>
 </ul>
 <p>Põhimõtteliselt võiksime kasutada DB Manageris ka <em>UPDATE CASE WHERE</em> lauseid, ent kuna ükski meie kihtidest ei ole QGISi jaoks päris andmebaas, siis saame teha DB Manageris ainult päringuid, aga tabelit muuta ei saa. Saame aga eksportida mõne <em>virtuaalse kihi</em> näiteks GeoPackage-formaadis failina ning seda uuesti sisse lugedes saame andmestikku DB Manageris ka SQL-lausete abil muuta.</p>
 

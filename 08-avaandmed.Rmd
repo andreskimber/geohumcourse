@@ -211,6 +211,7 @@ knitr::include_graphics(here::here("imgs", "kodukoht_kaardil.jpg"))
 
 Juurdepääsupiiranguta ruumiandmeid leiab internetist otsides hulganisti. Täpsed ruumiandmed on leitavad sageli huvipakkuva riigi enda avaandmete portaalidest. Siin on vaid toodud mõned üksikud näited üldisematest andmebaasidest ja repositooriumidest:  
 
+- [INSPIRE](https://inspire-geoportal.ec.europa.eu/) geoportaal koondab Euroopa Liidu liikmesriikide  ja EFTA riikide ruumiandmeid (sh Eesti andmeid Maa-ameti kaudu).  
 - [Natural Earth Data](https://www.naturalearthdata.com/): vektorkujul rannajooned, maa, ookeanid, saared, jõed, järved jm. Olemas ka rasterandmeid aluskaartide jaoks.  
 - [Open Maps for Europe](https://www.mapsforeurope.org/)   
 - [DIVA-GIS](http://www.diva-gis.org/Data): nii ülemaailmsed kui ka üksikute riikide ruumiandmed   

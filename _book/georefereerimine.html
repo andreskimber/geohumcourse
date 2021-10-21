@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Praktikum 9 Georefereerimine | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
   <meta name="description" content="Praktikum 9 Georefereerimine | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Praktikum 9 Georefereerimine | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta property="og:type" content="book" />
@@ -31,10 +31,9 @@
   
   
 <link rel="prev" href="avaandmed.html"/>
-<link rel="next" href="kirjandus.html"/>
+<link rel="next" href="avaldised.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,6 +41,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
 
 
 
@@ -196,6 +196,21 @@ div.csl-indent {
 <li class="chapter" data-level="9.5" data-path="georefereerimine.html"><a href="georefereerimine.html#veebilahendus"><i class="fa fa-check"></i><b>9.5</b> Veebilahendus</a></li>
 <li class="chapter" data-level="9.6" data-path="georefereerimine.html"><a href="georefereerimine.html#järgmisel-korral-8"><i class="fa fa-check"></i><b>9.6</b> Järgmisel korral</a></li>
 </ul></li>
+<li class="chapter" data-level="10" data-path="avaldised.html"><a href="avaldised.html"><i class="fa fa-check"></i><b>10</b> Avaldised ja päringud</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="avaldised.html"><a href="avaldised.html#avaldised-1"><i class="fa fa-check"></i><b>10.1</b> Avaldised</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="avaldised.html"><a href="avaldised.html#harjutused"><i class="fa fa-check"></i><b>10.1.1</b> Harjutused</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="avaldised.html"><a href="avaldised.html#päringud"><i class="fa fa-check"></i><b>10.2</b> Päringud</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="avaldised.html"><a href="avaldised.html#harjutused-1"><i class="fa fa-check"></i><b>10.2.1</b> Harjutused</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="avaldised.html"><a href="avaldised.html#ülesanne-1-ei-olepole-suhtelised-sagedused"><i class="fa fa-check"></i><b>10.3</b> Ülesanne 1: “ei ole”/“pole” suhtelised sagedused</a></li>
+<li class="chapter" data-level="10.4" data-path="avaldised.html"><a href="avaldised.html#ülesanne-2-1"><i class="fa fa-check"></i><b>10.4</b> Ülesanne 2</a></li>
+<li class="chapter" data-level="10.5" data-path="avaldised.html"><a href="avaldised.html#ülesanne-3-ei-olepole-selged-eelistused"><i class="fa fa-check"></i><b>10.5</b> Ülesanne 3: “ei ole”/“pole” selged eelistused</a></li>
+<li class="chapter" data-level="10.6" data-path="avaldised.html"><a href="avaldised.html#ülesanne-4-tekstiatribuutide-muutmine"><i class="fa fa-check"></i><b>10.6</b> Ülesanne 4: tekstiatribuutide muutmine</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="kirjandus.html"><a href="kirjandus.html"><i class="fa fa-check"></i>Kirjandus</a></li>
 </ul>
 
@@ -217,8 +232,8 @@ div.csl-indent {
 <div id="georefereerimine" class="section level1" number="9">
 <h1><span class="header-section-number">Praktikum 9</span> Georefereerimine</h1>
 <p>Georefereerimine on kaartide või ka aerofotode ühendamine geograafilise koordinaatsüsteemiga. Tänapäeval tehakse seda peamiselt digitaalselt. Võimalik on ka teistes koordinaatsüsteemides või üldse kohalikus (sisemises) koordinaatsüsteemis kaarte siduda meie kasutatava koordinaatsüsteemiga. Projektsioonidest ja koordinaatsüsteemidest oli lähemalt juttu kaardirakenduste praktikumis.</p>
-<p>Georefereerimiseks tuleb märkida samad kohad võimalikult täpselt georefereeritaval kaardil või fotol ja (tänapäevasel) kindlas koortinaatsüsteemis oleval aluskaardil. Georefereerimise tulemusel luuakse rasterkujutisest uus GeoTiff fail või lisatakse olemasolevale failile <a href="https://en.wikipedia.org/wiki/World_file"><em>world file</em></a>, milles on defineeritud rastri asukoht, mõõtkava ja pöördenurk.</p>
-<p>Praktikumi käigus otsime ajaloolised kaardid, mida soovime GISis kasutada, georefeerime need, lõikame vajalikku suurusesse ning digiteerime neilt huvipakkuvad objektid.</p>
+<p>Georefereerimiseks tuleb märkida samad kohad võimalikult täpselt georefereeritaval kaardil või fotol ja (tänapäevasel) kindlas koordinaatsüsteemis oleval aluskaardil. Georefereerimise tulemusel luuakse rasterkujutisest uus <em>GeoTiff</em> fail või lisatakse olemasolevale failile nn <a href="https://en.wikipedia.org/wiki/World_file"><em>world file</em></a>, milles on defineeritud rastri asukoht, mõõtkava ja pöördenurk.</p>
+<p>Praktikumi käigus otsime välja ajaloolised kaardid, mida soovime GISis kasutada, georefeerime need, lõikame vajalikku suurusesse ning digiteerime neilt huvipakkuvad objektid.</p>
 <div id="kaartide-otsimine-ja-allalaadimine" class="section level2" number="9.1">
 <h2><span class="header-section-number">9.1</span> Kaartide otsimine ja allalaadimine</h2>
 <p>Otsi Rahvusarhiivi kaartide infosüsteemist <a href="http://www.ra.ee/kaardid/">ra.ee/kaardid</a> kaart 19. saj Tartust ning 17. saj kaart Jõelähtme ja Jägala-Joa piirkonnast. Näidetes kasutan järgmisi kaarte:</p>
@@ -227,56 +242,56 @@ div.csl-indent {
 <li>Jackowal Hofs Byar uti Jegelecht Sochn belägne, EAA.1.2.C-III-8, 1688. Jägala mõisa külad Jõelähtme kihelkonnas.</li>
 </ul>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:dorpat1870"></span>
-<img src="imgs/tartu_1870.jpg" alt="Tartu kaart 1870. a" width="80%" />
+<img src="imgs/tartu_1870.jpg" alt="Tartu kaart 1870. a" width="70%" />
 <p class="caption">
 Figure 9.1: Tartu kaart 1870. a
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:jaggowal1688"></span>
-<img src="imgs/jaggowal_1688.jpg" alt="Jägala mõisa kaart 1688. a" width="80%" />
+<img src="imgs/jaggowal_1688.jpg" alt="Jägala mõisa kaart 1688. a" width="70%" />
 <p class="caption">
 Figure 9.2: Jägala mõisa kaart 1688. a
 </p>
 </div>
-<p>Võid kasutada samu või otsida muud sarnased kaardid. Laadi kaardid alla ning tõstke need enda arvutis kursuse kaustas andmete või kaartide kausta.</p>
+<p>Võid kasutada samu või otsida muud sarnased kaardid. Laadi kaardid alla ning tõsta need enda arvutis kursuse kaustas andmete või kaartide kausta.</p>
 </div>
 <div id="harjutus-1-1" class="section level2" number="9.2">
 <h2><span class="header-section-number">9.2</span> Harjutus 1</h2>
-<p>Harjutuse eesmärk läbi georefereerimise peamised sammud Tartu 19. saj kaardi abil.</p>
-<p>Ava QGIS. QGISis on georefereerimise tööriist <em>Georeferencer</em> leitav ülevalt menüüst <em>Raster</em> alt. Juhul, kui seal valikut <em>Georeferencer</em> ei ole (näiteks kui kasutad vanemat QGISi versiooni), siis tuleb see aktiveerida. Selleks <em>Plugins -&gt; Manage and Install Plugins</em> -&gt; otsingusse kirjuta <em>Georeferencer</em> -&gt; tee linnuke <em>Georefencer GDAL Plugin</em> ette ja sulge see aken. Nüüd on <em>Raster</em> menüü all näha <em>Georeferencer</em>. Tööriista sisselülitamine on ühekordne tegevus. Järgmisel korral QGISi avades on see <em>Raster</em> menüü all juba olemas. Selle tööriista kohta saab täpsemalt lugeda <a href="https://docs.qgis.org/3.16/en/docs/user_manual/working_with_raster/georeferencer.html">QGIS 3.16 juhendist</a>.</p>
+<p>Harjutuse eesmärk on teha läbi georefereerimise peamised sammud Tartu 19. saj kaardi abil.</p>
+<p>Ava QGIS. QGISis on georefereerimise tööriist <em>Georeferencer</em> leitav ülevalt menüüst <em>Raster</em> alt. Juhul, kui seal valikut <em>Georeferencer</em> ei ole (näiteks kui kasutad vanemat QGISi versiooni), siis tuleb see aktiveerida. Selleks vali <em>Plugins -&gt; Manage and Install Plugins</em> -&gt; otsingusse kirjuta <em>Georeferencer</em> -&gt; tee linnuke <em>Georefencer GDAL Plugin</em> ette ja sulge see aken. Nüüd on <em>Raster</em> menüü all näha <em>Georeferencer</em>. Tööriista sisselülitamine on ühekordne tegevus. Järgmisel korral QGISi avades on see <em>Raster</em> menüü all juba olemas. Selle tööriista kohta saab täpsemalt lugeda <a href="https://docs.qgis.org/3.16/en/docs/user_manual/working_with_raster/georeferencer.html">QGIS 3.16 juhendist</a>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:georefenable"></span>
-<img src="imgs/georeferences_enabling.gif" alt="Georefereerija sisselülitamine vanemates QGIS versioonides" width="90%" />
+<img src="imgs/georeferences_enabling.gif" alt="Georefereerija sisselülitamine vanemates QGISi versioonides" width="70%" />
 <p class="caption">
-Figure 9.3: Georefereerija sisselülitamine vanemates QGIS versioonides
+Figure 9.3: Georefereerija sisselülitamine vanemates QGISi versioonides
 </p>
 </div>
-<p>Ava <em>Georeferencer</em> ning ava selles 19. saj Tartu kaart. <em>File</em> -&gt; <em>Open Raster</em>. Selles aknas liikumine on on samamoodi nagu tavalisel kaardiaknal. Saab suumida hiire rullikuga või <em>ctrl</em> all hoides ning liikuda nooltega ja hiirega kui valitud on käekujuline <em>Pan</em> ikoon. Vaadake kaardil ringi, kas tunnete ära mõningad tuntud kohad.</p>
-<p>Nüüd on vaja aluskaarti, mille pealt leida ühised punktid ajaloolise kaardiga. Selleks ava Maa-ameti WMS teenusest Hybriidkaart, Põhikaart ja Ortofoto. Hübriidkaardi kasutamiseks tuleb luua ühenduse aadressiga <em><a href="https://kaart.maaamet.ee/wms/ajalooline" class="uri">https://kaart.maaamet.ee/wms/ajalooline</a></em>. Ortofoto kasutamiseks tuleb luua ühenduse aadressiga <em><a href="https://kaart.maaamet.ee/wms/fotokaart" class="uri">https://kaart.maaamet.ee/wms/fotokaart</a></em> ning põhikaardi jaoks <em><a href="https://kaart.maaamet.ee/wms/alus" class="uri">https://kaart.maaamet.ee/wms/alus</a></em>. Kui need ühendus pole teil varem seadistatud, siis tehke seda. WMS ühenduse loomisest on täpsemalt praktikumides <a href="qgis_1.html#aluskaardid">Sissejuhatus QGISi</a> ja <a href="qgis_2.html#kihi-ja-andmete-loomine">Sissejuhatus QGISi 2</a>.</p>
-<p>Lisaks võite ajalooliste kaartide WMS teenusest võtta ka üheverstase kaardi, millega on hea georefereerimisel tänapäevast olukorda kõrvutada. Pidage meeles, et ka üheverstane kaart on georefereeritud ning seetõttu võib esineda ebatäpsuseid.</p>
-<p>Märgi punktid ajaloolisel kaardil ja tänapäevasel aluskaardil. Võtke ette jälle <em>Georeferencer</em> aken. Georefereerija aknas <em>Edit</em> -&gt; <em>Add point</em> ja kliki mõlemalt kaardil hästi tuvastataval objektil. Näiteks TÜ peahoone, raekoda, kaarsild, tähetorn, Jaani kirik jms. Seejärel vali <em>From map canvas</em> ning kliki tänapäevasel aluskaardil samas kohas.</p>
+<p>Ava <em>Georeferencer</em> ning ava selles 19. saj Tartu kaart. <em>File</em> -&gt; <em>Open Raster</em>. Selles aknas liikumine käib samamoodi nagu tavalises kaardiaknas. Saab suumida hiire rullikuga või <em>Ctrl</em>-nuppu all hoides ning liikuda nooltega ja hiirega, kui valitud on käekujuline <em>Pan</em> ikoon. Vaata kaardil ringi. Kas tunned ära mõningad tuntud kohad?</p>
+<p>Nüüd on vaja aluskaarti, mille pealt leida ühised punktid ajaloolise kaardiga. Selleks ava Maa-ameti WMS-teenusest <em>Hybriidkaart</em>, <em>Põhikaart</em> ja <em>Ortofoto</em>. Hübriidkaardi kasutamiseks tuleb luua ühendus aadressiga <em><a href="https://kaart.maaamet.ee/wms/ajalooline" class="uri">https://kaart.maaamet.ee/wms/ajalooline</a></em>. Ortofoto kasutamiseks tuleb luua ühendus aadressiga <em><a href="https://kaart.maaamet.ee/wms/fotokaart" class="uri">https://kaart.maaamet.ee/wms/fotokaart</a></em> ning põhikaardi jaoks aadressiga <em><a href="https://kaart.maaamet.ee/wms/alus" class="uri">https://kaart.maaamet.ee/wms/alus</a></em>. Kui need ühendused pole teil varem seadistatud, siis tehke seda. WMS-ühenduse loomisest on täpsemalt juttu praktikumides <a href="qgis_1.html#aluskaardid">Sissejuhatus QGISi</a> ja <a href="qgis_2.html#kihi-ja-andmete-loomine">Sissejuhatus QGISi 2</a>.</p>
+<p>Lisaks võite ajalooliste kaartide WMS-teenusest võtta ka üheverstase kaardi, millega on hea georefereerimisel tänapäevast olukorda kõrvutada. Pidage meeles, et ka üheverstane kaart on georefereeritud ning seetõttu võib esineda ebatäpsuseid.</p>
+<p>Märgi punktid ajaloolisel kaardil ja tänapäevasel aluskaardil. Võta ette jälle <em>Georeferencer</em> aken. Georefereerija aknas vali <em>Edit</em> -&gt; <em>Add point</em> ja kliki kaardil hästi tuvastataval objektil. Näiteks TÜ peahoone, raekoda, kaarsild, tähetorn, Jaani kirik jms. Seejärel vali <em>From map canvas</em> ning kliki tänapäevasel aluskaardil samas kohas.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:georef1"></span>
-<img src="imgs/georeferencing.gif" alt="Sama asukoha märkimine" width="100%" />
+<img src="imgs/georeferencing.gif" alt="Sama asukoha märkimine" width="70%" />
 <p class="caption">
 Figure 9.4: Sama asukoha märkimine
 </p>
 </div>
-<p>Märgi sama moodi veel neli kuni kümme punkti kaardil. Võimalusel aseta punktid kaardil võimalikult laiali. Nii saab täpsema tulemuse. See järel tuleb valida georefereerimise sätted. Georefeerija aknas kliki kollasel hammasrattal ja vaata, et sätted oleks nii nagu siinsel pildil.</p>
+<p>Märgi samamoodi veel neli kuni kümme punkti kaardil. Võimalusel aseta punktid kaardil võimalikult laiali. Nii saab täpsema tulemuse. Seejärel tuleb valida georefereerimise sätted. Georefeerija aknas kliki kollasel hammasrattal ja vaata, et sätted oleks nii nagu siinsel pildil.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:georefsettings"></span>
-<img src="imgs/georef_settings.PNG" alt="Georefereerimise sätted" width="50%" />
+<img src="imgs/georef_settings.PNG" alt="Georefereerimise sätted" width="40%" />
 <p class="caption">
 Figure 9.5: Georefereerimise sätted
 </p>
 </div>
-<p>Vajuta rohelisel noolekesel <em>Start Georeferencing</em>. Nüüd ilmub georefereeritud kaart QGISi peaaknas. Vaata, kui hästi tänapäevaga koordinaatsüsteemiga sidumine õnnestus. Kui kaart on väga paigast ära, siis lisa rohkem punkte või muuda transformatsiooni tüüpi. Vastavatest algoritmidest saab täpsemalt lugeda <em>Georeferencer</em> <a href="https://docs.qgis.org/3.16/en/docs/user_manual/working_with_raster/georeferencer.html#available-transformation-algorithms">juhendist</a>.</p>
+<p>Vajuta rohelisel noolekesel <em>Start Georeferencing</em>. Nüüd ilmub georefereeritud kaart QGISi peaaknas (juhul, kui sätetes oli tehtud linnuke valiku <em>Load in QGIS when done</em> ette). Vaata, kui hästi tänapäevase koordinaatsüsteemiga sidumine õnnestus. Kui kaart on väga paigast ära, siis lisa rohkem punkte või muuda transformatsiooni tüüpi. Vastavatest algoritmidest saab täpsemalt lugeda tööriista <em>Georeferencer</em> <a href="https://docs.qgis.org/3.16/en/docs/user_manual/working_with_raster/georeferencer.html#available-transformation-algorithms">juhendist</a>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:georefvalmis"></span>
-<img src="imgs/georef_valmis.PNG" alt="Georefereeritud Tartu kaart hübriidkaardi ja ortofoto taustal" width="100%" />
+<img src="imgs/georef_valmis.PNG" alt="Georefereeritud Tartu kaart hübriidkaardi ja ortofoto taustal" width="70%" />
 <p class="caption">
 Figure 9.6: Georefereeritud Tartu kaart hübriidkaardi ja ortofoto taustal
 </p>
 </div>
 <div id="lõikamine" class="section level3" number="9.2.1">
 <h3><span class="header-section-number">9.2.1</span> Lõikamine</h3>
-<p>Lõika georefereeritud kaardist välja ainult vanalinna osa. Selleks <em>Raster → Extraction → Clip raster by extent</em>. Vaata, et <em>Input layer</em> oleks georefereeritud kaart ning <em>Clipping extent</em> juures kliki sirvimise ikoonil ja vali <em>Draw on canvas</em> ning joonista peaaknas nelinurk, mis katab suurema osa vanalinnast. <em>Clipped extent</em> juures kliki sirvimise ikoonil ja vali kursuse kaust ning failile arusaadav nimi. Kliki <em>Run</em>. Nüüd on lõigatud kaart peaaknas näha. Sellist lõikamist saab teha ka vektorkihi abil, aga sellest järgmistel kordadel.</p>
+<p>Lõika georefereeritud kaardist välja ainult vanalinna osa. Selleks vali <em>Raster → Extraction → Clip raster by extent</em>. Vaata, et <em>Input layer</em> oleks georefereeritud kaart ning <em>Clipping extent</em> juures kliki sirvimise ikoonil ja vali <em>Draw on canvas</em> ning joonista peaaknas nelinurk, mis katab suurema osa vanalinnast. <em>Clipped extent</em> juures kliki sirvimise ikoonil ja vali kursuse kaust ning failile arusaadav nimi. Kliki <em>Run</em>. Nüüd on lõigatud kaart peaaknas näha. Sellist lõikamist saab teha ka vektorkihi abil, aga sellest järgmistel kordadel.</p>
 </div>
 </div>
 <div id="harjutus-2-1" class="section level2" number="9.3">
@@ -285,19 +300,19 @@ Figure 9.6: Georefereeritud Tartu kaart hübriidkaardi ja ortofoto taustal
 <p>Georefereeri Jägala mõisa külade 17. sajandi kaart, kasutades samu aluskaarte. Kuna niivõrd vanal kaardil on hooneid, teid ja muid pidepunkte vähem, siis on soovitatav kasutada looduslikke objekte. Sellel kaardil on heaks ühiseks objektiks jõgi. Vali sobiv <em>Transformation type</em>.</p>
 <div id="digiteerimine" class="section level3" number="9.3.1">
 <h3><span class="header-section-number">9.3.1</span> Digiteerimine</h3>
-<p>Loo tühi <strong>ala</strong> kiht <em>Layer → Create Layer → New Geopackage Layer</em> ja pane selle nimeks nt <em>koila_maakasutus</em>. Lisa kihi atribuutide hulka ka teksti (<em>string</em>) tulp <em>tyyp</em>.</p>
+<p>Loo tühi <strong>ala</strong> (<em>Polygon</em>) kiht <em>Layer → Create Layer → New Geopackage Layer</em> ja pane selle nimeks nt <em>koila_maakasutus</em>. Lisa kihi atribuutide hulka ka teksti (<em>string</em>) tulp <em>tyyp</em>.</p>
 <div class="figure" style="text-align: center">
-<img src="imgs/9_koila_maakasutus.png" alt="Maakasutuse digiteerimise kihi tegemine" width="60%" />
+<img src="imgs/9_koila_maakasutus.png" alt="Maakasutuse digiteerimise kihi tegemine" width="40%" />
 <p class="caption">
 (#fig:koila_maakasutus)Maakasutuse digiteerimise kihi tegemine
 </p>
 </div>
-<p>Digiteeri georefereeritud 17. saj kaardilt Koila küla põllud ja heinamaad. Iga märgitud ala juurde kirjuta, kas see on <em>põld</em> või <em>heinamaa</em>. Digiteerimisest ja kihtide loomisest on täpsemalt juttu praktikumis <a href="qgis_2.html#kihi-ja-andmete-loomine">Sissejuhatus QGISi 2</a>. Kaardi tingmärkide tuvastamisel on abiks Rahvusarhiivi <a href="http://www.ra.ee/kaardid/index.php/et/site/page?view=symbols">leppemärkide juhend</a>. Koila küla põllumaade tuvastamisel vaadake ajaloolise kaardi vasakul all nurgas olevat legendi. Koila küla on tähistatud <em>B</em> tähega. Kuna põllu- ja heinamaad piirnevad üksteisega, siis on kasulik aktiveerida kihtide külge haakumine ehk <em>snapping</em>. Selleks <em>File → Snapping options →</em> kliki punasel magneti ikoonil. Nüüd haakub kursor kihi läheduses automaatselt selle nurgapunktide ja servade külge.</p>
-<p>Arvuta igale märgitud alale selle pindala. Selleks tuleb atribuuttabelisse luua pindala tulp ja sisestada funktsioon selle arvutamiseks. Ava <em>Attribute table → Open Field Calculator</em>. Linnuke <em>Create new field</em> ette ja tulba nimeks <em>pindala_ha</em>. <em>Expression</em> lahtrisse kopeeri kood <em>round($area / 10000, 2)</em>. See arvutab iga ala pindala ruutmeetrites (<em>$area</em>), jagab selle 10000 ehk teisendab hektariteks ja lõputuseks ümardab kahe komakohani.</p>
+<p>Digiteeri georefereeritud 17. saj kaardilt Koila küla põllud ja heinamaad. Iga märgitud ala juurde kirjuta, kas see on <em>põld</em> või <em>heinamaa</em>. Digiteerimisest ja kihtide loomisest on täpsemalt juttu praktikumis <a href="qgis_2.html#kihi-ja-andmete-loomine">Sissejuhatus QGISi 2</a>. Kaardi tingmärkide tuvastamisel on abiks Rahvusarhiivi <a href="http://www.ra.ee/kaardid/index.php/et/site/page?view=symbols">leppemärkide juhend</a>. Koila küla põllumaade tuvastamisel vaadake ajaloolise kaardi vasakul all nurgas olevat legendi. Koila küla on tähistatud <em>B</em> tähega. Kuna põllu- ja heinamaad piirnevad üksteisega, siis on kasulik aktiveerida kihtide külge haakumine ehk <em>snapping</em>. Selleks vali <em>Project → Snapping options →</em> kliki punasel magneti ikoonil. Nüüd haakub kursor kihi läheduses automaatselt selle käänupunktide külge.</p>
+<p>Arvuta igale märgitud alale selle pindala. Selleks tuleb atribuuttabelisse luua pindala tulp ja sisestada funktsioon selle arvutamiseks. Ava <em>Attribute table → Open Field Calculator</em>. Tee linnuke <em>Create new field</em> ette ja tulba nimeks pane <em>pindala_ha</em>. <em>Expression</em> lahtrisse kopeeri kood <em>round($area / 10000, 2)</em>. See arvutab iga ala pindala ruutmeetrites (<em>$area</em>), jagab selle 10 000-ga ehk teisendab hektariteks ja lõputuseks ümardab kahe komakohani.</p>
 <div class="figure" style="text-align: center">
-<img src="imgs/9_pindala_arvutamine.png" alt="Pindala arvutamiseks tulba loomine ja funktsioon" width="60%" />
+<img src="imgs/9_pindala_arvutamine.png" alt="Pindala arvutamiseks tulba loomine ja kasutatud funktsioon" width="60%" />
 <p class="caption">
-(#fig:koila_pindala)Pindala arvutamiseks tulba loomine ja funktsioon
+(#fig:koila_pindala)Pindala arvutamiseks tulba loomine ja kasutatud funktsioon
 </p>
 </div>
 <p>Tulemuseks on kiht, mille atribuuttabelis on olemas alade pindalad. Seda saab kasutada näiteks maakasutuse ulatuse ja muutuste uurimiseks.</p>
@@ -319,8 +334,7 @@ Figure 9.6: Georefereeritud Tartu kaart hübriidkaardi ja ortofoto taustal
 </div>
 <div id="järgmisel-korral-8" class="section level2" number="9.6">
 <h2><span class="header-section-number">9.6</span> Järgmisel korral</h2>
-<p>Neljapäevases praktikumis vaatame, kuidas saab ruumiandmete töötamisel kasutada avaldisi ja päringuid.</p>
-
+<p>Neljapäevases praktikumis vaatame, kuidas saab ruumiandmetega töötamisel kasutada avaldisi ja päringuid.</p>
 
 </div>
 </div>
@@ -330,10 +344,11 @@ Figure 9.6: Georefereeritud Tartu kaart hübriidkaardi ja ortofoto taustal
         </div>
       </div>
 <a href="avaandmed.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="kirjandus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="avaldised.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -361,7 +376,7 @@ gitbook.start({
 },
 "download": [["book.pdf", "PDF"], ["book.epub", "EPUB"]],
 "search": {
-"engine": "fuse",
+"engine": "lunr",
 "options": null
 },
 "toc": {
