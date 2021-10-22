@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Praktikum 11 Andmekihtide ühendamine | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
+  <meta name="description" content="Praktikum 11 Andmekihtide ühendamine | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Praktikum 11 Andmekihtide ühendamine | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Praktikum 11 Andmekihtide ühendamine | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  
+  
+  
+
+<meta name="author" content="Andres Kimber, Maarja-Liisa Pilvik" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="avaldised.html"/>
+<link rel="next" href="kirjandus.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#kursuse-korraldusest"><i class="fa fa-check"></i><b>1.1</b> Kursuse korraldusest</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#mis-on-geoinfosüsteemid"><i class="fa fa-check"></i><b>1.2</b> Mis on geoinfosüsteemid?</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#geoinfosüsteemide-ajaloost"><i class="fa fa-check"></i><b>1.3</b> Geoinfosüsteemide ajaloost</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#ruumiandmed-ja-gis-humanitaarteadustes"><i class="fa fa-check"></i><b>1.4</b> Ruumiandmed ja GIS humanitaarteadustes</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#arheoloogia"><i class="fa fa-check"></i><b>1.4.1</b> Arheoloogia</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#veel-näiteid"><i class="fa fa-check"></i><b>1.4.2</b> Veel näiteid</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#küsitlus"><i class="fa fa-check"></i><b>1.5</b> Küsitlus</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>1.6</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>2</b> Seminar</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="seminar.html"><a href="seminar.html#mõisted"><i class="fa fa-check"></i><b>2.1</b> Mõisted</a></li>
+<li class="chapter" data-level="2.2" data-path="seminar.html"><a href="seminar.html#rühmatöö-1-gisi-ja-ruumi-geohumanitaaria-projekte-ja-rakendusi"><i class="fa fa-check"></i><b>2.2</b> Rühmatöö 1: GISi ja ruumi-/geohumanitaaria projekte ja rakendusi</a></li>
+<li class="chapter" data-level="2.3" data-path="seminar.html"><a href="seminar.html#rühmatöö-2-humanitaaria-vs.-kvantitatiivsed-meetodid"><i class="fa fa-check"></i><b>2.3</b> Rühmatöö 2: humanitaaria <em>vs</em>. kvantitatiivsed meetodid</a></li>
+<li class="chapter" data-level="2.4" data-path="seminar.html"><a href="seminar.html#järgmisel-korral-1"><i class="fa fa-check"></i><b>2.4</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html"><i class="fa fa-check"></i><b>3</b> Ruumiobjektid ja ruumiandmed</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#vektorandmed"><i class="fa fa-check"></i><b>3.1</b> Vektorandmed</a></li>
+<li class="chapter" data-level="3.2" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#rasterandmed"><i class="fa fa-check"></i><b>3.2</b> Rasterandmed</a></li>
+<li class="chapter" data-level="3.3" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#vektor-vs.-raster"><i class="fa fa-check"></i><b>3.3</b> Vektor vs. raster</a></li>
+<li class="chapter" data-level="3.4" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#ülesanne"><i class="fa fa-check"></i><b>3.4</b> Ülesanne</a></li>
+<li class="chapter" data-level="3.5" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#järgmisel-korral-2"><i class="fa fa-check"></i><b>3.5</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="kaardid.html"><a href="kaardid.html"><i class="fa fa-check"></i><b>4</b> Kaardid, koordinaatsüsteemid ja projektsioonid</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="kaardid.html"><a href="kaardid.html#kaart"><i class="fa fa-check"></i><b>4.1</b> Kaart</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="kaardid.html"><a href="kaardid.html#koordinaatsüsteemid-ja-projektsioonid"><i class="fa fa-check"></i><b>4.1.1</b> Koordinaatsüsteemid ja projektsioonid</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="kaardid.html"><a href="kaardid.html#veebipõhised-kaardirakendused"><i class="fa fa-check"></i><b>4.2</b> Veebipõhised kaardirakendused</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="kaardid.html"><a href="kaardid.html#google-my-maps"><i class="fa fa-check"></i><b>4.2.1</b> Google My Maps</a></li>
+<li class="chapter" data-level="4.2.2" data-path="kaardid.html"><a href="kaardid.html#ülesanne-1"><i class="fa fa-check"></i><b>4.2.2</b> Ülesanne</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="kaardid.html"><a href="kaardid.html#järgmisel-korral-3"><i class="fa fa-check"></i><b>4.3</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="storymaps.html"><a href="storymaps.html"><i class="fa fa-check"></i><b>5</b> Story maps ja Mapbox</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="storymaps.html"><a href="storymaps.html#story-maps"><i class="fa fa-check"></i><b>5.1</b> Story maps</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="storymaps.html"><a href="storymaps.html#storymapjs"><i class="fa fa-check"></i><b>5.1.1</b> <span>StoryMapJS</span></a></li>
+<li class="chapter" data-level="5.1.2" data-path="storymaps.html"><a href="storymaps.html#arcgis-storymaps"><i class="fa fa-check"></i><b>5.1.2</b> <span>ArcGIS StoryMaps</span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="storymaps.html"><a href="storymaps.html#mapbox-studio"><i class="fa fa-check"></i><b>5.2</b> Mapbox Studio</a></li>
+<li class="chapter" data-level="5.3" data-path="storymaps.html"><a href="storymaps.html#mapbox-story-mapis"><i class="fa fa-check"></i><b>5.3</b> Mapbox <em>story map</em>’is</a></li>
+<li class="chapter" data-level="5.4" data-path="storymaps.html"><a href="storymaps.html#järgmisel-korral-4"><i class="fa fa-check"></i><b>5.4</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="qgis_1.html"><a href="qgis_1.html"><i class="fa fa-check"></i><b>6</b> Sissejuhatus QGISi</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="qgis_1.html"><a href="qgis_1.html#installimine"><i class="fa fa-check"></i><b>6.1</b> Installimine</a></li>
+<li class="chapter" data-level="6.2" data-path="qgis_1.html"><a href="qgis_1.html#andmed-ja-failihaldus"><i class="fa fa-check"></i><b>6.2</b> Andmed ja failihaldus</a></li>
+<li class="chapter" data-level="6.3" data-path="qgis_1.html"><a href="qgis_1.html#esimene-seadistamine-ja-kasutajaliides"><i class="fa fa-check"></i><b>6.3</b> Esimene seadistamine ja kasutajaliides</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="qgis_1.html"><a href="qgis_1.html#vaikimisi-koordinaatsüsteemi-sätestamine."><i class="fa fa-check"></i><b>6.3.1</b> Vaikimisi koordinaatsüsteemi sätestamine.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="qgis_1.html"><a href="qgis_1.html#andmete-avamine"><i class="fa fa-check"></i><b>6.4</b> Andmete avamine</a></li>
+<li class="chapter" data-level="6.5" data-path="qgis_1.html"><a href="qgis_1.html#kihtide-visualiseerimine"><i class="fa fa-check"></i><b>6.5</b> Kihtide visualiseerimine</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="qgis_1.html"><a href="qgis_1.html#harjutus-1"><i class="fa fa-check"></i><b>6.5.1</b> Harjutus 1</a></li>
+<li class="chapter" data-level="6.5.2" data-path="qgis_1.html"><a href="qgis_1.html#harjutus-2"><i class="fa fa-check"></i><b>6.5.2</b> Harjutus 2</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="qgis_1.html"><a href="qgis_1.html#aluskaardid"><i class="fa fa-check"></i><b>6.6</b> Aluskaardid</a></li>
+<li class="chapter" data-level="6.7" data-path="qgis_1.html"><a href="qgis_1.html#järgmisel-korral-5"><i class="fa fa-check"></i><b>6.7</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="qgis_2.html"><a href="qgis_2.html"><i class="fa fa-check"></i><b>7</b> Sissejuhatus QGISi 2</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="qgis_2.html"><a href="qgis_2.html#andmete-avamine-1"><i class="fa fa-check"></i><b>7.1</b> Andmete avamine</a></li>
+<li class="chapter" data-level="7.2" data-path="qgis_2.html"><a href="qgis_2.html#andmete-valimine-ja-mõõtmine-käsitsi"><i class="fa fa-check"></i><b>7.2</b> Andmete valimine ja mõõtmine (käsitsi)</a></li>
+<li class="chapter" data-level="7.3" data-path="qgis_2.html"><a href="qgis_2.html#kihi-ja-andmete-loomine"><i class="fa fa-check"></i><b>7.3</b> Kihi ja andmete loomine</a></li>
+<li class="chapter" data-level="7.4" data-path="qgis_2.html"><a href="qgis_2.html#kaartide-kujundamine-ja-eksportimine"><i class="fa fa-check"></i><b>7.4</b> Kaartide kujundamine ja eksportimine</a></li>
+<li class="chapter" data-level="7.5" data-path="qgis_2.html"><a href="qgis_2.html#järgmisel-korral-6"><i class="fa fa-check"></i><b>7.5</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="avaandmed.html"><a href="avaandmed.html"><i class="fa fa-check"></i><b>8</b> Avaandmed ja repositooriumid</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="avaandmed.html"><a href="avaandmed.html#mis-on-avaandmed"><i class="fa fa-check"></i><b>8.1</b> Mis on avaandmed?</a></li>
+<li class="chapter" data-level="8.2" data-path="avaandmed.html"><a href="avaandmed.html#eesti-ruumiandmed"><i class="fa fa-check"></i><b>8.2</b> Eesti ruumiandmed</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="avaandmed.html"><a href="avaandmed.html#maa-ameti-geoportaal"><i class="fa fa-check"></i><b>8.2.1</b> Maa-ameti Geoportaal</a></li>
+<li class="chapter" data-level="8.2.2" data-path="avaandmed.html"><a href="avaandmed.html#statistikaamet"><i class="fa fa-check"></i><b>8.2.2</b> Statistikaamet</a></li>
+<li class="chapter" data-level="8.2.3" data-path="avaandmed.html"><a href="avaandmed.html#digitaalsed-kaardikollektsioonid"><i class="fa fa-check"></i><b>8.2.3</b> Digitaalsed kaardikollektsioonid</a></li>
+<li class="chapter" data-level="8.2.4" data-path="avaandmed.html"><a href="avaandmed.html#muu"><i class="fa fa-check"></i><b>8.2.4</b> Muu</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="avaandmed.html"><a href="avaandmed.html#muude-riikide-ruumiandmed"><i class="fa fa-check"></i><b>8.3</b> Muude riikide ruumiandmed</a></li>
+<li class="chapter" data-level="8.4" data-path="avaandmed.html"><a href="avaandmed.html#järgmisel-korral-7"><i class="fa fa-check"></i><b>8.4</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="georefereerimine.html"><a href="georefereerimine.html"><i class="fa fa-check"></i><b>9</b> Georefereerimine</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="georefereerimine.html"><a href="georefereerimine.html#kaartide-otsimine-ja-allalaadimine"><i class="fa fa-check"></i><b>9.1</b> Kaartide otsimine ja allalaadimine</a></li>
+<li class="chapter" data-level="9.2" data-path="georefereerimine.html"><a href="georefereerimine.html#harjutus-1-1"><i class="fa fa-check"></i><b>9.2</b> Harjutus 1</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="georefereerimine.html"><a href="georefereerimine.html#lõikamine"><i class="fa fa-check"></i><b>9.2.1</b> Lõikamine</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="georefereerimine.html"><a href="georefereerimine.html#harjutus-2-1"><i class="fa fa-check"></i><b>9.3</b> Harjutus 2</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="georefereerimine.html"><a href="georefereerimine.html#digiteerimine"><i class="fa fa-check"></i><b>9.3.1</b> Digiteerimine</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="georefereerimine.html"><a href="georefereerimine.html#harjutus-3"><i class="fa fa-check"></i><b>9.4</b> Harjutus 3</a></li>
+<li class="chapter" data-level="9.5" data-path="georefereerimine.html"><a href="georefereerimine.html#veebilahendus"><i class="fa fa-check"></i><b>9.5</b> Veebilahendus</a></li>
+<li class="chapter" data-level="9.6" data-path="georefereerimine.html"><a href="georefereerimine.html#järgmisel-korral-8"><i class="fa fa-check"></i><b>9.6</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="avaldised.html"><a href="avaldised.html"><i class="fa fa-check"></i><b>10</b> Avaldised ja päringud</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="avaldised.html"><a href="avaldised.html#avaldised-1"><i class="fa fa-check"></i><b>10.1</b> Avaldised</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="avaldised.html"><a href="avaldised.html#harjutused"><i class="fa fa-check"></i><b>10.1.1</b> Harjutused</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="avaldised.html"><a href="avaldised.html#päringud"><i class="fa fa-check"></i><b>10.2</b> Päringud</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="avaldised.html"><a href="avaldised.html#harjutused-1"><i class="fa fa-check"></i><b>10.2.1</b> Harjutused</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="avaldised.html"><a href="avaldised.html#ülesanne-1-ei-olepole-suhtelised-sagedused"><i class="fa fa-check"></i><b>10.3</b> Ülesanne 1: “ei ole”/“pole” suhtelised sagedused</a></li>
+<li class="chapter" data-level="10.4" data-path="avaldised.html"><a href="avaldised.html#ülesanne-2-ei-olepole-atlase-levikuandmed"><i class="fa fa-check"></i><b>10.4</b> Ülesanne 2: “ei ole”/“pole” atlase levikuandmed</a></li>
+<li class="chapter" data-level="10.5" data-path="avaldised.html"><a href="avaldised.html#ülesanne-3-ei-olepole-selged-eelistused"><i class="fa fa-check"></i><b>10.5</b> Ülesanne 3: “ei ole”/“pole” selged eelistused</a></li>
+<li class="chapter" data-level="10.6" data-path="avaldised.html"><a href="avaldised.html#ülesanne-4-tekstiatribuutide-muutmine"><i class="fa fa-check"></i><b>10.6</b> Ülesanne 4: tekstiatribuutide muutmine</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html"><i class="fa fa-check"></i><b>11</b> Andmekihtide ühendamine</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#andmestike-ühendamine"><i class="fa fa-check"></i><b>11.1</b> Andmestike ühendamine</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#csv-info-ühendamine-shp-ga"><i class="fa fa-check"></i><b>11.1.1</b> CSV info ühendamine SHP-ga</a></li>
+<li class="chapter" data-level="11.1.2" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#shp-info-ühendamine-csv-ga"><i class="fa fa-check"></i><b>11.1.2</b> SHP info ühendamine CSV-ga</a></li>
+<li class="chapter" data-level="11.1.3" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#csv-ja-shp-ühendamine-polügoonidega-vektorandmeteks"><i class="fa fa-check"></i><b>11.1.3</b> CSV ja SHP ühendamine polügoonidega vektorandmeteks</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#geokodeerimine"><i class="fa fa-check"></i><b>11.2</b> Geokodeerimine</a></li>
+<li class="chapter" data-level="11.3" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#ruumiandmete-omavahel-ühendamine"><i class="fa fa-check"></i><b>11.3</b> Ruumiandmete omavahel ühendamine</a></li>
+<li class="chapter" data-level="11.4" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#ruumiandmete-käsitsi-lisamine"><i class="fa fa-check"></i><b>11.4</b> Ruumiandmete käsitsi lisamine</a></li>
+<li class="chapter" data-level="11.5" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#järgmisel-korral-9"><i class="fa fa-check"></i><b>11.5</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="kirjandus.html"><a href="kirjandus.html"><i class="fa fa-check"></i>Kirjandus</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="andmekihtide_yhendamine" class="section level1" number="11">
+<h1><span class="header-section-number">Praktikum 11</span> Andmekihtide ühendamine</h1>
+<!-- Andmestikud:
+- vallakohtuprotokollide andmestik + Maa-ameti haldusjaotuse shapefile'id
+- geokodeeritud Album Academicumi andmestik (parandamata)
+- geokodeeritud Album Academicumi andmestik (parandatud)
+- vallakohtuprotokollide kohanimede andmeid + ajalooline aluskaart
+-->
+<div id="andmestike-ühendamine" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> Andmestike ühendamine</h2>
+<p>Kui meil on olemas andmestik, milles ruumilist infot väljendavad ainult mingid tekstilised tunnused (nt riikide, maakondade, linnade, talude vm nimed), saame nende konkreetsete asukohtade määramiseks, kaardil kuvamiseks ning ruumiliseks analüüsimiseks kasutada ära vabalt kättesaadavaid ruumiandmeid (nt Maa-ameti ruumiandmeid).</p>
+<p>Vaatame esmalt varasemast oluliselt suuremat 19. sajandi vallakohtute andmestikku. See on osa <a href="www.ra.ee/vallakohtud">Rahvusarhiivi ühisloomeprojektist</a>, mille käigus on praeguseks sisestatud üle 40 000 vallakohtuprotokolli, kus arutatakse muuhulgas näiteks laenusid ja võlanõudeid, varavastaseid kuritegusid, pärimisasju, kahjutasunõudeid, aga ka näiteks sõimu ja vägivalda ning muid üleastumisi. Siin praktikumis kasutatavas andmestikus on umbes 25 000 protokolli andmed.</p>
+<p>Tabel näeb välja selline:</p>
+<pre><code>##    id year month day protocol_number
+## 1 399 1885     7  19             159
+## 2 182 1823     5  19            NULL
+## 3 508 1856     2  17               4
+## 4 249 1869     3  11              66
+## 5 533 1843     3  27            NULL
+## 6 583 1899     7   2               2
+##                                                                                                   X_record_type
+## 1                     Maade ja hoonete rentimine, mõõtmine ja pärandamine. Ehitamine. Suhted mõisa ja kroonuga.
+## 2                                                                                                          NULL
+## 3                                                                                                          NULL
+## 4                                                                                          Laenud ja võlanõuded
+## 5                                                                                    Perekonna- ja pärimisasjad
+## 6 Varalised tehingud; Maade ja hoonete rentimine, mõõtmine ja pärandamine. Ehitamine. Suhted mõisa ja kroonuga.
+##    maakond kihelkond      vald number_of_characters
+## 1    Pärnu  Halliste    Penuja                  409
+## 2 Viljandi     Helme      Lõve                   84
+## 3    Tartu  Kodavere Alatskivi                  211
+## 4 Viljandi     Helme      Lõve                   60
+## 5 Viljandi    Paistu   Holstre                  348
+## 6    Harju      Kose   Palvere                 4025</code></pre>
+<p>Selleks, et protokollide andmeid kaardil kuvada, ühendame <a href="https://geoportaal.maaamet.ee/docs/haldus_asustus/maakond_shp.zip?t=20201001005508">Maa-ameti maakonnapiiride andmed</a> vallakohtute andmetega.<br />
+Esmalt laadime mõlemad andmestikud QGISi.</p>
+<ul>
+<li>Maa-ameti andmed laadime vektorkihina: <em>Layer</em> -&gt; <em>Add Layer</em> -&gt; <em>Add Vector Layer</em> -&gt; [vali SHP-fail] -&gt; <em>Add</em> -&gt; <em>Close</em><br />
+</li>
+<li>Vallakohtute andmed laadime csv-kihina: <em>Layer</em> -&gt; <em>Add Layer</em> -&gt; <em>Add Delimited Text Layer</em> -&gt; [vali fail <em>vallakohtud_RA.csv</em>] -&gt; tulpade eraldaja on tabulaator (<em>Tab</em>), linnuke on kastide ees <em>First record has field names</em> ja <em>Detect field types</em>, <em>Geometry Definition</em> on <em>No geometry</em> -&gt; Add -&gt; Close</li>
+</ul>
+<p>Selleks, et tavalist andmestikku ruumiandmetega ühendada, peab kahel andmestikul olema vähemalt üks ühine tunnus (näiteks tulp maakonnanimedega). <strong>Millised on vallakohtute maakonnanimed ja millised Maa-ameti maakonnapiiride maakonnanimed?</strong> Vaatame atribuuttabelist.<br />
+Asendame Maa-ameti maakonnapiiride atribuuttabelis maakonnanimed nii, et need ühtiksid vallakohtute andmetega (nt <em>Viljandi maakond</em> -&gt; <em>Viljandi</em>). Selleks lisame tabelisse uue tulba nagu eelmiselgi korral. Tee paremklikk maakonnapiiride kihil -&gt; <em>Properties</em> -&gt; <em>Fields</em> -&gt; <em>Field calculator</em> -&gt; <em>Create new field</em> ning kasutame <a href="https://et.wikipedia.org/wiki/Regulaaravaldis">regulaaravaldist</a>, mis kustutab pärast maakonnanime osa " maakond" (teisisõnu: asendab selle osa mitte millegagi). <code>\\s</code> märgib siin tühikut.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:regexpreplace"></span>
+<img src="imgs/regex_replace.PNG" alt="Maakonnanimede asendamine regulaaravaldise abil" width="70%" />
+<p class="caption">
+Figure 11.1: Maakonnanimede asendamine regulaaravaldise abil
+</p>
+</div>
+<p>Nüüd on meil tunnus <strong>MNIMI2</strong>, mille abil saame kaht andmestikku ühendada. Ühendamiseks on aga kolm viisi.</p>
+<ul>
+<li><strong>Esiteks võime ühendada csv-tabeli <em>shapefile</em>’iga</strong>. Sellisel juhul säilib <em>shapefile</em>’i struktuur, milles on 15 rida (iga maakonna kohta üks) ning csv-failist lisatakse igale reale ainult mingid keskmised näitajad. Võime siin näiteks ühendada <em>shapefile</em>’iga iga maakonna protokollide keskmise pikkuse tähemärkides.</li>
+<li><strong>Teiseks võime ühendada <em>shapefile</em>’i ruumiinfo csv-tabeliga</strong>. Sellisel juhul säilib csv-faili struktuur, milles on üle 25 000 rea (iga protokolli kohta üks) ning iga rida saab juurde koordinaadid. Võime siin näiteks ühendada csv-failiga iga maakonna keskpunkti (<em>tsentroidi</em>) koordinaadid.</li>
+<li><strong>Kolmandaks võime ühendada <em>shapefile</em>’i ruumiinfo csv-tabeliga</strong> nii, et säilitame shapefile’i vektorandmete struktuuri, aga ühtlasi saame lisada ruumiinfo eraldi ka kõikidele tuhandetele ridadele.</li>
+</ul>
+<div id="csv-info-ühendamine-shp-ga" class="section level3" number="11.1.1">
+<h3><span class="header-section-number">11.1.1</span> CSV info ühendamine SHP-ga</h3>
+<ul>
+<li>Esmalt on meil vaja CSV-tabelist saada tabel, kus oleks iga maakonna kohta protokollide keskmine pikkus tähemärkides. Selleks saame luua näiteks uue virtuaalse kihi ning kasutada SQL-i päringut. Mine <em>Layer</em> -&gt; <em>Create Layer</em> -&gt; <em>New Virtual Layer</em>, nimeta kiht nt <em>keskmised</em>, <em>Embedded layers</em> saki alt vali <em>Import</em> ning impordi kiht <em>vallakohtud_RA</em>. Sisesta <em>Query</em> väljale pildil näidatud SQL-i päring ning vajuta <em>Add</em>.<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:virtuallayer"></span>
+<img src="imgs/virtuallayer.PNG" alt="Virtuaalse kihi loomine" width="100%" />
+<p class="caption">
+Figure 11.2: Virtuaalse kihi loomine
+</p>
+</div>
+<ul>
+<li>Sama asja saab teha ka nt <em>Database</em> -&gt; <em>DB Manager</em> -&gt; <em>SQL Window</em> -&gt; päring <code>SELECT AVG(number_of_characters), maakond FROM vallakohtud_RA GROUP BY maakond;</code> -&gt; <em>Execute</em> -&gt; <em>Load as new layer</em> -&gt; <em>Load</em>.<br />
+</li>
+<li>Põhimõtteliselt saab info kätte ka nii: <em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Vector analysis</em> -&gt; <em>Statistics by categories</em>. See loob uue kihi <em>Statistics by category</em>, mis annab ülevaate mingist tunnusest (nt tähemärkide arv) teise tunnuse (maakondade) põhjal grupeerituna. Väljundi tulbas <em>mean</em> on keskmine tähemärkide arv iga maakonna kohta.<br />
+</li>
+</ul></li>
+<li>Tee nüüd maakonna kihist duplikaat: paremklikk kihil -&gt; <em>Duplicate Layer</em>.<br />
+</li>
+<li>Kuna vallakohtute andmestikus on kahe Viru maakonna (Ida-Viru ja Lääne-Viru) asemel lihtsalt üks Virumaa, siis ühendame maakonna kihi duplikaadis Ida- ja Lääne-Viru polügoonid üheks. Selleks
+<ul>
+<li>tee duplikaadi kiht aktiivseks ning mine muutmise režiimi (<em>Edit</em>, vajuta kollasel pliiatsil);<br />
+</li>
+<li>vajuta valiku tööriista (<em>Select</em>) ning Ctrl-klahvi all hoides vali Ida- ja Lääne-Virumaa polügoonid;<br />
+</li>
+<li>vali menüüs <em>Edit</em> -&gt; <em>Merge selected polygons</em>, jälgi, et nii MNIMI kui ka MNIMI2 tulpadel oleks Id <em>Manual value</em> ning määra ühendatud kihile tulba <em>MNIMI</em> väärtuseks <em>Viru maakond</em> ning tulba <em>MNIMI2</em> väärtuseks <em>Viru</em>. Juhul, kui atribuuttabelisse jääb endiselt väärtus <em>Lääne-Viru</em> või <em>Ida-Viru</em>, muuda see käsitsi atribuuttabelis ära (muutmiseks vajuta atribuuttabelis kollasel pliiatsil ning muutmise lõpetamiseks uuesti kollasel pliiatsil). Lõplikus atribuuttabelis peaks olema ainult <em>Viru</em> ja <em>Viru maakond</em>.<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:merge"></span>
+<img src="imgs/merge_viru.PNG" alt="Virumaa polügoonide ühendamine" width="100%" />
+<p class="caption">
+Figure 11.3: Virumaa polügoonide ühendamine
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:merge2"></span>
+<img src="imgs/edit_attributes.PNG" alt="Atribuuttabeli parandamine" width="100%" />
+<p class="caption">
+Figure 11.4: Atribuuttabeli parandamine
+</p>
+</div></li>
+<li>Salvesta kihi muudatused (<em>Save layer edits</em>) ning välju muutmise režiimist (vajuta uuesti kollasel pliiatsil).<br />
+</li>
+</ul></li>
+<li>Nüüd saame ühendada kihi <em>keskmised</em> ja maakonnapiiride kihi koopia. Selleks tee paremklikk maakonnapiiride kihi koopial -&gt; <em>Properties</em> -&gt; <em>Joins</em> -&gt; lisa rohelisest plussmärgist uus ühendamine, täida väljad nii nagu allpool oleval pildil ning vajuta <em>OK</em> ja uuesti <em>OK</em>.<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:join1"></span>
+<img src="imgs/join1.PNG" alt="Andmestike ühendamine (1)" width="70%" />
+<p class="caption">
+Figure 11.5: Andmestike ühendamine (1)
+</p>
+</div>
+<ul>
+<li>Teine viis kihte ühendada on valida <em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Vector general</em> -&gt; <em>Join attributes by field value</em>. See tekitab uue kihi, vaikimisi nimega <em>Joined layer</em>, kus ei ole olemasolevat ja lisatud infot enam eristatud.<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:join01"></span>
+<img src="imgs/9_processing_join.PNG" alt="Andmestike ühendamine Processing tools'iga" width="70%" />
+<p class="caption">
+Figure 11.6: Andmestike ühendamine Processing tools’iga
+</p>
+</div></li>
+</ul></li>
+<li>Nüüd on meil maakonnapiiride kiht, mille atribuuttabelis on ka infot selle kohta, kui pikad vastava maakonna vallakohtuprotokollid keskmiselt on. Kasuta seda tulpa selleks, et värvida maakonnad eri tooni (pikemate protokollidega maakonnad tumedamalt, lühematega heledamalt). Selleks kasuta juba eelmistes praktikumides näidatud viise (<em>Symbology</em> -&gt; <em>Graduated</em> jne).<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:join2"></span>
+<img src="imgs/join2.PNG" alt="Ühendatud andmestikud" width="100%" />
+<p class="caption">
+Figure 11.7: Ühendatud andmestikud
+</p>
+</div></li>
+</ul>
+</div>
+<div id="shp-info-ühendamine-csv-ga" class="section level3" number="11.1.2">
+<h3><span class="header-section-number">11.1.2</span> SHP info ühendamine CSV-ga</h3>
+<ul>
+<li>Ühendame nüüd csv-failiga iga maakonna keskpunkti (<em>tsentroidi</em>) koordinaadid. Selleks tuleb meil esmalt leida maakondade polügoonide keskpunktid. Tee uus maakonnapiiride kihi koopia (duplikaat) ning nimeta see nt <em>maakonnad2</em> (paremklikk kihil -&gt; <em>Rename Layer</em>).</li>
+<li>Tee kiht <em>maakonnad2</em> aktiivseks -&gt; <em>Vector</em> -&gt; <em>Geometry Tools</em> -&gt; <em>Centroids…</em> -&gt; jäta vaikeväärtused ning vajuta <em>Run</em>. Maakondade kihile ilmuvad nüüd uuel kihil polügoonide keskpunktid.<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:centroids"></span>
+<img src="imgs/centroids.PNG" alt="Polügoonide keskpunktide leidmine" width="100%" />
+<p class="caption">
+Figure 11.8: Polügoonide keskpunktide leidmine
+</p>
+</div></li>
+<li>Järgmiseks lisame kihi <em>Centroids</em> atribuuttabelisse punktide <em>x</em>- ja <em>y</em>-koordinaadid: tee kiht aktiivseks -&gt; <em>Vector</em> -&gt; <em>Geometry Tools</em> -&gt; <em>Add Geometry Attributes</em>, jäta jällegi vaikeväärtused ning vajuta <em>Run</em> ja <em>Close</em>. Tekkis uus kiht <em>Added geom info</em>. Nimetame selle ümber nt <em>koord_keskpunktid</em>.<br />
+</li>
+<li>Ühendame nüüd CSV-kihi maakondade nimede järgi keskpunktide koordinaatide kihiga. Tee paremklikk kihil <em>vallakohtud_RA</em> -&gt; <em>Properties</em> -&gt; <em>Joins</em> -&gt; <em>Add new join</em>.
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:join3"></span>
+<img src="imgs/join3.PNG" alt="Andmestike ühendamine (2)" width="70%" />
+<p class="caption">
+Figure 11.9: Andmestike ühendamine (2)
+</p>
+</div>
+<ul>
+<li>Võid soovi korral muidugi kasutada taas hoopis <em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Vector general</em> -&gt; <em>Join attributes by value</em>, ent jälgi, et sel juhul oleks <em>Join type</em>’iks seekord valitud <em>one-to-many</em>, mis jätab alles kõik vallakohtute andmestiku read.<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:join03"></span>
+<img src="imgs/9_processing_join_onetomany.PNG" alt="Andmestike ühendamine (3)" width="70%" />
+<p class="caption">
+Figure 11.10: Andmestike ühendamine (3)
+</p>
+</div></li>
+</ul></li>
+<li>Salvestame kihi <em>vallakohtud_RA</em> uue CSV-failina (paremklikk -&gt; <em>Export</em> -&gt; <em>Save features as</em>). Jälgi, et kodeering oleks UTF-8, väljade eraldaja (<em>SEPARATOR</em>) oleks tabulaator ning koordinaatsüsteem EPSG:3301.<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:savecsv"></span>
+<img src="imgs/newcsv.PNG" alt="Koordinaatidega csv-faili salvestamine" width="70%" />
+<p class="caption">
+Figure 11.11: Koordinaatidega csv-faili salvestamine
+</p>
+</div></li>
+<li>Nüüd loeme salvestatud faili uuesti csv-failina sisse nii, et määrame ära koordinaatide tulbad: <em>Layer</em> -&gt; <em>Add Layer</em> -&gt; <em>Add Delimited Text Layer</em>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:readnewcsv"></span>
+<img src="imgs/readnewcsv.PNG" alt="Koordinaatidega csv-faili sisselugemine" width="70%" />
+<p class="caption">
+Figure 11.12: Koordinaatidega csv-faili sisselugemine
+</p>
+</div>
+<ul>
+<li>Selle asemel, et punktide saamiseks kaardile esmalt faili salvestada ja siis uuesti sisse lugeda, võib kasutada ka <em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Vector creation</em> -&gt; <em>Create points layer from table</em>.<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pointsfrom"></span>
+<img src="imgs/9_pointsfromtable.PNG" alt="Koordinaatidega csv-faili muutmine punktikihiks" width="70%" />
+<p class="caption">
+Figure 11.13: Koordinaatidega csv-faili muutmine punktikihiks
+</p>
+</div></li>
+</ul></li>
+<li>Nüüd on meil kaardil üksteise all igas maakonnas sadu ja tuhandeid punkte, ehkki vaikimisi näeme, et igas maakonnas on ainult üks punkt. Selleks, et protokollide jaotumist visuaalselt veidi paremini näidata, võime näiteks filtreerida välja ainult protokollid, mille teemaks on (ainult) “Sõim ja vägivald” ning teha <em>heatmap</em>’i.
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:heatmap"></span>
+<img src="imgs/heatmap.PNG" alt="Heatmap" width="70%" />
+<p class="caption">
+Figure 11.14: Heatmap
+</p>
+</div></li>
+</ul>
+</div>
+<div id="csv-ja-shp-ühendamine-polügoonidega-vektorandmeteks" class="section level3" number="11.1.3">
+<h3><span class="header-section-number">11.1.3</span> CSV ja SHP ühendamine polügoonidega vektorandmeteks</h3>
+<p>Kolmas viis, mis jätab alles nii kõik CSV-andmestiku vaatlused (ühest kohast mitu vaatlust), ent võimaldab ühendatud andmestikku hoida polügoonidega vektorformaadis (mitte lihtsalt tabelina, milles punktide koordinaadid on atribuudid), saame kasutada sedasama ülal mainitud <em>Join type</em> = <em>one-to-many</em> võimalust.</p>
+<ul>
+<li>Vali uuesti <em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Vector general</em> -&gt; <em>Join attributes by field value</em>.
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:join100"></span>
+<img src="imgs/9_processing_join_onetomany2.PNG" alt="CSV ja SHP ühendamine vektorandmeteks" width="70%" />
+<p class="caption">
+Figure 11.15: CSV ja SHP ühendamine vektorandmeteks
+</p>
+</div></li>
+<li>Tekib uus kiht <em>Joined layer</em>, milles iga vallakohtuprotokoll on geograafiliselt määratud mõnda Eesti maakonna polügooni.</li>
+</ul>
+<p>Võid proovida teha sama kihelkondade andmetega, kasutades näiteks <a href="https://archive.org/download/HistoricalAdministrativeBordersOfEstonia/ee_admin_20thC_shapefiles.zip">siit</a> alla laaditavaid 1897. aasta kihelkonnapiiride andmeid. NB! Kihelkondade andmestikus on mõned polügoonid, mille ruumikuju on vigane ja millel seetõttu ei saa nende puhul näiteks keskpunkte leida. Selleks, et see segama ei hakkaks, määra QGISis <em>Settings</em> -&gt; <em>Options</em> -&gt; <em>Processing</em> -&gt; <em>General menu</em> -&gt; <em>Invalid features filtering</em> (= <em>Skip (ignore) invalid geometries</em>).</p>
+</div>
+</div>
+<div id="geokodeerimine" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> Geokodeerimine</h2>
+<p>Täpsemate asukohtade määramiseks (nt aadresside jaoks) saab kasutada geokodeerimise teenust. Geokodeerimine on aadressi või kohanime seostamine geograafiliste koordinaatidega. Tagurpidi geokodeerimine omakorda võimaldab koordinaatidest tuletada aadressid ja kohanimed.</p>
+<p>Maa-amet pakub tasuta <a href="https://geoportaal.maaamet.ee/est/Teenused/Geokodeerimise-teenus-p440.html">geokodeerimise teenust</a>. Sealjuures on võimalik geokodeerida ainult üht aadressi/kohta korraga kui ka tervet hulka andmeid (massgeokodeerimine).</p>
+<p><a href="https://inaadress.maaamet.ee/geocoder/one">Geokodeeri</a> alustuseks näiteks <strong>enda, oma sõbra, vanemate vt aadress</strong>. Saad väljundit kuvada nii aadressiobjektide kaardirakendused kui ka alla erinevates formaatides alla laadida. Kas jääd tulemuse täpsusega rahule?</p>
+<p><a href="https://inaadress.maaamet.ee/geocoder/bulk"><strong>Massgeokodeerimise</strong></a> sisendiks sobivad CSV-, XLS- või XLSX-formaadis andmetabelid. CSV-formaadi puhul peab välju eraldama semikoolon. Vaatame seda lühikese näite abil, kus geokodeerime Tartu Ülikooli valdkondade ametlikud aadressid.</p>
+<ul>
+<li>Kodeerimisel pead ära määrama, millises tulbas paikneb lähteaadress, mida geokodeerima hakatakse. Antud juhul on selleks tulp <em>Aadress</em>.<br />
+</li>
+<li>Seejärel saad valida,
+<ul>
+<li>kas tahad aadresse lihtsalt normaliseerida (st viia kujule, milles need esinevad nt kohanimeregistris), ilma et saaksid aadressidele koordinaadid;</li>
+<li>milliste objektide hulgast vasteid otsitakse. Meid huvitavad siin eeskätt õppehooned, aga veidi ebatäpsemate aadresside puhul (talud, tänavad, maakonnad, linnad jne) tasub otsida ka teiste objektide seast;<br />
+</li>
+<li>kas tahad, et andmeid töödeldaks sünkroonselt, mispuhul saad protsessi jälgida kohe samas veebilehitseja aknas, või asünkroonselt, mispuhul andmed laetakse serverisse ning kasutajale saadetakse mõne aja pärast tulemus meilile. Viimast tasub teha eeskätt siis, kui andmestik on mahukas.<br />
+</li>
+<li>milliseid ruumiandmete tulpasid väljundisse soovid (nt kas kõiki aadressiobjektide id-sid ja tasemeid);<br />
+</li>
+<li>kuidas vasteid esitatakse. Eeskätt puudutab see aadresse, millel on kas mitu vastet või millele täpset vastet ei leita.<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:geocoding2"></span>
+<img src="imgs/ut_geocoding.PNG" alt="Massgeokodeerimine (2)" width="100%" />
+<p class="caption">
+Figure 11.16: Massgeokodeerimine (2)
+</p>
+</div></li>
+</ul></li>
+</ul>
+<p>Geokodeerimine töötab väga hästi tänapäevaste aadressidega.<br />
+Vaatame aga nüüd ka natuke vanemaid andmeid, nimelt Rahvusarhiivi kaudu kasutatavat <strong>Tartu Ülikooli ja Eesti Ajalooarhiivi andmebaasi “Album Academicum 1918–1944”</strong>, mis koondab matrikliraamatutele jt allikatele tuginedes infot Tartu Ülikooli immatrikuleeritud üliõpilastest aastatel 1918-1944 (<a href="http://www.ra.ee/apps/andmed/index.php/site/page?view=aaut_annotation">vaata lähemalt</a>). Kuna andmestik ise on üpris mahukas, sisaldades infot enam kui 20 000 tudengi kohta, siis vaatame siin ainult kahe väga levinud perekonnanimega (Tamm ja Saar) üliõpilaste andmeid ning võrdleme nende perekonnanimedega üliõpilaste päritolu. Naisüliõpilaste andmete puhul ei pruugi võrdlus olla väga täpne, kuna andmestikus sisalduvad ka need kirjed, kus <em>Tamm</em> või <em>Saar</em> on saadud perekonnanimeks abiellumisel.<br />
+Oleme veidi algandmestikku täiendanud ning lisanud standardiseeritud sünnikoha tulba, kus andmebaasis kajastatud sünnikohtadel on lühendid lahti kirjutatud ning erinevate tasemete vahele on lisatud komad.</p>
+<pre><code>##   Matrikli.Nr.                Eesnimi Perenimi Isanimi Isa.tegevusala
+## 1          120                  Alide     Tamm   Jakob      põllumees
+## 2          129 Alexander (Aleksander)     Tamm    Jaan         Puudub
+## 3          172                 Andres     Tamm    Hans      põllumees
+## 4          207                    Ann     Tamm    Jaan      metsavaht
+## 5          407                 Alfred     Tamm    Jaan     majaomanik
+## 6          513            Ado (Avdei)     Tamm   Juhan   mõisateenija
+##     Sünniaeg       Sünnikoht              Sünnikoht_std       Surm Surmakoht
+## 1 20.01.1897 Võ Vana-Roosa v   Võrumaa, Vana-Roosa vald     Puudub    Puudub
+## 2 20.11.1896       Põltsamaa                  Põltsamaa       1933    Puudub
+## 3 22.09.1895  Vil Tarvastu v Viljandimaa, Tarvastu vald   Apr.1926    Puudub
+## 4 22.12.1890     Pä Karksi v      Pärnumaa, Karksi vald     surnud     Eesti
+## 5 10.12.1900           Valga                      Valga 12.07.1963       Tln
+## 6 19.05.1893           Tartu                      Tartu     surnud        Vn
+##                Kool
+## 1        Valga G 16
+## 2    TÜ apt abil 21
+## 3       Tartu RK 17
+## 4       Pärnu TG 10
+## 5       Tartu RK 18
+## 6 Tartu Al-dri G 13
+##                                                                         Eriala
+## 1                                                     med 19-24-, filos 24-26-
+## 2                                                                farm k 24-29*
+## 3                                    jur 17-, lood 17-, med 17-18-, med 19-23*
+## 4                                                                 filos 19-24-
+## 5 keem 18-, keem 19-24-, jur 24-25-, New Yorgi Columbia Ü ajakirjandus 29..33*
+## 6                                        mat 13-17-, mat 20..24*, kaub 24..27-
+##           Akadeem..org. Teaduskraadide.omandamiseks.kaitstud.tööde.pealkirjad
+## 1                Puudub                                                Puudub
+## 2 Fraternitas Liviensis                                                Puudub
+## 3                 Ugala                                                Puudub
+## 4          EÜS Veljesto                                                Puudub
+## 5                 Ugala                                                Puudub
+## 6                   EÜS                                                Puudub
+##                                                                                                                                                                                                                                                                                                                                                                                                                                          Elulugu
+## 1                                                                                                                                                                                                                                                                                                                                                                                                                                         Puudub
+## 2                                                                                                                                                                                                                                                                                                                                                                                                                                         Puudub
+## 3                                                                                                                                                                                                                                                                                                                                                                                                                                         Puudub
+## 4                                                                                                     11-13 Võiera (Uue-Vändra v) algk, 13-16 Pärnu Eesti Kooliseltsi progümn-i õp, 16-18 tunniandja Pärnus. 18-19 Vahi põllutöökooli, 19-20 Tartu ÕSi, 20-21 Tartu Linna PRG, 22-30 Tartu linna õhtualgk õp. 22-45 TÜ filosoofiateaduskonna seminariraamatukogu korraldaja. 45 arret Tartus, 47 asumisel Salehardis, 50 vabanes, Eestis tagasi.
+## 5 18-20 Vabadussõjas. 20 Tartu linnaraamatukogu ametnik. 25-35 elas USAs, kuukirja Meie Tee asutajaid ja toimetuse liige, tegi kaastööd Päevalehele ja ajakirjale Olion, 29 Estonian Bulletini toim. A-st 35 Eesti Kultuurkapitali kujutava kunsti sihtkapitali valitsuse sekretär ja ajakirja Välis-Eesti toim. Saksa okupatsiooni ajal ajalehe Eesti Sõna toimetuse liige. 49 küüditati Sõmeru vallast Krasnojarski kraisse, 57 Eestis tagasi.
+## 6                                                                                                                                                                                                                                    17-20 Tartu linnavalitsuse ametnik, 22 opteerimiskomisjoni sekretär Moskvas. 22-32 kaubamaja K. Holst &amp; Ko ärijuht, 32-40 Shell Company of Estonia Ltd Tartu bensiinijaama juh. 41 arret, suri vangistuses.
+##     pk
+## 1 Tamm
+## 2 Tamm
+## 3 Tamm
+## 4 Tamm
+## 5 Tamm
+## 6 Tamm</code></pre>
+<p>Põhimõtteliselt võib proovida ka praktikumis tabelit <em>tamm_saar_koond2.csv</em> massgeokodeerimisse saata, ent kui teeme seda kõik koos, võib server saada üle koormatud. Seepärast oleme lisanud praktikumi materjalidesse ka juba geokodeeritud SHP-faili kaustas <em>RA_geokodeeritud</em>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:geokod"></span>
+<img src="imgs/geocoding_RA.PNG" alt="Massgeokodeerimine (RA)" width="90%" />
+<p class="caption">
+Figure 11.17: Massgeokodeerimine (RA)
+</p>
+</div>
+<p><strong>Ülesanne</strong></p>
+<ul>
+<li><p>Laadi geokodeeritud andmestiku <em>shapefile</em> vektorkihina QGISi (NB! Arvesta kodeeringut valides, et tegemist on Maa-ameti failiga);</p></li>
+<li><p>vali andmetele sobiv aluskaart;<br />
+</p></li>
+<li><p>värvi punktid selle järgi, kas tegemist on Tamme- või Saare-nimeliste üliõpilastega (tulp <em>pk</em>). Võid kasutada ka erinevaid sümboleid;</p></li>
+<li><p>vii punktide läbipaistvus 30% peale;<br />
+</p></li>
+<li><p>vajadusel muuda aluskaart mustvalgeks.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:tammsaarmap"></span>
+<img src="imgs/Tamm_Saar_map.PNG" alt="Tamme- ja Saare-nimeliste üliõpilaste sünnikohad Album Academicumis" width="100%" />
+<p class="caption">
+Figure 11.18: Tamme- ja Saare-nimeliste üliõpilaste sünnikohad Album Academicumis
+</p>
+</div></li>
+</ul>
+<p>Vaatame nüüd ka atribuuttabelit.<br />
+Kuna tegemist on ajaloolise andmebaasiga, on paljud kohanimed vahepeal muutunud. Vaatame geokodeeritud tabelit ning püüame välja selgitada, milliste kohtadega on geokodeerijal probleeme olnud. Eeskätt aitab selle puhul puuduvate aadresside ridade tuvastamine ning sisend- ja täisaadressi tulpade võrdlus. Selleks liiguta atribuuttabelis aadressitulbad üksteise kõrvale.
+Milliseid probleeme märkad?</p>
+</div>
+<div id="ruumiandmete-omavahel-ühendamine" class="section level2" number="11.3">
+<h2><span class="header-section-number">11.3</span> Ruumiandmete omavahel ühendamine</h2>
+<p>Siiamaani vaatasime andmeid, kus ainult üks andmekihtidest sisaldab ka ruumiandmeid. Kui meil on näiteks aga kaks vektorkihti, mis mõlemad sisaldavad ka ruumiandmeid, saame ühendada andmeid ka ilma ühise atribuudita, koordinaatide põhjal.</p>
+<ul>
+<li>Ühendame näiteks maakondade shapefile’i ja geokodeeritud Tamme-Saare andmestiku. Selleks valime <em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Vector general</em> -&gt; <em>Join attributes by location</em>. Kasutame selleks geomeetrilist predikaati <em>contains</em>, sest tahame teada, millised punktid jäävad iga maakonna polügooni sisse (võivad ka polügooni sisemise piiriga külgneda) ja teame, et kõik punktid jäävad Eesti riigi maakondade piiridesse. Samuti võime igaks juhuks märkida meetodina ära <em>intersects</em>, juhuks kui mõni punkt asub täpselt maakondade polügoonide piiril. Kasutame ühendamistüübina <em>one-to-many</em>, et iga maakonna iga punkt (mitte ainult esimene) ühendataks vastava polügooniga.
+<ul>
+<li><strong>equals</strong> - kahel objektil täpselt samad koordinaadid</li>
+<li><strong>intersects</strong> - kaks objekti katavad vähemalt mingeid ühiseid koordinaate</li>
+<li><strong>crosses</strong> - kaks objekti lõikuvad nii, et objekte jääb ristumiskohast mõlemale poole</li>
+<li><strong>overlap</strong> - kaks <em>samade dimensioonidega</em> objekti katavad mingeid ühiseid koordinaate, aga ei ole täpselt ühesugused ja kohakuti</li>
+<li><strong>touches</strong> - kaks objekti puutuvad kokku ainult servadest, aga objektide siseosa ei kattu</li>
+<li><strong>within</strong> - esimene objekt tervenisti teise sees</li>
+<li><strong>contains</strong> - teine objekt tervenisti esimese sees</li>
+<li>Vaata lähemalt nt <a href="https://help.cadcorp.com/en/8.0/sis/help/Content/Spatial_testing.html">siit</a>.<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:contains"></span>
+<img src="imgs/9_processing_join_contains.PNG" alt="Ruumiandmete kihtide ühendamine" width="100%" />
+<p class="caption">
+Figure 11.19: Ruumiandmete kihtide ühendamine
+</p>
+</div></li>
+</ul></li>
+<li>Nii saame nüüd punktide asemel kasutada analüüsil ja visualiseerimisel polügoone.</li>
+<li>Kui näiteks soovime näidata, kui palju mingitest maakondadest Tamme- ja Saare-nimelisi üliõpilasi oli immatrikuleeritud, saame leida esmalt, kui palju andmepunkte mingisse maakonda jääb, ning seejärel värvida maakondade polügoonid vastavalt punktide arvule. Selleks võib teha uue kihi, kus oleme kokku lugenud iga maakonna piiridesse jäävad punktid, aga seda võib teha ka olemasoleva kihiga <em>graduated</em> sümboloogias avaldise <code>count("Matrikli_N", group_by:="MNIMI")</code> abil. Selles avaldises määrame, et polügoonid tuleks värvida vastavalt sellele, kui palju unikaalseid matriklinumbreid igas maakonnas esineb. Eeldame siinjuures, et igal üliõpilasel oli oma matriklinumber ja seega unikaalsete matriklinumbrite arv kattub üliõpilaste arvuga. <strong>Avaldistest räägime lähemalt ülejärgmises praktikumis.</strong>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressions1000"></span>
+<img src="imgs/9_expression.gif" alt="'count'-funktsioon avaldistes" width="100%" />
+<p class="caption">
+Figure 11.20: ‘count’-funktsioon avaldistes
+</p>
+</div></li>
+<li>Samuti võime teha eraldi joonised Tamme- ja Saare-nimelistele üliõpilastele, kasutades <em>count</em>-funktsioonis argumenti <em>filter</em>.<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressions1001"></span>
+<img src="imgs/9_expression2.gif" alt="'count'-funktsioon avaldistes koos filtri argumendiga" width="100%" />
+<p class="caption">
+Figure 11.21: ‘count’-funktsioon avaldistes koos filtri argumendiga
+</p>
+</div></li>
+<li>Kui tahame näha ka, kui palju ikkagi mingist maakonnast punkte on, siis saame kasutada näiteks SQL-i ja DB Manageri <code>SELECT MNIMI count(*) FROM "Joined layer" GROUP BY MNIMI;</code> ja laadida tulemuse uue kihina (jutumärgid on vajalikud, kuna kihi nimi sisaldab tühikut) või kasutada <em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Vector general</em> -&gt; <em>Join attributes by location (summary)</em>, mis laseb teha uue kihi, mis kajastab mitte enam üksikuid andmepunkte, vaid nende põhjalt tehtud erinevaid statistilisi näitajaid (nt maakondadesse jäävate punktide koguarv, maakondade üliõpilaste kõige varasem ja hilisem sünniaeg jne). Valime näiteks tabelist tunnused <code>Matrikli_N</code> ja <code>Sunniaeg</code> ning leiame nende kohta näitajad <em>count</em>, <em>min</em> ja <em>max</em>.
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressions1002"></span>
+<img src="imgs/9_stats.gif" alt="Tööriist 'Join attributes by location (summary)'" width="100%" />
+<p class="caption">
+Figure 11.22: Tööriist ‘Join attributes by location (summary)’
+</p>
+</div></li>
+<li>Lõpuks on võimalik punkte polügoonides leida ka nii, et valime <em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Vector analysis</em> -&gt; <em>Count points in polygon</em>, mis teeb uue kihi, kus polügoonide tabelile on lisatud lihtsalt uus tulp vastavasse maakonda jäävate punktide arvuga.<br />
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressions1003"></span>
+<img src="imgs/9_countpoints.PNG" alt="Punktide kokkulugemine polügoonides" width="100%" />
+<p class="caption">
+Figure 11.23: Punktide kokkulugemine polügoonides
+</p>
+</div></li>
+</ul>
+</div>
+<div id="ruumiandmete-käsitsi-lisamine" class="section level2" number="11.4">
+<h2><span class="header-section-number">11.4</span> Ruumiandmete käsitsi lisamine</h2>
+<p>Alati ei anna automatiseeritud lahendused ja olemasolevad ruumiandmed piisavalt kvaliteetset tulemust. Sellisel juhul (näiteks ajalooliste andmestike puhul) tasub kasutada kohanimeandmebaase ja ajaloolisi kaarte aluskaartidena.</p>
+<p>Vaatame näiteks Hageri vallakohtu protokolli aastast 1890. Protokollis on ära märgendatud ka nimeüksused, ent need ei ole tänapäevases kirjaviisis. Nimed sisalduvad failis <em>Harju_Hageri_Kohila_id4010_1890a_nimed.csv</em> olevas tabelis, ent võid võrdluseks kõrvale võtta lahti ka terve protokolli teksti (vastav txt-fail).</p>
+<ul>
+<li><p>Impordi andmed csv-failina QGISi (NB! tabelil ei ole tulbanimesid).<br />
+</p></li>
+<li><p>Filtreeri andmestikust välja ainult kohanimed (KO_koht).</p></li>
+<li><p>Lisa Maa-ameti WMS/WMTS teenuse kaudu ajalooliste kaartide hulgast Schmiti-Rückeri aluskaart (XIX saj./1884), soovi korral ka mingi tänapäevane kaart.<br />
+</p></li>
+<li><p>Leia kaardilt võimalikult palju CSV-tabeli kohanimedest ning tee uus kiht, kuhu märgid vastavatesse kohtadesse punktid (<em>Layer</em> -&gt; <em>Create Layer</em> -&gt; <em>New shapefile layer</em>). Punktide märkimiseks tee loodud kiht aktiivseks ning vajuta kollasel pliiatsil, seejärel <em>Add Point Feature</em>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:manual"></span>
+<img src="imgs/manual.PNG" alt="1890. aasta Hageri vallakohtuprotokollis mainitud kohanimed" width="100%" />
+<p class="caption">
+Figure 11.24: 1890. aasta Hageri vallakohtuprotokollis mainitud kohanimed
+</p>
+</div></li>
+</ul>
+<p>Puuduvaid nimesid võid otsida ka näiteks <a href="https://www.eki.ee/knab/p_ee_et.htm">kohanimeandmebaasist</a> või <a href="https://xgis.maaamet.ee/xgis2/page/app/ajalooline">Maa-ameti ajalooliste kaartide kaardirakendusest</a>, mis võimaldab ka hõlpsat otsingut.</p>
+</div>
+<div id="järgmisel-korral-9" class="section level2" number="11.5">
+<h2><span class="header-section-number">11.5</span> Järgmisel korral</h2>
+<p>Neljapäeval tegeleme georefereerimisega.</p>
+
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="avaldised.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="kirjandus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["book.pdf", "PDF"], ["book.epub", "EPUB"]],
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"info": true
+});
+});
+</script>
+
+</body>
+
+</html>

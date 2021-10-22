@@ -370,3 +370,4 @@ fig:expressionsex5
 fig:expressionsex6
 avaldised-1
 ülesanne-2-ei-olepole-atlase-levikuandmed
+andmekihtide_yhendamine
