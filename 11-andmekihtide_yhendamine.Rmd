@@ -77,36 +77,24 @@ knitr::include_graphics(here::here("imgs", "virtuallayer.PNG"))
 knitr::include_graphics(here::here("imgs", "9_processing_join.PNG"))
 ```
 - Nüüd on meil maakonnapiiride kiht, mille atribuuttabelis on ka infot selle kohta, kui pikad vastava maakonna vallakohtuprotokollid keskmiselt on. Kasuta seda tulpa selleks, et värvida maakonnad eri tooni (pikemate protokollidega maakonnad tumedamalt, lühematega heledamalt). Selleks kasuta juba eelmistes praktikumides näidatud viise (*Symbology* -> *Graduated* jne).  
-    ```{r join2, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Ühendatud andmestikud"}
+    ```{r join2, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap="Ühendatud andmestikud"}
 knitr::include_graphics(here::here("imgs", "join2.PNG"))
 ```
 
 
 ### SHP info ühendamine CSV-ga
 
-- Ühendame nüüd csv-failiga iga maakonna keskpunkti (*tsentroidi*) koordinaadid. Selleks tuleb meil esmalt leida maakondade polügoonide keskpunktid. Tee uus maakonnapiiride kihi koopia (duplikaat) ning nimeta see nt *maakonnad2* (paremklikk kihil -> *Rename Layer*). 
+- Ühendame nüüd hoopis vallakohtuprotokollide csv-failiga iga maakonna keskpunkti (*tsentroidi*) koordinaadid, nt selleks, et protokolle kaardil kuvada. Selleks tuleb meil esmalt leida maakondade polügoonide **keskpunktid**. Tee uus maakonnapiiride kihi koopia (duplikaat) ning nimeta see nt *maakonnad2* (paremklikk kihil -> *Rename Layer*). 
 - Tee kiht *maakonnad2* aktiivseks -> *Vector* -> *Geometry Tools* -> *Centroids...* -> jäta vaikeväärtused ning vajuta *Run*. Maakondade kihile ilmuvad nüüd uuel kihil polügoonide keskpunktid.   
-    ```{r centroids, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Polügoonide keskpunktide leidmine"}
+    ```{r centroids, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap="Polügoonide keskpunktide leidmine"}
 knitr::include_graphics(here::here("imgs", "centroids.PNG"))
 ```
-- Järgmiseks lisame kihi *Centroids* atribuuttabelisse punktide *x*- ja *y*-koordinaadid: tee kiht aktiivseks -> *Vector* -> *Geometry Tools* -> *Add Geometry Attributes*, jäta jällegi vaikeväärtused ning vajuta *Run* ja *Close*. Tekkis uus kiht *Added geom info*. Nimetame selle ümber nt *koord_keskpunktid*.  
-- Ühendame nüüd CSV-kihi maakondade nimede järgi keskpunktide koordinaatide kihiga. Tee paremklikk kihil *vallakohtud_RA* -> *Properties* -> *Joins* -> *Add new join*. 
-    ```{r join3, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap="Andmestike ühendamine (2)"}
-knitr::include_graphics(here::here("imgs", "join3.PNG"))
-```
-    + Võid soovi korral muidugi kasutada taas hoopis *Processing* -> *Toolbox* -> *Vector general* -> *Join attributes by value*, ent jälgi, et sel juhul oleks *Join type*'iks seekord valitud *one-to-many*, mis jätab alles kõik vallakohtute andmestiku read.    
-    ```{r join03, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap="Andmestike ühendamine (3)"}
+- Järgmiseks lisame tekkinud kihi *Centroids* atribuuttabelisse punktide *x*- ja *y*-koordinaadid: tee kiht aktiivseks -> *Vector* -> *Geometry Tools* -> *Add Geometry Attributes*, jäta jällegi vaikeväärtused ning vajuta *Run* ja *Close*. Tekkis uus kiht *Added geom info*. Nimetame selle ümber nt *koord_keskpunktid*.  
+- Ühendame nüüd CSV-kihi maakondade nimede järgi keskpunktide koordinaatide kihiga. Üks võimalus on teha jälle paremklikk kihil *vallakohtud_RA* -> *Properties* -> *Joins* -> *Add new join*. Teine võimalus on kasutada hoopis *Processing* -> *Toolbox* -> *Vector general* -> *Join attributes by value*, ent jälgi, et sel juhul oleks *Join type*'iks seekord valitud *one-to-many*, mis jätab alles kõik vallakohtute andmestiku read.    
+```{r join03, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap="Andmestike ühendamine (2)"}
 knitr::include_graphics(here::here("imgs", "9_processing_join_onetomany.PNG"))
-```
-- Salvestame kihi *vallakohtud_RA* uue CSV-failina (paremklikk -> *Export* -> *Save features as*). Jälgi, et kodeering oleks UTF-8, väljade eraldaja (*SEPARATOR*) oleks tabulaator ning koordinaatsüsteem EPSG:3301.  
-    ```{r savecsv, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap="Koordinaatidega csv-faili salvestamine"}
-knitr::include_graphics(here::here("imgs", "newcsv.PNG"))
-```
-- Nüüd loeme salvestatud faili uuesti csv-failina sisse nii, et määrame ära koordinaatide tulbad: *Layer* -> *Add Layer* -> *Add Delimited Text Layer*
-    ```{r readnewcsv, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap="Koordinaatidega csv-faili sisselugemine"}
-knitr::include_graphics(here::here("imgs", "readnewcsv.PNG"))
-```
-    + Selle asemel, et punktide saamiseks kaardile esmalt faili salvestada ja siis uuesti sisse lugeda, võib kasutada ka *Processing* -> *Toolbox* -> *Vector creation* -> *Create points layer from table*.  
+```   
+- Võiksime nüüd loodud (üle 25 000 reaga ja koordinaatidega) kihi salvestada uue csv-failina ning salvestatud faili uuesti geoinfoga varustatud csv-failina sisse lugeda. Selle asemel aga võib kasutada ka *Processing* -> *Toolbox* -> *Vector creation* -> *Create points layer from table*.  
 ```{r pointsfrom, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap="Koordinaatidega csv-faili muutmine punktikihiks"}
 knitr::include_graphics(here::here("imgs", "9_pointsfromtable.PNG"))
 ```    
@@ -118,7 +106,7 @@ knitr::include_graphics(here::here("imgs", "heatmap.PNG"))
 
 ### CSV ja SHP ühendamine polügoonidega vektorandmeteks
 
-Kolmas viis, mis jätab alles nii kõik CSV-andmestiku vaatlused (ühest kohast mitu vaatlust), ent võimaldab ühendatud andmestikku hoida polügoonidega vektorformaadis (mitte lihtsalt tabelina, milles punktide koordinaadid on atribuudid), saame kasutada sedasama ülal mainitud *Join type* = *one-to-many* võimalust.
+Kolmas viis, mis jätab alles nii kõik CSV-andmestiku vaatlused (ühest kohast mitu vaatlust), ent võimaldab ühendatud andmestikku hoida polügoonidega vektorformaadis (mitte lihtsalt tabelina, milles punktide koordinaadid on atribuudid), saame kasutada sedasama ülal mainitud *Join type* = *one-to-many* võimalust. NB! Kuna tekitame sisuliselt üle 25 000 polügooni, võib protsess võtta palju aega.  
 
 - Vali uuesti *Processing* -> *Toolbox* -> *Vector general* -> *Join attributes by field value*. 
 ```{r join100, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap="CSV ja SHP ühendamine vektorandmeteks"}
@@ -127,7 +115,7 @@ knitr::include_graphics(here::here("imgs", "9_processing_join_onetomany2.PNG"))
 - Tekib uus kiht *Joined layer*, milles iga vallakohtuprotokoll on geograafiliselt määratud mõnda Eesti maakonna polügooni.  
 
 
-Võid proovida teha sama kihelkondade andmetega, kasutades näiteks [siit](https://archive.org/download/HistoricalAdministrativeBordersOfEstonia/ee_admin_20thC_shapefiles.zip) alla laaditavaid 1897. aasta kihelkonnapiiride andmeid. NB! Kihelkondade andmestikus on mõned polügoonid, mille ruumikuju on vigane ja millel seetõttu ei saa nende puhul näiteks keskpunkte leida. Selleks, et see segama ei hakkaks, määra QGISis *Settings* -> *Options* -> *Processing* -> *General menu* -> *Invalid features filtering* (= *Skip (ignore) invalid geometries*). 
+Võid proovida teha sama kihelkondade andmetega.
 
 
 
@@ -137,7 +125,7 @@ Täpsemate asukohtade määramiseks (nt aadresside jaoks) saab kasutada geokodee
 
 Maa-amet pakub tasuta [geokodeerimise teenust](https://geoportaal.maaamet.ee/est/Teenused/Geokodeerimise-teenus-p440.html). Sealjuures on võimalik geokodeerida ainult üht aadressi/kohta korraga kui ka tervet hulka andmeid (massgeokodeerimine). 
 
-[Geokodeeri](https://inaadress.maaamet.ee/geocoder/one) alustuseks näiteks **enda, oma sõbra, vanemate vt aadress**. Saad väljundit kuvada nii aadressiobjektide kaardirakendused kui ka alla erinevates formaatides alla laadida. Kas jääd tulemuse täpsusega rahule?
+[Geokodeeri](https://inaadress.maaamet.ee/geocoder/one) alustuseks näiteks **enda, oma sõbra, vanemate vt aadress**. Saad väljundit kuvada nii aadressiobjektide kaardirakenduses kui ka erinevates formaatides alla laadida. Kas jääd tulemuse täpsusega rahule?
 
 [**Massgeokodeerimise**](https://inaadress.maaamet.ee/geocoder/bulk) sisendiks sobivad CSV-, XLS- või XLSX-formaadis andmetabelid. CSV-formaadi puhul peab välju eraldama semikoolon. Vaatame seda lühikese näite abil, kus geokodeerime Tartu Ülikooli valdkondade ametlikud aadressid.
 
@@ -185,7 +173,7 @@ knitr::include_graphics(here::here("imgs", "Tamm_Saar_map.PNG"))
 ```
 
 Vaatame nüüd ka atribuuttabelit.   
-Kuna tegemist on ajaloolise andmebaasiga, on paljud kohanimed vahepeal muutunud. Vaatame geokodeeritud tabelit ning püüame välja selgitada, milliste kohtadega on geokodeerijal probleeme olnud. Eeskätt aitab selle puhul puuduvate aadresside ridade tuvastamine ning sisend- ja täisaadressi tulpade võrdlus. Selleks liiguta atribuuttabelis aadressitulbad üksteise kõrvale. 
+Kuna tegemist on ajaloolise andmebaasiga, on paljud kohanimed vahepeal muutunud. Vaatame geokodeeritud tabelit ning püüame välja selgitada, milliste kohtadega on geokodeerijal probleeme olnud. Eeskätt aitab selle puhul puuduvate aadresside ridade tuvastamine ning sisend- ja täisaadressi tulpade võrdlus. 
 Milliseid probleeme märkad?
 
 
@@ -207,7 +195,7 @@ Siiamaani vaatasime andmeid, kus ainult üks andmekihtidest sisaldab ka ruumiand
 knitr::include_graphics(here::here("imgs", "9_processing_join_contains.PNG"))
 ```
 - Nii saame nüüd punktide asemel kasutada analüüsil ja visualiseerimisel polügoone.
-- Kui näiteks soovime näidata, kui palju mingitest maakondadest Tamme- ja Saare-nimelisi üliõpilasi oli immatrikuleeritud, saame leida esmalt, kui palju andmepunkte mingisse maakonda jääb, ning seejärel värvida maakondade polügoonid vastavalt punktide arvule. Selleks võib teha uue kihi, kus oleme kokku lugenud iga maakonna piiridesse jäävad punktid, aga seda võib teha ka olemasoleva kihiga *graduated* sümboloogias avaldise `count("Matrikli_N", group_by:="MNIMI")` abil. Selles avaldises määrame, et polügoonid tuleks värvida vastavalt sellele, kui palju unikaalseid matriklinumbreid igas maakonnas esineb. Eeldame siinjuures, et igal üliõpilasel oli oma matriklinumber ja seega unikaalsete matriklinumbrite arv kattub üliõpilaste arvuga. **Avaldistest räägime lähemalt ülejärgmises praktikumis.**
+- Kui näiteks soovime näidata, kui palju mingitest maakondadest Tamme- ja Saare-nimelisi üliõpilasi oli immatrikuleeritud, saame leida esmalt, kui palju andmepunkte mingisse maakonda jääb, ning seejärel värvida maakondade polügoonid vastavalt punktide arvule. Selleks võib teha uue kihi, kus oleme kokku lugenud iga maakonna piiridesse jäävad punktid, aga seda võib teha ka olemasoleva kihiga *graduated* sümboloogias avaldise `count("Matrikli_N", group_by:="NIMI")` abil. Selles avaldises määrame, et polügoonid tuleks värvida vastavalt sellele, kui palju unikaalseid matriklinumbreid igas maakonnas esineb. Eeldame siinjuures, et igal üliõpilasel oli oma matriklinumber ja seega unikaalsete matriklinumbrite arv kattub üliõpilaste arvuga.   
 ```{r expressions1000, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="'count'-funktsioon avaldistes"}
 knitr::include_graphics(here::here("imgs", "9_expression.gif"))
 ```

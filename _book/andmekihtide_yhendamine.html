@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Praktikum 11 Andmekihtide ühendamine | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
   <meta name="description" content="Praktikum 11 Andmekihtide ühendamine | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Praktikum 11 Andmekihtide ühendamine | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta property="og:type" content="book" />
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="avaldised.html"/>
 <link rel="next" href="kirjandus.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -41,7 +42,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -215,9 +215,10 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="11.1" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#andmestike-ühendamine"><i class="fa fa-check"></i><b>11.1</b> Andmestike ühendamine</a>
 <ul>
-<li class="chapter" data-level="11.1.1" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#csv-info-ühendamine-shp-ga"><i class="fa fa-check"></i><b>11.1.1</b> CSV info ühendamine SHP-ga</a></li>
-<li class="chapter" data-level="11.1.2" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#shp-info-ühendamine-csv-ga"><i class="fa fa-check"></i><b>11.1.2</b> SHP info ühendamine CSV-ga</a></li>
-<li class="chapter" data-level="11.1.3" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#csv-ja-shp-ühendamine-polügoonidega-vektorandmeteks"><i class="fa fa-check"></i><b>11.1.3</b> CSV ja SHP ühendamine polügoonidega vektorandmeteks</a></li>
+<li class="chapter" data-level="11.1.1" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#lisaülesanne"><i class="fa fa-check"></i><b>11.1.1</b> Lisaülesanne</a></li>
+<li class="chapter" data-level="11.1.2" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#csv-info-ühendamine-shp-ga"><i class="fa fa-check"></i><b>11.1.2</b> CSV info ühendamine SHP-ga</a></li>
+<li class="chapter" data-level="11.1.3" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#shp-info-ühendamine-csv-ga"><i class="fa fa-check"></i><b>11.1.3</b> SHP info ühendamine CSV-ga</a></li>
+<li class="chapter" data-level="11.1.4" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#csv-ja-shp-ühendamine-polügoonidega-vektorandmeteks"><i class="fa fa-check"></i><b>11.1.4</b> CSV ja SHP ühendamine polügoonidega vektorandmeteks</a></li>
 </ul></li>
 <li class="chapter" data-level="11.2" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#geokodeerimine"><i class="fa fa-check"></i><b>11.2</b> Geokodeerimine</a></li>
 <li class="chapter" data-level="11.3" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#ruumiandmete-omavahel-ühendamine"><i class="fa fa-check"></i><b>11.3</b> Ruumiandmete omavahel ühendamine</a></li>
@@ -276,116 +277,103 @@ div.csl-indent {
 ## 4 Viljandi     Helme      Lõve                   60
 ## 5 Viljandi    Paistu   Holstre                  348
 ## 6    Harju      Kose   Palvere                 4025</code></pre>
-<p>Selleks, et protokollide andmeid kaardil kuvada, ühendame <a href="https://geoportaal.maaamet.ee/docs/haldus_asustus/maakond_shp.zip?t=20201001005508">Maa-ameti maakonnapiiride andmed</a> vallakohtute andmetega.<br />
-Esmalt laadime mõlemad andmestikud QGISi.</p>
-<ul>
-<li>Maa-ameti andmed laadime vektorkihina: <em>Layer</em> -&gt; <em>Add Layer</em> -&gt; <em>Add Vector Layer</em> -&gt; [vali SHP-fail] -&gt; <em>Add</em> -&gt; <em>Close</em><br />
-</li>
-<li>Vallakohtute andmed laadime csv-kihina: <em>Layer</em> -&gt; <em>Add Layer</em> -&gt; <em>Add Delimited Text Layer</em> -&gt; [vali fail <em>vallakohtud_RA.csv</em>] -&gt; tulpade eraldaja on tabulaator (<em>Tab</em>), linnuke on kastide ees <em>First record has field names</em> ja <em>Detect field types</em>, <em>Geometry Definition</em> on <em>No geometry</em> -&gt; Add -&gt; Close</li>
-</ul>
-<p>Selleks, et tavalist andmestikku ruumiandmetega ühendada, peab kahel andmestikul olema vähemalt üks ühine tunnus (näiteks tulp maakonnanimedega). <strong>Millised on vallakohtute maakonnanimed ja millised Maa-ameti maakonnapiiride maakonnanimed?</strong> Vaatame atribuuttabelist.<br />
-Asendame Maa-ameti maakonnapiiride atribuuttabelis maakonnanimed nii, et need ühtiksid vallakohtute andmetega (nt <em>Viljandi maakond</em> -&gt; <em>Viljandi</em>). Selleks lisame tabelisse uue tulba nagu eelmiselgi korral. Tee paremklikk maakonnapiiride kihil -&gt; <em>Properties</em> -&gt; <em>Fields</em> -&gt; <em>Field calculator</em> -&gt; <em>Create new field</em> ning kasutame <a href="https://et.wikipedia.org/wiki/Regulaaravaldis">regulaaravaldist</a>, mis kustutab pärast maakonnanime osa " maakond" (teisisõnu: asendab selle osa mitte millegagi). <code>\\s</code> märgib siin tühikut.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:regexpreplace"></span>
-<img src="imgs/regex_replace.PNG" alt="Maakonnanimede asendamine regulaaravaldise abil" width="70%" />
+<p>Selleks, et protokollide andmeid kaardil kuvada, peame maakondade, valdade või kihelkondade nimede abil ühendama tabeli mingite ruumiandmetega. Kasutame siin kõige suuremat üldistuse astet ja kasutame ühendamiseks maakondi.</p>
+<p>Esmalt laadime aga andmestiku QGISi: <em>Layer</em> -&gt; <em>Add Layer</em> -&gt; <em>Add Delimited Text Layer</em> -&gt; [vali fail <em>vallakohtud_RA.csv</em>] -&gt; tulpade eraldaja on tabulaator (<em>Tab</em>), linnuke on kastide ees <em>First record has field names</em> ja <em>Detect field types</em>, <em>Geometry Definition</em> on <em>No geometry</em> -&gt; <em>Add</em> -&gt; <em>Close</em>.</p>
+<p><strong>Mitu eri maakonda andmestikus kokku on?</strong></p>
+<p>Tuleb meeles pidada, et tegemist on põhiliselt 19. sajandi andmetega. Seega ei ühti vallakohtuprotokollide maakonnanimed tänapäevaste maakondadega ning peame kasutama ühendamiseks <a href="https://geoportaal.maaamet.ee/est/Ruumiandmed/Haldus-ja-asustusjaotus/Ajalooline-haldusjaotus-p827.html">Maa-ameti ajaloolise haldusjaotuse andmeid</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ajaloolinejatanapaevane"></span>
+<img src="imgs/maakondade_vordlus.png" alt="Maakondade piirid 19. ja 21. sajandil (allikas: Maa-amet)" width="70%" />
 <p class="caption">
-Figure 11.1: Maakonnanimede asendamine regulaaravaldise abil
+Figure 11.1: Maakondade piirid 19. ja 21. sajandil (allikas: Maa-amet)
 </p>
 </div>
-<p>Nüüd on meil tunnus <strong>MNIMI2</strong>, mille abil saame kaht andmestikku ühendada. Ühendamiseks on aga kolm viisi.</p>
+<p>Laadi alla Maa-ameti ajaloolise haldusjaotuse 1917. aasta maakondade polügoonid ja ava need QGISis.</p>
+<p><strong>Kontrolli, kas vallakohtute ja Maa-ameti maakondade nimed klapivad!</strong></p>
+<div id="lisaülesanne" class="section level3" number="11.1.1">
+<h3><span class="header-section-number">11.1.1</span> Lisaülesanne</h3>
+<p>Maa-ameti ajalooliste maakondade kaardil puudub Võrtsjärv. Selleks, et see sinna lisada, on vaja teha järgmised sammud.</p>
+<ol style="list-style-type: decimal">
+<li>Kontrolli, kas 1917. aasta maakondade kihiga on probleeme:
 <ul>
-<li><strong>Esiteks võime ühendada csv-tabeli <em>shapefile</em>’iga</strong>. Sellisel juhul säilib <em>shapefile</em>’i struktuur, milles on 15 rida (iga maakonna kohta üks) ning csv-failist lisatakse igale reale ainult mingid keskmised näitajad. Võime siin näiteks ühendada <em>shapefile</em>’iga iga maakonna protokollide keskmise pikkuse tähemärkides.</li>
+<li>Tee kiht aktiivseks ja vali menüüst <em>Processing -&gt; Toolbox -&gt; Vector geometry -&gt; Check validity</em>. <em>Input layer</em> on <em>Maakond_1917</em>, muud sätted jäta nii, nagu need vaikimisi on. Vajuta <em>Run</em> ja <em>Close</em>.<br />
+</li>
+<li>Kui kihiga on mingeid probleeme, on probleemsed osad eraldi kihil nimega <em>Invalid output</em>. Kiht <em>Error output</em> näitab punktidega ära kohad, mis probleeme põhjustavad.<br />
+</li>
+<li>Kihi parandamiseks vali jälle <em>Maakond_1917</em> ning <em>Processing -&gt; Toolbox -&gt; Vector geometry -&gt; Fix geometries</em>. <em>Input layer</em> on <em>Maakond_1917</em>, <em>Fixed geometries</em> alt vali <em>Save to File</em>, vali õige koht, kuhu parandatud kihti salvestada, salvesta fail nt nimega <em>Maakond_1917_fixed</em>, vajuta <em>Save</em>, <em>Run</em> ja <em>Close</em>. Tekib kiht <em>Maakond_1917_fixed</em>.<br />
+</li>
+</ul></li>
+<li>Vali maakondade vektorkihile aluskaart, kus oleks Võrtsjärv peale märgitud. Aseta see maakondade kihi alla ning maakondade kiht tee piisavalt läbipaistvaks, et aluskaart näha oleks.<br />
+</li>
+<li>Tee uus kiht nimega <em>vortsjarv</em>: <em>Layer -&gt; Create layer -&gt; New GeoPackage Layer</em>. <em>Geometry type</em> olgu <em>Polygon</em>, CRS olgu EPSG:3301. Tee kiht aktiivseks, vajuta kihi muutmiseks kollasel pliiatsil, vali tööriist <em>Add Polygon Feature</em> ja digiteeri aluskaardilt Võrtsjärve polügoon. Salvesta ja vajuta muutmine pliiatsist kinni.<br />
+</li>
+<li>Vali menüüst <em>Vector -&gt; Geoprocessing Tools -&gt; Difference</em>. <em>Input layer</em> olgu (parandatud) maakondade vektorkiht ning <em>Overlay layer</em> loodud Võrtsjärve kiht. <em>Difference</em> alt vali <em>Save to File</em> ja salvesta kiht nt nimega <em>Maakond_1917_fixed_Vorts</em>. Vajuta <em>Run</em> ja <em>Close</em>.<br />
+</li>
+<li>Kustuta vanad maakondade kihid ja Võrtsjärve kiht ning nimeta <em>Maakond_1917_fixed_Vorts</em> ümber nimega <em>Maakond_1917</em>.</li>
+</ol>
+<p>Andmete ühendamiseks on kolm viisi.</p>
+<ul>
+<li><strong>Esiteks võime ühendada csv-tabeli <em>shapefile</em>’iga</strong>. Sellisel juhul säilib <em>shapefile</em>’i struktuur, milles on 9 rida (iga maakonna kohta üks) ning csv-failist lisatakse igale reale ainult mingid keskmised näitajad. Võime siin näiteks ühendada <em>shapefile</em>’iga iga maakonna protokollide <em>keskmise pikkuse</em> tähemärkides.</li>
 <li><strong>Teiseks võime ühendada <em>shapefile</em>’i ruumiinfo csv-tabeliga</strong>. Sellisel juhul säilib csv-faili struktuur, milles on üle 25 000 rea (iga protokolli kohta üks) ning iga rida saab juurde koordinaadid. Võime siin näiteks ühendada csv-failiga iga maakonna keskpunkti (<em>tsentroidi</em>) koordinaadid.</li>
 <li><strong>Kolmandaks võime ühendada <em>shapefile</em>’i ruumiinfo csv-tabeliga</strong> nii, et säilitame shapefile’i vektorandmete struktuuri, aga ühtlasi saame lisada ruumiinfo eraldi ka kõikidele tuhandetele ridadele.</li>
 </ul>
-<div id="csv-info-ühendamine-shp-ga" class="section level3" number="11.1.1">
-<h3><span class="header-section-number">11.1.1</span> CSV info ühendamine SHP-ga</h3>
+</div>
+<div id="csv-info-ühendamine-shp-ga" class="section level3" number="11.1.2">
+<h3><span class="header-section-number">11.1.2</span> CSV info ühendamine SHP-ga</h3>
 <ul>
-<li>Esmalt on meil vaja CSV-tabelist saada tabel, kus oleks iga maakonna kohta protokollide keskmine pikkus tähemärkides. Selleks saame luua näiteks uue virtuaalse kihi ning kasutada SQL-i päringut. Mine <em>Layer</em> -&gt; <em>Create Layer</em> -&gt; <em>New Virtual Layer</em>, nimeta kiht nt <em>keskmised</em>, <em>Embedded layers</em> saki alt vali <em>Import</em> ning impordi kiht <em>vallakohtud_RA</em>. Sisesta <em>Query</em> väljale pildil näidatud SQL-i päring ning vajuta <em>Add</em>.<br />
+<li>Esmalt on meil vaja pikast, paarikümne tuhande kirjega CSV-tabelist saada tabel, kus oleks iga maakonna kohta selle maakonna kõikide protokollide keskmine pikkus tähemärkides. Selleks saame luua näiteks uue virtuaalse kihi ning kasutada SQL-i päringut. Mine <em>Layer</em> -&gt; <em>Create Layer</em> -&gt; <em>New Virtual Layer</em>, nimeta kiht nt <em>keskmised</em> ning sisesta <em>Query</em> väljale pildil näidatud SQL-i päring ning vajuta <em>Add</em>.<br />
 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:virtuallayer"></span>
-<img src="imgs/virtuallayer.PNG" alt="Virtuaalse kihi loomine" width="100%" />
+<img src="imgs/virtuallayer.PNG" alt="Virtuaalse kihi loomine" width="70%" />
 <p class="caption">
 Figure 11.2: Virtuaalse kihi loomine
 </p>
 </div>
 <ul>
-<li>Sama asja saab teha ka nt <em>Database</em> -&gt; <em>DB Manager</em> -&gt; <em>SQL Window</em> -&gt; päring <code>SELECT AVG(number_of_characters), maakond FROM vallakohtud_RA GROUP BY maakond;</code> -&gt; <em>Execute</em> -&gt; <em>Load as new layer</em> -&gt; <em>Load</em>.<br />
+<li>Sama asja saab teha ka nt <em>Database</em> -&gt; <em>DB Manager</em> -&gt; <em>SQL Window</em> -&gt; päring <code>SELECT maakond, AVG(number_of_characters) FROM vallakohtud_RA GROUP BY maakond;</code> -&gt; <em>Execute</em> -&gt; <em>Load as new layer</em> -&gt; <em>Load</em>.<br />
 </li>
 <li>Põhimõtteliselt saab info kätte ka nii: <em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Vector analysis</em> -&gt; <em>Statistics by categories</em>. See loob uue kihi <em>Statistics by category</em>, mis annab ülevaate mingist tunnusest (nt tähemärkide arv) teise tunnuse (maakondade) põhjal grupeerituna. Väljundi tulbas <em>mean</em> on keskmine tähemärkide arv iga maakonna kohta.<br />
 </li>
 </ul></li>
-<li>Tee nüüd maakonna kihist duplikaat: paremklikk kihil -&gt; <em>Duplicate Layer</em>.<br />
-</li>
-<li>Kuna vallakohtute andmestikus on kahe Viru maakonna (Ida-Viru ja Lääne-Viru) asemel lihtsalt üks Virumaa, siis ühendame maakonna kihi duplikaadis Ida- ja Lääne-Viru polügoonid üheks. Selleks
-<ul>
-<li>tee duplikaadi kiht aktiivseks ning mine muutmise režiimi (<em>Edit</em>, vajuta kollasel pliiatsil);<br />
-</li>
-<li>vajuta valiku tööriista (<em>Select</em>) ning Ctrl-klahvi all hoides vali Ida- ja Lääne-Virumaa polügoonid;<br />
-</li>
-<li>vali menüüs <em>Edit</em> -&gt; <em>Merge selected polygons</em>, jälgi, et nii MNIMI kui ka MNIMI2 tulpadel oleks Id <em>Manual value</em> ning määra ühendatud kihile tulba <em>MNIMI</em> väärtuseks <em>Viru maakond</em> ning tulba <em>MNIMI2</em> väärtuseks <em>Viru</em>. Juhul, kui atribuuttabelisse jääb endiselt väärtus <em>Lääne-Viru</em> või <em>Ida-Viru</em>, muuda see käsitsi atribuuttabelis ära (muutmiseks vajuta atribuuttabelis kollasel pliiatsil ning muutmise lõpetamiseks uuesti kollasel pliiatsil). Lõplikus atribuuttabelis peaks olema ainult <em>Viru</em> ja <em>Viru maakond</em>.<br />
-
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:merge"></span>
-<img src="imgs/merge_viru.PNG" alt="Virumaa polügoonide ühendamine" width="100%" />
-<p class="caption">
-Figure 11.3: Virumaa polügoonide ühendamine
-</p>
-</div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:merge2"></span>
-<img src="imgs/edit_attributes.PNG" alt="Atribuuttabeli parandamine" width="100%" />
-<p class="caption">
-Figure 11.4: Atribuuttabeli parandamine
-</p>
-</div></li>
-<li>Salvesta kihi muudatused (<em>Save layer edits</em>) ning välju muutmise režiimist (vajuta uuesti kollasel pliiatsil).<br />
-</li>
-</ul></li>
-<li>Nüüd saame ühendada kihi <em>keskmised</em> ja maakonnapiiride kihi koopia. Selleks tee paremklikk maakonnapiiride kihi koopial -&gt; <em>Properties</em> -&gt; <em>Joins</em> -&gt; lisa rohelisest plussmärgist uus ühendamine, täida väljad nii nagu allpool oleval pildil ning vajuta <em>OK</em> ja uuesti <em>OK</em>.<br />
-
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:join1"></span>
-<img src="imgs/join1.PNG" alt="Andmestike ühendamine (1)" width="70%" />
-<p class="caption">
-Figure 11.5: Andmestike ühendamine (1)
-</p>
-</div>
+<li>Nüüd saame ühendada kihi <em>keskmised</em> ja (parandatud) ajalooliste maakonnapiiride kihi. Selleks saab nt kasutada sakki <em>Joins</em>, mida oleme juba ka varem kasutanud.
 <ul>
 <li>Teine viis kihte ühendada on valida <em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Vector general</em> -&gt; <em>Join attributes by field value</em>. See tekitab uue kihi, vaikimisi nimega <em>Joined layer</em>, kus ei ole olemasolevat ja lisatud infot enam eristatud.<br />
 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:join01"></span>
 <img src="imgs/9_processing_join.PNG" alt="Andmestike ühendamine Processing tools'iga" width="70%" />
 <p class="caption">
-Figure 11.6: Andmestike ühendamine Processing tools’iga
+Figure 11.3: Andmestike ühendamine Processing tools’iga
 </p>
 </div></li>
 </ul></li>
 <li>Nüüd on meil maakonnapiiride kiht, mille atribuuttabelis on ka infot selle kohta, kui pikad vastava maakonna vallakohtuprotokollid keskmiselt on. Kasuta seda tulpa selleks, et värvida maakonnad eri tooni (pikemate protokollidega maakonnad tumedamalt, lühematega heledamalt). Selleks kasuta juba eelmistes praktikumides näidatud viise (<em>Symbology</em> -&gt; <em>Graduated</em> jne).<br />
 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:join2"></span>
-<img src="imgs/join2.PNG" alt="Ühendatud andmestikud" width="100%" />
+<img src="imgs/join2.PNG" alt="Ühendatud andmestikud" width="70%" />
 <p class="caption">
-Figure 11.7: Ühendatud andmestikud
+Figure 11.4: Ühendatud andmestikud
 </p>
 </div></li>
 </ul>
 </div>
-<div id="shp-info-ühendamine-csv-ga" class="section level3" number="11.1.2">
-<h3><span class="header-section-number">11.1.2</span> SHP info ühendamine CSV-ga</h3>
+<div id="shp-info-ühendamine-csv-ga" class="section level3" number="11.1.3">
+<h3><span class="header-section-number">11.1.3</span> SHP info ühendamine CSV-ga</h3>
 <ul>
-<li>Ühendame nüüd csv-failiga iga maakonna keskpunkti (<em>tsentroidi</em>) koordinaadid. Selleks tuleb meil esmalt leida maakondade polügoonide keskpunktid. Tee uus maakonnapiiride kihi koopia (duplikaat) ning nimeta see nt <em>maakonnad2</em> (paremklikk kihil -&gt; <em>Rename Layer</em>).</li>
+<li>Ühendame nüüd hoopis vallakohtuprotokollide csv-failiga iga maakonna keskpunkti (<em>tsentroidi</em>) koordinaadid, nt selleks, et protokolle kaardil kuvada. Selleks tuleb meil esmalt leida maakondade polügoonide <strong>keskpunktid</strong>. Tee uus maakonnapiiride kihi koopia (duplikaat) ning nimeta see nt <em>maakonnad2</em> (paremklikk kihil -&gt; <em>Rename Layer</em>).</li>
 <li>Tee kiht <em>maakonnad2</em> aktiivseks -&gt; <em>Vector</em> -&gt; <em>Geometry Tools</em> -&gt; <em>Centroids…</em> -&gt; jäta vaikeväärtused ning vajuta <em>Run</em>. Maakondade kihile ilmuvad nüüd uuel kihil polügoonide keskpunktid.<br />
 
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:centroids"></span>
-<img src="imgs/centroids.PNG" alt="Polügoonide keskpunktide leidmine" width="100%" />
+<img src="imgs/centroids.PNG" alt="Polügoonide keskpunktide leidmine" width="70%" />
 <p class="caption">
-Figure 11.8: Polügoonide keskpunktide leidmine
+Figure 11.5: Polügoonide keskpunktide leidmine
 </p>
 </div></li>
-<li>Järgmiseks lisame kihi <em>Centroids</em> atribuuttabelisse punktide <em>x</em>- ja <em>y</em>-koordinaadid: tee kiht aktiivseks -&gt; <em>Vector</em> -&gt; <em>Geometry Tools</em> -&gt; <em>Add Geometry Attributes</em>, jäta jällegi vaikeväärtused ning vajuta <em>Run</em> ja <em>Close</em>. Tekkis uus kiht <em>Added geom info</em>. Nimetame selle ümber nt <em>koord_keskpunktid</em>.<br />
+<li>Järgmiseks lisame tekkinud kihi <em>Centroids</em> atribuuttabelisse punktide <em>x</em>- ja <em>y</em>-koordinaadid: tee kiht aktiivseks -&gt; <em>Vector</em> -&gt; <em>Geometry Tools</em> -&gt; <em>Add Geometry Attributes</em>, jäta jällegi vaikeväärtused ning vajuta <em>Run</em> ja <em>Close</em>. Tekkis uus kiht <em>Added geom info</em>. Nimetame selle ümber nt <em>koord_keskpunktid</em>.<br />
 </li>
 <li>Ühendame nüüd CSV-kihi maakondade nimede järgi keskpunktide koordinaatide kihiga. Tee paremklikk kihil <em>vallakohtud_RA</em> -&gt; <em>Properties</em> -&gt; <em>Joins</em> -&gt; <em>Add new join</em>.
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:join3"></span>
 <img src="imgs/join3.PNG" alt="Andmestike ühendamine (2)" width="70%" />
 <p class="caption">
-Figure 11.9: Andmestike ühendamine (2)
+Figure 11.6: Andmestike ühendamine (2)
 </p>
 </div>
 <ul>
@@ -394,7 +382,7 @@ Figure 11.9: Andmestike ühendamine (2)
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:join03"></span>
 <img src="imgs/9_processing_join_onetomany.PNG" alt="Andmestike ühendamine (3)" width="70%" />
 <p class="caption">
-Figure 11.10: Andmestike ühendamine (3)
+Figure 11.7: Andmestike ühendamine (3)
 </p>
 </div></li>
 </ul></li>
@@ -403,14 +391,14 @@ Figure 11.10: Andmestike ühendamine (3)
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:savecsv"></span>
 <img src="imgs/newcsv.PNG" alt="Koordinaatidega csv-faili salvestamine" width="70%" />
 <p class="caption">
-Figure 11.11: Koordinaatidega csv-faili salvestamine
+Figure 11.8: Koordinaatidega csv-faili salvestamine
 </p>
 </div></li>
 <li>Nüüd loeme salvestatud faili uuesti csv-failina sisse nii, et määrame ära koordinaatide tulbad: <em>Layer</em> -&gt; <em>Add Layer</em> -&gt; <em>Add Delimited Text Layer</em>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:readnewcsv"></span>
 <img src="imgs/readnewcsv.PNG" alt="Koordinaatidega csv-faili sisselugemine" width="70%" />
 <p class="caption">
-Figure 11.12: Koordinaatidega csv-faili sisselugemine
+Figure 11.9: Koordinaatidega csv-faili sisselugemine
 </p>
 </div>
 <ul>
@@ -419,7 +407,7 @@ Figure 11.12: Koordinaatidega csv-faili sisselugemine
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:pointsfrom"></span>
 <img src="imgs/9_pointsfromtable.PNG" alt="Koordinaatidega csv-faili muutmine punktikihiks" width="70%" />
 <p class="caption">
-Figure 11.13: Koordinaatidega csv-faili muutmine punktikihiks
+Figure 11.10: Koordinaatidega csv-faili muutmine punktikihiks
 </p>
 </div></li>
 </ul></li>
@@ -427,20 +415,20 @@ Figure 11.13: Koordinaatidega csv-faili muutmine punktikihiks
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:heatmap"></span>
 <img src="imgs/heatmap.PNG" alt="Heatmap" width="70%" />
 <p class="caption">
-Figure 11.14: Heatmap
+Figure 11.11: Heatmap
 </p>
 </div></li>
 </ul>
 </div>
-<div id="csv-ja-shp-ühendamine-polügoonidega-vektorandmeteks" class="section level3" number="11.1.3">
-<h3><span class="header-section-number">11.1.3</span> CSV ja SHP ühendamine polügoonidega vektorandmeteks</h3>
+<div id="csv-ja-shp-ühendamine-polügoonidega-vektorandmeteks" class="section level3" number="11.1.4">
+<h3><span class="header-section-number">11.1.4</span> CSV ja SHP ühendamine polügoonidega vektorandmeteks</h3>
 <p>Kolmas viis, mis jätab alles nii kõik CSV-andmestiku vaatlused (ühest kohast mitu vaatlust), ent võimaldab ühendatud andmestikku hoida polügoonidega vektorformaadis (mitte lihtsalt tabelina, milles punktide koordinaadid on atribuudid), saame kasutada sedasama ülal mainitud <em>Join type</em> = <em>one-to-many</em> võimalust.</p>
 <ul>
 <li>Vali uuesti <em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Vector general</em> -&gt; <em>Join attributes by field value</em>.
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:join100"></span>
 <img src="imgs/9_processing_join_onetomany2.PNG" alt="CSV ja SHP ühendamine vektorandmeteks" width="70%" />
 <p class="caption">
-Figure 11.15: CSV ja SHP ühendamine vektorandmeteks
+Figure 11.12: CSV ja SHP ühendamine vektorandmeteks
 </p>
 </div></li>
 <li>Tekib uus kiht <em>Joined layer</em>, milles iga vallakohtuprotokoll on geograafiliselt määratud mõnda Eesti maakonna polügooni.</li>
@@ -471,7 +459,7 @@ Figure 11.15: CSV ja SHP ühendamine vektorandmeteks
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geocoding2"></span>
 <img src="imgs/ut_geocoding.PNG" alt="Massgeokodeerimine (2)" width="100%" />
 <p class="caption">
-Figure 11.16: Massgeokodeerimine (2)
+Figure 11.13: Massgeokodeerimine (2)
 </p>
 </div></li>
 </ul></li>
@@ -532,7 +520,7 @@ Oleme veidi algandmestikku täiendanud ning lisanud standardiseeritud sünnikoha
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:geokod"></span>
 <img src="imgs/geocoding_RA.PNG" alt="Massgeokodeerimine (RA)" width="90%" />
 <p class="caption">
-Figure 11.17: Massgeokodeerimine (RA)
+Figure 11.14: Massgeokodeerimine (RA)
 </p>
 </div>
 <p><strong>Ülesanne</strong></p>
@@ -547,7 +535,7 @@ Figure 11.17: Massgeokodeerimine (RA)
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:tammsaarmap"></span>
 <img src="imgs/Tamm_Saar_map.PNG" alt="Tamme- ja Saare-nimeliste üliõpilaste sünnikohad Album Academicumis" width="100%" />
 <p class="caption">
-Figure 11.18: Tamme- ja Saare-nimeliste üliõpilaste sünnikohad Album Academicumis
+Figure 11.15: Tamme- ja Saare-nimeliste üliõpilaste sünnikohad Album Academicumis
 </p>
 </div></li>
 </ul>
@@ -573,7 +561,7 @@ Milliseid probleeme märkad?</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:contains"></span>
 <img src="imgs/9_processing_join_contains.PNG" alt="Ruumiandmete kihtide ühendamine" width="100%" />
 <p class="caption">
-Figure 11.19: Ruumiandmete kihtide ühendamine
+Figure 11.16: Ruumiandmete kihtide ühendamine
 </p>
 </div></li>
 </ul></li>
@@ -582,7 +570,7 @@ Figure 11.19: Ruumiandmete kihtide ühendamine
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressions1000"></span>
 <img src="imgs/9_expression.gif" alt="'count'-funktsioon avaldistes" width="100%" />
 <p class="caption">
-Figure 11.20: ‘count’-funktsioon avaldistes
+Figure 11.17: ‘count’-funktsioon avaldistes
 </p>
 </div></li>
 <li>Samuti võime teha eraldi joonised Tamme- ja Saare-nimelistele üliõpilastele, kasutades <em>count</em>-funktsioonis argumenti <em>filter</em>.<br />
@@ -590,14 +578,14 @@ Figure 11.20: ‘count’-funktsioon avaldistes
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressions1001"></span>
 <img src="imgs/9_expression2.gif" alt="'count'-funktsioon avaldistes koos filtri argumendiga" width="100%" />
 <p class="caption">
-Figure 11.21: ‘count’-funktsioon avaldistes koos filtri argumendiga
+Figure 11.18: ‘count’-funktsioon avaldistes koos filtri argumendiga
 </p>
 </div></li>
 <li>Kui tahame näha ka, kui palju ikkagi mingist maakonnast punkte on, siis saame kasutada näiteks SQL-i ja DB Manageri <code>SELECT MNIMI count(*) FROM "Joined layer" GROUP BY MNIMI;</code> ja laadida tulemuse uue kihina (jutumärgid on vajalikud, kuna kihi nimi sisaldab tühikut) või kasutada <em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Vector general</em> -&gt; <em>Join attributes by location (summary)</em>, mis laseb teha uue kihi, mis kajastab mitte enam üksikuid andmepunkte, vaid nende põhjalt tehtud erinevaid statistilisi näitajaid (nt maakondadesse jäävate punktide koguarv, maakondade üliõpilaste kõige varasem ja hilisem sünniaeg jne). Valime näiteks tabelist tunnused <code>Matrikli_N</code> ja <code>Sunniaeg</code> ning leiame nende kohta näitajad <em>count</em>, <em>min</em> ja <em>max</em>.
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressions1002"></span>
 <img src="imgs/9_stats.gif" alt="Tööriist 'Join attributes by location (summary)'" width="100%" />
 <p class="caption">
-Figure 11.22: Tööriist ‘Join attributes by location (summary)’
+Figure 11.19: Tööriist ‘Join attributes by location (summary)’
 </p>
 </div></li>
 <li>Lõpuks on võimalik punkte polügoonides leida ka nii, et valime <em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Vector analysis</em> -&gt; <em>Count points in polygon</em>, mis teeb uue kihi, kus polügoonide tabelile on lisatud lihtsalt uus tulp vastavasse maakonda jäävate punktide arvuga.<br />
@@ -605,7 +593,7 @@ Figure 11.22: Tööriist ‘Join attributes by location (summary)’
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:expressions1003"></span>
 <img src="imgs/9_countpoints.PNG" alt="Punktide kokkulugemine polügoonides" width="100%" />
 <p class="caption">
-Figure 11.23: Punktide kokkulugemine polügoonides
+Figure 11.20: Punktide kokkulugemine polügoonides
 </p>
 </div></li>
 </ul>
@@ -624,7 +612,7 @@ Figure 11.23: Punktide kokkulugemine polügoonides
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:manual"></span>
 <img src="imgs/manual.PNG" alt="1890. aasta Hageri vallakohtuprotokollis mainitud kohanimed" width="100%" />
 <p class="caption">
-Figure 11.24: 1890. aasta Hageri vallakohtuprotokollis mainitud kohanimed
+Figure 11.21: 1890. aasta Hageri vallakohtuprotokollis mainitud kohanimed
 </p>
 </div></li>
 </ul>
@@ -647,7 +635,6 @@ Figure 11.24: 1890. aasta Hageri vallakohtuprotokollis mainitud kohanimed
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -675,7 +662,7 @@ gitbook.start({
 },
 "download": [["book.pdf", "PDF"], ["book.epub", "EPUB"]],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {
