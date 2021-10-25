@@ -373,3 +373,4 @@ avaldised-1
 andmekihtide_yhendamine
 fig:ajaloolinejatanapaevane
 lisaülesanne
+fig:vorts
