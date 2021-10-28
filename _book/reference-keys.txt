@@ -374,3 +374,11 @@ andmekihtide_yhendamine
 fig:ajaloolinejatanapaevane
 lisaülesanne
 fig:vorts
+varvid
+fig:colorblind
+eksitamine
+fig:poverty
+fig:cairographs
+fig:errilm
+fig:foxnbc
+fig:cleangraph

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Praktikum 8 Avaandmed ja repositooriumid | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
   <meta name="description" content="Praktikum 8 Avaandmed ja repositooriumid | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Praktikum 8 Avaandmed ja repositooriumid | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta property="og:type" content="book" />
@@ -34,6 +34,7 @@
 <link rel="next" href="georefereerimine.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -41,7 +42,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -58,6 +58,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -284,6 +285,16 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="11.2" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#geokodeerimine"><i class="fa fa-check"></i><b>11.2</b> Geokodeerimine</a></li>
 <li class="chapter" data-level="11.3" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#järgmisel-korral-9"><i class="fa fa-check"></i><b>11.3</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="varvid.html"><a href="varvid.html"><i class="fa fa-check"></i><b>12</b> Värvid, sildid ja eksitamine</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="varvid.html"><a href="varvid.html#eksitamine"><i class="fa fa-check"></i><b>12.1</b> Eksitamine</a></li>
+<li class="chapter" data-level="12.2" data-path="varvid.html"><a href="varvid.html#värvidest"><i class="fa fa-check"></i><b>12.2</b> Värvidest</a></li>
+<li class="chapter" data-level="12.3" data-path="varvid.html"><a href="varvid.html#visualiseerimine"><i class="fa fa-check"></i><b>12.3</b> Visualiseerimine</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="varvid.html"><a href="varvid.html#sildid"><i class="fa fa-check"></i><b>12.3.1</b> Sildid</a></li>
+<li class="chapter" data-level="12.3.2" data-path="varvid.html"><a href="varvid.html#kaardi-tegemine"><i class="fa fa-check"></i><b>12.3.2</b> Kaardi tegemine</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="kirjandus.html"><a href="kirjandus.html"><i class="fa fa-check"></i>Kirjandus</a></li>
 </ul>
@@ -640,7 +651,6 @@ Figure 8.8: Näide Flickrist kogutud andmete visualiseerimisest (<a href="https:
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -668,7 +678,7 @@ gitbook.start({
 },
 "download": [["book.pdf", "PDF"], ["book.epub", "EPUB"]],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {
