@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="andmekihtide_yhendamine.html"/>
-<link rel="next" href="kirjandus.html"/>
+<link rel="next" href="visualiseerimine4.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -232,6 +232,16 @@ div.csl-indent {
 <li class="chapter" data-level="12.3.2" data-path="varvid.html"><a href="varvid.html#kaardi-tegemine"><i class="fa fa-check"></i><b>12.3.2</b> Kaardi tegemine</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="13" data-path="visualiseerimine4.html"><a href="visualiseerimine4.html"><i class="fa fa-check"></i><b>13</b> Ruumiandmete visualiseerimine 4</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="visualiseerimine4.html"><a href="visualiseerimine4.html#euroopa-ja-maailma-andmed"><i class="fa fa-check"></i><b>13.1</b> Euroopa ja maailma andmed</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="visualiseerimine4.html"><a href="visualiseerimine4.html#koordinaatsüsteemid"><i class="fa fa-check"></i><b>13.1.1</b> Koordinaatsüsteemid</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="visualiseerimine4.html"><a href="visualiseerimine4.html#euroopa-riikide-ja-linnade-filtreerimine"><i class="fa fa-check"></i><b>13.2</b> Euroopa riikide ja linnade filtreerimine</a></li>
+<li class="chapter" data-level="13.3" data-path="visualiseerimine4.html"><a href="visualiseerimine4.html#skpin-visualiseerimine"><i class="fa fa-check"></i><b>13.3</b> SKP/in visualiseerimine</a></li>
+<li class="chapter" data-level="13.4" data-path="visualiseerimine4.html"><a href="visualiseerimine4.html#rastriga-katsetamine"><i class="fa fa-check"></i><b>13.4</b> Rastriga katsetamine</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="kirjandus.html"><a href="kirjandus.html"><i class="fa fa-check"></i>Kirjandus</a></li>
 </ul>
 
@@ -327,6 +337,7 @@ Figure 12.7: Värvipimeduse leviku kaart kontolt <a href="https://twitter.com/Te
 <ul>
 <li>kihil paremklikk -&gt; <em>Properties</em> -&gt; <em>Labels</em> -&gt; <em>Single labels</em> -&gt; <em>Callouts</em> -&gt; linnuke <em>Draw callouts</em> ette -&gt; OK</li>
 <li>peaaknas kliki ikoonil <em>Moves a layer or diagramm</em> ning kliki sildil ja liiguta see sobivasse kohta.</li>
+<li>selleks, et olukord oleks selgem võib sildid lisada ainult nendele küladele, kus on rohkelt mälestisi (nt üle 20). Vali <em>Properties</em> -&gt; <em>Labels</em> ja ülevalt <em>Single labels</em> asemel <em>Rule-based labeling</em>. Lisa rohelise plussmärgiga uus reegel. Väljale <em>filter</em> kirjuta <em>“kokku” &gt;= 20</em>. Väljal <em>Value</em> vali tult <em>ANIMI</em> ja seejärel <em>OK</em>.</li>
 </ul>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:labelicons"></span>
 <img src="imgs/label_icons.PNG" alt="Siltidega töötamise ikoonid." width="75%" />
@@ -340,16 +351,16 @@ Figure 12.8: Siltidega töötamise ikoonid.
 <div id="kaardi-tegemine" class="section level3" number="12.3.2">
 <h3><span class="header-section-number">12.3.2</span> Kaardi tegemine</h3>
 <p>Kui oled andmete visualiseerimisega valmis saanud, ava kaardi tegemiseks <em>Print Layout</em> ja lisa peaaknas olev kaart. Kaart näeb sageli parem välja, kui see ei ulatu päris servani, vaid jäetud väike äär. Selleks, et kaugus servast jääks kõigis külgedes sama, lülita sisse <em>View</em> alt <em>Show grid</em> ja <em>Snap to grid</em>.</p>
-<p>Kui tegemist on väljavõttega mingist suuremast alast, siis võib olla kasulik näidata, kus kohas see praegune vaade paikneb ehk luua kaart kaardis. Selle saab teha Overview abil. Lisa kogu Eesti ala kaart. Selleks tuleb eelnevalt valla kaardi stiil lukustada. Eesti ala kaardi <em>Item properties</em> alt vali <em>Overview</em>.</p>
-<p>Kaardi servadesse saab lisada koordinaatruudustiku, mis võib lihtsustada esitatud objektide koordinaatide mõistmist.</p>
-<p>Vajadusel saab atribuut tabeli lisada ka eksporditavale kaardile.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:polva"></span>
-<img src="imgs/polva_malestised.png" alt="Põlva valla kultuurimälestiste jaotumine" width="100%" />
+<p>Kui tegemist on väljavõttega mingist suuremast alast, siis võib olla kasulik näidata, kus kohas see praegune vaade paikneb ehk luua kaart kaardis. Selle saab teha <em>Overview</em> abil. Lisa <em>Print Layoutile</em> ka kogu Eesti ala kaart. Selleks tuleb eelnevalt valla kaardi stiil lukustada. <em>Item Properties</em> -&gt; <em>Layers</em> ja tee linnuke <em>Lock layers</em> ja <em>Lock styles for layers ette</em>. Seejärel vali Eesti ala kaardi <em>Item properties</em> alt vali <em>Overview</em> -&gt; roheline plussmärk -&gt; <em>Map frame</em> juures vali Map 1.</p>
+<!-- Kaardi servadesse saab lisada koordinaatruudustiku, mis võib lihtsustada esitatud objektide koordinaatide mõistmist.  -->
+<p>Vajadusel saab atribuuttabeli lisada ka eksporditavale kaardile. <em>Add item</em> -&gt; <em>Attribute table</em>. <em>Item properties</em> alt saad valida, milliseid tulpasid ja kuidas näidata. Vali ainult küla nimi ja kultuurimälestiste arv kokku. Lisa ka selged tulpade nimed. Filtreeri tabelisse ainult need külad, kus on vähemalt üks mälestis (<em>Filter with</em> “kokku” &gt; 0).</p>
+<p>Lisa ka legend, mis näitab värvide tähendust. Jäta legendi ainult käsitletava omavalitsuse kiht.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:kuusalu"></span>
+<img src="imgs/kuusalu_malestised.png" alt="Kuusalu valla kultuurimälestiste jaotumine" width="100%" />
 <p class="caption">
-Figure 12.9: Põlva valla kultuurimälestiste jaotumine
+Figure 12.9: Kuusalu valla kultuurimälestiste jaotumine
 </p>
 </div>
-
 
 </div>
 </div>
@@ -360,7 +371,7 @@ Figure 12.9: Põlva valla kultuurimälestiste jaotumine
         </div>
       </div>
 <a href="andmekihtide_yhendamine.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="kirjandus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="visualiseerimine4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

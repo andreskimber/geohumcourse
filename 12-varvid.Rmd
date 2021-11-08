@@ -80,9 +80,9 @@ Sarnaselt siltidele saab igale kihi elemendile lisada ka graafikuid. Lisa sektor
 
 Sageli on olukordi, kus andmetele on vaja lisada silte, kuid need asuvad tihedalt koos ja ei paista seetõttu hästi välja. Siin on abiks *callouts*, mis võimaldab joonte abil objeti sildi kaugemale asetada. 
 
-
 - kihil paremklikk -> *Properties* -> *Labels* -> *Single labels* -> *Callouts* -> linnuke *Draw callouts* ette -> OK
 - peaaknas kliki ikoonil *Moves a layer or diagramm* ning kliki sildil ja liiguta see sobivasse kohta.
+- selleks, et olukord oleks selgem võib sildid lisada ainult nendele küladele, kus on rohkelt mälestisi (nt üle 20). Vali *Properties* -> *Labels* ja ülevalt *Single labels* asemel *Rule-based labeling*. Lisa rohelise plussmärgiga uus reegel. Väljale *filter* kirjuta *"kokku" >= 20*. Väljal *Value* vali tult *ANIMI* ja seejärel *OK*.
 
 ```{r labelicons, echo =F, fig.align='center', fig.show='hold', fig.cap = "Siltidega töötamise ikoonid.", out.width="75%"}
 knitr::include_graphics(here::here("imgs", "label_icons.PNG"))
@@ -90,20 +90,24 @@ knitr::include_graphics(here::here("imgs", "label_icons.PNG"))
 
 Siltidele ja diagrammidele võib lisada ka puhvrid, mis toovad need need paremini muude andmete taustal välja. Samamoodi saab neile lisada varjud.
 
+
+
 <!-- Idee: diagrammid nt muuseumide külastatavuse kohta vms -->
 
 ### Kaardi tegemine
 
 Kui oled andmete visualiseerimisega valmis saanud, ava kaardi tegemiseks *Print Layout* ja lisa peaaknas olev kaart. Kaart näeb sageli parem välja, kui see ei ulatu päris servani, vaid jäetud väike äär. Selleks, et kaugus servast jääks kõigis külgedes sama, lülita sisse *View* alt *Show grid* ja *Snap to grid*. 
 
-Kui tegemist on väljavõttega mingist suuremast alast, siis võib olla kasulik näidata, kus kohas see praegune vaade paikneb ehk luua kaart kaardis. Selle saab teha Overview abil. Lisa kogu Eesti ala kaart. Selleks tuleb eelnevalt valla kaardi stiil lukustada. Eesti ala kaardi *Item properties* alt vali *Overview*.  
+Kui tegemist on väljavõttega mingist suuremast alast, siis võib olla kasulik näidata, kus kohas see praegune vaade paikneb ehk luua kaart kaardis. Selle saab teha *Overview* abil. Lisa *Print Layoutile* ka kogu Eesti ala kaart. Selleks tuleb eelnevalt valla kaardi stiil lukustada. *Item Properties* -> *Layers* ja tee linnuke *Lock layers* ja *Lock styles for layers ette*. Seejärel vali Eesti ala kaardi *Item properties* alt vali *Overview* -> roheline plussmärk -> *Map frame* juures vali Map 1.
 
-Kaardi servadesse saab lisada koordinaatruudustiku, mis võib lihtsustada esitatud objektide koordinaatide mõistmist. 
+<!-- Kaardi servadesse saab lisada koordinaatruudustiku, mis võib lihtsustada esitatud objektide koordinaatide mõistmist.  -->
 
-Vajadusel saab atribuut tabeli lisada ka eksporditavale kaardile. 
+Vajadusel saab atribuuttabeli lisada ka eksporditavale kaardile. *Add item* -> *Attribute table*. *Item properties* alt saad valida, milliseid tulpasid ja kuidas näidata. Vali ainult küla nimi ja kultuurimälestiste arv kokku. Lisa ka selged tulpade nimed. Filtreeri tabelisse ainult need külad, kus on vähemalt üks mälestis (*Filter with* "kokku" > 0).
+
+Lisa ka legend, mis näitab värvide tähendust. Jäta legendi ainult käsitletava omavalitsuse kiht. 
 
 
-```{r polva, echo =F, fig.align='center', fig.show='hold', fig.cap = "Põlva valla kultuurimälestiste jaotumine", out.width="100%"}
-knitr::include_graphics(here::here("imgs", "polva_malestised.png"))
+```{r kuusalu, echo =F, fig.align='center', fig.show='hold', fig.cap = "Kuusalu valla kultuurimälestiste jaotumine", out.width="100%"}
+knitr::include_graphics(here::here("imgs", "kuusalu_malestised.png"))
 ```
 

@@ -18,7 +18,7 @@ knitr::include_graphics(here::here("imgs", "wgs84.gif"))
 
 Nüüd peaks andmed õigesti näha olema. Vaata mõlema andmestiku atribuuttabeleid ning ka riikide piire. Nagu näha on riigipiirid olulised lihtsustatud, kuna see teeb kihi väiksemaks ja töö sellega lihtsamaks ning sellisel skaalal ei ole detailsus niivõrd oluline.
 
-Nagu varasemates praktikumis räägitud, moonutab Mercatori
+Nagu varasemates praktikumis räägitud, moonutab Mercatori projektsioon kujusid märkimisväärselt.
 
 ## Euroopa riikide ja linnade filtreerimine
 
@@ -30,7 +30,7 @@ knitr::include_graphics(here::here("imgs", "select_eur.gif"))
 
 Kui riigid valitud, siis ekspordi valik Geopackage failina, näiteks nimega *euroopa_riigid*. Eemaldada maailmariikide kiht. Vaheta projekti mõõtkava. Ülemaailmse EPSG 4326 asemel vali mõõtkavaks **ETRS89-extended / LCC Europe EPSG 3034**, mis on sobilik kogu Euroopa alaga töötamiseks. Kustuta Euroopa kihist Venemaa, et saaksime töötada väiksema ulatusega.
 
-Mitmel Euroopa riigil on alasid ka Euroopa mandrist väljaspool. Need alad tulevad ka praeguse valikuga kaasa ning praeguse ülesande juures need ei sega. Vajadusel saab eraldiseisvad polügoni ka kustutada. Hetkel aga proovides kustutada näiteks Prantsuse Guajaanat kustub ka kogu Prantsusmaa. Seda seetõttu, et kõiki ühele riigile kuuluvaid alasid käsitletakse selles andmestikus ühe objektina, mida kujutab atribuuttabelis ka üks rida. Sellise kihi geomeetria on *Multipolygon*. Soovides eraldiseisvaid polügone kustutada, tuleb need kõigepealt mitmeks objektiks teha. Näiteks funktsiooniga *Multipart to singleparts*, kuid hektel pole see vajalik. 
+Mitmel Euroopa riigil on alasid ka Euroopa mandrist väljaspool. Need alad tulevad ka valikuga kaasa ning praeguse ülesande juures need ei sega. Vajadusel saab eraldiseisvad polügoni ka kustutada. Hetkel aga proovides kustutada näiteks Prantsuse Guajaanat kustub ka kogu Prantsusmaa. Seda seetõttu, et kõiki ühele riigile kuuluvaid alasid käsitletakse selles andmestikus ühe objektina, mida kujutab atribuuttabelis ka üks rida. Sellise kihi geomeetria on *Multipolygon*. Soovides eraldiseisvaid polügone kustutada, tuleb need kõigepealt mitmeks objektiks teha. Näiteks funktsiooniga *Multipart to singleparts*, kuid hektel pole see vajalik. 
 
 
 ```{r exporteur, echo =F, fig.align='center', fig.show='hold', fig.cap = "Euroopa eksportimine ja koordinaatsüsteemi vahetamine", out.width="100%"}
@@ -39,7 +39,7 @@ knitr::include_graphics(here::here("imgs", "export_eur.gif"))
 
 ## SKP/in visualiseerimine 
 
-Proovime visualiseerida siseriikliku kogutoodangut inimese kohta nii riigi värvina kui ka diagrammina, mis kujutab ka rahvaarvu. Kasutame reeglipõhist värvimist, kus jagame GDP rahvaarvuga ning jaotame need väärtused kolme kuni seitsmesse gruppi. Paremklikk *-> Properties -> Symbology - Rule-based*. Loo rohelise plussmärgiga iga vahemiku jaoks eraldi reeglid (vt valmis näidet). Reegli *Filter* lahtrisse kirjuta avaldis **GDP_MD_EST"  /  "POP_EST" * 1000000 > 5000 AND "GDP_MD_EST"  /  "POP_EST" * 1000000 <= 10000**. Loo samasugused reeglid ka teiste vahemike jaoks. Reeglipõhistest sümbolitest on lähemalt juttu prakikumis \@ref(visualiseerimine1). Värvivalikul võid lähtuda eelmises praktikumis käsitletud [Colorbreweri](https://colorbrewer2.org/) võimalustest. Seal kujutatud värvide *HEX* väärtuse saab kopeerida QGISis värvivalikute juures *HTML notation* reale. 
+Proovime visualiseerida siseriikliku kogutoodangut inimese kohta nii riigi värvina kui ka diagrammina, mis kujutab ka rahvaarvu. Kasutame reeglipõhist värvimist, kus jagame GDP rahvaarvuga ning jaotame need väärtused kolme kuni seitsmesse gruppi. Paremklikk *-> Properties -> Symbology - Rule-based*. Loo rohelise plussmärgiga iga vahemiku jaoks eraldi reeglid (vt valmis näidet). Reegli *Filter* lahtrisse kirjuta avaldis **GDP_MD_EST"  /  "POP_EST" * 1000000 > 5000 AND "GDP_MD_EST"  /  "POP_EST" * 1000000 <= 10000**. Loo samasugused reeglid ka teiste vahemike jaoks. Reeglipõhistest sümbolitest oli lähemalt juttu varasemates prakikumides. Värvivalikul võid lähtuda eelmises praktikumis käsitletud [Colorbreweri](https://colorbrewer2.org/) võimalustest. Seal kujutatud värvide *HEX* väärtuse saab kopeerida QGISis värvivalikute juures *HTML notation* reale. 
 
 <!-- Võib lisada *Shapeburst fill* efekte. -->
 
@@ -65,16 +65,18 @@ Vali riikidele ka meelepärane värv ning ekspordi kaart koos legendiga. Võid k
 knitr::include_graphics(here::here("imgs", "europe_skp_dia.png"))
 ```
 
+Kui jääb aega proovime lisaks teha graafikuid DataPlotly'ga. See lisavidin tuleb kõigepealt paigaldada *Plugins -> Manage and install plugins* ja otsi sealt Plotly. Proovime teha tulpdiagramme riikide rahvaarvust ja sektordiagrammi Euroopa regioonide rahvaarvust. 
+
 
 ## Rastriga katsetamine
 
-Loome linnade populatsiooni põhjal interpoleeritud kihi kogu Euroopa jaoks.
+Loome linnade populatsiooni põhjal interpoleeritud kihi kogu Euroopa jaoks. 
 
 ```{r euroint, echo =F, fig.align='center', fig.show='hold', fig.cap = "Linnade populatsioonist interpoleeritud rasterkiht."}
 knitr::include_graphics(here::here("imgs", "europe_interpolation_pop.png"))
 ```
 
 
-## Järgmisel korral
+<!-- ## Järgmisel korral -->
 
-Kahel järgmisel korral tekstianalüüs. Pärast seda veel geostatistika, veebirakenduste ja R'i kasutamise praktikumid.  
+<!-- Kahel järgmisel korral tekstianalüüs. Pärast seda veel geostatistika, veebirakenduste ja R'i kasutamise praktikumid.   -->

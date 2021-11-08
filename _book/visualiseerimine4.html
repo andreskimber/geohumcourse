@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Praktikum 14 Ruumiandmete visualiseerimine 4 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
-  <meta name="description" content="Praktikum 14 Ruumiandmete visualiseerimine 4 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <title>Praktikum 13 Ruumiandmete visualiseerimine 4 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
+  <meta name="description" content="Praktikum 13 Ruumiandmete visualiseerimine 4 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Praktikum 14 Ruumiandmete visualiseerimine 4 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta property="og:title" content="Praktikum 13 Ruumiandmete visualiseerimine 4 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Praktikum 14 Ruumiandmete visualiseerimine 4 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta name="twitter:title" content="Praktikum 13 Ruumiandmete visualiseerimine 4 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   
   
   
@@ -30,9 +30,11 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="visualiseerimine3.html"/>
-<link rel="next" href="tekstianalyys.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="varvid.html"/>
+<link rel="next" href="kirjandus.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -48,10 +50,33 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -66,198 +91,156 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#kursuse-korraldusest"><i class="fa fa-check"></i><b>1.1</b> Kursuse korraldusest</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#mis-on-geoinfosüsteemid"><i class="fa fa-check"></i><b>1.2</b> Mis on geoinfosüsteemid?</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#geoinfosüsteemide-ajaloost"><i class="fa fa-check"></i><b>1.3</b> Geoinfosüsteemide ajaloost</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#ruumiandmed-ja-gis-humanitaarteadustes"><i class="fa fa-check"></i><b>1.4</b> Ruumiandmed ja GIS humanitaarteadustes</a><ul>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#ruumiandmed-ja-gis-humanitaarteadustes"><i class="fa fa-check"></i><b>1.4</b> Ruumiandmed ja GIS humanitaarteadustes</a>
+<ul>
 <li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#arheoloogia"><i class="fa fa-check"></i><b>1.4.1</b> Arheoloogia</a></li>
 <li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#veel-näiteid"><i class="fa fa-check"></i><b>1.4.2</b> Veel näiteid</a></li>
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#küsitlus"><i class="fa fa-check"></i><b>1.5</b> Küsitlus</a></li>
 <li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>1.6</b> Järgmisel korral</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>2</b> Seminar</a><ul>
+<li class="chapter" data-level="2" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>2</b> Seminar</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="seminar.html"><a href="seminar.html#mõisted"><i class="fa fa-check"></i><b>2.1</b> Mõisted</a></li>
 <li class="chapter" data-level="2.2" data-path="seminar.html"><a href="seminar.html#rühmatöö-1-gisi-ja-ruumi-geohumanitaaria-projekte-ja-rakendusi"><i class="fa fa-check"></i><b>2.2</b> Rühmatöö 1: GISi ja ruumi-/geohumanitaaria projekte ja rakendusi</a></li>
-<li class="chapter" data-level="2.3" data-path="seminar.html"><a href="seminar.html#rühmatöö-2-humanitaaria-vs.-kvantitatiivsed-meetodid"><i class="fa fa-check"></i><b>2.3</b> Rühmatöö 2: humanitaaria vs. kvantitatiivsed meetodid</a></li>
+<li class="chapter" data-level="2.3" data-path="seminar.html"><a href="seminar.html#rühmatöö-2-humanitaaria-vs.-kvantitatiivsed-meetodid"><i class="fa fa-check"></i><b>2.3</b> Rühmatöö 2: humanitaaria <em>vs</em>. kvantitatiivsed meetodid</a></li>
+<li class="chapter" data-level="2.4" data-path="seminar.html"><a href="seminar.html#järgmisel-korral-1"><i class="fa fa-check"></i><b>2.4</b> Järgmisel korral</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html"><i class="fa fa-check"></i><b>3</b> Ruumiobjektid ja ruumiandmed</a><ul>
+<li class="chapter" data-level="3" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html"><i class="fa fa-check"></i><b>3</b> Ruumiobjektid ja ruumiandmed</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#vektorandmed"><i class="fa fa-check"></i><b>3.1</b> Vektorandmed</a></li>
 <li class="chapter" data-level="3.2" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#rasterandmed"><i class="fa fa-check"></i><b>3.2</b> Rasterandmed</a></li>
 <li class="chapter" data-level="3.3" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#vektor-vs.-raster"><i class="fa fa-check"></i><b>3.3</b> Vektor vs. raster</a></li>
 <li class="chapter" data-level="3.4" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#ülesanne"><i class="fa fa-check"></i><b>3.4</b> Ülesanne</a></li>
-<li class="chapter" data-level="3.5" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>3.5</b> Järgmisel korral</a></li>
+<li class="chapter" data-level="3.5" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#järgmisel-korral-2"><i class="fa fa-check"></i><b>3.5</b> Järgmisel korral</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="kaardirakendused.html"><a href="kaardirakendused.html"><i class="fa fa-check"></i><b>4</b> Kaardirakendused</a><ul>
-<li class="chapter" data-level="4.1" data-path="kaardirakendused.html"><a href="kaardirakendused.html#kaart"><i class="fa fa-check"></i><b>4.1</b> Kaart</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="kaardirakendused.html"><a href="kaardirakendused.html#koordinaatsüsteemid-ja-projektsioonid"><i class="fa fa-check"></i><b>4.1.1</b> Koordinaatsüsteemid ja projektsioonid</a></li>
+<li class="chapter" data-level="4" data-path="kaardid.html"><a href="kaardid.html"><i class="fa fa-check"></i><b>4</b> Kaardid, koordinaatsüsteemid ja projektsioonid</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="kaardid.html"><a href="kaardid.html#kaart"><i class="fa fa-check"></i><b>4.1</b> Kaart</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="kaardid.html"><a href="kaardid.html#koordinaatsüsteemid-ja-projektsioonid"><i class="fa fa-check"></i><b>4.1.1</b> Koordinaatsüsteemid ja projektsioonid</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="kaardirakendused.html"><a href="kaardirakendused.html#veebipõhised-kaardirakendused"><i class="fa fa-check"></i><b>4.2</b> Veebipõhised kaardirakendused</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="kaardirakendused.html"><a href="kaardirakendused.html#google-my-maps"><i class="fa fa-check"></i><b>4.2.1</b> Google My Maps</a></li>
-<li class="chapter" data-level="4.2.2" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#ülesanne"><i class="fa fa-check"></i><b>4.2.2</b> Ülesanne</a></li>
+<li class="chapter" data-level="4.2" data-path="kaardid.html"><a href="kaardid.html#veebipõhised-kaardirakendused"><i class="fa fa-check"></i><b>4.2</b> Veebipõhised kaardirakendused</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="kaardid.html"><a href="kaardid.html#google-my-maps"><i class="fa fa-check"></i><b>4.2.1</b> Google My Maps</a></li>
+<li class="chapter" data-level="4.2.2" data-path="kaardid.html"><a href="kaardid.html#ülesanne-1"><i class="fa fa-check"></i><b>4.2.2</b> Ülesanne</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>4.3</b> Järgmisel korral</a></li>
+<li class="chapter" data-level="4.3" data-path="kaardid.html"><a href="kaardid.html#järgmisel-korral-3"><i class="fa fa-check"></i><b>4.3</b> Järgmisel korral</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="storymaps.html"><a href="storymaps.html"><i class="fa fa-check"></i><b>5</b> Story maps</a><ul>
-<li class="chapter" data-level="5.1" data-path="storymaps.html"><a href="storymaps.html#story-maps"><i class="fa fa-check"></i><b>5.1</b> Story maps</a></li>
+<li class="chapter" data-level="5" data-path="storymaps.html"><a href="storymaps.html"><i class="fa fa-check"></i><b>5</b> Story maps ja Mapbox</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="storymaps.html"><a href="storymaps.html#story-maps"><i class="fa fa-check"></i><b>5.1</b> Story maps</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="storymaps.html"><a href="storymaps.html#storymapjs"><i class="fa fa-check"></i><b>5.1.1</b> <span>StoryMapJS</span></a></li>
+<li class="chapter" data-level="5.1.2" data-path="storymaps.html"><a href="storymaps.html#arcgis-storymaps"><i class="fa fa-check"></i><b>5.1.2</b> <span>ArcGIS StoryMaps</span></a></li>
+</ul></li>
 <li class="chapter" data-level="5.2" data-path="storymaps.html"><a href="storymaps.html#mapbox-studio"><i class="fa fa-check"></i><b>5.2</b> Mapbox Studio</a></li>
 <li class="chapter" data-level="5.3" data-path="storymaps.html"><a href="storymaps.html#mapbox-story-mapis"><i class="fa fa-check"></i><b>5.3</b> Mapbox <em>story map</em>’is</a></li>
-<li class="chapter" data-level="5.4" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>5.4</b> Järgmisel korral</a></li>
+<li class="chapter" data-level="5.4" data-path="storymaps.html"><a href="storymaps.html#järgmisel-korral-4"><i class="fa fa-check"></i><b>5.4</b> Järgmisel korral</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="qgis-1.html"><a href="qgis-1.html"><i class="fa fa-check"></i><b>6</b> Sissejuhatus QGISi</a><ul>
-<li class="chapter" data-level="6.1" data-path="qgis-1.html"><a href="qgis-1.html#installimine"><i class="fa fa-check"></i><b>6.1</b> Installimine</a></li>
-<li class="chapter" data-level="6.2" data-path="qgis-1.html"><a href="qgis-1.html#andmed-ja-failihaldus"><i class="fa fa-check"></i><b>6.2</b> Andmed ja failihaldus</a></li>
-<li class="chapter" data-level="6.3" data-path="qgis-1.html"><a href="qgis-1.html#esimene-seadistamine-ja-kasutajaliides"><i class="fa fa-check"></i><b>6.3</b> Esimene seadistamine ja kasutajaliides</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="qgis-1.html"><a href="qgis-1.html#vaikimisi-koordinaatsüsteemi-sätestamine."><i class="fa fa-check"></i><b>6.3.1</b> Vaikimisi koordinaatsüsteemi sätestamine.</a></li>
+<li class="chapter" data-level="6" data-path="qgis_1.html"><a href="qgis_1.html"><i class="fa fa-check"></i><b>6</b> Sissejuhatus QGISi</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="qgis_1.html"><a href="qgis_1.html#installimine"><i class="fa fa-check"></i><b>6.1</b> Installimine</a></li>
+<li class="chapter" data-level="6.2" data-path="qgis_1.html"><a href="qgis_1.html#andmed-ja-failihaldus"><i class="fa fa-check"></i><b>6.2</b> Andmed ja failihaldus</a></li>
+<li class="chapter" data-level="6.3" data-path="qgis_1.html"><a href="qgis_1.html#esimene-seadistamine-ja-kasutajaliides"><i class="fa fa-check"></i><b>6.3</b> Esimene seadistamine ja kasutajaliides</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="qgis_1.html"><a href="qgis_1.html#vaikimisi-koordinaatsüsteemi-sätestamine."><i class="fa fa-check"></i><b>6.3.1</b> Vaikimisi koordinaatsüsteemi sätestamine.</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="qgis-1.html"><a href="qgis-1.html#andmete-avamine"><i class="fa fa-check"></i><b>6.4</b> Andmete avamine</a></li>
-<li class="chapter" data-level="6.5" data-path="qgis-1.html"><a href="qgis-1.html#kihtide-visualiseerimine"><i class="fa fa-check"></i><b>6.5</b> Kihtide visualiseerimine</a><ul>
-<li class="chapter" data-level="6.5.1" data-path="qgis-1.html"><a href="qgis-1.html#harjutus-1"><i class="fa fa-check"></i><b>6.5.1</b> Harjutus 1</a></li>
-<li class="chapter" data-level="6.5.2" data-path="qgis-1.html"><a href="qgis-1.html#harjutus-2"><i class="fa fa-check"></i><b>6.5.2</b> Harjutus 2</a></li>
+<li class="chapter" data-level="6.4" data-path="qgis_1.html"><a href="qgis_1.html#andmete-avamine"><i class="fa fa-check"></i><b>6.4</b> Andmete avamine</a></li>
+<li class="chapter" data-level="6.5" data-path="qgis_1.html"><a href="qgis_1.html#kihtide-visualiseerimine"><i class="fa fa-check"></i><b>6.5</b> Kihtide visualiseerimine</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="qgis_1.html"><a href="qgis_1.html#harjutus-1"><i class="fa fa-check"></i><b>6.5.1</b> Harjutus 1</a></li>
+<li class="chapter" data-level="6.5.2" data-path="qgis_1.html"><a href="qgis_1.html#harjutus-2"><i class="fa fa-check"></i><b>6.5.2</b> Harjutus 2</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="qgis-1.html"><a href="qgis-1.html#aluskaardid"><i class="fa fa-check"></i><b>6.6</b> Aluskaardid</a></li>
-<li class="chapter" data-level="6.7" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>6.7</b> Järgmisel korral</a></li>
+<li class="chapter" data-level="6.6" data-path="qgis_1.html"><a href="qgis_1.html#aluskaardid"><i class="fa fa-check"></i><b>6.6</b> Aluskaardid</a></li>
+<li class="chapter" data-level="6.7" data-path="qgis_1.html"><a href="qgis_1.html#järgmisel-korral-5"><i class="fa fa-check"></i><b>6.7</b> Järgmisel korral</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="qgis-2.html"><a href="qgis-2.html"><i class="fa fa-check"></i><b>7</b> Sissejuhatus QGISi 2</a><ul>
-<li class="chapter" data-level="7.1" data-path="qgis-1.html"><a href="qgis-1.html#andmete-avamine"><i class="fa fa-check"></i><b>7.1</b> Andmete avamine</a></li>
-<li class="chapter" data-level="7.2" data-path="qgis-2.html"><a href="qgis-2.html#andmete-valimine-ja-mõõtmine-käsitsi"><i class="fa fa-check"></i><b>7.2</b> Andmete valimine ja mõõtmine (käsitsi)</a></li>
-<li class="chapter" data-level="7.3" data-path="qgis-2.html"><a href="qgis-2.html#kihi-ja-andmete-loomine"><i class="fa fa-check"></i><b>7.3</b> Kihi ja andmete loomine</a></li>
-<li class="chapter" data-level="7.4" data-path="qgis-2.html"><a href="qgis-2.html#kaartide-kujundamine-ja-eksportimine"><i class="fa fa-check"></i><b>7.4</b> Kaartide kujundamine ja eksportimine</a></li>
+<li class="chapter" data-level="7" data-path="qgis_2.html"><a href="qgis_2.html"><i class="fa fa-check"></i><b>7</b> Sissejuhatus QGISi 2</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="qgis_2.html"><a href="qgis_2.html#andmete-avamine-1"><i class="fa fa-check"></i><b>7.1</b> Andmete avamine</a></li>
+<li class="chapter" data-level="7.2" data-path="qgis_2.html"><a href="qgis_2.html#andmete-valimine-ja-mõõtmine-käsitsi"><i class="fa fa-check"></i><b>7.2</b> Andmete valimine ja mõõtmine (käsitsi)</a></li>
+<li class="chapter" data-level="7.3" data-path="qgis_2.html"><a href="qgis_2.html#kihi-ja-andmete-loomine"><i class="fa fa-check"></i><b>7.3</b> Kihi ja andmete loomine</a></li>
+<li class="chapter" data-level="7.4" data-path="qgis_2.html"><a href="qgis_2.html#kaartide-kujundamine-ja-eksportimine"><i class="fa fa-check"></i><b>7.4</b> Kaartide kujundamine ja eksportimine</a></li>
+<li class="chapter" data-level="7.5" data-path="qgis_2.html"><a href="qgis_2.html#järgmisel-korral-6"><i class="fa fa-check"></i><b>7.5</b> Järgmisel korral</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="avaandmed.html"><a href="avaandmed.html"><i class="fa fa-check"></i><b>8</b> Avaandmed ja repositooriumid</a><ul>
+<li class="chapter" data-level="8" data-path="avaandmed.html"><a href="avaandmed.html"><i class="fa fa-check"></i><b>8</b> Avaandmed ja repositooriumid</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="avaandmed.html"><a href="avaandmed.html#mis-on-avaandmed"><i class="fa fa-check"></i><b>8.1</b> Mis on avaandmed?</a></li>
-<li class="chapter" data-level="8.2" data-path="avaandmed.html"><a href="avaandmed.html#eesti-ruumiandmed"><i class="fa fa-check"></i><b>8.2</b> Eesti ruumiandmed</a><ul>
+<li class="chapter" data-level="8.2" data-path="avaandmed.html"><a href="avaandmed.html#eesti-ruumiandmed"><i class="fa fa-check"></i><b>8.2</b> Eesti ruumiandmed</a>
+<ul>
 <li class="chapter" data-level="8.2.1" data-path="avaandmed.html"><a href="avaandmed.html#maa-ameti-geoportaal"><i class="fa fa-check"></i><b>8.2.1</b> Maa-ameti Geoportaal</a></li>
 <li class="chapter" data-level="8.2.2" data-path="avaandmed.html"><a href="avaandmed.html#statistikaamet"><i class="fa fa-check"></i><b>8.2.2</b> Statistikaamet</a></li>
 <li class="chapter" data-level="8.2.3" data-path="avaandmed.html"><a href="avaandmed.html#digitaalsed-kaardikollektsioonid"><i class="fa fa-check"></i><b>8.2.3</b> Digitaalsed kaardikollektsioonid</a></li>
 <li class="chapter" data-level="8.2.4" data-path="avaandmed.html"><a href="avaandmed.html#muu"><i class="fa fa-check"></i><b>8.2.4</b> Muu</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="avaandmed.html"><a href="avaandmed.html#muude-riikide-ruumiandmed"><i class="fa fa-check"></i><b>8.3</b> Muude riikide ruumiandmed</a></li>
-<li class="chapter" data-level="8.4" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>8.4</b> Järgmisel korral</a></li>
+<li class="chapter" data-level="8.4" data-path="avaandmed.html"><a href="avaandmed.html#järgmisel-korral-7"><i class="fa fa-check"></i><b>8.4</b> Järgmisel korral</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="avaandmed2.html"><a href="avaandmed2.html"><i class="fa fa-check"></i><b>9</b> Avaandmed ja repositooriumid 2</a><ul>
-<li class="chapter" data-level="9.1" data-path="avaandmed2.html"><a href="avaandmed2.html#andmestike-ühendamine"><i class="fa fa-check"></i><b>9.1</b> Andmestike ühendamine</a><ul>
-<li class="chapter" data-level="9.1.1" data-path="avaandmed2.html"><a href="avaandmed2.html#csv-info-ühendamine-shp-ga"><i class="fa fa-check"></i><b>9.1.1</b> CSV info ühendamine SHP-ga</a></li>
-<li class="chapter" data-level="9.1.2" data-path="avaandmed2.html"><a href="avaandmed2.html#shp-info-ühendamine-csv-ga"><i class="fa fa-check"></i><b>9.1.2</b> SHP info ühendamine CSV-ga</a></li>
-<li class="chapter" data-level="9.1.3" data-path="avaandmed2.html"><a href="avaandmed2.html#csv-ja-shp-ühendamine-polügoonidega-vektorandmeteks"><i class="fa fa-check"></i><b>9.1.3</b> CSV ja SHP ühendamine polügoonidega vektorandmeteks</a></li>
+<li class="chapter" data-level="9" data-path="georefereerimine.html"><a href="georefereerimine.html"><i class="fa fa-check"></i><b>9</b> Georefereerimine</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="georefereerimine.html"><a href="georefereerimine.html#kaartide-otsimine-ja-allalaadimine"><i class="fa fa-check"></i><b>9.1</b> Kaartide otsimine ja allalaadimine</a></li>
+<li class="chapter" data-level="9.2" data-path="georefereerimine.html"><a href="georefereerimine.html#harjutus-1-1"><i class="fa fa-check"></i><b>9.2</b> Harjutus 1</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="georefereerimine.html"><a href="georefereerimine.html#lõikamine"><i class="fa fa-check"></i><b>9.2.1</b> Lõikamine</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="avaandmed2.html"><a href="avaandmed2.html#geokodeerimine"><i class="fa fa-check"></i><b>9.2</b> Geokodeerimine</a></li>
-<li class="chapter" data-level="9.3" data-path="avaandmed2.html"><a href="avaandmed2.html#ruumiandmete-omavahel-ühendamine"><i class="fa fa-check"></i><b>9.3</b> Ruumiandmete omavahel ühendamine</a></li>
-<li class="chapter" data-level="9.4" data-path="avaandmed2.html"><a href="avaandmed2.html#ruumiandmete-käsitsi-lisamine"><i class="fa fa-check"></i><b>9.4</b> Ruumiandmete käsitsi lisamine</a></li>
-<li class="chapter" data-level="9.5" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>9.5</b> Järgmisel korral</a></li>
+<li class="chapter" data-level="9.3" data-path="georefereerimine.html"><a href="georefereerimine.html#harjutus-2-1"><i class="fa fa-check"></i><b>9.3</b> Harjutus 2</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="georefereerimine.html"><a href="georefereerimine.html#digiteerimine"><i class="fa fa-check"></i><b>9.3.1</b> Digiteerimine</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="georefereerimine.html"><a href="georefereerimine.html"><i class="fa fa-check"></i><b>10</b> Georefereerimine</a><ul>
-<li class="chapter" data-level="10.1" data-path="georefereerimine.html"><a href="georefereerimine.html#kaartide-otsimine-ja-allalaadimine"><i class="fa fa-check"></i><b>10.1</b> Kaartide otsimine ja allalaadimine</a></li>
-<li class="chapter" data-level="10.2" data-path="georefereerimine.html"><a href="georefereerimine.html#georefereerimine-1"><i class="fa fa-check"></i><b>10.2</b> Georefereerimine</a></li>
-<li class="chapter" data-level="10.3" data-path="georefereerimine.html"><a href="georefereerimine.html#lõikamine"><i class="fa fa-check"></i><b>10.3</b> Lõikamine</a></li>
-<li class="chapter" data-level="10.4" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#ülesanne"><i class="fa fa-check"></i><b>10.4</b> Ülesanne</a></li>
-<li class="chapter" data-level="10.5" data-path="georefereerimine.html"><a href="georefereerimine.html#digiteerimine"><i class="fa fa-check"></i><b>10.5</b> Digiteerimine</a><ul>
-<li class="chapter" data-level="10.5.1" data-path="georefereerimine.html"><a href="georefereerimine.html#veebilahendus"><i class="fa fa-check"></i><b>10.5.1</b> Veebilahendus</a></li>
+<li class="chapter" data-level="9.4" data-path="georefereerimine.html"><a href="georefereerimine.html#harjutus-3"><i class="fa fa-check"></i><b>9.4</b> Harjutus 3</a></li>
+<li class="chapter" data-level="9.5" data-path="georefereerimine.html"><a href="georefereerimine.html#veebilahendus"><i class="fa fa-check"></i><b>9.5</b> Veebilahendus</a></li>
+<li class="chapter" data-level="9.6" data-path="georefereerimine.html"><a href="georefereerimine.html#järgmisel-korral-8"><i class="fa fa-check"></i><b>9.6</b> Järgmisel korral</a></li>
 </ul></li>
-<li class="chapter" data-level="10.6" data-path="georefereerimine.html"><a href="georefereerimine.html#ülesanne-1"><i class="fa fa-check"></i><b>10.6</b> Ülesanne</a></li>
-<li class="chapter" data-level="10.7" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>10.7</b> Järgmisel korral</a></li>
+<li class="chapter" data-level="10" data-path="avaldised.html"><a href="avaldised.html"><i class="fa fa-check"></i><b>10</b> Avaldised ja päringud</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="avaldised.html"><a href="avaldised.html#avaldised-1"><i class="fa fa-check"></i><b>10.1</b> Avaldised</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="avaldised.html"><a href="avaldised.html#harjutused"><i class="fa fa-check"></i><b>10.1.1</b> Harjutused</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="visualiseerimine1.html"><a href="visualiseerimine1.html"><i class="fa fa-check"></i><b>11</b> Ruumiandmete visualiseerimine</a><ul>
-<li class="chapter" data-level="11.1" data-path="visualiseerimine1.html"><a href="visualiseerimine1.html#avaldised"><i class="fa fa-check"></i><b>11.1</b> Avaldised</a></li>
-<li class="chapter" data-level="11.2" data-path="visualiseerimine1.html"><a href="visualiseerimine1.html#ülesanne-1-ei-olepole-suhtelised-sagedused"><i class="fa fa-check"></i><b>11.2</b> Ülesanne 1: “ei ole”/“pole” suhtelised sagedused</a></li>
-<li class="chapter" data-level="11.3" data-path="visualiseerimine1.html"><a href="visualiseerimine1.html#ülesanne-2-ei-olepole-selged-eelistused"><i class="fa fa-check"></i><b>11.3</b> Ülesanne 2: “ei ole”/“pole” selged eelistused</a></li>
-<li class="chapter" data-level="11.4" data-path="visualiseerimine1.html"><a href="visualiseerimine1.html#ülesanne-3-tekstiatribuutide-muutmine"><i class="fa fa-check"></i><b>11.4</b> Ülesanne 3: tekstiatribuutide muutmine</a></li>
+<li class="chapter" data-level="10.2" data-path="avaldised.html"><a href="avaldised.html#päringud"><i class="fa fa-check"></i><b>10.2</b> Päringud</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="avaldised.html"><a href="avaldised.html#harjutused-1"><i class="fa fa-check"></i><b>10.2.1</b> Harjutused</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="visualiseerimine2.html"><a href="visualiseerimine2.html"><i class="fa fa-check"></i><b>12</b> Ruumiandmete visualiseerimine 2</a><ul>
-<li class="chapter" data-level="12.1" data-path="visualiseerimine2.html"><a href="visualiseerimine2.html#ülesanne-1-ei-olepole-levikuandmed"><i class="fa fa-check"></i><b>12.1</b> Ülesanne 1: “ei ole”/“pole” levikuandmed</a></li>
-<li class="chapter" data-level="12.2" data-path="visualiseerimine2.html"><a href="visualiseerimine2.html#ülesanne-2-kaardi-salvestamine"><i class="fa fa-check"></i><b>12.2</b> Ülesanne 2: kaardi salvestamine</a></li>
-<li class="chapter" data-level="12.3" data-path="visualiseerimine2.html"><a href="visualiseerimine2.html#ülesanne-3-abielud-ja-lahutused"><i class="fa fa-check"></i><b>12.3</b> Ülesanne 3: abielud ja lahutused</a><ul>
-<li class="chapter" data-level="12.3.1" data-path="visualiseerimine2.html"><a href="visualiseerimine2.html#aasta-jaanuari-abielude-ja-lahutuste-suhe"><i class="fa fa-check"></i><b>12.3.1</b> 2019. aasta jaanuari abielude ja lahutuste suhe</a></li>
+<li class="chapter" data-level="10.3" data-path="avaldised.html"><a href="avaldised.html#ülesanne-1-ei-olepole-suhtelised-sagedused"><i class="fa fa-check"></i><b>10.3</b> Ülesanne 1: “ei ole”/“pole” suhtelised sagedused</a></li>
+<li class="chapter" data-level="10.4" data-path="avaldised.html"><a href="avaldised.html#ülesanne-2-ei-olepole-atlase-levikuandmed"><i class="fa fa-check"></i><b>10.4</b> Ülesanne 2: “ei ole”/“pole” atlase levikuandmed</a></li>
+<li class="chapter" data-level="10.5" data-path="avaldised.html"><a href="avaldised.html#ülesanne-3-ei-olepole-selged-eelistused"><i class="fa fa-check"></i><b>10.5</b> Ülesanne 3: “ei ole”/“pole” selged eelistused</a></li>
+<li class="chapter" data-level="10.6" data-path="avaldised.html"><a href="avaldised.html#ülesanne-4-tekstiatribuutide-muutmine"><i class="fa fa-check"></i><b>10.6</b> Ülesanne 4: tekstiatribuutide muutmine</a></li>
 </ul></li>
-<li class="chapter" data-level="12.4" data-path="visualiseerimine2.html"><a href="visualiseerimine2.html#andmebaasid"><i class="fa fa-check"></i><b>12.4</b> Andmebaasid</a></li>
+<li class="chapter" data-level="11" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html"><i class="fa fa-check"></i><b>11</b> Andmekihtide ühendamine</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#andmestike-ühendamine"><i class="fa fa-check"></i><b>11.1</b> Andmestike ühendamine</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#lisaülesanne"><i class="fa fa-check"></i><b>11.1.1</b> Lisaülesanne</a></li>
+<li class="chapter" data-level="11.1.2" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#csv-info-ühendamine-shp-ga"><i class="fa fa-check"></i><b>11.1.2</b> CSV info ühendamine SHP-ga</a></li>
+<li class="chapter" data-level="11.1.3" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#csv-ja-shp-ühendamine-polügoonidega-vektorandmeteks"><i class="fa fa-check"></i><b>11.1.3</b> CSV ja SHP ühendamine polügoonidega vektorandmeteks</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="visualiseerimine3.html"><a href="visualiseerimine3.html"><i class="fa fa-check"></i><b>13</b> Ruumiandmete visualiseerimine 3</a><ul>
-<li class="chapter" data-level="13.1" data-path="visualiseerimine3.html"><a href="visualiseerimine3.html#värvidest"><i class="fa fa-check"></i><b>13.1</b> Värvidest</a></li>
-<li class="chapter" data-level="13.2" data-path="visualiseerimine3.html"><a href="visualiseerimine3.html#visualiseerimine"><i class="fa fa-check"></i><b>13.2</b> Visualiseerimine</a><ul>
-<li class="chapter" data-level="13.2.1" data-path="visualiseerimine3.html"><a href="visualiseerimine3.html#sildid"><i class="fa fa-check"></i><b>13.2.1</b> Sildid</a></li>
+<li class="chapter" data-level="11.2" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#geokodeerimine"><i class="fa fa-check"></i><b>11.2</b> Geokodeerimine</a></li>
+<li class="chapter" data-level="11.3" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#järgmisel-korral-9"><i class="fa fa-check"></i><b>11.3</b> Järgmisel korral</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="visualiseerimine3.html"><a href="visualiseerimine3.html#kaardi-tegemine"><i class="fa fa-check"></i><b>13.3</b> Kaardi tegemine</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="visualiseerimine4.html"><a href="visualiseerimine4.html"><i class="fa fa-check"></i><b>14</b> Ruumiandmete visualiseerimine 4</a><ul>
-<li class="chapter" data-level="14.1" data-path="visualiseerimine4.html"><a href="visualiseerimine4.html#euroopa-ja-maailma-andmed"><i class="fa fa-check"></i><b>14.1</b> Euroopa ja maailma andmed</a><ul>
-<li class="chapter" data-level="14.1.1" data-path="visualiseerimine4.html"><a href="visualiseerimine4.html#koordinaatsüsteemid"><i class="fa fa-check"></i><b>14.1.1</b> Koordinaatsüsteemid</a></li>
-</ul></li>
-<li class="chapter" data-level="14.2" data-path="visualiseerimine4.html"><a href="visualiseerimine4.html#euroopa-riikide-ja-linnade-filtreerimine"><i class="fa fa-check"></i><b>14.2</b> Euroopa riikide ja linnade filtreerimine</a></li>
-<li class="chapter" data-level="14.3" data-path="visualiseerimine4.html"><a href="visualiseerimine4.html#skpin-visualiseerimine"><i class="fa fa-check"></i><b>14.3</b> SKP/in visualiseerimine</a></li>
-<li class="chapter" data-level="14.4" data-path="visualiseerimine4.html"><a href="visualiseerimine4.html#rastriga-katsetamine"><i class="fa fa-check"></i><b>14.4</b> Rastriga katsetamine</a></li>
-<li class="chapter" data-level="14.5" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>14.5</b> Järgmisel korral</a></li>
-</ul></li>
-<li class="chapter" data-level="15" data-path="tekstianalyys.html"><a href="tekstianalyys.html"><i class="fa fa-check"></i><b>15</b> Geograafiline tekstianalüüs</a><ul>
-<li class="chapter" data-level="15.1" data-path="tekstianalyys.html"><a href="tekstianalyys.html#sammud"><i class="fa fa-check"></i><b>15.1</b> Sammud</a></li>
-<li class="chapter" data-level="15.2" data-path="tekstianalyys.html"><a href="tekstianalyys.html#näited"><i class="fa fa-check"></i><b>15.2</b> Näited</a></li>
-<li class="chapter" data-level="15.3" data-path="tekstianalyys.html"><a href="tekstianalyys.html#ressursid"><i class="fa fa-check"></i><b>15.3</b> Ressursid</a></li>
-<li class="chapter" data-level="15.4" data-path="tekstianalyys.html"><a href="tekstianalyys.html#ülesanded"><i class="fa fa-check"></i><b>15.4</b> Ülesanded</a><ul>
-<li class="chapter" data-level="15.4.1" data-path="tekstianalyys.html"><a href="tekstianalyys.html#geoparserite-katsetamine"><i class="fa fa-check"></i><b>15.4.1</b> Geoparserite katsetamine</a></li>
-<li class="chapter" data-level="15.4.2" data-path="tekstianalyys.html"><a href="tekstianalyys.html#kohanimede-tuvastamine"><i class="fa fa-check"></i><b>15.4.2</b> Kohanimede tuvastamine</a></li>
-<li class="chapter" data-level="15.4.3" data-path="tekstianalyys.html"><a href="tekstianalyys.html#kohanimede-geokodeerimine"><i class="fa fa-check"></i><b>15.4.3</b> Kohanimede geokodeerimine</a></li>
-</ul></li>
-<li class="chapter" data-level="15.5" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>15.5</b> Järgmisel korral</a></li>
-</ul></li>
-<li class="chapter" data-level="16" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html"><i class="fa fa-check"></i><b>16</b> Geograafiline tekstianalüüs 2</a><ul>
-<li class="chapter" data-level="16.1" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#ülesanne-1-lihtne-teksti-meelsuse-analüüs"><i class="fa fa-check"></i><b>16.1</b> Ülesanne 1: lihtne teksti meelsuse analüüs</a><ul>
-<li class="chapter" data-level="16.1.1" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#tekstikatkendite-meelsuse-tuvastamine"><i class="fa fa-check"></i><b>16.1.1</b> Tekstikatkendite meelsuse tuvastamine</a></li>
-<li class="chapter" data-level="16.1.2" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#koordinaatide-lisamine-geokodeerimine"><i class="fa fa-check"></i><b>16.1.2</b> Koordinaatide lisamine (geokodeerimine)</a></li>
-<li class="chapter" data-level="16.1.3" data-path="visualiseerimine3.html"><a href="visualiseerimine3.html#visualiseerimine"><i class="fa fa-check"></i><b>16.1.3</b> Visualiseerimine</a></li>
-</ul></li>
-<li class="chapter" data-level="16.2" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#ülesanne-2-lihtne-kollokatsioonide-analüüs"><i class="fa fa-check"></i><b>16.2</b> Ülesanne 2: lihtne kollokatsioonide analüüs</a></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="geostatistika1.html"><a href="geostatistika1.html"><i class="fa fa-check"></i><b>17</b> Geostatistika 1</a><ul>
-<li class="chapter" data-level="17.1" data-path="geostatistika1.html"><a href="geostatistika1.html#punktimustri-analüüs"><i class="fa fa-check"></i><b>17.1</b> Punktimustri analüüs</a><ul>
-<li class="chapter" data-level="17.1.1" data-path="geostatistika1.html"><a href="geostatistika1.html#punktitihedus"><i class="fa fa-check"></i><b>17.1.1</b> Punktitihedus</a></li>
-</ul></li>
-<li class="chapter" data-level="17.2" data-path="georefereerimine.html"><a href="georefereerimine.html#ülesanne-1"><i class="fa fa-check"></i><b>17.2</b> Ülesanne 1</a></li>
-<li class="chapter" data-level="17.3" data-path="geostatistika1.html"><a href="geostatistika1.html#ruumiline-vastastikmõju"><i class="fa fa-check"></i><b>17.3</b> Ruumiline vastastikmõju</a></li>
-<li class="chapter" data-level="17.4" data-path="geostatistika1.html"><a href="geostatistika1.html#ülesanne-2"><i class="fa fa-check"></i><b>17.4</b> Ülesanne 2</a></li>
-<li class="chapter" data-level="17.5" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>17.5</b> Järgmisel korral</a></li>
-</ul></li>
-<li class="chapter" data-level="18" data-path="geostatistika2.html"><a href="geostatistika2.html"><i class="fa fa-check"></i><b>18</b> Geostatistika 2</a><ul>
-<li class="chapter" data-level="18.1" data-path="geostatistika2.html"><a href="geostatistika2.html#asukohapõhised-kokkuvõtted"><i class="fa fa-check"></i><b>18.1</b> Asukohapõhised kokkuvõtted</a><ul>
-<li class="chapter" data-level="18.1.1" data-path="georefereerimine.html"><a href="georefereerimine.html#ülesanne-1"><i class="fa fa-check"></i><b>18.1.1</b> Ülesanne 1</a></li>
-</ul></li>
-<li class="chapter" data-level="18.2" data-path="geostatistika2.html"><a href="geostatistika2.html#klasterdamine"><i class="fa fa-check"></i><b>18.2</b> Klasterdamine</a><ul>
-<li class="chapter" data-level="18.2.1" data-path="geostatistika1.html"><a href="geostatistika1.html#ülesanne-2"><i class="fa fa-check"></i><b>18.2.1</b> Ülesanne 2</a></li>
-</ul></li>
-<li class="chapter" data-level="18.3" data-path="geostatistika2.html"><a href="geostatistika2.html#interpoleerimine"><i class="fa fa-check"></i><b>18.3</b> Interpoleerimine</a><ul>
-<li class="chapter" data-level="18.3.1" data-path="geostatistika2.html"><a href="geostatistika2.html#distantsi-kaaluv-interpoleerimine"><i class="fa fa-check"></i><b>18.3.1</b> Distantsi kaaluv interpoleerimine</a></li>
-<li class="chapter" data-level="18.3.2" data-path="geostatistika2.html"><a href="geostatistika2.html#spline"><i class="fa fa-check"></i><b>18.3.2</b> Spline</a></li>
-<li class="chapter" data-level="18.3.3" data-path="geostatistika2.html"><a href="geostatistika2.html#ülesanne-3"><i class="fa fa-check"></i><b>18.3.3</b> Ülesanne 3</a></li>
+<li class="chapter" data-level="12" data-path="varvid.html"><a href="varvid.html"><i class="fa fa-check"></i><b>12</b> Värvid, sildid ja eksitamine</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="varvid.html"><a href="varvid.html#eksitamine"><i class="fa fa-check"></i><b>12.1</b> Eksitamine</a></li>
+<li class="chapter" data-level="12.2" data-path="varvid.html"><a href="varvid.html#värvidest"><i class="fa fa-check"></i><b>12.2</b> Värvidest</a></li>
+<li class="chapter" data-level="12.3" data-path="varvid.html"><a href="varvid.html#visualiseerimine"><i class="fa fa-check"></i><b>12.3</b> Visualiseerimine</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="varvid.html"><a href="varvid.html#sildid"><i class="fa fa-check"></i><b>12.3.1</b> Sildid</a></li>
+<li class="chapter" data-level="12.3.2" data-path="varvid.html"><a href="varvid.html#kaardi-tegemine"><i class="fa fa-check"></i><b>12.3.2</b> Kaardi tegemine</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="veebikaardid.html"><a href="veebikaardid.html"><i class="fa fa-check"></i><b>19</b> Veebikaardid</a><ul>
-<li class="chapter" data-level="19.1" data-path="veebikaardid.html"><a href="veebikaardid.html#kaardikihid-qgisis"><i class="fa fa-check"></i><b>19.1</b> Kaardikihid QGISis</a></li>
-<li class="chapter" data-level="19.2" data-path="veebikaardid.html"><a href="veebikaardid.html#veebikaartide-eksportimine"><i class="fa fa-check"></i><b>19.2</b> Veebikaartide eksportimine</a></li>
-<li class="chapter" data-level="19.3" data-path="veebikaardid.html"><a href="veebikaardid.html#veebikaartide-majutamine"><i class="fa fa-check"></i><b>19.3</b> Veebikaartide majutamine</a></li>
-<li class="chapter" data-level="19.4" data-path="veebikaardid.html"><a href="veebikaardid.html#lisa"><i class="fa fa-check"></i><b>19.4</b> Lisa</a></li>
-<li class="chapter" data-level="19.5" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>19.5</b> Järgmisel korral</a></li>
+<li class="chapter" data-level="13" data-path="visualiseerimine4.html"><a href="visualiseerimine4.html"><i class="fa fa-check"></i><b>13</b> Ruumiandmete visualiseerimine 4</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="visualiseerimine4.html"><a href="visualiseerimine4.html#euroopa-ja-maailma-andmed"><i class="fa fa-check"></i><b>13.1</b> Euroopa ja maailma andmed</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="visualiseerimine4.html"><a href="visualiseerimine4.html#koordinaatsüsteemid"><i class="fa fa-check"></i><b>13.1.1</b> Koordinaatsüsteemid</a></li>
 </ul></li>
-<li class="chapter" data-level="20" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i><b>20</b> Ruumiandmete analüüs R-iga</a><ul>
-<li class="chapter" data-level="20.1" data-path="r.html"><a href="r.html#pakettide-installimine"><i class="fa fa-check"></i><b>20.1</b> Pakettide installimine</a></li>
-<li class="chapter" data-level="20.2" data-path="r.html"><a href="r.html#miks-teha-kaarte-koodipõhiselt"><i class="fa fa-check"></i><b>20.2</b> Miks teha kaarte koodipõhiselt?</a></li>
-<li class="chapter" data-level="20.3" data-path="r.html"><a href="r.html#r-rstudio-ja-rmarkdown"><i class="fa fa-check"></i><b>20.3</b> R, Rstudio ja Rmarkdown</a><ul>
-<li class="chapter" data-level="20.3.1" data-path="r.html"><a href="r.html#kood"><i class="fa fa-check"></i><b>20.3.1</b> Kood</a></li>
-</ul></li>
-<li class="chapter" data-level="20.4" data-path="r.html"><a href="r.html#joonised-ja-kaardid-r-is"><i class="fa fa-check"></i><b>20.4</b> Joonised ja kaardid R-is</a></li>
-<li class="chapter" data-level="20.5" data-path="r.html"><a href="r.html#ruumiandmed"><i class="fa fa-check"></i><b>20.5</b> Ruumiandmed</a><ul>
-<li class="chapter" data-level="20.5.1" data-path="qgis-1.html"><a href="qgis-1.html#andmete-avamine"><i class="fa fa-check"></i><b>20.5.1</b> Andmete avamine</a></li>
-<li class="chapter" data-level="20.5.2" data-path="r.html"><a href="r.html#kaartide-tegemine"><i class="fa fa-check"></i><b>20.5.2</b> Kaartide tegemine</a></li>
-<li class="chapter" data-level="20.5.3" data-path="r.html"><a href="r.html#andmete-filtreerimine-ja-ühendamine"><i class="fa fa-check"></i><b>20.5.3</b> Andmete filtreerimine ja ühendamine</a></li>
-<li class="chapter" data-level="20.5.4" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#ülesanne"><i class="fa fa-check"></i><b>20.5.4</b> Ülesanne</a></li>
-<li class="chapter" data-level="20.5.5" data-path="r.html"><a href="r.html#kaartide-eksportimine"><i class="fa fa-check"></i><b>20.5.5</b> Kaartide eksportimine</a></li>
-</ul></li>
-<li class="chapter" data-level="20.6" data-path="r.html"><a href="r.html#r-i-raamatud-ja-juhendid"><i class="fa fa-check"></i><b>20.6</b> R-i raamatud ja juhendid</a></li>
-</ul></li>
-<li class="chapter" data-level="21" data-path="r2.html"><a href="r2.html"><i class="fa fa-check"></i><b>21</b> Ruumiandmete analüüs R-iga 2</a><ul>
-<li class="chapter" data-level="21.1" data-path="r2.html"><a href="r2.html#pakettide-laadimine-ja-andmete-töötlemine"><i class="fa fa-check"></i><b>21.1</b> Pakettide laadimine ja andmete töötlemine</a></li>
-<li class="chapter" data-level="21.2" data-path="r2.html"><a href="r2.html#kasutajaliides"><i class="fa fa-check"></i><b>21.2</b> Kasutajaliides</a></li>
-<li class="chapter" data-level="21.3" data-path="r2.html"><a href="r2.html#server"><i class="fa fa-check"></i><b>21.3</b> Server</a></li>
-<li class="chapter" data-level="21.4" data-path="r2.html"><a href="r2.html#rakenduse-kokkupanemine"><i class="fa fa-check"></i><b>21.4</b> Rakenduse kokkupanemine</a></li>
-<li class="chapter" data-level="21.5" data-path="r2.html"><a href="r2.html#rakenduse-jagamine"><i class="fa fa-check"></i><b>21.5</b> Rakenduse jagamine</a></li>
+<li class="chapter" data-level="13.2" data-path="visualiseerimine4.html"><a href="visualiseerimine4.html#euroopa-riikide-ja-linnade-filtreerimine"><i class="fa fa-check"></i><b>13.2</b> Euroopa riikide ja linnade filtreerimine</a></li>
+<li class="chapter" data-level="13.3" data-path="visualiseerimine4.html"><a href="visualiseerimine4.html#skpin-visualiseerimine"><i class="fa fa-check"></i><b>13.3</b> SKP/in visualiseerimine</a></li>
+<li class="chapter" data-level="13.4" data-path="visualiseerimine4.html"><a href="visualiseerimine4.html#rastriga-katsetamine"><i class="fa fa-check"></i><b>13.4</b> Rastriga katsetamine</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="kirjandus.html"><a href="kirjandus.html"><i class="fa fa-check"></i>Kirjandus</a></li>
 </ul>
@@ -277,93 +260,93 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="visualiseerimine4" class="section level1">
-<h1><span class="header-section-number">Praktikum 14</span> Ruumiandmete visualiseerimine 4</h1>
-<div id="euroopa-ja-maailma-andmed" class="section level2">
-<h2><span class="header-section-number">14.1</span> Euroopa ja maailma andmed</h2>
+<div id="visualiseerimine4" class="section level1" number="13">
+<h1><span class="header-section-number">Praktikum 13</span> Ruumiandmete visualiseerimine 4</h1>
+<div id="euroopa-ja-maailma-andmed" class="section level2" number="13.1">
+<h2><span class="header-section-number">13.1</span> Euroopa ja maailma andmed</h2>
 <p>Varasemates praktikumides oleme tegelenud sisuliselt ainult Eesti alaga. Sageli võib olla vaja aga visualiseerida andmeid ka teistest riikidest. Sellega käesolevas praktikumis tegelemegi. Lae alla avaandmete praktikumist tuttavalt lehelt <a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/">Natural Earth Data</a> maailmariikide (<em>Admin 0 - Countries</em>) ja linnade (<em>Populated places</em>) kihid. Paki need lahti oma andmete kausta ning ava QGISis. Huvi korral vaata ka lähemalt, mida andmetes täpsemalt kujutatakse, klikkides lingil <em>About | Issues | Version History »</em>.</p>
-<div class="figure" style="text-align: center"><span id="fig:naturalearth"></span>
-<img src="imgs/natural_earth.png" alt="Natural Earth logo" width="50%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:naturalearth"></span>
+<img src="imgs/natural_earth.PNG" alt="Natural Earth logo" width="50%" />
 <p class="caption">
-Figure 14.1: Natural Earth logo
+Figure 13.1: Natural Earth logo
 </p>
 </div>
-<div id="koordinaatsüsteemid" class="section level3">
-<h3><span class="header-section-number">14.1.1</span> Koordinaatsüsteemid</h3>
+<div id="koordinaatsüsteemid" class="section level3" number="13.1.1">
+<h3><span class="header-section-number">13.1.1</span> Koordinaatsüsteemid</h3>
 <p>Kuna maailma andmestik on ulatuselt oluliselt suurem kui Eesti ala, millega seni tegelenud oleme, siis on vaja muuta ka koordinaatsüsteemi. Natural Earth Data andmestikud on esitatud geograafilises koordinaatsüsteemis World Geodetic System 1984 (WGS 84, EPSG 4326). Selleks, et andmeid korralikult näha tuleb vahetada senikasutatud EPSG 3301 õige vastu. Selleks kliki all paremal nurgas koordinaatsüsteemi tekstile ning otsi avanenud aknas <em>4326</em>.</p>
-<div class="figure" style="text-align: center"><span id="fig:wgs"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:wgs"></span>
 <img src="imgs/wgs84.gif" alt="Koordinaatsüsteemi vahetamine nn on-the-fly" width="100%" />
 <p class="caption">
-Figure 14.2: Koordinaatsüsteemi vahetamine nn on-the-fly
+Figure 13.2: Koordinaatsüsteemi vahetamine nn on-the-fly
 </p>
 </div>
 <p>Nüüd peaks andmed õigesti näha olema. Vaata mõlema andmestiku atribuuttabeleid ning ka riikide piire. Nagu näha on riigipiirid olulised lihtsustatud, kuna see teeb kihi väiksemaks ja töö sellega lihtsamaks ning sellisel skaalal ei ole detailsus niivõrd oluline.</p>
-<p>Nagu varasemates praktikumis räägitud, moonutab Mercatori</p>
+<p>Nagu varasemates praktikumis räägitud, moonutab Mercatori projektsioon kujusid märkimisväärselt.</p>
 </div>
 </div>
-<div id="euroopa-riikide-ja-linnade-filtreerimine" class="section level2">
-<h2><span class="header-section-number">14.2</span> Euroopa riikide ja linnade filtreerimine</h2>
+<div id="euroopa-riikide-ja-linnade-filtreerimine" class="section level2" number="13.2">
+<h2><span class="header-section-number">13.2</span> Euroopa riikide ja linnade filtreerimine</h2>
 <p>Lõika välja ainult Euroopa riigid ja ka Euroopa linnad. Riikide andmestikus on olemas tulp <em>Region_UN</em>, mille põhjal saamegi valida ainult riigid, mille väärtus on seal tulbas on <em>Europe</em>. Kasuta selleks näiteks tööriista <em>Select features by value</em>. Käsitsi võid valida riigid ka <em>Select</em> funktsiooniga ükshaaval neil klikkides (hoia all <em>Shift</em> klahvi, et valida mitu korraga) või kastiga valides.</p>
-<div class="figure" style="text-align: center"><span id="fig:selecteur"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:selecteur"></span>
 <img src="imgs/select_eur.gif" alt="Euroopa riikide valimine" width="100%" />
 <p class="caption">
-Figure 14.3: Euroopa riikide valimine
+Figure 13.3: Euroopa riikide valimine
 </p>
 </div>
 <p>Kui riigid valitud, siis ekspordi valik Geopackage failina, näiteks nimega <em>euroopa_riigid</em>. Eemaldada maailmariikide kiht. Vaheta projekti mõõtkava. Ülemaailmse EPSG 4326 asemel vali mõõtkavaks <strong>ETRS89-extended / LCC Europe EPSG 3034</strong>, mis on sobilik kogu Euroopa alaga töötamiseks. Kustuta Euroopa kihist Venemaa, et saaksime töötada väiksema ulatusega.</p>
-<p>Mitmel Euroopa riigil on alasid ka Euroopa mandrist väljaspool. Need alad tulevad ka praeguse valikuga kaasa ning praeguse ülesande juures need ei sega. Vajadusel saab eraldiseisvad polügoni ka kustutada. Hetkel aga proovides kustutada näiteks Prantsuse Guajaanat kustub ka kogu Prantsusmaa. Seda seetõttu, et kõiki ühele riigile kuuluvaid alasid käsitletakse selles andmestikus ühe objektina, mida kujutab atribuuttabelis ka üks rida. Sellise kihi geomeetria on <em>Multipolygon</em>. Soovides eraldiseisvaid polügone kustutada, tuleb need kõigepealt mitmeks objektiks teha. Näiteks funktsiooniga <em>Multipart to singleparts</em>, kuid hektel pole see vajalik.</p>
-<div class="figure" style="text-align: center"><span id="fig:exporteur"></span>
+<p>Mitmel Euroopa riigil on alasid ka Euroopa mandrist väljaspool. Need alad tulevad ka valikuga kaasa ning praeguse ülesande juures need ei sega. Vajadusel saab eraldiseisvad polügoni ka kustutada. Hetkel aga proovides kustutada näiteks Prantsuse Guajaanat kustub ka kogu Prantsusmaa. Seda seetõttu, et kõiki ühele riigile kuuluvaid alasid käsitletakse selles andmestikus ühe objektina, mida kujutab atribuuttabelis ka üks rida. Sellise kihi geomeetria on <em>Multipolygon</em>. Soovides eraldiseisvaid polügone kustutada, tuleb need kõigepealt mitmeks objektiks teha. Näiteks funktsiooniga <em>Multipart to singleparts</em>, kuid hektel pole see vajalik.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:exporteur"></span>
 <img src="imgs/export_eur.gif" alt="Euroopa eksportimine ja koordinaatsüsteemi vahetamine" width="100%" />
 <p class="caption">
-Figure 14.4: Euroopa eksportimine ja koordinaatsüsteemi vahetamine
+Figure 13.4: Euroopa eksportimine ja koordinaatsüsteemi vahetamine
 </p>
 </div>
 </div>
-<div id="skpin-visualiseerimine" class="section level2">
-<h2><span class="header-section-number">14.3</span> SKP/in visualiseerimine</h2>
-<p>Proovime visualiseerida siseriikliku kogutoodangut inimese kohta nii riigi värvina kui ka diagrammina, mis kujutab ka rahvaarvu. Kasutame reeglipõhist värvimist, kus jagame GDP rahvaarvuga ning jaotame need väärtused kolme kuni seitsmesse gruppi. Paremklikk <em>-&gt; Properties -&gt; Symbology - Rule-based</em>. Loo rohelise plussmärgiga iga vahemiku jaoks eraldi reeglid (vt valmis näidet). Reegli <em>Filter</em> lahtrisse kirjuta avaldis <strong>GDP_MD_EST" / “POP_EST” * 1000000 &gt; 5000 AND “GDP_MD_EST” / “POP_EST” * 1000000 &lt;= 10000</strong>. Loo samasugused reeglid ka teiste vahemike jaoks. Reeglipõhistest sümbolitest on lähemalt juttu prakikumis <a href="visualiseerimine1.html#visualiseerimine1">11</a>. Värvivalikul võid lähtuda eelmises praktikumis käsitletud <a href="https://colorbrewer2.org/">Colorbreweri</a> võimalustest. Seal kujutatud värvide <em>HEX</em> väärtuse saab kopeerida QGISis värvivalikute juures <em>HTML notation</em> reale.</p>
+<div id="skpin-visualiseerimine" class="section level2" number="13.3">
+<h2><span class="header-section-number">13.3</span> SKP/in visualiseerimine</h2>
+<p>Proovime visualiseerida siseriikliku kogutoodangut inimese kohta nii riigi värvina kui ka diagrammina, mis kujutab ka rahvaarvu. Kasutame reeglipõhist värvimist, kus jagame GDP rahvaarvuga ning jaotame need väärtused kolme kuni seitsmesse gruppi. Paremklikk <em>-&gt; Properties -&gt; Symbology - Rule-based</em>. Loo rohelise plussmärgiga iga vahemiku jaoks eraldi reeglid (vt valmis näidet). Reegli <em>Filter</em> lahtrisse kirjuta avaldis <strong>GDP_MD_EST" / “POP_EST” * 1000000 &gt; 5000 AND “GDP_MD_EST” / “POP_EST” * 1000000 &lt;= 10000</strong>. Loo samasugused reeglid ka teiste vahemike jaoks. Reeglipõhistest sümbolitest oli lähemalt juttu varasemates prakikumides. Värvivalikul võid lähtuda eelmises praktikumis käsitletud <a href="https://colorbrewer2.org/">Colorbreweri</a> võimalustest. Seal kujutatud värvide <em>HEX</em> väärtuse saab kopeerida QGISis värvivalikute juures <em>HTML notation</em> reale.</p>
 <!-- Võib lisada *Shapeburst fill* efekte. -->
-<div class="figure" style="text-align: center"><span id="fig:euroskp"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:euroskp"></span>
 <img src="imgs/europe_skp.png" alt="SKP inimese kohta Euroopa riikides." width="1754" />
 <p class="caption">
-Figure 14.5: SKP inimese kohta Euroopa riikides.
+Figure 13.5: SKP inimese kohta Euroopa riikides.
 </p>
 </div>
 <p>Visualiseerime ka diagrammidena. Tee kihist <em>euroopa_riigid</em> koopia. Sellel kihil ava <em>Properties -&gt; Diagrams -&gt; Pie chart -&gt; Attributes</em> ning lisa <em>Assigned attributes</em> juurde samad avaldised, mida kasutasid eelmises kihis riikide värvimiseks. Nagu näha kattavad mõned diagrammid kogu riigi ning varjavad ka teisi diagramme.</p>
-<div class="figure" style="text-align: center"><span id="fig:diagrammeexpression"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:diagrammeexpression"></span>
 <img src="imgs/exp_diagramm.gif" alt="Avaldiste loomine diagrammi jaoks."  />
 <p class="caption">
-Figure 14.6: Avaldiste loomine diagrammi jaoks.
+Figure 13.6: Avaldiste loomine diagrammi jaoks.
 </p>
 </div>
 <p>Paneme diagrammi suuruse sõltuma riigi rahvaarvust. Lisaks tuleb määrata neile ka miinimum suurus, et väiksema rahvaarvuga riigite diagrammid oleks nähtavad. Maksimumväärtuse võiks määrata pisut suurema kui suurim rahvaarv. Siin kasutame 100 000 000. Taoliste sätetega on 100 miljoni elanikuga riigi diagramm 15 mm suurune ning väiksema rahvaarvuga riikidelt järjest väiksem.</p>
-<div class="figure" style="text-align: center"><span id="fig:diagrammesize"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:diagrammesize"></span>
 <img src="imgs/diagramm_size.gif" alt="SKP inimese kohta Euroopa riikides diagramidena. Ringi suurus näitab rahvaarvu."  />
 <p class="caption">
-Figure 14.7: SKP inimese kohta Euroopa riikides diagramidena. Ringi suurus näitab rahvaarvu.
+Figure 13.7: SKP inimese kohta Euroopa riikides diagramidena. Ringi suurus näitab rahvaarvu.
 </p>
 </div>
 <p>Vali riikidele ka meelepärane värv ning ekspordi kaart koos legendiga. Võid katsetada ka erinevate visualiseerimise efektidega. Selleks tee <em>Simple fill</em> sümboloogia juures all pool linnuke <em>Draw effects</em> ette ning kliki kollasel tähekesel efektide valimiseks.</p>
-<div class="figure" style="text-align: center"><span id="fig:diagrammeeurope"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:diagrammeeurope"></span>
 <img src="imgs/europe_skp_dia.png" alt="SKP inimese kohta Euroopa riikides diagramidena. Ringi suurus näitab rahvaarvu." width="1754" />
 <p class="caption">
-Figure 14.8: SKP inimese kohta Euroopa riikides diagramidena. Ringi suurus näitab rahvaarvu.
+Figure 13.8: SKP inimese kohta Euroopa riikides diagramidena. Ringi suurus näitab rahvaarvu.
 </p>
 </div>
+<p>Kui jääb aega proovime lisaks teha graafikuid DataPlotly’ga. See lisavidin tuleb kõigepealt paigaldada <em>Plugins -&gt; Manage and install plugins</em> ja otsi sealt Plotly. Proovime teha tulpdiagramme riikide rahvaarvust ja sektordiagrammi Euroopa regioonide rahvaarvust.</p>
 </div>
-<div id="rastriga-katsetamine" class="section level2">
-<h2><span class="header-section-number">14.4</span> Rastriga katsetamine</h2>
+<div id="rastriga-katsetamine" class="section level2" number="13.4">
+<h2><span class="header-section-number">13.4</span> Rastriga katsetamine</h2>
 <p>Loome linnade populatsiooni põhjal interpoleeritud kihi kogu Euroopa jaoks.</p>
-<div class="figure" style="text-align: center"><span id="fig:euroint"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:euroint"></span>
 <img src="imgs/europe_interpolation_pop.png" alt="Linnade populatsioonist interpoleeritud rasterkiht." width="1754" />
 <p class="caption">
-Figure 14.9: Linnade populatsioonist interpoleeritud rasterkiht.
+Figure 13.9: Linnade populatsioonist interpoleeritud rasterkiht.
 </p>
 </div>
-</div>
-<div id="järgmisel-korral" class="section level2">
-<h2><span class="header-section-number">14.5</span> Järgmisel korral</h2>
-<p>Kahel järgmisel korral tekstianalüüs. Pärast seda veel geostatistika, veebirakenduste ja R’i kasutamise praktikumid.</p>
+<!-- ## Järgmisel korral -->
+<!-- Kahel järgmisel korral tekstianalüüs. Pärast seda veel geostatistika, veebirakenduste ja R'i kasutamise praktikumid.   -->
+
 
 </div>
 </div>
@@ -372,12 +355,11 @@ Figure 14.9: Linnade populatsioonist interpoleeritud rasterkiht.
           </div>
         </div>
       </div>
-<a href="visualiseerimine3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tekstianalyys.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="varvid.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="kirjandus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -404,6 +386,10 @@ gitbook.start({
 "text": null
 },
 "download": [["book.pdf", "PDF"], ["book.epub", "EPUB"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
@@ -411,7 +397,6 @@ gitbook.start({
 "toolbar": {
 "position": "fixed"
 },
-"search": true,
 "info": true
 });
 });
