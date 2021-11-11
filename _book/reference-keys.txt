@@ -383,3 +383,4 @@ fig:errilm
 fig:foxnbc
 fig:cleangraph
 fig:kuusalu
+maailm_diagrammid

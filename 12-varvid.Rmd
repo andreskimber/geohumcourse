@@ -4,13 +4,13 @@
 
 Visuaalsete moonutustega üritatakse sageli näidata andmeid graafiku või kaardi koostaja jaoks sobivalt. Pisut süvenedes on enamasti aga kõigile, kes vähegi graafikuid lugeda oskavad, andmete tegelik olemus või vähemalt katse seda peita selge. Alberto Cairo [@Cairo2019] on koostanud suurepärase raamatu [How Charts Lie](http://albertocairo.com/), mis õpetab lugejat eksitavaid graafikuid ja kaarte ära tundma. Ta eristab viis võimalust eksitamiseks: halvasti kujundamine, kahtlased andmed, ebapiisavad andmed, ebamäärasuse varjamine, eksitavate mustrite esitamine või neile vihjamine.
 
-Halvasti kujundamise teel eksitamine võib esineda ka lihtsalt läbimõtlematusest. Suhteliselt minimaalselt eksitava kaardi heaks näiteks on Aktuaalse kaamera ilmakaart, mis mingil põhjusel on kõik eraldiseisvad Eesti osad (manner ja saared) värvinud idast läände tumeroheliselt kollakas roheliseks. Mingit (olulist) andmestikku selline visualiseerimine ei edasta, kuid võib panna vaataja mõtlema, mida tahetakse sellega ilma kohta öelda. 
+Halvasti kujundamise teel eksitamine võib esineda ka lihtsalt läbimõtlematusest. Suhteliselt minimaalselt eksitava kaardi heaks näiteks on "Aktuaalse kaamera" ilmakaart, mis mingil põhjusel on kõik eraldiseisvad Eesti osad (manner ja saared) värvinud idast läände tumeroheliselt kollakas-roheliseks. Mingit (olulist) andmestikku selline visualiseerimine ei edasta, kuid võib panna vaataja mõtlema, mida tahetakse sellega ilma kohta öelda. 
 
-```{r errilm, echo =F, fig.align='center', fig.show='hold', fig.cap = "Kuvatõmmis Aktuaalse kaamera ilmakaardist.", out.width="75%"}
+```{r errilm, echo =F, fig.align='center', fig.show='hold', fig.cap = "Kuvatõmmis Aktuaalse kaamera ilmakaardist", out.width="75%"}
 knitr::include_graphics(here::here("imgs", "12_err_ilm.png"))
 ```
 
-Kolmemõõtmelised graafikud (ja kohati ka kaardid) on sageli märk halvast visualiseerimisest või tahtlikust eksitamisest. Allpool oleval joonisel on esimesel kolmel 3D graafikul jäetud mulje, et firmal läheb väga hästi. Vaadates aga tavaliste kahemõõtmelistelt graafikutelt samu andmeid on reaalne olukord palju selgem. Joonise võimalikult hästi mõistmiseks tuleb kindlasti tähelepanu pöörata skaaladele. Tihti kui tahetakse rõhutada suuri muutuseid, siis ei alga skaalad nullist, vaid koostajale sobivast arvust.  
+Kolmemõõtmelised graafikud (ja kohati ka kaardid) on sageli märk halvast visualiseerimisest või tahtlikust eksitamisest. Allpool oleval joonisel on esimesel kolmel 3D graafikul jäetud mulje, et firmal läheb väga hästi. Vaadates aga tavaliste kahemõõtmelistelt graafikutelt samu andmeid, on reaalne olukord palju selgem. Joonise võimalikult hästi mõistmiseks tuleb kindlasti tähelepanu pöörata skaaladele. Tihti, kui tahetakse rõhutada suuri muutuseid, siis ei alga skaalad nullist, vaid koostajale sobivast arvust.  
 
 ```{r cairographs, echo =F, fig.align='center', fig.show='hold', fig.cap = "Ettevõtte käekäik kolme- ja kahemõõtmelistel graafikutel [@Cairo2019, ptk 2].", out.width="40%"}
 knitr::include_graphics(here::here("imgs", c("12_cairo_bar_3d.png", "12_cairo_pie_3d.png", "12_cairo_line_3d.png", "12_cairo_good_graphs.png")))
@@ -28,7 +28,7 @@ Graafikute puhul on kehtib üldiselt reegel, mida vähem asju seda selgem. Seda 
 knitr::include_graphics(here::here("imgs", "12_chart_clarity.gif"))
 ```
 
-Kõik kaardid on juba olemuslikult eksitavad või valed, kuna nagu oleme varem rääkinud tekivad projektsioonide tõttu kaardile moonutused. See on aga nn aktsepteeritav eksitamine, kuna see on üldiselt teada. Kõige sagedamini eksitavad kaardid vale värviskaala ja selle ulatuse valikute tõttu. Olgu see tehtud tahtlikult või kogemata. 
+Kõik kaardid on juba olemuslikult eksitavad või valed, kuna nagu oleme varem rääkinud, tekivad projektsioonide tõttu kaardile moonutused. See on aga nn aktsepteeritav eksitamine, kuna see on üldiselt teada. Kõige sagedamini eksitavad kaardid vale värviskaala ja selle ulatuse valikute tõttu. Olgu see tehtud tahtlikult või kogemata. 
 
 ```{r poverty, echo =F, fig.align='center', fig.show='hold', fig.cap = "Vaesus USAs maakonniti. Ülemisel kaardil esitatakse andmed alahinnatult, keskmisel liialdatult ning alumisel võrdselt kõikide värvigruppide vahel ning arvesse võttes keskmist [@Cairo2019, ptk 2].", out.width="75%"}
 knitr::include_graphics(here::here("imgs", c("12_cairo_PovertyBadA.png", "12_cairo_PovertyBadB.png", "12_cairo_PovertyGood.png")))
@@ -60,7 +60,7 @@ knitr::include_graphics(here::here("imgs", "12_colorblindness.png"))
 
 Katsetame andmete erinevate visualiseerimistega võttes arvesse, et edastaksime andmestikku võimalikult ausalt. Ava kiht *asustusyksused_malestised.gpkg*, kus on lisaks asustusüksustele kirjas ka mälestiste arv liikide kaupa (ajaloolised, arheoloogilised, kunstimälestised). Värvi asustusüksused vastavalt vabalt valitud väärtusele. Tegemist on lihtsustatud andmestikuga, kus kultuurimälestised, mis kuuluvad mitmesse liiki, on loetud korduvalt.
 
-Vali välja üks vald, millest soovid kaarti teha ning ekspordi andmestikust ainult selle valla asustusüksused. Kasuta eelmistes praktikumides õpitud võimalusi. 
+Vali välja üks vald, millest soovid kaarti teha, ning ekspordi andmestikust ainult selle valla asustusüksused. Kasuta eelmistes praktikumides õpitud võimalusi. 
 
 <!-- Üldine ülesanne: mingi maakonna piires asustusüksuse kaupa teatud tüüpi mälestised. Kasutada mingi visualiseerimist. Nt burst.
  -  
@@ -96,9 +96,9 @@ Siltidele ja diagrammidele võib lisada ka puhvrid, mis toovad need need paremin
 
 ### Kaardi tegemine
 
-Kui oled andmete visualiseerimisega valmis saanud, ava kaardi tegemiseks *Print Layout* ja lisa peaaknas olev kaart. Kaart näeb sageli parem välja, kui see ei ulatu päris servani, vaid jäetud väike äär. Selleks, et kaugus servast jääks kõigis külgedes sama, lülita sisse *View* alt *Show grid* ja *Snap to grid*. 
+Kui oled andmete visualiseerimisega valmis saanud, ava kaardi tegemiseks *Print Layout* ja lisa peaaknas olev kaart. Kaart näeb sageli parem välja, kui see ei ulatu päris servani, vaid jäetud on väike äär. Selleks, et kaugus servast jääks kõigis külgedes sama, lülita sisse *View* alt *Show grid* ja *Snap to grid*. 
 
-Kui tegemist on väljavõttega mingist suuremast alast, siis võib olla kasulik näidata, kus kohas see praegune vaade paikneb ehk luua kaart kaardis. Selle saab teha *Overview* abil. Lisa *Print Layoutile* ka kogu Eesti ala kaart. Selleks tuleb eelnevalt valla kaardi stiil lukustada. *Item Properties* -> *Layers* ja tee linnuke *Lock layers* ja *Lock styles for layers ette*. Seejärel vali Eesti ala kaardi *Item properties* alt vali *Overview* -> roheline plussmärk -> *Map frame* juures vali Map 1.
+Kui tegemist on väljavõttega mingist suuremast alast, siis võib olla kasulik näidata, kus kohas see praegune vaade paikneb, ehk luua kaart kaardis. Selle saab teha *Overview* abil. Lisa *Print Layoutile* ka kogu Eesti ala kaart. Selleks tuleb eelnevalt valla kaardi stiil lukustada. *Item Properties* -> *Layers* ja tee linnuke *Lock layers* ja *Lock styles for layers ette*. Seejärel vali Eesti ala kaardi *Item properties* alt *Overview* -> roheline plussmärk -> *Map frame* juures vali Map 1.
 
 <!-- Kaardi servadesse saab lisada koordinaatruudustiku, mis võib lihtsustada esitatud objektide koordinaatide mõistmist.  -->
 

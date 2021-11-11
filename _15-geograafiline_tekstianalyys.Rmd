@@ -6,7 +6,7 @@ Geograafilise tekstianalüüsi nimi on kitsamalt seotud Lancasteri ülikooliga n
 
 <!-- võrdlesid kahe poeedi reisikirjeldusi Järvemaast ning leidsid, et kaks kirjanikku said samast piirkonnast täiesti erinevaid kogemusi: üks käis hobusega mööda "turistikaid" teid, teine jalgsi ja avastas uusi kohti -->
 
-```{r mappinglakes1, echo=F, fig.align="center", fig.cap="Mapping the Lakes: kahe poeedi reisikirjeldustes mainitud kohtade võrdlus [@Gregory&Cooper2009]", out.width="100%"}
+```{r mappinglakes1, echo=F, fig.align="center", fig.cap="Mapping the Lakes: kahe poeedi reisikirjeldustes mainitud kohtade võrdlus [@Gregory&Cooper2009]", out.width="70%"}
 knitr::include_graphics(here::here("imgs", "15_mappinglakes1.jpg"))
 ```
 
@@ -18,7 +18,7 @@ knitr::include_graphics(here::here("imgs", c("15_mappinglakes3.png", "15_mapping
 knitr::include_graphics(here::here("imgs", "15_lakedistrict2.jpg"))
 ```
 
-```{r lakedistrict1, echo=F, fig.align="center", fig.cap="Inglismaa Lake District ehk Järvemaa piirkond (© User:Diliff / Wikimedia Commons / CC-BY-SA-3.0)", out.width="100%"}
+```{r lakedistrict1, echo=F, fig.align="center", fig.cap="Inglismaa Lake District ehk Järvemaa piirkond (© User:Diliff / Wikimedia Commons / CC-BY-SA-3.0)", out.width="70%"}
 knitr::include_graphics(here::here("imgs", "15_lakedistrict1.jpg"))
 ```
 
@@ -43,7 +43,7 @@ Geograafilises tekstianalüüsis on prominentsel kohal tekstides mainitud kohani
 
 Geograafiline tekstianalüüs on seega üks tekstide kauglugemise (*distant reading*) tehnikatest, mille abil tuvastada tekstidest mustreid. 
 
-Humanitaarteadustes on meetodit kasutatud eeskätt ajalooliste (st enne 20. sajandit kirjutatud) tekstide analüüsil, eeskätt ilmselt autoriõiguste tõttu, ent sellel on suur ühisosa ka tänapäevaste avalike (nt Twitteri) tekstide analüüsiga. Ajalooliste tekstide puhul lisandub analüüsi sageli **teoste digiteerimise protsess** (nt käsitsi sisestamine või optiline märgituvastus), mida võivad oluliselt komplitseerida aja jooksul toimunud muutused näiteks  
+Humanitaarteadustes on meetodit kasutatud põhiliselt ajalooliste (st enne 20. sajandit kirjutatud) tekstide analüüsil, eeskätt ilmselt autoriõiguste tõttu, ent sellel on suur ühisosa ka tänapäevaste avalike (nt Twitteri) tekstide analüüsiga. Ajalooliste tekstide puhul lisandub analüüsi sageli **teoste digiteerimise protsess** (nt käsitsi sisestamine või optiline märgituvastus), mida võivad oluliselt komplitseerida aja jooksul toimunud muutused näiteks  
 
 - kirjastamiskonventsioonides,  
 - trükiformaatides, 
@@ -67,7 +67,6 @@ Geograafilises tekstianalüüsis on tüüpiliselt 3 põhisammu.
         + kui oskad veidi skriptida, saab nimetuvastust omakorda täiendada reeglitega (nt määra konstruktsioonid "X talu" alati kohanimedeks).  
 2. Tuvastatud kohanimede ehk **toponüümide sidumine koordinaatidega**.  
     - Enamasti kasutatakse selleks koordinaatidega varustatud **kohanimeloendeid** (*gazetteer*) või kohanimeandmebaase (nimeüksuste vastete leidmine ehk *Named Entity Matching*).  
-    - Koordinaatide lisamist ennast nimetatakse **geosildistamiseks** (*geotagging*).  
     - Probleeme:  
         + ühe ja sama kohanimega võib viidata mitmele kohale, tuleks lahendada viitesuhted. Selleks võib alati valida näiteks kõige tõenäolisema viite, täpsustada piirkonda või ka käsitsi õige viite määrata;  
         + kui oskad veidi skriptida, saab geosildistamisel kasutada samuti mingeid reegleid ja statistilisi tõenäosuseid (nt "Lisbon" või "Berlin" viitavad üldiselt tõenäolisemalt Euroopa kohanimedele, aga Ameerika kirjanike puhul või USA idarannikust rääkides tõenäolisemalt Connecticuti osariigi samanimelistele väikelinnadele).  
@@ -80,9 +79,9 @@ Geograafilises tekstianalüüsis on tüüpiliselt 3 põhisammu.
 <!-- Mis võiks olla Tallinna ja Tartu kollokaadid?-->
 
 Kaht esimest sammu ehk kohanimede tuvastamist ja eraldamist tekstist ning nende koordinaatidega sidumist nimetatakse ka **geoparsimiseks** (*geoparsing*). 
-Geoparsimine on seega laiem mõiste kui geokodeerimine, kuna tegeleb ka kohanimede tuvastamisega tekstist ning samuti ebamäärasemate kohaviidete tuvastamise ning viitesuhete lahendamisega.  
+Geoparsimine on seega laiem mõiste kui asukohamärgistamine või geokodeerimine, kuna tegeleb ka kohanimede tuvastamisega tekstist ning samuti ebamäärasemate kohaviidete tuvastamise ning viitesuhete lahendamisega.  
 
-```{r geoparsing, echo=F, fig.align="center", fig.cap="Geoparsimine ühendab kohanimede tuvastamise ja koordinaatidega sidumise ([@Gritta2017])", out.width="100%"}
+```{r geoparsing, echo=F, fig.align="center", fig.cap="Geoparsimine ühendab kohanimede tuvastamise ja koordinaatidega sidumise ([@Gritta2017])", out.width="70%"}
 knitr::include_graphics(here::here("imgs", "15_geoparsing.png"))
 ```
 
@@ -90,7 +89,7 @@ knitr::include_graphics(here::here("imgs", "15_geoparsing.png"))
 
 **Mapping the Emotions of London in Fiction, 1700-1900: A Crowdsourcing Experiment**
 
-```{r london, echo=F, fig.align="center", fig.cap="Londoni kujutamine kirjanduses ([@Heuser2016])", out.width="100%"}
+```{r london, echo=F, fig.align="center", fig.cap="Londoni kujutamine kirjanduses ([@Heuser2016])", out.width="80%"}
 knitr::include_graphics(here::here("imgs", "15_london.PNG"))
 ```
 - Uuritud, milliseid Londoni kohti mainiti 1700.-1900. aastate kirjandusteostes, kas neid kohti kujutati pigem positiivsete või negatiivsetena ning milliste faktoritega vastav hinnang korreleerus.  
@@ -104,7 +103,7 @@ knitr::include_graphics(here::here("imgs", "15_london.PNG"))
  
 **GIS and Literary History: Advancing Digital Humanities research through the Spatial Analysis of historical travel writing and topographical literature**
 
-```{r mappinglakes2, echo=F, fig.align="center", fig.cap="Kohtadest kirjutamine ja maastikud ([@Murrieta-Flores2017])", out.width="100%"}
+```{r mappinglakes2, echo=F, fig.align="center", fig.cap="Kohtadest kirjutamine ja maastikud ([@Murrieta-Flores2017])", out.width="70%"}
 knitr::include_graphics(here::here("imgs", "15_mappinglakes2.png"))
 ```
 

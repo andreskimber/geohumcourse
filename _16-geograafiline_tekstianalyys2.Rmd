@@ -19,7 +19,7 @@ Esimeses ülesandes
 - visualiseerime andmeid.  
 
 
-```{r bornhohe1, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= '"Vürst Gabriel ehk Pirita kloostri viimsed päevad" lähtetekst'}
+```{r bornhohe1, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap= '"Vürst Gabriel ehk Pirita kloostri viimsed päevad" lähtetekst'}
 knitr::include_graphics(here::here("imgs", "16_bornhohe.PNG"))
 ```
 
@@ -56,7 +56,7 @@ Järgmiseks avame Excelis faili **kontekstitabel_bornhohe_incorr.csv**: *Data* -
 - Teeme tulba kõrvale uue tulba nimega "Emotsioonid" ning kopeerime kõik ajutise tulba väärtused sellesse tulpa, kasutades väärtustena kleepimist (*Paste as Values*).  
 - Kustutame tulba "Ajutine" ning salvestame faili csv- või xlsx-failina. NB! Windowsis muutub csv-na salvestamisel faili kodeering UTF-8st WIndowsis endas kasutatavaks, keelespetsiifiliseks kodeeringuks. Kui tahad kodeeringut tagasi UTF-8ks muuta, siis installi näiteks Notepad++, ava csv-fail seal ning vali *Encoding* -> *Convert to UTF-8* -> *Save*.  
 
-```{r excel1, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= 'Teksti meelsuse tuvastamine'}
+```{r excel1, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap= 'Teksti meelsuse tuvastamine'}
 knitr::include_graphics(here::here("imgs", "16_excel1.gif"))
 ```
 
@@ -64,7 +64,7 @@ knitr::include_graphics(here::here("imgs", "16_excel1.gif"))
 
 Nüüd peame saama oma tabelile koordinaadid. Selleks kasutame [Maa-ameti massgeokodeerimise teenust](https://inaadress.maaamet.ee/geocoder/bulk). 
 
-```{r bornhohe2, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Geokodeerimise sätted"}
+```{r bornhohe2, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap= "Geokodeerimise sätted"}
 knitr::include_graphics(here::here("imgs", "16_bornhohe2.PNG"))
 ```
 
@@ -76,7 +76,7 @@ Laadime üles csv- või xlsx-faili, kasutame sisendaadressiks/lähteaadressiks p
 Avame QGISi ning laadime sinna geokodeeritud faili.  
 Valime sobiva aluskaardi, näiteks eelmisel korral kasutatud [Natural Earth Data vektorandmed](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/) (admin0 Countries). 
 
-```{r qgis1, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Andmekihid QGISis"}
+```{r qgis1, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap= "Andmekihid QGISis"}
 knitr::include_graphics(here::here("imgs", "16_qgis1.PNG"))
 ```
 
@@ -94,7 +94,7 @@ GROUP BY lemmad__1;
 ```
 Tee ka linnuke *Load as new layer* ette ning laadi tulemus uue kihina nimega *koguarv*.  
 
-```{r qgis2, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Kohanimede mainimiste kokkulugemine SQLiga"}
+```{r qgis2, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap= "Kohanimede mainimiste kokkulugemine SQLiga"}
 knitr::include_graphics(here::here("imgs", "16_qgis2.gif"))
 ```  
  
@@ -108,7 +108,7 @@ Visualiseerime kohanimeüksuste esinemissagedusi punktidena nii, et
 - siltide teksti suurus näitaks mainimiste arvu (näita kõiki silte).  
 
 
-```{r qgis3, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Punktide ja teksti suuruse muutmine vastavalt andmestiku tunnusele"}
+```{r qgis3, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap= "Punktide ja teksti suuruse muutmine vastavalt andmestiku tunnusele"}
 knitr::include_graphics(here::here("imgs", "16_qgis3.gif"))
 ```   
 
@@ -127,7 +127,7 @@ GROUP BY lemmad__1, Emotsiooni;
 (Pane tähele, et kui emotsioone sisaldav tulbanimi oli enne *Emotsioonid*, siis QGIS võib tulbanime pisut lühendada.)  
 
 
-```{r qgis4, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Kohanimede mainimiste kokkulugemine vastavalt emotsioonile"}
+```{r qgis4, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap= "Kohanimede mainimiste kokkulugemine vastavalt emotsioonile"}
 knitr::include_graphics(here::here("imgs", "16_qgis4.gif"))
 ```
 
@@ -136,7 +136,7 @@ Nüüd saame visualiseerida lihtsalt teatud emotsioonidega seotud kohti, ent võ
 Ühendamiseks võime liita emotsioonidega kihile esimese, koondsagedustega kihi.  
 Ühendatud kihil loome uue atribuudi *osakaal* (tulp *arv* jagatud tulbaga *koguarv_arv* ja korrutatud 100-ga).  
 
-```{r qgis5, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Andmekihtide ühendamine"}
+```{r qgis5, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap= "Andmekihtide ühendamine"}
 knitr::include_graphics(here::here("imgs", "16_qgis5.gif"))
 ```
 
@@ -149,14 +149,14 @@ Nüüd visualiseerime piirkondi nii, et
 
 Teeme punktid pisut läbipaistvamaks.  
 
-```{r qgis6, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Punktide visualiseerimine kategoorilise ja arvulise tunnuse järgi"}
+```{r qgis6, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap= "Punktide visualiseerimine kategoorilise ja arvulise tunnuse järgi"}
 knitr::include_graphics(here::here("imgs", "16_qgis6.gif"))
 ```
 
 
 Lõpuks võiksime veel teha heatmapi, nagu eelmisel korral, kus kuvame algse punktikihi põhjal punktide jaotumist rastrina ning kuvame selle peal loodud vektorkihti.  
 
-```{r qgis7, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= "Punktide jaotumise heatmap"}
+```{r qgis7, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap= "Punktide jaotumise heatmap"}
 knitr::include_graphics(here::here("imgs", "16_qgis7.gif"))
 ```
 
