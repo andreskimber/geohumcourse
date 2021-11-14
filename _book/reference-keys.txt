@@ -384,3 +384,12 @@ fig:foxnbc
 fig:cleangraph
 fig:kuusalu
 maailm_diagrammid
+ülesanne-lihtne-teksti-meelsuse-analüüs
+kohanimeüksuste-tuvastamine
+mainimiste-arv
+emotsioonid
+ülesanne-lihtne-teksti-meelsuse-analüüs-1
+kohanimeüksuste-tuvastamine-1
+tekstikatkendite-meelsuse-tuvastamine-1
+koordinaatide-lisamine-geokodeerimine-1
+visualiseerimine-2
