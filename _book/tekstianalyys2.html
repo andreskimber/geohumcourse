@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Praktikum 15 Geograafiline tekstianalüüs 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
   <meta name="description" content="Praktikum 15 Geograafiline tekstianalüüs 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Praktikum 15 Geograafiline tekstianalüüs 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta property="og:type" content="book" />
@@ -32,9 +32,8 @@
   
 <link rel="prev" href="tekstianalyys.html"/>
 <link rel="next" href="kirjandus.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,6 +41,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
 
 
 
@@ -260,8 +260,8 @@ div.csl-indent {
 <li class="chapter" data-level="15.1" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#ülesanne-lihtne-teksti-meelsuse-analüüs"><i class="fa fa-check"></i><b>15.1</b> Ülesanne: lihtne teksti meelsuse analüüs</a>
 <ul>
 <li class="chapter" data-level="15.1.1" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#kohanimeüksuste-tuvastamine"><i class="fa fa-check"></i><b>15.1.1</b> Kohanimeüksuste tuvastamine</a></li>
-<li class="chapter" data-level="15.1.2" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#tekstikatkendite-meelsuse-tuvastamine"><i class="fa fa-check"></i><b>15.1.2</b> Tekstikatkendite meelsuse tuvastamine</a></li>
-<li class="chapter" data-level="15.1.3" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#koordinaatide-lisamine-geokodeerimine"><i class="fa fa-check"></i><b>15.1.3</b> Koordinaatide lisamine (geokodeerimine)</a></li>
+<li class="chapter" data-level="15.1.2" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#koordinaatide-lisamine-geokodeerimine"><i class="fa fa-check"></i><b>15.1.2</b> Koordinaatide lisamine (geokodeerimine)</a></li>
+<li class="chapter" data-level="15.1.3" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#tekstikatkendite-meelsuse-tuvastamine"><i class="fa fa-check"></i><b>15.1.3</b> Tekstikatkendite meelsuse tuvastamine</a></li>
 <li class="chapter" data-level="15.1.4" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#visualiseerimine-1"><i class="fa fa-check"></i><b>15.1.4</b> Visualiseerimine</a></li>
 </ul></li>
 </ul></li>
@@ -299,9 +299,9 @@ Figure 15.1: “Vürst Gabriel ehk Pirita kloostri viimsed päevad” lähteteks
 <ol style="list-style-type: decimal">
 <li>leiame, <strong>milliseid kohanimeüksusi</strong> on teoses mainitud;<br />
 </li>
-<li>analüüsime, milline on kohanimeüksust sisaldava <strong>tekstikatkendi meelsus</strong>: kas tekst on pigem positiivne, negatiivne, vastuoluline või neutraalne;<br />
-</li>
 <li><strong>geokodeerime</strong> kohanimeüksused või leiame kohanimeüksustele vastavad ruumiandmed;<br />
+</li>
+<li>analüüsime, milline on kohanimeüksust sisaldava <strong>tekstikatkendi meelsus</strong>: kas tekst on pigem positiivne, negatiivne, vastuoluline või neutraalne;<br />
 </li>
 <li><strong>visualiseerime</strong> andmeid.</li>
 </ol>
@@ -340,49 +340,58 @@ Figure 15.1: “Vürst Gabriel ehk Pirita kloostri viimsed päevad” lähteteks
 ## 4 Tallinn        Tallinn
 ## 5     pai            pai
 ## 6   Liivi Liivi orduriik</code></pre>
+<p>Loeme tabeli Excelisse (<em>Data</em> -&gt; <em>From Text/CSV</em> -&gt; <em>File Origin: UTF-8</em>, <em>Delimiter: Semicolon</em> -&gt; <em>Transform Data</em> -&gt; <em>Close &amp; Load</em>) ning hindame nimetuvastaja kvaliteeti.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:excel"></span>
+<img src="imgs/excel_firstrow.jpg" alt="Tulbanimede määramine CSV-faili lugemisel Excelisse" width="100%" />
+<p class="caption">
+Figure 15.2: Tulbanimede määramine CSV-faili lugemisel Excelisse
+</p>
 </div>
-<div id="tekstikatkendite-meelsuse-tuvastamine" class="section level3" number="15.1.2">
-<h3><span class="header-section-number">15.1.2</span> Tekstikatkendite meelsuse tuvastamine</h3>
+<p>On teada, et automaatne nimetuvastus töötab kõige paremini isikunimede tuvastamisega ning tänapäevaste tekstide peal. Seega on üpris ootuspärane, et vanemate tekstidega väga puhast tulemust ei saa.
+Võime natuke andmeid käsitsi puhastada ja korrastada, nt muuta <em>pai</em> -&gt; <em>Paide</em>, <em>Kuimets</em> -&gt; <em>Kuimetsa</em>, <em>koluveri</em> -&gt; <em>Koluvere</em>, <em>Kuura</em> -&gt; <em>Kura</em>, <em>Lasna</em> -&gt; <em>Lasnamäe</em>, kustutame read, kus kohanimeks on analüüsitud <em>Venelasi</em>, <em>Daanlasi</em>, <em>Haleda</em>, <em>Kirikherra</em>, <em>Sandstede</em>, <em>Viimne</em>, <em>Eesti</em> ja <em>Vene</em> keele nimetustena, ühtlustame <em>Viru</em> ja <em>Viru maa</em> jne.</p>
+<p>Salvestame Exceli tabeli nimega <strong><em>kontekstitabel_bornhohe_corr.xlsx</em></strong>.</p>
+</div>
+<div id="koordinaatide-lisamine-geokodeerimine" class="section level3" number="15.1.2">
+<h3><span class="header-section-number">15.1.2</span> Koordinaatide lisamine (geokodeerimine)</h3>
+<p>Nüüd peame saama oma tabelile koordinaadid. Selleks kasutame <a href="https://inaadress.maaamet.ee/geocoder/bulk">Maa-ameti massgeokodeerimise teenust</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bornhohe2"></span>
+<img src="imgs/16_bornhohe2.PNG" alt="Geokodeerimise sätted" width="100%" />
+<p class="caption">
+Figure 15.3: Geokodeerimise sätted
+</p>
+</div>
+<p>Laadime üles xlsx-faili, kasutame sisendaadressiks/lähteaadressiks pikka kohanimeüksust ehk tulpa <em>lemmad2</em> ning kui töö on valmis, siis laadime saadud tabeli uuesti <strong>Exceli failina</strong> alla.</p>
+<p>Ava fail. Millised kohad jäid tuvastamata? Võiksime lisada nüüd käsitsi õiged koordinaadid, aga võime määrata praegu punktidele ka suvalised koordinaadid, mis erineksid eri kohtade puhul nt ühe pikkus- v laiuskraadi või ühiku võrra (aga ühe kohanime koordinaadid oleksid ühesugused), ja need hiljem QGISis õigesse kohta lohistada.</p>
+</div>
+<div id="tekstikatkendite-meelsuse-tuvastamine" class="section level3" number="15.1.3">
+<h3><span class="header-section-number">15.1.3</span> Tekstikatkendite meelsuse tuvastamine</h3>
 <p>Järgmiseks määrame tekstikatkendite meelsuse. Selleks saame kasutada näiteks <a href="http://peeter.eki.ee:5000/applications/list">Eesti Keele Instituudi emotsioonidetektorit</a>, mida saab kasutada ka Microsoft Excelis.
 Selleks installime kõigepealt vastava pistikprogrammi (<em>plugin</em>):</p>
 <ul>
 <li>laadime alla faili <strong>valence.xlam</strong>;</li>
 <li>avame Exceli ja valime <em>File</em> -&gt; <em>Options</em> -&gt; <em>Add-Ins</em>;</li>
 <li>kõige all valime <em>Manage</em> -&gt; <em>Excel Add-ins</em> -&gt; <em>Go</em> -&gt; <em>Browse</em> -&gt; valime faili <em>valence.xlam</em> -&gt; OK;</li>
-<li>paneme Exceli kinni ning teeme uuesti lahti.</li>
+<li>paneme Exceli kinni ning teeme geokodeeritud ja täiendatud faili uuesti lahti.</li>
 </ul>
-<p>Järgmiseks avame Excelis faili <strong>kontekstitabel_bornhohe_incorr.csv</strong>: <em>Data</em> -&gt; <em>From Text</em> -&gt; <em>Delimited</em>, <em>File origin: Unicode (UTF-8)</em> ja <em>My data has headers</em> -&gt; <em>Next</em> -&gt; <em>Delimiters</em> (ainult Semicolon) -&gt; <em>Next</em> -&gt; <em>Finish</em>. (Uuemate Exceli versioonide puhul vaata juhendit <a href="https://support.microsoft.com/en-us/office/import-or-export-text-txt-or-csv-files-5250ac4c-663c-47ce-937b-339e391393ba">siit</a>).</p>
-<p>Hindame esmalt kohanimetuvastuse kvaliteeti. On teada, et automaatne nimetuvastus töötab kõige paremini isikunimede tuvastamisega ning tänapäevaste tekstide peal. Seega on üpris ootuspärane, et vanemate tekstidega väga puhast tulemust ei saa.
-Võime natuke andmeid käsitsi puhastada ja korrastada, nt muuta <em>pai</em> -&gt; <em>Paide</em>, <em>Kuimets</em> -&gt; <em>Kuimetsa</em>,<em>koluveri</em> -&gt; <em>Koluvere</em>, <em>Kuura</em> -&gt; <em>Kura</em>, <em>Lasna</em> -&gt; <em>Lasnamäe</em>, kustutame read, kus kohanimeks on analüüsitud <em>Venelasi</em>, <em>Daanlasi</em>, <em>Haleda</em>, <em>Kirikherra</em>, <em>Sandstede</em>, <em>Viimne</em>, <em>Eesti</em> ja <em>Vene</em> keele nimetustena, ühtlustame <em>Viru</em> ja <em>Viru maa</em> jm.</p>
 <p>Määrame nüüd kohanimede konteksti meelsuse.</p>
 <ul>
 <li>Tekitame uue tulba, nt nimega “ajutine”.<br />
 </li>
-<li>Kirjutame uue tulba esimesse lahtrisse funktsiooni <code>=Valence.Test()</code> ning funktsiooni sulgude sisse vastaval real asuva lahtri viite, kus on tekstikatkend, nt <code>=Valence.Test(B2)</code>.</li>
-<li>Kopeerime valemi kõikidesse ajutise tulba lahtritesse nii, et igal real oleks funktsiooni sulgude sees vastava rea number (<code>B2</code>, <code>B3</code>, <code>B4</code>, <code>B5</code> jne) ning funktsiooni vasteks õige tekstikatkendi hinnang.<br />
+<li>Kirjutame uue tulba esimesse lahtrisse funktsiooni <code>=Valence.Test()</code> ning funktsiooni sulgude sisse vastaval real asuva lahtri viite, kus on tekstikatkend, nt <code>=Valence.Test(C2)</code>.</li>
+<li>Kopeerime valemi kõikidesse ajutise tulba lahtritesse nii, et igal real oleks funktsiooni sulgude sees vastava rea number (<code>C2</code>, <code>C3</code>, <code>C4</code>, <code>C5</code> jne) ning funktsiooni vasteks õige tekstikatkendi hinnang.<br />
 </li>
-<li>Teeme tulba kõrvale uue tulba nimega “emotsioonid” ning kopeerime kõik ajutise tulba väärtused sellesse tulpa, kasutades väärtustena kleepimist (<em>Paste as Values</em>).<br />
+<li>Teeme tulba kõrvale uue tulba nimega “emotsioon” ning kopeerime kõik ajutise tulba väärtused sellesse tulpa, kasutades väärtustena kleepimist (<em>Paste as Values</em>).<br />
 </li>
-<li>Kustutame tulba “Ajutine” ning salvestame faili csv- või xlsx-failina. NB! Windowsis muutub csv-na salvestamisel faili kodeering UTF-8st Windowsis endas kasutatavaks, keelespetsiifiliseks kodeeringuks. Kui tahad kodeeringut tagasi UTF-8ks muuta, siis installi näiteks Notepad++, ava csv-fail seal ning vali <em>Encoding</em> -&gt; <em>Convert to UTF-8</em> -&gt; <em>Save</em>.</li>
+<li>Kustutame tulba “ajutine” ning salvestame faili csv-failina. NB! Vanemates Windowsites võib muutuda csv-na salvestamisel faili kodeering UTF-8st Windowsis endas kasutatavaks keelespetsiifiliseks kodeeringuks. Kui tahad kodeeringut tagasi UTF-8ks muuta, siis installi näiteks Notepad++, ava csv-fail seal ning vali <em>Encoding</em> -&gt; <em>Convert to UTF-8</em> -&gt; <em>Save</em>.</li>
 </ul>
-</div>
-<div id="koordinaatide-lisamine-geokodeerimine" class="section level3" number="15.1.3">
-<h3><span class="header-section-number">15.1.3</span> Koordinaatide lisamine (geokodeerimine)</h3>
-<p>Nüüd peame saama oma tabelile koordinaadid. Selleks kasutame <a href="https://inaadress.maaamet.ee/geocoder/bulk">Maa-ameti massgeokodeerimise teenust</a>.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bornhohe2"></span>
-<img src="imgs/16_bornhohe2.PNG" alt="Geokodeerimise sätted" width="70%" />
-<p class="caption">
-Figure 15.2: Geokodeerimise sätted
-</p>
-</div>
-<p>Laadime üles csv- või xlsx-faili, kasutame sisendaadressiks/lähteaadressiks pikka kohanimeüksust ehk tulpa <em>lemmad2</em> ning kui töö on valmis, siis saadud tabeli <strong>SHP-failina</strong> alla (eeldame, et me ei hakka käsitsi faili koordinaate muutma).</p>
 </div>
 <div id="visualiseerimine-1" class="section level3" number="15.1.4">
 <h3><span class="header-section-number">15.1.4</span> Visualiseerimine</h3>
-<p>Avame QGISi ning laadime sinna geokodeeritud faili.<br />
-Valime sobiva aluskaardi, näiteks eelmisel korral kasutatud <a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/">Natural Earth Data vektorandmed</a> (admin0 Countries). Lisaks võime välja otsida mõne Eesti ajaloolise haldusjaotuse kaardi.</p>
+<p>Avame QGISi ning laadime sinna geokodeeritud ja tuvastatud emotsioonidega csv-faili. Vali õige kodeering ja tulpade eraldaja. NB! Tee ka linnuke valiku <em>Decimal separator is comma</em> ette, kuna koordinaatide tulbas on murdosa eraldajaks koma, mitte punkt.</p>
+<p>Valime sobiva aluskaardi, näiteks eelmisel korral kasutatud <a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/">Natural Earth Data vektorandmed</a> (admin0 Countries). Lisaks võime välja otsida mõne Eesti ajaloolise haldusjaotuse kaardi või mõne üldisema maailmakaardi (nt ESRI kollektsioonist).</p>
 <p>Lisame ka punktid kaardile. Vaatame siltide põhjal, millised kohanimed kindlasti valesse kohta on saanud (Maa-ameti geokodeerija töötab hästi ainult Eesti tänapäevaste kohanimedega!). Liigutame valed nimed õigesse kohta.
-Selleks, et liigutada korraga mitut punkti, teeme nähtavaks <em>Wiev</em> -&gt; <em>Toolbars</em> -&gt; <em>Advanced Digitizing Toolbar</em>, vajutame sisse kihi muutmise, valime punkti(d), mida liigutada, ning liigutame need <em>Move Feature</em> tööriista abil uude kohta.</p>
+Selleks, et csv-faili punkte liigutada, tuleb esmalt punktid salvestada <em>geopackage</em>’i või <em>shapefile</em>’i formaadis. Võib kasutada ka tööriista <em>Processing</em> -&gt; <em>Vector creation</em> -&gt; <em>Create points layer from table</em>. Nimetame kihi nt nimega <em>bornhohe</em>.</p>
+<p>Selleks, et liigutada korraga mitut punkti, teeme nähtavaks <em>View</em> -&gt; <em>Toolbars</em> -&gt; <em>Advanced Digitizing Toolbar</em>, vajutame sisse kihi muutmise, valime punkti(d), mida liigutada, ning liigutame need <em>Move Feature</em> tööriista abil uude kohta.</p>
 <p>Visualiseerime,</p>
 <ul>
 <li>kui mitu korda igat kohta mainiti,<br />
@@ -392,25 +401,24 @@ Selleks, et liigutada korraga mitut punkti, teeme nähtavaks <em>Wiev</em> -&gt;
 <div id="mainimiste-arv" class="section level4" number="15.1.4.1">
 <h4><span class="header-section-number">15.1.4.1</span> Mainimiste arv</h4>
 <p>Võime vastavad andmed tuletada mitut moodi. Näiteks võiksime teha esmalt geokodeeritud kihist uue virtuaalse kihi (<em>Layer</em> -&gt; <em>Create Layer</em> -&gt; <em>New Virtual Layer</em>), kus iga kohanimeüksuse esinemisjuhud on kokku loetud (<em>count</em>) ja lisatud tulpa <em>arv</em>.</p>
-<pre><code>SELECT lemmad__1, count(*) as arv, geometry
-FROM geocoded
-GROUP BY lemmad__1;</code></pre>
-<p>Samuti saaksime punktide arvu mingis kohas teada ka nii, et valime <em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Vector analysis</em> -&gt; <em>Statistics by categories</em>, valides sisendkihiks <em>geocoded</em> ja <em>Field(s) with categories</em> väärtuseks *lemmad__1*, ent sellisel juhul ei tuleks kaasa punktide geomeetriat ja me ei saaks tulemusi otse kaardil kuvada.</p>
-<p>Kui tahame esialgse tabeliga kihist koopiat, kuhu on lisatud ka uus tulp, kus iga mainimise kohta on selle koha mainimiste koguarv, võib valida <em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Vector general</em> -&gt; <em>Join attributes by location (summary)</em>, määrata mõlemaks ühendatavaks kihiks <em>geocoded</em>, <em>Fields to summarise</em> väärtuseks *lemmad__1* ja <em>Summaries to calculate</em> väärtuseks <em>count</em>.</p>
-<p>Lihtsalt visualiseerimiseks aga ei pea üldse mitte uut kihti tegema. Kasutame avaldisi, et kohandada olemasoleva kihi sümboloogiat ning näitame mainimiste arvu ringide suuruse abil. Teeme <em>geocoded</em> kihil paremkliki -&gt; <em>Properties</em> -&gt; <em>Symbology</em> -&gt; <em>Single symbol</em> -&gt; <em>Simple marker</em> -&gt; <em>Size</em> -&gt; <em>Data defined override</em> -&gt; <em>Edit</em> -&gt; <code>log(2, count("Sisend_ID", group_by:="lemmad__1")*3)</code>. Samamoodi siltide lisamisel. Määrame suuruse logaritmitud skaalal selleks, et rõhutada erinevusi pigem väiksemate sageduste vahel.</p>
+<pre><code>SELECT lemmad2, count(*) as arv, geometry
+FROM bornhohe
+GROUP BY lemmad2;</code></pre>
+<p>Samuti saaksime punktide arvu mingis kohas teada ka nii, et valime <em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Vector analysis</em> -&gt; <em>Statistics by categories</em>, valides sisendkihiks <em>geocoded</em> ja <em>Field(s) with categories</em> väärtuseks <code>lemmad2</code>, ent sellisel juhul ei tuleks kaasa punktide geomeetriat ja me ei saaks tulemusi otse kaardil kuvada.</p>
+<p>Kui tahame esialgse tabeliga kihist koopiat, kuhu on lisatud ka uus tulp, kus iga mainimise kohta on selle koha mainimiste koguarv, võib valida <em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Vector general</em> -&gt; <em>Join attributes by location (summary)</em>, määrata mõlemaks ühendatavaks kihiks <em>bornhohe</em>, <em>Fields to summarise</em> väärtuseks <code>lemmad2</code> ja <em>Summaries to calculate</em> väärtuseks <em>count</em>.</p>
+<p>Lihtsalt visualiseerimiseks aga ei pea üldse mitte uut kihti tegema. Võib kasutada avaldisi, et kohandada olemasoleva kihi sümboloogiat ning näidata mainimiste arvu ringide suuruse abil. Teeme nt <em>geocoded</em> kihil paremkliki -&gt; <em>Properties</em> -&gt; <em>Symbology</em> -&gt; <em>Single symbol</em> -&gt; <em>Simple marker</em> -&gt; <em>Size</em> -&gt; <em>Data defined override</em> -&gt; <em>Edit</em> -&gt; <code>log(2, count("Sisend ID", group_by:="lemmad2")*3)</code>. Samamoodi siltide lisamisel. Määrame suuruse logaritmitud skaalal selleks, et rõhutada erinevusi pigem väiksemate sageduste vahel.</p>
 </div>
 <div id="emotsioonid" class="section level4" number="15.1.4.2">
 <h4><span class="header-section-number">15.1.4.2</span> Emotsioonid</h4>
 <p>Teeme nüüd uue virtuaalse kihi <em>emotsioonid</em>, kus oleks iga kohanime kohta kokku loetud, kui mitu korda mainiti seda positivises, negatiivses, neturaalses või vastuolulises kontekstis.</p>
-<pre><code>SELECT lemmad__1, count(*) as arv, geometry, emotsiooni
-FROM geocoded
-GROUP BY lemmad__1, Emotsiooni;</code></pre>
-<p>(Pane tähele, et kui emotsioone sisaldav tulbanimi oli enne <em>emotsioonid</em>, siis geokodeeritud andmetes on tulbanimi pisut lühenenud.)</p>
+<pre><code>SELECT lemmad2, count(*) as arv, geometry, emotsioon
+FROM bornhohe
+GROUP BY lemmad2, emotsioon;</code></pre>
 <p>Nüüd saame visualiseerida lihtsalt teatud emotsioonidega seotud kohti, ent võime ka arvutada iga emotsiooni osakaalu vastava koha katkendite hulgas.</p>
-<p>Ühendamiseks võime liita emotsioonidega kihile esimese, koondsagedustega kihi.<br />
-Ühendatud kihil loome uue atribuudi <em>osakaal</em> (tulp <em>arv</em> jagatud tulbaga <em>koguarv_arv</em> ja korrutatud 100-ga).</p>
+<p>Osakaalude leidmiseks võime liita emotsioonidega kihile esimese, koondsagedustega kihi.<br />
+Ühendatud kihil loome uue atribuudi <em>osakaal</em> (“arv”/“koguarv”).</p>
 <p>Kihte võib ühendada jällegi ka nii, et valime <em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Vector general</em> -&gt; <em>Join attributes by field value</em> (NB! <em>one-to-many</em>!).</p>
-<p>Katseta, mismoodi oleks kõige parem emotsioone ja mainimiste arvu visualiseerida!</p>
+<p>Katseta, mismoodi oleks kõige parem emotsioone ja mainimiste arvu visualiseerida! Võid andmestikust iga emotsiooni ka ükshaaval välja filtreerida.</p>
 
 
 </div>
@@ -427,6 +435,7 @@ GROUP BY lemmad__1, Emotsiooni;</code></pre>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -454,7 +463,7 @@ gitbook.start({
 },
 "download": [["book.pdf", "PDF"], ["book.epub", "EPUB"]],
 "search": {
-"engine": "fuse",
+"engine": "lunr",
 "options": null
 },
 "toc": {

@@ -393,3 +393,4 @@ kohanimeüksuste-tuvastamine-1
 tekstikatkendite-meelsuse-tuvastamine-1
 koordinaatide-lisamine-geokodeerimine-1
 visualiseerimine-2
+fig:excel

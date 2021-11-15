@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Praktikum 14 Geograafiline tekstianalüüs | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
   <meta name="description" content="Praktikum 14 Geograafiline tekstianalüüs | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Praktikum 14 Geograafiline tekstianalüüs | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta property="og:type" content="book" />
@@ -31,10 +31,9 @@
   
   
 <link rel="prev" href="maailm_diagrammid.html"/>
-<link rel="next" href="kirjandus.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<link rel="next" href="tekstianalyys2.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,6 +41,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
 
 
 
@@ -254,6 +254,16 @@ div.csl-indent {
 <li class="chapter" data-level="14.4.3" data-path="tekstianalyys.html"><a href="tekstianalyys.html#kohanimede-geokodeerimine"><i class="fa fa-check"></i><b>14.4.3</b> Kohanimede geokodeerimine</a></li>
 </ul></li>
 <li class="chapter" data-level="14.5" data-path="tekstianalyys.html"><a href="tekstianalyys.html#järgmisel-korral-10"><i class="fa fa-check"></i><b>14.5</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html"><i class="fa fa-check"></i><b>15</b> Geograafiline tekstianalüüs 2</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#ülesanne-lihtne-teksti-meelsuse-analüüs"><i class="fa fa-check"></i><b>15.1</b> Ülesanne: lihtne teksti meelsuse analüüs</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#kohanimeüksuste-tuvastamine"><i class="fa fa-check"></i><b>15.1.1</b> Kohanimeüksuste tuvastamine</a></li>
+<li class="chapter" data-level="15.1.2" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#koordinaatide-lisamine-geokodeerimine"><i class="fa fa-check"></i><b>15.1.2</b> Koordinaatide lisamine (geokodeerimine)</a></li>
+<li class="chapter" data-level="15.1.3" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#tekstikatkendite-meelsuse-tuvastamine"><i class="fa fa-check"></i><b>15.1.3</b> Tekstikatkendite meelsuse tuvastamine</a></li>
+<li class="chapter" data-level="15.1.4" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#visualiseerimine-1"><i class="fa fa-check"></i><b>15.1.4</b> Visualiseerimine</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="kirjandus.html"><a href="kirjandus.html"><i class="fa fa-check"></i>Kirjandus</a></li>
 </ul>
@@ -487,7 +497,6 @@ Geokodeeri MMQGISi plugina abil fail <em>Gray_cqp_13.csv</em>, kus on kõik Gray
 <h2><span class="header-section-number">14.5</span> Järgmisel korral</h2>
 <p>Eestikeelsete tekstide kohanimede tuvastamine, standardiseerimine, geokodeerimine ja nendega seotud teksti analüüs.</p>
 
-
 </div>
 </div>
             </section>
@@ -496,10 +505,11 @@ Geokodeeri MMQGISi plugina abil fail <em>Gray_cqp_13.csv</em>, kus on kõik Gray
         </div>
       </div>
 <a href="maailm_diagrammid.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="kirjandus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tekstianalyys2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -527,7 +537,7 @@ gitbook.start({
 },
 "download": [["book.pdf", "PDF"], ["book.epub", "EPUB"]],
 "search": {
-"engine": "fuse",
+"engine": "lunr",
 "options": null
 },
 "toc": {

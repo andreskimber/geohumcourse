@@ -14,8 +14,8 @@ knitr::include_graphics(here::here("imgs", "16_bornhohe.PNG"))
 Ülesandes 
 
 1. leiame, **milliseid kohanimeüksusi** on teoses mainitud;  
-2. analüüsime, milline on kohanimeüksust sisaldava **tekstikatkendi meelsus**: kas tekst on pigem positiivne, negatiivne, vastuoluline või neutraalne;  
-3. **geokodeerime** kohanimeüksused või leiame kohanimeüksustele vastavad ruumiandmed;  
+2. **geokodeerime** kohanimeüksused või leiame kohanimeüksustele vastavad ruumiandmed;  
+3. analüüsime, milline on kohanimeüksust sisaldava **tekstikatkendi meelsus**: kas tekst on pigem positiivne, negatiivne, vastuoluline või neutraalne;  
 4. **visualiseerime** andmeid.  
 
 
@@ -33,35 +33,20 @@ Skripti väljundiks on fail **_kontekstitabel_bornhohe_incorr.csv_**, kus on tab
 Tabelis on nimetuvastaja automaatne väljund, kus mingeid parandusi ei ole tehtud.  
 
 ```{r kontekstitabel, echo = F}
-dat <- read.csv2("failid/kontekstitabel_bornhohe_incorr.csv", fileEncoding = "UTF-8")
+dat <- read.csv2("failid/praktikum_15/kontekstitabel_bornhohe_incorr.csv", fileEncoding = "UTF-8")
 head(dat)
 ```
 
+Loeme tabeli Excelisse (*Data* -> *From Text/CSV* -> *File Origin: UTF-8*, *Delimiter: Semicolon* -> *Transform Data* -> *Close & Load*) ning hindame nimetuvastaja kvaliteeti. 
 
-### Tekstikatkendite meelsuse tuvastamine
+```{r excel, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap= 'Tulbanimede määramine CSV-faili lugemisel Excelisse'}
+knitr::include_graphics(here::here("imgs", "excel_firstrow.jpg"))
+```
 
-Järgmiseks määrame tekstikatkendite meelsuse. Selleks saame kasutada näiteks [Eesti Keele Instituudi emotsioonidetektorit](http://peeter.eki.ee:5000/applications/list), mida saab kasutada ka Microsoft Excelis. 
-Selleks installime kõigepealt vastava pistikprogrammi (*plugin*):
+On teada, et automaatne nimetuvastus töötab kõige paremini isikunimede tuvastamisega ning tänapäevaste tekstide peal. Seega on üpris ootuspärane, et vanemate tekstidega väga puhast tulemust ei saa.
+Võime natuke andmeid käsitsi puhastada ja korrastada, nt muuta *pai* -> *Paide*, *Kuimets* -> *Kuimetsa*, *koluveri* -> *Koluvere*, *Kuura* -> *Kura*, *Lasna* -> *Lasnamäe*, kustutame read, kus kohanimeks on analüüsitud *Venelasi*, *Daanlasi*, *Haleda*, *Kirikherra*, *Sandstede*, *Viimne*, *Eesti* ja *Vene* keele nimetustena, ühtlustame *Viru* ja *Viru maa* jne.
 
-- laadime alla faili **valence.xlam**; 
-- avame Exceli ja valime *File* -> *Options* -> *Add-Ins*;
-- kõige all valime *Manage* -> *Excel Add-ins* -> *Go* -> *Browse* -> valime faili *valence.xlam* -> OK;
-- paneme Exceli kinni ning teeme uuesti lahti.
-
-Järgmiseks avame Excelis faili **kontekstitabel_bornhohe_incorr.csv**: *Data* -> *From Text* -> *Delimited*,  *File origin: Unicode (UTF-8)* ja *My data has headers* -> *Next* -> *Delimiters* (ainult Semicolon) -> *Next* -> *Finish*. (Uuemate Exceli versioonide puhul vaata juhendit [siit](https://support.microsoft.com/en-us/office/import-or-export-text-txt-or-csv-files-5250ac4c-663c-47ce-937b-339e391393ba)).   
-
-Hindame esmalt kohanimetuvastuse kvaliteeti. On teada, et automaatne nimetuvastus töötab kõige paremini isikunimede tuvastamisega ning tänapäevaste tekstide peal. Seega on üpris ootuspärane, et vanemate tekstidega väga puhast tulemust ei saa.
-Võime natuke andmeid käsitsi puhastada ja korrastada, nt muuta *pai* -> *Paide*, *Kuimets* -> *Kuimetsa*,*koluveri* -> *Koluvere*, *Kuura* -> *Kura*, *Lasna* -> *Lasnamäe*, kustutame read, kus kohanimeks on analüüsitud *Venelasi*, *Daanlasi*, *Haleda*, *Kirikherra*, *Sandstede*, *Viimne*, *Eesti* ja *Vene* keele nimetustena, ühtlustame *Viru* ja *Viru maa* jm.
-
-
-Määrame nüüd kohanimede konteksti meelsuse.
-
-- Tekitame uue tulba, nt nimega "ajutine".  
-- Kirjutame uue tulba esimesse lahtrisse funktsiooni `=Valence.Test()` ning funktsiooni sulgude sisse vastaval real asuva lahtri viite, kus on tekstikatkend, nt `=Valence.Test(B2)`.
-- Kopeerime valemi kõikidesse ajutise tulba lahtritesse nii, et igal real oleks funktsiooni sulgude sees vastava rea number (`B2`, `B3`, `B4`, `B5` jne) ning funktsiooni vasteks õige tekstikatkendi hinnang.  
-- Teeme tulba kõrvale uue tulba nimega "emotsioonid" ning kopeerime kõik ajutise tulba väärtused sellesse tulpa, kasutades väärtustena kleepimist (*Paste as Values*).  
-- Kustutame tulba "Ajutine" ning salvestame faili csv- või xlsx-failina. NB! Windowsis muutub csv-na salvestamisel faili kodeering UTF-8st Windowsis endas kasutatavaks, keelespetsiifiliseks kodeeringuks. Kui tahad kodeeringut tagasi UTF-8ks muuta, siis installi näiteks Notepad++, ava csv-fail seal ning vali *Encoding* -> *Convert to UTF-8* -> *Save*.  
-
+Salvestame Exceli tabeli nimega **_kontekstitabel_bornhohe_corr.xlsx_**.
 
 
 ### Koordinaatide lisamine (geokodeerimine)
@@ -72,15 +57,43 @@ Nüüd peame saama oma tabelile koordinaadid. Selleks kasutame [Maa-ameti massge
 knitr::include_graphics(here::here("imgs", "16_bornhohe2.PNG"))
 ```
 
-Laadime üles csv- või xlsx-faili, kasutame sisendaadressiks/lähteaadressiks pikka kohanimeüksust ehk tulpa *lemmad2* ning kui töö on valmis, siis saadud tabeli **SHP-failina** alla (eeldame, et me ei hakka käsitsi faili koordinaate muutma).  
+Laadime üles xlsx-faili, kasutame sisendaadressiks/lähteaadressiks pikka kohanimeüksust ehk tulpa *lemmad2* ning kui töö on valmis, siis laadime saadud tabeli uuesti **Exceli failina** alla.
+
+Ava fail. Millised kohad jäid tuvastamata? Võiksime lisada nüüd käsitsi õiged koordinaadid, aga võime määrata praegu punktidele ka suvalised koordinaadid, mis erineksid eri kohtade puhul nt ühe pikkus- v laiuskraadi või ühiku võrra (aga ühe kohanime koordinaadid oleksid ühesugused), ja need hiljem QGISis õigesse kohta lohistada.   
+
+
+### Tekstikatkendite meelsuse tuvastamine
+
+Järgmiseks määrame tekstikatkendite meelsuse. Selleks saame kasutada näiteks [Eesti Keele Instituudi emotsioonidetektorit](http://peeter.eki.ee:5000/applications/list), mida saab kasutada ka Microsoft Excelis. 
+Selleks installime kõigepealt vastava pistikprogrammi (*plugin*):
+
+- laadime alla faili **valence.xlam**; 
+- avame Exceli ja valime *File* -> *Options* -> *Add-Ins*;
+- kõige all valime *Manage* -> *Excel Add-ins* -> *Go* -> *Browse* -> valime faili *valence.xlam* -> OK;
+- paneme Exceli kinni ning teeme geokodeeritud ja täiendatud faili uuesti lahti.
+
+
+Määrame nüüd kohanimede konteksti meelsuse.
+
+- Tekitame uue tulba, nt nimega "ajutine".  
+- Kirjutame uue tulba esimesse lahtrisse funktsiooni `=Valence.Test()` ning funktsiooni sulgude sisse vastaval real asuva lahtri viite, kus on tekstikatkend, nt `=Valence.Test(C2)`.
+- Kopeerime valemi kõikidesse ajutise tulba lahtritesse nii, et igal real oleks funktsiooni sulgude sees vastava rea number (`C2`, `C3`, `C4`, `C5` jne) ning funktsiooni vasteks õige tekstikatkendi hinnang.  
+- Teeme tulba kõrvale uue tulba nimega "emotsioon" ning kopeerime kõik ajutise tulba väärtused sellesse tulpa, kasutades väärtustena kleepimist (*Paste as Values*).  
+- Kustutame tulba "ajutine" ning salvestame faili csv-failina. NB! Vanemates Windowsites võib muutuda csv-na salvestamisel faili kodeering UTF-8st Windowsis endas kasutatavaks keelespetsiifiliseks kodeeringuks. Kui tahad kodeeringut tagasi UTF-8ks muuta, siis installi näiteks Notepad++, ava csv-fail seal ning vali *Encoding* -> *Convert to UTF-8* -> *Save*.  
+
+
+
 
 
 ### Visualiseerimine
 
-Avame QGISi ning laadime sinna geokodeeritud faili.  
-Valime sobiva aluskaardi, näiteks eelmisel korral kasutatud [Natural Earth Data vektorandmed](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/) (admin0 Countries). Lisaks võime välja otsida mõne Eesti ajaloolise haldusjaotuse kaardi.
+Avame QGISi ning laadime sinna geokodeeritud ja tuvastatud emotsioonidega csv-faili. Vali õige kodeering ja tulpade eraldaja. NB! Tee ka linnuke valiku *Decimal separator is comma* ette, kuna koordinaatide tulbas on murdosa eraldajaks koma, mitte punkt.    
+
+Valime sobiva aluskaardi, näiteks eelmisel korral kasutatud [Natural Earth Data vektorandmed](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/) (admin0 Countries). Lisaks võime välja otsida mõne Eesti ajaloolise haldusjaotuse kaardi või mõne üldisema maailmakaardi (nt ESRI kollektsioonist).
 
 Lisame ka punktid kaardile. Vaatame siltide põhjal, millised kohanimed kindlasti valesse kohta on saanud (Maa-ameti geokodeerija töötab hästi ainult Eesti tänapäevaste kohanimedega!). Liigutame valed nimed õigesse kohta. 
+Selleks, et csv-faili punkte liigutada, tuleb esmalt punktid salvestada *geopackage*'i või *shapefile*'i formaadis. Võib kasutada ka tööriista *Processing* -> *Vector creation* -> *Create points layer from table*. Nimetame kihi nt nimega *bornhohe*.  
+
 Selleks, et liigutada korraga mitut punkti, teeme nähtavaks *View* -> *Toolbars* -> *Advanced Digitizing Toolbar*, vajutame sisse kihi muutmise, valime punkti(d), mida liigutada, ning liigutame need *Move Feature* tööriista abil uude kohta.
 
 
@@ -95,17 +108,17 @@ Visualiseerime,
 Võime vastavad andmed tuletada mitut moodi. Näiteks võiksime teha esmalt geokodeeritud kihist uue virtuaalse kihi (*Layer* -> *Create Layer* -> *New Virtual Layer*), kus iga kohanimeüksuse esinemisjuhud on kokku loetud (*count*) ja lisatud tulpa *arv*.   
 
 ```
-SELECT lemmad__1, count(*) as arv, geometry
-FROM geocoded
-GROUP BY lemmad__1;
+SELECT lemmad2, count(*) as arv, geometry
+FROM bornhohe
+GROUP BY lemmad2;
 ```
  
-Samuti saaksime punktide arvu mingis kohas teada ka nii, et valime *Processing* -> *Toolbox* -> *Vector analysis* -> *Statistics by categories*, valides sisendkihiks *geocoded* ja *Field(s) with categories* väärtuseks `lemmad__1`, ent sellisel juhul ei tuleks kaasa punktide geomeetriat ja me ei saaks tulemusi otse kaardil kuvada. 
+Samuti saaksime punktide arvu mingis kohas teada ka nii, et valime *Processing* -> *Toolbox* -> *Vector analysis* -> *Statistics by categories*, valides sisendkihiks *geocoded* ja *Field(s) with categories* väärtuseks `lemmad2`, ent sellisel juhul ei tuleks kaasa punktide geomeetriat ja me ei saaks tulemusi otse kaardil kuvada. 
 
-Kui tahame esialgse tabeliga kihist koopiat, kuhu on lisatud ka uus tulp, kus iga mainimise kohta on selle koha mainimiste koguarv, võib valida *Processing* -> *Toolbox* -> *Vector general* -> *Join attributes by location (summary)*, määrata mõlemaks ühendatavaks kihiks *geocoded*, *Fields to summarise* väärtuseks `lemmad__1` ja *Summaries to calculate* väärtuseks *count*.  
+Kui tahame esialgse tabeliga kihist koopiat, kuhu on lisatud ka uus tulp, kus iga mainimise kohta on selle koha mainimiste koguarv, võib valida *Processing* -> *Toolbox* -> *Vector general* -> *Join attributes by location (summary)*, määrata mõlemaks ühendatavaks kihiks *bornhohe*, *Fields to summarise* väärtuseks `lemmad2` ja *Summaries to calculate* väärtuseks *count*.  
 
 
-Lihtsalt visualiseerimiseks aga ei pea üldse mitte uut kihti tegema. Kasutame avaldisi, et kohandada olemasoleva kihi sümboloogiat ning näitame mainimiste arvu ringide suuruse abil. Teeme *geocoded* kihil paremkliki -> *Properties* -> *Symbology* -> *Single symbol* -> *Simple marker* -> *Size* -> *Data defined override* -> *Edit* -> `log(2, count("Sisend_ID", group_by:="lemmad__1")*3)`. Samamoodi siltide lisamisel. Määrame suuruse logaritmitud skaalal selleks, et rõhutada erinevusi pigem väiksemate sageduste vahel.
+Lihtsalt visualiseerimiseks aga ei pea üldse mitte uut kihti tegema. Võib kasutada avaldisi, et kohandada olemasoleva kihi sümboloogiat ning näidata mainimiste arvu ringide suuruse abil. Teeme nt *geocoded* kihil paremkliki -> *Properties* -> *Symbology* -> *Single symbol* -> *Simple marker* -> *Size* -> *Data defined override* -> *Edit* -> `log(2, count("Sisend ID", group_by:="lemmad2")*3)`. Samamoodi siltide lisamisel. Määrame suuruse logaritmitud skaalal selleks, et rõhutada erinevusi pigem väiksemate sageduste vahel.
 
 
 #### Emotsioonid 
@@ -113,13 +126,10 @@ Lihtsalt visualiseerimiseks aga ei pea üldse mitte uut kihti tegema. Kasutame a
 Teeme nüüd uue virtuaalse kihi *emotsioonid*, kus oleks iga kohanime kohta kokku loetud, kui mitu korda mainiti seda positivises, negatiivses, neturaalses või vastuolulises kontekstis.
 
 ```
-SELECT lemmad__1, count(*) as arv, geometry, emotsiooni
-FROM geocoded
-GROUP BY lemmad__1, Emotsiooni;
+SELECT lemmad2, count(*) as arv, geometry, emotsioon
+FROM bornhohe
+GROUP BY lemmad2, emotsioon;
 ```
-
-(Pane tähele, et kui emotsioone sisaldav tulbanimi oli enne *emotsioonid*, siis geokodeeritud andmetes on tulbanimi pisut lühenenud.)  
-
 
 Nüüd saame visualiseerida lihtsalt teatud emotsioonidega seotud kohti, ent võime ka arvutada iga emotsiooni osakaalu vastava koha katkendite hulgas.
 
