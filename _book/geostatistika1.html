@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Praktikum 16 Geostatistika 1 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
+  <meta name="description" content="Praktikum 16 Geostatistika 1 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Praktikum 16 Geostatistika 1 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Praktikum 16 Geostatistika 1 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  
+  
+  
+
+<meta name="author" content="Andres Kimber, Maarja-Liisa Pilvik" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="tekstianalyys2.html"/>
+<link rel="next" href="kirjandus.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#kursuse-korraldusest"><i class="fa fa-check"></i><b>1.1</b> Kursuse korraldusest</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#mis-on-geoinfosüsteemid"><i class="fa fa-check"></i><b>1.2</b> Mis on geoinfosüsteemid?</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#geoinfosüsteemide-ajaloost"><i class="fa fa-check"></i><b>1.3</b> Geoinfosüsteemide ajaloost</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#ruumiandmed-ja-gis-humanitaarteadustes"><i class="fa fa-check"></i><b>1.4</b> Ruumiandmed ja GIS humanitaarteadustes</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#arheoloogia"><i class="fa fa-check"></i><b>1.4.1</b> Arheoloogia</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#veel-näiteid"><i class="fa fa-check"></i><b>1.4.2</b> Veel näiteid</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#küsitlus"><i class="fa fa-check"></i><b>1.5</b> Küsitlus</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>1.6</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>2</b> Seminar</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="seminar.html"><a href="seminar.html#mõisted"><i class="fa fa-check"></i><b>2.1</b> Mõisted</a></li>
+<li class="chapter" data-level="2.2" data-path="seminar.html"><a href="seminar.html#rühmatöö-1-gisi-ja-ruumi-geohumanitaaria-projekte-ja-rakendusi"><i class="fa fa-check"></i><b>2.2</b> Rühmatöö 1: GISi ja ruumi-/geohumanitaaria projekte ja rakendusi</a></li>
+<li class="chapter" data-level="2.3" data-path="seminar.html"><a href="seminar.html#rühmatöö-2-humanitaaria-vs.-kvantitatiivsed-meetodid"><i class="fa fa-check"></i><b>2.3</b> Rühmatöö 2: humanitaaria <em>vs</em>. kvantitatiivsed meetodid</a></li>
+<li class="chapter" data-level="2.4" data-path="seminar.html"><a href="seminar.html#järgmisel-korral-1"><i class="fa fa-check"></i><b>2.4</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html"><i class="fa fa-check"></i><b>3</b> Ruumiobjektid ja ruumiandmed</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#vektorandmed"><i class="fa fa-check"></i><b>3.1</b> Vektorandmed</a></li>
+<li class="chapter" data-level="3.2" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#rasterandmed"><i class="fa fa-check"></i><b>3.2</b> Rasterandmed</a></li>
+<li class="chapter" data-level="3.3" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#vektor-vs.-raster"><i class="fa fa-check"></i><b>3.3</b> Vektor vs. raster</a></li>
+<li class="chapter" data-level="3.4" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#ülesanne"><i class="fa fa-check"></i><b>3.4</b> Ülesanne</a></li>
+<li class="chapter" data-level="3.5" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#järgmisel-korral-2"><i class="fa fa-check"></i><b>3.5</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="kaardid.html"><a href="kaardid.html"><i class="fa fa-check"></i><b>4</b> Kaardid, koordinaatsüsteemid ja projektsioonid</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="kaardid.html"><a href="kaardid.html#kaart"><i class="fa fa-check"></i><b>4.1</b> Kaart</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="kaardid.html"><a href="kaardid.html#koordinaatsüsteemid-ja-projektsioonid"><i class="fa fa-check"></i><b>4.1.1</b> Koordinaatsüsteemid ja projektsioonid</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="kaardid.html"><a href="kaardid.html#veebipõhised-kaardirakendused"><i class="fa fa-check"></i><b>4.2</b> Veebipõhised kaardirakendused</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="kaardid.html"><a href="kaardid.html#google-my-maps"><i class="fa fa-check"></i><b>4.2.1</b> Google My Maps</a></li>
+<li class="chapter" data-level="4.2.2" data-path="kaardid.html"><a href="kaardid.html#ülesanne-1"><i class="fa fa-check"></i><b>4.2.2</b> Ülesanne</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="kaardid.html"><a href="kaardid.html#järgmisel-korral-3"><i class="fa fa-check"></i><b>4.3</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="storymaps.html"><a href="storymaps.html"><i class="fa fa-check"></i><b>5</b> Story maps ja Mapbox</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="storymaps.html"><a href="storymaps.html#story-maps"><i class="fa fa-check"></i><b>5.1</b> Story maps</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="storymaps.html"><a href="storymaps.html#storymapjs"><i class="fa fa-check"></i><b>5.1.1</b> <span>StoryMapJS</span></a></li>
+<li class="chapter" data-level="5.1.2" data-path="storymaps.html"><a href="storymaps.html#arcgis-storymaps"><i class="fa fa-check"></i><b>5.1.2</b> <span>ArcGIS StoryMaps</span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="storymaps.html"><a href="storymaps.html#mapbox-studio"><i class="fa fa-check"></i><b>5.2</b> Mapbox Studio</a></li>
+<li class="chapter" data-level="5.3" data-path="storymaps.html"><a href="storymaps.html#mapbox-story-mapis"><i class="fa fa-check"></i><b>5.3</b> Mapbox <em>story map</em>’is</a></li>
+<li class="chapter" data-level="5.4" data-path="storymaps.html"><a href="storymaps.html#järgmisel-korral-4"><i class="fa fa-check"></i><b>5.4</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="qgis_1.html"><a href="qgis_1.html"><i class="fa fa-check"></i><b>6</b> Sissejuhatus QGISi</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="qgis_1.html"><a href="qgis_1.html#installimine"><i class="fa fa-check"></i><b>6.1</b> Installimine</a></li>
+<li class="chapter" data-level="6.2" data-path="qgis_1.html"><a href="qgis_1.html#andmed-ja-failihaldus"><i class="fa fa-check"></i><b>6.2</b> Andmed ja failihaldus</a></li>
+<li class="chapter" data-level="6.3" data-path="qgis_1.html"><a href="qgis_1.html#esimene-seadistamine-ja-kasutajaliides"><i class="fa fa-check"></i><b>6.3</b> Esimene seadistamine ja kasutajaliides</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="qgis_1.html"><a href="qgis_1.html#vaikimisi-koordinaatsüsteemi-sätestamine."><i class="fa fa-check"></i><b>6.3.1</b> Vaikimisi koordinaatsüsteemi sätestamine.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="qgis_1.html"><a href="qgis_1.html#andmete-avamine"><i class="fa fa-check"></i><b>6.4</b> Andmete avamine</a></li>
+<li class="chapter" data-level="6.5" data-path="qgis_1.html"><a href="qgis_1.html#kihtide-visualiseerimine"><i class="fa fa-check"></i><b>6.5</b> Kihtide visualiseerimine</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="qgis_1.html"><a href="qgis_1.html#harjutus-1"><i class="fa fa-check"></i><b>6.5.1</b> Harjutus 1</a></li>
+<li class="chapter" data-level="6.5.2" data-path="qgis_1.html"><a href="qgis_1.html#harjutus-2"><i class="fa fa-check"></i><b>6.5.2</b> Harjutus 2</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="qgis_1.html"><a href="qgis_1.html#aluskaardid"><i class="fa fa-check"></i><b>6.6</b> Aluskaardid</a></li>
+<li class="chapter" data-level="6.7" data-path="qgis_1.html"><a href="qgis_1.html#järgmisel-korral-5"><i class="fa fa-check"></i><b>6.7</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="qgis_2.html"><a href="qgis_2.html"><i class="fa fa-check"></i><b>7</b> Sissejuhatus QGISi 2</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="qgis_2.html"><a href="qgis_2.html#andmete-avamine-1"><i class="fa fa-check"></i><b>7.1</b> Andmete avamine</a></li>
+<li class="chapter" data-level="7.2" data-path="qgis_2.html"><a href="qgis_2.html#andmete-valimine-ja-mõõtmine-käsitsi"><i class="fa fa-check"></i><b>7.2</b> Andmete valimine ja mõõtmine (käsitsi)</a></li>
+<li class="chapter" data-level="7.3" data-path="qgis_2.html"><a href="qgis_2.html#kihi-ja-andmete-loomine"><i class="fa fa-check"></i><b>7.3</b> Kihi ja andmete loomine</a></li>
+<li class="chapter" data-level="7.4" data-path="qgis_2.html"><a href="qgis_2.html#kaartide-kujundamine-ja-eksportimine"><i class="fa fa-check"></i><b>7.4</b> Kaartide kujundamine ja eksportimine</a></li>
+<li class="chapter" data-level="7.5" data-path="qgis_2.html"><a href="qgis_2.html#järgmisel-korral-6"><i class="fa fa-check"></i><b>7.5</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="avaandmed.html"><a href="avaandmed.html"><i class="fa fa-check"></i><b>8</b> Avaandmed ja repositooriumid</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="avaandmed.html"><a href="avaandmed.html#mis-on-avaandmed"><i class="fa fa-check"></i><b>8.1</b> Mis on avaandmed?</a></li>
+<li class="chapter" data-level="8.2" data-path="avaandmed.html"><a href="avaandmed.html#eesti-ruumiandmed"><i class="fa fa-check"></i><b>8.2</b> Eesti ruumiandmed</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="avaandmed.html"><a href="avaandmed.html#maa-ameti-geoportaal"><i class="fa fa-check"></i><b>8.2.1</b> Maa-ameti Geoportaal</a></li>
+<li class="chapter" data-level="8.2.2" data-path="avaandmed.html"><a href="avaandmed.html#statistikaamet"><i class="fa fa-check"></i><b>8.2.2</b> Statistikaamet</a></li>
+<li class="chapter" data-level="8.2.3" data-path="avaandmed.html"><a href="avaandmed.html#digitaalsed-kaardikollektsioonid"><i class="fa fa-check"></i><b>8.2.3</b> Digitaalsed kaardikollektsioonid</a></li>
+<li class="chapter" data-level="8.2.4" data-path="avaandmed.html"><a href="avaandmed.html#muu"><i class="fa fa-check"></i><b>8.2.4</b> Muu</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="avaandmed.html"><a href="avaandmed.html#muude-riikide-ruumiandmed"><i class="fa fa-check"></i><b>8.3</b> Muude riikide ruumiandmed</a></li>
+<li class="chapter" data-level="8.4" data-path="avaandmed.html"><a href="avaandmed.html#järgmisel-korral-7"><i class="fa fa-check"></i><b>8.4</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="georefereerimine.html"><a href="georefereerimine.html"><i class="fa fa-check"></i><b>9</b> Georefereerimine</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="georefereerimine.html"><a href="georefereerimine.html#kaartide-otsimine-ja-allalaadimine"><i class="fa fa-check"></i><b>9.1</b> Kaartide otsimine ja allalaadimine</a></li>
+<li class="chapter" data-level="9.2" data-path="georefereerimine.html"><a href="georefereerimine.html#harjutus-1-1"><i class="fa fa-check"></i><b>9.2</b> Harjutus 1</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="georefereerimine.html"><a href="georefereerimine.html#lõikamine"><i class="fa fa-check"></i><b>9.2.1</b> Lõikamine</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="georefereerimine.html"><a href="georefereerimine.html#harjutus-2-1"><i class="fa fa-check"></i><b>9.3</b> Harjutus 2</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="georefereerimine.html"><a href="georefereerimine.html#digiteerimine"><i class="fa fa-check"></i><b>9.3.1</b> Digiteerimine</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="georefereerimine.html"><a href="georefereerimine.html#harjutus-3"><i class="fa fa-check"></i><b>9.4</b> Harjutus 3</a></li>
+<li class="chapter" data-level="9.5" data-path="georefereerimine.html"><a href="georefereerimine.html#veebilahendus"><i class="fa fa-check"></i><b>9.5</b> Veebilahendus</a></li>
+<li class="chapter" data-level="9.6" data-path="georefereerimine.html"><a href="georefereerimine.html#järgmisel-korral-8"><i class="fa fa-check"></i><b>9.6</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="avaldised.html"><a href="avaldised.html"><i class="fa fa-check"></i><b>10</b> Avaldised ja päringud</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="avaldised.html"><a href="avaldised.html#avaldised-1"><i class="fa fa-check"></i><b>10.1</b> Avaldised</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="avaldised.html"><a href="avaldised.html#harjutused"><i class="fa fa-check"></i><b>10.1.1</b> Harjutused</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="avaldised.html"><a href="avaldised.html#päringud"><i class="fa fa-check"></i><b>10.2</b> Päringud</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="avaldised.html"><a href="avaldised.html#harjutused-1"><i class="fa fa-check"></i><b>10.2.1</b> Harjutused</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="avaldised.html"><a href="avaldised.html#ülesanne-1-ei-olepole-suhtelised-sagedused"><i class="fa fa-check"></i><b>10.3</b> Ülesanne 1: “ei ole”/“pole” suhtelised sagedused</a></li>
+<li class="chapter" data-level="10.4" data-path="avaldised.html"><a href="avaldised.html#ülesanne-2-ei-olepole-atlase-levikuandmed"><i class="fa fa-check"></i><b>10.4</b> Ülesanne 2: “ei ole”/“pole” atlase levikuandmed</a></li>
+<li class="chapter" data-level="10.5" data-path="avaldised.html"><a href="avaldised.html#ülesanne-3-ei-olepole-selged-eelistused"><i class="fa fa-check"></i><b>10.5</b> Ülesanne 3: “ei ole”/“pole” selged eelistused</a></li>
+<li class="chapter" data-level="10.6" data-path="avaldised.html"><a href="avaldised.html#ülesanne-4-tekstiatribuutide-muutmine"><i class="fa fa-check"></i><b>10.6</b> Ülesanne 4: tekstiatribuutide muutmine</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html"><i class="fa fa-check"></i><b>11</b> Andmekihtide ühendamine</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#andmestike-ühendamine"><i class="fa fa-check"></i><b>11.1</b> Andmestike ühendamine</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#lisaülesanne"><i class="fa fa-check"></i><b>11.1.1</b> Lisaülesanne</a></li>
+<li class="chapter" data-level="11.1.2" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#csv-info-ühendamine-shp-ga"><i class="fa fa-check"></i><b>11.1.2</b> CSV info ühendamine SHP-ga</a></li>
+<li class="chapter" data-level="11.1.3" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#csv-ja-shp-ühendamine-polügoonidega-vektorandmeteks"><i class="fa fa-check"></i><b>11.1.3</b> CSV ja SHP ühendamine polügoonidega vektorandmeteks</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#geokodeerimine"><i class="fa fa-check"></i><b>11.2</b> Geokodeerimine</a></li>
+<li class="chapter" data-level="11.3" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#järgmisel-korral-9"><i class="fa fa-check"></i><b>11.3</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="varvid.html"><a href="varvid.html"><i class="fa fa-check"></i><b>12</b> Värvid, sildid ja eksitamine</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="varvid.html"><a href="varvid.html#eksitamine"><i class="fa fa-check"></i><b>12.1</b> Eksitamine</a></li>
+<li class="chapter" data-level="12.2" data-path="varvid.html"><a href="varvid.html#värvidest"><i class="fa fa-check"></i><b>12.2</b> Värvidest</a></li>
+<li class="chapter" data-level="12.3" data-path="varvid.html"><a href="varvid.html#visualiseerimine"><i class="fa fa-check"></i><b>12.3</b> Visualiseerimine</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="varvid.html"><a href="varvid.html#sildid"><i class="fa fa-check"></i><b>12.3.1</b> Sildid</a></li>
+<li class="chapter" data-level="12.3.2" data-path="varvid.html"><a href="varvid.html#kaardi-tegemine"><i class="fa fa-check"></i><b>12.3.2</b> Kaardi tegemine</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="maailm_diagrammid.html"><a href="maailm_diagrammid.html"><i class="fa fa-check"></i><b>13</b> Maailma ruumiandmed ja diagrammid</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="maailm_diagrammid.html"><a href="maailm_diagrammid.html#euroopa-ja-maailma-andmed"><i class="fa fa-check"></i><b>13.1</b> Euroopa ja maailma andmed</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="maailm_diagrammid.html"><a href="maailm_diagrammid.html#koordinaatsüsteemid"><i class="fa fa-check"></i><b>13.1.1</b> Koordinaatsüsteemid</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="maailm_diagrammid.html"><a href="maailm_diagrammid.html#euroopa-riikide-ja-linnade-filtreerimine"><i class="fa fa-check"></i><b>13.2</b> Euroopa riikide ja linnade filtreerimine</a></li>
+<li class="chapter" data-level="13.3" data-path="maailm_diagrammid.html"><a href="maailm_diagrammid.html#skpin-visualiseerimine"><i class="fa fa-check"></i><b>13.3</b> SKP/in visualiseerimine</a></li>
+<li class="chapter" data-level="13.4" data-path="maailm_diagrammid.html"><a href="maailm_diagrammid.html#rastriga-katsetamine"><i class="fa fa-check"></i><b>13.4</b> Rastriga katsetamine</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="tekstianalyys.html"><a href="tekstianalyys.html"><i class="fa fa-check"></i><b>14</b> Geograafiline tekstianalüüs</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="tekstianalyys.html"><a href="tekstianalyys.html#sammud"><i class="fa fa-check"></i><b>14.1</b> Sammud</a></li>
+<li class="chapter" data-level="14.2" data-path="tekstianalyys.html"><a href="tekstianalyys.html#näited"><i class="fa fa-check"></i><b>14.2</b> Näited</a></li>
+<li class="chapter" data-level="14.3" data-path="tekstianalyys.html"><a href="tekstianalyys.html#ressursid"><i class="fa fa-check"></i><b>14.3</b> Ressursid</a></li>
+<li class="chapter" data-level="14.4" data-path="tekstianalyys.html"><a href="tekstianalyys.html#ülesanded"><i class="fa fa-check"></i><b>14.4</b> Ülesanded</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="tekstianalyys.html"><a href="tekstianalyys.html#geoparserite-katsetamine"><i class="fa fa-check"></i><b>14.4.1</b> Geoparserite katsetamine</a></li>
+<li class="chapter" data-level="14.4.2" data-path="tekstianalyys.html"><a href="tekstianalyys.html#kohanimede-tuvastamine"><i class="fa fa-check"></i><b>14.4.2</b> Kohanimede tuvastamine</a></li>
+<li class="chapter" data-level="14.4.3" data-path="tekstianalyys.html"><a href="tekstianalyys.html#kohanimede-geokodeerimine"><i class="fa fa-check"></i><b>14.4.3</b> Kohanimede geokodeerimine</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="tekstianalyys.html"><a href="tekstianalyys.html#järgmisel-korral-10"><i class="fa fa-check"></i><b>14.5</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html"><i class="fa fa-check"></i><b>15</b> Geograafiline tekstianalüüs 2</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#ülesanne-lihtne-teksti-meelsuse-analüüs"><i class="fa fa-check"></i><b>15.1</b> Ülesanne: lihtne teksti meelsuse analüüs</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#kohanimeüksuste-tuvastamine"><i class="fa fa-check"></i><b>15.1.1</b> Kohanimeüksuste tuvastamine</a></li>
+<li class="chapter" data-level="15.1.2" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#koordinaatide-lisamine-geokodeerimine"><i class="fa fa-check"></i><b>15.1.2</b> Koordinaatide lisamine (geokodeerimine)</a></li>
+<li class="chapter" data-level="15.1.3" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#tekstikatkendite-meelsuse-tuvastamine"><i class="fa fa-check"></i><b>15.1.3</b> Tekstikatkendite meelsuse tuvastamine</a></li>
+<li class="chapter" data-level="15.1.4" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#visualiseerimine-1"><i class="fa fa-check"></i><b>15.1.4</b> Visualiseerimine</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="geostatistika1.html"><a href="geostatistika1.html"><i class="fa fa-check"></i><b>16</b> Geostatistika 1</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="geostatistika1.html"><a href="geostatistika1.html#punktimustri-analüüs"><i class="fa fa-check"></i><b>16.1</b> Punktimustri analüüs</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="geostatistika1.html"><a href="geostatistika1.html#punktitihedus"><i class="fa fa-check"></i><b>16.1.1</b> Punktitihedus</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="geostatistika1.html"><a href="geostatistika1.html#ülesanne-1-1"><i class="fa fa-check"></i><b>16.2</b> Ülesanne 1</a></li>
+<li class="chapter" data-level="16.3" data-path="geostatistika1.html"><a href="geostatistika1.html#graphical-modeler"><i class="fa fa-check"></i><b>16.3</b> Graphical Modeler</a></li>
+<li class="chapter" data-level="16.4" data-path="geostatistika1.html"><a href="geostatistika1.html#ruumiline-vastastikmõju"><i class="fa fa-check"></i><b>16.4</b> Ruumiline vastastikmõju</a></li>
+<li class="chapter" data-level="16.5" data-path="geostatistika1.html"><a href="geostatistika1.html#ülesanne-2-1"><i class="fa fa-check"></i><b>16.5</b> Ülesanne 2</a></li>
+<li class="chapter" data-level="16.6" data-path="geostatistika1.html"><a href="geostatistika1.html#järgmisel-korral-11"><i class="fa fa-check"></i><b>16.6</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="kirjandus.html"><a href="kirjandus.html"><i class="fa fa-check"></i>Kirjandus</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="geostatistika1" class="section level1" number="16">
+<h1><span class="header-section-number">Praktikum 16</span> Geostatistika 1</h1>
+<p>“Everything is related to everything else, but near things are more related than distant things” - First law of geography, Waldo Tobler, 1970.</p>
+<div id="punktimustri-analüüs" class="section level2" number="16.1">
+<h2><span class="header-section-number">16.1</span> Punktimustri analüüs</h2>
+<p>Punktimustri analüüsi näol on tegemist statistiliste meetodite kogumiga, mille abil saab uurida ruumilisi (keerukaid) suhteid nähtuste vahel, mis on kujutatud punktidena. Näiteks asustusüksused maastikul, mingi info kogumiskoht (pärimus, keel, ilm jm). Kuigi sageli on punktidega kaasas ka täiendavat infot, siis lisaks sellele võib meid huvitada puhtalt ka punktide jaotumine ruumis. Arheoloogias on näiteks selliseid meetodeid kasutatud juba alates 1960. aastatest kui hakati rohkem tegelema kvantitatiivsete meetoditega. Näiteks on uuritud leidude paiknemist asulates, hoonetes ja matustes ning näiteks linnamägesid maastikul. GISi kasutusele võtmine muidugi oluliselt lihtsustas nende ananlüüside tegemist.</p>
+<div id="punktitihedus" class="section level3" number="16.1.1">
+<h3><span class="header-section-number">16.1.1</span> Punktitihedus</h3>
+<p>Lihtne viis punktide jaotumise hindamiseks formaalselt on mõõta nende tihedust mingis kindlas piirkonnas. Seda nimetatakse ka kui esimese järgu ruumiline intensiivsus (<em>first-order spatial intensity</em>). Lihtsaim tulemus keskmise intensiivsuse väljendamiseks võib olla number, mis näitab oodatavat punktide arvu mingis alas. Vaatame näidet!</p>
+<p>All oleval pildil on näha 100 punkti, mis jaotuvad juhuslikult 10 x 10 alal, mis on jagatud 2 x 2 ruutudeks ehk tegemist 25 ruuduga. Ühikud ei ole siinkohal tähtsad. Need sõltuvad meie uurimisalast ja -küsimusest ning võivad ulatuda nanomeetrist kilomeetri ja valgusaastani. Esimese asjane võiks küsida, kui palju punkte võiks paikneda ühes ruudus, arvestades, et igal ruudul (või muul pindalaühikul) on sama hea võimalus punktide saamiseks? Võiks eeldada, et vastus on 4, kuna 100 / 25 = 4. Kui jaotumine on aga juhuslik (<em>random</em>), siis ei saa eeldada, et igas ruudus oleks 4 punkti, vaid jaotus järgib teoreetilist Poissoni jaotus. Selle kohaselt on mitmes ruudus vähem kui 4 ja üksikutes ruutudes rohkem kui 4 punkti. Poissoni jaotus on punktimustri analüüsis väga oluline teoreetiline eeldus. Täiesti juhuslikult paiknevate punktide jaotuse vaadeldav intensiivsus pindalaühiku kohta peaks järgima Poissoni jaotust. Seda nimetatakse kui täielik ruumiline juhuslikkus (<em>complete spatial randomness – CSR</em>) ja selle jaotuse loonud juhuslikku käitumist nimetatakse Poissoni punkti protsessiks (<em>Poisson point process</em>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:17firstorderrandom"></span>
+<img src="imgs/17_first_order_intensity_random.PNG" alt="Juhuslik jaotumine ja võrdlus Poissoni jaotusega [@Gillings2020, fig 4.1]" width="100%" />
+<p class="caption">
+Figure 16.1: Juhuslik jaotumine ja võrdlus Poissoni jaotusega <span class="citation">(<a href="#ref-Gillings2020" role="doc-biblioref"><strong>Gillings2020?</strong></a>, fig 4.1)</span>
+</p>
+</div>
+<p>Huvi korral vaata Poissoni jaotuse tutvustust <a href="https://www.youtube.com/watch?v=BbLfV0wOeyc">365 Data Science videost</a> või paljudest teistest Youtube’is leiduvatest seletustest.</p>
+<p>Teine teoreetiline eeldus on, et iga punkt käitub samamoodi kogu uurimisala ulatuses. Pärismaailmas olevad punktide jaotused sageli aga ei vasta sellele eeldusele. Näiteks on mingis uurimisala piirkonnas rohkem või vähem punkte kui teistes. Sellisel vaadeldud juhul võib eeldada, et mingi väline protsess/käitumine mõjutab punktide intensiivsust uurimisala erinevates piirkondades. Näiteks külade koondumine kihelkonna põhjaossa, kuna lõunaosas on soo. All oleval joonisel on näha selgelt, et joonised koonduvad ülesse parempoolsesse nurka ning ruudupõhine lugemine näitab, et jaotus ei järgi Poissoni jaotust. Sageli on aga erinevus sellisest juhuslikust homogeensest punktimustrist suhteliselt selge ning me ei peagi seda niimoodi vaatama või testima. Pärismaailmas ongi väga vähe nähtuseid, mis on täielikult juhuslikud.</p>
+<p>Populaarne meetod esimese järgu intensiivsuse kokku võtmiseks on <em>kernel density estimation</em> ehk KDE. See on sarnane ruudupõhise lugemisega, aga kindlate ruutude asemel liigub kogu alast süsteemselt üle aken ehk kernel ehk tuum. Igas asukohas loetakse kokku punktid, mis jäävad akna alale ja see arv jäädvustatakse kerneli (ajutisse) keskkohta. Tulemuseks on rasterkiht, mille iga piksli väärtus näitab punktimustri intensiivsust selles piirkonnas. Sarnane meetod on Gaussi kernel, mis võtab arvesse kõiki punkte igal arvutusel, kuid millel siin rohkem ei peatu.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:16firstorderinhom"></span>
+<img src="imgs/17_first_order_intensity_inhomogenous.PNG" alt="Mittehomogeenne jaotumine ja võrdlus Poissoni jaotusega [@Gillings2020, fig 4.1]" width="100%" />
+<p class="caption">
+Figure 16.2: Mittehomogeenne jaotumine ja võrdlus Poissoni jaotusega <span class="citation">(<a href="#ref-Gillings2020" role="doc-biblioref"><strong>Gillings2020?</strong></a>, fig 4.1)</span>
+</p>
+</div>
+<p>KDE puhul on oluline kasutatava akna suurus. See on pisut arbitraarne valik, kuid on olemas ka automaatseid meetodeid selle valimiseks. Samas aga soovitatakse üldiselt teha mitme erineva suurusega, et saada mustrist parem ettekujutus. Valikut saab põhjendada ka andmestiku taga olevate käitumuslike protsessidega. Suurus siis vastab sellele, kui suure mõjualaga käitumine neid andmeid lõi.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:16kdeprinciple"></span>
+<img src="imgs/16_kde_principle.png" alt="Kernel density estimation tööpõhimõte. Näidatud andmepunkt, kerneli suurus ning tuletatud KDE" width="50%" />
+<p class="caption">
+Figure 16.3: Kernel density estimation tööpõhimõte. Näidatud andmepunkt, kerneli suurus ning tuletatud KDE
+</p>
+</div>
+<p>Miks aga üldse seda teha? Tihti saame ju niigi aru, milline on intensiivsus erinevates alades. Siiski tuuakse sageli välja mitu põhjust, miks KDE on oluline alguspunkt punktide jaotumise analüüsimiseks:</p>
+<ol style="list-style-type: decimal">
+<li>kasutades erinevaid akna suuruseid formaliseerime oma võrdluse peenema ja suurema skaalaga punktide esimese järgu ruumilisest intensiivsusest;</li>
+<li>see aitab mõista olukordi, kus on liiga palju punkte, et lihtsalt peale vaadates midagi nende kohta öelda või juhud, kus punktidel on mingi kaal ning neid ei saa seetõttu võrdsetena võrrelda;</li>
+<li>see võib olla sisendiks järgmistele keerukamatele analüüsidele. Näiteks mudelitele, kus võrreldakse mittehomogeensete punktide mustrite tekkeprotsesse.</li>
+</ol>
+<!-- ## Terminid -->
+<!-- - CRS - complete spatial randomness -->
+<!-- - IRP - independent random process -->
+<!-- - first order effect -->
+<!-- - second order effect -->
+<!-- - deterministic -->
+<!-- - stochasticity -->
+<!-- - Tobler’s first law of geography -->
+<!-- - spatial autocorrelation -->
+<!-- - ääre efektid -->
+</div>
+</div>
+<div id="ülesanne-1-1" class="section level2" number="16.2">
+<h2><span class="header-section-number">16.2</span> Ülesanne 1</h2>
+<p>Kultuurimälestiste leviku paremaks mõistmiseks koosta Kernel density estimation kihid erinevate akna suurustega. Ava kiht <em>kultuurimalestised.gpkg</em>. KDE jaoks <em>Processing -&gt; Toolbox -&gt;</em> otsingusse <em>kernel</em> <em>-&gt; Heatmap (Kernel density estimation)</em>. Raadiuseks võib esialgu panna 20 kilomeetrit (<strong>jälgi, et ühik oleks õige!</strong>) ning piksli suuruseks 1000. Lõika tulemus omavalitsuste piiridesse. Ava kiht <em>omavalitsus.gpkg</em> ja <em>Raster -&gt; Extraction -&gt; Clip raster by mask layer -&gt; Input: Heatmap -&gt; Output: omavalitsus -&gt; OK</em>. Visualiseeri raster vastavalt enda eelistusele ning vaata ka <em>Identify features</em> (Ctrl Shift i) funktsiooniga rastri väärtuseid erinevates kohtades. Vali heatmapile sobiv värviskaala ning väärtuste jaotumine värvidesse.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:16kernelestimation"></span>
+<img src="imgs/16_kultuurimalestised_heatmap.png" alt="Kultuurimälestiste Kernel density estimation raadiusega 20 km ja piksli suurusega 500 m ning kultuurimälestised omavalituste kaupa" width="50%" /><img src="imgs/16_kultuurimalestised_kov.png" alt="Kultuurimälestiste Kernel density estimation raadiusega 20 km ja piksli suurusega 500 m ning kultuurimälestised omavalituste kaupa" width="50%" />
+<p class="caption">
+Figure 16.4: Kultuurimälestiste Kernel density estimation raadiusega 20 km ja piksli suurusega 500 m ning kultuurimälestised omavalituste kaupa
+</p>
+</div>
+<p>Võrdle KDE tulemust ka omavalitsuste põhise kultuurimälestiste jaotumisega. Selleks loe kokku igas KOV-is olevate kultuurimälestiste arv. Selleks <em>Vector -&gt; Analysis Tools -&gt; Count point in polygon</em>. Polügooni kihiks vali <em>omavalitsus</em> ning punktide kihiks kultuurimälestised. Visualiseeri tekkinud kiht <em>Graduate</em> sümboloogiaga tulba <em>NUMPOINTS</em> abil. Mis on erinevused ja millest need tulevad?</p>
+</div>
+<div id="graphical-modeler" class="section level2" number="16.3">
+<h2><span class="header-section-number">16.3</span> Graphical Modeler</h2>
+<p>Kui soovime samu funktsioone korduvalt järjest kasutada, siis võime neist ise uue funktsiooni luua, mis kombineerin meile kõik vajaliku. Siinkohal ongi abiks Graphical Modeler. Loome funktsiooni, mis teeb sama, mida eelnevas ülesandes tegime kolme eraldi tegevusena (heatmap, clip, värvimine). See läbi saame oluliselt lihtsamini ja kiiremini katsetada heatmapide tegemist erinevate väärtustega ning neid omavahel kohe võrrelda. Praegu on meil funktsioonid suhteliselt lihtsad ning neid ainult kolm. Niisiis pole ise uue funktsiooni või mudeli tegemine tingimata vajalik, aga selle põhjal saab teha lihtsa näite.</p>
+<p>Meie mudel koosneb kolmest osast:</p>
+<ul>
+<li>Sisendid: kultuurimälestised, omavalitsus, raadius, stiil</li>
+<li>Funtksioonid: heatmap, clip, stylize</li>
+<li>Väljundid: omavalitsuste piiridesse lõigatud värvitud heatmap.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:16graphicalmodeler"></span>
+<img src="imgs/16_graphical_modeler_valmis.png" alt="Graphical Modeler valmis mudel" width="100%" />
+<p class="caption">
+Figure 16.5: Graphical Modeler valmis mudel
+</p>
+</div>
+<p><strong>Sisendid</strong></p>
+<p>Ava graafiline mudeldaja valides ülevalt menüüst <em>Processing -&gt; Graphical Modeler</em>. Kõigepealt lisame sisendid. Selleks vali vasakult <em>Inputs</em> ja sealt <em>Map Layer</em>. Anna sisendkihile nimi. Nt kultuurimälestised või pigem midagi neutraalset nagu punktandmed. Vali tüübpiks <em>Vector point</em>. Vaata, et oleks linnuke <em>Mandatory</em> ees. Lisa samamoodi omavalitsuste kihi sisend ja vali sellele kihile õige tüüp.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:16graphicalmodelerlayer"></span>
+<img src="imgs/16_graphical_modeler_input_layer.png" alt="Graphical Modeler valmis mudel" width="75%" />
+<p class="caption">
+Figure 16.6: Graphical Modeler valmis mudel
+</p>
+</div>
+<p>Lisa ka numbriline sisend kerneli raadiuse jaoks valides Input <em>Number</em>. Nimeks raadius ja vaikimisi väärtuseks varem kasutatud 20000 (ehk 20 km).</p>
+<p>Lisa sisend ka stiili jaoks, et kõik väljundid oleks samasuguse stiiliga. Selleks tuleb eelnevalt aga stiili fail salvestada. Ava varem tehtud heatmapi <em>Symbology</em>. Tee ümmarguste numbritega väärtused. Nt min 10 ja max 500 ja jaga need värvidesse nii et iga grupp oleks ümmarguste väärtustega. Selleks vali <em>Interpolation -&gt; Discrete</em> ja säti klasside arvu. Kui on olemas sobiv stiil, siis all vasakult <em>Syle -&gt; Save style</em>. Nüüd mine tagasi <em>Graphical Modeler</em>’i juurde. Vali Inputi alt <em>File/Folder</em> ning pane selle nimeks <em>Stiil</em></p>
+<p>Nüüd on kõik neli sisendit olemas.</p>
+<p><strong>Funktsioonid</strong></p>
+<p>Esimene funktsioon on heatmapi tegemine. Lisa see mudelisse (topeltklikk). Vali vasakult <em>Inputs</em> asemel <em>Algorithms</em> ning otsi sealt heatmap ja lisa see mudelisse. Nagu näha on tegemist sama heatmpi funktsiooniga, mida varasemalt kasutasime. Siin määrame aga sisendid meie mudelist. <em>Point layer</em> ees kliki 123 ikoonil ja vali sealt <em>Value</em> asemel <em>Model input</em> ja kihiks varem tehtud sisend nimega <em>Punktandmed</em>. Sama tee <em>Radius</em> juures, kuhu sisendiks läheb varem tehtud sisend <em>Raadius</em>. <em>Output raster size</em> määra 1000. Seda ei hakka me sisendiga iga kord muutma. Nüüd <em>OK</em> ja liiguta funktsioon sisendite kõrvale. Nagu näha lähevad valitud sisendite juurest jooned funktsiooni sisse.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:16graphicalmodeleralgorithm"></span>
+<img src="imgs/16_graphical_modeler_algorithm_heatmap.png" alt="Graphical Modeler heatmap algoritmi lisamine" width="100%" />
+<p class="caption">
+Figure 16.7: Graphical Modeler heatmap algoritmi lisamine
+</p>
+</div>
+<p>Lisa järgmine funktsioon. <em>Algorithms</em> seast otsi <em>Clip raster by mask layer</em> ja lisa see mudelisse (topeltklikk). <em>Input layer</em>’iks määra <em>Algorithm output</em>. Valikusse ilmub automaatselt <em>“Heatmap”</em>, kuna see on meie mudelis ainuke algoritm praegu. <em>Mask Layer</em> juures vali <em>Value</em> asemel <em>Model input</em> ja kihiks varem tehtud sisend nimega <em>Piirid</em>. <em>Clipped (mask)</em> juures sisesta tulemuse nimi (nt clipped_heatmap).</p>
+<p>Lisa stiliseerimise funktsioon. <em>Algorithms</em> seast otsi <em>Set style for raster layer</em>. Lisa mudelisse ja määra <em>Layer -&gt; Algorithm output</em> ja vali algoritm <em>“Clipped (mask)”</em>. <em>Style -&gt; Model input -&gt; Stiil</em>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:16graphicalmodelerstyle"></span>
+<img src="imgs/16_graphical_modeler_algorithm_style.png" alt="Graphical Modeler stiili algoritmi lisamine" width="100%" />
+<p class="caption">
+Figure 16.8: Graphical Modeler stiili algoritmi lisamine
+</p>
+</div>
+<p><strong>Tulemus</strong></p>
+<p>Väljund <em>clipped_heatmap</em> on juba automaatselt tekkinud, kuna andsime selle nime lõikamise funktsioonis.</p>
+<p>Proovi, kas mudel töötab. Vali üleval <em>Model -&gt; Run model</em>. Nagu näha avaneb funktsiooni aken, kus on sisendiks meie määratud valikud. Vali õiged kihid ja jooksuta mudel. QGIS peaaknasse peaks ilmuma nüüd heatmap, mis on õigetesse piiridesse lõigatud ning etteantud stiiliga värvitud.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:16graphicalmodelertest"></span>
+<img src="imgs/16_graphical_modeler_test.png" alt="Graphical Modeler valmis mudeli testimine" width="100%" />
+<p class="caption">
+Figure 16.9: Graphical Modeler valmis mudeli testimine
+</p>
+</div>
+<p>Salvesta mudel ning pane sellele nimeks nt heatmap_clipper vms. Nüüd võib <em>Graphical Modeler</em> akna kinni panna. Mudel on nüüd leitav <em>Processing Toolbox</em>’ist (<em>Processing -&gt; Toolbox</em>) <em>Models</em> all või lihtsalt otsitav antud pealkirja järgi. Testi nüüd mudeli abil erinevate raadiustega, millised KDE’d välja tulevad. Olenevalt soovitavast üldistamise tasemest saab valida endale sobiva rastermudeli.</p>
+</div>
+<div id="ruumiline-vastastikmõju" class="section level2" number="16.4">
+<h2><span class="header-section-number">16.4</span> Ruumiline vastastikmõju</h2>
+<p>Eelnevalt vaatasime punktide jaotuse esimese järgu omadusi, mis kirjeldavad üldist punktide tihedust ning seda kas intensiivsus on uurimisalas homogeenne või mitte. Juhtudel, kus ei ole tegemist homogeense jaotumisega võib eeldada mingit välist mõju. Tõenäoliselt ei ole suur osa inimtegevust ja kultuuri ruumis päris suvaline.</p>
+<p>Punktimustrite uurimise juures on oluline aspekt see, et ühe punkti asumine teatud kohas võib suurendada või vähendada teise punkti asumist selle läheduses. See on punktimustri <strong>teise järgu omadus</strong> (<em>second-order property</em>). Näiteks pole vast mõistlik kogu uurimisalas küladel täiesti kõrvuti asuda. Niisiis eeldatakse, et mittehomogeense mustri taga võib olla mingi tõmbav (attraction) või lükkav/peletav (inhibition) protsess.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:17secondordern"></span>
+<img src="imgs/17_second_order.PNG" alt="Punktimustrid, kus (a) pole teise järgu efekte, (b) paiknemine on regulaarne ja (c) klasterdunud [@Gillings2020, fig 4.2]." width="100%" />
+<p class="caption">
+Figure 16.10: Punktimustrid, kus (a) pole teise järgu efekte, (b) paiknemine on regulaarne ja (c) klasterdunud <span class="citation">(<a href="#ref-Gillings2020" role="doc-biblioref"><strong>Gillings2020?</strong></a>, fig 4.2)</span>.
+</p>
+</div>
+<p>Lihtne, kuid samas suuresti problemaatiline meetod selliste mustrite (esialgseks) uurimiseks on lähima naabri analüüs ehk <em>nearest neighbour analysis</em> ehk <em>Clark and Evans test</em>. Testi käigus arvutatakse iga punkti ja tema lähima naabri vaheline distants ja seejärel võrreldakse kõikide nende lähima naabri distantside aritmeetilist keskmist eeldatava juhusliku distantsiga sellise punktide arvu ja ala suuruse põhjal.</p>
+<p>Testi tulemusena saadav r-väärtus ehk <em>nearest neighbour index</em> näitab, et jaotus on juhuslik, kui see on 1 lähedal; regulaarne, kui see on suurem kui 1 ning klasterdunud, kui see on väiksem kui 1.</p>
+<p>Peamine probleem testiga on aga see, et raske või lausa võimatu on arvestada uurimisala servadega. Eriti juhtudel, kui uuritav punktimuster võib sinna edasi ulatuda. Sellest lahendamiseks on arendatud välja mõningad keerulisemisemad meetodid, mida võimalusel vaatame järgmisel korral. Milline oleks aga lihtne lahendus meie asustuse uurimise andmestiku puhul?</p>
+<!-- arheo ja sullivani raamatust -->
+<!-- https://docs.qgis.org/3.16/en/docs/training_manual/vector_analysis/spatial_statistics.html -->
+<!-- kernel density estimation. heatmap -->
+<!-- dbscan clustering, v.cluster -->
+<!-- ## voronoi polygons  -->
+<!-- ## interpolation -->
+<!-- mis oleks hea data set, et oleks loogiline. -->
+<!-- ## graphical model builder -->
+<!-- ### Ülesanne 2 -->
+<!-- Tartumaa asustuse kernel density ja gaussian density. Võrrelda kihelkondade jaotumisega.  -->
+</div>
+<div id="ülesanne-2-1" class="section level2" number="16.5">
+<h2><span class="header-section-number">16.5</span> Ülesanne 2</h2>
+<p>Vaata Tartumaa asustuse punktimustrit. Lae Moodle’ist alla kiht tartumaa_asustus.gpkg ning ava see QGISis. Andmestik pärineb <a href="https://kohanimeregister.ee/knravalik/">Kohanimeregistrist</a> ning selles on igale Tartumaa küla või aleviku nimele lisatud <a href="https://www.eki.ee/dict/knr/">Kohanimeraamatust</a> esmamainimise aasta, kihelkond ning nime etümoloogia. Lisaks võid taustale avada ka eelmistes praktikumides kasutatud maakondade ja/või kihelkondade kihi.</p>
+<p>Vaata andmestiku atribuuttabelit, et näha millega on tegemist. Esmamainimise aastate tulbast ülevaate saamiseks võib kasutada funktsiooni <em>Show statistical summary</em>. Näha on lihtne ülevaade vanimast, noorimast külast ning keskmisest ja enimlevinud esmamainimise aastaarvust jms.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:17statisticalsummary"></span>
+<img src="imgs/17_statistical_summary.gif" alt="Show statistical summary kasutamine" width="100%" />
+<p class="caption">
+Figure 16.11: Show statistical summary kasutamine
+</p>
+</div>
+<p>Külade vanusest esmase ülevaate saamiseks võib kasutada erinevaid värve iga sajandi jaoks. Seda saab teha <em>Graduated</em> sümboloogia ja <em>Pretty breaks</em> abil.</p>
+<p>Arvuta Tartumaa asustuse Nearest Neighbor Index iga sajandi kohta või näiteks keskaja ja uusaja kohta. Selleks filtreeri vastavad väärtused. <em>Processing Toolbox</em> otsingusse <em>nearest</em> ja sealt <em>Nearest neighbor analysis</em>. Ava analüüsi tulemusena valminud html fail ning vaata, milline on indexi väärtus ning hinda selle järgi, kas punktid asuvad suvaliselt, regulaarselt või klasterdunult.</p>
+<p>Huvi korral võid katsetada Tartumaa asustuse puhul ka eelpool valmistatud mudeli heatmap_clipper. Selleks salvesta aga eraldi kihina Tartumaa omavalitsused.</p>
+</div>
+<div id="järgmisel-korral-11" class="section level2" number="16.6">
+<h2><span class="header-section-number">16.6</span> Järgmisel korral</h2>
+<p>Interpoleerimise võimalused ja arvutused rastritega.</p>
+<!-- Liina küsimus: -->
+<!-- Mul on küsimus tulevaseks projektiks, et kui mul on samamoodi punktid erinevate väärtustega, siis kuidas oleks võimalik nende punktide põhjal arvutada välja maakondade keskmine? Idee on maakonnad skooride järgi eristada. -->
+
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tekstianalyys2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="kirjandus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["book.pdf", "PDF"], ["book.epub", "EPUB"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"info": true
+});
+});
+</script>
+
+</body>
+
+</html>

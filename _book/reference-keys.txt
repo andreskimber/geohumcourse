@@ -394,3 +394,12 @@ tekstikatkendite-meelsuse-tuvastamine-1
 koordinaatide-lisamine-geokodeerimine-1
 visualiseerimine-2
 fig:excel
+fig:16firstorderinhom
+fig:16kdeprinciple
+fig:16kernelestimation
+fig:16graphicalmodeler
+fig:16graphicalmodelerlayer
+fig:16graphicalmodeleralgorithm
+fig:16graphicalmodelerstyle
+fig:16graphicalmodelertest
+graphical-modeler
