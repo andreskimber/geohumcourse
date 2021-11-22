@@ -403,3 +403,4 @@ fig:16graphicalmodeleralgorithm
 fig:16graphicalmodelerstyle
 fig:16graphicalmodelertest
 graphical-modeler
+ruumiskaala-ulatus-ja--struktuur

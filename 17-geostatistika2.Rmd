@@ -1,20 +1,31 @@
 # Geostatistika 2 {#geostatistika2}
 
-## Asukohapõhised kokkuvõtted 
+<!-- ## Asukohapõhised kokkuvõtted  -->
 
-Nagu eelmisel korral küsimusest selgus, siis võib-olla vajalik teha punktandmetest kokkuvõtteid mingi alas. Teeme selle läbi!
+<!-- Andmete ühendamise praktikumis juba tehtud seda -->
+<!-- Nagu eelmisel korral küsimusest selgus, siis võib-olla vajalik teha punktandmetest kokkuvõtteid mingi alas. Teeme selle läbi! -->
 
-### Ülesanne 1
+<!-- ### Ülesanne 1 -->
 
-Tõmba Moodle'ist kiht *saaremaa_asustus.gpkg* ning ava see QGISis. Lisaks ava kihelkondade või omavalitsuste kiht.  *Processing -> Toolbox -> Join attributes by location (summary)*. Loeme kokku palju, igas kihelkonnas külasid on ning võib võtta ka esmamainimise min, max ja keskmise. Eelnevalt oleks kasulik valida välja ainult Saaremaa kihelkonnad ning teha neist eraldi kiht. 
+<!-- Tõmba Moodle'ist kiht *saaremaa_asustus.gpkg* ning ava see QGISis. Lisaks ava kihelkondade või omavalitsuste kiht.  *Processing -> Toolbox -> Join attributes by location (summary)*. Loeme kokku palju, igas kihelkonnas külasid on ning võib võtta ka esmamainimise min, max ja keskmise. Eelnevalt oleks kasulik valida välja ainult Saaremaa kihelkonnad ning teha neist eraldi kiht.  -->
+
+
+Geostatistika abil saame iseloomustada meid huvitavate muutujate ruumilist struktuuri ja ennustada nende väärtusi kohtades, kus meil vaatlusandmed puuduvad. 
+Selle rakenduslik pool on seotud nii keskkondlike/looduslike omaduste kui ka inimeste pool loodud kultuuriliste nähtustega. Geostatistika sai alguse kaevandamise valdkonnas ning seetõttu on sageli keskendutud füüsilisele looduskeskkonnale. Juhuslikkuse funktsiooni kaudu on võimalik aga arvesse võtta määramatust (*uncertainty*), mis on humanitaarias oluline, kuna sageli ei mõista me kõiki keerulisi protsesse, mille tulemusena on tekkinud nähtuste ruumilised jaotused.
+
+## Ruumiskaala (ulatus) ja -struktuur
+
+Enamik geograafilisi omadusi on ruumiliselt sõltuvad - lähemal olevad asjad on omavahel rohkem sarnased kui üksteisest kaugel olevad asjad (Tobleri seadus). Hea näide on siinkohal maapinna kõrgus. Madala koha ümbruses on tõenäoliselt ka madal. Esineb küll erandeid nagu näiteks klindiservad jms. Ruumilise sõltuvuse ulatust (kui kaugel üksteisest olevad nähtused on omavahel sarnased) saab mõõta ja see annab võimaluse teha kokkuvõtteid nähtuste jaotumise kohta ruumis. Maapinna kõrgusandmete puhul on mägises piirkonnas ruumiline variatsioon on lühikese ulatusega (või kõrge sagedusega), kuna kõrgusväärtused võivad väikesel alal suures ulatuses muutuda. Tasandikul on kõrgusandmete variatsioon aga pika ulatusega või pikamaaline (long range või madala sagedusega), kuna kõrgus on suhteliselt sarnane suurtel aladel. 
+
+Geostatistika aluseks on piirkondlike muutujate teooria. Ruumiline variatsioon koosneb kahest osast: deterministlik komponent, mis esindab järkjärgulist muutust uurimispiirknnas ja stohhastiline või suvaline komponent, mis esindab määramatust. Meile näiv suvaline varieeruvus võib olla paljude faktoride koosmõjul tekkinud ning seda ei pruugi olla võimalik otseselt mudeldada.
+
+
 
 ## Klasterdamine
 
 K-means klasterdamine on meetod, mille abil jagatakse väärtused (punktid) erinevateks gruppideks ehk klastriteks. Klastritesse jaotumine sõltub sellest, millise klastri keskpunktile vastav punkt kõige lähemal on. 
 
-### Ülesanne 2
-
-Klasterda Saaremaa külad sama paljudeks klastriteks, kui on Saaremaal kihelkondi ja valdasid. *Processing -> Toolbox -> K-means clustering* Vaata, kas lihtsalt distantis põhine külade jaotamine gruppidesse kattub kihelkondadega. Sama võiks teha näiteks taludega ja võrrelda küladesse jaotumist.
+Proovime selle läbi. Jaga Saaremaa külad sama paljudeks klastriteks, kui on Saaremaal kihelkondi. *Processing -> Toolbox -> K-means clustering* Vaata, kas lihtsalt distantsi põhine külade jaotamine gruppidesse kattub kihelkondadega. Sama võiks teha näiteks taludega ja võrrelda küladesse jaotumist. Erinevuste võrdlemiseks saaks nt teha klastritest alad ning lahutada need kihelkondadest, et välja tuua alad, mis nende vahel erinevad. 
 
 
 ```{r 18kalster, echo =F, fig.align='center', fig.show='hold', fig.cap = "Saaremaa külade jaotumine klastriteks.", out.width="100%"}
@@ -56,15 +67,18 @@ knitr::include_graphics(here::here("imgs/18_idw_formula_example.PNG"))
 knitr::include_graphics(here::here("imgs/18_spline.PNG"))
 ```
 
-### Ülesanne 3
+### Ülesanne
 
-Interpoleeri erinevate meetoditega *ei_ole_pole_props* kihi põhjal *ei_ole* või *pole* jaotumine terves Eestis. Kuna andmestikus on info kihelkondadena, siis kõige pealt tuleb see siduda kihelkondade kihiga *Joins* funktsiooniga. Kuna interpoleerimiseks vajame aga punkte, siis tuleb teha kihelkondadest, kus proportsioonide andmed on olemas. Selleks vali õige kihelkonnad avaldisega *"ei_ole" IS NOT NULL*. Tee kihelkondadest keskpunkt. *Vector -> Geometry tools -> Centroids*. Otsi *Processing Toolbox*'ist interpoleerimismeetodeid. 
+Interpoleeri erinevate meetoditega *ei_ole_pole_props* kihi põhjal *ei_ole* või *pole* jaotumine terves Eestis. Kuna andmestikus on info kihelkondadena, siis kõige pealt tuleb see siduda kihelkondade kihiga *Joins* funktsiooniga. Kuna interpoleerimiseks vajame aga punkte, siis tuleb teha kihelkondadest, kus proportsioonide andmed on olemas. Selleks vali õige kihelkonnad avaldisega *"ei_ole" IS NOT NULL*. Tee kihelkondadest keskpunkt. *Vector -> Geometry tools -> Centroids*. Otsi *Processing Toolbox*'ist interpoleerimismeetodeid (IDW, Spline, TIN). Interpoleeri erinevate meetoditega ning lõika need kihelkondade piiridesse ja värvi sama skaalaga. Võrdle erinevusi 
 
 ```{r 18splineeiole, echo =F, fig.align='center', fig.show='hold', fig.cap = "Thin plate spline meetodiga arvutatud raster 'ei ole' proportsioonidest", out.width="100%"}
 knitr::include_graphics(here::here("imgs/18_spline_eiole.PNG"))
 ```
 
 Vaatame ka rasterite profiile, et nendest parem ettekujutus saada. *Plugins* -> *Profile tool*.
+
+Erinevuste paremaks võrdlemiseks saab kihid ka üksteisest lahutada. Kasuta selleks *Raster -> Raster calculator*. Värvi tulemused keskmisest kõrvale kaldega ning vali selleks sobiv skaala.  
+
 
 <!-- ### Idee ülesandeks -->
 
