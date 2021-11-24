@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
-  <meta name="description" content="Page not found | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <title>Praktikum 18 Veebirakendused, veebimajutus | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
+  <meta name="description" content="Praktikum 18 Veebirakendused, veebimajutus | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta property="og:title" content="Praktikum 18 Veebirakendused, veebimajutus | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta name="twitter:title" content="Praktikum 18 Veebirakendused, veebimajutus | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="geostatistika2.html"/>
+<link rel="next" href="kirjandus.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -321,19 +321,194 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="veebirakendused" class="section level1" number="18">
+<h1><span class="header-section-number">Praktikum 18</span> Veebirakendused, veebimajutus</h1>
+<p>Tavalised arvutis hoitavad kaardid on <strong>digitaalsed kaardid</strong>, mille võib panna ka veebilehele, ent mille koostamine, säilitamine ja näitamine ei sõltu kuidagi veebitehnoloogiast. Digitaalsed kaardid on staatilised. <strong>Veebikaardid</strong> aga lihtsalt ei paikne veebis, vaid on veebist sõltuvad: nii nende koostamine kui ka vaatamine sõltub veebitehnoloogiast. Sageli on veebikaardid dünaamilised, interaktiivsed ning võivad kasutada ka mujalt veebist päritavaid andmeid.</p>
+<p>Lisaks sellele, et veebikaartidel saab kuvada korraga mitut kihti, mingeid kihte sisse ja välja lülitada või kasutada andmete esitamiseks animatsiooni, saab nendele lisada ka erinevaid lisaelemente, näiteks sisse- ja väljasuumimine, vahemaade mõõtmine, legend, pealkirjad, otsing jpm. Samuti saab määrata, mis juhtub, kui kasutaja liigub hiirega mingi punkti peale, sellel klikib või mingil muul moel veebikaardiga suhtleb.</p>
+<p>Tänapäevase veebikaardi aluskaart koosneb <strong>paanidest</strong> (<em>tiles</em>), tüüpiliselt 256×256 piksli suurustest rasterpiltidest (aga juba ka vektoritest), mida laaditakse vastavalt kasutaja valikutele kaardipaanide serverist (näiteks OpenStreetMapi serverist). See tähendab, et kasutajale näidatakse ainult seda osa kaardist, mida tal on vaja näha, muutes kaardi laadimise oluliselt kiiremaks.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:tiles"></span>
+<img src="imgs/19_tiles.gif" alt="Kaardipaanide laadimine (Allikas: [Axis Maps](https://www.axismaps.com/guide/what-is-a-web-map))" width="70%" />
+<p class="caption">
+Figure 18.1: Kaardipaanide laadimine (Allikas: <a href="https://www.axismaps.com/guide/what-is-a-web-map">Axis Maps</a>)
+</p>
+</div>
+<p>Aluskaart annab sinu veebikaardile geograafilise konteksti, ent ei ole iseenesest kaardi tegemise ega vaatamise põhjuseks. Aluskaardil saab omakorda kuvada muid vektor- või rasterandmeid.</p>
+<p>Suur osa veebikaartidest (ja neid pakkuvatest APIdest) on vaikimisi <strong>Web Mercatori</strong> (EPSG:3857) projektsioonis, mille puhul peab arvestama sellega, et alade suurus on moonutatud.</p>
+<iframe width="100%" height="480px" src="https://thetruesize.com/#?borders=1~!MTU2MDMyNDc.NDgyOTAxOQ*MzM0ODE1MTM(NDAxMDYxNQ~!CONTIGUOUS_US*MTAwMjQwNzU.MjUwMjM1MTc(MTc1)MA~!IN*NTI2NDA1MQ.Nzg2MzQyMQ)Mg~!CN*OTkyMTY5Nw.NzMxNDcwNQ(MjI1)MQ" frameborder="0" scrolling="yes">
+</iframe>
+<p>Kui tahta teha sageli, palju või korralikke veebikaarte ja kaardirakendusi, tasub vähemalt mingil algtasemel ära õppida keel, milles seda teha saab.
+Veebilehed kasutavad (vähemalt) <a href="https://www.w3schools.com/html/default.asp"><strong>HTML</strong></a>i, et veebilehte struktureerida, <a href="https://www.w3schools.com/css/default.asp"><strong>CSS</strong></a>i, et veebilehte kujundada, ning <a href="https://www.w3schools.com/js/default.asp"><strong>JavaScript</strong></a>i, et lisada veebilehele interaktiivsust.
+<!-- javascript võib lehe sisu muuta, muuta selle väljanägemist mingis brauseris, saata serverile mingit informatsiooni või küsida serverilt uut informatsiooni--></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:htmlcssjs"></span>
+<img src="imgs/19_htmlcssjs.jpg" alt="HTML, CSS ja JavaScript (Allikas: [dev.to](https://dev.to/fabcodingzest/how-to-get-started-with-web-development-front-end-part-1-5c6h))" width="50%" />
+<p class="caption">
+Figure 18.2: HTML, CSS ja JavaScript (Allikas: <a href="https://dev.to/fabcodingzest/how-to-get-started-with-web-development-front-end-part-1-5c6h">dev.to</a>)
+</p>
+</div>
+<p>Ühe lihtsa veebilehe struktuur HTML-failis võib välja näha näiteks selline:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Minu lehe pealkiri&lt;/title&gt;
+    &lt;link href=&quot;stiil.css&quot; type=&quot;text/css&quot; rel=&quot;stylesheet&quot;&gt;
+  &lt;/head&gt;
+  &lt;body bgcolor=&quot;black&quot; text=&quot;white&quot;&gt;
+    &lt;h1&gt;Minu esimene veebileht&lt;/h1&gt;
+    &lt;p&gt;Siin on mingi tekst.&lt;/p&gt;
+    &lt;p&gt;Siin on &lt;a href=&quot;https://tartugeohum.github.io/&quot; target=&quot;_blank&quot;&gt;link&lt;/a&gt;, kust leiab kõik selle kursuse materjalid&lt;/p&gt;
+    &lt;p&gt;Siin all on nupp, millele vajutades saab veel midagi teada.&lt;/p&gt;
+    &lt;p id=&quot;pealkiri&quot; style=&quot;display:none&quot;&gt;See on minu esimene veebileht!&lt;/p&gt;
+    &lt;button type=&quot;button&quot; onclick=&quot;document.getElementById(&#39;pealkiri&#39;).style.display=&#39;block&#39;&quot;&gt;Vajuta siia!&lt;/button&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Selle veebilehe juurde käiv CSS-fail omakorda selline:</p>
+<pre><code>h1{
+  text-align: center;
+  color: blue;
+  font-size: 40px;
+}
+p{
+  font-family: courier;
+  font-size: 20px;
+}</code></pre>
+<p>Kokku saab ühe väga lihtsa lehe, mis näeb välja selline:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:html"></span>
+<img src="imgs/19_html.PNG" alt="Lihtne veebileht" width="100%" />
+<p class="caption">
+Figure 18.3: Lihtne veebileht
+</p>
+</div>
+<p>Interaktiivsete <strong>veebikaartide</strong> jaoks kasutatakse sageli näiteks JavaScripti <a href="https://leafletjs.com/"><strong>Leaflet</strong></a>i või <a href="https://openlayers.org/"><strong>OpenLayers</strong></a>i APIsid (<em>Application Programming Interface</em>), mis suhtlevad erinevate serveritega ning muudavad ja kuvavad kaarti vastavalt kasutaja valikutele. Mõlemad teegid on vabavaralised ja avatud lähtekoodiga, samas kui näiteks Google Mapsi API ja ArcGISi API on seotud konkreetse omandusliku (<em>proprietary</em>) tarkvaraga.
+<!-- Veebikaartide APId sisaldavad kaardiklasse ja kihte, ilma et peaks ise kirjutama tervet pikka koodi, millega mingit kaarti programmaatiliselt joonistada. APIde abil saab seega kirjutada programme kiiremini ja lihtsamalt --></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:leafletOL"></span>
+<img src="imgs/19_leaflet.png" alt="Leaflet ja OpenLayers" width="28%" /><img src="imgs/19_openlayers.png" alt="Leaflet ja OpenLayers" width="28%" />
+<p class="caption">
+Figure 18.4: Leaflet ja OpenLayers
+</p>
+</div>
+<p>Leafleti kasutatakse üldiselt rohkem, see on ökonoomsem, lihtsama APIga ning sobib hästi lihtsamate kaardirakenduste tegemiseks (<em>Leaflet does the 20% of things that are required 80% of the time</em>). Samas saab paljud funktsioonid kätte ainult erinevatest pluginatest ning kõiki võib-olla ei olegi veel olemas. Suure hulga funktsionaalsustega kaardirakenduste jaoks soovitatakse kasutada pigem OpenLayersit, mille API on keerulisem, ent selle võrra on see paindlikum ning pakub rohkem funktsioone.</p>
+<p>Ka Mapbox pakub oma JavaScripti teeki/paketti <strong><a href="https://docs.mapbox.com/mapbox-gl-js/guides/">Mapbox GL JS</a></strong>, mis võimaldab koostada veebikaarte ja kaardirakendusi.</p>
+<div id="kaardikihid-qgisis" class="section level2" number="18.1">
+<h2><span class="header-section-number">18.1</span> Kaardikihid QGISis</h2>
+<p>Eelmisel korral tegime kaardi, kus interpoleerisime <strong>murdekorpuse sagedusandmete</strong> põhjalt “ei ole” ja “pole” rasterkihi, kus kihelkondade keskpunktide väärtuste järgi oli ennustatud ka vahepealseid väärtusi, kuigi sealt algselt andmeid ei olnud.</p>
+<p>Seekord teeme võrdluseks kaardid <strong>murdeatlase levikuandmete</strong> põhjalt. Selleks teeme esmalt ettevalmistusi:</p>
+<ol style="list-style-type: decimal">
+<li>laadime QGISi kihelkondade ja atlase andmete vektorkihid,<br />
+</li>
+<li>filtreerime punktikihilt välja read, kus keelendeid ei ole,<br />
+</li>
+<li>teeme uue tulba nimega <em>bin_value</em>, kus oleks väärtus <code>0</code> ridadel, kus tulbas <em>Keelend</em> on ka <em>p</em>-täht (<em>pole</em>), ning väärtus <code>1</code> ridadel, kus seal <em>p</em>-tähte ei ole (<em>ei ole</em>).<br />
+</li>
+<li>värvime reeglipõhiselt punktid vastavalt variandile “ei ole” või “pole”.</li>
+</ol>
+<div id="heatmap" class="section level3" number="18.1.1">
+<h3><span class="header-section-number">18.1.1</span> Heatmap</h3>
+<p>Teeme nüüd esmalt lihtsalt punktide jaotumise KDE <em>heatmap</em>’i, et näha, kust üldse andmeid rohkem on.</p>
+<ul>
+<li><em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Heatmap (Kernel Density Estimation)</em><br />
+</li>
+<li>Määrame raadiuseks 50 km ja piksli suuruseks 500.<br />
+</li>
+<li>Lõikame rastri kihelkondade kihi järgi (<em>Raster</em> -&gt; <em>Extraction</em> -&gt; <em>Clip Raster by Mask Layer</em>).<br />
+</li>
+<li>Värvime rastri nii, et alad, kust on rohkem punkte, on tumedamad.<br />
+</li>
+<li>Nimetame lõigatud ja värvitud rastri nt nimega <em>KDE punktitihedus</em>.</li>
+</ul>
+</div>
+<div id="punktide-thin-plate-spline-rasterkiht" class="section level3" number="18.1.2">
+<h3><span class="header-section-number">18.1.2</span> Punktide Thin Plate Spline rasterkiht</h3>
+<p>Järgmiseks teeme rasterkihi <em>Thin Plate Spline</em> meetodiga, et ennustada “ei ole” <em>vs.</em> “pole” väärtusi ka nendele aladele, kust atlases punkte ei ole.</p>
+<ul>
+<li><em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Thin Plate Spline</em><br />
+</li>
+<li>Kasutame atlase punktikihi <em>bin_value</em> tulpa, kus on ainult väärtused 0 ja 1. Rasterkihil niisiis ennustame väärtusi 0 ja 1 vahepeale (tegelikult ka üle ja alla nende).<br />
+</li>
+<li>Määrame piksli suuruseks 500 ja <em>Regularisation</em> väärtuseks 0,1.<br />
+</li>
+<li>Lõikame rastri kihelkondade kihi järgi.<br />
+</li>
+<li>Värvime rastri nii, et alad, mis on <em>pole</em>-lembesemad, on tumedamad.<br />
+</li>
+<li>Nimetame lõigatud ja värvitud rastri nt nimega <em>TPS punktidega</em>.</li>
+</ul>
+</div>
+<div id="osakaalude-thin-plate-spline-rasterkiht" class="section level3" number="18.1.3">
+<h3><span class="header-section-number">18.1.3</span> Osakaalude Thin Plate Spline rasterkiht</h3>
+<p>Lõpetuseks teeme kolmanda rasterkihi, kus üldistame igale kihelkonnale mingi kindla “pole” osakaalu ja interpoleerime kihelkondade keskpunktide järgi. See sarnaneb paljuski sellele, mida tegime eelmiselgi korral.</p>
+<ul>
+<li>Loeme kokku iga kihelkonna piiridesse jäävad punktid: <em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Count points in polygon</em>. Nimetame kihi nimega <em>kokku</em>.<br />
+</li>
+<li>Loeme kokku iga kihelkonna piiridesse jäävad <em>pole</em> punktid. Selleks valime punktikihil kõigepealt ainult punktid, millel tulbas <em>bin_value</em> on 0, ning seejärel kasutame taas tööriista <em>Count points in polygon</em> (NB! <em>Selected features only</em>). Nimetame kihi nimega <em>pole</em>.<br />
+</li>
+<li>Ühendame kokku ja pole andmed (<em>Join attributes by field value</em>) ning teeme ühendatud kihile uue tulba <em>poleprop</em>, kuhu arvutame <em>pole</em>-punktide osakaalu kõikide punktide arvust.<br />
+</li>
+<li>Leiame ühendatud andmekihi keskpunktid (<em>Vector</em> -&gt; <em>Geometry tools</em> -&gt; <em>Centroids</em>).<br />
+</li>
+<li>Loome keskpunktide kihist nüüd TPS meetodiga uue rasterkihi, kasutades samu parameetreid, mida eelmisegi rastri puhul.<br />
+</li>
+<li>Lõikame rastri kihelkondade kihi järgi, värvime rastri nii, et alad, mis on <em>pole</em>-lembesemad, on tumedamad, ja nimetame lõigatud ja värvitud rastri nimega <em>TPS osakaaludega</em>.</li>
+</ul>
+</div>
+</div>
+<div id="veebikaartide-eksportimine" class="section level2" number="18.2">
+<h2><span class="header-section-number">18.2</span> Veebikaartide eksportimine</h2>
+<p>Eemaldame loodud kihtidelt tunnused, mida me ei taha veebikaardil näidata, valime kaardile aluskaardi (<em>QuickMapServices</em>) ja muudame projekti projektsiooni EPSG:3857ks.</p>
+<p>Tehtud kaartide hõlpsaks lisamiseks veebi saab installida nüüd <strong>qgis2web</strong> plugina. See genereerib QGISi projektist kas OpenLayersi, Leafleti või Mapboxi API abil veebikaardi tervikliku veebilehena koos kõikide vajalike kaustade ja failidega, ilma et peaksime tingimata ise JavaScriptis, CSSis ja HTMLis koodi kirjutama.</p>
+<p>Vali seejärel <em>Web</em> -&gt; <em>qgis2web</em> -&gt; <em>Create web map</em>.</p>
+<p>Katseta erinevate sätetega, võrdle OpenLayersi ja Leafleti failide suurusi, failistruktuure.
+Veebikaardi saab (lokaalselt) eksportida, kasutades nuppu <em>Export</em>.</p>
+</div>
+<div id="veebikaartide-majutamine" class="section level2" number="18.3">
+<h2><span class="header-section-number">18.3</span> Veebikaartide majutamine</h2>
+<p>Valmis veebikaardi jagamiseks teistega võid saata kogu rakenduse kausta kellelegi lokaalselt vaatamiseks või selle kuskile serverisse avalikult üles panna.</p>
+<div id="ülikooli-võrguketas" class="section level3" number="18.3.1">
+<h3><span class="header-section-number">18.3.1</span> Ülikooli võrguketas</h3>
+<p>Tartu Ülikooli tudengitel ja töötajatel on TÜ serveris \\pohl.ut.ee oma võrguketas (vaikimisi 1GB), kus on võimalik hoida ja varundada oma isiklikke faile. Samuti saab TÜ serverisse oma kodukataloogi salvestada ja üles panna loodud veebilehed (vaata juhendit <a href="https://www.ut.ee/et/4891">siit</a>). Veebilehed tuleks salvestada kodukataloogi alamkausta <strong>public_html</strong> ning nendele saab ligi aadressilt <strong><code>https://www.ut.ee/~kasutajanimi/</code></strong>.</p>
+<p>Ülikooli võrguketastele ligipääsemiseks peab olema ülikooli sisevõrgus. Väljastpoolt ülikooli saab sisevõrku turvaliselt <a href="https://wiki.ut.ee/pages/viewpage.action?pageId=17105590">ühenduse virtuaalse privaatvõrgu</a> (<strong>VPN</strong>) abil.</p>
+<p>Ülikooli sisevõrgus olles saab isikliku võrguketta kodu- või sülearvutile <a href="https://wiki.ut.ee/pages/viewpage.action?pageId=17105488">külge haakida</a>. NB! Kasutajanimi olgu kujul domenis\kasutajanimi (mitte <a href="mailto:kasutajanimi@ut.ee" class="email">kasutajanimi@ut.ee</a>)</p>
+<p>(Kui see kohe ei tööta, siis proovi esmalt <a href="https://www.techcrumble.net/2018/03/you-cant-access-this-shared-folder-because-your-organizations-security-policies-block-unauthenticated-guest-access/">seda</a>.)</p>
+</div>
+<div id="github" class="section level3" number="18.3.2">
+<h3><span class="header-section-number">18.3.2</span> GitHub</h3>
+<p>Veebikaarte saab tasuta majutada näiteks ka <a href="https://github.com/"><strong>GitHubis</strong></a> (vaata lühikest juhendit <a href="https://rogerdudler.github.io/git-guide/">siit</a>). Selleks tuleks teha uus avalik repositoorium, kuhu paigutada <em>qgis2web</em>i väljundkausta sisu (sh kindlasti ka fail <em>index.html</em>). Vaata juhendit näiteks <a href="https://github.com/NieneB/Webmapping_for_beginners/wiki/Hosting-on-github">siit</a>.</p>
+<p>Tee endale GitHubi konto ning seal loo uus repositoorium, nt kas üldisema nimega <em>veebikaart</em> või spetsiifilisema nimega, nt <em>eiole_pole_kaart</em>.</p>
+<p>Kõige lihtsam on GitHubis toimetada <a href="https://desktop.github.com/">GitHub Desktopi</a> rakenduse abil.</p>
+<ul>
+<li>Laadi programm alla.</li>
+<li>Ava programm.<br />
+</li>
+<li>Vali <em>File</em> -&gt; <em>Options</em> -&gt; <em>Accounts</em> ning logi sisse GitHub.com kontole oma GitHubi kasutajanime ja parooliga (võib toimuda läbi brauseri).<br />
+</li>
+<li>Järgmiseks vali avalehel <em>Clone a repository from the Internet</em> ning filtreeri välja veebis loodud repositoorium (nt <em>MPilvik/veebikaart</em>). Vali see, vali oma arvutis koht, kus tahad seda kausta lokaalselt enda arvutis hoida, ning vajuta <em>Clone</em>. Nüüd tekib sinu arvutis vastavasse kausta uus tühi kaust.<br />
+</li>
+<li>Sikuta sellesse tühja kausta kogu qgis2web plugina eksporditud väljund.<br />
+</li>
+<li>Mine tagasi GitHub Desktopi rakendusse. Näed, et rakendus näitab sulle kaustas toimunud muudatusi (lisamisi, kustutamisi, muid muudatusi).<br />
+</li>
+<li>Selleks, et veebikaardi materjale nüüd GitHubi üles lükata, tuleb need n-ö <em>commit</em>’ida ning seejärel <em>push</em>’ida. All vasakus nurgas on kastike koos nupuga <em>Commit to main</em>. Lisa <em>Summary</em> väljale mingi kirjeldus, mis uuendusi üles laadid (nt <em>veebikaardi materjalid</em>) ning vajuta <em>Commit to main</em> nupule.<br />
+</li>
+<li>Lõpuks pead vajutama <em>Publish branch</em> nupule, et kõik veebi üles laadida.<br />
+</li>
+<li>Lehel github.com peaksid nüüd sisse logides nägema, et qgis2webi väljundid (sh index.html) on kõik loodud veebikaardi kaustas.<br />
+</li>
+<li>Lõpuks tuleb veebileht ka rakendusena nähtavaks teha. Selleks saab kasutada <strong>GitHub Pages</strong> veebimajutuse teenust. Vali oma repositooriumis <em>Settings</em> -&gt; <em>Pages</em> -&gt; <em>Source</em> = <em>main</em> ja vajuta <em>Save</em>. Oota paar sekundit ning mine lehele <a href="https://sinukasutajanimi.github.io/sinurakendusenimi/" class="uri">https://sinukasutajanimi.github.io/sinurakendusenimi/</a></li>
+</ul>
+<p>Kuskile serverisse riputatud veebilehte saab omakorda paigutada teise veebilehe sisse, nt HTML-i <a href="https://www.w3schools.com/tags/tag_iframe.ASP"><strong>iframe</strong></a>-märgendi abil (kaart ilmub siia pärast praktikumi lõppu).</p>
+<!--<iframe src="https://mpilvik.github.io/veebikaart/index.html" width="100%" height="400" style="border:none;" title="Veebikaart GitHubist (mpilvik.github.io/veebikaart/)"></iframe>-->
+<p>Oma veebikaarte võib jagada ka otse QGISist, nt <a href="https://qgiscloud.com/">QGIS Cloud</a>i või <a href="http://gisquick.org/">Gisquick</a> pluginate abil.</p>
+
+
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="geostatistika2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="kirjandus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

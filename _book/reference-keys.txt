@@ -404,3 +404,10 @@ fig:16graphicalmodelerstyle
 fig:16graphicalmodelertest
 graphical-modeler
 ruumiskaala-ulatus-ja--struktuur
+veebirakendused
+järgmisel-korral-12
+ülikooli-võrguketas
+github
+heatmap
+punktide-thin-plate-spline-rasterkiht
+osakaalude-thin-plate-spline-rasterkiht
