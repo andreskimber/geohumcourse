@@ -340,9 +340,9 @@ Figure 18.1: Kaardipaanide laadimine (Allikas: <a href="https://www.axismaps.com
 Veebilehed kasutavad (vähemalt) <a href="https://www.w3schools.com/html/default.asp"><strong>HTML</strong></a>i, et veebilehte struktureerida, <a href="https://www.w3schools.com/css/default.asp"><strong>CSS</strong></a>i, et veebilehte kujundada, ning <a href="https://www.w3schools.com/js/default.asp"><strong>JavaScript</strong></a>i, et lisada veebilehele interaktiivsust.
 <!-- javascript võib lehe sisu muuta, muuta selle väljanägemist mingis brauseris, saata serverile mingit informatsiooni või küsida serverilt uut informatsiooni--></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:htmlcssjs"></span>
-<img src="imgs/19_htmlcssjs.jpg" alt="HTML, CSS ja JavaScript (Allikas: [dev.to](https://dev.to/fabcodingzest/how-to-get-started-with-web-development-front-end-part-1-5c6h))" width="50%" />
+<img src="imgs/19_htmlcssjs.jpg" alt="HTML, JavaScript ja CSS (Allikas: [dev.to](https://dev.to/fabcodingzest/how-to-get-started-with-web-development-front-end-part-1-5c6h))" width="50%" />
 <p class="caption">
-Figure 18.2: HTML, CSS ja JavaScript (Allikas: <a href="https://dev.to/fabcodingzest/how-to-get-started-with-web-development-front-end-part-1-5c6h">dev.to</a>)
+Figure 18.2: HTML, JavaScript ja CSS (Allikas: <a href="https://dev.to/fabcodingzest/how-to-get-started-with-web-development-front-end-part-1-5c6h">dev.to</a>)
 </p>
 </div>
 <p>Ühe lihtsa veebilehe struktuur HTML-failis võib välja näha näiteks selline:</p>
@@ -378,7 +378,7 @@ p{
 Figure 18.3: Lihtne veebileht
 </p>
 </div>
-<p>Interaktiivsete <strong>veebikaartide</strong> jaoks kasutatakse sageli näiteks JavaScripti <a href="https://leafletjs.com/"><strong>Leaflet</strong></a>i või <a href="https://openlayers.org/"><strong>OpenLayers</strong></a>i APIsid (<em>Application Programming Interface</em>), mis suhtlevad erinevate serveritega ning muudavad ja kuvavad kaarti vastavalt kasutaja valikutele. Mõlemad teegid on vabavaralised ja avatud lähtekoodiga, samas kui näiteks Google Mapsi API ja ArcGISi API on seotud konkreetse omandusliku (<em>proprietary</em>) tarkvaraga.
+<p>Interaktiivsete <strong>veebikaartide</strong> jaoks kasutatakse sageli näiteks JavaScripti teekide/pakettide <a href="https://leafletjs.com/"><strong>Leaflet</strong></a>i või <a href="https://openlayers.org/"><strong>OpenLayers</strong></a>i APIsid (<em>Application Programming Interface</em>), mis suhtlevad erinevate serveritega ning muudavad ja kuvavad kaarti vastavalt kasutaja valikutele. Mõlemad teegid on vabavaralised ja avatud lähtekoodiga, samas kui näiteks Google Mapsi API ja ArcGISi API on seotud konkreetse omandusliku (<em>proprietary</em>) tarkvaraga.
 <!-- Veebikaartide APId sisaldavad kaardiklasse ja kihte, ilma et peaks ise kirjutama tervet pikka koodi, millega mingit kaarti programmaatiliselt joonistada. APIde abil saab seega kirjutada programme kiiremini ja lihtsamalt --></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:leafletOL"></span>
 <img src="imgs/19_leaflet.png" alt="Leaflet ja OpenLayers" width="28%" /><img src="imgs/19_openlayers.png" alt="Leaflet ja OpenLayers" width="28%" />
@@ -395,11 +395,11 @@ Figure 18.4: Leaflet ja OpenLayers
 <ol style="list-style-type: decimal">
 <li>laadime QGISi kihelkondade ja atlase andmete vektorkihid,<br />
 </li>
-<li>filtreerime punktikihilt välja read, kus keelendeid ei ole,<br />
+<li>filtreerime punktikihilt välja read, kus keelendeid ei ole, ja salvestame selle eraldi kihina faili,<br />
 </li>
-<li>teeme uue tulba nimega <em>bin_value</em>, kus oleks väärtus <code>0</code> ridadel, kus tulbas <em>Keelend</em> on ka <em>p</em>-täht (<em>pole</em>), ning väärtus <code>1</code> ridadel, kus seal <em>p</em>-tähte ei ole (<em>ei ole</em>).<br />
+<li>teeme uuele kihile uue tulba nimega <em>bin_value</em>, kus oleks väärtus <code>0</code> ridadel, kus tulbas <em>Keelend</em> on ka <em>p</em>-täht (<em>pole</em>), ning väärtus <code>1</code> ridadel, kus seal <em>p</em>-tähte ei ole (<em>ei ole</em>).<br />
 </li>
-<li>värvime reeglipõhiselt punktid vastavalt variandile “ei ole” või “pole”.</li>
+<li>värvime punktid vastavalt variandile “ei ole” või “pole”.</li>
 </ol>
 <div id="heatmap" class="section level3" number="18.1.1">
 <h3><span class="header-section-number">18.1.1</span> Heatmap</h3>
@@ -407,7 +407,7 @@ Figure 18.4: Leaflet ja OpenLayers
 <ul>
 <li><em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Heatmap (Kernel Density Estimation)</em><br />
 </li>
-<li>Määrame raadiuseks 50 km ja piksli suuruseks 500.<br />
+<li>Määrame raadiuseks 30 km ja piksli suuruseks 500.<br />
 </li>
 <li>Lõikame rastri kihelkondade kihi järgi (<em>Raster</em> -&gt; <em>Extraction</em> -&gt; <em>Clip Raster by Mask Layer</em>).<br />
 </li>
@@ -439,9 +439,9 @@ Figure 18.4: Leaflet ja OpenLayers
 <ul>
 <li>Loeme kokku iga kihelkonna piiridesse jäävad punktid: <em>Processing</em> -&gt; <em>Toolbox</em> -&gt; <em>Count points in polygon</em>. Nimetame kihi nimega <em>kokku</em>.<br />
 </li>
-<li>Loeme kokku iga kihelkonna piiridesse jäävad <em>pole</em> punktid. Selleks valime punktikihil kõigepealt ainult punktid, millel tulbas <em>bin_value</em> on 0, ning seejärel kasutame taas tööriista <em>Count points in polygon</em> (NB! <em>Selected features only</em>). Nimetame kihi nimega <em>pole</em>.<br />
+<li>Loeme kokku iga kihelkonna piiridesse jäävad <em>pole</em> punktid. Selleks valime punktikihil kõigepealt ainult punktid, millel tulbas <em>bin_value</em> on 0, ning seejärel kasutame taas tööriista <em>Count points in polygon</em> (NB! <em>Selected features only</em>).<br />
 </li>
-<li>Ühendame kokku ja pole andmed (<em>Join attributes by field value</em>) ning teeme ühendatud kihile uue tulba <em>poleprop</em>, kuhu arvutame <em>pole</em>-punktide osakaalu kõikide punktide arvust.<br />
+<li>Ühendame kokku ja pole andmed (<em>Join attributes by field value</em>) kihiks <em>pole</em> ning teeme ühendatud kihile uue tulba <em>poleprop</em>, kuhu arvutame <em>pole</em>-punktide osakaalu kõikide punktide arvust.<br />
 </li>
 <li>Leiame ühendatud andmekihi keskpunktid (<em>Vector</em> -&gt; <em>Geometry tools</em> -&gt; <em>Centroids</em>).<br />
 </li>
@@ -464,9 +464,9 @@ Veebikaardi saab (lokaalselt) eksportida, kasutades nuppu <em>Export</em>.</p>
 <p>Valmis veebikaardi jagamiseks teistega võid saata kogu rakenduse kausta kellelegi lokaalselt vaatamiseks või selle kuskile serverisse avalikult üles panna.</p>
 <div id="ülikooli-võrguketas" class="section level3" number="18.3.1">
 <h3><span class="header-section-number">18.3.1</span> Ülikooli võrguketas</h3>
-<p>Tartu Ülikooli tudengitel ja töötajatel on TÜ serveris \\pohl.ut.ee oma võrguketas (vaikimisi 1GB), kus on võimalik hoida ja varundada oma isiklikke faile. Samuti saab TÜ serverisse oma kodukataloogi salvestada ja üles panna loodud veebilehed (vaata juhendit <a href="https://www.ut.ee/et/4891">siit</a>). Veebilehed tuleks salvestada kodukataloogi alamkausta <strong>public_html</strong> ning nendele saab ligi aadressilt <strong><code>https://www.ut.ee/~kasutajanimi/</code></strong>.</p>
+<p>Tartu Ülikooli tudengitel ja töötajatel on TÜ serveris \\pohl.ut.ee oma võrguketas (vaikimisi 1GB), kus on võimalik hoida ja varundada oma isiklikke faile. Samuti saab TÜ serverisse oma kodukataloogi salvestada ja üles panna loodud veebilehed (vaata juhendit <a href="https://www.ut.ee/et/4891">siit</a>). Veebilehed tuleks salvestada kodukataloogi alamkausta <strong>public_html</strong> ning nendele saab ligi aadressilt <strong><code>https://kodu.ut.ee/~kasutajanimi/</code></strong>.</p>
 <p>Ülikooli võrguketastele ligipääsemiseks peab olema ülikooli sisevõrgus. Väljastpoolt ülikooli saab sisevõrku turvaliselt <a href="https://wiki.ut.ee/pages/viewpage.action?pageId=17105590">ühenduse virtuaalse privaatvõrgu</a> (<strong>VPN</strong>) abil.</p>
-<p>Ülikooli sisevõrgus olles saab isikliku võrguketta kodu- või sülearvutile <a href="https://wiki.ut.ee/pages/viewpage.action?pageId=17105488">külge haakida</a>. NB! Kasutajanimi olgu kujul domenis\kasutajanimi (mitte <a href="mailto:kasutajanimi@ut.ee" class="email">kasutajanimi@ut.ee</a>)</p>
+<p>Ülikooli sisevõrgus olles saab isikliku võrguketta kodu- või sülearvutile <a href="https://wiki.ut.ee/pages/viewpage.action?pageId=17105488">külge haakida</a>. NB! Kui küsitakse kasutajanime, siis see olgu kujul domenis\kasutajanimi (mitte <a href="mailto:kasutajanimi@ut.ee" class="email">kasutajanimi@ut.ee</a>)</p>
 <p>(Kui see kohe ei tööta, siis proovi esmalt <a href="https://www.techcrumble.net/2018/03/you-cant-access-this-shared-folder-because-your-organizations-security-policies-block-unauthenticated-guest-access/">seda</a>.)</p>
 </div>
 <div id="github" class="section level3" number="18.3.2">
@@ -488,7 +488,7 @@ Veebikaardi saab (lokaalselt) eksportida, kasutades nuppu <em>Export</em>.</p>
 </li>
 <li>Selleks, et veebikaardi materjale nüüd GitHubi üles lükata, tuleb need n-ö <em>commit</em>’ida ning seejärel <em>push</em>’ida. All vasakus nurgas on kastike koos nupuga <em>Commit to main</em>. Lisa <em>Summary</em> väljale mingi kirjeldus, mis uuendusi üles laadid (nt <em>veebikaardi materjalid</em>) ning vajuta <em>Commit to main</em> nupule.<br />
 </li>
-<li>Lõpuks pead vajutama <em>Publish branch</em> nupule, et kõik veebi üles laadida.<br />
+<li>Lõpuks pead vajutama <em>Publish branch/Push origin</em> nupule, et kõik veebi üles laadida.<br />
 </li>
 <li>Lehel github.com peaksid nüüd sisse logides nägema, et qgis2webi väljundid (sh index.html) on kõik loodud veebikaardi kaustas.<br />
 </li>

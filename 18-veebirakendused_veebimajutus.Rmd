@@ -21,7 +21,7 @@ Veebilehed kasutavad (vähemalt) [**HTML**](https://www.w3schools.com/html/defau
 <!-- javascript võib lehe sisu muuta, muuta selle väljanägemist mingis brauseris, saata serverile mingit informatsiooni või küsida serverilt uut informatsiooni-->
 
 
-```{r htmlcssjs, echo=F, fig.show='hold', fig.align='center', out.width= "50%", fig.cap= "HTML, CSS ja JavaScript (Allikas: [dev.to](https://dev.to/fabcodingzest/how-to-get-started-with-web-development-front-end-part-1-5c6h))"}
+```{r htmlcssjs, echo=F, fig.show='hold', fig.align='center', out.width= "50%", fig.cap= "HTML, JavaScript ja CSS (Allikas: [dev.to](https://dev.to/fabcodingzest/how-to-get-started-with-web-development-front-end-part-1-5c6h))"}
 knitr::include_graphics(here::here("imgs", "19_htmlcssjs.jpg"))
 ```
 
@@ -65,7 +65,7 @@ Kokku saab ühe väga lihtsa lehe, mis näeb välja selline:
 knitr::include_graphics(here::here("imgs", "19_html.PNG"))
 ```
 
-Interaktiivsete **veebikaartide** jaoks kasutatakse sageli näiteks JavaScripti [**Leaflet**](https://leafletjs.com/)i või [**OpenLayers**](https://openlayers.org/)i APIsid (*Application Programming Interface*), mis suhtlevad erinevate serveritega ning muudavad ja kuvavad kaarti vastavalt kasutaja valikutele. Mõlemad teegid on vabavaralised ja avatud lähtekoodiga, samas kui näiteks Google Mapsi API ja ArcGISi API on seotud konkreetse omandusliku (*proprietary*) tarkvaraga. 
+Interaktiivsete **veebikaartide** jaoks kasutatakse sageli näiteks JavaScripti teekide/pakettide [**Leaflet**](https://leafletjs.com/)i või [**OpenLayers**](https://openlayers.org/)i APIsid (*Application Programming Interface*), mis suhtlevad erinevate serveritega ning muudavad ja kuvavad kaarti vastavalt kasutaja valikutele. Mõlemad teegid on vabavaralised ja avatud lähtekoodiga, samas kui näiteks Google Mapsi API ja ArcGISi API on seotud konkreetse omandusliku (*proprietary*) tarkvaraga. 
 <!-- Veebikaartide APId sisaldavad kaardiklasse ja kihte, ilma et peaks ise kirjutama tervet pikka koodi, millega mingit kaarti programmaatiliselt joonistada. APIde abil saab seega kirjutada programme kiiremini ja lihtsamalt -->
 
 ```{r leafletOL, echo=F, fig.show='hold', fig.align='center', out.width= "28%", fig.cap= "Leaflet ja OpenLayers"}
@@ -85,16 +85,16 @@ Eelmisel korral tegime kaardi, kus interpoleerisime **murdekorpuse sagedusandmet
 Seekord teeme võrdluseks kaardid **murdeatlase levikuandmete** põhjalt. Selleks teeme esmalt ettevalmistusi:  
 
 1) laadime QGISi kihelkondade ja atlase andmete vektorkihid,  
-2) filtreerime punktikihilt välja read, kus keelendeid ei ole,  
-3) teeme uue tulba nimega *bin_value*, kus oleks väärtus `0` ridadel, kus tulbas *Keelend* on ka *p*-täht (*pole*), ning väärtus `1` ridadel, kus seal *p*-tähte ei ole (*ei ole*).   
-4) värvime reeglipõhiselt punktid vastavalt variandile "ei ole" või "pole".
+2) filtreerime punktikihilt välja read, kus keelendeid ei ole, ja salvestame selle eraldi kihina faili,  
+3) teeme uuele kihile uue tulba nimega *bin_value*, kus oleks väärtus `0` ridadel, kus tulbas *Keelend* on ka *p*-täht (*pole*), ning väärtus `1` ridadel, kus seal *p*-tähte ei ole (*ei ole*).   
+4) värvime punktid vastavalt variandile "ei ole" või "pole".
 
 ### Heatmap
 
 Teeme nüüd esmalt lihtsalt punktide jaotumise KDE *heatmap*'i, et näha, kust üldse andmeid rohkem on. 
 
 - *Processing* -> *Toolbox* -> *Heatmap (Kernel Density Estimation)*  
-- Määrame raadiuseks 50 km ja piksli suuruseks 500.  
+- Määrame raadiuseks 30 km ja piksli suuruseks 500.  
 - Lõikame rastri kihelkondade kihi järgi (*Raster* -> *Extraction* -> *Clip Raster by Mask Layer*).  
 - Värvime rastri nii, et alad, kust on rohkem punkte, on tumedamad.  
 - Nimetame lõigatud ja värvitud rastri nt nimega *KDE punktitihedus*.   
@@ -117,14 +117,13 @@ Järgmiseks teeme rasterkihi *Thin Plate Spline* meetodiga, et ennustada "ei ole
 Lõpetuseks teeme kolmanda rasterkihi, kus üldistame igale kihelkonnale mingi kindla "pole" osakaalu ja interpoleerime kihelkondade keskpunktide järgi. See sarnaneb paljuski sellele, mida tegime eelmiselgi korral.    
 
 - Loeme kokku iga kihelkonna piiridesse jäävad punktid: *Processing* -> *Toolbox* -> *Count points in polygon*. Nimetame kihi nimega *kokku*.   
-- Loeme kokku iga kihelkonna piiridesse jäävad *pole* punktid. Selleks valime punktikihil kõigepealt ainult punktid, millel tulbas *bin_value* on 0, ning seejärel kasutame taas tööriista *Count points in polygon* (NB! *Selected features only*). Nimetame kihi nimega *pole*.    
-- Ühendame kokku ja pole andmed (*Join attributes by field value*) ning teeme ühendatud kihile uue tulba *poleprop*, kuhu arvutame *pole*-punktide osakaalu kõikide punktide arvust.  
+- Loeme kokku iga kihelkonna piiridesse jäävad *pole* punktid. Selleks valime punktikihil kõigepealt ainult punktid, millel tulbas *bin_value* on 0, ning seejärel kasutame taas tööriista *Count points in polygon* (NB! *Selected features only*).  
+- Ühendame kokku ja pole andmed (*Join attributes by field value*) kihiks *pole* ning teeme ühendatud kihile uue tulba *poleprop*, kuhu arvutame *pole*-punktide osakaalu kõikide punktide arvust.  
 - Leiame ühendatud andmekihi keskpunktid (*Vector* -> *Geometry tools* -> *Centroids*).  
 - Loome keskpunktide kihist nüüd TPS meetodiga uue rasterkihi, kasutades samu parameetreid, mida eelmisegi rastri puhul.  
 - Lõikame rastri kihelkondade kihi järgi, värvime rastri nii, et alad, mis on *pole*-lembesemad, on tumedamad, ja nimetame lõigatud ja värvitud rastri nimega *TPS osakaaludega*.  
 
 
-  
 
 
 ## Veebikaartide eksportimine
@@ -147,11 +146,11 @@ Valmis veebikaardi jagamiseks teistega võid saata kogu rakenduse kausta kellele
 
 ### Ülikooli võrguketas
 
-Tartu Ülikooli tudengitel ja töötajatel on TÜ serveris \\\\pohl.ut.ee oma võrguketas (vaikimisi 1GB), kus on võimalik hoida ja varundada oma isiklikke faile. Samuti saab TÜ serverisse oma kodukataloogi salvestada ja üles panna loodud veebilehed (vaata juhendit [siit](https://www.ut.ee/et/4891)). Veebilehed tuleks salvestada kodukataloogi alamkausta **public_html** ning nendele saab ligi aadressilt **`https://www.ut.ee/~kasutajanimi/`**.  
+Tartu Ülikooli tudengitel ja töötajatel on TÜ serveris \\\\pohl.ut.ee oma võrguketas (vaikimisi 1GB), kus on võimalik hoida ja varundada oma isiklikke faile. Samuti saab TÜ serverisse oma kodukataloogi salvestada ja üles panna loodud veebilehed (vaata juhendit [siit](https://www.ut.ee/et/4891)). Veebilehed tuleks salvestada kodukataloogi alamkausta **public_html** ning nendele saab ligi aadressilt **`https://kodu.ut.ee/~kasutajanimi/`**.  
 
 Ülikooli võrguketastele ligipääsemiseks peab olema ülikooli sisevõrgus. Väljastpoolt ülikooli saab sisevõrku turvaliselt [ühenduse virtuaalse privaatvõrgu](https://wiki.ut.ee/pages/viewpage.action?pageId=17105590) (**VPN**) abil. 
 
-Ülikooli sisevõrgus olles saab isikliku võrguketta kodu- või sülearvutile [külge haakida](https://wiki.ut.ee/pages/viewpage.action?pageId=17105488). NB! Kasutajanimi olgu kujul domenis\\kasutajanimi (mitte kasutajanimi@ut.ee)
+Ülikooli sisevõrgus olles saab isikliku võrguketta kodu- või sülearvutile [külge haakida](https://wiki.ut.ee/pages/viewpage.action?pageId=17105488). NB! Kui küsitakse kasutajanime, siis see olgu kujul domenis\\kasutajanimi (mitte kasutajanimi@ut.ee)
  
 (Kui see kohe ei tööta, siis proovi esmalt [seda](https://www.techcrumble.net/2018/03/you-cant-access-this-shared-folder-because-your-organizations-security-policies-block-unauthenticated-guest-access/).)
 
