@@ -411,3 +411,7 @@ github
 heatmap
 punktide-thin-plate-spline-rasterkiht
 osakaalude-thin-plate-spline-rasterkiht
+veebirakendused2
+mapbox-gl-js
+html
+css

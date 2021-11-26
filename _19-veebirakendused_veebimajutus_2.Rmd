@@ -1,9 +1,0 @@
-# Veebirakendused, veebimajutus 2 {#veebirakendused2}
-
-## Lisa
-
-Kui tahad veebikaartide tegemise kohta rohkem õppida, siis väga hea ja põhjaliku kursuse veebikaartide kohta leiad näiteks [siit](https://github.com/jakobzhao/geog371). 
-
-## Järgmisel korral
-
-Ruumiandmete analüüs R-is. Selleks palun installi endale [**R**](https://www.r-project.org/) ja [**RStudio**](https://rstudio.com/products/rstudio/download/) uusimad versioonid.

@@ -1,0 +1,172 @@
+# Veebirakendused, veebimajutus 2 {#veebirakendused2}
+
+Animatsioon
+
+Esmalt vaja date-tüüpi tunnust
+to_date(concat(year, '-01-01'))
+
+View -> Decorations -> Title Label
+
+Animatsioonina, gifina
+
+Slideriga
+
+
+
+## Mapbox GL JS
+
+Minimaalne JavaScripti kood, mida veebikaardi näitamiseks vaja läheb, on
+
+mapboxgl.accessToken = '<your access token here>'; // juurdepääsuluba
+const map = new mapboxgl.Map({ // tee uus kaardiobjekt
+    container: 'map', // kaardi ID
+    style: 'mapbox://styles/mapbox/streets-v11', // stiili veebiaadress
+    center: [-74.5, 40], // kaardi lähtekoordinaadid [lng, lat]
+    zoom: 9 // kaardi sissesuumimise lähtepositsioon
+});
+
+
+Juurdepääsuluba on vaja kõikide Mapboxi APIde kasutamiseks. Enda juurdepääsuload leiad [siit](https://account.mapbox.com/access-tokens/).
+Mapboxi juurdepääsuluba võib välja näha näiteks umbes selline: 
+
+Stiili võid teha Mapbox Studios ise (nagu tegime nt Storymaps praktikumis) või laadida [olemasolevate stiilide](https://docs.mapbox.com/api/maps/styles/) seast. 
+
+Kasutame Mapboxi aluskaart ja paneme sinna asustusüksuste andmed
+https://studio.mapbox.com/
+Datasets -> New Dataset
+
+geojson EPSG 4326
+delete crs in geojson file
+
+Teeme lihtsa rakenduse, kus kasutaja saab liuguri abil vaadata eri perioodide andmeid ning punktidel klikkides näha atribuuttabeli infot. Kasutame sedapuhku Mapbox GL JS teeki.
+
+Nagu eelmisel korral räägitud, kasutavad veebirakendused vähemalt kolme elementi: HTMLi, mis annab leheküljele struktuuri, CSSi, mis annab leheküljele kujunduse, ja JavaScripti, mis annab lehele interaktiivsuse.
+
+## HTML
+
+Kõigepealt teeme valmis lihtsa HTML-i struktuuri, kus oleks päis ja keha ning kus kehas oleksid olemas meie lehekülje struktuurielemendid:  
+
+- kaart,  
+- kirjeldustekst,  
+- liugur.  
+
+```
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <div id="kaart"></div>
+        <div id="kirjeldus">
+            <div id="liugur"></div>
+        </div>
+    </body>
+</html>
+```
+
+
+Päisesse peab Mapboxi APIt kasutades minema üsna kindel info. Seega kopeerime `<head></head>` märgendite vahele alloleva koodi:
+
+```
+        <meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Tartumaa asustusüksuste mainimine</title>
+		<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js"></script>
+		<link href="https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css" rel="stylesheet"/>
+```
+
+Samuti saame kohe ära määrata, mida tahame näidata kirjeldava tekstina. Lisame kirjelduse `<div>`-märgendite vahele, enne liuguri jaotist kirjelduse pealkirja ja info andmete päritolu kohta:
+
+```
+            <h1>Tartumaa asustusüksuste esmamainimine</h1>
+            <p>Andmed: Andrese käest</p>
+```
+
+Lõpuks saame veel määrata, mis toimub liuguri jaotises `<div id = "liugur">` ja `</div>` märgendite vahel. Lisame sinna aastaarvu, mis vastavalt kasutaja valikule muutuma hakkab, ning liuguri enda. Liugurile anname ka eraldi ID ja klassi, mille kaudu sellele CSSis ja JavaScriptiga viidata saame.
+
+```
+                <h2>Aasta: <label id="aastaarv">2021</label></h2>
+				<input id="slider" class="slider" type="range" min="1200" max="2021" value="2021"/>
+```
+
+## CSS
+
+Järgmiseks võiksime panna paika CSSi. Selle võib ära kirjeldada eraldi css-laiendiga failis või HTML-i struktuuris `<style></style>` märgendite vahel. Lisame päise lõppu niisiis veel info elementide kujunduse ja paigutuse kohta.
+
+```
+        <style>
+			body { 
+				margin: 0; 
+				padding: 0; 
+				font-family: Helvetica, Arial, sans-serif;
+			}
+			#kaart { 
+				position: absolute; 
+				top: 0; 
+				bottom: 0; 
+				width: 100%; 
+			}
+			#kirjeldus {
+				position: absolute;
+				width: 260px;
+				margin: 10px;
+				padding: 10px 20px;
+				background-color: white;
+			}
+			.slider {
+				width: 100%;
+			}
+		</style>
+```
+
+## JavaScript
+
+```
+<script>
+			mapboxgl.accessToken = 'pk.eyJ1IjoibXBpbHZpayIsImEiOiJja2Z2Y3Vkd2wyM2ptMnlwYTM5d2Z3YWIyIn0.VyX0FTIDrsLZwotmaYmX-Q';
+
+			const map = new mapboxgl.Map({
+			  container: 'map', 
+			  style: 'mapbox://styles/mpilvik/ckwge5mhu15fs14nsfcmjstsv',				  center: [25.89, 58.64],
+			  zoom: 7
+			});
+				
+			map.on('load', () =>{
+			
+				map.addSource('asustusyksused', {
+					type: 'vector',
+					url: 'mapbox://mpilvik.ckwgcrp5q0hwu29qhv8vo5gzy-54t9r'
+				});
+				
+				
+				map.addLayer({
+					'id': 'asustusandmed',
+					'type': 'circle',
+					'source': 'asustusyksused',
+					'source-layer': 'tartumaa_asustus',
+					'paint': {
+						'circle-color': '#ff69b4'
+					}
+				});
+				
+				document.getElementById('slider').addEventListener('input', (e) => {
+					const aasta = parseInt(e.target.value);
+					map.setFilter('asustusandmed', ['==', ['number', ['get', 'esmamainimine']], aasta]);
+					if(aasta == 2021){ 
+						map.setFilter('asustusandmed', null);
+					};
+					
+					document.getElementById('year').innerText = aasta;
+				});
+			
+			});
+		</script>
+```
+
+## Lisa
+
+Kui tahad veebikaartide tegemise kohta rohkem õppida, siis väga hea ja põhjaliku kursuse veebikaartide kohta leiad näiteks [siit](https://github.com/jakobzhao/geog371). 
+
+## Järgmisel korral
+
+Ruumiandmete analüüs R-is. Selleks palun installi endale [**R**](https://www.r-project.org/) ja [**RStudio**](https://rstudio.com/products/rstudio/download/) uusimad versioonid.

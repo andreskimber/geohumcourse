@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
-  <meta name="description" content="Page not found | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <title>Praktikum 19 Veebirakendused, veebimajutus 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
+  <meta name="description" content="Praktikum 19 Veebirakendused, veebimajutus 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta property="og:title" content="Praktikum 19 Veebirakendused, veebimajutus 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta name="twitter:title" content="Praktikum 19 Veebirakendused, veebimajutus 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="veebirakendused.html"/>
+<link rel="next" href="kirjandus.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -329,19 +329,88 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="veebirakendused2" class="section level1" number="19">
+<h1><span class="header-section-number">Praktikum 19</span> Veebirakendused, veebimajutus 2</h1>
+<p>Animatsioon</p>
+<p>Esmalt vaja date-tüüpi tunnust
+to_date(concat(year, ‘-01-01’))</p>
+<p>View -&gt; Decorations -&gt; Title Label</p>
+<p>Animatsioonina, gifina</p>
+<p>Slideriga</p>
+<div id="mapbox-gl-js" class="section level2" number="19.1">
+<h2><span class="header-section-number">19.1</span> Mapbox GL JS</h2>
+<p>Minimaalne JavaScripti kood, mida veebikaardi näitamiseks vaja läheb, on</p>
+<p>mapboxgl.accessToken = ‘<your access token here>’; // juurdepääsuluba
+const map = new mapboxgl.Map({ // tee uus kaardiobjekt
+container: ‘map’, // kaardi ID
+style: ‘mapbox://styles/mapbox/streets-v11’, // stiili veebiaadress
+center: [-74.5, 40], // kaardi lähtekoordinaadid [lng, lat]
+zoom: 9 // kaardi sissesuumimise lähtepositsioon
+});</p>
+<p>Juurdepääsuluba on vaja kõikide Mapboxi APIde kasutamiseks. Enda juurdepääsuload leiad <a href="https://account.mapbox.com/access-tokens/">siit</a>.
+Mapboxi juurdepääsuluba võib välja näha näiteks umbes selline:</p>
+<p>Stiili võid teha Mapbox Studios ise (nagu tegime nt Storymaps praktikumis) või laadida <a href="https://docs.mapbox.com/api/maps/styles/">olemasolevate stiilide</a> seast.</p>
+<p>Kasutame Mapboxi aluskaart ja paneme sinna asustusüksuste andmed
+<a href="https://studio.mapbox.com/" class="uri">https://studio.mapbox.com/</a>
+Datasets -&gt; New Dataset</p>
+<p>geojson EPSG 4326
+delete crs in geojson file</p>
+<p>Teeme lihtsa rakenduse, kus kasutaja saab liuguri abil vaadata eri perioodide andmeid ning punktidel klikkides näha atribuuttabeli infot. Kasutame sedapuhku Mapbox GL JS teeki.</p>
+<p>Nagu eelmisel korral räägitud, kasutavad veebirakendused vähemalt kolme elementi: HTMLi, mis annab leheküljele struktuuri, CSSi, mis annab leheküljele kujunduse, ja JavaScripti, mis annab lehele interaktiivsuse.</p>
+</div>
+<div id="html" class="section level2" number="19.2">
+<h2><span class="header-section-number">19.2</span> HTML</h2>
+<p>Kõigepealt teeme valmis lihtsa HTML-i struktuuri, kus oleks päis ja keha ning kus kehas oleksid olemas meie lehekülje struktuurielemendid:</p>
+<ul>
+<li>kaart,<br />
+</li>
+<li>kirjeldustekst,<br />
+</li>
+<li>liugur.</li>
+</ul>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id = &quot;kaart&quot;&gt;&lt;/div&gt;
+        &lt;div id = &quot;kirjeldus&quot;&gt;
+            &lt;div id = &quot;liugur&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Päisesse peab Mapboxi APIt kasutades minema üsna kindel info. Seega kopeerime <code>&lt;head&gt;&lt;/head&gt;</code> märgendite vahele alloleva koodi:</p>
+<pre><code>        &lt;meta charset = &quot;utf-8&quot;/&gt;
+        &lt;meta name=&#39;viewport&#39; content=&#39;width=device-width, initial-scale=1&#39; /&gt;
+        &lt;title&gt;Tartumaa asustusüksuste mainimine&lt;/title&gt;
+        &lt;script src=&#39;https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js&#39;&gt;&lt;/script&gt;
+        &lt;link href=&#39;https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css&#39; rel=&#39;stylesheet&#39;/&gt;</code></pre>
+<p>Samuti saame kohe ära määrata, mida tahame näidata kirjeldava tekstina. Lisame kirjelduse <code>&lt;div&gt;</code>-märgendite vahele, enne liuguri jaotist kirjelduse pealkirja ja info andmete päritolu kohta:</p>
+<pre><code>            &lt;h1&gt;Tartumaa asustusüksuste esmamainimine&lt;/h1&gt;
+            &lt;p&gt;Andmed: Andrese käest&lt;/p&gt;</code></pre>
+</div>
+<div id="css" class="section level2" number="19.3">
+<h2><span class="header-section-number">19.3</span> CSS</h2>
+<p>Järgmiseks võiksime panna paika CSSi.</p>
+</div>
+<div id="lisa" class="section level2" number="19.4">
+<h2><span class="header-section-number">19.4</span> Lisa</h2>
+<p>Kui tahad veebikaartide tegemise kohta rohkem õppida, siis väga hea ja põhjaliku kursuse veebikaartide kohta leiad näiteks <a href="https://github.com/jakobzhao/geog371">siit</a>.</p>
+</div>
+<div id="järgmisel-korral-12" class="section level2" number="19.5">
+<h2><span class="header-section-number">19.5</span> Järgmisel korral</h2>
+<p>Ruumiandmete analüüs R-is. Selleks palun installi endale <a href="https://www.r-project.org/"><strong>R</strong></a> ja <a href="https://rstudio.com/products/rstudio/download/"><strong>RStudio</strong></a> uusimad versioonid.</p>
+
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="veebirakendused.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="kirjandus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
