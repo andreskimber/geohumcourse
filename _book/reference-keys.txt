@@ -415,3 +415,6 @@ veebirakendused2
 mapbox-gl-js
 html
 css
+ajatelje-kasutamine-qgisis
+ajadimensioon-mapbox-gl-js-apis
+javascript

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Praktikum 19 Veebirakendused, veebimajutus 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
   <meta name="description" content="Praktikum 19 Veebirakendused, veebimajutus 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Praktikum 19 Veebirakendused, veebimajutus 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta property="og:type" content="book" />
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="veebirakendused.html"/>
 <link rel="next" href="kirjandus.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -41,7 +42,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -305,11 +305,15 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="19" data-path="veebirakendused2.html"><a href="veebirakendused2.html"><i class="fa fa-check"></i><b>19</b> Veebirakendused, veebimajutus 2</a>
 <ul>
-<li class="chapter" data-level="19.1" data-path="veebirakendused2.html"><a href="veebirakendused2.html#mapbox-gl-js"><i class="fa fa-check"></i><b>19.1</b> Mapbox GL JS</a></li>
-<li class="chapter" data-level="19.2" data-path="veebirakendused2.html"><a href="veebirakendused2.html#html"><i class="fa fa-check"></i><b>19.2</b> HTML</a></li>
-<li class="chapter" data-level="19.3" data-path="veebirakendused2.html"><a href="veebirakendused2.html#css"><i class="fa fa-check"></i><b>19.3</b> CSS</a></li>
-<li class="chapter" data-level="19.4" data-path="veebirakendused2.html"><a href="veebirakendused2.html#lisa"><i class="fa fa-check"></i><b>19.4</b> Lisa</a></li>
-<li class="chapter" data-level="19.5" data-path="veebirakendused2.html"><a href="veebirakendused2.html#järgmisel-korral-12"><i class="fa fa-check"></i><b>19.5</b> Järgmisel korral</a></li>
+<li class="chapter" data-level="19.1" data-path="veebirakendused2.html"><a href="veebirakendused2.html#ajatelje-kasutamine-qgisis"><i class="fa fa-check"></i><b>19.1</b> Ajatelje kasutamine QGISis</a></li>
+<li class="chapter" data-level="19.2" data-path="veebirakendused2.html"><a href="veebirakendused2.html#ajadimensioon-mapbox-gl-js-apis"><i class="fa fa-check"></i><b>19.2</b> Ajadimensioon Mapbox GL JS APIs</a>
+<ul>
+<li class="chapter" data-level="19.2.1" data-path="veebirakendused2.html"><a href="veebirakendused2.html#html"><i class="fa fa-check"></i><b>19.2.1</b> HTML</a></li>
+<li class="chapter" data-level="19.2.2" data-path="veebirakendused2.html"><a href="veebirakendused2.html#css"><i class="fa fa-check"></i><b>19.2.2</b> CSS</a></li>
+<li class="chapter" data-level="19.2.3" data-path="veebirakendused2.html"><a href="veebirakendused2.html#javascript"><i class="fa fa-check"></i><b>19.2.3</b> JavaScript</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="veebirakendused2.html"><a href="veebirakendused2.html#lisa"><i class="fa fa-check"></i><b>19.3</b> Lisa</a></li>
+<li class="chapter" data-level="19.4" data-path="veebirakendused2.html"><a href="veebirakendused2.html#järgmisel-korral-12"><i class="fa fa-check"></i><b>19.4</b> Järgmisel korral</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="kirjandus.html"><a href="kirjandus.html"><i class="fa fa-check"></i>Kirjandus</a></li>
 </ul>
@@ -331,35 +335,51 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="veebirakendused2" class="section level1" number="19">
 <h1><span class="header-section-number">Praktikum 19</span> Veebirakendused, veebimajutus 2</h1>
-<p>Animatsioon</p>
-<p>Esmalt vaja date-tüüpi tunnust
-to_date(concat(year, ‘-01-01’))</p>
-<p>View -&gt; Decorations -&gt; Title Label</p>
-<p>Animatsioonina, gifina</p>
-<p>Slideriga</p>
-<div id="mapbox-gl-js" class="section level2" number="19.1">
-<h2><span class="header-section-number">19.1</span> Mapbox GL JS</h2>
-<p>Minimaalne JavaScripti kood, mida veebikaardi näitamiseks vaja läheb, on</p>
-<p>mapboxgl.accessToken = ‘<your access token here>’; // juurdepääsuluba
-const map = new mapboxgl.Map({ // tee uus kaardiobjekt
-container: ‘map’, // kaardi ID
-style: ‘mapbox://styles/mapbox/streets-v11’, // stiili veebiaadress
-center: [-74.5, 40], // kaardi lähtekoordinaadid [lng, lat]
-zoom: 9 // kaardi sissesuumimise lähtepositsioon
-});</p>
-<p>Juurdepääsuluba on vaja kõikide Mapboxi APIde kasutamiseks. Enda juurdepääsuload leiad <a href="https://account.mapbox.com/access-tokens/">siit</a>.
-Mapboxi juurdepääsuluba võib välja näha näiteks umbes selline:</p>
-<p>Stiili võid teha Mapbox Studios ise (nagu tegime nt Storymaps praktikumis) või laadida <a href="https://docs.mapbox.com/api/maps/styles/">olemasolevate stiilide</a> seast.</p>
-<p>Kasutame Mapboxi aluskaart ja paneme sinna asustusüksuste andmed
-<a href="https://studio.mapbox.com/" class="uri">https://studio.mapbox.com/</a>
-Datasets -&gt; New Dataset</p>
-<p>geojson EPSG 4326
-delete crs in geojson file</p>
-<p>Teeme lihtsa rakenduse, kus kasutaja saab liuguri abil vaadata eri perioodide andmeid ning punktidel klikkides näha atribuuttabeli infot. Kasutame sedapuhku Mapbox GL JS teeki.</p>
-<p>Nagu eelmisel korral räägitud, kasutavad veebirakendused vähemalt kolme elementi: HTMLi, mis annab leheküljele struktuuri, CSSi, mis annab leheküljele kujunduse, ja JavaScripti, mis annab lehele interaktiivsuse.</p>
+<p>Eelmisel korral vaatasime, kuidas <code>qgis2web</code> plugina abil hõlpsalt oma QGISis tehtud kaardikihte veebikaardina jagada.</p>
+<p>Sel korral vaatame esmalt,</p>
+<ul>
+<li>mis võimalusi on QGISis ajalise dimensiooni kaasamiseks (nt mingite muutuste kuvamiseks),<br />
+</li>
+<li>kuidas ajadimensiooni võrdlemisi lihtsalt Mapbox GL JSi API abil veebirakenduses kuvada.</li>
+</ul>
+<p>Kasutame sel korral <a href="https://www.efis.ee/">Eesti filmi andmebaasist</a> kogutud andmeid selle kohta, milliseid geograafilisi kohti läbi aegade Eesti filmides näha on olnud. Selleks on andmebaasis lisaks tavalistele märksõnadele märgendatud eraldi ka <a href="https://www.efis.ee/et/marksonad/id/13/view/Detailed/page/1">kohanimed</a>. Selle kursuse tarbeks korjasime need R-i skriptiga kokku ning kokku vähemalt 5 korda esinenud kohanimede koordinaatidega sidumiseks kasutasime <a href="https://inaadress.maaamet.ee/geocoder/bulk">Maa-ameti geokodeerimise teenust</a>.</p>
+<p>Kohad, millele teenuses mingid koordinaadid määrati, oleme üle vaadanud ning enam-vähem õigesse kohta liigutanud. Kohtadele, mis koordinaate ei saanud, ei ole neid ka eraldi lisatud.</p>
+<p>Laadime saadud andmestiku <strong>efis_parandatud.gpkg</strong> QGISi. Valime <em>WebMapServices</em> kaudu ka mingi sobiva aluskaardi.</p>
+<div id="ajatelje-kasutamine-qgisis" class="section level2" number="19.1">
+<h2><span class="header-section-number">19.1</span> Ajatelje kasutamine QGISis</h2>
+<ul>
+<li>Filtreerime andmestikust kõigepealt välja ainult need read, kus aastaarvud on olemas.<br />
+</li>
+<li>Kuna Eesti kohta on info oluliselt detailsem kui välismaa kohta, piirame oma veebikaardi samuti ainult Eesti ala. Kasutame selleks <em>freehand selection</em>’i tööriista, et tõmmata ümber Eesti ala piiri, mille seest punkte valida.<br />
+</li>
+<li>Salvestame tehtud valiku eraldi kihina. Nimetame selle nt nimega <strong>efis_eesti.gpkg</strong>.<br />
+</li>
+<li>Eemaldame punktidelt äärejooned, valime punktidele värvid, teeme need läbipaistvamaks ning määrame punktide suuruse vastavalt sellele, kui palju mingit kohta mingil aastal filmides näidatud oli (tulp <em>n</em>).<br />
+</li>
+<li>Kuna aastaarvu sisaldav tulp on hetkel andmestikus tekstikujul ja sisaldab ka ajavahemikke (nt <em>1940-1941</em>), tekitame andmestikku kaks uut tulpa:
+<ul>
+<li>esmalt teeme uue tulba nimega <em>aasta1</em>, kus oleks arvu kujul ainult 4 esimest numbrit <em>aasta</em> tulbast: <code>to_int(left("aasta", 4))</code>.<br />
+</li>
+<li>seejärel teeme QGISi jaoks eraldi kuupäeva tulba nimega <em>kuupaev</em>, mida on vaja animeerimiseks: <code>to_date("aasta1", 'yyyy')</code>.</li>
+</ul></li>
+</ul>
+<p>Teeme nüüd <em>efis_eesti</em> kihil paremkliki ning valime <em>Properties</em>. Vasakult menüüst valime <em>Temporal</em> ja teeme linnukese valiku ette <em>Dynamic Temporal Control</em>.<br />
+Kuna meil on andmestikus nüüd kuupäeva tulp, saame valida konfiguratsiooniks väärtuse <em>Single Field with Date/Time</em> ning <em>Field</em> väärtuseks loodud tulba <em>kuupaev</em>. Vajutame <em>OK</em>.</p>
+<p>Valime järgmiseks menüüst kella pildiga tööriista <strong><em>Temporal Controller Panel</em></strong>.
+Avanenud menüüs vajutame nupule <em>Animated temporal navigation</em>. <em>Animation range</em>’i saame määrata värskendamise ikooni juurest: <em>Set to Full Range</em>. Ajatelje “sammuks” määrame 1 aasta.</p>
+<p>Vajuta animatsiooni mängimise nupule ning peaksid nägema, kuidas kaardile ilmuvad igal aasta filmidega seotud olnud kohad ning nende ikoonide suurus vastab sellele, kui mitme filmiga need sel aastal seotud olid.
+Võime kuvada kaardil ka aastaarvu, et oleks lihtsam jälgida: <em>View</em> -&gt; <em>Decorations</em> -&gt; <em>Title Label</em>. Tee linnuke valiku ette <em>Enable Title Label</em>, vali <em>Insert or Edit an Expression</em> ja trüki avaldise kasti <code>format_date(@map_start_time, 'yyyy')</code>.</p>
+<p>QGIS ei lase animatsiooni gif-ina salvestada, vaid kõik 100 pilti (aastatest 1921-2021) salvestatakse eraldi pildifailidena ning neid tuleb eraldi animeerida mõnes teises programmis, nt <a href="https://ezgif.com/maker">Ezgifi</a> veebipõhises programmis.</p>
+<p>Selline gif on aga põhimõtteliselt lihtsalt liikuv pilt ning kasutajal ei ole võimalik andmeid kuidagi oma soovidele vastavalt põhjalikumalt uurida.</p>
 </div>
-<div id="html" class="section level2" number="19.2">
-<h2><span class="header-section-number">19.2</span> HTML</h2>
+<div id="ajadimensioon-mapbox-gl-js-apis" class="section level2" number="19.2">
+<h2><span class="header-section-number">19.2</span> Ajadimensioon Mapbox GL JS APIs</h2>
+<p>Mapboxi JavaScripti API sisaldab hulka funktsioone, mille abil on võimalik veebilehel või veebirakenduses näidata interaktiivseid veebikaarte ning näidata andmeid vastavalt kasutaja tegevusele ja valikutele.</p>
+<p>Teeme lihtsa rakenduse, kus kasutaja saab liuguri abil vaadata eri aastate andmeid. Nagu eelmisel korral räägitud, kasutavad veebirakendused vähemalt kolme elementi: HTMLi, mis annab leheküljele struktuuri, CSSi, mis annab leheküljele kujunduse, ja JavaScripti, mis annab lehele interaktiivsuse.</p>
+<p>Salvestame <code>efis_eesti</code> geojsoni failina ja <code>EPSG: 4326</code> projektsioonis. Ühtlasi eemaldame salvestamisel ebavajalikud tulbad, mis nt geokodeerimisega kaasa tulid.<br />
+Avame geojsoni faili mingis tekstiredaktoris (nt Notepad või Notepad++) ning kustutame failist ära rea, mis algab <code>crs": { "type": "name", "properties":</code> ja salvestame.</p>
+<div id="html" class="section level3" number="19.2.1">
+<h3><span class="header-section-number">19.2.1</span> HTML</h3>
 <p>Kõigepealt teeme valmis lihtsa HTML-i struktuuri, kus oleks päis ja keha ning kus kehas oleksid olemas meie lehekülje struktuurielemendid:</p>
 <ul>
 <li>kaart,<br />
@@ -375,30 +395,224 @@ delete crs in geojson file</p>
     &lt;body&gt;
         &lt;div id = &quot;kaart&quot;&gt;&lt;/div&gt;
         &lt;div id = &quot;kirjeldus&quot;&gt;
-            &lt;div id = &quot;liugur&quot;&gt;&lt;/div&gt;
+            &lt;div&gt;
+            &lt;/div&gt;
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <p>Päisesse peab Mapboxi APIt kasutades minema üsna kindel info. Seega kopeerime <code>&lt;head&gt;&lt;/head&gt;</code> märgendite vahele alloleva koodi:</p>
 <pre><code>        &lt;meta charset = &quot;utf-8&quot;/&gt;
         &lt;meta name=&#39;viewport&#39; content=&#39;width=device-width, initial-scale=1&#39; /&gt;
-        &lt;title&gt;Tartumaa asustusüksuste mainimine&lt;/title&gt;
+        &lt;title&gt;Kohad Eesti filmides&lt;/title&gt;
         &lt;script src=&#39;https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js&#39;&gt;&lt;/script&gt;
-        &lt;link href=&#39;https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css&#39; rel=&#39;stylesheet&#39;/&gt;</code></pre>
-<p>Samuti saame kohe ära määrata, mida tahame näidata kirjeldava tekstina. Lisame kirjelduse <code>&lt;div&gt;</code>-märgendite vahele, enne liuguri jaotist kirjelduse pealkirja ja info andmete päritolu kohta:</p>
-<pre><code>            &lt;h1&gt;Tartumaa asustusüksuste esmamainimine&lt;/h1&gt;
-            &lt;p&gt;Andmed: Andrese käest&lt;/p&gt;</code></pre>
+        &lt;link href=&#39;https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css&#39; rel=&#39;stylesheet&#39; /&gt;</code></pre>
+<p>Samuti saame kohe ära määrata, mida tahame kehaosas <code>&lt;body&gt;</code> ja <code>&lt;/body&gt;</code> märgendite vahel näidata kirjeldava tekstina. Lisame kirjelduse <code>&lt;div&gt;</code>-märgendite vahele, enne liuguri jaotist kirjelduse pealkirja ja info andmete päritolu kohta:</p>
+<pre><code>            &lt;h1&gt;Eesti filmidega seotud kohad aastatel 1921-2021&lt;/h1&gt;
+            &lt;p&gt;Andmed: efis.ee&lt;/p&gt;
+                </code></pre>
+<p>Lõpuks saame veel määrata, mis toimub liuguri jaotises. Lisame sinna aastaarvu, mis vastavalt kasutaja valikule muutuma hakkab, ning liuguri enda. Liugurile anname ka eraldi ID ja klassi, mille kaudu sellele CSSis ja JavaScriptiga viidata saame.</p>
+<pre><code>        &lt;h2&gt;Aasta: &lt;label id=&quot;parasjagu_aasta&quot;&gt;1921&lt;/label&gt;&lt;/h2&gt;
+                &lt;input id=&quot;liugur&quot; class=&quot;slider&quot; type=&quot;range&quot; min=&quot;1921&quot; max=&quot;2021&quot; value=&quot;1921&quot; /&gt;</code></pre>
 </div>
-<div id="css" class="section level2" number="19.3">
-<h2><span class="header-section-number">19.3</span> CSS</h2>
-<p>Järgmiseks võiksime panna paika CSSi.</p>
+<div id="css" class="section level3" number="19.2.2">
+<h3><span class="header-section-number">19.2.2</span> CSS</h3>
+<p>Järgmiseks võiksime panna paika CSSi. Selle võib ära kirjeldada eraldi css-laiendiga failis või HTML-i struktuuris <code>&lt;style&gt;&lt;/style&gt;</code> märgendite vahel. Lisame päise lõppu, enne <code>&lt;/head&gt;</code> märgendit niisiis veel info elementide kujunduse ja paigutuse kohta.</p>
+<pre><code>        &lt;style&gt;
+            body { 
+                margin: 0; 
+                padding: 0; 
+                font-family: Helvetica, Arial, sans-serif;
+            }
+            #kaart { 
+                position: absolute; 
+                top: 0; 
+                bottom: 0; 
+                width: 100%; 
+            }
+            #kirjeldus {
+                position: absolute;
+                width: 260px;
+                margin: 10px;
+                padding: 10px 20px;
+                background-color: white;
+            }
+            .slider {
+                width: 100%;
+            }
+        &lt;/style&gt;</code></pre>
 </div>
-<div id="lisa" class="section level2" number="19.4">
-<h2><span class="header-section-number">19.4</span> Lisa</h2>
+<div id="javascript" class="section level3" number="19.2.3">
+<h3><span class="header-section-number">19.2.3</span> JavaScript</h3>
+<p>Nüüd liigume <a href="https://studio.mapbox.com/">MapBox Studiosse</a>. Oma veebirakenduses kasutame nii Mapboxis stiliseeritud aluskaarti kui ka Mapboxi <em>tileset</em>idesse laaditud Eesti filmi andmebaasi geojsoni andmeid.</p>
+<p>Esmalt stiliseerime kiiresti mingi kaardipõhja, mida oma rakenduses kasutada: <em>Styles</em> -&gt; <em>New style</em>. Teeme valmis stiili avalikuks: <em>Share</em> -&gt; <em>Allow copying</em> -&gt; <em>Make public</em>.</p>
+<p>Järgmiseks laadime Mapboxi üles oma <em>efis_eesti.geojson</em> faili, kust on CRS-rida ära kustutatud: <em>Datasets</em> -&gt; <em>New Dataset</em> -&gt; <em>Upload</em>. Kui andmestik on <em>dataset</em>’ina üles laaditud, siis ekspordime selle omakorda <em>tileset</em>’iks: <em>Export to tileset</em>. Tee ka <em>tileset</em> avalikuks (<em>Make public</em>).</p>
+<p>Nüüd lisame oma HTML-faili <code>&lt;body&gt;</code>-jaotisesse uue jaotise <code>&lt;script&gt;&lt;/script&gt;</code> märgendite vahele. Siia tuleb nüüd JavaScripti osa, mis kasutab Mapboxi APIt. Kõik, mis on pärast märke <code>//</code>, on kommentaar, mis koodi kirjeldab, ent ei tee ise midagi.</p>
+<p>Minimaalselt on vaja kaardi tegemiseks allolevat koodi. See näitab HTML-failis meie stiliseeritud aluskaarti, ära tuleks vahetada ainult juurdepääsuluba ja kaardistiili aadress, mille saab MapBox Studios enda loodud stiili juurest vastavalt <em>Share</em> -&gt; <em>Developer resources</em> -&gt; <em>Web</em> -&gt; <em>Access token</em> ja <em>Share</em> -&gt; <em>Developer resources</em> -&gt; <em>Web</em> -&gt; <em>Style URL</em>.</p>
+<pre><code>        &lt;script&gt;
+            // aluskaart
+            mapboxgl.accessToken = &#39;pk.sinukaardistiilijuurdepääsuluba&#39;; // kaardistiili juurdepääsuluba
+
+            const map = new mapboxgl.Map({
+              container: &#39;kaart&#39;, // millises html-i jaotises kaarti hoida?
+              style: &#39;mapbox://styles/sinukasutaja/stiiliaadress&#39;, // mapboxi kaardistiili aadress
+              center: [24.89, 58.64], // aluskaardi keskpunkti koordinaadid
+              zoom: 6.5 // sissesuumimise tase
+            });
+        &lt;/script&gt;
+            </code></pre>
+<p>Järgmiseks võiksime lisada kaardile ka MapBoxi laaditud filmikohtade <em>tileset</em>’i punktid. Selleks lisame <code>&lt;script&gt;</code>-märgendite vahele alloleva koodi, mis pärast aluskaardi laadimist määrab ära meie punktiandmete allika Mapboxis ning seejärel lisab sealt allikast punktid veebirakenduse aluskaardile. Sedapuhku tuleb koodis asendada nüüd avalikuks tehtud <em>tileset</em>’i aadress.</p>
+<pre><code>            // punktandmed
+            // kui aluskaart on laadinud, siis...
+            map.on(&#39;load&#39;, () =&gt;{
+            
+                // määra punktandmete allikas (nimetame selle nimega &quot;filmid&quot;)
+                map.addSource(&#39;filmid&#39;, {
+                    type: &#39;vector&#39;, // andmetüüp on vektorandmed
+                    url: &#39;mapbox://sinukasutaja.tilesetiaadress&#39; // mapboxi tileseti aadress
+                });
+                
+                // lisa aluskaardi peale määratud allikast (punkti)kiht
+                map.addLayer({
+                    &#39;id&#39;: &#39;eesti_filmid&#39;, // nimetame kihi nimega &quot;eesti_filmid&quot;
+                    &#39;type&#39;: &#39;circle&#39;, // andmetüüp on (täitevärviga) punkt
+                    &#39;source&#39;: &#39;filmid&#39;, // andmete allikas on eelnevalt loodud objekt &quot;filmid&quot;
+                    &#39;source-layer&#39;: &#39;efis_eesti&#39;, // geojsoni kihi enda nimi on &quot;efis_eesti&quot;
+                    &#39;paint&#39;: {
+                        &#39;circle-color&#39;: &#39;#f3a6b2&#39;, // punktide värv roosa
+                        &#39;circle-stroke-color&#39;: &#39;transparent&#39;, // punktide äärejoon läbipaistev
+                        &#39;circle-opacity&#39;: 0.4, // punktide väljapaistvus 0.4
+                        &#39;circle-radius&#39;: { // punkti suuruse võtame
+                            property: &#39;n&#39;, // andmestiku tunnusest &quot;n&quot;
+                            stops: [[1, 8], [10, 36]] // kui n = 1, siis on punkti suurus 8, kui n = 10, siis 36, teised jäävad ühtlaselt nende vahepeale
+                        }
+                    }
+                });
+            });</code></pre>
+<p>Lõpetuseks tuleks teha ka midagi selleks, et liugur kaardil toimuvaga kuidagi seotud oleks. Lisame skriptiosa lõppu, <code>map.on('load', ...</code> jaotise sisse niisiis veel mõned read koodi.</p>
+<p>Kood küsib veebilehelt, mida kasutaja liuguri väärtuseks on määranud, ning filtreerib näidatavalt punktikihilt välja ainult vastava aastaarvuga read. Samuti muudab skript <em>parasjagu_aasta</em> väärtust rakenduse kirjelduses.</p>
+<pre><code>                // muuda kaarti ja aasta loendurit vastavalt liuguri liigutamisele
+                document.getElementById(&#39;liugur&#39;).addEventListener(&#39;input&#39;, (e) =&gt; {
+                    const kasutaja_aasta = parseInt(e.target.value); // võta kasutaja sisend (= aastaarv liugurilt) ja salvesta see objekti &quot;kasutaja_aasta&quot;
+                    
+                    // muuda kaarti: 
+                    // määra kihile &quot;eesti_filmid&quot; filter, millega
+                    // filtreerid kogu andmestikust välja ainult need read, kus
+                    // tulbas &quot;aasta1&quot; on sama väärtus, mis objektil &quot;kasutaja_aasta&quot;
+                    map.setFilter(&#39;eesti_filmid&#39;, [&#39;==&#39;, [&#39;number&#39;, [&#39;get&#39;, &#39;aasta1&#39;]], kasutaja_aasta]);
+
+                     // muuda aasta loendurit kirjelduses:
+                     // määra HTML-is elemendile id-ga &quot;parasjagu_aasta&quot; sama väärtus, mille kasutaja liuguril valib
+                    document.getElementById(&#39;parasjagu_aasta&#39;).innerText = kasutaja_aasta;
+                });</code></pre>
+<p>Terve veebilehe kood näeb nüüd välja niisiis järgmine:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset = &quot;utf-8&quot;/&gt;
+        &lt;meta name=&#39;viewport&#39; content=&#39;width=device-width, initial-scale=1&#39; /&gt;
+        &lt;title&gt;Kohad Eesti filmides&lt;/title&gt;
+        &lt;script src=&#39;https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js&#39;&gt;&lt;/script&gt;
+        &lt;link href=&#39;https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css&#39; rel=&#39;stylesheet&#39; /&gt;
+        &lt;style&gt;
+            body { 
+                margin: 0; 
+                padding: 0; 
+                font-family: Helvetica, Arial, sans-serif;
+            }
+            #kaart { 
+                position: absolute; 
+                top: 0; 
+                bottom: 0; 
+                width: 100%; 
+            }
+            #kirjeldus {
+                position: absolute;
+                width: 260px;
+                margin: 10px;
+                padding: 10px 20px;
+                background-color: white;
+            }
+            .slider {
+                width: 100%;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id = &quot;kaart&quot;&gt;&lt;/div&gt;
+        &lt;div id = &quot;kirjeldus&quot;&gt;
+            &lt;h1&gt;Eesti filmidega seotud kohad aastatel 1921-2021&lt;/h1&gt;
+            &lt;p&gt;Andmed: efis.ee&lt;/p&gt;
+            &lt;div&gt;
+                &lt;h2&gt;Aasta: &lt;label id=&quot;parasjagu_aasta&quot;&gt;1921&lt;/label&gt;&lt;/h2&gt;
+                &lt;input id=&quot;liugur&quot; class=&quot;slider&quot; type=&quot;range&quot; min=&quot;1921&quot; max=&quot;2021&quot; value=&quot;1921&quot; /&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;script&gt;
+            // aluskaart
+            mapboxgl.accessToken = &#39;pk.sinukaardistiilijuurdepääsuluba&#39;; // kaardistiili juurdepääsuluba
+
+            const map = new mapboxgl.Map({
+              container: &#39;kaart&#39;, // millises html-i jaotises kaarti hoida?
+              style: &#39;mapbox://styles/sinukasutaja/stiiliaadress&#39;, // mapboxi kaardistiili aadress
+              center: [24.89, 58.64], // aluskaardi keskpunkti koordinaadid
+              zoom: 6.5 // sissesuumimise tase
+            });
+            
+            // punktandmed
+            // kui aluskaart on laadinud, siis...
+            map.on(&#39;load&#39;, () =&gt;{
+            
+                // määra punktandmete allikas (nimetame selle nimega &quot;filmid&quot;)
+                map.addSource(&#39;filmid&#39;, {
+                    type: &#39;vector&#39;, // andmetüüp on vektorandmed
+                    url: &#39;mapbox://sinukasutaja.tilesetiaadress&#39; // mapboxi tileseti aadress
+                });
+                
+                // lisa aluskaardi peale määratud allikast (punkti)kiht
+                map.addLayer({
+                    &#39;id&#39;: &#39;eesti_filmid&#39;, // nimetame kihi nimega &quot;eesti_filmid&quot;
+                    &#39;type&#39;: &#39;circle&#39;, // andmetüüp on (täitevärviga) punkt
+                    &#39;source&#39;: &#39;filmid&#39;, // andmete allikas on eelnevalt loodud objekt &quot;filmid&quot;
+                    &#39;source-layer&#39;: &#39;efis_eesti&#39;, // geojsoni kihi enda nimi on &quot;efis_eesti&quot;
+                    &#39;paint&#39;: {
+                        &#39;circle-color&#39;: &#39;#f3a6b2&#39;, // punktide värv roosa
+                        &#39;circle-stroke-color&#39;: &#39;transparent&#39;, // punktide äärejoon läbipaistev
+                        &#39;circle-opacity&#39;: 0.4, // punktide väljapaistvus 0.4
+                        &#39;circle-radius&#39;: { // punkti suurus võta
+                            property: &#39;n&#39;, // andmestiku tunnusest &quot;n&quot;
+                            stops: [[1, 8], [10, 36]] // kui n = 1, siis on punkti suurus 8, kui n = 10, siis 36, teised jäävad ühtlaselt nende vahepeale
+                        }
+                    }
+                });
+                
+                // muuta kaarti ja aasta loendurit vastavalt liuguri liigutamisele
+                document.getElementById(&#39;liugur&#39;).addEventListener(&#39;input&#39;, (e) =&gt; {
+                    const kasutaja_aasta = parseInt(e.target.value); // võta kasutaja sisend (= aastaarv liugurilt) ja salvesta see objekti &quot;kasutaja_aasta&quot;
+                    
+                    // muuda kaarti: 
+                    // määra kihile &quot;eesti_filmid&quot; filter, millega
+                    // filtreerid kogu andmestikust välja ainult need read, kus
+                    // tulbas &quot;aasta1&quot; on sama väärtus, mis objektil &quot;kasutaja_aasta&quot;
+                    map.setFilter(&#39;eesti_filmid&#39;, [&#39;==&#39;, [&#39;number&#39;, [&#39;get&#39;, &#39;aasta1&#39;]], kasutaja_aasta]);
+
+                     // muuda aasta loendurit kirjelduses:
+                     // määra HTML-is elemendile id-ga &quot;parasjagu_aasta&quot; sama väärtus, mille kasutaja liuguril valib
+                    document.getElementById(&#39;parasjagu_aasta&#39;).innerText = kasutaja_aasta;
+                });
+            });
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Salvestame veebilehe nimega <strong>index.html</strong> ja paneme selle üles GitHubi.</p>
+</div>
+</div>
+<div id="lisa" class="section level2" number="19.3">
+<h2><span class="header-section-number">19.3</span> Lisa</h2>
 <p>Kui tahad veebikaartide tegemise kohta rohkem õppida, siis väga hea ja põhjaliku kursuse veebikaartide kohta leiad näiteks <a href="https://github.com/jakobzhao/geog371">siit</a>.</p>
 </div>
-<div id="järgmisel-korral-12" class="section level2" number="19.5">
-<h2><span class="header-section-number">19.5</span> Järgmisel korral</h2>
+<div id="järgmisel-korral-12" class="section level2" number="19.4">
+<h2><span class="header-section-number">19.4</span> Järgmisel korral</h2>
 <p>Ruumiandmete analüüs R-is. Selleks palun installi endale <a href="https://www.r-project.org/"><strong>R</strong></a> ja <a href="https://rstudio.com/products/rstudio/download/"><strong>RStudio</strong></a> uusimad versioonid.</p>
 
 
@@ -414,7 +628,6 @@ delete crs in geojson file</p>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -442,7 +655,7 @@ gitbook.start({
 },
 "download": [["book.pdf", "PDF"], ["book.epub", "EPUB"]],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {
