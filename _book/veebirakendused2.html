@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Praktikum 19 Veebirakendused, veebimajutus 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
   <meta name="description" content="Praktikum 19 Veebirakendused, veebimajutus 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Praktikum 19 Veebirakendused, veebimajutus 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta property="og:type" content="book" />
@@ -32,9 +32,8 @@
   
 <link rel="prev" href="veebirakendused.html"/>
 <link rel="next" href="kirjandus.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,6 +41,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
 
 
 
@@ -344,17 +344,17 @@ div.csl-indent {
 </ul>
 <p>Kasutame sel korral <a href="https://www.efis.ee/">Eesti filmi andmebaasist</a> kogutud andmeid selle kohta, milliseid geograafilisi kohti läbi aegade Eesti filmides näha on olnud. Selleks on andmebaasis lisaks tavalistele märksõnadele märgendatud eraldi ka <a href="https://www.efis.ee/et/marksonad/id/13/view/Detailed/page/1">kohanimed</a>. Selle kursuse tarbeks korjasime need R-i skriptiga kokku ning kokku vähemalt 5 korda esinenud kohanimede koordinaatidega sidumiseks kasutasime <a href="https://inaadress.maaamet.ee/geocoder/bulk">Maa-ameti geokodeerimise teenust</a>.</p>
 <p>Kohad, millele teenuses mingid koordinaadid määrati, oleme üle vaadanud ning enam-vähem õigesse kohta liigutanud. Kohtadele, mis koordinaate ei saanud, ei ole neid ka eraldi lisatud.</p>
-<p>Laadime saadud andmestiku <strong>efis_parandatud.gpkg</strong> QGISi. Valime <em>WebMapServices</em> kaudu ka mingi sobiva aluskaardi.</p>
+<p>Laadime saadud andmestiku <strong>efis_parandatud.gpkg</strong> QGISi. Valime <em>QuickMapServices</em> kaudu ka mingi sobiva aluskaardi.</p>
 <div id="ajatelje-kasutamine-qgisis" class="section level2" number="19.1">
 <h2><span class="header-section-number">19.1</span> Ajatelje kasutamine QGISis</h2>
 <ul>
 <li>Filtreerime andmestikust kõigepealt välja ainult need read, kus aastaarvud on olemas.<br />
 </li>
-<li>Kuna Eesti kohta on info oluliselt detailsem kui välismaa kohta, piirame oma veebikaardi samuti ainult Eesti ala. Kasutame selleks <em>freehand selection</em>’i tööriista, et tõmmata ümber Eesti ala piiri, mille seest punkte valida.<br />
+<li>Kuna Eesti kohta on info oluliselt detailsem kui välismaa kohta, piirame oma veebikaardi samuti ainult Eesti ala. Kasutame selleks <em>Select Features by Freehand</em> tööriista, et tõmmata ümber Eesti ala piiri, mille seest punkte valida.<br />
 </li>
 <li>Salvestame tehtud valiku eraldi kihina. Nimetame selle nt nimega <strong>efis_eesti.gpkg</strong>.<br />
 </li>
-<li>Eemaldame punktidelt äärejooned, valime punktidele värvid, teeme need läbipaistvamaks ning määrame punktide suuruse vastavalt sellele, kui palju mingit kohta mingil aastal filmides näidatud oli (tulp <em>n</em>).<br />
+<li>Eemaldame punktidelt äärejooned, valime punktidele värvid, teeme need läbipaistvamaks ning määrame punktide suuruse vastavalt sellele, kui palju mingit kohta mingil aastal filmides näidatud oli (tulp <em>n</em>, mille väärtused võiks korrutada läbi kolmega).<br />
 </li>
 <li>Kuna aastaarvu sisaldav tulp on hetkel andmestikus tekstikujul ja sisaldab ka ajavahemikke (nt <em>1940-1941</em>), tekitame andmestikku kaks uut tulpa:
 <ul>
@@ -363,21 +363,47 @@ div.csl-indent {
 <li>seejärel teeme QGISi jaoks eraldi kuupäeva tulba nimega <em>kuupaev</em>, mida on vaja animeerimiseks: <code>to_date("aasta1", 'yyyy')</code>.</li>
 </ul></li>
 </ul>
-<p>Teeme nüüd <em>efis_eesti</em> kihil paremkliki ning valime <em>Properties</em>. Vasakult menüüst valime <em>Temporal</em> ja teeme linnukese valiku ette <em>Dynamic Temporal Control</em>.<br />
-Kuna meil on andmestikus nüüd kuupäeva tulp, saame valida konfiguratsiooniks väärtuse <em>Single Field with Date/Time</em> ning <em>Field</em> väärtuseks loodud tulba <em>kuupaev</em>. Vajutame <em>OK</em>.</p>
-<p>Valime järgmiseks menüüst kella pildiga tööriista <strong><em>Temporal Controller Panel</em></strong>.
-Avanenud menüüs vajutame nupule <em>Animated temporal navigation</em>. <em>Animation range</em>’i saame määrata värskendamise ikooni juurest: <em>Set to Full Range</em>. Ajatelje “sammuks” määrame 1 aasta.</p>
-<p>Vajuta animatsiooni mängimise nupule ning peaksid nägema, kuidas kaardile ilmuvad igal aasta filmidega seotud olnud kohad ning nende ikoonide suurus vastab sellele, kui mitme filmiga need sel aastal seotud olid.
-Võime kuvada kaardil ka aastaarvu, et oleks lihtsam jälgida: <em>View</em> -&gt; <em>Decorations</em> -&gt; <em>Title Label</em>. Tee linnuke valiku ette <em>Enable Title Label</em>, vali <em>Insert or Edit an Expression</em> ja trüki avaldise kasti <code>format_date(@map_start_time, 'yyyy')</code>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:efiseesti"></span>
+<img src="imgs/19_efis_eesti.jpg" alt="Eesti filmidega seotud kohad ja uued tunnused atribuuttabelis" width="70%" />
+<p class="caption">
+Figure 19.1: Eesti filmidega seotud kohad ja uued tunnused atribuuttabelis
+</p>
+</div>
+<ul>
+<li>Teeme nüüd <em>efis_eesti</em> kihil paremkliki ning valime <em>Properties</em>. Vasakult menüüst valime <em>Temporal</em> ja teeme linnukese valiku ette <em>Dynamic Temporal Control</em>.<br />
+</li>
+<li>Kuna meil on andmestikus nüüd kuupäeva tulp, saame valida konfiguratsiooniks väärtuse <em>Single Field with Date/Time</em> ning <em>Field</em> väärtuseks loodud tulba <em>kuupaev</em>. Vajutame <em>OK</em>.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:temporal"></span>
+<img src="imgs/19_temporal.jpg" alt="Ajadimensiooni kasutamine QGISis" width="50%" />
+<p class="caption">
+Figure 19.2: Ajadimensiooni kasutamine QGISis
+</p>
+</div>
+<ul>
+<li>Valime järgmiseks menüüribalt, kus on nt ka salvestamise ja suumimise ikoonid, kella pildiga tööriista <strong><em>Temporal Controller Panel</em></strong>. Kui sul ei ole seda ikooni menüüs näha, siis mine <em>View</em> -&gt; <em>Panels</em> -&gt; <em>Temporal Controller</em> ja tee sinna ette linnuke.<br />
+</li>
+<li>Avanenud menüüs vajutame rohelise noolekesega nupule <em>Animated temporal navigation</em>. <em>Animation range</em>’i saame määrata värskendamise ikooni juurest: <em>Set to Full Range</em>. Ajatelje “sammuks” määrame 1 aasta.<br />
+</li>
+<li>Vajuta animatsiooni mängimise nupule ning peaksid nägema, kuidas kaardile ilmuvad igal aasta filmidega seotud olnud kohad ning nende ikoonide suurus vastab sellele, kui mitme filmiga need sel aastal seotud olid.<br />
+</li>
+<li>Võime kuvada kaardil ka aastaarvu, et oleks lihtsam jälgida: <em>View</em> -&gt; <em>Decorations</em> -&gt; <em>Title Label</em>. Tee linnuke valiku ette <em>Enable Title Label</em>, vali <em>Insert or Edit an Expression</em> ja trüki avaldise kasti <code>format_date(@map_start_time, 'yyyy')</code>.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:temporalcontroller"></span>
+<img src="imgs/19_temporalcontroller.gif" alt="QGIS Temporal Controller" width="70%" />
+<p class="caption">
+Figure 19.3: QGIS Temporal Controller
+</p>
+</div>
 <p>QGIS ei lase animatsiooni gif-ina salvestada, vaid kõik 100 pilti (aastatest 1921-2021) salvestatakse eraldi pildifailidena ning neid tuleb eraldi animeerida mõnes teises programmis, nt <a href="https://ezgif.com/maker">Ezgifi</a> veebipõhises programmis.</p>
 <p>Selline gif on aga põhimõtteliselt lihtsalt liikuv pilt ning kasutajal ei ole võimalik andmeid kuidagi oma soovidele vastavalt põhjalikumalt uurida.</p>
 </div>
 <div id="ajadimensioon-mapbox-gl-js-apis" class="section level2" number="19.2">
 <h2><span class="header-section-number">19.2</span> Ajadimensioon Mapbox GL JS APIs</h2>
-<p>Mapboxi JavaScripti API sisaldab hulka funktsioone, mille abil on võimalik veebilehel või veebirakenduses näidata interaktiivseid veebikaarte ning näidata andmeid vastavalt kasutaja tegevusele ja valikutele.</p>
-<p>Teeme lihtsa rakenduse, kus kasutaja saab liuguri abil vaadata eri aastate andmeid. Nagu eelmisel korral räägitud, kasutavad veebirakendused vähemalt kolme elementi: HTMLi, mis annab leheküljele struktuuri, CSSi, mis annab leheküljele kujunduse, ja JavaScripti, mis annab lehele interaktiivsuse.</p>
-<p>Salvestame <code>efis_eesti</code> geojsoni failina ja <code>EPSG: 4326</code> projektsioonis. Ühtlasi eemaldame salvestamisel ebavajalikud tulbad, mis nt geokodeerimisega kaasa tulid.<br />
-Avame geojsoni faili mingis tekstiredaktoris (nt Notepad või Notepad++) ning kustutame failist ära rea, mis algab <code>crs": { "type": "name", "properties":</code> ja salvestame.</p>
+<p><a href="https://docs.mapbox.com/mapbox-gl-js/api/">Mapboxi JavaScripti API</a> sisaldab hulka funktsioone, mille abil on võimalik veebilehel või veebirakenduses näidata interaktiivseid veebikaarte ning näidata andmeid vastavalt kasutaja tegevusele ja valikutele. API funktsioonid on üsna põhjalikult kirjeldatud ning samuti on võimalik kasutada olemasolevaid <a href="https://docs.mapbox.com/mapbox-gl-js/example/">näiteid</a> ja <a href="https://docs.mapbox.com/help/tutorials/?product=Mapbox+GL+JS">õpetusi</a>, et täiendada oma veebikaarti just endale vajalike funktsionaalsustega.</p>
+<p>Teeme siin lihtsa rakenduse, kus kasutaja saab liuguri abil vaadata eri aastate filmide kohaandmeid. Nagu eelmisel korral räägitud, kasutavad veebirakendused vähemalt kolme elementi: <strong>HTMLi</strong>, mis annab leheküljele struktuuri, <strong>CSSi</strong>, mis annab leheküljele kujunduse, ja <strong>JavaScripti</strong>, mis annab lehele interaktiivsuse.</p>
+<p>Salvestame <code>efis_eesti</code> <strong>geojsoni</strong> failina ja <strong>EPSG: 4326</strong> projektsioonis. Ühtlasi eemaldame salvestamisel ebavajalikud tulbad, mis nt geokodeerimisega kaasa tulid.<br />
+Avame geojsoni faili mingis tekstiredaktoris (nt Notepad või Notepad++) ning kustutame failist ära rea, mis algab <code>"crs": { "type": "name", "properties":</code> ja salvestame. See samm on vajalik selleks, et laadida geojsoni formaadis fail natukese aja pärast Mapbox Studiosse.</p>
 <div id="html" class="section level3" number="19.2.1">
 <h3><span class="header-section-number">19.2.1</span> HTML</h3>
 <p>Kõigepealt teeme valmis lihtsa HTML-i struktuuri, kus oleks päis ja keha ning kus kehas oleksid olemas meie lehekülje struktuurielemendid:</p>
@@ -388,6 +414,7 @@ Avame geojsoni faili mingis tekstiredaktoris (nt Notepad või Notepad++) ning ku
 </li>
 <li>liugur.</li>
 </ul>
+<p>Ava mingi tekstiredaktor ning kopeeri sinna allolev kood. Salvesta fail nimega <strong>index.html</strong>.</p>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
@@ -400,7 +427,8 @@ Avame geojsoni faili mingis tekstiredaktoris (nt Notepad või Notepad++) ning ku
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-<p>Päisesse peab Mapboxi APIt kasutades minema üsna kindel info. Seega kopeerime <code>&lt;head&gt;&lt;/head&gt;</code> märgendite vahele alloleva koodi:</p>
+<p>Ava nüüd fail index.html mingis veebibrauseris. Esialgu peaksid nägema lihtsalt tühja lehte.</p>
+<p>Päisesse peab Mapboxi APIt kasutades minema alati üsna kindel info. Seega kopeerime <code>&lt;head&gt;&lt;/head&gt;</code> märgendite vahele alloleva koodi:</p>
 <pre><code>        &lt;meta charset = &quot;utf-8&quot;/&gt;
         &lt;meta name=&#39;viewport&#39; content=&#39;width=device-width, initial-scale=1&#39; /&gt;
         &lt;title&gt;Kohad Eesti filmides&lt;/title&gt;
@@ -410,9 +438,10 @@ Avame geojsoni faili mingis tekstiredaktoris (nt Notepad või Notepad++) ning ku
 <pre><code>            &lt;h1&gt;Eesti filmidega seotud kohad aastatel 1921-2021&lt;/h1&gt;
             &lt;p&gt;Andmed: efis.ee&lt;/p&gt;
                 </code></pre>
-<p>Lõpuks saame veel määrata, mis toimub liuguri jaotises. Lisame sinna aastaarvu, mis vastavalt kasutaja valikule muutuma hakkab, ning liuguri enda. Liugurile anname ka eraldi ID ja klassi, mille kaudu sellele CSSis ja JavaScriptiga viidata saame.</p>
+<p>Värskenda brauseris lehte index.html, et näha, mis muutus.</p>
+<p>Lõpuks saame veel määrata, mis toimub liuguri jaotises. Lisame sinna aastaarvu, mis vastavalt kasutaja valikule muutuma hakkab, ning liuguri enda. Liugurile anname ka eraldi ID ja klassi, mille kaudu sellele CSSis ja JavaScriptis viidata saame.</p>
 <pre><code>        &lt;h2&gt;Aasta: &lt;label id=&quot;parasjagu_aasta&quot;&gt;1921&lt;/label&gt;&lt;/h2&gt;
-                &lt;input id=&quot;liugur&quot; class=&quot;slider&quot; type=&quot;range&quot; min=&quot;1921&quot; max=&quot;2021&quot; value=&quot;1921&quot; /&gt;</code></pre>
+        &lt;input id=&quot;liugur&quot; class=&quot;slider&quot; type=&quot;range&quot; min=&quot;1921&quot; max=&quot;2021&quot; value=&quot;1921&quot; /&gt;</code></pre>
 </div>
 <div id="css" class="section level3" number="19.2.2">
 <h3><span class="header-section-number">19.2.2</span> CSS</h3>
@@ -440,14 +469,15 @@ Avame geojsoni faili mingis tekstiredaktoris (nt Notepad või Notepad++) ning ku
                 width: 100%;
             }
         &lt;/style&gt;</code></pre>
+<p>Värskenda taas loodud veebilehte, et näha, mis muutus.</p>
 </div>
 <div id="javascript" class="section level3" number="19.2.3">
 <h3><span class="header-section-number">19.2.3</span> JavaScript</h3>
-<p>Nüüd liigume <a href="https://studio.mapbox.com/">MapBox Studiosse</a>. Oma veebirakenduses kasutame nii Mapboxis stiliseeritud aluskaarti kui ka Mapboxi <em>tileset</em>idesse laaditud Eesti filmi andmebaasi geojsoni andmeid.</p>
-<p>Esmalt stiliseerime kiiresti mingi kaardipõhja, mida oma rakenduses kasutada: <em>Styles</em> -&gt; <em>New style</em>. Teeme valmis stiili avalikuks: <em>Share</em> -&gt; <em>Allow copying</em> -&gt; <em>Make public</em>.</p>
-<p>Järgmiseks laadime Mapboxi üles oma <em>efis_eesti.geojson</em> faili, kust on CRS-rida ära kustutatud: <em>Datasets</em> -&gt; <em>New Dataset</em> -&gt; <em>Upload</em>. Kui andmestik on <em>dataset</em>’ina üles laaditud, siis ekspordime selle omakorda <em>tileset</em>’iks: <em>Export to tileset</em>. Tee ka <em>tileset</em> avalikuks (<em>Make public</em>).</p>
+<p>Nüüd liigume <a href="https://studio.mapbox.com/">Mapbox Studiosse</a>. Oma veebirakenduses kasutame nii Mapboxis stiliseeritud aluskaarti kui ka Mapboxi <em>tileset</em>idesse laaditud Eesti filmi andmebaasi geojsoni andmeid.</p>
+<p>Esmalt stiliseerime kiiresti mingi kaardipõhja, mida oma rakenduses kasutada: <em>Styles</em> -&gt; <em>New style</em>. Kaardil võiksid olla halduspiirid, riigipiirid, maa, vesi ja taevas. Teeme valmis stiili avalikuks: <em>Share</em> -&gt; <em>Allow copying</em> -&gt; <em>Make public</em>.</p>
+<p>Järgmiseks laadime Mapbox Studiosse üles oma <em>efis_eesti.geojson</em> faili, kust on CRS-rida ära kustutatud: <em>Datasets</em> -&gt; <em>New Dataset</em> -&gt; <em>Upload</em>. Kui andmestik on <em>dataset</em>’ina üles laaditud, siis ekspordime selle omakorda <em>tileset</em>’iks: <em>Export to tileset</em>. Tee ka <em>tileset</em> avalikuks (<em>Make public</em>).</p>
 <p>Nüüd lisame oma HTML-faili <code>&lt;body&gt;</code>-jaotisesse uue jaotise <code>&lt;script&gt;&lt;/script&gt;</code> märgendite vahele. Siia tuleb nüüd JavaScripti osa, mis kasutab Mapboxi APIt. Kõik, mis on pärast märke <code>//</code>, on kommentaar, mis koodi kirjeldab, ent ei tee ise midagi.</p>
-<p>Minimaalselt on vaja kaardi tegemiseks allolevat koodi. See näitab HTML-failis meie stiliseeritud aluskaarti, ära tuleks vahetada ainult juurdepääsuluba ja kaardistiili aadress, mille saab MapBox Studios enda loodud stiili juurest vastavalt <em>Share</em> -&gt; <em>Developer resources</em> -&gt; <em>Web</em> -&gt; <em>Access token</em> ja <em>Share</em> -&gt; <em>Developer resources</em> -&gt; <em>Web</em> -&gt; <em>Style URL</em>.</p>
+<p>Minimaalselt on vaja kaardi tegemiseks allolevat koodi. See näitab HTML-failis meie stiliseeritud aluskaarti, ära tuleks vahetada ainult juurdepääsuluba ja kaardistiili aadress, mille saab Mapbox Studios enda loodud stiili juurest vastavalt <em>Share</em> -&gt; <em>Developer resources</em> -&gt; <em>Web</em> -&gt; <em>Access token</em> ja <em>Share</em> -&gt; <em>Developer resources</em> -&gt; <em>Web</em> -&gt; <em>Style URL</em>.</p>
 <pre><code>        &lt;script&gt;
             // aluskaart
             mapboxgl.accessToken = &#39;pk.sinukaardistiilijuurdepääsuluba&#39;; // kaardistiili juurdepääsuluba
@@ -460,7 +490,7 @@ Avame geojsoni faili mingis tekstiredaktoris (nt Notepad või Notepad++) ning ku
             });
         &lt;/script&gt;
             </code></pre>
-<p>Järgmiseks võiksime lisada kaardile ka MapBoxi laaditud filmikohtade <em>tileset</em>’i punktid. Selleks lisame <code>&lt;script&gt;</code>-märgendite vahele alloleva koodi, mis pärast aluskaardi laadimist määrab ära meie punktiandmete allika Mapboxis ning seejärel lisab sealt allikast punktid veebirakenduse aluskaardile. Sedapuhku tuleb koodis asendada nüüd avalikuks tehtud <em>tileset</em>’i aadress.</p>
+<p>Järgmiseks võiksime lisada kaardile ka Mapboxi laaditud filmikohtade <em>tileset</em>’i punktid. Selleks lisame <code>&lt;script&gt;</code>-märgendite vahele alloleva koodi, mis pärast aluskaardi laadimist määrab ära meie punktiandmete allika Mapboxis ning seejärel lisab sealt allikast punktid veebirakenduse aluskaardile. Sedapuhku tuleb koodis asendada nüüd avalikuks tehtud <em>tileset</em>’i aadress.</p>
 <pre><code>            // punktandmed
             // kui aluskaart on laadinud, siis...
             map.on(&#39;load&#39;, () =&gt;{
@@ -604,7 +634,13 @@ Avame geojsoni faili mingis tekstiredaktoris (nt Notepad või Notepad++) ning ku
         &lt;/script&gt;
     &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-<p>Salvestame veebilehe nimega <strong>index.html</strong> ja paneme selle üles GitHubi.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mapboxgljs"></span>
+<img src="imgs/19_mapboxgljs.gif" alt="Mapbox GL JS APIga tehtud interaktiivne veebikaart" width="70%" />
+<p class="caption">
+Figure 19.4: Mapbox GL JS APIga tehtud interaktiivne veebikaart
+</p>
+</div>
+<p>Paneme lehe <strong>index.html</strong> nüüd üles GitHubi (vt eelmise korra materjale).</p>
 </div>
 </div>
 <div id="lisa" class="section level2" number="19.3">
@@ -628,6 +664,7 @@ Avame geojsoni faili mingis tekstiredaktoris (nt Notepad või Notepad++) ning ku
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -655,7 +692,7 @@ gitbook.start({
 },
 "download": [["book.pdf", "PDF"], ["book.epub", "EPUB"]],
 "search": {
-"engine": "fuse",
+"engine": "lunr",
 "options": null
 },
 "toc": {

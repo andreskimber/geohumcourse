@@ -12,28 +12,41 @@ Kasutame sel korral [Eesti filmi andmebaasist](https://www.efis.ee/) kogutud and
 
 Kohad, millele teenuses mingid koordinaadid määrati, oleme üle vaadanud ning enam-vähem õigesse kohta liigutanud. Kohtadele, mis koordinaate ei saanud, ei ole neid ka eraldi lisatud.  
 
-Laadime saadud andmestiku **efis_parandatud.gpkg** QGISi. Valime *WebMapServices* kaudu ka mingi sobiva aluskaardi.  
+Laadime saadud andmestiku **efis_parandatud.gpkg** QGISi. Valime *QuickMapServices* kaudu ka mingi sobiva aluskaardi.  
 
 
 ## Ajatelje kasutamine QGISis
 
 - Filtreerime andmestikust kõigepealt välja ainult need read, kus aastaarvud on olemas.  
-- Kuna Eesti kohta on info oluliselt detailsem kui välismaa kohta, piirame oma veebikaardi samuti ainult Eesti ala. Kasutame selleks *freehand selection*'i tööriista, et tõmmata ümber Eesti ala piiri, mille seest punkte valida.  
+- Kuna Eesti kohta on info oluliselt detailsem kui välismaa kohta, piirame oma veebikaardi samuti ainult Eesti ala. Kasutame selleks *Select Features by Freehand* tööriista, et tõmmata ümber Eesti ala piiri, mille seest punkte valida.  
 - Salvestame tehtud valiku eraldi kihina. Nimetame selle nt nimega **efis_eesti.gpkg**.  
-- Eemaldame punktidelt äärejooned, valime punktidele värvid, teeme need läbipaistvamaks ning määrame punktide suuruse vastavalt sellele, kui palju mingit kohta mingil aastal filmides näidatud oli (tulp *n*).  
+- Eemaldame punktidelt äärejooned, valime punktidele värvid, teeme need läbipaistvamaks ning määrame punktide suuruse vastavalt sellele, kui palju mingit kohta mingil aastal filmides näidatud oli (tulp *n*, mille väärtused võiks korrutada läbi kolmega).  
 - Kuna aastaarvu sisaldav tulp on hetkel andmestikus tekstikujul ja sisaldab ka ajavahemikke (nt *1940-1941*), tekitame andmestikku kaks uut tulpa:  
   + esmalt teeme uue tulba nimega *aasta1*, kus oleks arvu kujul ainult 4 esimest numbrit *aasta* tulbast: `to_int(left("aasta", 4))`.  
   + seejärel teeme QGISi jaoks eraldi kuupäeva tulba nimega *kuupaev*, mida on vaja animeerimiseks: `to_date("aasta1", 'yyyy')`.  
 
+```{r efiseesti, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap= "Eesti filmidega seotud kohad ja uued tunnused atribuuttabelis"}
+knitr::include_graphics(here::here("imgs", "19_efis_eesti.jpg"))
+```
 
-Teeme nüüd *efis_eesti* kihil paremkliki ning valime *Properties*. Vasakult menüüst valime *Temporal* ja teeme linnukese valiku ette *Dynamic Temporal Control*.   
-Kuna meil on andmestikus nüüd kuupäeva tulp, saame valida konfiguratsiooniks väärtuse *Single Field with Date/Time* ning *Field* väärtuseks loodud tulba *kuupaev*. Vajutame *OK*.  
 
-Valime järgmiseks menüüst kella pildiga tööriista **_Temporal Controller Panel_**.
-Avanenud menüüs vajutame nupule *Animated temporal navigation*. *Animation range*'i saame määrata värskendamise ikooni juurest: *Set to Full Range*. Ajatelje "sammuks" määrame 1 aasta.  
+- Teeme nüüd *efis_eesti* kihil paremkliki ning valime *Properties*. Vasakult menüüst valime *Temporal* ja teeme linnukese valiku ette *Dynamic Temporal Control*.    
+- Kuna meil on andmestikus nüüd kuupäeva tulp, saame valida konfiguratsiooniks väärtuse *Single Field with Date/Time* ning *Field* väärtuseks loodud tulba *kuupaev*. Vajutame *OK*.   
 
-Vajuta animatsiooni mängimise nupule ning peaksid nägema, kuidas kaardile ilmuvad igal aasta filmidega seotud olnud kohad ning nende ikoonide suurus vastab sellele, kui mitme filmiga need sel aastal seotud olid.
-Võime kuvada kaardil ka aastaarvu, et oleks lihtsam jälgida: *View* -> *Decorations* -> *Title Label*.  Tee linnuke valiku ette *Enable Title Label*, vali *Insert or Edit an Expression* ja trüki avaldise kasti `format_date(@map_start_time, 'yyyy')`.
+```{r temporal, echo=F, fig.show='hold', fig.align='center', out.width= "50%", fig.cap= "Ajadimensiooni kasutamine QGISis"}
+knitr::include_graphics(here::here("imgs", "19_temporal.jpg"))
+```
+
+
+- Valime järgmiseks menüüribalt, kus on nt ka salvestamise ja suumimise ikoonid, kella pildiga tööriista **_Temporal Controller Panel_**. Kui sul ei ole seda ikooni menüüs näha, siis mine *View* -> *Panels* -> *Temporal Controller* ja tee sinna ette linnuke.   
+- Avanenud menüüs vajutame rohelise noolekesega nupule *Animated temporal navigation*. *Animation range*'i saame määrata värskendamise ikooni juurest: *Set to Full Range*. Ajatelje "sammuks" määrame 1 aasta.    
+- Vajuta animatsiooni mängimise nupule ning peaksid nägema, kuidas kaardile ilmuvad igal aasta filmidega seotud olnud kohad ning nende ikoonide suurus vastab sellele, kui mitme filmiga need sel aastal seotud olid.  
+- Võime kuvada kaardil ka aastaarvu, et oleks lihtsam jälgida: *View* -> *Decorations* -> *Title Label*.  Tee linnuke valiku ette *Enable Title Label*, vali *Insert or Edit an Expression* ja trüki avaldise kasti `format_date(@map_start_time, 'yyyy')`.
+
+```{r temporalcontroller, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap= "QGIS Temporal Controller"}
+knitr::include_graphics(here::here("imgs", "19_temporalcontroller.gif"))
+```
+
 
 QGIS ei lase animatsiooni gif-ina salvestada, vaid kõik 100 pilti (aastatest 1921-2021) salvestatakse eraldi pildifailidena ning neid tuleb eraldi animeerida mõnes teises programmis, nt [Ezgifi](https://ezgif.com/maker) veebipõhises programmis.
 
@@ -42,12 +55,12 @@ Selline gif on aga põhimõtteliselt lihtsalt liikuv pilt ning kasutajal ei ole 
 
 ## Ajadimensioon Mapbox GL JS APIs
 
-Mapboxi JavaScripti API sisaldab hulka funktsioone, mille abil on võimalik veebilehel või veebirakenduses näidata interaktiivseid veebikaarte ning näidata andmeid vastavalt kasutaja tegevusele ja valikutele.  
+[Mapboxi JavaScripti API](https://docs.mapbox.com/mapbox-gl-js/api/) sisaldab hulka funktsioone, mille abil on võimalik veebilehel või veebirakenduses näidata interaktiivseid veebikaarte ning näidata andmeid vastavalt kasutaja tegevusele ja valikutele. API funktsioonid on üsna põhjalikult kirjeldatud ning samuti on võimalik kasutada olemasolevaid [näiteid](https://docs.mapbox.com/mapbox-gl-js/example/) ja [õpetusi](https://docs.mapbox.com/help/tutorials/?product=Mapbox+GL+JS), et täiendada oma veebikaarti just endale vajalike funktsionaalsustega.   
 
-Teeme lihtsa rakenduse, kus kasutaja saab liuguri abil vaadata eri aastate andmeid. Nagu eelmisel korral räägitud, kasutavad veebirakendused vähemalt kolme elementi: HTMLi, mis annab leheküljele struktuuri, CSSi, mis annab leheküljele kujunduse, ja JavaScripti, mis annab lehele interaktiivsuse.
+Teeme siin lihtsa rakenduse, kus kasutaja saab liuguri abil vaadata eri aastate filmide kohaandmeid. Nagu eelmisel korral räägitud, kasutavad veebirakendused vähemalt kolme elementi: **HTMLi**, mis annab leheküljele struktuuri, **CSSi**, mis annab leheküljele kujunduse, ja **JavaScripti**, mis annab lehele interaktiivsuse.
 
-Salvestame `efis_eesti` geojsoni failina ja `EPSG: 4326` projektsioonis. Ühtlasi eemaldame salvestamisel ebavajalikud tulbad, mis nt geokodeerimisega kaasa tulid.  
-Avame geojsoni faili mingis tekstiredaktoris (nt Notepad või Notepad++) ning kustutame failist ära rea, mis algab `crs": { "type": "name", "properties":` ja salvestame.  
+Salvestame `efis_eesti` **geojsoni** failina ja **EPSG: 4326** projektsioonis. Ühtlasi eemaldame salvestamisel ebavajalikud tulbad, mis nt geokodeerimisega kaasa tulid.  
+Avame geojsoni faili mingis tekstiredaktoris (nt Notepad või Notepad++) ning kustutame failist ära rea, mis algab `"crs": { "type": "name", "properties":` ja salvestame. See samm on vajalik selleks, et laadida geojsoni formaadis fail natukese aja pärast Mapbox Studiosse.  
 
 
 ### HTML
@@ -57,6 +70,8 @@ Kõigepealt teeme valmis lihtsa HTML-i struktuuri, kus oleks päis ja keha ning 
 - kaart,  
 - kirjeldustekst,  
 - liugur.  
+
+Ava mingi tekstiredaktor ning kopeeri sinna allolev kood. Salvesta fail nimega **index.html**.
 
 ```
 <!DOCTYPE html>
@@ -73,8 +88,9 @@ Kõigepealt teeme valmis lihtsa HTML-i struktuuri, kus oleks päis ja keha ning 
 </html>
 ```
 
+Ava nüüd fail index.html mingis veebibrauseris. Esialgu peaksid nägema lihtsalt tühja lehte.  
 
-Päisesse peab Mapboxi APIt kasutades minema üsna kindel info. Seega kopeerime `<head></head>` märgendite vahele alloleva koodi:
+Päisesse peab Mapboxi APIt kasutades minema alati üsna kindel info. Seega kopeerime `<head></head>` märgendite vahele alloleva koodi:
 
 ```
 		<meta charset = "utf-8"/>
@@ -92,11 +108,13 @@ Samuti saame kohe ära määrata, mida tahame kehaosas `<body>` ja `</body>` mä
 				
 ```
 
-Lõpuks saame veel määrata, mis toimub liuguri jaotises. Lisame sinna aastaarvu, mis vastavalt kasutaja valikule muutuma hakkab, ning liuguri enda. Liugurile anname ka eraldi ID ja klassi, mille kaudu sellele CSSis ja JavaScriptiga viidata saame.
+Värskenda brauseris lehte index.html, et näha, mis muutus.
+
+Lõpuks saame veel määrata, mis toimub liuguri jaotises. Lisame sinna aastaarvu, mis vastavalt kasutaja valikule muutuma hakkab, ning liuguri enda. Liugurile anname ka eraldi ID ja klassi, mille kaudu sellele CSSis ja JavaScriptis viidata saame.
 
 ```
         <h2>Aasta: <label id="parasjagu_aasta">1921</label></h2>
-				<input id="liugur" class="slider" type="range" min="1921" max="2021" value="1921" />
+		<input id="liugur" class="slider" type="range" min="1921" max="2021" value="1921" />
 ```
 
 ### CSS
@@ -129,19 +147,20 @@ Järgmiseks võiksime panna paika CSSi. Selle võib ära kirjeldada eraldi css-l
 		</style>
 ```
 
+Värskenda taas loodud veebilehte, et näha, mis muutus.  
 
 ### JavaScript
 
-Nüüd liigume [MapBox Studiosse](https://studio.mapbox.com/). Oma veebirakenduses kasutame nii Mapboxis stiliseeritud aluskaarti kui ka Mapboxi *tileset*idesse laaditud Eesti filmi andmebaasi geojsoni andmeid.  
+Nüüd liigume [Mapbox Studiosse](https://studio.mapbox.com/). Oma veebirakenduses kasutame nii Mapboxis stiliseeritud aluskaarti kui ka Mapboxi *tileset*idesse laaditud Eesti filmi andmebaasi geojsoni andmeid.  
 
-Esmalt stiliseerime kiiresti mingi kaardipõhja, mida oma rakenduses kasutada: *Styles* -> *New style*. Teeme valmis stiili avalikuks: *Share* -> *Allow copying* -> *Make public*.    
+Esmalt stiliseerime kiiresti mingi kaardipõhja, mida oma rakenduses kasutada: *Styles* -> *New style*. Kaardil võiksid olla halduspiirid, riigipiirid, maa, vesi ja taevas. Teeme valmis stiili avalikuks: *Share* -> *Allow copying* -> *Make public*.    
 
-Järgmiseks laadime Mapboxi üles oma *efis_eesti.geojson* faili, kust on CRS-rida ära kustutatud: *Datasets* -> *New Dataset* -> *Upload*. Kui andmestik on *dataset*'ina üles laaditud, siis ekspordime selle omakorda *tileset*'iks: *Export to tileset*. Tee ka *tileset* avalikuks (*Make public*).      
+Järgmiseks laadime Mapbox Studiosse üles oma *efis_eesti.geojson* faili, kust on CRS-rida ära kustutatud: *Datasets* -> *New Dataset* -> *Upload*. Kui andmestik on *dataset*'ina üles laaditud, siis ekspordime selle omakorda *tileset*'iks: *Export to tileset*. Tee ka *tileset* avalikuks (*Make public*).      
 
 
 Nüüd lisame oma HTML-faili `<body>`-jaotisesse uue jaotise `<script></script>` märgendite vahele. Siia tuleb nüüd JavaScripti osa, mis kasutab Mapboxi APIt. Kõik, mis on pärast märke `//`, on kommentaar, mis koodi kirjeldab, ent ei tee ise midagi.  
 
-Minimaalselt on vaja kaardi tegemiseks allolevat koodi. See näitab HTML-failis meie stiliseeritud aluskaarti, ära tuleks vahetada ainult juurdepääsuluba ja kaardistiili aadress, mille saab MapBox Studios enda loodud stiili juurest vastavalt *Share* -> *Developer resources* -> *Web* -> *Access token* ja *Share* -> *Developer resources* -> *Web* -> *Style URL*.  
+Minimaalselt on vaja kaardi tegemiseks allolevat koodi. See näitab HTML-failis meie stiliseeritud aluskaarti, ära tuleks vahetada ainult juurdepääsuluba ja kaardistiili aadress, mille saab Mapbox Studios enda loodud stiili juurest vastavalt *Share* -> *Developer resources* -> *Web* -> *Access token* ja *Share* -> *Developer resources* -> *Web* -> *Style URL*.  
 
 ```
 		<script>
@@ -158,7 +177,7 @@ Minimaalselt on vaja kaardi tegemiseks allolevat koodi. See näitab HTML-failis 
 			
 ```
 
-Järgmiseks võiksime lisada kaardile ka MapBoxi laaditud filmikohtade *tileset*'i punktid. Selleks lisame `<script>`-märgendite vahele alloleva koodi, mis pärast aluskaardi laadimist määrab ära meie punktiandmete allika Mapboxis ning seejärel lisab sealt allikast punktid veebirakenduse aluskaardile. Sedapuhku tuleb koodis asendada nüüd avalikuks tehtud *tileset*'i aadress.    
+Järgmiseks võiksime lisada kaardile ka Mapboxi laaditud filmikohtade *tileset*'i punktid. Selleks lisame `<script>`-märgendite vahele alloleva koodi, mis pärast aluskaardi laadimist määrab ära meie punktiandmete allika Mapboxis ning seejärel lisab sealt allikast punktid veebirakenduse aluskaardile. Sedapuhku tuleb koodis asendada nüüd avalikuks tehtud *tileset*'i aadress.    
 
 ```
 			// punktandmed
@@ -315,7 +334,14 @@ Terve veebilehe kood näeb nüüd välja niisiis järgmine:
 </html>
 ```
 
-Salvestame veebilehe nimega **index.html** ja paneme selle üles GitHubi.  
+```{r mapboxgljs, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap= "Mapbox GL JS APIga tehtud interaktiivne veebikaart"}
+knitr::include_graphics(here::here("imgs", "19_mapboxgljs.gif"))
+```
+
+
+
+
+Paneme lehe **index.html** nüüd üles GitHubi (vt eelmise korra materjale).  
 
 
 ## Lisa
