@@ -8,7 +8,7 @@ Sel korral vaatame esmalt,
 - kuidas ajadimensiooni võrdlemisi lihtsalt Mapbox GL JSi API abil veebirakenduses kuvada.   
 
 
-Kasutame sel korral [Eesti filmi andmebaasist](https://www.efis.ee/) kogutud andmeid selle kohta, milliseid geograafilisi kohti läbi aegade Eesti filmides näha on olnud. Selleks on andmebaasis lisaks tavalistele märksõnadele märgendatud eraldi ka [kohanimed](https://www.efis.ee/et/marksonad/id/13/view/Detailed/page/1). Selle kursuse tarbeks korjasime need R-i skriptiga kokku ning kokku vähemalt 5 korda esinenud kohanimede koordinaatidega sidumiseks kasutasime [Maa-ameti geokodeerimise teenust](https://inaadress.maaamet.ee/geocoder/bulk). 
+Kasutame sel korral [Eesti filmi andmebaasist](https://www.efis.ee/) kogutud andmeid selle kohta, milliseid geograafilisi kohti läbi aegade Eesti filmides näha on olnud. Selleks on andmebaasis lisaks tavalistele märksõnadele märgendatud eraldi ka [kohanimed](https://www.efis.ee/et/marksonad/id/13/view/Detailed/page/1). Selle kursuse tarbeks korjasime need [R-i skriptiga](https://github.com/MPilvik/efis_webscraping/blob/main/efis_scraping_script.R) kokku ning kokku vähemalt 5 korda esinenud kohanimede koordinaatidega sidumiseks kasutasime [Maa-ameti geokodeerimise teenust](https://inaadress.maaamet.ee/geocoder/bulk). 
 
 Kohad, millele teenuses mingid koordinaadid määrati, oleme üle vaadanud ning enam-vähem õigesse kohta liigutanud. Kohtadele, mis koordinaate ei saanud, ei ole neid ka eraldi lisatud.  
 
@@ -314,7 +314,7 @@ Terve veebilehe kood näeb nüüd välja niisiis järgmine:
 					}
 				});
 				
-				// muuta kaarti ja aasta loendurit vastavalt liuguri liigutamisele
+				// muuda kaarti ja aasta loendurit vastavalt liuguri liigutamisele
 				document.getElementById('liugur').addEventListener('input', (e) => {
 					const kasutaja_aasta = parseInt(e.target.value); // võta kasutaja sisend (= aastaarv liugurilt) ja salvesta see objekti "kasutaja_aasta"
 					

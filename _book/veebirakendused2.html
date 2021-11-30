@@ -342,7 +342,7 @@ div.csl-indent {
 </li>
 <li>kuidas ajadimensiooni võrdlemisi lihtsalt Mapbox GL JSi API abil veebirakenduses kuvada.</li>
 </ul>
-<p>Kasutame sel korral <a href="https://www.efis.ee/">Eesti filmi andmebaasist</a> kogutud andmeid selle kohta, milliseid geograafilisi kohti läbi aegade Eesti filmides näha on olnud. Selleks on andmebaasis lisaks tavalistele märksõnadele märgendatud eraldi ka <a href="https://www.efis.ee/et/marksonad/id/13/view/Detailed/page/1">kohanimed</a>. Selle kursuse tarbeks korjasime need R-i skriptiga kokku ning kokku vähemalt 5 korda esinenud kohanimede koordinaatidega sidumiseks kasutasime <a href="https://inaadress.maaamet.ee/geocoder/bulk">Maa-ameti geokodeerimise teenust</a>.</p>
+<p>Kasutame sel korral <a href="https://www.efis.ee/">Eesti filmi andmebaasist</a> kogutud andmeid selle kohta, milliseid geograafilisi kohti läbi aegade Eesti filmides näha on olnud. Selleks on andmebaasis lisaks tavalistele märksõnadele märgendatud eraldi ka <a href="https://www.efis.ee/et/marksonad/id/13/view/Detailed/page/1">kohanimed</a>. Selle kursuse tarbeks korjasime need <a href="https://github.com/MPilvik/efis_webscraping/blob/main/efis_scraping_script.R">R-i skriptiga</a> kokku ning kokku vähemalt 5 korda esinenud kohanimede koordinaatidega sidumiseks kasutasime <a href="https://inaadress.maaamet.ee/geocoder/bulk">Maa-ameti geokodeerimise teenust</a>.</p>
 <p>Kohad, millele teenuses mingid koordinaadid määrati, oleme üle vaadanud ning enam-vähem õigesse kohta liigutanud. Kohtadele, mis koordinaate ei saanud, ei ole neid ka eraldi lisatud.</p>
 <p>Laadime saadud andmestiku <strong>efis_parandatud.gpkg</strong> QGISi. Valime <em>QuickMapServices</em> kaudu ka mingi sobiva aluskaardi.</p>
 <div id="ajatelje-kasutamine-qgisis" class="section level2" number="19.1">
@@ -616,7 +616,7 @@ Avame geojsoni faili mingis tekstiredaktoris (nt Notepad või Notepad++) ning ku
                     }
                 });
                 
-                // muuta kaarti ja aasta loendurit vastavalt liuguri liigutamisele
+                // muuda kaarti ja aasta loendurit vastavalt liuguri liigutamisele
                 document.getElementById(&#39;liugur&#39;).addEventListener(&#39;input&#39;, (e) =&gt; {
                     const kasutaja_aasta = parseInt(e.target.value); // võta kasutaja sisend (= aastaarv liugurilt) ja salvesta see objekti &quot;kasutaja_aasta&quot;
                     
