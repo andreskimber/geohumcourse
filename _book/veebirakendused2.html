@@ -518,7 +518,7 @@ Avame geojsoni faili mingis tekstiredaktoris (nt Notepad või Notepad++) ning ku
                     }
                 });
             });</code></pre>
-<p>Lõpetuseks tuleks teha ka midagi selleks, et liugur kaardil toimuvaga kuidagi seotud oleks. Lisame skriptiosa lõppu, <code>map.on('load', ...</code> jaotise sisse niisiis veel mõned read koodi.</p>
+<p>Nüüd tuleks teha ka midagi selleks, et liugur kaardil toimuvaga kuidagi seotud oleks. Lisame skriptiosa lõppu, <code>map.on('load', ...</code> jaotise sisse niisiis veel mõned read koodi.</p>
 <p>Kood küsib veebilehelt, mida kasutaja liuguri väärtuseks on määranud, ning filtreerib näidatavalt punktikihilt välja ainult vastava aastaarvuga read. Samuti muudab skript <em>parasjagu_aasta</em> väärtust rakenduse kirjelduses.</p>
 <pre><code>                // muuda kaarti ja aasta loendurit vastavalt liuguri liigutamisele
                 document.getElementById(&#39;liugur&#39;).addEventListener(&#39;input&#39;, (e) =&gt; {
@@ -533,6 +533,36 @@ Avame geojsoni faili mingis tekstiredaktoris (nt Notepad või Notepad++) ning ku
                      // muuda aasta loendurit kirjelduses:
                      // määra HTML-is elemendile id-ga &quot;parasjagu_aasta&quot; sama väärtus, mille kasutaja liuguril valib
                     document.getElementById(&#39;parasjagu_aasta&#39;).innerText = kasutaja_aasta;
+                });</code></pre>
+<p>Lõpetuseks võiksime veel lisada sellise funktsionaalsuse, et kui kasutaja mõnel punktil klikib, näidatakse talle meie (filtreeritud) eesti filmide kohtade punktikihilt <em>popup</em>’i sees punkti alla jääva koha nime ja selle esinemiskordade arvu mingil aastal. Selleks lisame pärast <code>map.on('load'... });</code> ja enne <code>&lt;/script&gt;</code> märgendit veel eraldi koodilõigu.</p>
+<pre><code>                // lisa popup, kui kasutaja mõnel kaardil klikib
+                map.on(&#39;click&#39;, (event) =&gt; {
+                    
+                    // kui klikitakse, siis võta kihilt &quot;eesti_filmid&quot;
+                    // punktid, mis klikkimise piirkonda jäävad
+                    const features = map.queryRenderedFeatures(event.point, {
+                        layers: [&#39;eesti_filmid&#39;]
+                    });
+                    
+                    // kui ei jää ühtegi punkti
+                    if (!features.length){
+                        return; // ära näita midagi
+                    }
+                    
+                    // kui jääb mõni punkt
+                    const feature = features[0]; // siis võta neist kõige esimene 
+                    
+                    // tee popup, mis paikneks punktist kaardil natuke ülevalpool
+                    const popup = new mapboxgl.Popup({offset: [0, -15]});
+                    
+                    // sea popupi koordinaatideks punkti koordinaadid andmestikus
+                    popup.setLngLat(feature.geometry.coordinates);
+                    
+                    // määra popupi sisu (koht + esinemiskordade arv)
+                    popup.setHTML(&#39;&lt;h3&gt;&#39; + feature.properties.koht + &#39;&lt;/h3&gt;&lt;p&gt;Esinemiskordi: &#39; + feature.properties.n + &#39;&lt;/p&gt;&#39;)
+                    
+                    // lisa popup kaardile
+                    popup.addTo(map);
                 });</code></pre>
 <p>Terve veebilehe kood näeb nüüd välja niisiis järgmine:</p>
 <pre><code>&lt;!DOCTYPE html&gt;
@@ -571,13 +601,12 @@ Avame geojsoni faili mingis tekstiredaktoris (nt Notepad või Notepad++) ning ku
         &lt;div id = &quot;kaart&quot;&gt;&lt;/div&gt;
         &lt;div id = &quot;kirjeldus&quot;&gt;
             &lt;h1&gt;Eesti filmidega seotud kohad aastatel 1921-2021&lt;/h1&gt;
-            &lt;p&gt;Andmed: efis.ee&lt;/p&gt;
+            &lt;p&gt;Andmed: Eesti filmi andmebaas (efis.ee)&lt;/p&gt;
             &lt;div&gt;
                 &lt;h2&gt;Aasta: &lt;label id=&quot;parasjagu_aasta&quot;&gt;1921&lt;/label&gt;&lt;/h2&gt;
                 &lt;input id=&quot;liugur&quot; class=&quot;slider&quot; type=&quot;range&quot; min=&quot;1921&quot; max=&quot;2021&quot; value=&quot;1921&quot; /&gt;
             &lt;/div&gt;
         &lt;/div&gt;
-        
         &lt;script&gt;
             // aluskaart
             mapboxgl.accessToken = &#39;pk.sinukaardistiilijuurdepääsuluba&#39;; // kaardistiili juurdepääsuluba
@@ -609,7 +638,7 @@ Avame geojsoni faili mingis tekstiredaktoris (nt Notepad või Notepad++) ning ku
                         &#39;circle-color&#39;: &#39;#f3a6b2&#39;, // punktide värv roosa
                         &#39;circle-stroke-color&#39;: &#39;transparent&#39;, // punktide äärejoon läbipaistev
                         &#39;circle-opacity&#39;: 0.4, // punktide väljapaistvus 0.4
-                        &#39;circle-radius&#39;: { // punkti suurus võta
+                        &#39;circle-radius&#39;: { // punkti suuruse võtame
                             property: &#39;n&#39;, // andmestiku tunnusest &quot;n&quot;
                             stops: [[1, 8], [10, 36]] // kui n = 1, siis on punkti suurus 8, kui n = 10, siis 36, teised jäävad ühtlaselt nende vahepeale
                         }
@@ -630,17 +659,41 @@ Avame geojsoni faili mingis tekstiredaktoris (nt Notepad või Notepad++) ning ku
                      // määra HTML-is elemendile id-ga &quot;parasjagu_aasta&quot; sama väärtus, mille kasutaja liuguril valib
                     document.getElementById(&#39;parasjagu_aasta&#39;).innerText = kasutaja_aasta;
                 });
+                
+                // lisa popup, kui kasutaja mõnel kaardil klikib
+                map.on(&#39;click&#39;, (event) =&gt; {
+                    
+                    // kui klikitakse, siis võta kihilt &quot;eesti_filmid&quot;
+                    // punktid, mis klikkimise piirkonda jäävad
+                    const features = map.queryRenderedFeatures(event.point, {
+                        layers: [&#39;eesti_filmid&#39;]
+                    });
+                    
+                    // kui ei jää ühtegi punkti
+                    if (!features.length){
+                        return; // ära näita midagi
+                    }
+                    
+                    // kui jääb mõni punkt
+                    const feature = features[0]; // siis võta neist kõige esimene
+                    
+                    // tee popup, mis paikneks punktist kaardil natuke ülevalpool
+                    const popup = new mapboxgl.Popup({offset: [0, -15]});
+                    
+                    // sea popupi koordinaatideks punkti koordinaadid andmestikus
+                    popup.setLngLat(feature.geometry.coordinates);
+                    // määra popupi sisu (koht + esinemiskordade arv)
+                    popup.setHTML(&#39;&lt;h3&gt;&#39; + feature.properties.koht + &#39;&lt;/h3&gt;&lt;p&gt;Esinemiskordi: &#39; + feature.properties.n + &#39;&lt;/p&gt;&#39;)
+                    // lisa popup kaardile
+                    popup.addTo(map);
+                });
             });
         &lt;/script&gt;
     &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mapboxgljs"></span>
-<img src="imgs/19_mapboxgljs.gif" alt="Mapbox GL JS APIga tehtud interaktiivne veebikaart" width="70%" />
-<p class="caption">
-Figure 19.4: Mapbox GL JS APIga tehtud interaktiivne veebikaart
-</p>
-</div>
 <p>Paneme lehe <strong>index.html</strong> nüüd üles GitHubi (vt eelmise korra materjale).</p>
+<iframe src="https://mpilvik.github.io/eestifilmid/" width="100%" height="500" style="border:none;" title="Veebikaart GitHubist (mpilvik.github.io/eestifilmid/)">
+</iframe>
 </div>
 </div>
 <div id="lisa" class="section level2" number="19.3">

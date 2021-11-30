@@ -209,7 +209,7 @@ Järgmiseks võiksime lisada kaardile ka Mapboxi laaditud filmikohtade *tileset*
 			});
 ```  
 
-Lõpetuseks tuleks teha ka midagi selleks, et liugur kaardil toimuvaga kuidagi seotud oleks. Lisame skriptiosa lõppu, `map.on('load', ...` jaotise sisse niisiis veel mõned read koodi. 
+Nüüd tuleks teha ka midagi selleks, et liugur kaardil toimuvaga kuidagi seotud oleks. Lisame skriptiosa lõppu, `map.on('load', ...` jaotise sisse niisiis veel mõned read koodi. 
 
 Kood küsib veebilehelt, mida kasutaja liuguri väärtuseks on määranud, ning filtreerib näidatavalt punktikihilt välja ainult vastava aastaarvuga read. Samuti muudab skript *parasjagu_aasta* väärtust rakenduse kirjelduses.  
 
@@ -230,118 +230,176 @@ Kood küsib veebilehelt, mida kasutaja liuguri väärtuseks on määranud, ning 
 				});
 ```
 
+Lõpetuseks võiksime veel lisada sellise funktsionaalsuse, et kui kasutaja mõnel punktil klikib, näidatakse talle meie (filtreeritud) eesti filmide kohtade punktikihilt *popup*'i sees punkti alla jääva koha nime ja selle esinemiskordade arvu mingil aastal. Selleks lisame pärast `map.on('load'... });` ja enne `</script>` märgendit veel eraldi koodilõigu.  
+
+```
+                // lisa popup, kui kasutaja mõnel kaardil klikib
+				map.on('click', (event) => {
+					
+					// kui klikitakse, siis võta kihilt "eesti_filmid"
+					// punktid, mis klikkimise piirkonda jäävad
+					const features = map.queryRenderedFeatures(event.point, {
+						layers: ['eesti_filmid']
+					});
+					
+					// kui ei jää ühtegi punkti
+					if (!features.length){
+						return; // ära näita midagi
+					}
+					
+					// kui jääb mõni punkt
+					const feature = features[0]; // siis võta neist kõige esimene 
+					
+					// tee popup, mis paikneks punktist kaardil natuke ülevalpool
+					const popup = new mapboxgl.Popup({offset: [0, -15]});
+					
+					// sea popupi koordinaatideks punkti koordinaadid andmestikus
+					popup.setLngLat(feature.geometry.coordinates);
+					
+					// määra popupi sisu (koht + esinemiskordade arv)
+					popup.setHTML('<h3>' + feature.properties.koht + '</h3><p>Esinemiskordi: ' + feature.properties.n + '</p>')
+					
+					// lisa popup kaardile
+					popup.addTo(map);
+				});
+```
+
 Terve veebilehe kood näeb nüüd välja niisiis järgmine:
 
 ```
 <!DOCTYPE html>
 <html>
-	<head>
+    <head>
 		<meta charset = "utf-8"/>
-		<meta name='viewport' content='width=device-width, initial-scale=1' />
-		<title>Kohad Eesti filmides</title>
-		<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js'></script>
-		<link href='https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css' rel='stylesheet' />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <title>Kohad Eesti filmides</title>
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css' rel='stylesheet' />
 		<style>
-			body { 
-				margin: 0; 
-				padding: 0; 
-				font-family: Helvetica, Arial, sans-serif;
-			}
-			#kaart { 
-				position: absolute; 
-				top: 0; 
-				bottom: 0; 
-				width: 100%; 
-			}
-			#kirjeldus {
-				position: absolute;
-				width: 260px;
-				margin: 10px;
-				padding: 10px 20px;
-				background-color: white;
-			}
-			.slider {
-				width: 100%;
-			}
-		</style>
-	</head>
-	<body>
-		<div id = "kaart"></div>
-		<div id = "kirjeldus">
+            body { 
+                margin: 0; 
+                padding: 0; 
+                font-family: Helvetica, Arial, sans-serif;
+            }
+            #kaart { 
+                position: absolute; 
+                top: 0; 
+                bottom: 0; 
+                width: 100%; 
+            }
+            #kirjeldus {
+                position: absolute;
+                width: 260px;
+                margin: 10px;
+                padding: 10px 20px;
+                background-color: white;
+            }
+            .slider {
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id = "kaart"></div>
+        <div id = "kirjeldus">
 			<h1>Eesti filmidega seotud kohad aastatel 1921-2021</h1>
-			<p>Andmed: efis.ee</p>
-			<div>
+            <p>Andmed: Eesti filmi andmebaas (efis.ee)</p>
+            <div>
 				<h2>Aasta: <label id="parasjagu_aasta">1921</label></h2>
 				<input id="liugur" class="slider" type="range" min="1921" max="2021" value="1921" />
-			</div>
-		</div>
-		
+            </div>
+        </div>
 		<script>
-			// aluskaart
-			mapboxgl.accessToken = 'pk.sinukaardistiilijuurdepääsuluba'; // kaardistiili juurdepääsuluba
+            // aluskaart
+            mapboxgl.accessToken = 'pk.sinukaardistiilijuurdepääsuluba'; // kaardistiili juurdepääsuluba
 
-			const map = new mapboxgl.Map({
-			  container: 'kaart', // millises html-i jaotises kaarti hoida?
-			  style: 'mapbox://styles/sinukasutaja/stiiliaadress', // mapboxi kaardistiili aadress
-			  center: [24.89, 58.64], // aluskaardi keskpunkti koordinaadid
-			  zoom: 6.5 // sissesuumimise tase
-			});
+            const map = new mapboxgl.Map({
+              container: 'kaart', // millises html-i jaotises kaarti hoida?
+              style: 'mapbox://styles/sinukasutaja/stiiliaadress', // mapboxi kaardistiili aadress
+              center: [24.89, 58.64], // aluskaardi keskpunkti koordinaadid
+              zoom: 6.5 // sissesuumimise tase
+            });
 			
 			// punktandmed
-			// kui aluskaart on laadinud, siis...
-			map.on('load', () =>{
-			
-				// määra punktandmete allikas (nimetame selle nimega "filmid")
-				map.addSource('filmid', {
-					type: 'vector', // andmetüüp on vektorandmed
-					url: 'mapbox://sinukasutaja.tilesetiaadress' // mapboxi tileseti aadress
-				});
-				
-				// lisa aluskaardi peale määratud allikast (punkti)kiht
-				map.addLayer({
-					'id': 'eesti_filmid', // nimetame kihi nimega "eesti_filmid"
-					'type': 'circle', // andmetüüp on (täitevärviga) punkt
-					'source': 'filmid', // andmete allikas on eelnevalt loodud objekt "filmid"
-					'source-layer': 'efis_eesti', // geojsoni kihi enda nimi on "efis_eesti"
-					'paint': {
-						'circle-color': '#f3a6b2', // punktide värv roosa
-						'circle-stroke-color': 'transparent', // punktide äärejoon läbipaistev
-						'circle-opacity': 0.4, // punktide väljapaistvus 0.4
-						'circle-radius': { // punkti suurus võta
-							property: 'n', // andmestiku tunnusest "n"
-							stops: [[1, 8], [10, 36]] // kui n = 1, siis on punkti suurus 8, kui n = 10, siis 36, teised jäävad ühtlaselt nende vahepeale
-						}
-					}
-				});
+            // kui aluskaart on laadinud, siis...
+            map.on('load', () =>{
+            
+                // määra punktandmete allikas (nimetame selle nimega "filmid")
+                map.addSource('filmid', {
+                    type: 'vector', // andmetüüp on vektorandmed
+                    url: 'mapbox://sinukasutaja.tilesetiaadress' // mapboxi tileseti aadress
+                });
+                
+                // lisa aluskaardi peale määratud allikast (punkti)kiht
+                map.addLayer({
+                    'id': 'eesti_filmid', // nimetame kihi nimega "eesti_filmid"
+                    'type': 'circle', // andmetüüp on (täitevärviga) punkt
+                    'source': 'filmid', // andmete allikas on eelnevalt loodud objekt "filmid"
+                    'source-layer': 'efis_eesti', // geojsoni kihi enda nimi on "efis_eesti"
+                    'paint': {
+                        'circle-color': '#f3a6b2', // punktide värv roosa
+                        'circle-stroke-color': 'transparent', // punktide äärejoon läbipaistev
+                        'circle-opacity': 0.4, // punktide väljapaistvus 0.4
+                        'circle-radius': { // punkti suuruse võtame
+                            property: 'n', // andmestiku tunnusest "n"
+                            stops: [[1, 8], [10, 36]] // kui n = 1, siis on punkti suurus 8, kui n = 10, siis 36, teised jäävad ühtlaselt nende vahepeale
+                        }
+                    }
+                });
 				
 				// muuda kaarti ja aasta loendurit vastavalt liuguri liigutamisele
-				document.getElementById('liugur').addEventListener('input', (e) => {
-					const kasutaja_aasta = parseInt(e.target.value); // võta kasutaja sisend (= aastaarv liugurilt) ja salvesta see objekti "kasutaja_aasta"
-					
-					// muuda kaarti: 
-					// määra kihile "eesti_filmid" filter, millega
-					// filtreerid kogu andmestikust välja ainult need read, kus
-					// tulbas "aasta1" on sama väärtus, mis objektil "kasutaja_aasta"
-					map.setFilter('eesti_filmid', ['==', ['number', ['get', 'aasta1']], kasutaja_aasta]);
+                document.getElementById('liugur').addEventListener('input', (e) => {
+                    const kasutaja_aasta = parseInt(e.target.value); // võta kasutaja sisend (= aastaarv liugurilt) ja salvesta see objekti "kasutaja_aasta"
+                    
+                    // muuda kaarti: 
+                    // määra kihile "eesti_filmid" filter, millega
+                    // filtreerid kogu andmestikust välja ainult need read, kus
+                    // tulbas "aasta1" on sama väärtus, mis objektil "kasutaja_aasta"
+                    map.setFilter('eesti_filmid', ['==', ['number', ['get', 'aasta1']], kasutaja_aasta]);
 
-					 // muuda aasta loendurit kirjelduses:
-					 // määra HTML-is elemendile id-ga "parasjagu_aasta" sama väärtus, mille kasutaja liuguril valib
-					document.getElementById('parasjagu_aasta').innerText = kasutaja_aasta;
+                     // muuda aasta loendurit kirjelduses:
+                     // määra HTML-is elemendile id-ga "parasjagu_aasta" sama väärtus, mille kasutaja liuguril valib
+                    document.getElementById('parasjagu_aasta').innerText = kasutaja_aasta;
+                });
+				
+				// lisa popup, kui kasutaja mõnel kaardil klikib
+				map.on('click', (event) => {
+					
+					// kui klikitakse, siis võta kihilt "eesti_filmid"
+					// punktid, mis klikkimise piirkonda jäävad
+					const features = map.queryRenderedFeatures(event.point, {
+						layers: ['eesti_filmid']
+					});
+					
+					// kui ei jää ühtegi punkti
+					if (!features.length){
+						return; // ära näita midagi
+					}
+					
+					// kui jääb mõni punkt
+					const feature = features[0]; // siis võta neist kõige esimene
+					
+					// tee popup, mis paikneks punktist kaardil natuke ülevalpool
+					const popup = new mapboxgl.Popup({offset: [0, -15]});
+					
+					// sea popupi koordinaatideks punkti koordinaadid andmestikus
+					popup.setLngLat(feature.geometry.coordinates);
+					// määra popupi sisu (koht + esinemiskordade arv)
+					popup.setHTML('<h3>' + feature.properties.koht + '</h3><p>Esinemiskordi: ' + feature.properties.n + '</p>')
+					// lisa popup kaardile
+					popup.addTo(map);
 				});
-			});
-		</script>
-	</body>
+            });
+        </script>
+    </body>
 </html>
 ```
 
-```{r mapboxgljs, echo=F, fig.show='hold', fig.align='center', out.width= "70%", fig.cap= "Mapbox GL JS APIga tehtud interaktiivne veebikaart"}
-knitr::include_graphics(here::here("imgs", "19_mapboxgljs.gif"))
-```
-
-
-
-
 Paneme lehe **index.html** nüüd üles GitHubi (vt eelmise korra materjale).  
+
+<iframe src="https://mpilvik.github.io/eestifilmid/" width="100%" height="500" style="border:none;" title="Veebikaart GitHubist (mpilvik.github.io/eestifilmid/)"></iframe>
+
+
 
 
 ## Lisa

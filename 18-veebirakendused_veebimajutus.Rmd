@@ -174,9 +174,9 @@ Kõige lihtsam on GitHubis toimetada [GitHub Desktopi](https://desktop.github.co
 - Lõpuks tuleb veebileht ka rakendusena nähtavaks teha. Selleks saab kasutada **GitHub Pages** veebimajutuse teenust. Vali oma repositooriumis *Settings* -> *Pages* -> *Source* = *main* ja vajuta *Save*. Oota paar sekundit ning mine lehele https://sinukasutajanimi.github.io/sinurakendusenimi/
 
 
-Kuskile serverisse riputatud veebilehte saab omakorda paigutada teise veebilehe sisse, nt HTML-i [**iframe**](https://www.w3schools.com/tags/tag_iframe.ASP)-märgendi abil (kaart ilmub siia pärast praktikumi lõppu). 
+Kuskile serverisse riputatud veebilehte saab omakorda paigutada teise veebilehe sisse, nt HTML-i [**iframe**](https://www.w3schools.com/tags/tag_iframe.ASP)-märgendi abil. 
 
-<!--<iframe src="https://mpilvik.github.io/veebikaart/index.html" width="100%" height="400" style="border:none;" title="Veebikaart GitHubist (mpilvik.github.io/veebikaart/)"></iframe>-->
+<iframe src="https://mpilvik.github.io/eiole_pole_murretes/#6/58.521/26.093" width="100%" height="500" style="border:none;" title="Veebikaart GitHubist (mpilvik.github.io/eiole_pole_murretes/)"></iframe>
 
 
 
