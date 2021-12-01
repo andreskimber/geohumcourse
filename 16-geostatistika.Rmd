@@ -5,13 +5,13 @@
 
 ## Punktimustri analüüs 
 
-Punktimustri analüüsi näol on tegemist statistiliste meetodite kogumiga, mille abil saab uurida ruumilisi (keerukaid) suhteid nähtuste vahel, mis on kujutatud punktidena. Näiteks asustusüksused maastikul, mingi info kogumiskoht (pärimus, keel, ilm jm). Kuigi sageli on punktidega kaasas ka täiendavat infot, siis lisaks sellele võib meid huvitada puhtalt ka punktide jaotumine ruumis. Arheoloogias on näiteks selliseid meetodeid kasutatud juba alates 1960. aastatest kui hakati rohkem tegelema kvantitatiivsete meetoditega. Näiteks on uuritud leidude paiknemist asulates, hoonetes ja matustes ning näiteks linnamägesid maastikul. GISi kasutusele võtmine muidugi oluliselt lihtsustas nende ananlüüside tegemist. 
+Punktimustri analüüsi näol on tegemist statistiliste meetodite kogumiga, mille abil saab uurida ruumilisi (keerukaid) suhteid nähtuste vahel, mis on kujutatud punktidena. Näiteks asustusüksused maastikul, mingi info kogumiskoht (pärimus, keel, ilm jm). Kuigi sageli on punktidega kaasas ka täiendavat infot, siis lisaks sellele võib meid huvitada puhtalt ka punktide jaotumine ruumis. Arheoloogias on näiteks selliseid meetodeid kasutatud juba alates 1960. aastatest, kui hakati rohkem tegelema kvantitatiivsete meetoditega. Näiteks on uuritud leidude paiknemist asulates, hoonetes ja matusekohtades ning linnamägesid maastikul. GISi kasutuselevõtmine muidugi oluliselt lihtsustas nende analüüside tegemist. 
 
 ### Punktitihedus
 
-Lihtne viis punktide jaotumise hindamiseks formaalselt on mõõta nende tihedust mingis kindlas piirkonnas. Seda nimetatakse ka kui esimese järgu ruumiline intensiivsus (*first-order spatial intensity*). Lihtsaim tulemus keskmise intensiivsuse väljendamiseks võib olla number, mis näitab oodatavat punktide arvu mingis alas. Vaatame näidet! 
+Lihtne viis punktide jaotumise formaalseks hindamiseks on mõõta nende tihedust mingis kindlas piirkonnas. Seda nimetatakse ka esimese järgu ruumiliseks intensiivsuseks (*first-order spatial intensity*). Lihtsaim tulemus keskmise intensiivsuse väljendamiseks võib olla arv, mis näitab oodatavat punktide hulka mingis alas. Vaatame näidet! 
 
-All oleval pildil on näha 100 punkti, mis jaotuvad juhuslikult 10 x 10 alal, mis on jagatud 2 x 2 ruutudeks ehk tegemist 25 ruuduga. Ühikud ei ole siinkohal tähtsad. Need sõltuvad meie uurimisalast ja -küsimusest ning võivad ulatuda nanomeetrist kilomeetri ja valgusaastani. Esimese asjane võiks küsida, kui palju punkte võiks paikneda ühes ruudus, arvestades, et igal ruudul (või muul pindalaühikul) on sama hea võimalus punktide saamiseks? Võiks eeldada, et vastus on 4, kuna 100 / 25 = 4. Kui jaotumine on aga juhuslik (*random*), siis ei saa eeldada, et igas ruudus oleks 4 punkti, vaid jaotus järgib teoreetilist Poissoni jaotus. Selle kohaselt on mitmes ruudus vähem kui 4 ja üksikutes ruutudes rohkem kui 4 punkti. Poissoni jaotus on punktimustri analüüsis väga oluline teoreetiline eeldus. Täiesti juhuslikult paiknevate punktide jaotuse vaadeldav intensiivsus pindalaühiku kohta peaks järgima Poissoni jaotust. Seda nimetatakse kui täielik ruumiline juhuslikkus (*complete spatial randomness – CSR*) ja selle jaotuse loonud juhuslikku käitumist nimetatakse Poissoni punkti protsessiks (*Poisson point process*).
+Alloleval pildil on näha 100 punkti, mis jaotuvad juhuslikult 10 x 10 alal, mis on jagatud 2 x 2 ruutudeks ehk tegemist on 25 ruuduga. Ühikud ei ole siinkohal tähtsad. Need sõltuvad meie uurimisalast ja -küsimusest ning võivad ulatuda nanomeetrist kilomeetri ja valgusaastani. Esimese asjana võiks küsida, kui palju punkte võiks paikneda ühes ruudus, arvestades et igal ruudul (või muul pindalaühikul) on sama hea võimalus punktide saamiseks? Võiks eeldada, et vastus on 4, kuna 100 / 25 = 4. Kui jaotumine on aga juhuslik (*random*), siis ei saa eeldada, et igas ruudus oleks 4 punkti, vaid jaotus järgib teoreetilist Poissoni jaotus. Selle kohaselt on mitmes ruudus vähem kui 4 ja üksikutes ruutudes rohkem kui 4 punkti. Poissoni jaotus on punktimustri analüüsis väga oluline teoreetiline eeldus. Täiesti juhuslikult paiknevate punktide jaotuse vaadeldav intensiivsus pindalaühiku kohta peaks järgima Poissoni jaotust. Seda nimetatakse täielikuks ruumiliseks juhuslikkuseks (*complete spatial randomness – CSR*) ja selle jaotuse loonud juhuslikku käitumist nimetatakse Poissoni punkti protsessiks (*Poisson point process*).
 
 ```{r 17firstorderrandom, echo =F, fig.align='center', fig.show='hold', fig.cap = "Juhuslik jaotumine ja võrdlus Poissoni jaotusega [@Gillings2020, fig 4.1]", out.width="100%"}
 knitr::include_graphics(here::here("imgs/17_first_order_intensity_random.PNG"))
@@ -19,25 +19,25 @@ knitr::include_graphics(here::here("imgs/17_first_order_intensity_random.PNG"))
 
 Huvi korral vaata Poissoni jaotuse tutvustust [365 Data Science videost](https://www.youtube.com/watch?v=BbLfV0wOeyc) või paljudest teistest Youtube'is leiduvatest seletustest.
 
-Teine teoreetiline eeldus on, et iga punkt käitub samamoodi kogu uurimisala ulatuses. Pärismaailmas olevad punktide jaotused sageli aga ei vasta sellele eeldusele. Näiteks on mingis uurimisala piirkonnas rohkem või vähem punkte kui teistes. Sellisel vaadeldud juhul võib eeldada, et mingi väline protsess/käitumine mõjutab punktide intensiivsust uurimisala erinevates piirkondades. Näiteks külade koondumine kihelkonna põhjaossa, kuna lõunaosas on soo. All oleval joonisel on näha selgelt, et joonised koonduvad ülesse parempoolsesse nurka ning ruudupõhine lugemine näitab, et jaotus ei järgi Poissoni jaotust. Sageli on aga erinevus sellisest juhuslikust homogeensest punktimustrist suhteliselt selge ning me ei peagi seda niimoodi vaatama või testima. Pärismaailmas ongi väga vähe nähtuseid, mis on täielikult juhuslikud.
+Teine teoreetiline eeldus on, et iga punkt käitub samamoodi kogu uurimisala ulatuses. Pärismaailmas olevad punktide jaotused sageli aga ei vasta sellele eeldusele. Näiteks on mingis uurimisala piirkonnas rohkem või vähem punkte kui teistes. Sellisel vaadeldud juhul võib eeldada, et mingi väline protsess/käitumine mõjutab punktide intensiivsust uurimisala erinevates piirkondades. Näiteks külade koondumine kihelkonna põhjaossa, kuna lõunaosas on soo. Alloleval joonisel on näha selgelt, et punktid koonduvad üles parempoolsesse nurka ning ruudupõhine lugemine näitab, et jaotus ei järgi Poissoni jaotust. Sageli on aga erinevus sellisest juhuslikust homogeensest punktimustrist suhteliselt selge ning me ei peagi seda niimoodi vaatama või testima. Pärismaailmas ongi väga vähe nähtuseid, mis on täielikult juhuslikud.
 
-Populaarne meetod esimese järgu intensiivsuse kokku võtmiseks on *kernel density estimation* ehk KDE. See on sarnane ruudupõhise lugemisega, aga kindlate ruutude asemel liigub kogu alast süsteemselt üle aken ehk kernel ehk tuum. Igas asukohas loetakse kokku punktid, mis jäävad akna alale ja see arv jäädvustatakse kerneli (ajutisse) keskkohta. Tulemuseks on rasterkiht, mille iga piksli väärtus näitab punktimustri intensiivsust selles piirkonnas. Sarnane meetod on Gaussi kernel, mis võtab arvesse kõiki punkte igal arvutusel, kuid millel siin rohkem ei peatu. 
+Populaarne meetod esimese järgu intensiivsuse kokku võtmiseks on *kernel density estimation* ehk **KDE**. See on sarnane ruudupõhise lugemisega, aga kindlate ruutude asemel liigub kogu alast süsteemselt üle aken ehk kernel ehk tuum. Igas asukohas loetakse kokku punktid, mis jäävad akna alale ja see arv jäädvustatakse kerneli (ajutisse) keskkohta. Tulemuseks on rasterkiht, mille iga piksli väärtus näitab punktimustri intensiivsust selles piirkonnas. Sarnane meetod on Gaussi kernel, mis võtab arvesse kõiki punkte igal arvutusel, kuid millel me siin rohkem ei peatu. 
 
 
 ```{r 16firstorderinhom, echo =F, fig.align='center', fig.show='hold', fig.cap = "Mittehomogeenne jaotumine ja võrdlus Poissoni jaotusega [@Gillings2020, fig 4.1]", out.width="100%"}
 knitr::include_graphics(here::here("imgs/17_first_order_intensity_inhomogenous.PNG"))
 ```
 
-KDE puhul on oluline kasutatava akna suurus. See on pisut arbitraarne valik, kuid on olemas ka automaatseid meetodeid selle valimiseks. Samas aga soovitatakse üldiselt teha mitme erineva suurusega, et saada mustrist parem ettekujutus. Valikut saab põhjendada ka andmestiku taga olevate käitumuslike protsessidega. Suurus siis vastab sellele, kui suure mõjualaga käitumine neid andmeid lõi. 
+KDE puhul on oluline kasutatava akna suurus. See on pisut arbitraarne valik, kuid on olemas ka automaatseid meetodeid selle valimiseks. Samas aga soovitatakse üldiselt katsetada mitme erineva suurusega, et saada mustrist parem ettekujutus. Valikut saab põhjendada ka andmestiku taga olevate käitumuslike protsessidega. Akna suurus vastab niisiis sellele, kui suure mõjualaga käitumine neid andmeid lõi. 
 
 ```{r 16kdeprinciple, echo =F, fig.align='center', fig.show='hold', fig.cap = "Kernel density estimation tööpõhimõte. Näidatud andmepunkt, kerneli suurus ning tuletatud KDE", out.width="50%"}
 knitr::include_graphics(here::here("imgs/16_kde_principle.PNG"))
 ```
 
-Miks aga üldse seda teha? Tihti saame ju niigi aru, milline on intensiivsus erinevates alades. Siiski tuuakse sageli välja mitu põhjust, miks KDE on oluline alguspunkt punktide jaotumise analüüsimiseks: 
+Miks aga seda üldse teha? Tihti saame ju niigi aru, milline on intensiivsus erinevatel aladel. Siiski tuuakse sageli välja mitu põhjust, miks KDE on oluline alguspunkt punktide jaotumise analüüsimiseks: 
 
-1. kasutades erinevaid akna suuruseid formaliseerime oma võrdluse peenema ja suurema skaalaga punktide esimese järgu ruumilisest intensiivsusest;
-2. see aitab mõista olukordi, kus on liiga palju punkte, et lihtsalt peale vaadates midagi nende kohta öelda või juhud, kus punktidel on mingi kaal ning neid ei saa seetõttu võrdsetena võrrelda; 
+1. kasutades erinevaid akna suuruseid formaliseerime oma võrdluse peenema ja suurema skaalaga punktide esimese järgu ruumilisest intensiivsusest;  
+2. see aitab mõista olukordi, kus on liiga palju punkte, et lihtsalt peale vaadates midagi nende kohta öelda või juhtudel, kus punktidel on mingi kaal ning neid ei saa seetõttu võrdsetena võrrelda; 
 3. see võib olla sisendiks järgmistele keerukamatele analüüsidele. Näiteks mudelitele, kus võrreldakse mittehomogeensete punktide mustrite tekkeprotsesse.
 
 <!-- ## Terminid -->
@@ -55,7 +55,7 @@ Miks aga üldse seda teha? Tihti saame ju niigi aru, milline on intensiivsus eri
 
 ## Ülesanne 1
 
-Kultuurimälestiste leviku paremaks mõistmiseks koosta Kernel density estimation kihid erinevate akna suurustega. Ava kiht *kultuurimalestised.gpkg*. KDE jaoks *Processing -> Toolbox ->* otsingusse *kernel* *-> Heatmap (Kernel density estimation)*. Raadiuseks võib esialgu panna 20 kilomeetrit (**jälgi, et ühik oleks õige!**) ning piksli suuruseks 1000. Lõika tulemus omavalitsuste piiridesse. Ava kiht *omavalitsus.gpkg* ja *Raster -> Extraction -> Clip raster by mask layer -> Input: Heatmap -> Output: omavalitsus -> OK*. Visualiseeri raster vastavalt enda eelistusele ning vaata ka *Identify features* (Ctrl Shift i) funktsiooniga rastri väärtuseid erinevates kohtades. Vali heatmapile sobiv värviskaala ning väärtuste jaotumine värvidesse. 
+Kultuurimälestiste leviku paremaks mõistmiseks koosta *Kernel density estimation* kihid erinevate akna suurustega. Ava kiht *kultuurimalestised.gpkg*. KDE jaoks vali *Processing -> Toolbox ->* otsingusse *kernel* *-> Heatmap (Kernel density estimation)*. Raadiuseks võib esialgu panna 20 kilomeetrit (**jälgi, et ühik oleks õige!**) ning piksli suuruseks 1000. Lõika tulemus omavalitsuste piiridesse. Ava kiht *omavalitsus.gpkg* ja *Raster -> Extraction -> Clip raster by mask layer -> Input: Heatmap -> Output: omavalitsus -> OK*. Visualiseeri raster vastavalt enda eelistusele ning vaata ka *Identify features* (Ctrl Shift i) funktsiooniga rastri väärtuseid erinevates kohtades. Vali *heatmap*'ile sobiv värviskaala ning väärtuste jaotumine värvidesse. 
 
 
 ```{r 16kernelestimation, echo =F, fig.align='center', fig.show='hold', fig.cap = "Kultuurimälestiste Kernel density estimation raadiusega 20 km ja piksli suurusega 500 m ning kultuurimälestised omavalituste kaupa", out.width="50%"}
@@ -67,13 +67,13 @@ Võrdle KDE tulemust ka omavalitsuste põhise kultuurimälestiste jaotumisega. S
 
 ## Graphical Modeler
 
-Kui soovime samu funktsioone korduvalt järjest kasutada, siis võime neist ise uue funktsiooni luua, mis kombineerin meile kõik vajaliku. Siinkohal ongi abiks Graphical Modeler. Loome funktsiooni, mis teeb sama, mida eelnevas ülesandes tegime kolme eraldi tegevusena (heatmap, clip, värvimine). See läbi saame oluliselt lihtsamini ja kiiremini katsetada heatmapide tegemist erinevate väärtustega ning neid omavahel kohe võrrelda. Praegu on meil funktsioonid suhteliselt lihtsad ning neid ainult kolm. Niisiis pole ise uue funktsiooni või mudeli tegemine tingimata vajalik, aga selle põhjal saab teha lihtsa näite.
+Kui soovime samu funktsioone korduvalt järjest kasutada, siis võime neist ise uue funktsiooni luua, mis kombineerib meile kõik vajaliku. Siinkohal ongi abiks *Graphical Modeler*. Loome funktsiooni, mis teeb sama, mida eelnevas ülesandes tegime kolme eraldi tegevusena (*heatmap*, *clip*, värvimine). Seeläbi saame oluliselt lihtsamini ja kiiremini katsetada *heatmap*'ide tegemist erinevate väärtustega ning neid omavahel kohe võrrelda. Praegu on meil funktsioonid suhteliselt lihtsad ning neid on ainult kolm. Niisiis pole ise uue funktsiooni või mudeli tegemine tingimata vajalik, aga selle põhjal saab teha lihtsa näite.
 
 Meie mudel koosneb kolmest osast:
 
 - Sisendid: kultuurimälestised, omavalitsus, raadius, stiil
-- Funtksioonid: heatmap, clip, stylize
-- Väljundid: omavalitsuste piiridesse lõigatud värvitud heatmap. 
+- Funktsioonid: *heatmap*, *clip*, *stylize*
+- Väljundid: omavalitsuste piiridesse lõigatud värvitud *heatmap*. 
 
 ```{r 16graphicalmodeler, echo =F, fig.align='center', fig.show='hold', fig.cap = "Graphical Modeler valmis mudel", out.width="100%"}
 knitr::include_graphics(here::here("imgs", "16_graphical_modeler_valmis.PNG"))
@@ -81,9 +81,9 @@ knitr::include_graphics(here::here("imgs", "16_graphical_modeler_valmis.PNG"))
 
 **Sisendid**
 
-Ava graafiline mudeldaja valides ülevalt menüüst *Processing -> Graphical Modeler*. Kõigepealt lisame sisendid. Selleks vali vasakult *Inputs* ja sealt *Map Layer*. Anna sisendkihile nimi. Nt kultuurimälestised või pigem midagi neutraalset nagu punktandmed. Vali tüübpiks *Vector point*. Vaata, et oleks linnuke *Mandatory* ees. Lisa samamoodi omavalitsuste kihi sisend ja vali sellele kihile õige tüüp.
+Ava graafiline mudeldaja valides ülevalt menüüst *Processing -> Graphical Modeler*. Kõigepealt lisame sisendid. Selleks vali vasakult *Inputs* ja sealt *Map Layer*. Anna sisendkihile nimi. Nt *kultuurimälestised* või pigem midagi neutraalset nagu *punktandmed*. Vali tüübpiks *Vector point*. Vaata, et oleks linnuke *Mandatory* ees. Lisa samamoodi omavalitsuste kihi sisend ja vali sellele kihile õige tüüp.
 
-```{r 16graphicalmodelerlayer, echo =F, fig.align='center', fig.show='hold', fig.cap = "Graphical Modeler valmis mudel", out.width="75%"}
+```{r 16graphicalmodelerlayer, echo =F, fig.align='center', fig.show='hold', fig.cap = "Graphical Modeler valmis mudel", out.width="50%"}
 knitr::include_graphics(here::here("imgs", "16_graphical_modeler_input_layer.PNG"))
 ```
 
@@ -95,17 +95,17 @@ Nüüd on kõik neli sisendit olemas.
 
 **Funktsioonid** 
 
-Esimene funktsioon on heatmapi tegemine. Lisa see mudelisse (topeltklikk). Vali vasakult *Inputs* asemel *Algorithms* ning otsi sealt heatmap ja lisa see mudelisse. Nagu näha on tegemist sama heatmpi funktsiooniga, mida varasemalt kasutasime. Siin määrame aga sisendid meie mudelist. *Point layer* ees kliki 123 ikoonil ja vali sealt *Value* asemel *Model input* ja kihiks varem tehtud sisend nimega *Punktandmed*. Sama tee *Radius* juures, kuhu sisendiks läheb varem tehtud sisend *Raadius*. *Output raster size* määra 1000. Seda ei hakka me sisendiga iga kord muutma. Nüüd *OK* ja liiguta funktsioon sisendite kõrvale. Nagu näha lähevad valitud sisendite juurest jooned funktsiooni sisse.
+Esimene funktsioon on *heatmap*'i tegemine. Lisa see mudelisse (topeltklikk). Vali vasakult *Inputs* asemel *Algorithms* ning otsi sealt *heatmap* ja lisa see mudelisse. Nagu näha, on tegemist sama *heatmap*'i funktsiooniga, mida varasemalt kasutasime. Siin määrame aga sisendid meie mudelist. *Point layer* ees kliki 123 ikoonil ja vali sealt *Value* asemel *Model input* ja kihiks varem tehtud sisend nimega *Punktandmed*. Sama tee *Radius* juures, kuhu sisendiks läheb varem tehtud sisend *Raadius*. *Output raster size* määra 1000. Seda ei hakka me sisendiga iga kord muutma. Nüüd vajuta *OK* ja liiguta funktsioon sisendite kõrvale. Nagu näha, lähevad valitud sisendite juurest jooned funktsiooni sisse.
 
-```{r 16graphicalmodeleralgorithm, echo =F, fig.align='center', fig.show='hold', fig.cap = "Graphical Modeler heatmap algoritmi lisamine", out.width="100%"}
+```{r 16graphicalmodeleralgorithm, echo =F, fig.align='center', fig.show='hold', fig.cap = "Graphical Modeler heatmap algoritmi lisamine", out.width="80%"}
 knitr::include_graphics(here::here("imgs", "16_graphical_modeler_algorithm_heatmap.PNG"))
 ```
 
-Lisa järgmine funktsioon. *Algorithms* seast otsi *Clip raster by mask layer* ja lisa see mudelisse (topeltklikk). *Input layer*'iks määra *Algorithm output*. Valikusse ilmub automaatselt *"Heatmap"*, kuna see on meie mudelis ainuke algoritm praegu. *Mask Layer* juures vali *Value* asemel *Model input* ja kihiks varem tehtud sisend nimega *Piirid*. *Clipped (mask)* juures sisesta tulemuse nimi (nt clipped_heatmap).
+Lisa järgmine funktsioon. *Algorithms* seast otsi *Clip raster by mask layer* ja lisa see mudelisse (topeltklikk). *Input layer*'iks määra *Algorithm output*. Valikusse ilmub automaatselt *"Heatmap"*, kuna see on meie mudelis ainuke algoritm praegu. *Mask Layer* juures vali *Value* asemel *Model input* ja kihiks varem tehtud sisend nimega *Piirid*. *Clipped (mask)* juures sisesta tulemuse nimi (nt *clipped_heatmap*).
 
 Lisa stiliseerimise funktsioon. *Algorithms* seast otsi *Set style for raster layer*. Lisa mudelisse ja määra *Layer -> Algorithm output* ja vali algoritm *"Clipped (mask)"*. *Style -> Model input -> Stiil*.  
 
-```{r 16graphicalmodelerstyle, echo =F, fig.align='center', fig.show='hold', fig.cap = "Graphical Modeler stiili algoritmi lisamine", out.width="100%"}
+```{r 16graphicalmodelerstyle, echo =F, fig.align='center', fig.show='hold', fig.cap = "Graphical Modeler stiili algoritmi lisamine", out.width="80%"}
 knitr::include_graphics(here::here("imgs", "16_graphical_modeler_algorithm_style.PNG"))
 ```
 
@@ -113,20 +113,20 @@ knitr::include_graphics(here::here("imgs", "16_graphical_modeler_algorithm_style
 
 Väljund *clipped_heatmap* on juba automaatselt tekkinud, kuna andsime selle nime lõikamise funktsioonis. 
 
-Proovi, kas mudel töötab. Vali üleval *Model -> Run model*. Nagu näha avaneb funktsiooni aken, kus on sisendiks meie määratud valikud. Vali õiged kihid ja jooksuta mudel. QGIS peaaknasse peaks ilmuma nüüd heatmap, mis on õigetesse piiridesse lõigatud ning etteantud stiiliga värvitud. 
+Proovi, kas mudel töötab. Vali üleval *Model -> Run model*. Nagu näha avaneb funktsiooni aken, kus on sisendiks meie määratud valikud. Vali õiged kihid ja jooksuta mudelit. QGISi peaaknasse peaks ilmuma nüüd *heatmap*, mis on õigetesse piiridesse lõigatud ning etteantud stiiliga värvitud. 
 
-```{r 16graphicalmodelertest, echo =F, fig.align='center', fig.show='hold', fig.cap = "Graphical Modeler valmis mudeli testimine", out.width="100%"}
+```{r 16graphicalmodelertest, echo =F, fig.align='center', fig.show='hold', fig.cap = "Graphical Modeler valmis mudeli testimine", out.width="80%"}
 knitr::include_graphics(here::here("imgs", "16_graphical_modeler_test.PNG"))
 ```
 
-Salvesta mudel ning pane sellele nimeks nt heatmap_clipper vms. Nüüd võib *Graphical Modeler* akna kinni panna. Mudel on nüüd leitav *Processing Toolbox*'ist (*Processing -> Toolbox*) *Models* all või lihtsalt otsitav antud pealkirja järgi. Testi nüüd mudeli abil erinevate raadiustega, millised KDE'd välja tulevad. Olenevalt soovitavast üldistamise tasemest saab valida endale sobiva rastermudeli.  
+Salvesta mudel ning pane sellele nimeks nt *heatmap_clipper* vms. Nüüd võib *Graphical Modeler* akna kinni panna. Mudel on nüüd leitav *Processing Toolbox*'ist (*Processing -> Toolbox*) *Models* all või on lihtsalt otsitav antud pealkirja järgi. Testi nüüd mudeli abil erinevate raadiustega, millised KDE'd välja tulevad. Olenevalt soovitavast üldistamise tasemest saab valida endale sobiva rastermudeli.  
 
 
 ## Ruumiline vastastikmõju
 
-Eelnevalt vaatasime punktide jaotuse esimese järgu omadusi, mis kirjeldavad üldist punktide tihedust ning seda kas intensiivsus on uurimisalas homogeenne või mitte. Juhtudel, kus ei ole tegemist homogeense jaotumisega võib eeldada mingit välist mõju. Tõenäoliselt ei ole suur osa inimtegevust ja kultuuri ruumis päris suvaline.
+Eelnevalt vaatasime punktide jaotuse esimese järgu omadusi, mis kirjeldavad üldist punktide tihedust ning seda kas intensiivsus on uurimisalas homogeenne või mitte. Juhtudel, kus ei ole tegemist homogeense jaotumisega, võib eeldada mingit välist mõju. Tõenäoliselt ei ole suur osa inimtegevusest ja kultuurist ruumis päris suvaline.
 
-Punktimustrite uurimise juures on oluline aspekt see, et ühe punkti asumine teatud kohas võib suurendada või vähendada teise punkti asumist selle läheduses. See on punktimustri **teise järgu omadus** (*second-order property*). Näiteks pole vast mõistlik kogu uurimisalas küladel täiesti kõrvuti asuda. Niisiis eeldatakse, et mittehomogeense mustri taga võib olla mingi tõmbav (attraction) või lükkav/peletav (inhibition) protsess. 
+Punktimustrite uurimise juures on oluline aspekt see, et ühe punkti asumine teatud kohas võib suurendada või vähendada teise punkti asumise tõenäosust selle läheduses. See on punktimustri **teise järgu omadus** (*second-order property*). Näiteks pole mõistlik kogu uurimisalas küladel täiesti kõrvuti asuda. Niisiis eeldatakse, et mittehomogeense mustri taga võib olla mingi tõmbav (*attraction*) või lükkav/peletav (*inhibition*) protsess. 
 
 ```{r 17secondordern, echo =F, fig.align='center', fig.show='hold', fig.cap = "Punktimustrid, kus (a) pole teise järgu efekte, (b) paiknemine on regulaarne ja (c) klasterdunud [@Gillings2020, fig 4.2].", out.width="100%"}
 knitr::include_graphics(here::here("imgs/17_second_order.PNG"))
@@ -134,9 +134,9 @@ knitr::include_graphics(here::here("imgs/17_second_order.PNG"))
 
 Lihtne, kuid samas suuresti problemaatiline meetod selliste mustrite (esialgseks) uurimiseks on lähima naabri analüüs ehk *nearest neighbour analysis* ehk *Clark and Evans test*. Testi käigus arvutatakse iga punkti ja tema lähima naabri vaheline distants ja seejärel võrreldakse kõikide nende lähima naabri distantside aritmeetilist keskmist eeldatava juhusliku distantsiga sellise punktide arvu ja ala suuruse põhjal.
 
-Testi tulemusena saadav r-väärtus ehk *nearest neighbour index* näitab, et jaotus on juhuslik, kui see on 1 lähedal; regulaarne, kui see on suurem kui 1 ning klasterdunud, kui see on väiksem kui 1.   
+Testi tulemusena saadav *r*-väärtus ehk *nearest neighbour index* näitab, et jaotus on juhuslik, kui see on 1 lähedal; regulaarne, kui see on suurem kui 1, ning klasterdunud, kui see on väiksem kui 1.   
 
-Peamine probleem testiga on aga see, et raske või lausa võimatu on arvestada uurimisala servadega. Eriti juhtudel, kui uuritav punktimuster võib sinna edasi ulatuda. Sellest lahendamiseks on arendatud välja mõningad keerulisemisemad meetodid, mida võimalusel vaatame järgmisel korral. Milline oleks aga lihtne lahendus meie asustuse uurimise andmestiku puhul? 
+Peamine probleem testiga on aga see, et raske või lausa võimatu on arvestada uurimisala servadega. Eriti juhtudel, kui uuritav punktimuster võib sellest edasi ulatuda. Selle lahendamiseks on arendatud välja mõningad keerulisemad meetodid, mida võimalusel vaatame järgmisel korral. Milline oleks aga lihtne lahendus meie asustuse uurimise andmestiku puhul? 
 
 <!-- arheo ja sullivani raamatust -->
 
@@ -160,19 +160,19 @@ Peamine probleem testiga on aga see, et raske või lausa võimatu on arvestada u
 
 ## Ülesanne 2
 
-Vaata Tartumaa asustuse punktimustrit. Lae Moodle'ist alla kiht tartumaa_asustus.gpkg ning ava see QGISis. Andmestik pärineb [Kohanimeregistrist](https://kohanimeregister.ee/knravalik/) ning selles on igale Tartumaa küla või aleviku nimele lisatud [Kohanimeraamatust](https://www.eki.ee/dict/knr/) esmamainimise aasta, kihelkond ning nime etümoloogia. Lisaks võid taustale avada ka eelmistes praktikumides kasutatud maakondade ja/või kihelkondade kihi.
+Vaata Tartumaa asustuse punktimustrit. Lae Moodle'ist alla kiht tartumaa_asustus.gpkg ning ava see QGISis. Andmestik pärineb [Kohanimeregistrist](https://kohanimeregister.ee/knravalik/) ning selles on igale Tartumaa küla või aleviku nimele lisatud [Kohanimeraamatust](https://www.eki.ee/dict/knr/) esmamainimise aasta, kihelkond ning nime etümoloogia. Lisaks võid taustaks avada ka eelmistes praktikumides kasutatud maakondade ja/või kihelkondade kihi.
 
 Vaata andmestiku atribuuttabelit, et näha millega on tegemist. Esmamainimise aastate tulbast ülevaate saamiseks võib kasutada funktsiooni *Show statistical summary*. Näha on lihtne ülevaade vanimast, noorimast külast ning keskmisest ja enimlevinud esmamainimise aastaarvust jms. 
 
-```{r 17statisticalsummary, echo =F, fig.align='center', fig.show='hold', fig.cap = "Show statistical summary kasutamine", out.width="100%"}
+```{r 17statisticalsummary, echo =F, fig.align='center', fig.show='hold', fig.cap = "Show statistical summary kasutamine", out.width="80%"}
 knitr::include_graphics(here::here("imgs/17_statistical_summary.gif"))
 ```
 
 Külade vanusest esmase ülevaate saamiseks võib kasutada erinevaid värve iga sajandi jaoks. Seda saab teha *Graduated* sümboloogia ja *Pretty breaks* abil.
 
-Arvuta Tartumaa asustuse Nearest Neighbor Index iga sajandi kohta või näiteks keskaja ja uusaja kohta. Selleks filtreeri vastavad väärtused. *Processing Toolbox* otsingusse *nearest* ja sealt *Nearest neighbor analysis*. Ava analüüsi tulemusena valminud html fail ning vaata, milline on indexi väärtus ning hinda selle järgi, kas punktid asuvad suvaliselt, regulaarselt või klasterdunult.
+Arvuta Tartumaa asustuse *Nearest Neighbor Index* iga sajandi kohta või näiteks keskaja ja uusaja kohta. Selleks filtreeri vastavad väärtused. *Processing Toolbox* otsingusse pane *nearest* ja vali sealt *Nearest neighbor analysis*. Ava analüüsi tulemusena valminud html-fail ning vaata, milline on indeksi väärtus ning hinda selle järgi, kas punktid asuvad suvaliselt, regulaarselt või klasterdunult.
 
-Huvi korral võid katsetada Tartumaa asustuse puhul ka eelpool valmistatud mudeli heatmap_clipper. Selleks salvesta aga eraldi kihina Tartumaa omavalitsused. 
+Huvi korral võid katsetada Tartumaa asustuse puhul ka eelpool valmistatud mudelit *heatmap_clipper*. Selleks salvesta aga eraldi kihina Tartumaa omavalitsused. 
 
 ## Järgmisel korral 
 

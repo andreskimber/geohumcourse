@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Praktikum 3 Ruumiobjektid ja ruumiandmed | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
-  <meta name="description" content="Praktikum 3 Ruumiobjektid ja ruumiandmed | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <title>Praktikum 19 Veebirakendused, veebimajutus 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
+  <meta name="description" content="Praktikum 19 Veebirakendused, veebimajutus 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Praktikum 3 Ruumiobjektid ja ruumiandmed | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta property="og:title" content="Praktikum 19 Veebirakendused, veebimajutus 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Praktikum 3 Ruumiobjektid ja ruumiandmed | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta name="twitter:title" content="Praktikum 19 Veebirakendused, veebimajutus 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="seminar.html"/>
-<link rel="next" href="kaardid.html"/>
+<link rel="prev" href="veebirakendused.html"/>
+<link rel="next" href="kirjandus.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -333,258 +333,377 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ruumiobjektid" class="section level1" number="3">
-<h1><span class="header-section-number">Praktikum 3</span> Ruumiobjektid ja ruumiandmed</h1>
-<p>Meid ümbritsevas maailmas on palju erinevaid ruumiga seotud nähtusi, näiteks konkreetsed füüsilised objektid (teed, hooned), kokuleppelised või abstraktsed objektid (nt riigipiir), sündmused (nt katastroofid, meeleavaldused, spordiüritused) või ka mingid pidevad nähtused, nagu temperatuur, mis esinevad väljana terves ruumis ning mille konkreetset väärtust on mingites ruumi punktides võimalik määrata.</p>
-<p>Humanitaarteaduste kontekstis võime mõelda ka sellistest ruumiga seotud nähtustest ja objektidest, nagu muistsed ohverdusrituaalid, kirjandusteoste sündmused, (tajutavad) murdepiirid, keelelised üksused (sõnad, konstruktsioonid), ajaloolised lahingud, sõjakäigud jne.<br />
-Nähtustel on omakorda mingid omadused, mille abil neid nähtusi või ruumi ennast kirjeldada.</p>
-<!-- Nähtused võivad seega olla looduslikud, tehislikud, mõttelised.-->
-<p>(Geo)infosüsteemide abil saame reaalse maailma objekte ja nähtusi hallata, kujutada ja analüüsida aga ainult nende mingil moel abstraheeritud ja formaliseeritud kujul, <strong>ruumiobjektina</strong>.</p>
-<p><a href="https://www.riigiteataja.ee/akt/RAS">Ruumiandmete seaduse</a> definitsioon (§ 3, lg 3):</p>
-<blockquote>
-<p>Ruumiobjekt käesoleva seaduse tähenduses on konkreetse asukoha või geograafilise alaga seotud reaalmaailma nähtuse abstraktne kujutis.</p>
-</blockquote>
-<p><strong>Ruumiandmed</strong> omakorda kirjeldavad</p>
-<blockquote>
-<p>… ruumiobjektide asukohta, omadusi ja kuju geograafilises ruumis.</p>
-</blockquote>
-<p>(Ruumiandmete seaduse § 3, lg 1.)</p>
-<p>Objektidele ja nähtustele sobiva kujutamisviisi valimine sõltub eeskätt sellest, kas läheneme ruumile ja selles asuvatele objektidele ja nähtustele objektikeskselt või asukohakeskselt.</p>
+<div id="veebirakendused2" class="section level1" number="19">
+<h1><span class="header-section-number">Praktikum 19</span> Veebirakendused, veebimajutus 2</h1>
+<p>Eelmisel korral vaatasime, kuidas <code>qgis2web</code> plugina abil hõlpsalt oma QGISis tehtud kaardikihte veebikaardina jagada.</p>
+<p>Sel korral vaatame esmalt,</p>
 <ul>
-<li><strong>Objektikeskses</strong> lähenemises seame fookusesse objektid. Need täidavad kindlates punktides mingit ruumi, neid saab loendada, need võivad külgneda ja kattuda, neil on mingid kindlad omadused, need on võib-olla seotud mingite teiste objektidega jne. Ruum ja selle omadused on ainult üks atribuut, mille kaudu objekte kirjeldada.
-<ul>
-<li>Sellises lähenemises on objektid <strong>diskreetsed</strong>: neil on kindel asukoht ja ruumikuju (nt hoone, mälestusmärk, riigipiir).<br />
+<li>mis võimalusi on QGISis ajalise dimensiooni kaasamiseks (nt mingite muutuste kuvamiseks),<br />
 </li>
+<li>kuidas ajadimensiooni võrdlemisi lihtsalt Mapbox GL JSi API abil veebirakenduses kuvada.</li>
+</ul>
+<p>Kasutame sel korral <a href="https://www.efis.ee/">Eesti filmi andmebaasist</a> kogutud andmeid selle kohta, milliseid geograafilisi kohti läbi aegade Eesti filmides näha on olnud. Selleks on andmebaasis lisaks tavalistele märksõnadele märgendatud eraldi ka <a href="https://www.efis.ee/et/marksonad/id/13/view/Detailed/page/1">kohanimed</a>. Selle kursuse tarbeks korjasime need <a href="https://github.com/MPilvik/efis_webscraping/blob/main/efis_scraping_script.R">R-i skriptiga</a> kokku ning kokku vähemalt 5 korda esinenud kohanimede koordinaatidega sidumiseks kasutasime <a href="https://inaadress.maaamet.ee/geocoder/bulk">Maa-ameti geokodeerimise teenust</a>.</p>
+<p>Kohad, millele teenuses mingid koordinaadid määrati, oleme üle vaadanud ning enam-vähem õigesse kohta liigutanud. Kohtadele, mis koordinaate ei saanud, ei ole neid ka eraldi lisatud.</p>
+<p>Laadime saadud andmestiku <strong>efis_parandatud.gpkg</strong> QGISi. Valime <em>QuickMapServices</em> kaudu ka mingi sobiva aluskaardi.</p>
+<div id="ajatelje-kasutamine-qgisis" class="section level2" number="19.1">
+<h2><span class="header-section-number">19.1</span> Ajatelje kasutamine QGISis</h2>
+<ul>
+<li>Filtreerime andmestikust kõigepealt välja ainult need read, kus aastaarvud on olemas.<br />
+</li>
+<li>Kuna Eesti kohta on info oluliselt detailsem kui välismaa kohta, piirame oma veebikaardi samuti ainult Eesti ala. Kasutame selleks <em>Select Features by Freehand</em> tööriista, et tõmmata ümber Eesti ala piiri, mille seest punkte valida.<br />
+</li>
+<li>Salvestame tehtud valiku eraldi kihina. Nimetame selle nt nimega <strong>efis_eesti.gpkg</strong>.<br />
+</li>
+<li>Eemaldame punktidelt äärejooned, valime punktidele värvid, teeme need läbipaistvamaks ning määrame punktide suuruse vastavalt sellele, kui palju mingit kohta mingil aastal filmides näidatud oli (tulp <em>n</em>, mille väärtused võiks korrutada läbi kolmega).<br />
+</li>
+<li>Kuna aastaarvu sisaldav tulp on hetkel andmestikus tekstikujul ja sisaldab ka ajavahemikke (nt <em>1940-1941</em>), tekitame andmestikku kaks uut tulpa:
+<ul>
+<li>esmalt teeme uue tulba nimega <em>aasta1</em>, kus oleks arvu kujul ainult 4 esimest numbrit <em>aasta</em> tulbast: <code>to_int(left("aasta", 4))</code>.<br />
+</li>
+<li>seejärel teeme QGISi jaoks eraldi kuupäeva tulba nimega <em>kuupaev</em>, mida on vaja animeerimiseks: <code>to_date("aasta1", 'yyyy')</code>.</li>
 </ul></li>
-<li><strong>Asukohakeskses</strong> lähenemises on fookus ruumil. Ruum on sama objektiga otsast otsani täidetud. Objektid ja nende omadused kirjeldavad ruumi, on ruumi atribuutideks.
-<ul>
-<li>Asukohakeskses lähenemises on objektid <strong>pidevad</strong>: objekt esineb terves ruumis, aga saab ruumi erinevates punktides erineva väärtuse (nt maapinna reljeef, temperatuur ja õhurõhk maapinnal, kultuurikihi intensiivsus).</li>
-</ul></li>
 </ul>
-<p>Need kaks lähenemist on aluseks sellele, kuidas ruumiobjekte geoinfosüsteemis kujutada: kas vektorkujul või rasterkujul. Vastavaid kujutusviise nimetatakse ka <strong>ruumiandmete mudeliteks</strong>.</p>
-<!-- Bolstad 2008-->
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:data-models"></span>
-<img src="imgs/Bolstad2016.PNG" alt="Vektor- vs. rasterandmed [@Bolstad2016 : 41]" width="100%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:efiseesti"></span>
+<img src="imgs/19_efis_eesti.jpg" alt="Eesti filmidega seotud kohad ja uued tunnused atribuuttabelis" width="70%" />
 <p class="caption">
-Figure 3.1: Vektor- vs. rasterandmed <span class="citation">(<a href="kirjandus.html#ref-Bolstad2016" role="doc-biblioref">Bolstad 2016</a> : 41)</span>
+Figure 19.1: Eesti filmidega seotud kohad ja uued tunnused atribuuttabelis
 </p>
 </div>
-<div id="vektorandmed" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Vektorandmed</h2>
-<p><strong>Vektormudelis</strong> kujutatakse andmeobjekte <strong>geomeetriliste kujundite</strong> abil.
-Geomeetrilisi põhiobjekte ehk primitiive on 3:</p>
 <ul>
-<li><strong>punkt</strong> (nt torn, kivi)<br />
+<li>Teeme nüüd <em>efis_eesti</em> kihil paremkliki ning valime <em>Properties</em>. Vasakult menüüst valime <em>Temporal</em> ja teeme linnukese valiku ette <em>Dynamic Temporal Control</em>.<br />
 </li>
-<li><strong>joon</strong> (nt tee, jõgi)<br />
-</li>
-<li><strong>pind/areaal/polügoon/ala/kontuur</strong> (nt põld, mets, linn)</li>
+<li>Kuna meil on andmestikus nüüd kuupäeva tulp, saame valida konfiguratsiooniks väärtuse <em>Single Field with Date/Time</em> ning <em>Field</em> väärtuseks loodud tulba <em>kuupaev</em>. Vajutame <em>OK</em>.</li>
 </ul>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ruumiobjektid"></span>
-<img src="imgs/points_lines_polygons.PNG" alt="Punktid, jooned, polügoonid [@Ballas2018 : 13]" width="80%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:temporal"></span>
+<img src="imgs/19_temporal.jpg" alt="Ajadimensiooni kasutamine QGISis" width="50%" />
 <p class="caption">
-Figure 3.2: Punktid, jooned, polügoonid <span class="citation">(<a href="kirjandus.html#ref-Ballas2018" role="doc-biblioref">Ballas et al. 2018</a> : 13)</span>
+Figure 19.2: Ajadimensiooni kasutamine QGISis
 </p>
 </div>
-<p><strong>Punkt</strong> on eukleidilises mõttes nullmõõtmeline ning seda esitatakse koordinaatsüsteemis kujul <em>P</em>(x; y). <!-- ruumil on mõõde, punktil ei ole--></p>
-<p>Mitmest punktist moodustub ühemõõtmeline <strong>joon</strong>, enamasti <em>murdjoon</em>, mille (käänu)punktid saab ühendada sirglõiguga. <!-- joonel saab mõõta pikkust--></p>
-<p>Joonest omakorda saab moodustada <strong>polügooni</strong>, mispuhul joone algus- ja lõpp-punkt kattuvad. <!-- polügoonil saab määrata pindala ja ümbermõõdu--></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:points-lines-polygons"></span>
-<img src="imgs/Bolstad2016_pointslinespolygons.PNG" alt="Geomeetrilised objektid [@Bolstad2016 : 43]" width="60%" />
-<p class="caption">
-Figure 3.3: Geomeetrilised objektid <span class="citation">(<a href="kirjandus.html#ref-Bolstad2016" role="doc-biblioref">Bolstad 2016</a> : 43)</span>
-</p>
-</div>
-<p>Geomeetrilise objekti valik sõltub sealjuures sellest, kui täpselt mingit andmeobjekti soovitakse kujutada. Näiteks võib Eesti pühapaikade kaardistamisel kasutada punkti ruumikuju, pühapaiga lähemal vaatlusel aga kasutada hoopis polügooni ruumikuju, eristada selle sees omakorda teisi polügoone või punkte jne.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pringi1"></span>
-<img src="imgs/pringi1.PNG" alt="Pringi Ohvrimägi punktina ja polügoonina ([Hiite Maja looduslike pühapaikade kaardirakendus](https://hiitemaja.maps.arcgis.com/apps/webappviewer/index.html?id=db7d4fe754d245b9ac53f6d9a76e229e))" width="45%" /><img src="imgs/pringi2.PNG" alt="Pringi Ohvrimägi punktina ja polügoonina ([Hiite Maja looduslike pühapaikade kaardirakendus](https://hiitemaja.maps.arcgis.com/apps/webappviewer/index.html?id=db7d4fe754d245b9ac53f6d9a76e229e))" width="45%" />
-<p class="caption">
-Figure 3.4: Pringi Ohvrimägi punktina ja polügoonina (<a href="https://hiitemaja.maps.arcgis.com/apps/webappviewer/index.html?id=db7d4fe754d245b9ac53f6d9a76e229e">Hiite Maja looduslike pühapaikade kaardirakendus</a>)
-</p>
-</div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pringi3"></span>
-<img src="imgs/pringi3.PNG" alt="Pringi Ohvrimäe raietööd [@Kaasik2018]" width="100%" />
-<p class="caption">
-Figure 3.5: Pringi Ohvrimäe raietööd <span class="citation">(<a href="kirjandus.html#ref-Kaasik2018" role="doc-biblioref">Kaasik 2018</a>)</span>
-</p>
-</div>
-<p>Vaatame natuke <a href="http://orbis.stanford.edu/">sellel lehel</a> ringi. Milliseid ruumiobjekte on kujutatud?</p>
-<p>Vektorandmete struktuur võib olla väga erinev. Kõige lihtsamas struktuuris on iga objekt (punkt, joon või polügoon) kirjeldatud <em>x</em>- ja <em>y</em>-koordinaatide jada kaudu. See tähendab ka näiteks, et teineteisega külgnevad polügoonid on kirjeldatud eraldi joonelõikude kaudu, olgugi et neil on osa lõike ühised. Sellises struktuuris ei ole objektidevahelised suhted kuidagi kirjeldatud ning külgnemissuhe on implitseeritud ainult samasuguste koordinaatide kaudu.</p>
-<p>Teine levinud viis andmeid struktureerida on kasutada <strong>topoloogilisi suhteid</strong>, mis kirjeldaksid ruumiobjektide paiknemissuhteid nii, et need mingite teisenduste (nt pööramise, suumimise, nihutamise) käigus ei muutuks. Näiteks külgnevate polügoonide puhul teab polügoonide ühine joonelõik, et tema parem pool kuulub ühte polügooni ja vasak pool teise ning kaob ära vajadus samu koordinaate kaks korda määrata.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:spaghetti-topological"></span>
-<img src="imgs/spaghetti_topological.PNG" alt="Spagetistruktuur vs. topoloogiline struktuur [@Bolstad2016 : 48]" width="80%" />
-<p class="caption">
-Figure 3.6: Spagetistruktuur vs. topoloogiline struktuur <span class="citation">(<a href="kirjandus.html#ref-Bolstad2016" role="doc-biblioref">Bolstad 2016</a> : 48)</span>
-</p>
-</div>
-<p>Topoloogilised suhted on aluseks topoloogiareeglitele.</p>
-<div class="figure">
-<embed src="imgs/topology_rules_poster.pdf" style="width:80.0%" height="700" />
-<p class="caption">Topoloogiareeglid ArcGISis</p>
-</div>
-<p>Topoloogilisi suhteid ja reegleid kasutatakse näiteks siis, kui tahetakse planeerida võimalikult kiiret teekonda ühest punktist teise või hoonestuse paiknemist, aga ka paljuks muuks. Pelgaks visualiseerimiseks pole aga topoloogilisi suhteid andmebaasis vaja defineerida.</p>
-<p>Vektorandmeid hoitakse GISis enamasti kas <a href="https://en.wikipedia.org/wiki/Shapefile">SHP</a>, <a href="https://en.wikipedia.org/wiki/Geography_Markup_Language">GML</a>, <a href="https://en.wikipedia.org/wiki/MapInfo_TAB_format">TAB</a> või <a href="https://en.wikipedia.org/wiki/Vector_Product_Format">VPF</a> formaatides.</p>
-<p>Nii vektor- kui ka rasterandmeid saab hoida <em>geopackage</em>’i (<a href="https://en.wikipedia.org/wiki/GeoPackage">GPKG</a>) formaadis.</p>
-</div>
-<div id="rasterandmed" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Rasterandmed</h2>
-<p><strong>Rastermudelit</strong> kasutatakse eeskätt pidevate andmeobjektide (nn <em>väljade</em>) kujutamiseks. Rastermudelis jagatakse ruum ühesuguste (kindla kujuga) osadega korrapäraseks võrguks ehk <em>rastriks</em>, nii et igale rastri elemendile saab koordinaatide abil ühtmoodi viidata.</p>
-<p>Rastermudel peaks olema tõenäoliselt juba tuttav, kui oled kokku puutunud näiteks digifotodega või muude digiteeritud piltidega. Formaadid, nagu JPEG, TIFF, GIF jm, põhinevad kõik rastermudelil. Samuti põhinevad rastertehnoloogial nt kõiksugu LCD-monitorid.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:raster"></span>
-<img src="imgs/raster_model.PNG" alt="Rastermudeli struktuur [@Bolstad2016 : 54]" width="70%" />
-<p class="caption">
-Figure 3.7: Rastermudeli struktuur <span class="citation">(<a href="kirjandus.html#ref-Bolstad2016" role="doc-biblioref">Bolstad 2016</a> : 54)</span>
-</p>
-</div>
-<p>Rastri üht elementi nimetatakse tavaliselt <strong>piksliks</strong> (<em>pixel</em> ehk <em>picture element</em>). Pikslid võivad olla igasuguse kujuga, ent enamasti on need siiski ruudukujulised. Olgugi, et piksel on olemuselt alati kahemõõtmeline, on piksli koordinaatideks selle keskpunkti koordinaadid. Ühel pikslil on terves oma ulatuses üks väärtus (vastaval alal kõige tüüpilisem või keskmine väärtus), mis täpsustab näiteks selle piksli värvi ja/või heleduse ning iseloomustab selle kaudu piksliga piiratud alas asuva ruumilise nähtuse mingit omadust. Selline omadus võib olla nii pidev (nt kõrgusinfo, mingi keelelise konstruktsiooni suhteline kasutussagedus) kui ka diskreetne (nt konstruktsiooni <em>A</em> vs. konstruktsiooni <em>B</em> kasutus).</p>
-<p>See, kui täpselt rastermudel mingile reaalse maailma andmeobjekti kujule vastab, sõltub sellest, kui suured on ühe rastri elemendi ehk piksli mõõtmed ehk sellest, kui suur on resolutsioon ehk <strong>eraldusvõime/lahutusvõime</strong>. Mida kõrgem on eraldusvõime, seda täpsem rastermudel on, ent seda suurem on ka rasterandmete faili suurus; mida madalam on eraldusvõime, seda enam infot läheb kaotsi. Efektiivseks eraldusvõime määramiseks tuleks arvesse võtta nii kaardi mõõtkava kui ka muude kaardistatavate andmete väikseimat ühikut.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
-<img src="imgs/Bolstad2016_rasters.PNG" alt="Rastri resolutsioon [@Bolstad2016 : 55]" width="100%" />
-<p class="caption">
-Figure 3.8: Rastri resolutsioon <span class="citation">(<a href="kirjandus.html#ref-Bolstad2016" role="doc-biblioref">Bolstad 2016</a> : 55)</span>
-</p>
-</div>
-<p>GISi seisukohast on eraldi liik rasterandmeid <strong>satelliitpildid, aerofotod ja ortofotod</strong>, mis pakuvad GISile olulist kontekstilist infot.
-Satelliitide eri sensorite abil saadud info abil on võimalik kuvada suurt hulka maapinna omadusi ja protsesse. Passiivsed sensorid analüüsivad looduslikest allikatest (nt päikeselt) peegeldunud või kiiratud elektromagnetkiirgust. Aktiivsed sensorid edastavad ise mingit signaali ning analüüsivad selle tagasipeegeldumist Maa pinnalt. Erinevad satelliidid annavad erineva kvaliteediga pilte.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:satelliit"></span>
-<img src="imgs/estcube1.png" alt="EstCube-1 tehtud satelliitpilt ([https://www.estcube.com/](https://www.estcube.com/))" width="70%" />
-<p class="caption">
-Figure 3.9: EstCube-1 tehtud satelliitpilt (<a href="https://www.estcube.com/">https://www.estcube.com/</a>)
-</p>
-</div>
-<p>Vaata värskemaid NASA satelliitpilte <a href="https://wvs.earthdata.nasa.gov/?COORDINATES=55.0171,17.8288,61.4922,35.0957">siit</a>.</p>
-<p>Aerofotosid saab teha näiteks õhupallist, kopterist või lennukist. Aerofotod võivad oma läätse tõttu olla servadest moonutatud ning samuti võivad moonutatud olla maapinnast kõrgel olevad objektid (nt tornid, korstnad, tipud). Ortofotod on geomeetriliselt parandatud aerofotod.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:aero-orto"></span>
-<img src="imgs/aerofoto_ortofoto.PNG" alt="Aerofotod vs. ortofotod ([Open Geospatial Education](https://opengeospatial.weebly.com/31-remote-sensing-platforms.html))" width="100%" />
-<p class="caption">
-Figure 3.10: Aerofotod vs. ortofotod (<a href="https://opengeospatial.weebly.com/31-remote-sensing-platforms.html">Open Geospatial Education</a>)
-</p>
-</div>
-<p>Rastreid võib aga saada ka <strong>vektorandmete teisendamisel või interpoleerimisel rasterkujule</strong>. Sellisel juhul võib pidada üheks rastri elemendiks nn <strong>rakslit</strong> ning selle väärtus viitab enamasti mingi ruumiobjekti ID-le või mingi atribuudi väärtusele.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:german-dialects"></span>
-<img src="imgs/chat1_points.png" alt="Vektorandmetest rasterandmeteni ([Timo Grossenbacher, 2018](https://timogrossenbacher.ch/2018/03/categorical-spatial-interpolation-with-r/))" width="45%" /><img src="imgs/chat2_raster.png" alt="Vektorandmetest rasterandmeteni ([Timo Grossenbacher, 2018](https://timogrossenbacher.ch/2018/03/categorical-spatial-interpolation-with-r/))" width="45%" />
-<p class="caption">
-Figure 3.11: Vektorandmetest rasterandmeteni (<a href="https://timogrossenbacher.ch/2018/03/categorical-spatial-interpolation-with-r/">Timo Grossenbacher, 2018</a>)
-</p>
-</div>
-<p>Rasterandmete levinumad formaadid on näiteks <a href="https://en.wikipedia.org/wiki/JPEG">JPEG</a>, <a href="https://en.wikipedia.org/wiki/Portable_Network_Graphics">PNG</a>, <a href="https://en.wikipedia.org/wiki/TIFF">TIFF</a>, <a href="https://en.wikipedia.org/wiki/BMP_file_format">BMP</a>.</p>
-</div>
-<div id="vektor-vs.-raster" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Vektor vs. raster</h2>
-<table>
-<tr>
-<th>
-Vektorandmed
-</th>
-<th>
-Rasterandmed
-</th>
-</tr>
-<tr>
-<td>
-andmestruktuur võib olla keerukas
-</td>
-<td>
-andmestruktuur on lihtne
-</td>
-</tr>
-<tr>
-<td>
-vähem mahukad
-</td>
-<td>
-võivad olla väga mahukad
-</td>
-</tr>
-<tr>
-<td>
-sobivad ruumiobjektide piiritlemiseks või nende asukoha keskpunktide määramiseks
-</td>
-<td>
-sobivad paremini mingil alal esineva (pideva) nähtuse iseloomustamiseks
-</td>
-</tr>
-<tr>
-<td>
-sobivad paremini inimtegevuse kujutamise jaoks
-</td>
-<td>
-sobivad paremini keskkonna- või loodusnähtuste jaoks
-</td>
-</tr>
-<tr>
-<td>
-sobivad paremini konkreetsetele nähtustele paljude atribuutidega
-</td>
-<td>
-sobivad paremini komplekssetele nähtustele väheste atribuutidega
-</td>
-</tr>
-<tr>
-<td>
-sobivad paremini täpsete, konkreetsete andmetega
-</td>
-<td>
-sobivad paremini ebatäpsete/puudulike või üldistavate andmetega
-</td>
-</tr>
-<tr>
-<td>
-võib arvestada ka topoloogilisi suhteid
-</td>
-<td>
-enamasti objektidevahelisi suhteid ei arvesta
-</td>
-</tr>
-<tr>
-<td>
-on vähem tundlikud projektsiooni muutmisele
-</td>
-<td>
-võivad olla väga tundlikud projektsiooni muutmisele
-</td>
-</tr>
-<tr>
-<td>
-kaardid on visuaalselt ilusamad
-</td>
-<td>
-kaardid suhteliselt robustsed
-</td>
-<!-- ja keeruline kombineerida erinevate resolutsioonidega andmekihte-->
-</tr>
-</table>
-<p><strong>Mõttepaus</strong>:</p>
 <ul>
-<li>Kumba mudelit kasutaksid riigimaanteede kaardistamiseks? Miks?<br />
+<li>Valime järgmiseks menüüribalt, kus on nt ka salvestamise ja suumimise ikoonid, kella pildiga tööriista <strong><em>Temporal Controller Panel</em></strong>. Kui sul ei ole seda ikooni menüüs näha, siis mine <em>View</em> -&gt; <em>Panels</em> -&gt; <em>Temporal Controller</em> ja tee sinna ette linnuke.<br />
 </li>
-<li>Kumba mudelit kasutaksid rahvastikutiheduse mudeldamiseks? Miks?<br />
+<li>Avanenud menüüs vajutame rohelise noolekesega nupule <em>Animated temporal navigation</em>. <em>Animation range</em>’i saame määrata värskendamise ikooni juurest: <em>Set to Full Range</em>. Ajatelje “sammuks” määrame 1 aasta.<br />
 </li>
-<li>Millisel kujul saaksid kujutada enda uurimisainest?</li>
+<li>Vajuta animatsiooni mängimise nupule ning peaksid nägema, kuidas kaardile ilmuvad igal aasta filmidega seotud olnud kohad ning nende ikoonide suurus vastab sellele, kui mitme filmiga need sel aastal seotud olid.<br />
+</li>
+<li>Võime kuvada kaardil ka aastaarvu, et oleks lihtsam jälgida: <em>View</em> -&gt; <em>Decorations</em> -&gt; <em>Title Label</em>. Tee linnuke valiku ette <em>Enable Title Label</em>, vali <em>Insert or Edit an Expression</em> ja trüki avaldise kasti <code>format_date(@map_start_time, 'yyyy')</code>.</li>
 </ul>
-<p>Paljud tänapäeva GIS-tehnoloogiad võimaldavad kasutada mõlemat mudelit paralleelselt. Näiteks digitaalsed maastikumudelid kuvavad sageli rasterandmete abil mingi piirkonna reljeefi või maakasutust, punktide abil huvipakkuvaid hooneid, joonte abil jõgesid ja teid ning polügoonide abil haldusjaotust. Sealjuures võib otsustada, kas kuvada näiteks kirikud, haiglad ja haridusasutused eraldi kihtidel või ühe kihina, milles sisaldub hoone funktsiooni määrav atribuut.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:arheo-ex"></span>
-<img src="imgs/arheo_example_kimber_lohukivid_totalviewshed.jpg" alt="Maastiku nähtavuse analüüsimine [@Kimber2016]" width="70%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:temporalcontroller"></span>
+<img src="imgs/19_temporalcontroller.gif" alt="QGIS Temporal Controller" width="70%" />
 <p class="caption">
-Figure 3.12: Maastiku nähtavuse analüüsimine <span class="citation">(<a href="kirjandus.html#ref-Kimber2016" role="doc-biblioref">Kimber 2016</a>)</span>
+Figure 19.3: QGIS Temporal Controller
 </p>
 </div>
-<p>Samuti võib üht ja sama nähtust kuvada erinevat moodi.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
-<img src="imgs/okabe_2006.PNG" alt="Tänavaröövid Saitamas [@Okabe2006 : 8]" width="70%" />
-<p class="caption">
-Figure 3.13: Tänavaröövid Saitamas <span class="citation">(<a href="kirjandus.html#ref-Okabe2006" role="doc-biblioref">Okabe 2006</a> : 8)</span>
-</p>
+<p>QGIS ei lase animatsiooni gif-ina salvestada, vaid kõik 100 pilti (aastatest 1921-2021) salvestatakse eraldi pildifailidena ning neid tuleb eraldi animeerida mõnes teises programmis, nt <a href="https://ezgif.com/maker">Ezgifi</a> veebipõhises programmis.</p>
+<p>Selline gif on aga põhimõtteliselt lihtsalt liikuv pilt ning kasutajal ei ole võimalik andmeid kuidagi oma soovidele vastavalt põhjalikumalt uurida.</p>
 </div>
-<p>Vaata natuke <a href="http://blog.ut.ee/30-maps-of-estonia-in-30-days/">siin</a> ringi. Kas saad aru, millist tüüpi mudeleid on kasutatud?</p>
+<div id="ajadimensioon-mapbox-gl-js-apis" class="section level2" number="19.2">
+<h2><span class="header-section-number">19.2</span> Ajadimensioon Mapbox GL JS APIs</h2>
+<p><a href="https://docs.mapbox.com/mapbox-gl-js/api/">Mapboxi JavaScripti API</a> sisaldab hulka funktsioone, mille abil on võimalik veebilehel või veebirakenduses näidata interaktiivseid veebikaarte ning näidata andmeid vastavalt kasutaja tegevusele ja valikutele. API funktsioonid on üsna põhjalikult kirjeldatud ning samuti on võimalik kasutada olemasolevaid <a href="https://docs.mapbox.com/mapbox-gl-js/example/">näiteid</a> ja <a href="https://docs.mapbox.com/help/tutorials/?product=Mapbox+GL+JS">õpetusi</a>, et täiendada oma veebikaarti just endale vajalike funktsionaalsustega.</p>
+<p>Teeme siin lihtsa rakenduse, kus kasutaja saab liuguri abil vaadata eri aastate filmide kohaandmeid. Nagu eelmisel korral räägitud, kasutavad veebirakendused vähemalt kolme elementi: <strong>HTMLi</strong>, mis annab leheküljele struktuuri, <strong>CSSi</strong>, mis annab leheküljele kujunduse, ja <strong>JavaScripti</strong>, mis annab lehele interaktiivsuse.</p>
+<p>Salvestame <code>efis_eesti</code> <strong>geojsoni</strong> failina ja <strong>EPSG: 4326</strong> projektsioonis. Ühtlasi eemaldame salvestamisel ebavajalikud tulbad, mis nt geokodeerimisega kaasa tulid.<br />
+Avame geojsoni faili mingis tekstiredaktoris (nt Notepad või Notepad++) ning kustutame failist ära rea, mis algab <code>"crs": { "type": "name", "properties":</code> ja salvestame. See samm on vajalik selleks, et laadida geojsoni formaadis fail natukese aja pärast Mapbox Studiosse.</p>
+<div id="html" class="section level3" number="19.2.1">
+<h3><span class="header-section-number">19.2.1</span> HTML</h3>
+<p>Kõigepealt teeme valmis lihtsa HTML-i struktuuri, kus oleks päis ja keha ning kus kehas oleksid olemas meie lehekülje struktuurielemendid:</p>
+<ul>
+<li>kaart,<br />
+</li>
+<li>kirjeldustekst,<br />
+</li>
+<li>liugur.</li>
+</ul>
+<p>Ava mingi tekstiredaktor ning kopeeri sinna allolev kood. Salvesta fail nimega <strong>index.html</strong>.</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id = &quot;kaart&quot;&gt;&lt;/div&gt;
+        &lt;div id = &quot;kirjeldus&quot;&gt;
+            &lt;div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Ava nüüd fail index.html mingis veebibrauseris. Esialgu peaksid nägema lihtsalt tühja lehte.</p>
+<p>Päisesse peab Mapboxi APIt kasutades minema alati üsna kindel info. Seega kopeerime <code>&lt;head&gt;&lt;/head&gt;</code> märgendite vahele alloleva koodi:</p>
+<pre><code>        &lt;meta charset = &quot;utf-8&quot;/&gt;
+        &lt;meta name=&#39;viewport&#39; content=&#39;width=device-width, initial-scale=1&#39; /&gt;
+        &lt;title&gt;Kohad Eesti filmides&lt;/title&gt;
+        &lt;script src=&#39;https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js&#39;&gt;&lt;/script&gt;
+        &lt;link href=&#39;https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css&#39; rel=&#39;stylesheet&#39; /&gt;</code></pre>
+<p>Samuti saame kohe ära määrata, mida tahame kehaosas <code>&lt;body&gt;</code> ja <code>&lt;/body&gt;</code> märgendite vahel näidata kirjeldava tekstina. Lisame kirjelduse <code>&lt;div&gt;</code>-märgendite vahele, enne liuguri jaotist kirjelduse pealkirja ja info andmete päritolu kohta:</p>
+<pre><code>            &lt;h1&gt;Eesti filmidega seotud kohad aastatel 1921-2021&lt;/h1&gt;
+            &lt;p&gt;Andmed: efis.ee&lt;/p&gt;
+                </code></pre>
+<p>Värskenda brauseris lehte index.html, et näha, mis muutus.</p>
+<p>Lõpuks saame veel määrata, mis toimub liuguri jaotises. Lisame sinna aastaarvu, mis vastavalt kasutaja valikule muutuma hakkab, ning liuguri enda. Liugurile anname ka eraldi ID ja klassi, mille kaudu sellele CSSis ja JavaScriptis viidata saame.</p>
+<pre><code>        &lt;h2&gt;Aasta: &lt;label id=&quot;parasjagu_aasta&quot;&gt;1921&lt;/label&gt;&lt;/h2&gt;
+        &lt;input id=&quot;liugur&quot; class=&quot;slider&quot; type=&quot;range&quot; min=&quot;1921&quot; max=&quot;2021&quot; value=&quot;1921&quot; /&gt;</code></pre>
 </div>
-<div id="ülesanne" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Ülesanne</h2>
-<p>Kujuta ette, et Google Mapsi ei ole veel leiutatud ja paberkaardid on väga kallid, aga sulle on Tartusse külla tulnud sõber / perekonnaliige / tuttav / välismaa sõber, kes ei ole siin kunagi varem käinud. Joonista tema jaoks paberile Tartu kesklinna kaart ning lisa kaardile enda või tema jaoks tähtsamad kohad ning tagaküljele kirjuta ka, kellele kaart on mõeldud.</p>
+<div id="css" class="section level3" number="19.2.2">
+<h3><span class="header-section-number">19.2.2</span> CSS</h3>
+<p>Järgmiseks võiksime panna paika CSSi. Selle võib ära kirjeldada eraldi css-laiendiga failis või HTML-i struktuuris <code>&lt;style&gt;&lt;/style&gt;</code> märgendite vahel. Lisame päise lõppu, enne <code>&lt;/head&gt;</code> märgendit niisiis veel info elementide kujunduse ja paigutuse kohta.</p>
+<pre><code>        &lt;style&gt;
+            body { 
+                margin: 0; 
+                padding: 0; 
+                font-family: Helvetica, Arial, sans-serif;
+            }
+            #kaart { 
+                position: absolute; 
+                top: 0; 
+                bottom: 0; 
+                width: 100%; 
+            }
+            #kirjeldus {
+                position: absolute;
+                width: 260px;
+                margin: 10px;
+                padding: 10px 20px;
+                background-color: white;
+            }
+            .slider {
+                width: 100%;
+            }
+        &lt;/style&gt;</code></pre>
+<p>Värskenda taas loodud veebilehte, et näha, mis muutus.</p>
 </div>
-<div id="järgmisel-korral-2" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Järgmisel korral</h2>
-<p>Neljapäeval räägime lähemalt kaartidest ja nende omadustest, koordinaatsüsteemidest ja projektsioonidest.</p>
+<div id="javascript" class="section level3" number="19.2.3">
+<h3><span class="header-section-number">19.2.3</span> JavaScript</h3>
+<p>Nüüd liigume <a href="https://studio.mapbox.com/">Mapbox Studiosse</a>. Oma veebirakenduses kasutame nii Mapboxis stiliseeritud aluskaarti kui ka Mapboxi <em>tileset</em>idesse laaditud Eesti filmi andmebaasi geojsoni andmeid.</p>
+<p>Esmalt stiliseerime kiiresti mingi kaardipõhja, mida oma rakenduses kasutada: <em>Styles</em> -&gt; <em>New style</em>. Kaardil võiksid olla halduspiirid, riigipiirid, maa, vesi ja taevas. Teeme valmis stiili avalikuks: <em>Share</em> -&gt; <em>Allow copying</em> -&gt; <em>Make public</em>.</p>
+<p>Järgmiseks laadime Mapbox Studiosse üles oma <em>efis_eesti.geojson</em> faili, kust on CRS-rida ära kustutatud: <em>Datasets</em> -&gt; <em>New Dataset</em> -&gt; <em>Upload</em>. Kui andmestik on <em>dataset</em>’ina üles laaditud, siis ekspordime selle omakorda <em>tileset</em>’iks: <em>Export to tileset</em>. Tee ka <em>tileset</em> avalikuks (<em>Make public</em>).</p>
+<p>Nüüd lisame oma HTML-faili <code>&lt;body&gt;</code>-jaotisesse uue jaotise <code>&lt;script&gt;&lt;/script&gt;</code> märgendite vahele. Siia tuleb nüüd JavaScripti osa, mis kasutab Mapboxi APIt. Kõik, mis on pärast märke <code>//</code>, on kommentaar, mis koodi kirjeldab, ent ei tee ise midagi.</p>
+<p>Minimaalselt on vaja kaardi tegemiseks allolevat koodi. See näitab HTML-failis meie stiliseeritud aluskaarti, ära tuleks vahetada ainult juurdepääsuluba ja kaardistiili aadress, mille saab Mapbox Studios enda loodud stiili juurest vastavalt <em>Share</em> -&gt; <em>Developer resources</em> -&gt; <em>Web</em> -&gt; <em>Access token</em> ja <em>Share</em> -&gt; <em>Developer resources</em> -&gt; <em>Web</em> -&gt; <em>Style URL</em>.</p>
+<pre><code>        &lt;script&gt;
+            // aluskaart
+            mapboxgl.accessToken = &#39;pk.sinukaardistiilijuurdepääsuluba&#39;; // kaardistiili juurdepääsuluba
+
+            const map = new mapboxgl.Map({
+              container: &#39;kaart&#39;, // millises html-i jaotises kaarti hoida?
+              style: &#39;mapbox://styles/sinukasutaja/stiiliaadress&#39;, // mapboxi kaardistiili aadress
+              center: [24.89, 58.64], // aluskaardi keskpunkti koordinaadid
+              zoom: 6.5 // sissesuumimise tase
+            });
+        &lt;/script&gt;
+            </code></pre>
+<p>Järgmiseks võiksime lisada kaardile ka Mapboxi laaditud filmikohtade <em>tileset</em>’i punktid. Selleks lisame <code>&lt;script&gt;</code>-märgendite vahele alloleva koodi, mis pärast aluskaardi laadimist määrab ära meie punktiandmete allika Mapboxis ning seejärel lisab sealt allikast punktid veebirakenduse aluskaardile. Sedapuhku tuleb koodis asendada nüüd avalikuks tehtud <em>tileset</em>’i aadress.</p>
+<pre><code>            // punktandmed
+            // kui aluskaart on laadinud, siis...
+            map.on(&#39;load&#39;, () =&gt;{
+            
+                // määra punktandmete allikas (nimetame selle nimega &quot;filmid&quot;)
+                map.addSource(&#39;filmid&#39;, {
+                    type: &#39;vector&#39;, // andmetüüp on vektorandmed
+                    url: &#39;mapbox://sinukasutaja.tilesetiaadress&#39; // mapboxi tileseti aadress
+                });
+                
+                // lisa aluskaardi peale määratud allikast (punkti)kiht
+                map.addLayer({
+                    &#39;id&#39;: &#39;eesti_filmid&#39;, // nimetame kihi nimega &quot;eesti_filmid&quot;
+                    &#39;type&#39;: &#39;circle&#39;, // andmetüüp on (täitevärviga) punkt
+                    &#39;source&#39;: &#39;filmid&#39;, // andmete allikas on eelnevalt loodud objekt &quot;filmid&quot;
+                    &#39;source-layer&#39;: &#39;efis_eesti&#39;, // geojsoni kihi enda nimi on &quot;efis_eesti&quot;
+                    &#39;paint&#39;: {
+                        &#39;circle-color&#39;: &#39;#f3a6b2&#39;, // punktide värv roosa
+                        &#39;circle-stroke-color&#39;: &#39;transparent&#39;, // punktide äärejoon läbipaistev
+                        &#39;circle-opacity&#39;: 0.4, // punktide väljapaistvus 0.4
+                        &#39;circle-radius&#39;: { // punkti suuruse võtame
+                            property: &#39;n&#39;, // andmestiku tunnusest &quot;n&quot;
+                            stops: [[1, 8], [10, 36]] // kui n = 1, siis on punkti suurus 8, kui n = 10, siis 36, teised jäävad ühtlaselt nende vahepeale
+                        }
+                    }
+                });
+            });</code></pre>
+<p>Nüüd tuleks teha ka midagi selleks, et liugur kaardil toimuvaga kuidagi seotud oleks. Lisame skriptiosa lõppu, <code>map.on('load', ...</code> jaotise sisse niisiis veel mõned read koodi.</p>
+<p>Kood küsib veebilehelt, mida kasutaja liuguri väärtuseks on määranud, ning filtreerib näidatavalt punktikihilt välja ainult vastava aastaarvuga read. Samuti muudab skript <em>parasjagu_aasta</em> väärtust rakenduse kirjelduses.</p>
+<pre><code>                // muuda kaarti ja aasta loendurit vastavalt liuguri liigutamisele
+                document.getElementById(&#39;liugur&#39;).addEventListener(&#39;input&#39;, (e) =&gt; {
+                    const kasutaja_aasta = parseInt(e.target.value); // võta kasutaja sisend (= aastaarv liugurilt) ja salvesta see objekti &quot;kasutaja_aasta&quot;
+                    
+                    // muuda kaarti: 
+                    // määra kihile &quot;eesti_filmid&quot; filter, millega
+                    // filtreerid kogu andmestikust välja ainult need read, kus
+                    // tulbas &quot;aasta1&quot; on sama väärtus, mis objektil &quot;kasutaja_aasta&quot;
+                    map.setFilter(&#39;eesti_filmid&#39;, [&#39;==&#39;, [&#39;number&#39;, [&#39;get&#39;, &#39;aasta1&#39;]], kasutaja_aasta]);
+
+                     // muuda aasta loendurit kirjelduses:
+                     // määra HTML-is elemendile id-ga &quot;parasjagu_aasta&quot; sama väärtus, mille kasutaja liuguril valib
+                    document.getElementById(&#39;parasjagu_aasta&#39;).innerText = kasutaja_aasta;
+                });</code></pre>
+<p>Lõpetuseks võiksime veel lisada sellise funktsionaalsuse, et kui kasutaja mõnel punktil klikib, näidatakse talle meie (filtreeritud) eesti filmide kohtade punktikihilt <em>popup</em>’i sees punkti alla jääva koha nime ja selle esinemiskordade arvu mingil aastal. Selleks lisame pärast <code>map.on('load'... });</code> ja enne <code>&lt;/script&gt;</code> märgendit veel eraldi koodilõigu.</p>
+<pre><code>                // lisa popup, kui kasutaja mõnel kaardil klikib
+                map.on(&#39;click&#39;, (event) =&gt; {
+                    
+                    // kui klikitakse, siis võta kihilt &quot;eesti_filmid&quot;
+                    // punktid, mis klikkimise piirkonda jäävad
+                    const features = map.queryRenderedFeatures(event.point, {
+                        layers: [&#39;eesti_filmid&#39;]
+                    });
+                    
+                    // kui ei jää ühtegi punkti
+                    if (!features.length){
+                        return; // ära näita midagi
+                    }
+                    
+                    // kui jääb mõni punkt
+                    const feature = features[0]; // siis võta neist kõige esimene 
+                    
+                    // tee popup, mis paikneks punktist kaardil natuke ülevalpool
+                    const popup = new mapboxgl.Popup({offset: [0, -15]});
+                    
+                    // sea popupi koordinaatideks punkti koordinaadid andmestikus
+                    popup.setLngLat(feature.geometry.coordinates);
+                    
+                    // määra popupi sisu (koht + esinemiskordade arv)
+                    popup.setHTML(&#39;&lt;h3&gt;&#39; + feature.properties.koht + &#39;&lt;/h3&gt;&lt;p&gt;Esinemiskordi: &#39; + feature.properties.n + &#39;&lt;/p&gt;&#39;)
+                    
+                    // lisa popup kaardile
+                    popup.addTo(map);
+                });</code></pre>
+<p>Terve veebilehe kood näeb nüüd välja niisiis järgmine:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset = &quot;utf-8&quot;/&gt;
+        &lt;meta name=&#39;viewport&#39; content=&#39;width=device-width, initial-scale=1&#39; /&gt;
+        &lt;title&gt;Kohad Eesti filmides&lt;/title&gt;
+        &lt;script src=&#39;https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js&#39;&gt;&lt;/script&gt;
+        &lt;link href=&#39;https://api.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css&#39; rel=&#39;stylesheet&#39; /&gt;
+        &lt;style&gt;
+            body { 
+                margin: 0; 
+                padding: 0; 
+                font-family: Helvetica, Arial, sans-serif;
+            }
+            #kaart { 
+                position: absolute; 
+                top: 0; 
+                bottom: 0; 
+                width: 100%; 
+            }
+            #kirjeldus {
+                position: absolute;
+                width: 260px;
+                margin: 10px;
+                padding: 10px 20px;
+                background-color: white;
+            }
+            .slider {
+                width: 100%;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id = &quot;kaart&quot;&gt;&lt;/div&gt;
+        &lt;div id = &quot;kirjeldus&quot;&gt;
+            &lt;h1&gt;Eesti filmidega seotud kohad aastatel 1921-2021&lt;/h1&gt;
+            &lt;p&gt;Andmed: Eesti filmi andmebaas (efis.ee)&lt;/p&gt;
+            &lt;div&gt;
+                &lt;h2&gt;Aasta: &lt;label id=&quot;parasjagu_aasta&quot;&gt;1921&lt;/label&gt;&lt;/h2&gt;
+                &lt;input id=&quot;liugur&quot; class=&quot;slider&quot; type=&quot;range&quot; min=&quot;1921&quot; max=&quot;2021&quot; value=&quot;1921&quot; /&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;script&gt;
+            // aluskaart
+            mapboxgl.accessToken = &#39;pk.sinukaardistiilijuurdepääsuluba&#39;; // kaardistiili juurdepääsuluba
+
+            const map = new mapboxgl.Map({
+              container: &#39;kaart&#39;, // millises html-i jaotises kaarti hoida?
+              style: &#39;mapbox://styles/sinukasutaja/stiiliaadress&#39;, // mapboxi kaardistiili aadress
+              center: [24.89, 58.64], // aluskaardi keskpunkti koordinaadid
+              zoom: 6.5 // sissesuumimise tase
+            });
+            
+            // punktandmed
+            // kui aluskaart on laadinud, siis...
+            map.on(&#39;load&#39;, () =&gt;{
+            
+                // määra punktandmete allikas (nimetame selle nimega &quot;filmid&quot;)
+                map.addSource(&#39;filmid&#39;, {
+                    type: &#39;vector&#39;, // andmetüüp on vektorandmed
+                    url: &#39;mapbox://sinukasutaja.tilesetiaadress&#39; // mapboxi tileseti aadress
+                });
+                
+                // lisa aluskaardi peale määratud allikast (punkti)kiht
+                map.addLayer({
+                    &#39;id&#39;: &#39;eesti_filmid&#39;, // nimetame kihi nimega &quot;eesti_filmid&quot;
+                    &#39;type&#39;: &#39;circle&#39;, // andmetüüp on (täitevärviga) punkt
+                    &#39;source&#39;: &#39;filmid&#39;, // andmete allikas on eelnevalt loodud objekt &quot;filmid&quot;
+                    &#39;source-layer&#39;: &#39;efis_eesti&#39;, // geojsoni kihi enda nimi on &quot;efis_eesti&quot;
+                    &#39;paint&#39;: {
+                        &#39;circle-color&#39;: &#39;#f3a6b2&#39;, // punktide värv roosa
+                        &#39;circle-stroke-color&#39;: &#39;transparent&#39;, // punktide äärejoon läbipaistev
+                        &#39;circle-opacity&#39;: 0.4, // punktide väljapaistvus 0.4
+                        &#39;circle-radius&#39;: { // punkti suuruse võtame
+                            property: &#39;n&#39;, // andmestiku tunnusest &quot;n&quot;
+                            stops: [[1, 8], [10, 36]] // kui n = 1, siis on punkti suurus 8, kui n = 10, siis 36, teised jäävad ühtlaselt nende vahepeale
+                        }
+                    }
+                });
+                
+                // muuda kaarti ja aasta loendurit vastavalt liuguri liigutamisele
+                document.getElementById(&#39;liugur&#39;).addEventListener(&#39;input&#39;, (e) =&gt; {
+                    const kasutaja_aasta = parseInt(e.target.value); // võta kasutaja sisend (= aastaarv liugurilt) ja salvesta see objekti &quot;kasutaja_aasta&quot;
+                    
+                    // muuda kaarti: 
+                    // määra kihile &quot;eesti_filmid&quot; filter, millega
+                    // filtreerid kogu andmestikust välja ainult need read, kus
+                    // tulbas &quot;aasta1&quot; on sama väärtus, mis objektil &quot;kasutaja_aasta&quot;
+                    map.setFilter(&#39;eesti_filmid&#39;, [&#39;==&#39;, [&#39;number&#39;, [&#39;get&#39;, &#39;aasta1&#39;]], kasutaja_aasta]);
+
+                     // muuda aasta loendurit kirjelduses:
+                     // määra HTML-is elemendile id-ga &quot;parasjagu_aasta&quot; sama väärtus, mille kasutaja liuguril valib
+                    document.getElementById(&#39;parasjagu_aasta&#39;).innerText = kasutaja_aasta;
+                });
+                
+                // lisa popup, kui kasutaja mõnel kaardil klikib
+                map.on(&#39;click&#39;, (event) =&gt; {
+                    
+                    // kui klikitakse, siis võta kihilt &quot;eesti_filmid&quot;
+                    // punktid, mis klikkimise piirkonda jäävad
+                    const features = map.queryRenderedFeatures(event.point, {
+                        layers: [&#39;eesti_filmid&#39;]
+                    });
+                    
+                    // kui ei jää ühtegi punkti
+                    if (!features.length){
+                        return; // ära näita midagi
+                    }
+                    
+                    // kui jääb mõni punkt
+                    const feature = features[0]; // siis võta neist kõige esimene
+                    
+                    // tee popup, mis paikneks punktist kaardil natuke ülevalpool
+                    const popup = new mapboxgl.Popup({offset: [0, -15]});
+                    
+                    // sea popupi koordinaatideks punkti koordinaadid andmestikus
+                    popup.setLngLat(feature.geometry.coordinates);
+                    // määra popupi sisu (koht + esinemiskordade arv)
+                    popup.setHTML(&#39;&lt;h3&gt;&#39; + feature.properties.koht + &#39;&lt;/h3&gt;&lt;p&gt;Esinemiskordi: &#39; + feature.properties.n + &#39;&lt;/p&gt;&#39;)
+                    // lisa popup kaardile
+                    popup.addTo(map);
+                });
+            });
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Paneme lehe <strong>index.html</strong> nüüd üles GitHubi (vt eelmise korra materjale).</p>
+<iframe src="https://mpilvik.github.io/eestifilmid/" width="100%" height="500" style="border:none;" title="Veebikaart GitHubist (mpilvik.github.io/eestifilmid/)">
+</iframe>
+</div>
+</div>
+<div id="lisa" class="section level2" number="19.3">
+<h2><span class="header-section-number">19.3</span> Lisa</h2>
+<p>Kui tahad veebikaartide tegemise kohta rohkem õppida, siis väga hea ja põhjaliku kursuse veebikaartide kohta leiad näiteks <a href="https://github.com/jakobzhao/geog371">siit</a>.</p>
+</div>
+<div id="järgmisel-korral-12" class="section level2" number="19.4">
+<h2><span class="header-section-number">19.4</span> Järgmisel korral</h2>
+<p>Ruumiandmete analüüs R-is. Selleks palun installi endale <a href="https://www.r-project.org/"><strong>R</strong></a> ja <a href="https://rstudio.com/products/rstudio/download/"><strong>RStudio</strong></a> uusimad versioonid.</p>
+
 
 </div>
 </div>
@@ -593,8 +712,8 @@ Figure 3.13: Tänavaröövid Saitamas <span class="citation">(<a href="kirjandus
           </div>
         </div>
       </div>
-<a href="seminar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="kaardid.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="veebirakendused.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="kirjandus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
