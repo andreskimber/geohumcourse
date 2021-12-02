@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Praktikum 9 Georefereerimine | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
   <meta name="description" content="Praktikum 9 Georefereerimine | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Praktikum 9 Georefereerimine | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta property="og:type" content="book" />
@@ -34,6 +34,7 @@
 <link rel="next" href="avaldised.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -41,7 +42,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -315,6 +315,25 @@ div.csl-indent {
 <li class="chapter" data-level="19.3" data-path="veebirakendused2.html"><a href="veebirakendused2.html#lisa"><i class="fa fa-check"></i><b>19.3</b> Lisa</a></li>
 <li class="chapter" data-level="19.4" data-path="veebirakendused2.html"><a href="veebirakendused2.html#järgmisel-korral-12"><i class="fa fa-check"></i><b>19.4</b> Järgmisel korral</a></li>
 </ul></li>
+<li class="chapter" data-level="20" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i><b>20</b> Ruumiandmete analüüs R-iga</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="r.html"><a href="r.html#pakettide-installimine"><i class="fa fa-check"></i><b>20.1</b> Pakettide installimine</a></li>
+<li class="chapter" data-level="20.2" data-path="r.html"><a href="r.html#miks-teha-kaarte-koodipõhiselt"><i class="fa fa-check"></i><b>20.2</b> Miks teha kaarte koodipõhiselt?</a></li>
+<li class="chapter" data-level="20.3" data-path="r.html"><a href="r.html#r-rstudio-ja-rmarkdown"><i class="fa fa-check"></i><b>20.3</b> R, Rstudio ja Rmarkdown</a>
+<ul>
+<li class="chapter" data-level="20.3.1" data-path="r.html"><a href="r.html#kood"><i class="fa fa-check"></i><b>20.3.1</b> Kood</a></li>
+</ul></li>
+<li class="chapter" data-level="20.4" data-path="r.html"><a href="r.html#joonised-ja-kaardid-r-is"><i class="fa fa-check"></i><b>20.4</b> Joonised ja kaardid R-is</a></li>
+<li class="chapter" data-level="20.5" data-path="r.html"><a href="r.html#ruumiandmed"><i class="fa fa-check"></i><b>20.5</b> Ruumiandmed</a>
+<ul>
+<li class="chapter" data-level="20.5.1" data-path="r.html"><a href="r.html#andmete-avamine-2"><i class="fa fa-check"></i><b>20.5.1</b> Andmete avamine</a></li>
+<li class="chapter" data-level="20.5.2" data-path="r.html"><a href="r.html#kaartide-tegemine"><i class="fa fa-check"></i><b>20.5.2</b> Kaartide tegemine</a></li>
+<li class="chapter" data-level="20.5.3" data-path="r.html"><a href="r.html#andmete-filtreerimine-ja-ühendamine"><i class="fa fa-check"></i><b>20.5.3</b> Andmete filtreerimine ja ühendamine</a></li>
+<li class="chapter" data-level="20.5.4" data-path="r.html"><a href="r.html#ülesanne-7"><i class="fa fa-check"></i><b>20.5.4</b> Ülesanne</a></li>
+<li class="chapter" data-level="20.5.5" data-path="r.html"><a href="r.html#kaartide-eksportimine"><i class="fa fa-check"></i><b>20.5.5</b> Kaartide eksportimine</a></li>
+</ul></li>
+<li class="chapter" data-level="20.6" data-path="r.html"><a href="r.html#r-i-raamatud-ja-juhendid"><i class="fa fa-check"></i><b>20.6</b> R-i raamatud ja juhendid</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="kirjandus.html"><a href="kirjandus.html"><i class="fa fa-check"></i>Kirjandus</a></li>
 </ul>
 
@@ -452,7 +471,6 @@ Figure 9.6: Georefereeritud Tartu kaart hübriidkaardi ja ortofoto taustal
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -480,7 +498,7 @@ gitbook.start({
 },
 "download": [["book.pdf", "PDF"], ["book.epub", "EPUB"]],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

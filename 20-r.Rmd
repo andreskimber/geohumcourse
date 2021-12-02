@@ -85,7 +85,7 @@ sum(nimekiri)
 
 ## Joonised ja kaardid R-is
 
-Ggplot2 on väga populaarne R-i pakett andmete visualiseerimiseks. See on ka osa Tidyverse'i pakettide kogumiku osa. Sellega saab teha nii kõiksugu jooniseid kui ka kaarte. Pakett põhine kontseptsioonil *Grammar of Graphics*, mis võimaldab luua jooniseid kombineerides erinevaid komponente. Samas ei ole tegemist mingi etteantud graafikute valikuga, vaid neid saab kombineerida ja muuta vastavalt oma vajadustele. Sisuliselt toimub komponentide lisamine kihtidena pisut sarnaselt sellele, kuidas oleme siiani QGISi teinud. Kõigepealt lisatakse toorandmed, ning seejärel kokkuvõtted neist ja kõikvõimalikud märkused ja lisad.
+[Ggplot2](https://ggplot2-book.org/) on väga populaarne R-i pakett andmete visualiseerimiseks. See on ka osa Tidyverse'i pakettide kogumiku osa. Sellega saab teha nii kõiksugu jooniseid kui ka kaarte. Pakett põhine kontseptsioonil *Grammar of Graphics*, mis võimaldab luua jooniseid kombineerides erinevaid komponente. Samas ei ole tegemist mingi etteantud graafikute valikuga, vaid neid saab kombineerida ja muuta vastavalt oma vajadustele. Sisuliselt toimub komponentide lisamine kihtidena pisut sarnaselt sellele, kuidas oleme siiani QGISi teinud. Kõigepealt lisatakse toorandmed, ning seejärel kokkuvõtted neist ja kõikvõimalikud märkused ja lisad.
 
 Ggplot2 paketi põhielemendid:
 
@@ -102,7 +102,8 @@ Ggplot2 paketi põhielemendid:
     visualiseerimine korraga mitmel tahul. graafikute ruudustiku loomine
 8. visuaalne teema `theme()`:
     visuaalse poole vaikimisi sätted. Taust, font, teljed jne. 
-    
+
+Võimalusi ja ideid graafikute ja kaartide koostamiseks R-is leiab [R Graph Gallery'ist](https://www.r-graph-gallery.com/).  
 
 ## Ruumiandmed
 
@@ -139,9 +140,11 @@ Lisame rohkem elemente kaardile.
 ggplot() + 
     geom_sf(data = maakonnad, 
             color = "red", 
-            fill = "#fec44f") +                           
+            fill = "#fec44f") +   
+    # Lisame kirikute kihi
     geom_sf(data = kirikud, color = "blue", size = 3) +
     coord_sf(crs = 3301) +
+    # mõõtkava
     annotation_scale(location = "bl") + # 
     labs( # Lisame pealkirja ja muu olulise teksti
         title = "Eesti maakonnad ja kirikud",
@@ -151,12 +154,11 @@ ggplot() +
     theme_map()
 ```
 
-
 ### Andmete filtreerimine ja ühendamine
 
 Ruumiandmete filtreerimine, ühendamine jms käib R-is valdavalt samamoodi nagu teiste andmete puhul. Selleks on meil kasutada `dplyr` pakett, mis võimaldab paari funktsiooni abil suure osa andmetöötlusest ära teha.
 
-Soovime näiteks teha kaarti Saaremaa asustusüksustest, mille esmamainimine on olnud hiljemalt aastal 1500.
+Soovime näiteks teha kaarti Saaremaa asustusüksustest, mille esmamainimine on olnud hiljemalt aastal 1558.
 
 ```{r}
 # Filtreerime maakondadest Saaremaa välja 
@@ -170,26 +172,42 @@ ggplot(saaremaa) +
     geom_sf()
 ```
 
-Välja tuleb filtreerida ka õige vanusega külad. 
+Teeme esmamainimise aastatest ka ülevaatliku graafiku
 
 ```{r}
+graafik = ggplot2::ggplot(saare_asustus) + 
+    geom_histogram(
+        mapping = aes(x = esmamainimine),
+        binwidth = 50,
+        ) +
+    theme_clean()
+graafik
+```
+
+Filtreerime välja õige vanusega külad. 
+
+```{r}
+
+summary(saare_asustus$esmamainimine)
 saare_asustus_vana = saare_asustus %>% 
     filter(
-        esmamainimine < 1500
-    )
+        esmamainimine < 1558
+    ) 
 ```
 
 Teeme neist kaardi. 
 
 ```{r}
 ggplot() +
-    geom_sf(saaremaa, mapping = ggplot2::aes(), 
-            show.legend = T
-            ) +
-    geom_sf(data = saare_asustus_vana,
-            mapping = ggplot2::aes(shape = asustusyksus, color = esmamainimine), 
-            size = 3
-            ) +
+    geom_sf(
+        saaremaa, mapping = ggplot2::aes(), 
+        show.legend = T
+        ) +
+    geom_sf(
+        data = saare_asustus_vana,
+        mapping = ggplot2::aes(shape = asustusyksus, color = esmamainimine), 
+        size = 3
+        ) +
     coord_sf(crs = 3301) +
     annotation_scale(location = "br") + # lisame mõõtkava. "br" tähendam bottom right
     labs(
@@ -197,11 +215,51 @@ ggplot() +
         caption = "Andmed: Maa-amet 2020, EKI Kohanimeraamat"
         ) +
     # peidame taustal oleva koordinaatteljestiku
-    theme(rect = element_blank(), 
-          axis.text.x = element_blank(), 
-          axis.text.y = element_blank(), 
-          axis.ticks = element_blank()
-          )
+    theme(
+        rect = element_blank(), 
+        axis.text.x = element_blank(), 
+        axis.text.y = element_blank(), 
+        axis.ticks = element_blank()
+        )
+```
+
+Teeme mitu kaarti korraga. Selleks loome tulba, kus kirjas esmamainimise ajastu. 
+
+```{r}
+saare_asustus_periood = saare_asustus %>% 
+    mutate(
+        esmamainimise_periood = case_when(
+            esmamainimine < 1558 ~ "Keskaeg", 
+            esmamainimine < 1721 ~ "Vara-uusaeg",
+            esmamainimine < 1918 ~ "Uusaeg",
+            esmamainimine < 2021 ~ "Uusim aeg",
+        )
+    )
+
+ggplot() +
+    geom_sf(
+        saaremaa, mapping = ggplot2::aes(), 
+        show.legend = T
+        ) +
+    geom_sf(
+        data = saare_asustus_periood,
+        mapping = ggplot2::aes(shape = asustusyksus, color = esmamainimine), 
+        size = 3
+        ) +
+    coord_sf(crs = 3301) +
+    annotation_scale(location = "br") + # lisame mõõtkava. "br" tähendam bottom right
+    labs(
+        title = "Saaremaa külade esmamainimine ajaloo perioodide kaupa",
+        caption = "Andmed: Maa-amet 2020, EKI Kohanimeraamat"
+        ) +
+    # peidame taustal oleva koordinaatteljestiku
+    theme(
+        rect = element_blank(), 
+        axis.text.x = element_blank(), 
+        axis.text.y = element_blank(), 
+        axis.ticks = element_blank()
+        ) +
+    facet_wrap(~ esmamainimise_periood)
 ```
 
 Vaatame ka näidet, kuidas saab andmeid ühendada ja neist kokkuvõtteid teha. Näiteks
@@ -231,20 +289,20 @@ ggplot(maakonnad_kirikutega) +
         na.value = "grey50",
         guide = "colourbar",
         aesthetics = "fill"
-    ) +
+        ) +
     # peidame taustal oleva koordinaatteljestiku
-    theme(rect = element_blank(), 
-          axis.text.x = element_blank(), 
-          axis.text.y = element_blank(), 
-          axis.ticks = element_blank()
-    )
+    theme(
+        rect = element_blank(), 
+        axis.text.x = element_blank(), 
+        axis.text.y = element_blank(), 
+        axis.ticks = element_blank()
+        )
 ```
 
 
 ### Ülesanne 
 
-
-Tee kaart, kus on kujutatud Tartu maakonna asustusüksusi, mille esmamainimine jääb Põhjasõja eelsesse aega. Kirjuta kood all olevasse kooditükki. Saad kombineerida täpselt sama koodi, mida varem kasutasime.
+Tee kaart, kus on kujutatud Tartu maakonna asustusüksusi, mille esmamainimine jääb Põhjasõja (1700–1721) eelsesse aega. Kirjuta kood all olevasse kooditükki. Saad kombineerida täpselt sama koodi, mida varem kasutasime.
 
 ```{r}
 tartumaa = maakonnad %>% 
@@ -257,13 +315,15 @@ tartu_asustus_vana = tartu_asustus %>%
     )
 
 ggplot() +
-    geom_sf(tartumaa, mapping = ggplot2::aes(), 
-            show.legend = T
-            ) +
-    geom_sf(data = tartu_asustus_vana,
-            mapping = ggplot2::aes(color = esmamainimine), 
-            size = 3
-            ) +
+    geom_sf(
+        tartumaa, mapping = ggplot2::aes(), 
+        show.legend = T
+        ) +
+    geom_sf(
+        data = tartu_asustus_vana,
+        mapping = ggplot2::aes(color = esmamainimine), 
+        size = 3
+        ) +
     coord_sf(crs = 3301) +
     annotation_scale(location = "br") + # lisame mõõtkava. "br" tähendam bottom right
     labs(
@@ -271,11 +331,12 @@ ggplot() +
         caption = "Andmed: Maa-amet 2020, EKI Kohanimeraamat"
         ) +
     # peidame taustal oleva koordinaatteljestiku
-    theme(rect = element_blank(), 
-          axis.text.x = element_blank(), 
-          axis.text.y = element_blank(), 
-          axis.ticks = element_blank()
-          )
+    theme(
+        rect = element_blank(), 
+        axis.text.x = element_blank(), 
+        axis.text.y = element_blank(), 
+        axis.ticks = element_blank()
+        )
 
 ```
 
@@ -296,6 +357,3 @@ Kaarte saab eksportida paremal olevast *Plots* aknast valides *Export*. Samuti v
 [R Graphics Cookbook](https://r-graphics.org/)
 
 [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
-
-
-
