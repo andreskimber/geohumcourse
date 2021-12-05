@@ -422,3 +422,5 @@ fig:efiseesti
 fig:temporal
 fig:temporalcontroller
 fig:mapboxgljs
+staatilised-kaardid
+shiny-rakendus

@@ -1,0 +1,562 @@
+# Ruumiandmete analüüs R-iga 2 {#r2}
+
+Eelmisel korral vaatasime, kuidas R-iga lihtsamaid kaarte teha. See hõlmas 
+
+- **vajalike pakettide laadimist**,   
+
+```
+need = c("tidyverse", "sf", "magrittr", "ggspatial", "ggthemes")
+invisible(lapply(need, library, character.only = T))
+```
+
+või
+
+```
+library(sf)
+library(tidyverse)
+library(magrittr)
+library(ggspatial)
+library(ggthemes)
+```
+
+- **andmete sisselugemist**,
+
+```
+maakonnad = st_read("./andmed/maakond_lihtsustatud.gpkg")
+```
+
+- **andmete filtreerimist**,  
+
+```
+saaremaa = maakonnad %>% 
+  filter(
+    MNIMI == "Saare maakond" 
+  )
+```
+
+või
+
+```
+maakonnad %>% filter(MNIMI == "Saare maakond") -> saaremaa
+```
+
+või
+
+```
+saaremaa <- filter(maakonnad, MNIMI == "Saare maakond")
+```
+
+- **andmete visualiseerimist**.
+
+```
+ggplot(saaremaa) +
+  geom_sf()
+```
+
+Sel korral kasutame Eesti filmide andmestikku, teeme paar staatilist kaarti ning vaatame ka, kuidas teha R-is lihtsat rakendust, mis kuvaks andmestiku alamosast kaarti vastavalt kasutaja valikutele. Siin tuleb osata pisut R-i (või juhendeid lugeda), aga mitte näiteks JavaScripti ega HTMLi.
+
+
+## Staatilised kaardid
+
+Loeme alustuseks sisse terve efis.ee lehelt korjatud kohamärksõnadega tabeli failist **efis_kohad.csv**, kus on kõikide kohtadega seotud filmid, nende ilmumisaasta ning žanr. Seejärel loeme sisse ka geokodeeritud alamosa suurest tabelist, mida kasutasime 19. praktikumis (**efis_eesti.gpkg**). Seal olid ainult need Eesti kohanimed, mida esines terves andmestikus kõikide aastate peale vähemalt 5 korda. Samuti loeme sisse maakondade kihi, mida saame kasutada aluskaardina (**maakond_lihtsustatud.gpkg**).    
+
+```{r, eval=F}
+efis_suur <- read.csv("andmed/efis_kohad.csv", sep = "\t", fileEncoding = "UTF-8")
+efis_eesti <- st_read("andmed/efis_eesti.gpkg")
+maakonnad <- st_read("andmed/maakond_lihtsustatud.gpkg")
+```
+
+Ühendame kaks andmestikku nii, et meil ei oleks kaardil võimalik näidata enam mitte ainult üldist infot selle kohta, kui palju mingites filmides teatud aastatel mingeid kohti esines, vaid saaksime kaardil kuvada andmebaasi alamosi ka nt žanri järgi.   
+Kasutame ühendamiseks mõlema andmestiku ühist tulpa **_koht_**. Kõigepealt aga tuleb andmestikus *efis_suur* viia kohanimed kujult *A. Laikmaa tänav (Tallinn)* kujule *A. Laikmaa tänav, Tallinn*, nagu need on geokodeeritud andmestikus.
+
+```{r, eval = F}
+efis_suur$koht %>% 
+  gsub("^(.*) \\((.*)\\)", "\\1, \\2", .) %>% 
+  trimws() -> efis_suur$koht
+
+# Käsku võib lugeda nii, et salvesta tabeli "efis_suur" tulp "koht" üle nii, et
+# olemasolevas tulbas võta kirje algusest kuni sulu ees oleva tühikuni kõik, mis seal on
+# (. <- "ükskõik mis sümbol", * <- "ükskõik kui mitu korda"),
+# seejärel võta sulgude seest ükskõik, mis seal on,
+# ja kleebi need kaks kokku nii, et esimest ja teist osa eraldaks koma ja tühik.
+# Lõpuks kustuta kirjete eest ja tagant ka võimalikud ebavajalikud tühikud.
+```
+
+Kuna tahame *efis_eesti* kihilt kasutada ainult kohtade nimesid ja koordinaate, salvestame selle osa andmestikust eraldi objekti.
+
+```{r, eval = F}
+efis_eesti %>% 
+  select(koht) %>% 
+  unique() -> efis_eesti_kohad
+```
+
+Ühendame nüüd andmestikud funktsiooniga `merge()`.
+
+```{r, eval = F}
+merge(efis_eesti_kohad, efis_suur, by = "koht") -> efis_koord
+```
+
+Vaatame, mis juhtus.
+
+```{r, eval = F}
+# Andmetabeli esimesed read
+head(efis_koord)
+```
+
+Iga suure tabeli kirje, mis leidus ka geokodeeritud andmestikus, sai nüüd juurde ka koordinaadid. Need kirjed, mida geokodeeritud andmestikus ei olnud, jäid välja.
+
+```{r, eval = F}
+# Millised erinevad žanrikirjed tabelis on? Mis on kõige sagedamad?
+efis_koord$žanr %>% 
+  table() %>%
+  sort(decreasing = T)
+```
+
+
+```{r, eval = F}
+# Punktide kaart (ilma aluskaardita)
+ggplot(efis_koord) +
+  geom_sf()
+```
+
+Lisame nüüd punktidele alla maakondade aluskaardi ning näitame ainult neid andmestiku punkte, mis käivad selliste kohtade kohta, mida näidati 2021. aasta dokumentaal- ja mängufilmides. 
+
+```{r, eval = F}
+ggplot(data = maakonnad) +
+  geom_sf() + # maakondade aluskaardi kiht
+  geom_sf(data = efis_koord %>% # efise andmestikust valime read, kus
+            filter(aasta == 2021, # aasta on 2021 ja
+                   grepl("([dD]okumentaal)|([mM]ängufilm)", žanr)) %>% # žanri tulp sisaldab sõna "dokumentaal", "Dokumentaal", "mängufilm" või "Mängufilm"
+            group_by(koht, žanr) %>% # grupeerime andmed kohanime ja žanri põhjal
+            summarise(kokku = n()), # loeme gruppides andmepunktid kokku
+          aes(size = kokku, color = žanr), # määrame punktide suuruse esinemise arvu järgi ja punktide värv žanri järgi
+          alpha = 0.2) + # teeme punktid läbipaistvamaks
+  scale_size_continuous(range = c(3,7)) + # ja suuremaks
+  theme_bw() # lisame mustvalge teema
+```
+
+See ei ole kõige mugavam viis neid andmeid vaadata. Võime proovida mingile kindlale alale sisse suumida. 
+
+```{r, eval = F}
+ggplot(data = maakonnad) +
+  geom_sf() + 
+  geom_sf(data = efis_koord %>%
+            filter(aasta == 2021,
+                   grepl("([dD]okumentaal)|([mM]ängufilm)", žanr)) %>% 
+            group_by(koht, žanr) %>% 
+            summarise(kokku = n()), 
+          aes(size = kokku, color = žanr), 
+          alpha = 0.2) + 
+  scale_size_continuous(range = c(3,7)) +
+  theme_bw() + 
+  coord_sf(xlim = st_bbox(maakonnad %>% 
+                            filter(MNIMI == "Tartu maakond"))[c(1,3)],
+           ylim = st_bbox(maakonnad %>% 
+                            filter(MNIMI == "Tartu maakond"))[c(2,4)])
+```
+
+
+Võime proovida punkte ka näiteks žanride kaupa eraldi paneelidel kuvada. Kuna aga ühel filmil võib olla mitu kategooriat, tuleks meil filmid eraldi klassifitseerida: kui žanri märksõnade hulgas on ka sõna *Dokumentaal* või *dokumentaal*, klassifitseerime selle dokumentaalfilmiks; kui žanri märksõnade hulgas on sõna *Mängufilm* või *mängufilm*, klassifitseerime selle mängufilmiks.  
+
+```{r, eval = F}
+ggplot(data = maakonnad) +
+  geom_sf() +
+  geom_sf(data = efis_koord %>% 
+            filter(aasta == 2021, 
+                   grepl("([dD]okumentaal)|([mM]ängufilm)", žanr)) %>% 
+            group_by(koht, žanr) %>%
+            summarise(kokku = n()) %>%
+            mutate(žanr_bin = ifelse( # tee uus tulp "žanr_bin". Kui...
+              grepl("[Dd]okumentaal", žanr), # žanri tulbas on "Dokumentaal" või "dokumentaal",
+              "dokumentaal", # siis määra kategooriaks "dokumentaal",
+              "mängufilm") # vastasel juhul "mängufilm"
+            ), 
+          aes(size = kokku, color = žanr_bin), 
+          alpha = 0.2) +
+  scale_size_continuous(range = c(3,7)) + 
+  theme_bw() +
+  facet_wrap("žanr_bin") # jaga andmed žanri järgi eri paneelidele
+
+```
+
+Vaatame staatiliste kaartide puhul ka seda, milline on punktitihedus.
+
+```{r, eval = F}
+ggplot(data = maakonnad) +
+  geom_sf() +
+  stat_density_2d(data = efis_koord, # alamandmestiku tihedusfunktsiooni
+                  aes(x = st_coordinates(efis_koord)[,1], # x-telje koordinaadid
+                      y = st_coordinates(efis_koord)[,2], # y-telje koordinaadid
+                      fill = ..level..), # rõngad on värvitud vastavalt tihedusjaotusele
+                  geom = "polygon", # funktsiooni kuvamise tüüp on polügoon
+                  alpha = 0.5, # läbipaistvus
+                  bins = 30) + # sagedusjoonte arv
+  scale_fill_gradient(low = "lightblue", high = "darkblue") +
+  theme_bw() +
+  labs(x = "", y = "", fill = "")
+```
+
+
+Salvestame faili *efis_koord* faili.
+
+```{r, eval = F}
+st_write(efis_koord, "efis_koord.gpkg", crs = 3301)
+```
+
+
+## Shiny rakendus
+
+R-is saab interaktiivsete rakenduste tegemiseks kasutada **[Shiny](https://shiny.rstudio.com/)** paketti. Kui sinu RStudios ei ole veel Shiny võimalust, tuleb pakett esmalt installida.
+
+```{r, eval = F}
+# Trüki konsooli
+if(!"shiny" %in% rownames(installed.packages())) install.packages("shiny")
+
+# Käsus kontrollitakse, kas shiny pakett sisaldub
+# installitud pakettide nimede hulgas
+# ning kui ei sisaldu (hüüumärki kasutatakse mingi tingimuse eitamiseks),
+# siis installitakse.
+```
+
+Seejärel vali **`File` -> `New File` -> `Shiny Web App`**, anna oma rakendusele nimi (nt *efis_shiny* vmt) ning jäta rakenduse tüübi (*Application type*) valikuks *Single File*. See tähendab, et nii kasutajaliides (*ui* - see osa, mida kasutaja näeb ja mille abil rakendusega suhtleb) kui ka serveri loogika (*server* - see osa, mis vastavalt kasutaja valikutele tegelikult andmetega midagi teeb) on ühes R-i failis koos ning selle faili nimi on *app.R*.
+*Multiple File* tähendaks, et ühes failis on kasutajaliidese osa ning teises serveri osa ning kui tahta rakendust kasutada, peavad olemas olema mõlemad failid. 
+Kasutuses kahel variandil praktiliselt vahet ei ole.
+
+Vali ka kaust, milles tahad oma rakendust hoida. Selle kausta sisse tekib omakorda kaust sinu rakenduse nimega (nt *efis_shiny*), mille sees on fail *app.R* ja mille sisse võiksid minna ka kõik rakenduses kasutatavad failid (nt tabelandmestikud, ruumiandete failid, pildid jm).
+
+Avaneb fail **_app.R_**, kus on juba valmis põhi, mille sisse saad oma rakendust kirjutada. Vaikimisi põhi on tehtud [histogrammi](https://et.wikipedia.org/wiki/Histogramm) joonistamiseks. Vajuta rohelise noolekesega nupul *Run App*. Võid valida ka *Run in Viewer Pane*, et kuvada rakendust RStudio enda keskkonnas.
+Kui tahad nüüd näha rakenduse endaga paralleelselt koodi, millega rakendus on tehtud, trüki konsooli `runExample("01_hello", display.mode = "showcase")`.  
+
+Rakenduse minimaalne nõutud struktuur koosneb neljast osast ning näeb välja selline (trellidega on tähistatud kommentaarid):
+
+```{r, eval = F}
+# 1. Rakenduse töötamiseks vajaliku shiny paketi laadimine.
+# Siin saab sisse lugeda ka teised paketid,
+# vajalikud andmed ning neid andmeid vajadusel töödelda.
+library(shiny) 
+
+# 2. Vahepeal võib veel ka andmeid töödelda.
+
+# 3. Kasutajaliides
+ui <- fluidPage(
+  # Siin saab defineerida, kuidas kasutajaliides välja näeb, sh
+  # kus ja kuidas lasta kasutajal teha mingeid valikuid,
+  # milliseid valikuid kasutaja teha saab 
+  # (nt filtreerida algandmetest mingeid andmeid, 
+  # muuta mingitel väljundi elementidel värvi, 
+  # kujundeid, teksti suurust, väljundit salvestada jne),
+  # milline on kasutaja valikute põhjal genereeritud väljund 
+  # (nt kaart, tabel, joonis, tekst jne)
+  # ja kus see paikneb.
+  # fluidPage() teeb lehe, mis kohandub kasutaja brauseriakna suurusega,
+  # fixedPage() teeb lehe, mis on vaikimisi 940 piksli laiune.
+)
+
+# 4. Serveri loogika
+server <- function(input, output){
+  # Siin saab defineerida, mida rakendus kasutaja valikute põhjal teeb 
+  # ning kuidas soovitud väljundini jõuda, 
+  # nt kui kasutaja valib A, siis tehakse väljund niisugustest andmetest,
+  # kui kasutaja valib B, siis tehakse väljund naasugustest andmetest jne.
+}
+
+# 5. Rakenduse kokkupanemine
+shinyApp(ui = ui, server = server)
+```
+
+Vaatame nüüd rakenduse struktuuri lähemalt ning teeme ise ühe lihtsa rakenduse, mis 
+
+- võtaks sisendiks failid **_maakond_lihtsustatud.gpkg_** (polügoonid) ja **_efis_koord.gpkg_** (punktid),
+- laseks kasutajal valida, mis aastatest ja mis žanrist filmide kohti näidata ning kas näidata neid punktikaardil või tiheduskaardil. Lisaks näitab rakendus ka kasutaja tehtud valikuid ning valitud alamandmestikku tabeli kujul.  
+
+Võid kasutada vaikimisi avatud rakenduse malli, ent kustuta sel juhul ära kommentaarid ning *ui*- ja *server*-funktsioonide sisu.
+
+```{r, eval = F}
+library(shiny)
+
+ui <- fluidPage()
+
+server <- function(input, output){}
+
+shinyApp(ui = ui, server = server)
+```
+
+Aseta rakenduse kausta (kus on ka fail *app.R*) ka vajalikud failid (*maakond_lihtsustatud.gpkg* ja *efis_koord.gpkg*).
+
+
+## Pakettide laadimine ja andmete töötlemine
+
+Kõigepealt võiks faili päisesse lisada kommentaarid (kõik #-märkidega read on kommentaarid) selle kohta, mida rakendus teeb, milliseid faile ja pakette kasutab ning kes ja millal on rakenduse teinud. Kommentaarid rakenduses kuskil näha ei jää ega ole rakenduse töötamise seisukohast olulised.
+
+```{r, eval = F}
+# See rakendus kuvab veebikaardi Eesti filmidega seotud kohtadest erinevatel aastatel.
+#
+# Rakenduse sisendfailideks on
+# maakond_lihtsustatud.gpkg ja efis_koord.gpkg.
+#
+# Rakendus kasutab pakette shiny, sf ja tidyverse (sh ggplot2).
+#
+# Maarja-Liisa Pilvik
+# 6.12.2021
+```
+
+Järgmiseks laadime rakenduse töötamiseks vajalikud paketid. Kuna vaikimisi avaneval rakendusel pole aimugi, mida rakendusega päriselt tegema hakatakse, on tema ainukeseks nõudeks see, et *shiny* pakett oleks installitud ja laaditud.  
+Meie laadime lisaks `shiny`-paketile ka paketid `sf` ja `tidyverse`.
+
+```{r, eval = F}
+#-------------------------------------------------#
+#---1. Laadime paketid ja loeme sisse andmed---####
+#-------------------------------------------------#
+# Paketid
+library(shiny) # vajalik rakenduse töötamiseks
+library(sf) # vajalik ruumiandmete sisselugemiseks ja analüüsiks
+library(tidyverse) # sisaldab paketti ggplot2 (visualiseerimiseks) ning 
+# dplyr ja tidyr (andmetöötluseks)
+```
+
+Loeme sisse ka rakenduses kasutatavad andmed ning töötleme neid selleks, et saada sobivam failistruktuur.
+
+```{r, eval = F}
+# Andmed
+maakonnad <- st_read("maakond_lihtsustatud.gpkg")
+efis <- st_read("efis_koord.gpkg")
+```
+
+```{r, eval = F}
+#-------------------------------#
+#---2. Eeltöötleme andmeid---####
+#-------------------------------#
+
+# Eraldame kõik võimalikud kategooriad, mille järgi otsida
+efis$žanr %>% 
+  strsplit(",") %>% # lõikame kategooriad koma koha pealt tükkideks
+  unlist() %>% # teeme saadud listist vektori
+  trimws() %>% # kustutame kategooriate eest ja tagant ära üleliigsed tühikud
+  unique() %>% # jätame iga kategooria kohta alles ainult ühe unikaalse kirje
+  tolower() %>% # teeme kõik kategooriad väiketähelisteks
+  sort() %>% # järjestame kategooriad tähestiku järjekorras kasvavalt
+  .[-1] -> kategooriad # eemaldame esimese kategooria ja salvestame loetelu objekti "kategooriad"
+
+# Ühendame dokumentaalfilmid, mängufilmid, kroonikad
+kategooriad[grepl("dokumentaal", kategooriad)] <- "dokumentaal"
+kategooriad[grepl("mängufilm", kategooriad)] <- "mängufilm"
+kategooriad[grepl("kroonika", kategooriad)] <- "kroonika"
+kategooriad %>% 
+  unique() -> kategooriad # jätame alles jälle anult unikaalsed kirjed
+
+# Teeme filmide andmestikus ka žanrid väiketäheliseks
+efis$žanr %>%
+  tolower() -> efis$žanr
+
+# Võtame aastast ainult 4 esimest numbrit ja teeme selle arvuliseks tunnuseks
+efis$aasta %>%
+  substr(., 1, 4) %>%
+  as.numeric() -> efis$aasta
+```
+
+## Kasutajaliides
+
+Edasi tuleb kasutajaliidese (*ui*) osa, mis määrab ära selle, kuidas kasutaja rakendust näeb. Kasutajaliides moodustub hierarhilistest funktsioonidest (funktsioonid tähistatud sulgudega, mille sees täpsustatakse funktsioonide argumente).  
+Meie teeme lihtsa kasutajaliidese, kus on  
+
+- rakenduse pealkiri;
+- menüü, kus saab valida   
+  + rippmenüüs žanri, mille filmide kohti kaardil kuvada;   
+  + liuguril aastate vahemiku, millest filmide kohti kaardil kuvada;   
+  + valikunuppudega selle, kas kuvada punktikaarti või tihedusjaotuse kaarti;  
+- väljundi ala, kus kuvatakse kasutaja valikuid;  
+- väljundi ala, kus näidatakse kasutaja valikutest sõltuvalt kaarti;  
+- väljundi ala, kus näidatakse kasutaja valikutest sõltuvalt andmetabelit.  
+
+
+```{r, eval = F}
+#---------------------------------------------#
+#---3. Ehitame rakenduse kasutajaliidese---####
+#---------------------------------------------#
+
+ui <- fluidPage( # teeme brauseri akna suurusega sobituva lehekülje, kus on...
+    
+    titlePanel("Eesti filmide kohad"), # rakenduse pealkiri
+    
+    fluidRow( # rida, kus on kõik kasutaja sisendid:
+        column(4, # kolmandikul kogu akna laiusest
+               selectInput( # valiku rippmenüü
+                   inputId = "genre", # millele viitame edaspidi nimega "genre"
+                   label = "Vali žanr:", # mille juures on juhis "Vali žanr:"
+                   choices = c("", kategooriad), # rippmenüüs on tühi valik + kategooriate loend
+                   selected = "", # vaikimisi on valitud tühi valik
+                   multiple = FALSE) # mitut kategooriat korraga ei saa valida
+               ),
+        column(4, # teisel kolmandikul kogu akna laiusest on
+              sliderInput( # liugur
+                  inputId = "year", # millele viitame edaspidi nimega "year"
+                  label = "Vali aasta(d):", # mille juures on juhis "Vali aasta(d):"
+                  min = min(efis$aasta), # mille vähim valitav väärtus on varaseim aasta
+                  max = max(efis$aasta), # mille suurim valitav väärtus on hiliseim aasta
+                  value = c(min(efis$aasta), # vaikimisi on valitud kogu liuguri ulatus
+                            max(efis$aasta)), # (siin 1921-2021)
+                  sep = "") # ära näita aastaarvudes tuhandete eraldajaid (nt 1,921)
+              ),
+        column(4, # viimasel kolmandikul kogu akna laiusest on
+               radioButtons( # valikunupud
+                   inputId = "type", # millele viitame edaspidi nimega "type"
+                   label = "Vali kaarditüüp:", # mille juures on juhis "Vali kaarditüüp:"
+                   choices = c("punktid", "tihedusjaotus"), # võimalikud valikud
+                   selected = "punktid") # vaikimisi on valitud punktikaart
+               )
+    ),
+    
+    hr(), # horisontaalne eraldusjoon, mille all on...
+    
+    verbatimTextOutput("valik"), # väljund, mis näitab kasutaja tehtud valikuid tekstina
+    
+    tabsetPanel( # vahekaartide paneel
+        tabPanel( # esimesel vahekaardil on
+            title = "Kaart", # pealkiri "Kaart"
+            plotOutput( # ja graafik, mis näitab kohtade jaotumist Eesti kaardil
+                outputId = "map" # viitame sellele edaspidi nimega "map"
+                )
+            ),
+        tabPanel( # teisel vahekaardil on
+            title = "Tabel", # pealkiri "Tabel"
+            dataTableOutput( # ja tabel, mis näitab küsitud tabeli alamosa
+                outputId = "tab" # viitame sellele edaspidi nimega "tab"
+                )
+            )
+    )
+)
+
+``` 
+
+## Server
+
+Järgmiseks defineerime selle, mis juhtub, kui kasutaja mingeid valikuid teeb.
+
+Kasutajaliidese `Input`-klassi elementidele viidatakse serveriosas dollarimärgi ja omistatud id-ga kujul `input$...` (nt `input$genre` või `input$year`). `Output`-klassi elementidele viidatakse kujul `output$...` (nt `output$map`).  
+
+```{r, eval = F}
+#----------------------------------#
+#---4. Ehitame rakenduse sisu---####
+#----------------------------------#
+
+server <- function(input, output){
+    
+    # Kõigepealt teeme funktsiooni, mis reageerib kasutaja sisendi valikutele
+    # ja filtreerib andmebaasist soovitud read
+    andmed <- reactive({
+        if(input$genre != ""){ # kui žanri valik ei ole tühi
+            efis %>% # võta efise andmebaas
+                filter( # ja filtreeri sealt välja read, kus
+                    grepl(input$genre, žanr), # žanri tulp sisaldaks (mh) küsitud žanri
+                    aasta >= input$year[1], # aasta tulbas oleks liuguri alumisest otsast suurem/võrdne väärtus
+                    aasta <= input$year[2]) # aasta tulbas oleks liuguri ülemisest otsast väiksem/võrdne väärtus
+        }
+    })
+    
+    # Täidame kõigepealt kasutaja valikute väljundiosa
+    output$valik <- renderText({ # Näita väljundiosas teksti, kus...
+        paste0("Valitud ", # on kokku kleebitud sõna "Valitud"
+               input$genre, # valitud žanri nimi
+               " (", # tühik ja algav sulg
+               input$year[1], # valitud kõige varasem aasta
+               "-", # sidekriips
+               input$year[2], # valitud kõige pikem aasta
+               ")") # ja lõpetav sulg
+    })
+    
+    # Täidame kaardi vahelehe
+    output$map <- renderPlot({ # Joonistame vahelehele joonise, kus...
+        if(input$genre != ""){ # juhul, kui žanri valik ei ole tühi
+            
+            dat <- andmed() # jooksutame funktsiooni "andmed()" ja salvestame tulemuse objekti "dat"
+            
+            if(input$type == "punktid"){ # kui kasutaja tahab näha punktikaarti
+                # joonistame punktikaardi
+                ggplot(data = maakonnad) + 
+                    geom_sf() + # maakondade aluskaardi kiht, millele lisame
+                    geom_sf(data = dat %>% # valitud andmete alamosa kihi, kus on...
+                                group_by(koht) %>% # iga koha punktid (konkreetsel perioodil ja konkreetses žanris)
+                                summarise(kokku = n()), # kokku loetud
+                            aes(size = kokku), # punktide suuruse näitab konkreetse koha esinemise arvu
+                            alpha = 0.2, # punktid on tehtud üsna läbipaistvaks
+                            color = "red") + # ja värvitud punaseks
+                    theme_bw() # kasutame mustvalget teemat
+            }
+            else{ # kui kasutaja ei taha näha punktikaarti (= tahab näha tihedusjaotuse kaarti)
+                if(nrow(dat) > 10){ # kui alamandmestikus on vähemalt 10 rida
+                    # joonistame tihedusjaotuse kaardi
+                    ggplot(data = maakonnad) +
+                        geom_sf() + # maakondade aluskaardi kiht, millele lisame
+                        stat_density_2d(data = dat, # alamandmestiku tihedusfunktsiooni
+                                        aes(x = st_coordinates(dat)[,1], # x-telje koordinaadid
+                                            y = st_coordinates(dat)[,2], # y-telje koordinaadid
+                                            fill = ..level..), # rõngad on värvitud vastavalt tihedusjaotusele
+                                        geom = "polygon", # funktsiooni kuvamise tüüp on polügoon
+                                        alpha = 0.5) + # kiht on üsna läbipaistev
+                        scale_fill_gradient(low = "lightblue", high = "darkblue") + # määrame värviskaala
+                        theme_bw() # kasutame mustvalget teemat
+                }
+                else{ # kui alamandmestikust on 10 või vähem rida
+                    showModal(
+                        modalDialog("Liiga vähe andmepunkte!", size = "s") # näitame ainult vastavat teadet
+                        )
+                }
+            }
+        }
+    })
+    
+    # Täidame alamandmestiku vahelehe
+    output$tab <- renderDataTable({ # Teeme andmetabeli, kus...
+        if(input$genre != ""){ # juhul, kui žanri valik ei ole tühi
+            andmed() %>% # näitame kasutaja valitud alamandmestikku
+                st_set_geometry(NULL) # ilma ruumiinfota
+        }
+    })
+    
+}
+```
+
+## Rakenduse kokkupanemine
+
+Kõige lõpuks on vaja rakendus kasutajaliidesest ja serverist kokku panna.
+
+```{r, eval = F}
+#------------------------------------------------#
+#---5. Paneme kasutajaliidese ja sisu kokku---####
+#------------------------------------------------#
+shinyApp(ui = ui, server = server)
+```
+
+Jooksutame rakendust ning vaatame, mis saab.
+
+Meie rakendus teeb oma töö ära, ent on nii kujunduselt kui ka kasutusmugavuse mõttes üsna algeline. Shinys saab aga muuta ja lisada veel lugematul hulgal asju, parandada rakenduse kiirust jne. Hea samm-sammulise sissejuhatuse rakenduste tegemisse leiab [siit](https://shiny.rstudio.com/tutorial/#written-tutorials).
+
+## Rakenduse jagamine
+
+Shiny rakendusi saab jagada ainult kas lokaalselt (*app.R* + selle juurde kuuluvad failid) või üles laadituna serverisse, kuhu on installitud ka R ja *[Shiny Server](https://rstudio.com/products/shiny/download-server/)* (viimast saab installida ainult Linuxis). See tähendab, et tavalist HTML-faili Shiny rakendusest otse teha ei saa, sest JavaScript ei tea, mida R-i kooditükkidega pihta hakata.
+Küll aga saab rakenduse üles laadida näiteks **_[shinyapps.io](https://www.shinyapps.io/)_** serverisse ning lisada rakenduse seejärel *iframe*'i abil mõne teise (HTMLis) veebilehe sisse.
+*Shinyapps.io* pakub Shiny rakenduste majutuse teenust, kusjuures tasuta saab üles laadida kuni 5 rakendust ja neid ei saa serveris ühes kuus aktiivselt kasutada rohkem kui 25 tundi.
+
+Rakenduse laadimiseks serverisse tuleb esmalt teha endale *shinyapps.io* kasutaja, logida sisse ning valida seejärel  *Account* -> *Tokens*.
+Samal ajal installi endale R-is pakett `rsconnect` ja laadi see. 
+
+```{r, eval = F}
+install.packages("rsconnect")
+library(rsconnect)
+```
+
+Nüüd vali *shinyapps.io* lehel *Tokens* alamlehel *Show* -> *Copy to clipboard*, kopeeri esitatud kood ning tee RStudio konsoolis paremklikk -> *Paste* või vajuta *Ctrl+V*. Nii ühendad lokaalselt installitud R-i ja enda kasutaja *shinyapps.io* serveris.
+
+Rakenduse üleslaadimiseks trüki konsooli `deployApp()` ning anna argumendiks selle kausta teekond, kus rakendus on (juhul, kui rakendus on kaustas, mida näitab funktsioon `getwd()`, piisab lihtsalt kausta nimest).
+
+```{r, eval = F}
+deployApp("efis_shiny")
+```
+
+Selle tulemusel avaneb lõpuks lehekülg `https://sinukasutajanimi.shinyapps.io/rakendusenimi/`.  
+Vaata täpsemalt [siit](https://shiny.rstudio.com/articles/shinyapps.html).
+
+Üles laaditud rakenduse saab panna *iframe*-i abil HTML-faili.
+
+
+Vaata rohkem näiteid [siit](https://shiny.rstudio.com/gallery/). R-i ja ruumiandmete kohta on hea ja ülevaatlik kursus ka aadressil [http://aasa.ut.ee/Rspatial/](http://aasa.ut.ee/Rspatial/).  

@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Praktikum 21 Ruumiandmete analüüs R-iga 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
+  <meta name="description" content="Praktikum 21 Ruumiandmete analüüs R-iga 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Praktikum 21 Ruumiandmete analüüs R-iga 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Praktikum 21 Ruumiandmete analüüs R-iga 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
+  
+  
+  
+
+<meta name="author" content="Andres Kimber, Maarja-Liisa Pilvik" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r.html"/>
+<link rel="next" href="kirjandus.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Sissejuhatus</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#kursuse-korraldusest"><i class="fa fa-check"></i><b>1.1</b> Kursuse korraldusest</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#mis-on-geoinfosüsteemid"><i class="fa fa-check"></i><b>1.2</b> Mis on geoinfosüsteemid?</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#geoinfosüsteemide-ajaloost"><i class="fa fa-check"></i><b>1.3</b> Geoinfosüsteemide ajaloost</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#ruumiandmed-ja-gis-humanitaarteadustes"><i class="fa fa-check"></i><b>1.4</b> Ruumiandmed ja GIS humanitaarteadustes</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#arheoloogia"><i class="fa fa-check"></i><b>1.4.1</b> Arheoloogia</a></li>
+<li class="chapter" data-level="1.4.2" data-path="index.html"><a href="index.html#veel-näiteid"><i class="fa fa-check"></i><b>1.4.2</b> Veel näiteid</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#küsitlus"><i class="fa fa-check"></i><b>1.5</b> Küsitlus</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#järgmisel-korral"><i class="fa fa-check"></i><b>1.6</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>2</b> Seminar</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="seminar.html"><a href="seminar.html#mõisted"><i class="fa fa-check"></i><b>2.1</b> Mõisted</a></li>
+<li class="chapter" data-level="2.2" data-path="seminar.html"><a href="seminar.html#rühmatöö-1-gisi-ja-ruumi-geohumanitaaria-projekte-ja-rakendusi"><i class="fa fa-check"></i><b>2.2</b> Rühmatöö 1: GISi ja ruumi-/geohumanitaaria projekte ja rakendusi</a></li>
+<li class="chapter" data-level="2.3" data-path="seminar.html"><a href="seminar.html#rühmatöö-2-humanitaaria-vs.-kvantitatiivsed-meetodid"><i class="fa fa-check"></i><b>2.3</b> Rühmatöö 2: humanitaaria <em>vs</em>. kvantitatiivsed meetodid</a></li>
+<li class="chapter" data-level="2.4" data-path="seminar.html"><a href="seminar.html#järgmisel-korral-1"><i class="fa fa-check"></i><b>2.4</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html"><i class="fa fa-check"></i><b>3</b> Ruumiobjektid ja ruumiandmed</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#vektorandmed"><i class="fa fa-check"></i><b>3.1</b> Vektorandmed</a></li>
+<li class="chapter" data-level="3.2" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#rasterandmed"><i class="fa fa-check"></i><b>3.2</b> Rasterandmed</a></li>
+<li class="chapter" data-level="3.3" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#vektor-vs.-raster"><i class="fa fa-check"></i><b>3.3</b> Vektor vs. raster</a></li>
+<li class="chapter" data-level="3.4" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#ülesanne"><i class="fa fa-check"></i><b>3.4</b> Ülesanne</a></li>
+<li class="chapter" data-level="3.5" data-path="ruumiobjektid.html"><a href="ruumiobjektid.html#järgmisel-korral-2"><i class="fa fa-check"></i><b>3.5</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="kaardid.html"><a href="kaardid.html"><i class="fa fa-check"></i><b>4</b> Kaardid, koordinaatsüsteemid ja projektsioonid</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="kaardid.html"><a href="kaardid.html#kaart"><i class="fa fa-check"></i><b>4.1</b> Kaart</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="kaardid.html"><a href="kaardid.html#koordinaatsüsteemid-ja-projektsioonid"><i class="fa fa-check"></i><b>4.1.1</b> Koordinaatsüsteemid ja projektsioonid</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="kaardid.html"><a href="kaardid.html#veebipõhised-kaardirakendused"><i class="fa fa-check"></i><b>4.2</b> Veebipõhised kaardirakendused</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="kaardid.html"><a href="kaardid.html#google-my-maps"><i class="fa fa-check"></i><b>4.2.1</b> Google My Maps</a></li>
+<li class="chapter" data-level="4.2.2" data-path="kaardid.html"><a href="kaardid.html#ülesanne-1"><i class="fa fa-check"></i><b>4.2.2</b> Ülesanne</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="kaardid.html"><a href="kaardid.html#järgmisel-korral-3"><i class="fa fa-check"></i><b>4.3</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="storymaps.html"><a href="storymaps.html"><i class="fa fa-check"></i><b>5</b> Story maps ja Mapbox</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="storymaps.html"><a href="storymaps.html#story-maps"><i class="fa fa-check"></i><b>5.1</b> Story maps</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="storymaps.html"><a href="storymaps.html#storymapjs"><i class="fa fa-check"></i><b>5.1.1</b> <span>StoryMapJS</span></a></li>
+<li class="chapter" data-level="5.1.2" data-path="storymaps.html"><a href="storymaps.html#arcgis-storymaps"><i class="fa fa-check"></i><b>5.1.2</b> <span>ArcGIS StoryMaps</span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="storymaps.html"><a href="storymaps.html#mapbox-studio"><i class="fa fa-check"></i><b>5.2</b> Mapbox Studio</a></li>
+<li class="chapter" data-level="5.3" data-path="storymaps.html"><a href="storymaps.html#mapbox-story-mapis"><i class="fa fa-check"></i><b>5.3</b> Mapbox <em>story map</em>’is</a></li>
+<li class="chapter" data-level="5.4" data-path="storymaps.html"><a href="storymaps.html#järgmisel-korral-4"><i class="fa fa-check"></i><b>5.4</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="qgis_1.html"><a href="qgis_1.html"><i class="fa fa-check"></i><b>6</b> Sissejuhatus QGISi</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="qgis_1.html"><a href="qgis_1.html#installimine"><i class="fa fa-check"></i><b>6.1</b> Installimine</a></li>
+<li class="chapter" data-level="6.2" data-path="qgis_1.html"><a href="qgis_1.html#andmed-ja-failihaldus"><i class="fa fa-check"></i><b>6.2</b> Andmed ja failihaldus</a></li>
+<li class="chapter" data-level="6.3" data-path="qgis_1.html"><a href="qgis_1.html#esimene-seadistamine-ja-kasutajaliides"><i class="fa fa-check"></i><b>6.3</b> Esimene seadistamine ja kasutajaliides</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="qgis_1.html"><a href="qgis_1.html#vaikimisi-koordinaatsüsteemi-sätestamine."><i class="fa fa-check"></i><b>6.3.1</b> Vaikimisi koordinaatsüsteemi sätestamine.</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="qgis_1.html"><a href="qgis_1.html#andmete-avamine"><i class="fa fa-check"></i><b>6.4</b> Andmete avamine</a></li>
+<li class="chapter" data-level="6.5" data-path="qgis_1.html"><a href="qgis_1.html#kihtide-visualiseerimine"><i class="fa fa-check"></i><b>6.5</b> Kihtide visualiseerimine</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="qgis_1.html"><a href="qgis_1.html#harjutus-1"><i class="fa fa-check"></i><b>6.5.1</b> Harjutus 1</a></li>
+<li class="chapter" data-level="6.5.2" data-path="qgis_1.html"><a href="qgis_1.html#harjutus-2"><i class="fa fa-check"></i><b>6.5.2</b> Harjutus 2</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="qgis_1.html"><a href="qgis_1.html#aluskaardid"><i class="fa fa-check"></i><b>6.6</b> Aluskaardid</a></li>
+<li class="chapter" data-level="6.7" data-path="qgis_1.html"><a href="qgis_1.html#järgmisel-korral-5"><i class="fa fa-check"></i><b>6.7</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="qgis_2.html"><a href="qgis_2.html"><i class="fa fa-check"></i><b>7</b> Sissejuhatus QGISi 2</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="qgis_2.html"><a href="qgis_2.html#andmete-avamine-1"><i class="fa fa-check"></i><b>7.1</b> Andmete avamine</a></li>
+<li class="chapter" data-level="7.2" data-path="qgis_2.html"><a href="qgis_2.html#andmete-valimine-ja-mõõtmine-käsitsi"><i class="fa fa-check"></i><b>7.2</b> Andmete valimine ja mõõtmine (käsitsi)</a></li>
+<li class="chapter" data-level="7.3" data-path="qgis_2.html"><a href="qgis_2.html#kihi-ja-andmete-loomine"><i class="fa fa-check"></i><b>7.3</b> Kihi ja andmete loomine</a></li>
+<li class="chapter" data-level="7.4" data-path="qgis_2.html"><a href="qgis_2.html#kaartide-kujundamine-ja-eksportimine"><i class="fa fa-check"></i><b>7.4</b> Kaartide kujundamine ja eksportimine</a></li>
+<li class="chapter" data-level="7.5" data-path="qgis_2.html"><a href="qgis_2.html#järgmisel-korral-6"><i class="fa fa-check"></i><b>7.5</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="avaandmed.html"><a href="avaandmed.html"><i class="fa fa-check"></i><b>8</b> Avaandmed ja repositooriumid</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="avaandmed.html"><a href="avaandmed.html#mis-on-avaandmed"><i class="fa fa-check"></i><b>8.1</b> Mis on avaandmed?</a></li>
+<li class="chapter" data-level="8.2" data-path="avaandmed.html"><a href="avaandmed.html#eesti-ruumiandmed"><i class="fa fa-check"></i><b>8.2</b> Eesti ruumiandmed</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="avaandmed.html"><a href="avaandmed.html#maa-ameti-geoportaal"><i class="fa fa-check"></i><b>8.2.1</b> Maa-ameti Geoportaal</a></li>
+<li class="chapter" data-level="8.2.2" data-path="avaandmed.html"><a href="avaandmed.html#statistikaamet"><i class="fa fa-check"></i><b>8.2.2</b> Statistikaamet</a></li>
+<li class="chapter" data-level="8.2.3" data-path="avaandmed.html"><a href="avaandmed.html#digitaalsed-kaardikollektsioonid"><i class="fa fa-check"></i><b>8.2.3</b> Digitaalsed kaardikollektsioonid</a></li>
+<li class="chapter" data-level="8.2.4" data-path="avaandmed.html"><a href="avaandmed.html#muu"><i class="fa fa-check"></i><b>8.2.4</b> Muu</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="avaandmed.html"><a href="avaandmed.html#muude-riikide-ruumiandmed"><i class="fa fa-check"></i><b>8.3</b> Muude riikide ruumiandmed</a></li>
+<li class="chapter" data-level="8.4" data-path="avaandmed.html"><a href="avaandmed.html#järgmisel-korral-7"><i class="fa fa-check"></i><b>8.4</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="georefereerimine.html"><a href="georefereerimine.html"><i class="fa fa-check"></i><b>9</b> Georefereerimine</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="georefereerimine.html"><a href="georefereerimine.html#kaartide-otsimine-ja-allalaadimine"><i class="fa fa-check"></i><b>9.1</b> Kaartide otsimine ja allalaadimine</a></li>
+<li class="chapter" data-level="9.2" data-path="georefereerimine.html"><a href="georefereerimine.html#harjutus-1-1"><i class="fa fa-check"></i><b>9.2</b> Harjutus 1</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="georefereerimine.html"><a href="georefereerimine.html#lõikamine"><i class="fa fa-check"></i><b>9.2.1</b> Lõikamine</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="georefereerimine.html"><a href="georefereerimine.html#harjutus-2-1"><i class="fa fa-check"></i><b>9.3</b> Harjutus 2</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="georefereerimine.html"><a href="georefereerimine.html#digiteerimine"><i class="fa fa-check"></i><b>9.3.1</b> Digiteerimine</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="georefereerimine.html"><a href="georefereerimine.html#harjutus-3"><i class="fa fa-check"></i><b>9.4</b> Harjutus 3</a></li>
+<li class="chapter" data-level="9.5" data-path="georefereerimine.html"><a href="georefereerimine.html#veebilahendus"><i class="fa fa-check"></i><b>9.5</b> Veebilahendus</a></li>
+<li class="chapter" data-level="9.6" data-path="georefereerimine.html"><a href="georefereerimine.html#järgmisel-korral-8"><i class="fa fa-check"></i><b>9.6</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="avaldised.html"><a href="avaldised.html"><i class="fa fa-check"></i><b>10</b> Avaldised ja päringud</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="avaldised.html"><a href="avaldised.html#avaldised-1"><i class="fa fa-check"></i><b>10.1</b> Avaldised</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="avaldised.html"><a href="avaldised.html#harjutused"><i class="fa fa-check"></i><b>10.1.1</b> Harjutused</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="avaldised.html"><a href="avaldised.html#päringud"><i class="fa fa-check"></i><b>10.2</b> Päringud</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="avaldised.html"><a href="avaldised.html#harjutused-1"><i class="fa fa-check"></i><b>10.2.1</b> Harjutused</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="avaldised.html"><a href="avaldised.html#ülesanne-1-ei-olepole-suhtelised-sagedused"><i class="fa fa-check"></i><b>10.3</b> Ülesanne 1: “ei ole”/“pole” suhtelised sagedused</a></li>
+<li class="chapter" data-level="10.4" data-path="avaldised.html"><a href="avaldised.html#ülesanne-2-ei-olepole-atlase-levikuandmed"><i class="fa fa-check"></i><b>10.4</b> Ülesanne 2: “ei ole”/“pole” atlase levikuandmed</a></li>
+<li class="chapter" data-level="10.5" data-path="avaldised.html"><a href="avaldised.html#ülesanne-3-ei-olepole-selged-eelistused"><i class="fa fa-check"></i><b>10.5</b> Ülesanne 3: “ei ole”/“pole” selged eelistused</a></li>
+<li class="chapter" data-level="10.6" data-path="avaldised.html"><a href="avaldised.html#ülesanne-4-tekstiatribuutide-muutmine"><i class="fa fa-check"></i><b>10.6</b> Ülesanne 4: tekstiatribuutide muutmine</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html"><i class="fa fa-check"></i><b>11</b> Andmekihtide ühendamine</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#andmestike-ühendamine"><i class="fa fa-check"></i><b>11.1</b> Andmestike ühendamine</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#lisaülesanne"><i class="fa fa-check"></i><b>11.1.1</b> Lisaülesanne</a></li>
+<li class="chapter" data-level="11.1.2" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#csv-info-ühendamine-shp-ga"><i class="fa fa-check"></i><b>11.1.2</b> CSV info ühendamine SHP-ga</a></li>
+<li class="chapter" data-level="11.1.3" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#csv-ja-shp-ühendamine-polügoonidega-vektorandmeteks"><i class="fa fa-check"></i><b>11.1.3</b> CSV ja SHP ühendamine polügoonidega vektorandmeteks</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#geokodeerimine"><i class="fa fa-check"></i><b>11.2</b> Geokodeerimine</a></li>
+<li class="chapter" data-level="11.3" data-path="andmekihtide_yhendamine.html"><a href="andmekihtide_yhendamine.html#järgmisel-korral-9"><i class="fa fa-check"></i><b>11.3</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="varvid.html"><a href="varvid.html"><i class="fa fa-check"></i><b>12</b> Värvid, sildid ja eksitamine</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="varvid.html"><a href="varvid.html#eksitamine"><i class="fa fa-check"></i><b>12.1</b> Eksitamine</a></li>
+<li class="chapter" data-level="12.2" data-path="varvid.html"><a href="varvid.html#värvidest"><i class="fa fa-check"></i><b>12.2</b> Värvidest</a></li>
+<li class="chapter" data-level="12.3" data-path="varvid.html"><a href="varvid.html#visualiseerimine"><i class="fa fa-check"></i><b>12.3</b> Visualiseerimine</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="varvid.html"><a href="varvid.html#sildid"><i class="fa fa-check"></i><b>12.3.1</b> Sildid</a></li>
+<li class="chapter" data-level="12.3.2" data-path="varvid.html"><a href="varvid.html#kaardi-tegemine"><i class="fa fa-check"></i><b>12.3.2</b> Kaardi tegemine</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="maailm_diagrammid.html"><a href="maailm_diagrammid.html"><i class="fa fa-check"></i><b>13</b> Maailma ruumiandmed ja diagrammid</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="maailm_diagrammid.html"><a href="maailm_diagrammid.html#euroopa-ja-maailma-andmed"><i class="fa fa-check"></i><b>13.1</b> Euroopa ja maailma andmed</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="maailm_diagrammid.html"><a href="maailm_diagrammid.html#koordinaatsüsteemid"><i class="fa fa-check"></i><b>13.1.1</b> Koordinaatsüsteemid</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="maailm_diagrammid.html"><a href="maailm_diagrammid.html#euroopa-riikide-ja-linnade-filtreerimine"><i class="fa fa-check"></i><b>13.2</b> Euroopa riikide ja linnade filtreerimine</a></li>
+<li class="chapter" data-level="13.3" data-path="maailm_diagrammid.html"><a href="maailm_diagrammid.html#skpin-visualiseerimine"><i class="fa fa-check"></i><b>13.3</b> SKP/in visualiseerimine</a></li>
+<li class="chapter" data-level="13.4" data-path="maailm_diagrammid.html"><a href="maailm_diagrammid.html#rastriga-katsetamine"><i class="fa fa-check"></i><b>13.4</b> Rastriga katsetamine</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="tekstianalyys.html"><a href="tekstianalyys.html"><i class="fa fa-check"></i><b>14</b> Geograafiline tekstianalüüs</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="tekstianalyys.html"><a href="tekstianalyys.html#sammud"><i class="fa fa-check"></i><b>14.1</b> Sammud</a></li>
+<li class="chapter" data-level="14.2" data-path="tekstianalyys.html"><a href="tekstianalyys.html#näited"><i class="fa fa-check"></i><b>14.2</b> Näited</a></li>
+<li class="chapter" data-level="14.3" data-path="tekstianalyys.html"><a href="tekstianalyys.html#ressursid"><i class="fa fa-check"></i><b>14.3</b> Ressursid</a></li>
+<li class="chapter" data-level="14.4" data-path="tekstianalyys.html"><a href="tekstianalyys.html#ülesanded"><i class="fa fa-check"></i><b>14.4</b> Ülesanded</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="tekstianalyys.html"><a href="tekstianalyys.html#geoparserite-katsetamine"><i class="fa fa-check"></i><b>14.4.1</b> Geoparserite katsetamine</a></li>
+<li class="chapter" data-level="14.4.2" data-path="tekstianalyys.html"><a href="tekstianalyys.html#kohanimede-tuvastamine"><i class="fa fa-check"></i><b>14.4.2</b> Kohanimede tuvastamine</a></li>
+<li class="chapter" data-level="14.4.3" data-path="tekstianalyys.html"><a href="tekstianalyys.html#kohanimede-geokodeerimine"><i class="fa fa-check"></i><b>14.4.3</b> Kohanimede geokodeerimine</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="tekstianalyys.html"><a href="tekstianalyys.html#järgmisel-korral-10"><i class="fa fa-check"></i><b>14.5</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html"><i class="fa fa-check"></i><b>15</b> Geograafiline tekstianalüüs 2</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#ülesanne-lihtne-teksti-meelsuse-analüüs"><i class="fa fa-check"></i><b>15.1</b> Ülesanne: lihtne teksti meelsuse analüüs</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#kohanimeüksuste-tuvastamine"><i class="fa fa-check"></i><b>15.1.1</b> Kohanimeüksuste tuvastamine</a></li>
+<li class="chapter" data-level="15.1.2" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#koordinaatide-lisamine-geokodeerimine"><i class="fa fa-check"></i><b>15.1.2</b> Koordinaatide lisamine (geokodeerimine)</a></li>
+<li class="chapter" data-level="15.1.3" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#tekstikatkendite-meelsuse-tuvastamine"><i class="fa fa-check"></i><b>15.1.3</b> Tekstikatkendite meelsuse tuvastamine</a></li>
+<li class="chapter" data-level="15.1.4" data-path="tekstianalyys2.html"><a href="tekstianalyys2.html#visualiseerimine-1"><i class="fa fa-check"></i><b>15.1.4</b> Visualiseerimine</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="geostatistika1.html"><a href="geostatistika1.html"><i class="fa fa-check"></i><b>16</b> Geostatistika 1</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="geostatistika1.html"><a href="geostatistika1.html#punktimustri-analüüs"><i class="fa fa-check"></i><b>16.1</b> Punktimustri analüüs</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="geostatistika1.html"><a href="geostatistika1.html#punktitihedus"><i class="fa fa-check"></i><b>16.1.1</b> Punktitihedus</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="geostatistika1.html"><a href="geostatistika1.html#ülesanne-1-1"><i class="fa fa-check"></i><b>16.2</b> Ülesanne 1</a></li>
+<li class="chapter" data-level="16.3" data-path="geostatistika1.html"><a href="geostatistika1.html#graphical-modeler"><i class="fa fa-check"></i><b>16.3</b> Graphical Modeler</a></li>
+<li class="chapter" data-level="16.4" data-path="geostatistika1.html"><a href="geostatistika1.html#ruumiline-vastastikmõju"><i class="fa fa-check"></i><b>16.4</b> Ruumiline vastastikmõju</a></li>
+<li class="chapter" data-level="16.5" data-path="geostatistika1.html"><a href="geostatistika1.html#ülesanne-2-1"><i class="fa fa-check"></i><b>16.5</b> Ülesanne 2</a></li>
+<li class="chapter" data-level="16.6" data-path="geostatistika1.html"><a href="geostatistika1.html#järgmisel-korral-11"><i class="fa fa-check"></i><b>16.6</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="geostatistika2.html"><a href="geostatistika2.html"><i class="fa fa-check"></i><b>17</b> Geostatistika 2</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="geostatistika2.html"><a href="geostatistika2.html#ruumiskaala-ulatus-ja--struktuur"><i class="fa fa-check"></i><b>17.1</b> Ruumiskaala (ulatus) ja -struktuur</a></li>
+<li class="chapter" data-level="17.2" data-path="geostatistika2.html"><a href="geostatistika2.html#klasterdamine"><i class="fa fa-check"></i><b>17.2</b> Klasterdamine</a></li>
+<li class="chapter" data-level="17.3" data-path="geostatistika2.html"><a href="geostatistika2.html#interpoleerimine"><i class="fa fa-check"></i><b>17.3</b> Interpoleerimine</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="geostatistika2.html"><a href="geostatistika2.html#distantsi-kaaluv-interpoleerimine"><i class="fa fa-check"></i><b>17.3.1</b> Distantsi kaaluv interpoleerimine</a></li>
+<li class="chapter" data-level="17.3.2" data-path="geostatistika2.html"><a href="geostatistika2.html#spline"><i class="fa fa-check"></i><b>17.3.2</b> Spline</a></li>
+<li class="chapter" data-level="17.3.3" data-path="geostatistika2.html"><a href="geostatistika2.html#ülesanne-6"><i class="fa fa-check"></i><b>17.3.3</b> Ülesanne</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="veebirakendused.html"><a href="veebirakendused.html"><i class="fa fa-check"></i><b>18</b> Veebirakendused, veebimajutus</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="veebirakendused.html"><a href="veebirakendused.html#kaardikihid-qgisis"><i class="fa fa-check"></i><b>18.1</b> Kaardikihid QGISis</a>
+<ul>
+<li class="chapter" data-level="18.1.1" data-path="veebirakendused.html"><a href="veebirakendused.html#heatmap"><i class="fa fa-check"></i><b>18.1.1</b> Heatmap</a></li>
+<li class="chapter" data-level="18.1.2" data-path="veebirakendused.html"><a href="veebirakendused.html#punktide-thin-plate-spline-rasterkiht"><i class="fa fa-check"></i><b>18.1.2</b> Punktide Thin Plate Spline rasterkiht</a></li>
+<li class="chapter" data-level="18.1.3" data-path="veebirakendused.html"><a href="veebirakendused.html#osakaalude-thin-plate-spline-rasterkiht"><i class="fa fa-check"></i><b>18.1.3</b> Osakaalude Thin Plate Spline rasterkiht</a></li>
+</ul></li>
+<li class="chapter" data-level="18.2" data-path="veebirakendused.html"><a href="veebirakendused.html#veebikaartide-eksportimine"><i class="fa fa-check"></i><b>18.2</b> Veebikaartide eksportimine</a></li>
+<li class="chapter" data-level="18.3" data-path="veebirakendused.html"><a href="veebirakendused.html#veebikaartide-majutamine"><i class="fa fa-check"></i><b>18.3</b> Veebikaartide majutamine</a>
+<ul>
+<li class="chapter" data-level="18.3.1" data-path="veebirakendused.html"><a href="veebirakendused.html#ülikooli-võrguketas"><i class="fa fa-check"></i><b>18.3.1</b> Ülikooli võrguketas</a></li>
+<li class="chapter" data-level="18.3.2" data-path="veebirakendused.html"><a href="veebirakendused.html#github"><i class="fa fa-check"></i><b>18.3.2</b> GitHub</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="veebirakendused2.html"><a href="veebirakendused2.html"><i class="fa fa-check"></i><b>19</b> Veebirakendused, veebimajutus 2</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="veebirakendused2.html"><a href="veebirakendused2.html#ajatelje-kasutamine-qgisis"><i class="fa fa-check"></i><b>19.1</b> Ajatelje kasutamine QGISis</a></li>
+<li class="chapter" data-level="19.2" data-path="veebirakendused2.html"><a href="veebirakendused2.html#ajadimensioon-mapbox-gl-js-apis"><i class="fa fa-check"></i><b>19.2</b> Ajadimensioon Mapbox GL JS APIs</a>
+<ul>
+<li class="chapter" data-level="19.2.1" data-path="veebirakendused2.html"><a href="veebirakendused2.html#html"><i class="fa fa-check"></i><b>19.2.1</b> HTML</a></li>
+<li class="chapter" data-level="19.2.2" data-path="veebirakendused2.html"><a href="veebirakendused2.html#css"><i class="fa fa-check"></i><b>19.2.2</b> CSS</a></li>
+<li class="chapter" data-level="19.2.3" data-path="veebirakendused2.html"><a href="veebirakendused2.html#javascript"><i class="fa fa-check"></i><b>19.2.3</b> JavaScript</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="veebirakendused2.html"><a href="veebirakendused2.html#lisa"><i class="fa fa-check"></i><b>19.3</b> Lisa</a></li>
+<li class="chapter" data-level="19.4" data-path="veebirakendused2.html"><a href="veebirakendused2.html#järgmisel-korral-12"><i class="fa fa-check"></i><b>19.4</b> Järgmisel korral</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i><b>20</b> Ruumiandmete analüüs R-iga</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="r.html"><a href="r.html#pakettide-installimine"><i class="fa fa-check"></i><b>20.1</b> Pakettide installimine</a></li>
+<li class="chapter" data-level="20.2" data-path="r.html"><a href="r.html#miks-teha-kaarte-koodipõhiselt"><i class="fa fa-check"></i><b>20.2</b> Miks teha kaarte koodipõhiselt?</a></li>
+<li class="chapter" data-level="20.3" data-path="r.html"><a href="r.html#r-rstudio-ja-rmarkdown"><i class="fa fa-check"></i><b>20.3</b> R, Rstudio ja Rmarkdown</a>
+<ul>
+<li class="chapter" data-level="20.3.1" data-path="r.html"><a href="r.html#kood"><i class="fa fa-check"></i><b>20.3.1</b> Kood</a></li>
+</ul></li>
+<li class="chapter" data-level="20.4" data-path="r.html"><a href="r.html#joonised-ja-kaardid-r-is"><i class="fa fa-check"></i><b>20.4</b> Joonised ja kaardid R-is</a></li>
+<li class="chapter" data-level="20.5" data-path="r.html"><a href="r.html#ruumiandmed"><i class="fa fa-check"></i><b>20.5</b> Ruumiandmed</a>
+<ul>
+<li class="chapter" data-level="20.5.1" data-path="r.html"><a href="r.html#andmete-avamine-2"><i class="fa fa-check"></i><b>20.5.1</b> Andmete avamine</a></li>
+<li class="chapter" data-level="20.5.2" data-path="r.html"><a href="r.html#kaartide-tegemine"><i class="fa fa-check"></i><b>20.5.2</b> Kaartide tegemine</a></li>
+<li class="chapter" data-level="20.5.3" data-path="r.html"><a href="r.html#andmete-filtreerimine-ja-ühendamine"><i class="fa fa-check"></i><b>20.5.3</b> Andmete filtreerimine ja ühendamine</a></li>
+<li class="chapter" data-level="20.5.4" data-path="r.html"><a href="r.html#ülesanne-7"><i class="fa fa-check"></i><b>20.5.4</b> Ülesanne</a></li>
+<li class="chapter" data-level="20.5.5" data-path="r.html"><a href="r.html#kaartide-eksportimine"><i class="fa fa-check"></i><b>20.5.5</b> Kaartide eksportimine</a></li>
+</ul></li>
+<li class="chapter" data-level="20.6" data-path="r.html"><a href="r.html#r-i-raamatud-ja-juhendid"><i class="fa fa-check"></i><b>20.6</b> R-i raamatud ja juhendid</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="r2.html"><a href="r2.html"><i class="fa fa-check"></i><b>21</b> Ruumiandmete analüüs R-iga 2</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="r2.html"><a href="r2.html#staatilised-kaardid"><i class="fa fa-check"></i><b>21.1</b> Staatilised kaardid</a></li>
+<li class="chapter" data-level="21.2" data-path="r2.html"><a href="r2.html#shiny-rakendus"><i class="fa fa-check"></i><b>21.2</b> Shiny rakendus</a></li>
+<li class="chapter" data-level="21.3" data-path="r2.html"><a href="r2.html#pakettide-laadimine-ja-andmete-töötlemine"><i class="fa fa-check"></i><b>21.3</b> Pakettide laadimine ja andmete töötlemine</a></li>
+<li class="chapter" data-level="21.4" data-path="r2.html"><a href="r2.html#kasutajaliides"><i class="fa fa-check"></i><b>21.4</b> Kasutajaliides</a></li>
+<li class="chapter" data-level="21.5" data-path="r2.html"><a href="r2.html#server"><i class="fa fa-check"></i><b>21.5</b> Server</a></li>
+<li class="chapter" data-level="21.6" data-path="r2.html"><a href="r2.html#rakenduse-kokkupanemine"><i class="fa fa-check"></i><b>21.6</b> Rakenduse kokkupanemine</a></li>
+<li class="chapter" data-level="21.7" data-path="r2.html"><a href="r2.html#rakenduse-jagamine"><i class="fa fa-check"></i><b>21.7</b> Rakenduse jagamine</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="kirjandus.html"><a href="kirjandus.html"><i class="fa fa-check"></i>Kirjandus</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r2" class="section level1" number="21">
+<h1><span class="header-section-number">Praktikum 21</span> Ruumiandmete analüüs R-iga 2</h1>
+<p>Eelmisel korral vaatasime, kuidas R-iga lihtsamaid kaarte teha. See hõlmas</p>
+<ul>
+<li><strong>vajalike pakettide laadimist</strong>,</li>
+</ul>
+<pre><code>need = c(&quot;tidyverse&quot;, &quot;sf&quot;, &quot;magrittr&quot;, &quot;ggspatial&quot;, &quot;ggthemes&quot;)
+invisible(lapply(need, library, character.only = T))</code></pre>
+<p>või</p>
+<pre><code>library(&quot;sf&quot;)
+library(&quot;tidyverse&quot;)
+library(&quot;magrittr&quot;)
+library(&quot;ggspatial&quot;)
+library(&quot;ggthemes&quot;)</code></pre>
+<ul>
+<li><strong>andmete sisselugemist</strong>,</li>
+</ul>
+<pre><code>maakonnad = st_read(&quot;./andmed/maakond_lihtsustatud.gpkg&quot;)</code></pre>
+<ul>
+<li><strong>andmete filtreerimist</strong>,</li>
+</ul>
+<pre><code>saaremaa = maakonnad %&gt;% 
+  filter(
+    MNIMI == &quot;Saare maakond&quot; 
+  )</code></pre>
+<p>või</p>
+<pre><code>maakonnad %&gt;% filter(MNIMI == &quot;Saare maakond&quot;) -&gt; saaremaa</code></pre>
+<p>või</p>
+<pre><code>saaremaa &lt;- filter(maakonnad, MNIMI == &quot;Saare maakond&quot;)</code></pre>
+<ul>
+<li><strong>andmete visualiseerimist</strong>.</li>
+</ul>
+<pre><code>ggplot(saaremaa) +
+  geom_sf()</code></pre>
+<p>Sel korral kasutame Eesti filmide andmestikku, teeme paar staatilist kaarti ning vaatame ka, kuidas teha R-is lihtsat rakendust, mis kuvaks andmestiku alamosast kaarti vastavalt kasutaja valikutele. Siin tuleb osata pisut R-i (või juhendeid lugeda), aga mitte näiteks JavaScripti ega HTMLi.</p>
+<div id="staatilised-kaardid" class="section level2" number="21.1">
+<h2><span class="header-section-number">21.1</span> Staatilised kaardid</h2>
+<p>Loeme alustuseks sisse terve efis.ee lehelt korjatud kohamärksõnadega tabeli failist <em>efis_kohad.csv</em>, kus on kõikide kohtadega seotud filmid, nende ilmumisaasta ning žanr. Seejärel loeme sisse ka geokodeeritud alamosa suurest tabelist, mida kasutasime 19. praktikumis. Seal olid ainult need Eesti kohanimed, mida esines terves andmestikus kõikide aastate peale vähemalt 5 korda. Samuti loeme sisse maakondade kihi, mida saame kasutada aluskaardina.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="r2.html#cb8-1" aria-hidden="true" tabindex="-1"></a>efis_suur <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;andmed/efis_kohad.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">fileEncoding =</span> <span class="st">&quot;UTF-8&quot;</span>)</span>
+<span id="cb8-2"><a href="r2.html#cb8-2" aria-hidden="true" tabindex="-1"></a>efis_eesti <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;andmed/efis_eesti.gpkg&quot;</span>)</span>
+<span id="cb8-3"><a href="r2.html#cb8-3" aria-hidden="true" tabindex="-1"></a>maakonnad <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;andmed/maakond_lihtsustatud.gpkg&quot;</span>)</span></code></pre></div>
+<p>Ühendame kaks andmestikku nii, et meil ei oleks kaardil võimalik näidata enam mitte ainult üldist infot selle kohta, kui palju mingites filmides teatud aastatel mingeid kohti esines, vaid saaksime kaardil kuvada andmebaasi alamosi ka nt žanri järgi.<br />
+Kasutame ühendamiseks mõlema andmestiku ühist tulpa <strong><em>koht</em></strong>. Kõigepealt aga tuleb andmestikus <em>efis_suur</em> viia kohanimed kujult <em>A. Laikmaa tänav (Tallinn)</em> kujule <em>A. Laikmaa tänav, Tallinn</em>, nagu need on geokodeeritud andmestikus.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="r2.html#cb9-1" aria-hidden="true" tabindex="-1"></a>efis_suur<span class="sc">$</span>koht <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="r2.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gsub</span>(<span class="st">&quot;^(.*) </span><span class="sc">\\</span><span class="st">((.*)</span><span class="sc">\\</span><span class="st">)&quot;</span>, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">1, </span><span class="sc">\\</span><span class="st">2&quot;</span>, .) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="r2.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">trimws</span>() <span class="ot">-&gt;</span> efis_suur<span class="sc">$</span>koht</span>
+<span id="cb9-4"><a href="r2.html#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="r2.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Käsku võib lugeda nii, et salvesta tabeli &quot;efis_suur&quot; tulp &quot;koht&quot; üle nii, et</span></span>
+<span id="cb9-6"><a href="r2.html#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># olemasolevas tulbas võta kirje algusest kuni sulu ees oleva tühikuni kõik, mis seal on</span></span>
+<span id="cb9-7"><a href="r2.html#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># (. &lt;- &quot;ükskõik mis sümbol&quot;, * &lt;- &quot;ükskõik, kui mitu korda&quot;),</span></span>
+<span id="cb9-8"><a href="r2.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># seejärel võta sulgude seest ükskõik, mis seal on,</span></span>
+<span id="cb9-9"><a href="r2.html#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ja kleebi need kaks kokku nii, et esimest ja teist osa eraldaks koma ja tühik.</span></span>
+<span id="cb9-10"><a href="r2.html#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Lõpuks kustuta kirjete eest ja tagant ka võimalikud ebavajalikud tühikud.</span></span></code></pre></div>
+<p>Kuna tahame <em>efis_eesti</em> kihilt kasutada ainult kohtade nimesid ja koordinaate, salvestame selle osa andmestikust eraldi objekti.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="r2.html#cb10-1" aria-hidden="true" tabindex="-1"></a>efis_eesti <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="r2.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(koht) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a href="r2.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="ot">-&gt;</span> efis_eesti_kohad</span></code></pre></div>
+<p>Ühendame nüüd andmestikud funktsiooniga <code>merge()</code>.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="r2.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>(efis_eesti_kohad, efis_suur, <span class="at">by =</span> <span class="st">&quot;koht&quot;</span>) <span class="ot">-&gt;</span> efis_koord</span></code></pre></div>
+<p>Vaatame, mis juhtus.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="r2.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Andmetabeli esimesed read</span></span>
+<span id="cb12-2"><a href="r2.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(efis_koord)</span></code></pre></div>
+<p>Iga suure tabeli kirje, mis leidus ka geokodeeritud andmestikus, sai nüüd juurde ka koordinaadid. Need kirjed, mida geokodeeritud andmestikus ei olnud, jäid välja.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="r2.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Millised erinevad žanrikirjed tabelis on? Mis on kõige sagedamad?</span></span>
+<span id="cb13-2"><a href="r2.html#cb13-2" aria-hidden="true" tabindex="-1"></a>efis_koord<span class="sc">$</span>žanr <span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href="r2.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="r2.html#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sort</span>(<span class="at">decreasing =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="r2.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Punktide kaart (ilma aluskaardita)</span></span>
+<span id="cb14-2"><a href="r2.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(efis_koord) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="r2.html#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()</span></code></pre></div>
+<p>Lisame nüüd punktidele alla maakondade aluskaardi ning näitame ainult neid andmestiku punkte, mis käivad selliste kohtade kohta, mida näidati 2021. aasta dokumentaal- ja mängufilmides.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="r2.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> maakonnad) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="r2.html#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span> <span class="co"># maakondade aluskaardi kiht</span></span>
+<span id="cb15-3"><a href="r2.html#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> efis_koord <span class="sc">%&gt;%</span> <span class="co"># efise andmestikust valime read, kus</span></span>
+<span id="cb15-4"><a href="r2.html#cb15-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">filter</span>(aasta <span class="sc">==</span> <span class="dv">2021</span>, <span class="co"># aasta on 2021 ja</span></span>
+<span id="cb15-5"><a href="r2.html#cb15-5" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">grepl</span>(<span class="st">&quot;([dD]okumentaal)|([mM]ängufilm)&quot;</span>, žanr)) <span class="sc">%&gt;%</span> <span class="co"># žanri tulp sisaldab sõna &quot;dokumentaal&quot;, &quot;Dokumentaal&quot;, &quot;mängufilm&quot; või &quot;Mängufilm&quot;</span></span>
+<span id="cb15-6"><a href="r2.html#cb15-6" aria-hidden="true" tabindex="-1"></a>            <span class="fu">group_by</span>(koht, žanr) <span class="sc">%&gt;%</span> <span class="co"># grupeerime andmed kohanime ja žanri põhjal</span></span>
+<span id="cb15-7"><a href="r2.html#cb15-7" aria-hidden="true" tabindex="-1"></a>            <span class="fu">summarise</span>(<span class="at">kokku =</span> <span class="fu">n</span>()), <span class="co"># loeme gruppides andmepunktid kokku</span></span>
+<span id="cb15-8"><a href="r2.html#cb15-8" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">size =</span> kokku, <span class="at">color =</span> žanr), <span class="co"># määrame punktide suuruse esinemise arvu järgi ja punktide värv žanri järgi</span></span>
+<span id="cb15-9"><a href="r2.html#cb15-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span> <span class="co"># teeme punktid läbipaistvamaks</span></span>
+<span id="cb15-10"><a href="r2.html#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">7</span>)) <span class="sc">+</span> <span class="co"># ja suuremaks</span></span>
+<span id="cb15-11"><a href="r2.html#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="co"># lisame mustvalge teema</span></span></code></pre></div>
+<p>See ei ole kõige mugavam viis neid andmeid vaadata. Võime proovida mingile kindlale alale sisse suumida.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="r2.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> maakonnad) <span class="sc">+</span></span>
+<span id="cb16-2"><a href="r2.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span> </span>
+<span id="cb16-3"><a href="r2.html#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> efis_koord <span class="sc">%&gt;%</span></span>
+<span id="cb16-4"><a href="r2.html#cb16-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">filter</span>(aasta <span class="sc">==</span> <span class="dv">2021</span>,</span>
+<span id="cb16-5"><a href="r2.html#cb16-5" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">grepl</span>(<span class="st">&quot;([dD]okumentaal)|([mM]ängufilm)&quot;</span>, žanr)) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-6"><a href="r2.html#cb16-6" aria-hidden="true" tabindex="-1"></a>            <span class="fu">group_by</span>(koht, žanr) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-7"><a href="r2.html#cb16-7" aria-hidden="true" tabindex="-1"></a>            <span class="fu">summarise</span>(<span class="at">kokku =</span> <span class="fu">n</span>()), </span>
+<span id="cb16-8"><a href="r2.html#cb16-8" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">size =</span> kokku, <span class="at">color =</span> žanr), </span>
+<span id="cb16-9"><a href="r2.html#cb16-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span> </span>
+<span id="cb16-10"><a href="r2.html#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">7</span>)) <span class="sc">+</span></span>
+<span id="cb16-11"><a href="r2.html#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb16-12"><a href="r2.html#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">st_bbox</span>(maakonnad <span class="sc">%&gt;%</span> </span>
+<span id="cb16-13"><a href="r2.html#cb16-13" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">filter</span>(MNIMI <span class="sc">==</span> <span class="st">&quot;Tartu maakond&quot;</span>))[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)],</span>
+<span id="cb16-14"><a href="r2.html#cb16-14" aria-hidden="true" tabindex="-1"></a>           <span class="at">ylim =</span> <span class="fu">st_bbox</span>(maakonnad <span class="sc">%&gt;%</span> </span>
+<span id="cb16-15"><a href="r2.html#cb16-15" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">filter</span>(MNIMI <span class="sc">==</span> <span class="st">&quot;Tartu maakond&quot;</span>))[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>)])</span></code></pre></div>
+<p>Võime proovida punkte ka näiteks žanride kaupa eraldi paneelidel kuvada. Kuna aga ühel filmil võib olla mitu kategooriat, tuleks meil filmid eraldi klassifitseerida: kui žanri märksõnade hulgas on ka sõna <em>Dokumentaal</em> või <em>dokumentaal</em>, klassifitseerime selle dokumentaalfilmiks; kui žanri märksõnade hulgas on sõna <em>Mängufilm</em> või <em>mängufilm</em>, klassifitseerime selle mängufilmiks.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="r2.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> maakonnad) <span class="sc">+</span></span>
+<span id="cb17-2"><a href="r2.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
+<span id="cb17-3"><a href="r2.html#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> efis_koord <span class="sc">%&gt;%</span> </span>
+<span id="cb17-4"><a href="r2.html#cb17-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">filter</span>(aasta <span class="sc">==</span> <span class="dv">2021</span>, </span>
+<span id="cb17-5"><a href="r2.html#cb17-5" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">grepl</span>(<span class="st">&quot;([dD]okumentaal)|([mM]ängufilm)&quot;</span>, žanr)) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-6"><a href="r2.html#cb17-6" aria-hidden="true" tabindex="-1"></a>            <span class="fu">group_by</span>(koht, žanr) <span class="sc">%&gt;%</span></span>
+<span id="cb17-7"><a href="r2.html#cb17-7" aria-hidden="true" tabindex="-1"></a>            <span class="fu">summarise</span>(<span class="at">kokku =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb17-8"><a href="r2.html#cb17-8" aria-hidden="true" tabindex="-1"></a>            <span class="fu">mutate</span>(ž<span class="at">anr_bin =</span> <span class="fu">ifelse</span>( <span class="co"># tee uus tulp &quot;žanr_bin&quot;. Kui...</span></span>
+<span id="cb17-9"><a href="r2.html#cb17-9" aria-hidden="true" tabindex="-1"></a>              <span class="fu">grepl</span>(<span class="st">&quot;[Dd]okumentaal&quot;</span>, žanr), <span class="co"># žanri tulbas on &quot;Dokumentaal&quot; või &quot;dokumentaal&quot;,</span></span>
+<span id="cb17-10"><a href="r2.html#cb17-10" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;dokumentaal&quot;</span>, <span class="co"># siis määra kategooriaks &quot;dokumentaal&quot;,</span></span>
+<span id="cb17-11"><a href="r2.html#cb17-11" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;mängufilm&quot;</span>) <span class="co"># vastasel juhul &quot;mängufilm&quot;</span></span>
+<span id="cb17-12"><a href="r2.html#cb17-12" aria-hidden="true" tabindex="-1"></a>            ), </span>
+<span id="cb17-13"><a href="r2.html#cb17-13" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">size =</span> kokku, <span class="at">color =</span> žanr_bin), </span>
+<span id="cb17-14"><a href="r2.html#cb17-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb17-15"><a href="r2.html#cb17-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">7</span>)) <span class="sc">+</span> </span>
+<span id="cb17-16"><a href="r2.html#cb17-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb17-17"><a href="r2.html#cb17-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="st">&quot;žanr_bin&quot;</span>) <span class="co"># jaga andmed žanri järgi eri paneelidele</span></span></code></pre></div>
+<p>Vaatame staatiliste kaartide puhul ka seda, milline on punktitihedus.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="r2.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> maakonnad) <span class="sc">+</span></span>
+<span id="cb18-2"><a href="r2.html#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
+<span id="cb18-3"><a href="r2.html#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_density_2d</span>(<span class="at">data =</span> efis_koord, <span class="co"># alamandmestiku tihedusfunktsiooni</span></span>
+<span id="cb18-4"><a href="r2.html#cb18-4" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">st_coordinates</span>(efis_koord)[,<span class="dv">1</span>], <span class="co"># x-telje koordinaadid</span></span>
+<span id="cb18-5"><a href="r2.html#cb18-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">y =</span> <span class="fu">st_coordinates</span>(efis_koord)[,<span class="dv">2</span>], <span class="co"># y-telje koordinaadid</span></span>
+<span id="cb18-6"><a href="r2.html#cb18-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">fill =</span> ..level..), <span class="co"># rõngad on värvitud vastavalt tihedusjaotusele</span></span>
+<span id="cb18-7"><a href="r2.html#cb18-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">geom =</span> <span class="st">&quot;polygon&quot;</span>, <span class="co"># funktsiooni kuvamise tüüp on polügoon</span></span>
+<span id="cb18-8"><a href="r2.html#cb18-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="co"># läbipaistvus</span></span>
+<span id="cb18-9"><a href="r2.html#cb18-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">bins =</span> <span class="dv">30</span>) <span class="sc">+</span> <span class="co"># sagedusjoonte arv</span></span>
+<span id="cb18-10"><a href="r2.html#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">&quot;lightblue&quot;</span>, <span class="at">high =</span> <span class="st">&quot;darkblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb18-11"><a href="r2.html#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb18-12"><a href="r2.html#cb18-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p>Salvestame faili <em>efis_koord</em> faili.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="r2.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_write</span>(efis_koord, <span class="st">&quot;efis_koord.gpkg&quot;</span>, <span class="at">crs =</span> <span class="dv">3301</span>)</span></code></pre></div>
+</div>
+<div id="shiny-rakendus" class="section level2" number="21.2">
+<h2><span class="header-section-number">21.2</span> Shiny rakendus</h2>
+<p>R-is saab interaktiivsete rakenduste tegemiseks kasutada <strong><a href="https://shiny.rstudio.com/">Shiny</a></strong> paketti. Kui sinu RStudios ei ole veel Shiny võimalust, tuleb pakett esmalt installida.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="r2.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Trüki konsooli</span></span>
+<span id="cb20-2"><a href="r2.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="st">&quot;shiny&quot;</span> <span class="sc">%in%</span> <span class="fu">rownames</span>(<span class="fu">installed.packages</span>())) <span class="fu">install.packages</span>(<span class="st">&quot;shiny&quot;</span>)</span>
+<span id="cb20-3"><a href="r2.html#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="r2.html#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Käsus kontrollitakse, kas shiny pakett sisaldub</span></span>
+<span id="cb20-5"><a href="r2.html#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># installitud pakettide nimede hulgas</span></span>
+<span id="cb20-6"><a href="r2.html#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ning kui ei sisaldu (hüüumärki kasutatakse mingi tingimuse eitamiseks),</span></span>
+<span id="cb20-7"><a href="r2.html#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># siis installitakse.</span></span></code></pre></div>
+<p>Seejärel vali <strong><code>File</code> -&gt; <code>New File</code> -&gt; <code>Shiny Web App</code></strong>, anna oma rakendusele nimi (nt <em>efis_shiny</em> vmt) ning jäta rakenduse tüübi (<em>Application type</em>) valikuks <em>Single File</em>. See tähendab, et nii kasutajaliides (<em>ui</em> - see osa, mida kasutaja näeb ja mille abil rakendusega suhtleb) kui ka serveri loogika (<em>server</em> - see osa, mis vastavalt kasutaja valikutele tegelikult andmetega midagi teeb) on ühes R-i failis koos ning selle faili nimi on <em>app.R</em>.
+<em>Multiple File</em> tähendaks, et ühes failis on kasutajaliidese osa ning teises serveri osa ning kui tahta rakendust kasutada, peavad olemas olema mõlemad failid.
+Kasutuses kahel variandil praktiliselt vahet ei ole.</p>
+<p>Vali ka kaust, milles tahad oma rakendust hoida. Selle kausta sisse tekib omakorda kaust sinu rakenduse nimega (nt <em>efis_shiny</em>), mille sees on fail <em>app.R</em> ja mille sisse võiksid minna ka kõik rakenduses kasutatavad failid (nt tabelandmestikud, ruumiandete failid, pildid jm).</p>
+<p>Avaneb fail <strong><em>app.R</em></strong>, kus on juba valmis põhi, mille sisse saad oma rakendust kirjutada. Vaikimisi põhi on tehtud <a href="https://et.wikipedia.org/wiki/Histogramm">histogrammi</a> joonistamiseks. Vajuta rohelise noolekesega nupul <em>Run App</em>. Võid valida ka <em>Run in Viewer Pane</em>, et kuvada rakendust RStudio enda keskkonnas.
+Kui tahad nüüd näha rakenduse endaga paralleelselt koodi, millega rakendus on tehtud, trüki konsooli <code>runExample("01_hello", display.mode = "showcase")</code>.</p>
+<p>Rakenduse minimaalne nõutud struktuur koosneb neljast osast ning näeb välja selline (trellidega on tähistatud kommentaarid):</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="r2.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Rakenduse töötamiseks vajaliku shiny paketi laadimine.</span></span>
+<span id="cb21-2"><a href="r2.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Siin saab sisse lugeda ka teised paketid,</span></span>
+<span id="cb21-3"><a href="r2.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># vajalikud andmed ning neid andmeid vajadusel töödelda.</span></span>
+<span id="cb21-4"><a href="r2.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny) </span>
+<span id="cb21-5"><a href="r2.html#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="r2.html#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Vahepeal võib veel ka andmeid töödelda.</span></span>
+<span id="cb21-7"><a href="r2.html#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="r2.html#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Kasutajaliides</span></span>
+<span id="cb21-9"><a href="r2.html#cb21-9" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb21-10"><a href="r2.html#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Siin saab defineerida, kuidas kasutajaliides välja näeb, sh</span></span>
+<span id="cb21-11"><a href="r2.html#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># kus ja kuidas lasta kasutajal teha mingeid valikuid,</span></span>
+<span id="cb21-12"><a href="r2.html#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># milliseid valikuid kasutaja teha saab </span></span>
+<span id="cb21-13"><a href="r2.html#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># (nt filtreerida algandmetest mingeid andmeid, </span></span>
+<span id="cb21-14"><a href="r2.html#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># muuta mingitel väljundi elementidel värvi, </span></span>
+<span id="cb21-15"><a href="r2.html#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># kujundeid, teksti suurust, väljundit salvestada jne),</span></span>
+<span id="cb21-16"><a href="r2.html#cb21-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># milline on kasutaja valikute põhjal genereeritud väljund </span></span>
+<span id="cb21-17"><a href="r2.html#cb21-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># (nt kaart, tabel, joonis, tekst jne)</span></span>
+<span id="cb21-18"><a href="r2.html#cb21-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ja kus see paikneb.</span></span>
+<span id="cb21-19"><a href="r2.html#cb21-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># fluidPage() teeb lehe, mis kohandub kasutaja brauseriakna suurusega,</span></span>
+<span id="cb21-20"><a href="r2.html#cb21-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># fixedPage() teeb lehe, mis on vaikimisi 940 piksli laiune.</span></span>
+<span id="cb21-21"><a href="r2.html#cb21-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-22"><a href="r2.html#cb21-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-23"><a href="r2.html#cb21-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Serveri loogika</span></span>
+<span id="cb21-24"><a href="r2.html#cb21-24" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
+<span id="cb21-25"><a href="r2.html#cb21-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Siin saab defineerida, mida rakendus kasutaja valikute põhjal teeb </span></span>
+<span id="cb21-26"><a href="r2.html#cb21-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ning kuidas soovitud väljundini jõuda, </span></span>
+<span id="cb21-27"><a href="r2.html#cb21-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># nt kui kasutaja valib A, siis tehakse väljund niisugustest andmetest,</span></span>
+<span id="cb21-28"><a href="r2.html#cb21-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># kui kasutaja valib B, siis tehakse väljund naasugustest andmetest jne.</span></span>
+<span id="cb21-29"><a href="r2.html#cb21-29" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-30"><a href="r2.html#cb21-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-31"><a href="r2.html#cb21-31" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Rakenduse kokkupanemine</span></span>
+<span id="cb21-32"><a href="r2.html#cb21-32" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code></pre></div>
+<p>Vaatame nüüd rakenduse struktuuri lähemalt ning teeme ise ühe lihtsa rakenduse, mis</p>
+<ul>
+<li>võtaks sisendiks failid <strong><em>maakond_lihtsustatud.gpkg</em></strong> (polügoonid) ja <strong><em>efis_koord.gpkg</em></strong> (punktid),</li>
+<li>laseks kasutajal valida, mis aastatest ja mis žanrist filmide kohti näidata ning kas näidata neid punktikaardil või tiheduskaardil. Lisaks näitab rakendus ka kasutaja tehtud valikuid ning valitud alamandmestikku tabeli kujul.</li>
+</ul>
+<p>Võid kasutada vaikimisi avatud rakenduse malli, ent kustuta sel juhul ära kommentaarid ning <em>ui</em>- ja <em>server</em>-funktsioonide sisu.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="r2.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb22-2"><a href="r2.html#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="r2.html#cb22-3" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>()</span>
+<span id="cb22-4"><a href="r2.html#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="r2.html#cb22-5" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){}</span>
+<span id="cb22-6"><a href="r2.html#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="r2.html#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code></pre></div>
+<p>Aseta rakenduse kausta (kus on ka fail <em>app.R</em>) ka vajalikud failid (<em>maakond_lihtsustatud.gpkg</em> ja <em>efis_koord.gpkg</em>).</p>
+</div>
+<div id="pakettide-laadimine-ja-andmete-töötlemine" class="section level2" number="21.3">
+<h2><span class="header-section-number">21.3</span> Pakettide laadimine ja andmete töötlemine</h2>
+<p>Kõigepealt võiks faili päisesse lisada kommentaarid (kõik #-märkidega read on kommentaarid) selle kohta, mida rakendus teeb, milliseid faile ja pakette kasutab ning kes ja millal on rakenduse teinud. Kommentaarid rakenduses kuskil näha ei jää ega ole rakenduse töötamise seisukohast olulised.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="r2.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># See rakendus kuvab veebikaardi Eesti filmidega seotud kohtadest erinevatel aastatel.</span></span>
+<span id="cb23-2"><a href="r2.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb23-3"><a href="r2.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Rakenduse sisendfailideks on</span></span>
+<span id="cb23-4"><a href="r2.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># maakond_lihtsustatud.gpkg ja efis_koord.gpkg.</span></span>
+<span id="cb23-5"><a href="r2.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb23-6"><a href="r2.html#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Rakendus kasutab pakette shiny, sf ja tidyverse (sh ggplot2).</span></span>
+<span id="cb23-7"><a href="r2.html#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb23-8"><a href="r2.html#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Maarja-Liisa Pilvik</span></span>
+<span id="cb23-9"><a href="r2.html#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 6.12.2021</span></span></code></pre></div>
+<p>Järgmiseks laadime rakenduse töötamiseks vajalikud paketid. Kuna vaikimisi avaneval rakendusel pole aimugi, mida rakendusega päriselt tegema hakatakse, on tema ainukeseks nõudeks see, et <em>shiny</em> pakett oleks installitud ja laaditud.<br />
+Meie laadime lisaks <code>shiny</code>-paketile ka paketid <code>sf</code> ja <code>tidyverse</code>.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="r2.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#-------------------------------------------------#</span></span>
+<span id="cb24-2"><a href="r2.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#---1. Laadime paketid ja loeme sisse andmed---####</span></span>
+<span id="cb24-3"><a href="r2.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#-------------------------------------------------#</span></span>
+<span id="cb24-4"><a href="r2.html#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Paketid</span></span>
+<span id="cb24-5"><a href="r2.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny) <span class="co"># vajalik rakenduse töötamiseks</span></span>
+<span id="cb24-6"><a href="r2.html#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf) <span class="co"># vajalik ruumiandmete sisselugemiseks ja analüüsiks</span></span>
+<span id="cb24-7"><a href="r2.html#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># sisaldab paketti ggplot2 (visualiseerimiseks) ning </span></span>
+<span id="cb24-8"><a href="r2.html#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="co"># dplyr ja tidyr (andmetöötluseks)</span></span></code></pre></div>
+<p>Loeme sisse ka rakenduses kasutatavad andmed ning töötleme neid selleks, et saada sobivam failistruktuur.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="r2.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Andmed</span></span>
+<span id="cb25-2"><a href="r2.html#cb25-2" aria-hidden="true" tabindex="-1"></a>maakonnad <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;maakond_lihtsustatud.gpkg&quot;</span>)</span>
+<span id="cb25-3"><a href="r2.html#cb25-3" aria-hidden="true" tabindex="-1"></a>efis <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;efis_koord.gpkg&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="r2.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#-------------------------------#</span></span>
+<span id="cb26-2"><a href="r2.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#---2. Eeltöötleme andmeid---####</span></span>
+<span id="cb26-3"><a href="r2.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#-------------------------------#</span></span>
+<span id="cb26-4"><a href="r2.html#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="r2.html#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Eraldame kõik võimalikud kategooriad, mille järgi otsida</span></span>
+<span id="cb26-6"><a href="r2.html#cb26-6" aria-hidden="true" tabindex="-1"></a>efis<span class="sc">$</span>žanr <span class="sc">%&gt;%</span> </span>
+<span id="cb26-7"><a href="r2.html#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">strsplit</span>(<span class="st">&quot;,&quot;</span>) <span class="sc">%&gt;%</span> <span class="co"># lõikame kategooriad koma koha pealt tükkideks</span></span>
+<span id="cb26-8"><a href="r2.html#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlist</span>() <span class="sc">%&gt;%</span> <span class="co"># teeme saadud listist vektori</span></span>
+<span id="cb26-9"><a href="r2.html#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">trimws</span>() <span class="sc">%&gt;%</span> <span class="co"># kustutame kategooriate eest ja tagant ära üleliigsed tühikud</span></span>
+<span id="cb26-10"><a href="r2.html#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">%&gt;%</span> <span class="co"># jätame iga kategooria kohta alles ainult ühe unikaalse kirje</span></span>
+<span id="cb26-11"><a href="r2.html#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tolower</span>() <span class="sc">%&gt;%</span> <span class="co"># teeme kõik kategooriad väiketähelisteks</span></span>
+<span id="cb26-12"><a href="r2.html#cb26-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sort</span>() <span class="sc">%&gt;%</span> <span class="co"># järjestame kategooriad tähestiku järjekorras kasvavalt</span></span>
+<span id="cb26-13"><a href="r2.html#cb26-13" aria-hidden="true" tabindex="-1"></a>  .[<span class="sc">-</span><span class="dv">1</span>] <span class="ot">-&gt;</span> kategooriad <span class="co"># eemaldame esimese kategooria ja salvestame loetelu objekti &quot;kategooriad&quot;</span></span>
+<span id="cb26-14"><a href="r2.html#cb26-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-15"><a href="r2.html#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Ühendame dokumentaalfilmid, mängufilmid, kroonikad</span></span>
+<span id="cb26-16"><a href="r2.html#cb26-16" aria-hidden="true" tabindex="-1"></a>kategooriad[<span class="fu">grepl</span>(<span class="st">&quot;dokumentaal&quot;</span>, kategooriad)] <span class="ot">&lt;-</span> <span class="st">&quot;dokumentaal&quot;</span></span>
+<span id="cb26-17"><a href="r2.html#cb26-17" aria-hidden="true" tabindex="-1"></a>kategooriad[<span class="fu">grepl</span>(<span class="st">&quot;mängufilm&quot;</span>, kategooriad)] <span class="ot">&lt;-</span> <span class="st">&quot;mängufilm&quot;</span></span>
+<span id="cb26-18"><a href="r2.html#cb26-18" aria-hidden="true" tabindex="-1"></a>kategooriad[<span class="fu">grepl</span>(<span class="st">&quot;kroonika&quot;</span>, kategooriad)] <span class="ot">&lt;-</span> <span class="st">&quot;kroonika&quot;</span></span>
+<span id="cb26-19"><a href="r2.html#cb26-19" aria-hidden="true" tabindex="-1"></a>kategooriad <span class="sc">%&gt;%</span> </span>
+<span id="cb26-20"><a href="r2.html#cb26-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="ot">-&gt;</span> kategooriad <span class="co"># jätame alles jälle anult unikaalsed kirjed</span></span>
+<span id="cb26-21"><a href="r2.html#cb26-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-22"><a href="r2.html#cb26-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Teeme filmide andmestikus ka žanrid väiketäheliseks</span></span>
+<span id="cb26-23"><a href="r2.html#cb26-23" aria-hidden="true" tabindex="-1"></a>efis<span class="sc">$</span>žanr <span class="sc">%&gt;%</span></span>
+<span id="cb26-24"><a href="r2.html#cb26-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tolower</span>() <span class="ot">-&gt;</span> efis<span class="sc">$</span>žanr</span>
+<span id="cb26-25"><a href="r2.html#cb26-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-26"><a href="r2.html#cb26-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Võtame aastast ainult 4 esimest numbrit ja teeme selle arvuliseks tunnuseks</span></span>
+<span id="cb26-27"><a href="r2.html#cb26-27" aria-hidden="true" tabindex="-1"></a>efis<span class="sc">$</span>aasta <span class="sc">%&gt;%</span></span>
+<span id="cb26-28"><a href="r2.html#cb26-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">substr</span>(., <span class="dv">1</span>, <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb26-29"><a href="r2.html#cb26-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>() <span class="ot">-&gt;</span> efis<span class="sc">$</span>aasta</span></code></pre></div>
+</div>
+<div id="kasutajaliides" class="section level2" number="21.4">
+<h2><span class="header-section-number">21.4</span> Kasutajaliides</h2>
+<p>Edasi tuleb kasutajaliidese (<em>ui</em>) osa, mis määrab ära selle, kuidas kasutaja rakendust näeb. Kasutajaliides moodustub hierarhilistest funktsioonidest (funktsioonid tähistatud sulgudega, mille sees täpsustatakse funktsioonide argumente).<br />
+Meie teeme lihtsa kasutajaliidese, kus on</p>
+<ul>
+<li>rakenduse pealkiri;</li>
+<li>menüü, kus saab valida
+<ul>
+<li>rippmenüüs žanri, mille filmide kohti kaardil kuvada;<br />
+</li>
+<li>liuguril aastate vahemiku, millest filmide kohti kaardil kuvada;<br />
+</li>
+<li>valikunuppudega selle, kas kuvada punktikaarti või tihedusjaotuse kaarti;<br />
+</li>
+</ul></li>
+<li>väljundi ala, kus kuvatakse kasutaja valikuid;<br />
+</li>
+<li>väljundi ala, kus näidatakse kasutaja valikutest sõltuvalt kaarti;<br />
+</li>
+<li>väljundi ala, kus näidatakse kasutaja valikutest sõltuvalt andmetabelit.</li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="r2.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#---------------------------------------------#</span></span>
+<span id="cb27-2"><a href="r2.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#---3. Ehitame rakenduse kasutajaliidese---####</span></span>
+<span id="cb27-3"><a href="r2.html#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co">#---------------------------------------------#</span></span>
+<span id="cb27-4"><a href="r2.html#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="r2.html#cb27-5" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>( <span class="co"># teeme brauseri akna suurusega sobituva lehekülje, kus on...</span></span>
+<span id="cb27-6"><a href="r2.html#cb27-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-7"><a href="r2.html#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">titlePanel</span>(<span class="st">&quot;Eesti filmide kohad&quot;</span>), <span class="co"># rakenduse pealkiri</span></span>
+<span id="cb27-8"><a href="r2.html#cb27-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-9"><a href="r2.html#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fluidRow</span>( <span class="co"># rida, kus on kõik kasutaja sisendid:</span></span>
+<span id="cb27-10"><a href="r2.html#cb27-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">column</span>(<span class="dv">4</span>, <span class="co"># kolmandikul kogu akna laiusest</span></span>
+<span id="cb27-11"><a href="r2.html#cb27-11" aria-hidden="true" tabindex="-1"></a>               <span class="fu">selectInput</span>( <span class="co"># valiku rippmenüü</span></span>
+<span id="cb27-12"><a href="r2.html#cb27-12" aria-hidden="true" tabindex="-1"></a>                   <span class="at">inputId =</span> <span class="st">&quot;genre&quot;</span>, <span class="co"># millele viitame edaspidi nimega &quot;genre&quot;</span></span>
+<span id="cb27-13"><a href="r2.html#cb27-13" aria-hidden="true" tabindex="-1"></a>                   <span class="at">label =</span> <span class="st">&quot;Vali žanr:&quot;</span>, <span class="co"># mille juures on juhis &quot;Vali žanr:&quot;</span></span>
+<span id="cb27-14"><a href="r2.html#cb27-14" aria-hidden="true" tabindex="-1"></a>                   <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>, kategooriad), <span class="co"># rippmenüüs on tühi valik + kategooriate loend</span></span>
+<span id="cb27-15"><a href="r2.html#cb27-15" aria-hidden="true" tabindex="-1"></a>                   <span class="at">selected =</span> <span class="st">&quot;&quot;</span>, <span class="co"># vaikimisi on valitud tühi valik</span></span>
+<span id="cb27-16"><a href="r2.html#cb27-16" aria-hidden="true" tabindex="-1"></a>                   <span class="at">multiple =</span> <span class="cn">FALSE</span>) <span class="co"># mitut kategooriat korraga ei saa valida</span></span>
+<span id="cb27-17"><a href="r2.html#cb27-17" aria-hidden="true" tabindex="-1"></a>               ),</span>
+<span id="cb27-18"><a href="r2.html#cb27-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">column</span>(<span class="dv">4</span>, <span class="co"># teisel kolmandikul kogu akna laiusest on</span></span>
+<span id="cb27-19"><a href="r2.html#cb27-19" aria-hidden="true" tabindex="-1"></a>              <span class="fu">sliderInput</span>( <span class="co"># liugur</span></span>
+<span id="cb27-20"><a href="r2.html#cb27-20" aria-hidden="true" tabindex="-1"></a>                  <span class="at">inputId =</span> <span class="st">&quot;year&quot;</span>, <span class="co"># millele viitame edaspidi nimega &quot;year&quot;</span></span>
+<span id="cb27-21"><a href="r2.html#cb27-21" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">&quot;Vali aasta(d):&quot;</span>, <span class="co"># mille juures on juhis &quot;Vali aasta(d):&quot;</span></span>
+<span id="cb27-22"><a href="r2.html#cb27-22" aria-hidden="true" tabindex="-1"></a>                  <span class="at">min =</span> <span class="fu">min</span>(efis<span class="sc">$</span>aasta), <span class="co"># mille vähim valitav väärtus on varaseim aasta</span></span>
+<span id="cb27-23"><a href="r2.html#cb27-23" aria-hidden="true" tabindex="-1"></a>                  <span class="at">max =</span> <span class="fu">max</span>(efis<span class="sc">$</span>aasta), <span class="co"># mille suurim valitav väärtus on hiliseim aasta</span></span>
+<span id="cb27-24"><a href="r2.html#cb27-24" aria-hidden="true" tabindex="-1"></a>                  <span class="at">value =</span> <span class="fu">c</span>(<span class="fu">min</span>(efis<span class="sc">$</span>aasta), <span class="co"># vaikimisi on valitud kogu liuguri ulatus</span></span>
+<span id="cb27-25"><a href="r2.html#cb27-25" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">max</span>(efis<span class="sc">$</span>aasta)), <span class="co"># (siin 1921-2021)</span></span>
+<span id="cb27-26"><a href="r2.html#cb27-26" aria-hidden="true" tabindex="-1"></a>                  <span class="at">sep =</span> <span class="st">&quot;&quot;</span>) <span class="co"># ära näita aastaarvudes tuhandete eraldajaid (nt 1,921)</span></span>
+<span id="cb27-27"><a href="r2.html#cb27-27" aria-hidden="true" tabindex="-1"></a>              ),</span>
+<span id="cb27-28"><a href="r2.html#cb27-28" aria-hidden="true" tabindex="-1"></a>        <span class="fu">column</span>(<span class="dv">4</span>, <span class="co"># viimasel kolmandikul kogu akna laiusest on</span></span>
+<span id="cb27-29"><a href="r2.html#cb27-29" aria-hidden="true" tabindex="-1"></a>               <span class="fu">radioButtons</span>( <span class="co"># valikunupud</span></span>
+<span id="cb27-30"><a href="r2.html#cb27-30" aria-hidden="true" tabindex="-1"></a>                   <span class="at">inputId =</span> <span class="st">&quot;type&quot;</span>, <span class="co"># millele viitame edaspidi nimega &quot;type&quot;</span></span>
+<span id="cb27-31"><a href="r2.html#cb27-31" aria-hidden="true" tabindex="-1"></a>                   <span class="at">label =</span> <span class="st">&quot;Vali kaarditüüp:&quot;</span>, <span class="co"># mille juures on juhis &quot;Vali kaarditüüp:&quot;</span></span>
+<span id="cb27-32"><a href="r2.html#cb27-32" aria-hidden="true" tabindex="-1"></a>                   <span class="at">choices =</span> <span class="fu">c</span>(<span class="st">&quot;punktid&quot;</span>, <span class="st">&quot;tihedusjaotus&quot;</span>), <span class="co"># võimalikud valikud</span></span>
+<span id="cb27-33"><a href="r2.html#cb27-33" aria-hidden="true" tabindex="-1"></a>                   <span class="at">selected =</span> <span class="st">&quot;punktid&quot;</span>) <span class="co"># vaikimisi on valitud punktikaart</span></span>
+<span id="cb27-34"><a href="r2.html#cb27-34" aria-hidden="true" tabindex="-1"></a>               )</span>
+<span id="cb27-35"><a href="r2.html#cb27-35" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb27-36"><a href="r2.html#cb27-36" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-37"><a href="r2.html#cb27-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hr</span>(), <span class="co"># horisontaalne eraldusjoon, mille all on...</span></span>
+<span id="cb27-38"><a href="r2.html#cb27-38" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-39"><a href="r2.html#cb27-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">verbatimTextOutput</span>(<span class="st">&quot;valik&quot;</span>), <span class="co"># väljund, mis näitab kasutaja tehtud valikuid tekstina</span></span>
+<span id="cb27-40"><a href="r2.html#cb27-40" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-41"><a href="r2.html#cb27-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabsetPanel</span>( <span class="co"># vahekaartide paneel</span></span>
+<span id="cb27-42"><a href="r2.html#cb27-42" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tabPanel</span>( <span class="co"># esimesel vahekaardil on</span></span>
+<span id="cb27-43"><a href="r2.html#cb27-43" aria-hidden="true" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">&quot;Kaart&quot;</span>, <span class="co"># pealkiri &quot;Kaart&quot;</span></span>
+<span id="cb27-44"><a href="r2.html#cb27-44" aria-hidden="true" tabindex="-1"></a>            <span class="fu">plotOutput</span>( <span class="co"># ja graafik, mis näitab kohtade jaotumist Eesti kaardil</span></span>
+<span id="cb27-45"><a href="r2.html#cb27-45" aria-hidden="true" tabindex="-1"></a>                <span class="at">outputId =</span> <span class="st">&quot;map&quot;</span> <span class="co"># viitame sellele edaspidi nimega &quot;map&quot;</span></span>
+<span id="cb27-46"><a href="r2.html#cb27-46" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb27-47"><a href="r2.html#cb27-47" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb27-48"><a href="r2.html#cb27-48" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tabPanel</span>( <span class="co"># teisel vahekaardil on</span></span>
+<span id="cb27-49"><a href="r2.html#cb27-49" aria-hidden="true" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">&quot;Tabel&quot;</span>, <span class="co"># pealkiri &quot;Tabel&quot;</span></span>
+<span id="cb27-50"><a href="r2.html#cb27-50" aria-hidden="true" tabindex="-1"></a>            <span class="fu">dataTableOutput</span>( <span class="co"># ja tabel, mis näitab küsitud tabeli alamosa</span></span>
+<span id="cb27-51"><a href="r2.html#cb27-51" aria-hidden="true" tabindex="-1"></a>                <span class="at">outputId =</span> <span class="st">&quot;tab&quot;</span> <span class="co"># viitame sellele edaspidi nimega &quot;tab&quot;</span></span>
+<span id="cb27-52"><a href="r2.html#cb27-52" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb27-53"><a href="r2.html#cb27-53" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb27-54"><a href="r2.html#cb27-54" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb27-55"><a href="r2.html#cb27-55" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+<div id="server" class="section level2" number="21.5">
+<h2><span class="header-section-number">21.5</span> Server</h2>
+<p>Järgmiseks defineerime selle, mis juhtub, kui kasutaja mingeid valikuid teeb.</p>
+<p>Kasutajaliidese <code>Input</code>-klassi elementidele viidatakse serveriosas dollarimärgi ja omistatud id-ga kujul <code>input$...</code> (nt <code>input$genre</code> või <code>input$year</code>). <code>Output</code>-klassi elementidele viidatakse kujul <code>output$...</code> (nt <code>output$map</code>).</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="r2.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------#</span></span>
+<span id="cb28-2"><a href="r2.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co">#---4. Ehitame rakenduse sisu---####</span></span>
+<span id="cb28-3"><a href="r2.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------#</span></span>
+<span id="cb28-4"><a href="r2.html#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="r2.html#cb28-5" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output){</span>
+<span id="cb28-6"><a href="r2.html#cb28-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb28-7"><a href="r2.html#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Kõigepealt teeme funktsiooni, mis reageerib kasutaja sisendi valikutele</span></span>
+<span id="cb28-8"><a href="r2.html#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ja filtreerib andmebaasist soovitud read</span></span>
+<span id="cb28-9"><a href="r2.html#cb28-9" aria-hidden="true" tabindex="-1"></a>    andmed <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb28-10"><a href="r2.html#cb28-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(input<span class="sc">$</span>genre <span class="sc">!=</span> <span class="st">&quot;&quot;</span>){ <span class="co"># kui žanri valik ei ole tühi</span></span>
+<span id="cb28-11"><a href="r2.html#cb28-11" aria-hidden="true" tabindex="-1"></a>            efis <span class="sc">%&gt;%</span> <span class="co"># võta efise andmebaas</span></span>
+<span id="cb28-12"><a href="r2.html#cb28-12" aria-hidden="true" tabindex="-1"></a>                <span class="fu">filter</span>( <span class="co"># ja filtreeri sealt välja read, kus</span></span>
+<span id="cb28-13"><a href="r2.html#cb28-13" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">grepl</span>(input<span class="sc">$</span>genre, žanr), <span class="co"># žanri tulp sisaldaks (mh) küsitud žanri</span></span>
+<span id="cb28-14"><a href="r2.html#cb28-14" aria-hidden="true" tabindex="-1"></a>                    aasta <span class="sc">&gt;=</span> input<span class="sc">$</span>year[<span class="dv">1</span>], <span class="co"># aasta tulbas oleks liuguri alumisest otsast suurem/võrdne väärtus</span></span>
+<span id="cb28-15"><a href="r2.html#cb28-15" aria-hidden="true" tabindex="-1"></a>                    aasta <span class="sc">&lt;=</span> input<span class="sc">$</span>year[<span class="dv">2</span>]) <span class="co"># aasta tulbas oleks liuguri ülemisest otsast väiksem/võrdne väärtus</span></span>
+<span id="cb28-16"><a href="r2.html#cb28-16" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb28-17"><a href="r2.html#cb28-17" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb28-18"><a href="r2.html#cb28-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb28-19"><a href="r2.html#cb28-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Täidame kõigepealt kasutaja valikute väljundiosa</span></span>
+<span id="cb28-20"><a href="r2.html#cb28-20" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>valik <span class="ot">&lt;-</span> <span class="fu">renderText</span>({ <span class="co"># Näita väljundiosas teksti, kus...</span></span>
+<span id="cb28-21"><a href="r2.html#cb28-21" aria-hidden="true" tabindex="-1"></a>        <span class="fu">paste0</span>(<span class="st">&quot;Valitud &quot;</span>, <span class="co"># on kokku kleebitud sõna &quot;Valitud&quot;</span></span>
+<span id="cb28-22"><a href="r2.html#cb28-22" aria-hidden="true" tabindex="-1"></a>               input<span class="sc">$</span>genre, <span class="co"># valitud žanri nimi</span></span>
+<span id="cb28-23"><a href="r2.html#cb28-23" aria-hidden="true" tabindex="-1"></a>               <span class="st">&quot; (&quot;</span>, <span class="co"># tühik ja algav sulg</span></span>
+<span id="cb28-24"><a href="r2.html#cb28-24" aria-hidden="true" tabindex="-1"></a>               input<span class="sc">$</span>year[<span class="dv">1</span>], <span class="co"># valitud kõige varasem aasta</span></span>
+<span id="cb28-25"><a href="r2.html#cb28-25" aria-hidden="true" tabindex="-1"></a>               <span class="st">&quot;-&quot;</span>, <span class="co"># sidekriips</span></span>
+<span id="cb28-26"><a href="r2.html#cb28-26" aria-hidden="true" tabindex="-1"></a>               input<span class="sc">$</span>year[<span class="dv">2</span>], <span class="co"># valitud kõige pikem aasta</span></span>
+<span id="cb28-27"><a href="r2.html#cb28-27" aria-hidden="true" tabindex="-1"></a>               <span class="st">&quot;)&quot;</span>) <span class="co"># ja lõpetav sulg</span></span>
+<span id="cb28-28"><a href="r2.html#cb28-28" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb28-29"><a href="r2.html#cb28-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb28-30"><a href="r2.html#cb28-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Täidame kaardi vahelehe</span></span>
+<span id="cb28-31"><a href="r2.html#cb28-31" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>map <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({ <span class="co"># Joonistame vahelehele joonise, kus...</span></span>
+<span id="cb28-32"><a href="r2.html#cb28-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(input<span class="sc">$</span>genre <span class="sc">!=</span> <span class="st">&quot;&quot;</span>){ <span class="co"># juhul, kui žanri valik ei ole tühi</span></span>
+<span id="cb28-33"><a href="r2.html#cb28-33" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb28-34"><a href="r2.html#cb28-34" aria-hidden="true" tabindex="-1"></a>            dat <span class="ot">&lt;-</span> <span class="fu">andmed</span>() <span class="co"># jooksutame funktsiooni &quot;andmed()&quot; ja salvestame tulemuse objekti &quot;dat&quot;</span></span>
+<span id="cb28-35"><a href="r2.html#cb28-35" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb28-36"><a href="r2.html#cb28-36" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span>(input<span class="sc">$</span>type <span class="sc">==</span> <span class="st">&quot;punktid&quot;</span>){ <span class="co"># kui kasutaja tahab näha punktikaarti</span></span>
+<span id="cb28-37"><a href="r2.html#cb28-37" aria-hidden="true" tabindex="-1"></a>                <span class="co"># joonistame punktikaardi</span></span>
+<span id="cb28-38"><a href="r2.html#cb28-38" aria-hidden="true" tabindex="-1"></a>                <span class="fu">ggplot</span>(<span class="at">data =</span> maakonnad) <span class="sc">+</span> </span>
+<span id="cb28-39"><a href="r2.html#cb28-39" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">geom_sf</span>() <span class="sc">+</span> <span class="co"># maakondade aluskaardi kiht, millele lisame</span></span>
+<span id="cb28-40"><a href="r2.html#cb28-40" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">geom_sf</span>(<span class="at">data =</span> dat <span class="sc">%&gt;%</span> <span class="co"># valitud andmete alamosa kihi, kus on...</span></span>
+<span id="cb28-41"><a href="r2.html#cb28-41" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">group_by</span>(koht) <span class="sc">%&gt;%</span> <span class="co"># iga koha punktid (konkreetsel perioodil ja konkreetses žanris)</span></span>
+<span id="cb28-42"><a href="r2.html#cb28-42" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">summarise</span>(<span class="at">kokku =</span> <span class="fu">n</span>()), <span class="co"># kokku loetud</span></span>
+<span id="cb28-43"><a href="r2.html#cb28-43" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">aes</span>(<span class="at">size =</span> kokku), <span class="co"># punktide suuruse näitab konkreetse koha esinemise arvu</span></span>
+<span id="cb28-44"><a href="r2.html#cb28-44" aria-hidden="true" tabindex="-1"></a>                            <span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="co"># punktid on tehtud üsna läbipaistvaks</span></span>
+<span id="cb28-45"><a href="r2.html#cb28-45" aria-hidden="true" tabindex="-1"></a>                            <span class="at">color =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span> <span class="co"># ja värvitud punaseks</span></span>
+<span id="cb28-46"><a href="r2.html#cb28-46" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">theme_bw</span>() <span class="co"># kasutame mustvalget teemat</span></span>
+<span id="cb28-47"><a href="r2.html#cb28-47" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb28-48"><a href="r2.html#cb28-48" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>{ <span class="co"># kui kasutaja ei taha näha punktikaarti (= tahab näha tihedusjaotuse kaarti)</span></span>
+<span id="cb28-49"><a href="r2.html#cb28-49" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span>(<span class="fu">nrow</span>(dat) <span class="sc">&gt;</span> <span class="dv">10</span>){ <span class="co"># kui alamandmestikus on vähemalt 10 rida</span></span>
+<span id="cb28-50"><a href="r2.html#cb28-50" aria-hidden="true" tabindex="-1"></a>                    <span class="co"># joonistame tihedusjaotuse kaardi</span></span>
+<span id="cb28-51"><a href="r2.html#cb28-51" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">ggplot</span>(<span class="at">data =</span> maakonnad) <span class="sc">+</span></span>
+<span id="cb28-52"><a href="r2.html#cb28-52" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">geom_sf</span>() <span class="sc">+</span> <span class="co"># maakondade aluskaardi kiht, millele lisame</span></span>
+<span id="cb28-53"><a href="r2.html#cb28-53" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">stat_density_2d</span>(<span class="at">data =</span> dat, <span class="co"># alamandmestiku tihedusfunktsiooni</span></span>
+<span id="cb28-54"><a href="r2.html#cb28-54" aria-hidden="true" tabindex="-1"></a>                                        <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">st_coordinates</span>(dat)[,<span class="dv">1</span>], <span class="co"># x-telje koordinaadid</span></span>
+<span id="cb28-55"><a href="r2.html#cb28-55" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">y =</span> <span class="fu">st_coordinates</span>(dat)[,<span class="dv">2</span>], <span class="co"># y-telje koordinaadid</span></span>
+<span id="cb28-56"><a href="r2.html#cb28-56" aria-hidden="true" tabindex="-1"></a>                                            <span class="at">fill =</span> ..level..), <span class="co"># rõngad on värvitud vastavalt tihedusjaotusele</span></span>
+<span id="cb28-57"><a href="r2.html#cb28-57" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">geom =</span> <span class="st">&quot;polygon&quot;</span>, <span class="co"># funktsiooni kuvamise tüüp on polügoon</span></span>
+<span id="cb28-58"><a href="r2.html#cb28-58" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="co"># kiht on üsna läbipaistev</span></span>
+<span id="cb28-59"><a href="r2.html#cb28-59" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">&quot;lightblue&quot;</span>, <span class="at">high =</span> <span class="st">&quot;darkblue&quot;</span>) <span class="sc">+</span> <span class="co"># määrame värviskaala</span></span>
+<span id="cb28-60"><a href="r2.html#cb28-60" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">theme_bw</span>() <span class="co"># kasutame mustvalget teemat</span></span>
+<span id="cb28-61"><a href="r2.html#cb28-61" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb28-62"><a href="r2.html#cb28-62" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>{ <span class="co"># kui alamandmestikust on 10 või vähem rida</span></span>
+<span id="cb28-63"><a href="r2.html#cb28-63" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">showModal</span>(</span>
+<span id="cb28-64"><a href="r2.html#cb28-64" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">modalDialog</span>(<span class="st">&quot;Liiga vähe andmepunkte!&quot;</span>, <span class="at">size =</span> <span class="st">&quot;s&quot;</span>) <span class="co"># näitame ainult vastavat teadet</span></span>
+<span id="cb28-65"><a href="r2.html#cb28-65" aria-hidden="true" tabindex="-1"></a>                        )</span>
+<span id="cb28-66"><a href="r2.html#cb28-66" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb28-67"><a href="r2.html#cb28-67" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb28-68"><a href="r2.html#cb28-68" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb28-69"><a href="r2.html#cb28-69" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb28-70"><a href="r2.html#cb28-70" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb28-71"><a href="r2.html#cb28-71" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Täidame alamandmestiku vahelehe</span></span>
+<span id="cb28-72"><a href="r2.html#cb28-72" aria-hidden="true" tabindex="-1"></a>    output<span class="sc">$</span>tab <span class="ot">&lt;-</span> <span class="fu">renderDataTable</span>({ <span class="co"># Teeme andmetabeli, kus...</span></span>
+<span id="cb28-73"><a href="r2.html#cb28-73" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(input<span class="sc">$</span>genre <span class="sc">!=</span> <span class="st">&quot;&quot;</span>){ <span class="co"># juhul, kui žanri valik ei ole tühi</span></span>
+<span id="cb28-74"><a href="r2.html#cb28-74" aria-hidden="true" tabindex="-1"></a>            <span class="fu">andmed</span>() <span class="sc">%&gt;%</span> <span class="co"># näitame kasutaja valitud alamandmestikku</span></span>
+<span id="cb28-75"><a href="r2.html#cb28-75" aria-hidden="true" tabindex="-1"></a>                <span class="fu">st_set_geometry</span>(<span class="cn">NULL</span>) <span class="co"># ilma ruumiinfota</span></span>
+<span id="cb28-76"><a href="r2.html#cb28-76" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb28-77"><a href="r2.html#cb28-77" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb28-78"><a href="r2.html#cb28-78" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb28-79"><a href="r2.html#cb28-79" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="rakenduse-kokkupanemine" class="section level2" number="21.6">
+<h2><span class="header-section-number">21.6</span> Rakenduse kokkupanemine</h2>
+<p>Kõige lõpuks on vaja rakendus kasutajaliidesest ja serverist kokku panna.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="r2.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------#</span></span>
+<span id="cb29-2"><a href="r2.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co">#---5. Paneme kasutajaliidese ja sisu kokku---####</span></span>
+<span id="cb29-3"><a href="r2.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------#</span></span>
+<span id="cb29-4"><a href="r2.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code></pre></div>
+<p>Jooksutame rakendust ning vaatame, mis saab.</p>
+<p>Meie rakendus teeb oma töö ära, ent on nii kujunduselt kui ka kasutusmugavuse mõttes üsna algeline. Shinys saab aga muuta ja lisada veel lugematul hulgal asju, parandada rakenduse kiirust jne. Hea samm-sammulise sissejuhatuse rakenduste tegemisse leiab <a href="https://shiny.rstudio.com/tutorial/#written-tutorials">siit</a>.</p>
+</div>
+<div id="rakenduse-jagamine" class="section level2" number="21.7">
+<h2><span class="header-section-number">21.7</span> Rakenduse jagamine</h2>
+<p>Shiny rakendusi saab jagada ainult kas lokaalselt (<em>app.R</em> + selle juurde kuuluvad failid) või üles laadituna serverisse, kuhu on installitud ka R ja <em><a href="https://rstudio.com/products/shiny/download-server/">Shiny Server</a></em> (viimast saab installida ainult Linuxis). See tähendab, et tavalist HTML-faili Shiny rakendusest otse teha ei saa, sest JavaScript ei tea, mida R-i kooditükkidega pihta hakata.
+Küll aga saab rakenduse üles laadida näiteks <strong><em><a href="https://www.shinyapps.io/">shinyapps.io</a></em></strong> serverisse ning lisada rakenduse seejärel <em>iframe</em>’i abil mõne teise (HTMLis) veebilehe sisse.
+<em>Shinyapps.io</em> pakub Shiny rakenduste majutuse teenust, kusjuures tasuta saab üles laadida kuni 5 rakendust ja neid ei saa serveris ühes kuus aktiivselt kasutada rohkem kui 25 tundi.</p>
+<p>Rakenduse laadimiseks serverisse tuleb esmalt teha endale <em>shinyapps.io</em> kasutaja, logida sisse ning valida seejärel <em>Account</em> -&gt; <em>Tokens</em>.
+Samal ajal installi endale R-is pakett <code>rsconnect</code> ja laadi see.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="r2.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rsconnect&quot;</span>)</span>
+<span id="cb30-2"><a href="r2.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rsconnect)</span></code></pre></div>
+<p>Nüüd vali <em>shinyapps.io</em> lehel <em>Tokens</em> alamlehel <em>Show</em> -&gt; <em>Copy to clipboard</em>, kopeeri esitatud kood ning tee RStudio konsoolis paremklikk -&gt; <em>Paste</em> või vajuta <em>Ctrl+V</em>. Nii ühendad lokaalselt installitud R-i ja enda kasutaja <em>shinyapps.io</em> serveris.</p>
+<p>Rakenduse üleslaadimiseks trüki konsooli <code>deployApp()</code> ning anna argumendiks selle kausta teekond, kus rakendus on (juhul, kui rakendus on kaustas, mida näitab funktsioon <code>getwd()</code>, piisab lihtsalt kausta nimest).</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="r2.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">deployApp</span>(<span class="st">&quot;efis_shiny&quot;</span>)</span></code></pre></div>
+<p>Selle tulemusel avaneb lõpuks lehekülg <code>https://sinukasutajanimi.shinyapps.io/rakendusenimi/</code>.<br />
+Vaata täpsemalt <a href="https://shiny.rstudio.com/articles/shinyapps.html">siit</a>.</p>
+<p>Üles laaditud rakenduse saab panna <em>iframe</em>-i abil HTML-faili.</p>
+<p>Vaata rohkem näiteid <a href="https://shiny.rstudio.com/gallery/">siit</a>. R-i ja ruumiandmete kohta on hea ja ülevaatlik kursus ka aadressil <a href="http://aasa.ut.ee/Rspatial/">http://aasa.ut.ee/Rspatial/</a>.</p>
+
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="kirjandus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["book.pdf", "PDF"], ["book.epub", "EPUB"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"info": true
+});
+});
+</script>
+
+</body>
+
+</html>
