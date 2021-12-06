@@ -118,7 +118,7 @@ maakonnad  = st_read("./andmed/maakond_lihtsustatud.gpkg")
 # olevast kaustast *andmed* fail maakond_lihtsustatud.gpkg ja anna sellele nimeks maakonnad.
 
 kirikud = st_read("./andmed/kirikud.gpkg")
-malestised = st_read("./andmed/malestised.gpkg")
+malestised = st_read("./andmed/kultuurimalestised.gpkg")
 
 # avame Saaremaa ja Tartumaa asustuse kihid. 
 saare_asustus = st_read("./andmed/saaremaa_asustus.gpkg")

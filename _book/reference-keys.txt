@@ -424,3 +424,5 @@ fig:temporalcontroller
 fig:mapboxgljs
 staatilised-kaardid
 shiny-rakendus
+pakettide-laadimine-ja-andmete-sisselugemine
+andmete-eeltöötlemine

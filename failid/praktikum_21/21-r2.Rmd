@@ -129,7 +129,7 @@ ggplot(data = maakonnad) +
                    grepl("([dD]okumentaal)|([mM]ängufilm)", žanr)) %>% # žanri tulp sisaldab sõna "dokumentaal", "Dokumentaal", "mängufilm" või "Mängufilm"
             group_by(koht, žanr) %>% # grupeerime andmed kohanime ja žanri põhjal
             summarise(kokku = n()), # loeme gruppides andmepunktid kokku
-          aes(size = kokku, color = žanr), # määrame punktide suuruse esinemise arvu järgi ja punktide värvi žanri järgi
+          aes(size = kokku, color = žanr), # määrame punktide suuruse esinemise arvu järgi ja punktide värv žanri järgi
           alpha = 0.2) + # teeme punktid läbipaistvamaks
   scale_size_continuous(range = c(3,7)) + # ja suuremaks
   theme_bw() # lisame mustvalge teema
@@ -227,7 +227,7 @@ Vali ka kaust, milles tahad oma rakendust hoida. Selle kausta sisse tekib omakor
 Avaneb fail **_app.R_**, kus on juba valmis põhi, mille sisse saad oma rakendust kirjutada. Vaikimisi põhi on tehtud [histogrammi](https://et.wikipedia.org/wiki/Histogramm) joonistamiseks. Vajuta rohelise noolekesega nupul *Run App*. Võid valida ka *Run in Viewer Pane*, et kuvada rakendust RStudio enda keskkonnas.
 Kui tahad nüüd näha rakenduse endaga paralleelselt koodi, millega rakendus on tehtud, trüki konsooli `runExample("01_hello", display.mode = "showcase")`.  
 
-Rakenduse minimaalne nõutud struktuur koosneb neljast-viiest osast ning näeb välja selline (trellidega on tähistatud kommentaarid):
+Rakenduse minimaalne nõutud struktuur koosneb neljast osast ning näeb välja selline (trellidega on tähistatud kommentaarid):
 
 ```{r, eval = F}
 # 1. Rakenduse töötamiseks vajaliku shiny paketi laadimine.
@@ -284,7 +284,7 @@ shinyApp(ui = ui, server = server)
 Aseta rakenduse kausta (kus on ka fail *app.R*) ka vajalikud failid (*maakond_lihtsustatud.gpkg* ja *efis_koord.gpkg*).
 
 
-### Pakettide laadimine ja andmete sisselugemine
+## Pakettide laadimine ja andmete töötlemine
 
 Kõigepealt võiks faili päisesse lisada kommentaarid (kõik #-märkidega read on kommentaarid) selle kohta, mida rakendus teeb, milliseid faile ja pakette kasutab ning kes ja millal on rakenduse teinud. Kommentaarid rakenduses kuskil näha ei jää ega ole rakenduse töötamise seisukohast olulised.
 
@@ -322,9 +322,6 @@ maakonnad <- st_read("maakond_lihtsustatud.gpkg")
 efis <- st_read("efis_koord.gpkg")
 ```
 
-
-### Andmete eeltöötlemine
-
 ```{r, eval = F}
 #-------------------------------#
 #---2. Eeltöötleme andmeid---####
@@ -357,7 +354,7 @@ efis$aasta %>%
   as.numeric() -> efis$aasta
 ```
 
-### Kasutajaliides
+## Kasutajaliides
 
 Edasi tuleb kasutajaliidese (*ui*) osa, mis määrab ära selle, kuidas kasutaja rakendust näeb. Kasutajaliides moodustub hierarhilistest funktsioonidest (funktsioonid tähistatud sulgudega, mille sees täpsustatakse funktsioonide argumente).  
 Meie teeme lihtsa kasutajaliidese, kus on  
@@ -431,7 +428,7 @@ ui <- fluidPage( # teeme brauseri akna suurusega sobituva lehekülje, kus on...
 
 ``` 
 
-### Server
+## Server
 
 Järgmiseks defineerime selle, mis juhtub, kui kasutaja mingeid valikuid teeb.
 
@@ -519,7 +516,7 @@ server <- function(input, output){
 }
 ```
 
-### Rakenduse kokkupanemine
+## Rakenduse kokkupanemine
 
 Kõige lõpuks on vaja rakendus kasutajaliidesest ja serverist kokku panna.
 

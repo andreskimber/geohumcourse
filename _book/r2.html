@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Praktikum 21 Ruumiandmete analüüs R-iga 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
   <meta name="description" content="Praktikum 21 Ruumiandmete analüüs R-iga 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Praktikum 21 Ruumiandmete analüüs R-iga 2 | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta property="og:type" content="book" />
@@ -32,9 +32,8 @@
   
 <link rel="prev" href="r.html"/>
 <link rel="next" href="kirjandus.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,6 +41,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
 
 
 
@@ -58,7 +58,6 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -401,12 +400,15 @@ div.csl-indent {
 <li class="chapter" data-level="21" data-path="r2.html"><a href="r2.html"><i class="fa fa-check"></i><b>21</b> Ruumiandmete analüüs R-iga 2</a>
 <ul>
 <li class="chapter" data-level="21.1" data-path="r2.html"><a href="r2.html#staatilised-kaardid"><i class="fa fa-check"></i><b>21.1</b> Staatilised kaardid</a></li>
-<li class="chapter" data-level="21.2" data-path="r2.html"><a href="r2.html#shiny-rakendus"><i class="fa fa-check"></i><b>21.2</b> Shiny rakendus</a></li>
-<li class="chapter" data-level="21.3" data-path="r2.html"><a href="r2.html#pakettide-laadimine-ja-andmete-töötlemine"><i class="fa fa-check"></i><b>21.3</b> Pakettide laadimine ja andmete töötlemine</a></li>
-<li class="chapter" data-level="21.4" data-path="r2.html"><a href="r2.html#kasutajaliides"><i class="fa fa-check"></i><b>21.4</b> Kasutajaliides</a></li>
-<li class="chapter" data-level="21.5" data-path="r2.html"><a href="r2.html#server"><i class="fa fa-check"></i><b>21.5</b> Server</a></li>
-<li class="chapter" data-level="21.6" data-path="r2.html"><a href="r2.html#rakenduse-kokkupanemine"><i class="fa fa-check"></i><b>21.6</b> Rakenduse kokkupanemine</a></li>
-<li class="chapter" data-level="21.7" data-path="r2.html"><a href="r2.html#rakenduse-jagamine"><i class="fa fa-check"></i><b>21.7</b> Rakenduse jagamine</a></li>
+<li class="chapter" data-level="21.2" data-path="r2.html"><a href="r2.html#shiny-rakendus"><i class="fa fa-check"></i><b>21.2</b> Shiny rakendus</a>
+<ul>
+<li class="chapter" data-level="21.2.1" data-path="r2.html"><a href="r2.html#pakettide-laadimine-ja-andmete-sisselugemine"><i class="fa fa-check"></i><b>21.2.1</b> Pakettide laadimine ja andmete sisselugemine</a></li>
+<li class="chapter" data-level="21.2.2" data-path="r2.html"><a href="r2.html#andmete-eeltöötlemine"><i class="fa fa-check"></i><b>21.2.2</b> Andmete eeltöötlemine</a></li>
+<li class="chapter" data-level="21.2.3" data-path="r2.html"><a href="r2.html#kasutajaliides"><i class="fa fa-check"></i><b>21.2.3</b> Kasutajaliides</a></li>
+<li class="chapter" data-level="21.2.4" data-path="r2.html"><a href="r2.html#server"><i class="fa fa-check"></i><b>21.2.4</b> Server</a></li>
+<li class="chapter" data-level="21.2.5" data-path="r2.html"><a href="r2.html#rakenduse-kokkupanemine"><i class="fa fa-check"></i><b>21.2.5</b> Rakenduse kokkupanemine</a></li>
+</ul></li>
+<li class="chapter" data-level="21.3" data-path="r2.html"><a href="r2.html#rakenduse-jagamine"><i class="fa fa-check"></i><b>21.3</b> Rakenduse jagamine</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="kirjandus.html"><a href="kirjandus.html"><i class="fa fa-check"></i>Kirjandus</a></li>
 </ul>
@@ -435,11 +437,11 @@ div.csl-indent {
 <pre><code>need = c(&quot;tidyverse&quot;, &quot;sf&quot;, &quot;magrittr&quot;, &quot;ggspatial&quot;, &quot;ggthemes&quot;)
 invisible(lapply(need, library, character.only = T))</code></pre>
 <p>või</p>
-<pre><code>library(&quot;sf&quot;)
-library(&quot;tidyverse&quot;)
-library(&quot;magrittr&quot;)
-library(&quot;ggspatial&quot;)
-library(&quot;ggthemes&quot;)</code></pre>
+<pre><code>library(sf)
+library(tidyverse)
+library(magrittr)
+library(ggspatial)
+library(ggthemes)</code></pre>
 <ul>
 <li><strong>andmete sisselugemist</strong>,</li>
 </ul>
@@ -463,7 +465,7 @@ library(&quot;ggthemes&quot;)</code></pre>
 <p>Sel korral kasutame Eesti filmide andmestikku, teeme paar staatilist kaarti ning vaatame ka, kuidas teha R-is lihtsat rakendust, mis kuvaks andmestiku alamosast kaarti vastavalt kasutaja valikutele. Siin tuleb osata pisut R-i (või juhendeid lugeda), aga mitte näiteks JavaScripti ega HTMLi.</p>
 <div id="staatilised-kaardid" class="section level2" number="21.1">
 <h2><span class="header-section-number">21.1</span> Staatilised kaardid</h2>
-<p>Loeme alustuseks sisse terve efis.ee lehelt korjatud kohamärksõnadega tabeli failist <em>efis_kohad.csv</em>, kus on kõikide kohtadega seotud filmid, nende ilmumisaasta ning žanr. Seejärel loeme sisse ka geokodeeritud alamosa suurest tabelist, mida kasutasime 19. praktikumis. Seal olid ainult need Eesti kohanimed, mida esines terves andmestikus kõikide aastate peale vähemalt 5 korda. Samuti loeme sisse maakondade kihi, mida saame kasutada aluskaardina.</p>
+<p>Loeme alustuseks sisse terve efis.ee lehelt korjatud kohamärksõnadega tabeli failist <strong>efis_kohad.csv</strong>, kus on kõikide kohtadega seotud filmid, nende ilmumisaasta ning žanr. Seejärel loeme sisse ka geokodeeritud alamosa suurest tabelist, mida kasutasime 19. praktikumis (<strong>efis_eesti.gpkg</strong>). Seal olid ainult need Eesti kohanimed, mida esines terves andmestikus kõikide aastate peale vähemalt 5 korda. Samuti loeme sisse maakondade kihi, mida saame kasutada aluskaardina (<strong>maakond_lihtsustatud.gpkg</strong>).</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="r2.html#cb8-1" aria-hidden="true" tabindex="-1"></a>efis_suur <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;andmed/efis_kohad.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">fileEncoding =</span> <span class="st">&quot;UTF-8&quot;</span>)</span>
 <span id="cb8-2"><a href="r2.html#cb8-2" aria-hidden="true" tabindex="-1"></a>efis_eesti <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;andmed/efis_eesti.gpkg&quot;</span>)</span>
 <span id="cb8-3"><a href="r2.html#cb8-3" aria-hidden="true" tabindex="-1"></a>maakonnad <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;andmed/maakond_lihtsustatud.gpkg&quot;</span>)</span></code></pre></div>
@@ -475,7 +477,7 @@ Kasutame ühendamiseks mõlema andmestiku ühist tulpa <strong><em>koht</em></st
 <span id="cb9-4"><a href="r2.html#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-5"><a href="r2.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Käsku võib lugeda nii, et salvesta tabeli &quot;efis_suur&quot; tulp &quot;koht&quot; üle nii, et</span></span>
 <span id="cb9-6"><a href="r2.html#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># olemasolevas tulbas võta kirje algusest kuni sulu ees oleva tühikuni kõik, mis seal on</span></span>
-<span id="cb9-7"><a href="r2.html#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># (. &lt;- &quot;ükskõik mis sümbol&quot;, * &lt;- &quot;ükskõik, kui mitu korda&quot;),</span></span>
+<span id="cb9-7"><a href="r2.html#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># (. &lt;- &quot;ükskõik mis sümbol&quot;, * &lt;- &quot;ükskõik kui mitu korda&quot;),</span></span>
 <span id="cb9-8"><a href="r2.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># seejärel võta sulgude seest ükskõik, mis seal on,</span></span>
 <span id="cb9-9"><a href="r2.html#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ja kleebi need kaks kokku nii, et esimest ja teist osa eraldaks koma ja tühik.</span></span>
 <span id="cb9-10"><a href="r2.html#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Lõpuks kustuta kirjete eest ja tagant ka võimalikud ebavajalikud tühikud.</span></span></code></pre></div>
@@ -504,7 +506,7 @@ Kasutame ühendamiseks mõlema andmestiku ühist tulpa <strong><em>koht</em></st
 <span id="cb15-5"><a href="r2.html#cb15-5" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">grepl</span>(<span class="st">&quot;([dD]okumentaal)|([mM]ängufilm)&quot;</span>, žanr)) <span class="sc">%&gt;%</span> <span class="co"># žanri tulp sisaldab sõna &quot;dokumentaal&quot;, &quot;Dokumentaal&quot;, &quot;mängufilm&quot; või &quot;Mängufilm&quot;</span></span>
 <span id="cb15-6"><a href="r2.html#cb15-6" aria-hidden="true" tabindex="-1"></a>            <span class="fu">group_by</span>(koht, žanr) <span class="sc">%&gt;%</span> <span class="co"># grupeerime andmed kohanime ja žanri põhjal</span></span>
 <span id="cb15-7"><a href="r2.html#cb15-7" aria-hidden="true" tabindex="-1"></a>            <span class="fu">summarise</span>(<span class="at">kokku =</span> <span class="fu">n</span>()), <span class="co"># loeme gruppides andmepunktid kokku</span></span>
-<span id="cb15-8"><a href="r2.html#cb15-8" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">size =</span> kokku, <span class="at">color =</span> žanr), <span class="co"># määrame punktide suuruse esinemise arvu järgi ja punktide värv žanri järgi</span></span>
+<span id="cb15-8"><a href="r2.html#cb15-8" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">size =</span> kokku, <span class="at">color =</span> žanr), <span class="co"># määrame punktide suuruse esinemise arvu järgi ja punktide värvi žanri järgi</span></span>
 <span id="cb15-9"><a href="r2.html#cb15-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span> <span class="co"># teeme punktid läbipaistvamaks</span></span>
 <span id="cb15-10"><a href="r2.html#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">7</span>)) <span class="sc">+</span> <span class="co"># ja suuremaks</span></span>
 <span id="cb15-11"><a href="r2.html#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="co"># lisame mustvalge teema</span></span></code></pre></div>
@@ -574,7 +576,7 @@ Kasutuses kahel variandil praktiliselt vahet ei ole.</p>
 <p>Vali ka kaust, milles tahad oma rakendust hoida. Selle kausta sisse tekib omakorda kaust sinu rakenduse nimega (nt <em>efis_shiny</em>), mille sees on fail <em>app.R</em> ja mille sisse võiksid minna ka kõik rakenduses kasutatavad failid (nt tabelandmestikud, ruumiandete failid, pildid jm).</p>
 <p>Avaneb fail <strong><em>app.R</em></strong>, kus on juba valmis põhi, mille sisse saad oma rakendust kirjutada. Vaikimisi põhi on tehtud <a href="https://et.wikipedia.org/wiki/Histogramm">histogrammi</a> joonistamiseks. Vajuta rohelise noolekesega nupul <em>Run App</em>. Võid valida ka <em>Run in Viewer Pane</em>, et kuvada rakendust RStudio enda keskkonnas.
 Kui tahad nüüd näha rakenduse endaga paralleelselt koodi, millega rakendus on tehtud, trüki konsooli <code>runExample("01_hello", display.mode = "showcase")</code>.</p>
-<p>Rakenduse minimaalne nõutud struktuur koosneb neljast osast ning näeb välja selline (trellidega on tähistatud kommentaarid):</p>
+<p>Rakenduse minimaalne nõutud struktuur koosneb neljast-viiest osast ning näeb välja selline (trellidega on tähistatud kommentaarid):</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="r2.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Rakenduse töötamiseks vajaliku shiny paketi laadimine.</span></span>
 <span id="cb21-2"><a href="r2.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Siin saab sisse lugeda ka teised paketid,</span></span>
 <span id="cb21-3"><a href="r2.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># vajalikud andmed ning neid andmeid vajadusel töödelda.</span></span>
@@ -621,9 +623,8 @@ Kui tahad nüüd näha rakenduse endaga paralleelselt koodi, millega rakendus on
 <span id="cb22-6"><a href="r2.html#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-7"><a href="r2.html#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code></pre></div>
 <p>Aseta rakenduse kausta (kus on ka fail <em>app.R</em>) ka vajalikud failid (<em>maakond_lihtsustatud.gpkg</em> ja <em>efis_koord.gpkg</em>).</p>
-</div>
-<div id="pakettide-laadimine-ja-andmete-töötlemine" class="section level2" number="21.3">
-<h2><span class="header-section-number">21.3</span> Pakettide laadimine ja andmete töötlemine</h2>
+<div id="pakettide-laadimine-ja-andmete-sisselugemine" class="section level3" number="21.2.1">
+<h3><span class="header-section-number">21.2.1</span> Pakettide laadimine ja andmete sisselugemine</h3>
 <p>Kõigepealt võiks faili päisesse lisada kommentaarid (kõik #-märkidega read on kommentaarid) selle kohta, mida rakendus teeb, milliseid faile ja pakette kasutab ning kes ja millal on rakenduse teinud. Kommentaarid rakenduses kuskil näha ei jää ega ole rakenduse töötamise seisukohast olulised.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="r2.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># See rakendus kuvab veebikaardi Eesti filmidega seotud kohtadest erinevatel aastatel.</span></span>
 <span id="cb23-2"><a href="r2.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
@@ -648,6 +649,9 @@ Meie laadime lisaks <code>shiny</code>-paketile ka paketid <code>sf</code> ja <c
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="r2.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Andmed</span></span>
 <span id="cb25-2"><a href="r2.html#cb25-2" aria-hidden="true" tabindex="-1"></a>maakonnad <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;maakond_lihtsustatud.gpkg&quot;</span>)</span>
 <span id="cb25-3"><a href="r2.html#cb25-3" aria-hidden="true" tabindex="-1"></a>efis <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;efis_koord.gpkg&quot;</span>)</span></code></pre></div>
+</div>
+<div id="andmete-eeltöötlemine" class="section level3" number="21.2.2">
+<h3><span class="header-section-number">21.2.2</span> Andmete eeltöötlemine</h3>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="r2.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#-------------------------------#</span></span>
 <span id="cb26-2"><a href="r2.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#---2. Eeltöötleme andmeid---####</span></span>
 <span id="cb26-3"><a href="r2.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#-------------------------------#</span></span>
@@ -678,8 +682,8 @@ Meie laadime lisaks <code>shiny</code>-paketile ka paketid <code>sf</code> ja <c
 <span id="cb26-28"><a href="r2.html#cb26-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">substr</span>(., <span class="dv">1</span>, <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb26-29"><a href="r2.html#cb26-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>() <span class="ot">-&gt;</span> efis<span class="sc">$</span>aasta</span></code></pre></div>
 </div>
-<div id="kasutajaliides" class="section level2" number="21.4">
-<h2><span class="header-section-number">21.4</span> Kasutajaliides</h2>
+<div id="kasutajaliides" class="section level3" number="21.2.3">
+<h3><span class="header-section-number">21.2.3</span> Kasutajaliides</h3>
 <p>Edasi tuleb kasutajaliidese (<em>ui</em>) osa, mis määrab ära selle, kuidas kasutaja rakendust näeb. Kasutajaliides moodustub hierarhilistest funktsioonidest (funktsioonid tähistatud sulgudega, mille sees täpsustatakse funktsioonide argumente).<br />
 Meie teeme lihtsa kasutajaliidese, kus on</p>
 <ul>
@@ -755,8 +759,8 @@ Meie teeme lihtsa kasutajaliidese, kus on</p>
 <span id="cb27-54"><a href="r2.html#cb27-54" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb27-55"><a href="r2.html#cb27-55" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 </div>
-<div id="server" class="section level2" number="21.5">
-<h2><span class="header-section-number">21.5</span> Server</h2>
+<div id="server" class="section level3" number="21.2.4">
+<h3><span class="header-section-number">21.2.4</span> Server</h3>
 <p>Järgmiseks defineerime selle, mis juhtub, kui kasutaja mingeid valikuid teeb.</p>
 <p>Kasutajaliidese <code>Input</code>-klassi elementidele viidatakse serveriosas dollarimärgi ja omistatud id-ga kujul <code>input$...</code> (nt <code>input$genre</code> või <code>input$year</code>). <code>Output</code>-klassi elementidele viidatakse kujul <code>output$...</code> (nt <code>output$map</code>).</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="r2.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#----------------------------------#</span></span>
@@ -839,8 +843,8 @@ Meie teeme lihtsa kasutajaliidese, kus on</p>
 <span id="cb28-78"><a href="r2.html#cb28-78" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb28-79"><a href="r2.html#cb28-79" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
-<div id="rakenduse-kokkupanemine" class="section level2" number="21.6">
-<h2><span class="header-section-number">21.6</span> Rakenduse kokkupanemine</h2>
+<div id="rakenduse-kokkupanemine" class="section level3" number="21.2.5">
+<h3><span class="header-section-number">21.2.5</span> Rakenduse kokkupanemine</h3>
 <p>Kõige lõpuks on vaja rakendus kasutajaliidesest ja serverist kokku panna.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="r2.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------#</span></span>
 <span id="cb29-2"><a href="r2.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co">#---5. Paneme kasutajaliidese ja sisu kokku---####</span></span>
@@ -849,8 +853,9 @@ Meie teeme lihtsa kasutajaliidese, kus on</p>
 <p>Jooksutame rakendust ning vaatame, mis saab.</p>
 <p>Meie rakendus teeb oma töö ära, ent on nii kujunduselt kui ka kasutusmugavuse mõttes üsna algeline. Shinys saab aga muuta ja lisada veel lugematul hulgal asju, parandada rakenduse kiirust jne. Hea samm-sammulise sissejuhatuse rakenduste tegemisse leiab <a href="https://shiny.rstudio.com/tutorial/#written-tutorials">siit</a>.</p>
 </div>
-<div id="rakenduse-jagamine" class="section level2" number="21.7">
-<h2><span class="header-section-number">21.7</span> Rakenduse jagamine</h2>
+</div>
+<div id="rakenduse-jagamine" class="section level2" number="21.3">
+<h2><span class="header-section-number">21.3</span> Rakenduse jagamine</h2>
 <p>Shiny rakendusi saab jagada ainult kas lokaalselt (<em>app.R</em> + selle juurde kuuluvad failid) või üles laadituna serverisse, kuhu on installitud ka R ja <em><a href="https://rstudio.com/products/shiny/download-server/">Shiny Server</a></em> (viimast saab installida ainult Linuxis). See tähendab, et tavalist HTML-faili Shiny rakendusest otse teha ei saa, sest JavaScript ei tea, mida R-i kooditükkidega pihta hakata.
 Küll aga saab rakenduse üles laadida näiteks <strong><em><a href="https://www.shinyapps.io/">shinyapps.io</a></em></strong> serverisse ning lisada rakenduse seejärel <em>iframe</em>’i abil mõne teise (HTMLis) veebilehe sisse.
 <em>Shinyapps.io</em> pakub Shiny rakenduste majutuse teenust, kusjuures tasuta saab üles laadida kuni 5 rakendust ja neid ei saa serveris ühes kuus aktiivselt kasutada rohkem kui 25 tundi.</p>
@@ -879,6 +884,7 @@ Vaata täpsemalt <a href="https://shiny.rstudio.com/articles/shinyapps.html">sii
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -906,7 +912,7 @@ gitbook.start({
 },
 "download": [["book.pdf", "PDF"], ["book.epub", "EPUB"]],
 "search": {
-"engine": "fuse",
+"engine": "lunr",
 "options": null
 },
 "toc": {

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Praktikum 18 Veebirakendused, veebimajutus | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes</title>
   <meta name="description" content="Praktikum 18 Veebirakendused, veebimajutus | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Praktikum 18 Veebirakendused, veebimajutus | HVHV.00.001 Geoinfosüsteemide rakendusvõimalused humanitaarteadustes" />
   <meta property="og:type" content="book" />
@@ -34,7 +34,6 @@
 <link rel="next" href="veebirakendused2.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,6 +41,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
 
 
 
@@ -334,6 +334,19 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="20.6" data-path="r.html"><a href="r.html#r-i-raamatud-ja-juhendid"><i class="fa fa-check"></i><b>20.6</b> R-i raamatud ja juhendid</a></li>
 </ul></li>
+<li class="chapter" data-level="21" data-path="r2.html"><a href="r2.html"><i class="fa fa-check"></i><b>21</b> Ruumiandmete analüüs R-iga 2</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="r2.html"><a href="r2.html#staatilised-kaardid"><i class="fa fa-check"></i><b>21.1</b> Staatilised kaardid</a></li>
+<li class="chapter" data-level="21.2" data-path="r2.html"><a href="r2.html#shiny-rakendus"><i class="fa fa-check"></i><b>21.2</b> Shiny rakendus</a>
+<ul>
+<li class="chapter" data-level="21.2.1" data-path="r2.html"><a href="r2.html#pakettide-laadimine-ja-andmete-sisselugemine"><i class="fa fa-check"></i><b>21.2.1</b> Pakettide laadimine ja andmete sisselugemine</a></li>
+<li class="chapter" data-level="21.2.2" data-path="r2.html"><a href="r2.html#andmete-eeltöötlemine"><i class="fa fa-check"></i><b>21.2.2</b> Andmete eeltöötlemine</a></li>
+<li class="chapter" data-level="21.2.3" data-path="r2.html"><a href="r2.html#kasutajaliides"><i class="fa fa-check"></i><b>21.2.3</b> Kasutajaliides</a></li>
+<li class="chapter" data-level="21.2.4" data-path="r2.html"><a href="r2.html#server"><i class="fa fa-check"></i><b>21.2.4</b> Server</a></li>
+<li class="chapter" data-level="21.2.5" data-path="r2.html"><a href="r2.html#rakenduse-kokkupanemine"><i class="fa fa-check"></i><b>21.2.5</b> Rakenduse kokkupanemine</a></li>
+</ul></li>
+<li class="chapter" data-level="21.3" data-path="r2.html"><a href="r2.html#rakenduse-jagamine"><i class="fa fa-check"></i><b>21.3</b> Rakenduse jagamine</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="kirjandus.html"><a href="kirjandus.html"><i class="fa fa-check"></i>Kirjandus</a></li>
 </ul>
 
@@ -543,6 +556,7 @@ Veebikaardi saab (lokaalselt) eksportida, kasutades nuppu <em>Export</em>.</p>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -570,7 +584,7 @@ gitbook.start({
 },
 "download": [["book.pdf", "PDF"], ["book.epub", "EPUB"]],
 "search": {
-"engine": "fuse",
+"engine": "lunr",
 "options": null
 },
 "toc": {
